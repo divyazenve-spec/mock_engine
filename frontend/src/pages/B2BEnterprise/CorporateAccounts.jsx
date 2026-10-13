@@ -5,7 +5,18 @@ import KpiCard from '../shared/KpiCard';
 export default function CorporateAccounts() {
   const [statusFilter, setStatusFilter] = useState('ALL');
 
-  const accounts = [];
+  const accounts = [
+    { code: 'ACC-CORP-01', org: 'Apollo Veterinary Super-Speciality Hospitals Pvt Ltd', gst: '29AAACP8912K1Z8', creditLimit: '₹25,00,000', usedCredit: '₹8,45,000', paymentTerms: 'Net 45 Days', rm: 'Vikram Mehta (VP)', risk: 'Low Risk' },
+    { code: 'ACC-CORP-02', org: 'Max Pet Healthcare & Emergency Centers', gst: '27AABCM4532P1ZQ', creditLimit: '₹20,00,000', usedCredit: '₹6,20,000', paymentTerms: 'Net 30 Days', rm: 'Sneha Rao (Senior RM)', risk: 'Low Risk' },
+    { code: 'ACC-CORP-03', org: 'Central Armed Police Forces (CAPF) K9 Center', gst: '07AAACT9921D1ZO', creditLimit: '₹30,00,000', usedCredit: '₹12,80,000', paymentTerms: 'Net 60 Days', rm: 'Vikram Mehta (VP)', risk: 'Low Risk' },
+    { code: 'ACC-CORP-04', org: 'Canine Club of India Federation', gst: '33AABCC7712M1ZT', creditLimit: '₹15,00,000', usedCredit: '₹4,10,000', paymentTerms: 'Net 30 Days', rm: 'Aarav Sen (RM)', risk: 'Low Risk' },
+    { code: 'ACC-CORP-05', org: 'Infosys Technologies Pet Wellness Club', gst: '29AAACI4321E1Z3', creditLimit: '₹10,00,000', usedCredit: '₹3,50,000', paymentTerms: 'Net 30 Days', rm: 'Priya Sharma (RM)', risk: 'Low Risk' },
+    { code: 'ACC-CORP-06', org: 'Wipro Welfare Trust (Paws at Work)', gst: '29AAACW6543F1Z1', creditLimit: '₹8,00,000', usedCredit: '₹2,80,000', paymentTerms: 'Net 30 Days', rm: 'Priya Sharma (RM)', risk: 'Low Risk' },
+    { code: 'ACC-CORP-07', org: 'Karnataka State Police CID Dog Squad', gst: '29AAAGK8765G1Z9', creditLimit: '₹18,00,000', usedCredit: '₹5,20,000', paymentTerms: 'Net 60 Days', rm: 'Vikram Mehta (VP)', risk: 'Low Risk' },
+    { code: 'ACC-CORP-08', org: 'Royal Canin Institutional Distribution Hub', gst: '27AAACR1234H1Z5', creditLimit: '₹22,00,000', usedCredit: '₹7,40,000', paymentTerms: 'Net 45 Days', rm: 'Aarav Sen (RM)', risk: 'Low Risk' },
+    { code: 'ACC-CORP-09', org: 'Sanjeevani Animal Welfare & Referral Trust', gst: '36AAATS5678J1Z7', creditLimit: '₹12,00,000', usedCredit: '₹3,90,000', paymentTerms: 'Net 30 Days', rm: 'Sneha Rao (Senior RM)', risk: 'Medium Risk' },
+    { code: 'ACC-CORP-10', org: 'TCS Maitree Foundation Pet Support', gst: '27AAACT9876K1Z2', creditLimit: '₹8,00,000', usedCredit: '₹2,30,000', paymentTerms: 'Net 30 Days', rm: 'Priya Sharma (RM)', risk: 'Low Risk' }
+  ];
 
   const filtered = statusFilter === 'ALL' ? accounts : accounts.filter(a => a.risk.toLowerCase().includes(statusFilter.toLowerCase()));
 
@@ -21,10 +32,10 @@ export default function CorporateAccounts() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Sanctioned Credit" value="₹0" delta="" trend="neutral" subtext="No active records" icon="🏛️" />
-        <KpiCard label="Active Credit Utilization" value="0.0%" delta="0.0%" trend="neutral" subtext="No active records" icon="📊" />
-        <KpiCard label="Weighted Avg Payment Terms" value="0.0 Days" delta="" trend="neutral" subtext="No active records" icon="⏱️" />
-        <KpiCard label="KYC & GST Compliance" value="0.0%" delta="" trend="neutral" subtext="No active records" icon="✅" />
+        <KpiCard label="Total Sanctioned Credit" value="₹1,78,00,000" delta="10 Accounts" trend="up" subtext="Board approved credit limits" icon="🏛️" />
+        <KpiCard label="Active Credit Utilization" value="44.6%" delta="₹79.4L drawn" trend="neutral" subtext="Safe operating buffer" icon="📊" />
+        <KpiCard label="Weighted Avg Payment Terms" value="38.5 Days" delta="-3.5d" trend="up" subtext="Weighted invoice collection" icon="⏱️" />
+        <KpiCard label="KYC & GST Compliance" value="100.0%" delta="10/10 verified" trend="up" subtext="Fully tax compliant" icon="✅" />
       </div>
 
       <div style={card}>

@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function B2BRevenue() {
-  const streams = [];
+  const streams = [
+    { stream: 'Institutional Vaccine Consignments (DHPPi, Rabies)', share: '24.5%', mtd: '₹14,20,000', ytd: '₹1,45,00,000', margin: '38.5%', status: 'Strong Growth' },
+    { stream: 'Prescription Veterinary Diets & Nutrition Wholesale', share: '21.0%', mtd: '₹12,15,00,000', ytd: '₹1,24,50,000', margin: '32.0%', status: 'Steady High Volume' },
+    { stream: 'Diagnostic Rapid Test Kits & Laboratory Reagents', share: '14.2%', mtd: '₹8,25,000', ytd: '₹84,00,000', margin: '46.5%', status: 'Expanding' },
+    { stream: 'Surgical Disposables, Sutures & Sterile Consumables', share: '11.8%', mtd: '₹6,85,000', ytd: '₹70,00,000', margin: '41.2%', status: 'Consistent Run Rate' },
+    { stream: 'Corporate Pet Wellness Employee Subscriptions', share: '8.5%', mtd: '₹4,95,000', ytd: '₹50,50,000', margin: '62.0%', status: 'Rapid Adoption' },
+    { stream: 'Kennel Biosecurity & Professional Disinfection', share: '6.2%', mtd: '₹3,60,000', ytd: '₹36,80,000', margin: '44.0%', status: 'Contract Locked' },
+    { stream: 'Parasiticide & Flea/Tick Preventive Bulk Batches', share: '5.4%', mtd: '₹3,15,000', ytd: '₹32,00,000', margin: '36.8%', status: 'High Seasonal Demand' },
+    { stream: 'Microchipping & RFID Pet Registration Kits', share: '3.6%', mtd: '₹2,10,000', ytd: '₹21,50,000', margin: '52.0%', status: 'Regulatory Mandate' },
+    { stream: 'Specialized Orthopedic & Dental Surgical Packs', share: '2.8%', mtd: '₹1,65,000', ytd: '₹16,80,000', margin: '48.5%', status: 'High Margin Niche' },
+    { stream: 'Post-Operative Rehabilitation & Mobility Aids', share: '2.0%', mtd: '₹1,15,000', ytd: '₹11,90,000', margin: '39.0%', status: 'Emerging Segment' }
+  ];
 
   const card = { background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(0,0,0,0.08))', borderRadius: '12px', padding: '22px 24px' };
 
@@ -17,10 +28,10 @@ export default function B2BRevenue() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Annualized B2B Run Rate" value="₹0" delta="0.0%" trend="neutral" subtext="No active records" icon="💰" />
-        <KpiCard label="Blended Gross Margin" value="0.0%" delta="0.0%" trend="neutral" subtext="No active records" icon="📈" />
-        <KpiCard label="Revenue per Enterprise Account" value="₹0" delta="0.0%" trend="neutral" subtext="No active records" icon="🏢" />
-        <KpiCard label="Repeat Contract Revenue" value="0.0%" delta="0.0%" trend="neutral" subtext="No active records" icon="🔄" />
+        <KpiCard label="Annualized B2B Run Rate" value="₹4,28,00,000" delta="21.4%" trend="up" subtext="ARR expansion trajectory" icon="💰" />
+        <KpiCard label="Blended Gross Margin" value="37.2%" delta="3.1%" trend="up" subtext="Weighted product margin" icon="📈" />
+        <KpiCard label="Revenue per Enterprise Account" value="₹3,56,000" delta="12.0%" trend="up" subtext="ARPU commercial volume" icon="🏢" />
+        <KpiCard label="Repeat Contract Revenue" value="91.8%" delta="4.2%" trend="up" subtext="Recurring purchase covenants" icon="🔄" />
       </div>
 
       <div style={card}>

@@ -5,7 +5,18 @@ import KpiCard from '../shared/KpiCard';
 export default function B2BOrders() {
   const [status, setStatus] = useState('ALL');
 
-  const orders = [];
+  const orders = [
+    { po: 'PO-2026-B2B-001', client: 'Apollo Veterinary Super-Speciality Hospitals', items: '500x Nobivac DHPPi + 150x Bravecto 20-40kg', val: '₹4,85,000', orderDate: '2026-10-02', dispatchDate: '2026-10-04', status: 'Delivered' },
+    { po: 'PO-2026-B2B-002', client: 'Max Pet Healthcare & Emergency Centers', items: '200x Ringer Lactate 500ml + 80x Amoxicillin Tabs', val: '₹2,95,000', orderDate: '2026-10-03', dispatchDate: '2026-10-05', status: 'Delivered' },
+    { po: 'PO-2026-B2B-003', client: 'Central Armed Police Forces (CAPF) K9 Center', items: '300x High-Protein Working K9 Ration 20kg + 100x First-Aid', val: '₹6,40,000', orderDate: '2026-10-05', dispatchDate: '2026-10-08', status: 'Delivered' },
+    { po: 'PO-2026-B2B-004', client: 'Canine Club of India Federation', items: '250x Microchip Syringe Packs + 500x Deworming Tabs', val: '₹1,95,000', orderDate: '2026-10-06', dispatchDate: '2026-10-09', status: 'Delivered' },
+    { po: 'PO-2026-B2B-005', client: 'Infosys Technologies Pet Wellness Club', items: '350x Annual Pet Wellness Member Welcome Kits', val: '₹2,62,500', orderDate: '2026-10-07', dispatchDate: '2026-10-10', status: 'Delivered' },
+    { po: 'PO-2026-B2B-006', client: 'Karnataka State Police CID Dog Squad', items: '120x Tactical Working Dog Harnesses + 60x Tracking Leashes', val: '₹3,15,000', orderDate: '2026-10-08', dispatchDate: '2026-10-11', status: 'Dispatched' },
+    { po: 'PO-2026-B2B-007', client: 'Royal Canin Institutional Hub', items: '400x Gastrointestinal Veterinary Diet 14kg Bags', val: '₹5,80,000', orderDate: '2026-10-09', dispatchDate: '2026-10-12', status: 'Dispatched' },
+    { po: 'PO-2026-B2B-008', client: 'Wipro Welfare Trust (Paws at Work)', items: '200x Preventive Flea/Tick Spot-On 6-Packs', val: '₹1,85,000', orderDate: '2026-10-10', dispatchDate: '2026-10-13', status: 'Dispatched' },
+    { po: 'PO-2026-B2B-009', client: 'Sanjeevani Animal Welfare Trust', items: '150x Surgical Suture Boxes + 300x Sterile Gauze Bundles', val: '₹2,10,000', orderDate: '2026-10-11', dispatchDate: '2026-10-14', status: 'Processing' },
+    { po: 'PO-2026-B2B-010', client: 'TCS Maitree Foundation Pet Support', items: '180x Comprehensive Preventive Care Kits', val: '₹1,45,000', orderDate: '2026-10-12', dispatchDate: '2026-10-15', status: 'Processing' }
+  ];
 
   const filtered = status === 'ALL' ? orders : orders.filter(o => o.status === status);
 
@@ -21,10 +32,10 @@ export default function B2BOrders() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="B2B Orders (MTD)" value="0 Orders" delta="" trend="neutral" subtext="No active records" icon="📦" />
-        <KpiCard label="Order Value Pipeline" value="₹0" delta="" trend="neutral" subtext="No active records" icon="💵" />
-        <KpiCard label="On-Time Dispatch Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="No active records" icon="⚡" />
-        <KpiCard label="Pending Orders" value="0 Orders" delta="" trend="neutral" subtext="No active records" icon="⏳" />
+        <KpiCard label="B2B Orders (MTD)" value="28 Orders" delta="18.2%" trend="up" subtext="Institutional order volume" icon="📦" />
+        <KpiCard label="Order Value Pipeline" value="₹38,70,000" delta="22.4%" trend="up" subtext="MTD dispatched revenue" icon="💵" />
+        <KpiCard label="On-Time Dispatch Rate" value="98.2%" delta="1.2%" trend="up" subtext="Dispatched within 24-48h" icon="⚡" />
+        <KpiCard label="Pending Orders" value="3 Orders" delta="₹8.4L Value" trend="neutral" subtext="Packing & QC allocation" icon="⏳" />
       </div>
 
       <div style={card}>

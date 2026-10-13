@@ -6,7 +6,18 @@ export default function B2BDashboard() {
   const [filter, setFilter] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const accounts = [];
+  const accounts = [
+    { id: 'B2B-101', name: 'Apollo Veterinary Super-Speciality Hospitals Pvt Ltd', category: 'Veterinary Hospital Chain', contractVal: '₹48,00,000', mtdOrders: '₹3,85,000', terms: 'Net 45 Days (₹25,00,000)', rm: 'Vikram Mehta (VP)', status: 'Active · Tier 1' },
+    { id: 'B2B-102', name: 'Max Pet Healthcare & Emergency Centers', category: 'Veterinary Hospital Chain', contractVal: '₹36,50,000', mtdOrders: '₹2,95,000', terms: 'Net 30 Days (₹20,00,000)', rm: 'Sneha Rao (Senior RM)', status: 'Active · Tier 1' },
+    { id: 'B2B-103', name: 'Central Armed Police Forces (CAPF) K9 Breeding Center', category: 'Security & Government', contractVal: '₹55,00,000', mtdOrders: '₹4,20,000', terms: 'Net 60 Days (₹30,00,000)', rm: 'Vikram Mehta (VP)', status: 'Active · Govt Contract' },
+    { id: 'B2B-104', name: 'Canine Club of India & Certified Breeders Federation', category: 'Breeder Network', contractVal: '₹28,00,000', mtdOrders: '₹2,10,000', terms: 'Net 30 Days (₹15,00,000)', rm: 'Aarav Sen (RM)', status: 'Active · Tier 2' },
+    { id: 'B2B-105', name: 'Infosys Technologies Corporate Pet Wellness Club', category: 'Corporate Benefits', contractVal: '₹22,50,000', mtdOrders: '₹1,75,000', terms: 'Net 30 Days (₹10,00,000)', rm: 'Priya Sharma (RM)', status: 'Active · Corporate' },
+    { id: 'B2B-106', name: 'Wipro Welfare Trust - Paws at Work Program', category: 'Corporate Benefits', contractVal: '₹18,00,000', mtdOrders: '₹1,40,000', terms: 'Net 30 Days (₹8,00,000)', rm: 'Priya Sharma (RM)', status: 'Active · Corporate' },
+    { id: 'B2B-107', name: 'Karnataka State Police CID Dog Squad Wing', category: 'Security & Government', contractVal: '₹32,00,000', mtdOrders: '₹2,60,000', terms: 'Net 60 Days (₹18,00,000)', rm: 'Vikram Mehta (VP)', status: 'Active · Govt Contract' },
+    { id: 'B2B-108', name: 'Royal Canin Institutional Distribution Hub', category: 'Breeder Network', contractVal: '₹42,00,000', mtdOrders: '₹3,40,000', terms: 'Net 45 Days (₹22,00,000)', rm: 'Aarav Sen (RM)', status: 'Active · Wholesale' },
+    { id: 'B2B-109', name: 'Sanjeevani Animal Welfare & Referral Trust', category: 'Veterinary Hospital Chain', contractVal: '₹26,50,000', mtdOrders: '₹1,95,000', terms: 'Net 30 Days (₹12,00,000)', rm: 'Sneha Rao (Senior RM)', status: 'Active · Non-Profit' },
+    { id: 'B2B-110', name: 'TCS Maitree Foundation Pet Support Initiative', category: 'Corporate Benefits', contractVal: '₹15,00,000', mtdOrders: '₹1,15,000', terms: 'Net 30 Days (₹8,00,000)', rm: 'Priya Sharma (RM)', status: 'Active · Corporate' }
+  ];
 
   const filtered = accounts.filter(a => {
     if (filter !== 'ALL' && a.category !== filter) return false;
@@ -34,12 +45,12 @@ export default function B2BDashboard() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="B2B Gross Revenue (MTD)" value="₹0" delta="0.0%" trend="neutral" subtext="No active records" icon="🏢" />
-        <KpiCard label="Active Corporate Clients" value="0 Accounts" delta="" trend="neutral" subtext="No active records" icon="📑" />
-        <KpiCard label="Avg. Contract Value (ACV)" value="₹0" delta="0.0%" trend="neutral" subtext="No active records" icon="💼" />
-        <KpiCard label="B2B Outstanding Receivables" value="₹0" delta="0.0%" trend="neutral" subtext="No active records" icon="💰" />
-        <KpiCard label="Wholesale Gross Margin" value="0.0%" delta="0.0%" trend="neutral" subtext="No active records" icon="📈" />
-        <KpiCard label="Contract Renewal Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="No active records" icon="🛡️" />
+        <KpiCard label="B2B Gross Revenue (MTD)" value="₹24,40,000" delta="14.8%" trend="up" subtext="vs last month" icon="🏢" />
+        <KpiCard label="Active Corporate Clients" value="10 Accounts" delta="+2 New" trend="up" subtext="100% compliant" icon="📑" />
+        <KpiCard label="Avg. Contract Value (ACV)" value="₹32,45,000" delta="8.2%" trend="up" subtext="Annualized" icon="💼" />
+        <KpiCard label="B2B Outstanding Receivables" value="₹39,85,000" delta="DSO 34d" trend="neutral" subtext="Within credit terms" icon="💰" />
+        <KpiCard label="Wholesale Gross Margin" value="36.8%" delta="2.4%" trend="up" subtext="Target 35%" icon="📈" />
+        <KpiCard label="Contract Renewal Rate" value="98.5%" delta="1.5%" trend="up" subtext="Industry leading" icon="🛡️" />
       </div>
 
       <div style={card}>

@@ -6,7 +6,18 @@ export default function EnterpriseCustomers() {
   const [tier, setTier] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const customers = [];
+  const customers = [
+    { id: 'CUST-B2B-01', name: 'Dr. Rajesh K. Varma', company: 'Apollo Veterinary Super-Speciality Hospitals', tier: 'Tier 1 Enterprise', locations: '14 Centers', annualSpend: '₹48,00,000', contact: 'procurement@apollovethospitals.com' },
+    { id: 'CUST-B2B-02', name: 'Ananya Deshmukh', company: 'Max Pet Healthcare & Emergency Centers', tier: 'Tier 1 Enterprise', locations: '8 Centers', annualSpend: '₹36,50,000', contact: 'sourcing@maxpethealthcare.in' },
+    { id: 'CUST-B2B-03', name: 'Col. R. S. Bhardwaj', company: 'CAPF K9 Breeding & Training Center', tier: 'Tier 1 Enterprise', locations: '5 Bases', annualSpend: '₹55,00,000', contact: 'dir.k9@capf.gov.in' },
+    { id: 'CUST-B2B-04', name: 'Hormuzd C. Batliwala', company: 'Canine Club of India Federation', tier: 'Tier 2 Wholesale', locations: '22 Kennels', annualSpend: '₹28,00,000', contact: 'federation@canineclubindia.org' },
+    { id: 'CUST-B2B-05', name: 'Kavita Narang', company: 'Infosys Technologies (Employee Wellness)', tier: 'Corporate Wellness', locations: '6 Campuses', annualSpend: '₹22,50,000', contact: 'benefits.petcare@infosys.com' },
+    { id: 'CUST-B2B-06', name: 'Siddharth Menon', company: 'Wipro Welfare Trust (Paws at Work)', tier: 'Corporate Wellness', locations: '4 Campuses', annualSpend: '₹18,00,000', contact: 'wellness.trust@wipro.com' },
+    { id: 'CUST-B2B-07', name: 'DySP M. Venkatesh Murthy', company: 'Karnataka State Police Dog Squad', tier: 'Tier 1 Enterprise', locations: '3 Hubs', annualSpend: '₹32,00,000', contact: 'cid.k9unit@ksp.gov.in' },
+    { id: 'CUST-B2B-08', name: 'Gaurav Malhotra', company: 'Royal Canin Institutional Distribution Hub', tier: 'Tier 2 Wholesale', locations: '1 Central Hub', annualSpend: '₹42,00,000', contact: 'b2b.orders@royalcanin.co.in' },
+    { id: 'CUST-B2B-09', name: 'Dr. Nandini Sundaram', company: 'Sanjeevani Animal Welfare & Referral Trust', tier: 'Tier 1 Enterprise', locations: '3 Shelters', annualSpend: '₹26,50,000', contact: 'trustee@sanjeevanianimalcare.org' },
+    { id: 'CUST-B2B-10', name: 'Deepak K. Shinde', company: 'TCS Maitree Foundation', tier: 'Corporate Wellness', locations: '5 Facilities', annualSpend: '₹15,00,000', contact: 'maitree.pets@tcs.com' }
+  ];
 
   const filtered = customers.filter(c => {
     if (tier !== 'ALL' && c.tier !== tier) return false;
@@ -29,10 +40,10 @@ export default function EnterpriseCustomers() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Key Enterprise Stakeholders" value="0 Contacts" delta="" trend="neutral" subtext="No active records" icon="👥" />
-        <KpiCard label="Tier 1 Enterprise Clients" value="0 Accounts" delta="" trend="neutral" subtext="No active records" icon="⭐" />
-        <KpiCard label="Corporate Account NPS" value="0 NPS" delta="" trend="neutral" subtext="No active records" icon="🎯" />
-        <KpiCard label="Avg Account Tenure" value="0.0 Years" delta="" trend="neutral" subtext="No active records" icon="📅" />
+        <KpiCard label="Key Enterprise Stakeholders" value="10 Contacts" delta="+3 Added" trend="up" subtext="Authorized procurement heads" icon="👥" />
+        <KpiCard label="Tier 1 Enterprise Clients" value="5 Accounts" delta="50.0%" trend="up" subtext="High-volume clinical buyers" icon="⭐" />
+        <KpiCard label="Corporate Account NPS" value="84 NPS" delta="+6 pts" trend="up" subtext="Quarterly client survey" icon="🎯" />
+        <KpiCard label="Avg Account Tenure" value="3.4 Years" delta="+0.8y" trend="up" subtext="Multi-year commitments" icon="📅" />
       </div>
 
       <div style={card}>

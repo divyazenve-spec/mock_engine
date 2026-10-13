@@ -3,9 +3,31 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function EnterprisePricing() {
-  const tiers = [];
+  const tiers = [
+    { tier: 'Tier 1 Elite Enterprise', minOrder: '₹5,00,000+', discount: '28% Off MRP', paymentTerms: 'Net 45 Days', freight: 'Free Express Air Cargo', rebate: '4.5% Annual Rebate' },
+    { tier: 'Tier 2 Hospital Chain', minOrder: '₹2,50,000', discount: '22% Off MRP', paymentTerms: 'Net 30 Days', freight: 'Free Doorstep Surface', rebate: '3.0% Annual Rebate' },
+    { tier: 'Tier 3 Breeder Network', minOrder: '₹1,00,000', discount: '18% Off MRP', paymentTerms: 'Net 15 Days', freight: 'Free Surface above ₹1.5L', rebate: '2.0% Annual Rebate' },
+    { tier: 'Tier 4 Government & Police K9', minOrder: '₹3,00,000', discount: '25% Off MRP', paymentTerms: 'Net 60 Days', freight: 'Direct Depot Delivery', rebate: 'Government Fixed Price' },
+    { tier: 'Tier 5 Corporate Wellness Benefit', minOrder: '₹1,50,000', discount: '20% Off MRP', paymentTerms: 'Net 30 Days', freight: 'Consolidated Monthly', rebate: '2.5% Annual Rebate' },
+    { tier: 'Tier 6 Referral Clinic Alliance', minOrder: '₹75,000', discount: '15% Off MRP', paymentTerms: 'Net 15 Days', freight: 'Standard Flat ₹499', rebate: '1.5% Annual Rebate' },
+    { tier: 'Tier 7 Animal Shelter & NGO Partner', minOrder: '₹50,00,000', discount: '30% At-Cost Subsidized', paymentTerms: 'Net 30 Days', freight: 'Free Sponsored Delivery', rebate: 'N/A (Subsidized)' },
+    { tier: 'Tier 8 Emergency 24/7 Supply Pool', minOrder: '₹1,25,000', discount: '16% Off MRP', paymentTerms: 'Net 21 Days', freight: 'Priority 2-Hour Hot-Dispatch', rebate: '1.0% Annual Rebate' },
+    { tier: 'Tier 9 Academic Veterinary Research', minOrder: '₹80,000', discount: '24% Off MRP', paymentTerms: 'Net 45 Days', freight: 'Free Surface', rebate: 'Educational Grant 3%' },
+    { tier: 'Tier 10 Regional Sub-Wholesaler', minOrder: '₹10,00,000+', discount: '32% Off MRP', paymentTerms: 'Letter of Credit / Net 30', freight: 'Container Truckload Free', rebate: '5.0% Annual Rebate' }
+  ];
 
-  const skus = [];
+  const skus = [
+    { sku: 'SKU-B2B-VAC-01', name: 'Nobivac DHPPi + L4 Canine Core Vaccine (50-Vial Pack)', retailMrp: '₹18,500', tier1: '₹13,320', tier2: '₹14,430', tier3: '₹15,170', minQty: '5 Packs' },
+    { sku: 'SKU-B2B-PAR-02', name: 'Bravecto Chewable Tablets 20-40kg (Box of 12)', retailMrp: '₹26,400', tier1: '₹19,008', tier2: '₹20,592', tier3: '₹21,648', minQty: '3 Boxes' },
+    { sku: 'SKU-B2B-DIE-03', name: 'Royal Canin Veterinary Diet Gastrointestinal 14kg Bulk Bag', retailMrp: '₹9,800', tier1: '₹7,056', tier2: '₹7,644', tier3: '₹8,036', minQty: '10 Bags' },
+    { sku: 'SKU-B2B-SUR-04', name: 'Surgical Monofilament Suture Kit USP 3-0 Box of 36', retailMrp: '₹4,500', tier1: '₹3,240', tier2: '₹3,510', tier3: '₹3,690', minQty: '8 Boxes' },
+    { sku: 'SKU-B2B-DIA-05', name: 'Canine Parvovirus (CPV) Antigen Rapid Test Cassette Box of 25', retailMrp: '₹8,750', tier1: '₹6,300', tier2: '₹6,825', tier3: '₹7,175', minQty: '4 Boxes' },
+    { sku: 'SKU-B2B-ANT-06', name: 'Amoxicillin + Clavulanate 500mg Tabs Veterinary 100-Pack', retailMrp: '₹3,200', tier1: '₹2,304', tier2: '₹2,496', tier3: '₹2,624', minQty: '12 Packs' },
+    { sku: 'SKU-B2B-MIC-07', name: 'ISO Standard 134.2kHz RFID Microchip Syringe Implant 50-Pack', retailMrp: '₹14,000', tier1: '₹10,080', tier2: '₹10,920', tier3: '₹11,480', minQty: '2 Packs' },
+    { sku: 'SKU-B2B-FLUID-08', name: "Ringer's Lactate Infusion Solution 500ml IV Case of 40", retailMrp: '₹2,800', tier1: '₹2,016', tier2: '₹2,184', tier3: '₹2,296', minQty: '15 Cases' },
+    { sku: 'SKU-B2B-ORT-09', name: 'Veterinary Orthopedic Bone Plate & Screw Set Stainless Steel', retailMrp: '₹42,000', tier1: '₹30,240', tier2: '₹32,760', tier3: '₹34,440', minQty: '1 Set' },
+    { sku: 'SKU-B2B-DEN-10', name: 'Veterinary Ultrasonic Dental Scaler Prophylaxis Tip Pack of 6', retailMrp: '₹7,500', tier1: '₹5,400', tier2: '₹5,850', tier3: '₹6,150', minQty: '4 Packs' }
+  ];
 
   const card = { background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(0,0,0,0.08))', borderRadius: '12px', padding: '22px 24px' };
 
@@ -19,10 +41,10 @@ export default function EnterprisePricing() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Average Volume Discount" value="0.0%" delta="0.0%" trend="neutral" subtext="No active records" icon="🏷️" />
-        <KpiCard label="Annual Price Locked SKUs" value="0 SKUs" delta="" trend="neutral" subtext="No active records" icon="🔒" />
-        <KpiCard label="Enterprise Rebates Issued" value="₹0" delta="" trend="neutral" subtext="No active records" icon="💵" />
-        <KpiCard label="Minimum Order Quantity (MOQ)" value="₹0" delta="" trend="neutral" subtext="No active records" icon="📦" />
+        <KpiCard label="Average Volume Discount" value="22.5%" delta="Scale based" trend="neutral" subtext="Tiered volume brackets" icon="🏷️" />
+        <KpiCard label="Annual Price Locked SKUs" value="10 Core SKUs" delta="12-Mo lock" trend="up" subtext="Contract guaranteed rates" icon="🔒" />
+        <KpiCard label="Enterprise Rebates Issued" value="₹14,80,000" delta="YTD total" trend="neutral" subtext="Performance based rebates" icon="💵" />
+        <KpiCard label="Minimum Order Quantity (MOQ)" value="₹50,000" delta="Base MOQ" trend="neutral" subtext="Wholesale fulfillment floor" icon="📦" />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px' }}>

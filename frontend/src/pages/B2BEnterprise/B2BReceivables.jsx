@@ -5,7 +5,18 @@ import KpiCard from '../shared/KpiCard';
 export default function B2BReceivables() {
   const [agingFilter, setAgingFilter] = useState('ALL');
 
-  const invoices = [];
+  const invoices = [
+    { inv: 'INV-B2B-2026-081', client: 'Apollo Veterinary Super-Speciality Hospitals', amt: '₹4,85,000', dueDate: '2026-11-16', aging: '0-30 Days', terms: 'Net 45 Days', status: 'Current · On Schedule' },
+    { inv: 'INV-B2B-2026-082', client: 'Max Pet Healthcare & Emergency Centers', amt: '₹2,95,000', dueDate: '2026-11-02', aging: '0-30 Days', terms: 'Net 30 Days', status: 'Current · On Schedule' },
+    { inv: 'INV-B2B-2026-083', client: 'CAPF K9 Breeding & Training Center', amt: '₹6,40,000', dueDate: '2026-12-04', aging: '0-30 Days', terms: 'Net 60 Days', status: 'Govt Treasury Voucher Raised' },
+    { inv: 'INV-B2B-2026-084', client: 'Canine Club of India Federation', amt: '₹1,95,000', dueDate: '2026-11-05', aging: '0-30 Days', terms: 'Net 30 Days', status: 'Current · Scheduled for Auto-Debit' },
+    { inv: 'INV-B2B-2026-085', client: 'Infosys Technologies Pet Wellness Club', amt: '₹2,62,500', dueDate: '2026-11-06', aging: '0-30 Days', terms: 'Net 30 Days', status: 'Corporate Clearing Pending' },
+    { inv: 'INV-B2B-2026-086', client: 'Karnataka State Police CID Dog Squad', amt: '₹5,20,000', dueDate: '2026-10-28', aging: '31-60 Days', terms: 'Net 60 Days', status: 'Department Sanction Approved' },
+    { inv: 'INV-B2B-2026-087', client: 'Royal Canin Institutional Distribution Hub', amt: '₹4,40,000', dueDate: '2026-10-25', aging: '31-60 Days', terms: 'Net 45 Days', status: 'First Notice Sent · RM Follow-up' },
+    { inv: 'INV-B2B-2026-088', client: 'Wipro Welfare Trust (Paws at Work)', amt: '₹2,80,000', dueDate: '2026-10-22', aging: '31-60 Days', terms: 'Net 30 Days', status: 'Grace Period Extension (10 Days)' },
+    { inv: 'INV-B2B-2026-089', client: 'Sanjeevani Animal Welfare & Referral Trust', amt: '₹3,90,000', dueDate: '2026-10-15', aging: '31-60 Days', terms: 'Net 30 Days', status: 'Trustee Board Approval in Review' },
+    { inv: 'INV-B2B-2026-090', client: 'TCS Maitree Foundation Pet Support', amt: '₹2,30,000', dueDate: '2026-09-28', aging: '61-90 Days', terms: 'Net 30 Days', status: 'Escalated to Corporate Sponsoring RM' }
+  ];
 
   const filtered = agingFilter === 'ALL' ? invoices : invoices.filter(i => i.aging === agingFilter);
 
@@ -21,10 +32,10 @@ export default function B2BReceivables() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Outstanding Receivables" value="₹0" delta="" trend="neutral" subtext="No active records" icon="💳" />
-        <KpiCard label="Days Sales Outstanding (DSO)" value="0.0 Days" delta="" trend="neutral" subtext="No active records" icon="⏱️" />
-        <KpiCard label="Current (0-30 Days)" value="₹0" delta="0.0%" trend="neutral" subtext="No active records" icon="✅" />
-        <KpiCard label="Overdue (> 60 Days)" value="₹0" delta="0.0%" trend="neutral" subtext="No active records" icon="⚠️" />
+        <KpiCard label="Total Outstanding Receivables" value="₹39,85,000" delta="10 Invoices" trend="neutral" subtext="Current active ledger" icon="💳" />
+        <KpiCard label="Days Sales Outstanding (DSO)" value="34.2 Days" delta="-4.1 Days" trend="up" subtext="Healthy collection velocity" icon="⏱️" />
+        <KpiCard label="Current (0-30 Days)" value="₹28,45,000" delta="71.4%" trend="up" subtext="Within normal payment cycle" icon="✅" />
+        <KpiCard label="Overdue (> 60 Days)" value="₹2,90,000" delta="7.3%" trend="warn" subtext="Under RM active recovery" icon="⚠️" />
       </div>
 
       <div style={card}>
