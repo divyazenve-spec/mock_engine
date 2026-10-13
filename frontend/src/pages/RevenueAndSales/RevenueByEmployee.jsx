@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function RevenueByEmployee() {
-  const employees = [];
+  const employees = [
+    { name: 'Dr. Priya Sharma', dept: 'Veterinary Surgery', role: 'Chief Lead Surgeon', target: '₹7,10,000', rev: '₹8,42,000', attain: '118.6%', rating: '4.95' },
+    { name: 'Karthik Sundaram', dept: 'Clinical Operations', role: 'Senior Care Manager', target: '₹5,50,000', rev: '₹6,18,000', attain: '112.4%', rating: '4.88' },
+    { name: 'Dr. Rajesh Nair', dept: 'Veterinary Medicine', role: 'Senior Internist', target: '₹5,80,000', rev: '₹6,45,000', attain: '111.2%', rating: '4.92' },
+    { name: 'Ananya Sen', dept: 'Pet Nutrition & Diet', role: 'Lead Nutritionist', target: '₹4,20,000', rev: '₹4,65,000', attain: '110.7%', rating: '4.86' },
+    { name: 'Dr. Shalini Verma', dept: 'Dermatology & Allergy', role: 'Senior Dermatologist', target: '₹4,80,000', rev: '₹5,25,000', attain: '109.4%', rating: '4.91' },
+    { name: 'Vivek Joshi', dept: 'Teleconsultation', role: 'Care Lead Coordinator', target: '₹3,60,000', rev: '₹3,92,000', attain: '108.9%', rating: '4.82' },
+    { name: 'Dr. Arun Kulkarni', dept: 'Dental & Ortho', role: 'Veterinary Dentist', target: '₹4,50,000', rev: '₹4,82,000', attain: '107.1%', rating: '4.89' },
+    { name: 'Sneha Pillai', dept: 'Diagnostics & Labs', role: 'Pathology Lead', target: '₹3,80,000', rev: '₹3,98,000', attain: '104.7%', rating: '4.85' },
+    { name: 'Rohan Mehta', dept: 'Rapid Pharmacy', role: 'Fulfillment Operations', target: '₹4,40,000', rev: '₹4,52,000', attain: '102.7%', rating: '4.79' },
+    { name: 'Meenakshi Rao', dept: 'Wellness & Grooming', role: 'Spa & Wellness Director', target: '₹4,10,000', rev: '₹3,99,000', attain: '97.3%', rating: '4.75' }
+  ];
 
   return (
     <DashboardLayout
@@ -15,10 +26,10 @@ export default function RevenueByEmployee() {
       badge="Staff Leaderboard"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
-        <KpiCard label="Top Staff Producer" value="Dr. Priya Sharma" delta="₹0 billings" trend="up" subtext="118.3% quota" icon="⭐" />
-        <KpiCard label="Team Attainment Rate" value="0.0%" delta="+5.4% surplus" trend="up" subtext="Average achievement" icon="👥" />
-        <KpiCard label="Total Staff Quota" value="₹0" delta="6 members" trend="neutral" subtext="Period baseline" icon="🎯" />
-        <KpiCard label="Total Realized" value="₹0" delta="+₹0 surplus" trend="up" subtext="Net revenue" icon="💰" />
+        <KpiCard label="Top Staff Producer" value="Dr. Priya Sharma" delta="₹8,42,000 billings" trend="up" subtext="118.6% quota" icon="⭐" />
+        <KpiCard label="Team Attainment Rate" value="108.3%" delta="+8.3% surplus" trend="up" subtext="Average achievement" icon="👥" />
+        <KpiCard label="Total Staff Quota" value="₹47,80,000" delta="10 members" trend="neutral" subtext="Period baseline" icon="🎯" />
+        <KpiCard label="Total Realized" value="₹52,18,000" delta="+₹4,38,000 surplus" trend="up" subtext="Net revenue" icon="💰" />
       </div>
 
       <div style={{
