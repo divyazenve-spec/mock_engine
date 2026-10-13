@@ -18,11 +18,25 @@
   };
 
   /* Monthly revenue targets (editable) */
-  var MONTHLY_TARGETS = {};
+  var MONTHLY_TARGETS = {
+    Jan: 10000000, Feb: 10500000, Mar: 11000000, Apr: 11500000, May: 11800000, Jun: 12000000,
+    Jul: 12200000, Aug: 12500000, Sep: 12600000, Oct: 12800000, Nov: 13000000, Dec: 13500000
+  };
 
-  /* Team members with targets */
-  var TEAM = [];
-  var OVERALL_TARGET_MONTHLY = 0;
+  /* 10 Team members with targets */
+  var TEAM = [
+    { name: 'Karthik Sundaram', target: 1200000, dept: 'Surgery & Trauma', role: 'Lead Coordinator' },
+    { name: 'Ananya Sen', target: 1150000, dept: 'Nutrition & Diets', role: 'Territory Rep' },
+    { name: 'Vivek Joshi', target: 1000000, dept: 'Preventive Pharmacy', role: 'Account Exec' },
+    { name: 'Sneha Pillai', target: 950000, dept: 'Pathology & Lab', role: 'Diagnostics Coord' },
+    { name: 'Rohan Mehta', target: 900000, dept: 'Dentistry', role: 'Care Consultant' },
+    { name: 'Meenakshi Rao', target: 850000, dept: 'Tele-Health', role: 'Clinical Triage' },
+    { name: 'Arjun Nambisan', target: 800000, dept: 'Ambulance', role: 'Ops Manager' },
+    { name: 'Divya Namboodiri', target: 750000, dept: 'Wellness', role: 'Patient Exec' },
+    { name: 'Vikram Chawla', target: 700000, dept: 'Corporate', role: 'Accounts Lead' },
+    { name: 'Shreya Iyer', target: 650000, dept: 'Preventive', role: 'Care Coord' }
+  ];
+  var OVERALL_TARGET_MONTHLY = 12500000;
 
   var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
