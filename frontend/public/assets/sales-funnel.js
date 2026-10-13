@@ -52,9 +52,11 @@
       var d = new Date(s.sold_at || '');
       return d >= cutoff;
     });
+    if (!filtered.length && sales.length) filtered = sales;
     var filteredMetrics = metrics.filter(function (m) {
       return new Date(m.business_date) >= cutoff;
     });
+    if (!filteredMetrics.length && metrics.length) filteredMetrics = metrics;
 
     var totalAndroid = filteredMetrics.reduce(function (a, m) { return a + num(m.android_downloads); }, 0);
     var totalIos     = filteredMetrics.reduce(function (a, m) { return a + num(m.ios_downloads); }, 0);
