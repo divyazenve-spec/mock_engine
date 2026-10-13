@@ -3,20 +3,64 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 const INITIAL_STAGES = [
-  { id: 'installs', num: '01', name: 'App Store Installs', val: 0, rev: '₹0', conv: '0.0%', drop: '0.0%', color: '#0ea5e9', icon: '📲', source: 'Play Store & App Store' },
-  { id: 'sessions', num: '02', name: 'Active Pet Sessions', val: 0, rev: '₹0', conv: '0.0%', drop: '0.0%', color: '#3b82f6', icon: '👁️', source: 'Browsing & Pet Setup' },
-  { id: 'intent', num: '03', name: 'Consult & Cart Actions', val: 0, rev: '₹0', conv: '0.0%', drop: '0.0%', color: '#8b5cf6', icon: '🩺', source: 'Medicines & Doctor Selection' },
-  { id: 'checkout', num: '04', name: 'Orders Placed', val: 0, rev: '₹0', conv: '0.0%', drop: '0.0%', color: '#f59e0b', icon: '🛒', source: 'Checkout Initiated' },
-  { id: 'paid', num: '05', name: 'Paid Healthcare Sales', val: 0, rev: '₹0', conv: '0.0%', drop: '0.0%', color: '#10b981', icon: '✅', source: 'Settled Transactions' }
+  { id: 'installs', num: '01', name: 'App Store Installs', val: 2480, rev: '₹57,09,400', conv: '100%', drop: '0.0%', color: '#0ea5e9', icon: '📲', source: 'Play Store & App Store' },
+  { id: 'sessions', num: '02', name: 'Active Pet Sessions', val: 1840, rev: '₹42,32,000', conv: '74.2%', drop: '25.8%', color: '#3b82f6', icon: '👁️', source: 'Browsing & Pet Setup' },
+  { id: 'intent', num: '03', name: 'Consult & Cart Actions', val: 920, rev: '₹21,16,000', conv: '50.0%', drop: '50.0%', color: '#8b5cf6', icon: '🩺', source: 'Medicines & Doctor Selection' },
+  { id: 'checkout', num: '04', name: 'Orders Placed', val: 435, rev: '₹10,01,000', conv: '47.3%', drop: '52.7%', color: '#f59e0b', icon: '🛒', source: 'Checkout Initiated' },
+  { id: 'paid', num: '05', name: 'Paid Healthcare Sales', val: 412, rev: '₹9,48,200', conv: '94.7%', drop: '5.3%', color: '#10b981', icon: '✅', source: 'Settled Transactions' }
 ];
 
-const CHANNELS = [];
+const CHANNELS = [
+  { name: 'Android Mobile App', icon: '📱', color: '#10b981', conv: '18.4%', inquiries: 890, paid: 164, rev: '₹3,77,200' },
+  { name: 'iOS Mobile App', icon: '🍏', color: '#0ea5e9', conv: '21.2%', inquiries: 680, paid: 144, rev: '₹3,31,200' },
+  { name: 'Web Direct Portal', icon: '💻', color: '#8b5cf6', conv: '14.1%', inquiries: 340, paid: 48, rev: '₹1,10,400' },
+  { name: 'Partner Vet Clinics', icon: '🏥', color: '#f59e0b', conv: '28.6%', inquiries: 140, paid: 40, rev: '₹92,000' },
+  { name: 'In-Clinic Digital Kiosks', icon: '🏪', color: '#ec4899', conv: '32.1%', inquiries: 84, paid: 27, rev: '₹62,100' },
+  { name: 'Corporate Pet Benefits', icon: '🏢', color: '#6366f1', conv: '38.5%', inquiries: 52, paid: 20, rev: '₹46,000' },
+  { name: 'WhatsApp Concierge Care', icon: '💬', color: '#22c55e', conv: '22.4%', inquiries: 49, paid: 11, rev: '₹25,300' },
+  { name: 'Tele-Health Instant', icon: '🩺', color: '#14b8a6', conv: '19.4%', inquiries: 36, paid: 7, rev: '₹16,100' },
+  { name: 'Emergency Rapid Dispatch', icon: '🚑', color: '#ef4444', conv: '50.0%', inquiries: 16, paid: 8, rev: '₹18,400' },
+  { name: 'Pet Insurance Settlement', icon: '🛡️', color: '#f97316', conv: '41.7%', inquiries: 12, paid: 5, rev: '₹11,500' }
+];
 
-const SPECIALTY_BOTTLENECKS = [];
+const SPECIALTY_BOTTLENECKS = [
+  { name: 'Clinical Consultation Booking', rev: '₹2,84,000', rate: '24.2%', paid: 94, inquiries: 388, drop: '75.8%' },
+  { name: 'Prescription Diets & Nutrition', rev: '₹2,18,000', rate: '21.5%', paid: 82, inquiries: 381, drop: '78.5%' },
+  { name: 'Preventive Flea & Tick Pharmacy', rev: '₹1,64,000', rate: '29.8%', paid: 76, inquiries: 255, drop: '70.2%' },
+  { name: 'Core Vaccines & Immunization', rev: '₹1,12,000', rate: '34.5%', paid: 58, inquiries: 168, drop: '65.5%' },
+  { name: 'Ultrasonic Dental Scaling', rev: '₹84,000', rate: '18.2%', paid: 24, inquiries: 132, drop: '81.8%' },
+  { name: 'Diagnostics & Pathology Panels', rev: '₹76,000', rate: '26.4%', paid: 28, inquiries: 106, drop: '73.6%' },
+  { name: 'Dermatology & Allergy Care', rev: '₹58,000', rate: '22.0%', paid: 22, inquiries: 100, drop: '78.0%' },
+  { name: 'Orthopedic Joint Care', rev: '₹48,000', rate: '19.5%', paid: 16, inquiries: 82, drop: '80.5%' },
+  { name: 'Tele-Health Video Consult', rev: '₹34,000', rate: '31.2%', paid: 20, inquiries: 64, drop: '68.8%' },
+  { name: 'Emergency Trauma Care', rev: '₹28,000', rate: '53.3%', paid: 16, inquiries: 30, drop: '46.7%' }
+];
 
-const REGIONAL_CITIES = [];
+const REGIONAL_CITIES = [
+  { city: 'Bengaluru', rev: '₹3,24,000', rate: '21.4%', paid: 142, inquiries: 664 },
+  { city: 'Mumbai', rev: '₹2,18,000', rate: '19.2%', paid: 96, inquiries: 500 },
+  { city: 'Delhi NCR', rev: '₹1,74,000', rate: '17.8%', paid: 74, inquiries: 416 },
+  { city: 'Hyderabad', rev: '₹98,000', rate: '22.6%', paid: 42, inquiries: 186 },
+  { city: 'Chennai', rev: '₹62,000', rate: '16.4%', paid: 28, inquiries: 171 },
+  { city: 'Pune', rev: '₹46,000', rate: '18.5%', paid: 20, inquiries: 108 },
+  { city: 'Kolkata', rev: '₹32,000', rate: '14.2%', paid: 14, inquiries: 99 },
+  { city: 'Ahmedabad', rev: '₹24,000', rate: '15.6%', paid: 12, inquiries: 77 },
+  { city: 'Kochi', rev: '₹16,000', rate: '20.0%', paid: 8, inquiries: 40 },
+  { city: 'Chandigarh', rev: '₹11,000', rate: '17.1%', paid: 6, inquiries: 35 }
+];
 
-const ALL_LEADS = [];
+const ALL_LEADS = [
+  { id: 'LEAD-8801', date: '13-Oct-2026', customer: 'Ananya Deshmukh', pet: 'Leo (Golden Retriever)', stageId: 'paid', stage: 'Paid Healthcare Sales', channel: 'Android Mobile App', service: 'Prescription Diets & Nutrition', city: 'Bengaluru', amount: 7680, status: 'Completed' },
+  { id: 'LEAD-8802', date: '13-Oct-2026', customer: 'Vikramaditya Singhania', pet: 'Milo (Persian Cat)', stageId: 'paid', stage: 'Paid Healthcare Sales', channel: 'In-Clinic Digital Kiosks', service: 'Clinical Consultation Booking', city: 'Mumbai', amount: 14500, status: 'Completed' },
+  { id: 'LEAD-8803', date: '13-Oct-2026', customer: 'Rohan Kapoor', pet: 'Thor (German Shepherd)', stageId: 'checkout', stage: 'Orders Placed', channel: 'iOS Mobile App', service: 'Preventive Flea & Tick Pharmacy', city: 'Delhi NCR', amount: 3420, status: 'Awaiting Payment' },
+  { id: 'LEAD-8804', date: '13-Oct-2026', customer: 'Meera Nambiar', pet: 'Buddy (Beagle)', stageId: 'intent', stage: 'Consult & Cart Actions', channel: 'Web Direct Portal', service: 'Tele-Health Video Consult', city: 'Hyderabad', amount: 1850, status: 'In Cart' },
+  { id: 'LEAD-8805', date: '12-Oct-2026', customer: 'Kavita Iyer', pet: 'Bruno (Labrador)', stageId: 'paid', stage: 'Paid Healthcare Sales', channel: 'Partner Vet Clinics', service: 'Diagnostics & Pathology Panels', city: 'Chennai', amount: 4900, status: 'Completed' },
+  { id: 'LEAD-8806', date: '12-Oct-2026', customer: 'Dr. Siddharth Malhotra', pet: 'Charlie (Cocker Spaniel)', stageId: 'paid', stage: 'Paid Healthcare Sales', channel: 'Android Mobile App', service: 'Ultrasonic Dental Scaling', city: 'Pune', amount: 5800, status: 'Completed' },
+  { id: 'LEAD-8807', date: '12-Oct-2026', customer: 'Pooja Verma', pet: 'Ghost (Siberian Husky)', stageId: 'intent', stage: 'Consult & Cart Actions', channel: 'WhatsApp Concierge Care', service: 'Dermatology & Allergy Care', city: 'Kolkata', amount: 2650, status: 'Consult Requested' },
+  { id: 'LEAD-8808', date: '11-Oct-2026', customer: 'Farhan Akhtar', pet: 'Coco (French Bulldog)', stageId: 'paid', stage: 'Paid Healthcare Sales', channel: 'iOS Mobile App', service: 'Core Vaccines & Immunization', city: 'Ahmedabad', amount: 3200, status: 'Completed' },
+  { id: 'LEAD-8809', date: '11-Oct-2026', customer: 'Deepa Swamy', pet: 'Bella (Shih Tzu)', stageId: 'sessions', stage: 'Active Pet Sessions', channel: 'Android Mobile App', service: 'Orthopedic Joint Care', city: 'Kochi', amount: 2100, status: 'Browsing Products' },
+  { id: 'LEAD-8810', date: '10-Oct-2026', customer: 'Tanvi Chatterjee', pet: 'Sheru (Indie Rescue)', stageId: 'paid', stage: 'Paid Healthcare Sales', channel: 'Emergency Rapid Dispatch', service: 'Emergency Trauma Care', city: 'Chandigarh', amount: 6400, status: 'Completed' }
+];
 
 export default function SalesFunnel() {
   const [selectedStage, setSelectedStage] = useState('all');

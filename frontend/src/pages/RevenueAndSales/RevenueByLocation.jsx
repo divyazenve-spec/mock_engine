@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function RevenueByLocation() {
-  const cities = [];
+  const cities = [
+    { city: 'Bengaluru', state: 'Karnataka', rev: '₹36,20,000', share: '32.4%', orders: '1,280', growth: '+18.4%' },
+    { city: 'Mumbai', state: 'Maharashtra', rev: '₹24,80,000', share: '22.2%', orders: '840', growth: '+14.2%' },
+    { city: 'Delhi NCR', state: 'Delhi & Haryana', rev: '₹18,50,000', share: '16.5%', orders: '660', growth: '+12.8%' },
+    { city: 'Hyderabad', state: 'Telangana', rev: '₹11,40,000', share: '10.2%', orders: '410', growth: '+24.8%' },
+    { city: 'Chennai', state: 'Tamil Nadu', rev: '₹7,60,000', share: '6.8%', orders: '290', growth: '+9.5%' },
+    { city: 'Pune', state: 'Maharashtra', rev: '₹5,20,000', share: '4.6%', orders: '210', growth: '+16.1%' },
+    { city: 'Kolkata', state: 'West Bengal', rev: '₹3,40,000', share: '3.0%', orders: '145', growth: '+8.2%' },
+    { city: 'Ahmedabad', state: 'Gujarat', rev: '₹2,50,000', share: '2.2%', orders: '110', growth: '+11.4%' },
+    { city: 'Kochi', state: 'Kerala', rev: '₹1,30,000', share: '1.2%', orders: '65', growth: '+15.0%' },
+    { city: 'Chandigarh', state: 'Punjab & Haryana', rev: '₹90,000', share: '0.9%', orders: '42', growth: '+10.6%' }
+  ];
 
   return (
     <DashboardLayout
@@ -12,13 +23,13 @@ export default function RevenueByLocation() {
       title="Geographic Sales & Territory Intelligence"
       subtitle="Regional market penetration, city-level demand, and rapid delivery territory breakdown"
       icon="📍"
-      badge=""
+      badge="10 Metros"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Top Market" value="Bengaluru" delta="32.4% share" trend="up" subtext="₹0 volume" icon="🏙️" />
-        <KpiCard label="Fastest Growing" value="Bengaluru" delta="+18.4% MoM" trend="up" subtext="Hub territory" icon="🚀" />
-        <KpiCard label="Active Regions" value="6 Metros" delta="100% coverage" trend="neutral" subtext="Tier-1 cities" icon="📍" />
-        <KpiCard label="Territory Revenue" value="₹0" delta="0.0%" trend="up" subtext="Total regional sales" icon="💼" />
+        <KpiCard label="Top Market" value="Bengaluru" delta="32.4% share" trend="up" subtext="₹36.2L volume" icon="🏙️" />
+        <KpiCard label="Fastest Growing" value="Hyderabad" delta="+24.8% MoM" trend="up" subtext="Hub territory" icon="🚀" />
+        <KpiCard label="Active Regions" value="10 Metros" delta="100% coverage" trend="neutral" subtext="Tier-1 & Tier-2" icon="📍" />
+        <KpiCard label="Territory Revenue" value="₹1,11,80,000" delta="+15.2%" trend="up" subtext="Total regional sales" icon="💼" />
       </div>
 
       <div style={{

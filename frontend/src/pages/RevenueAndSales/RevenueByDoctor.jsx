@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function RevenueByDoctor() {
-  const doctors = [];
+  const doctors = [
+    { name: 'Dr. Divya Balasubramanian', spec: 'Chief Veterinary Surgeon (BVSc & AH, MVSc)', reg: 'KVC-8492', consults: 328, rev: '₹9,84,000', aov: '₹3,000', rating: '4.96' },
+    { name: 'Dr. Ananya Deshmukh', spec: 'Small Animal Internist (BVSc, MVSc Med)', reg: 'MVC-5120', consults: 294, rev: '₹8,23,200', aov: '₹2,800', rating: '4.94' },
+    { name: 'Dr. Vikramaditya Rathore', spec: 'Orthopedic Veterinary Specialist (MVSc Surgery)', reg: 'DVC-3914', consults: 246, rev: '₹7,87,200', aov: '₹3,200', rating: '4.93' },
+    { name: 'Dr. Shalini Mukherjee', spec: 'Canine & Feline Dermatologist (MVSc)', reg: 'WVC-7219', consults: 215, rev: '₹5,37,500', aov: '₹2,500', rating: '4.91' },
+    { name: 'Dr. Rajeshwar Kulkarni', spec: 'Veterinary Cardiologist & Critical Care (MVSc)', reg: 'TVC-6042', consults: 188, rev: '₹5,64,000', aov: '₹3,000', rating: '4.95' },
+    { name: 'Dr. Meera Nambiar', spec: 'Veterinary Dental Specialist (BVSc & AH)', reg: 'KVC-9311', consults: 172, rev: '₹4,12,800', aov: '₹2,400', rating: '4.89' },
+    { name: 'Dr. Farhan Qureshi', spec: 'Exotic Pet & Avian Practitioner (MVSc Wildlife)', reg: 'DVC-4402', consults: 156, rev: '₹3,90,000', aov: '₹2,500', rating: '4.88' },
+    { name: 'Dr. Pooja Chandrasekhar', spec: 'Animal Behavioral & Wellness Specialist (BVSc)', reg: 'TVC-8190', consults: 148, rev: '₹3,25,600', aov: '₹2,200', rating: '4.92' },
+    { name: 'Dr. Siddharth Sen', spec: 'Emergency & Trauma Veterinary Lead (BVSc, MVSc)', reg: 'MVC-6744', consults: 198, rev: '₹5,94,000', aov: '₹3,000', rating: '4.90' },
+    { name: 'Dr. Tanvi Venkatesh', spec: 'Preventive Medicine & Vaccination Specialist (BVSc)', reg: 'KVC-7721', consults: 195, rev: '₹3,51,000', aov: '₹1,800', rating: '4.87' }
+  ];
 
   return (
     <DashboardLayout
@@ -15,9 +26,9 @@ export default function RevenueByDoctor() {
       badge="Active Medical Board"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
-        <KpiCard label="Top Physician" value="Dr. Divya Balasubramanian" delta="₹0 billings" trend="up" subtext="248 consults" icon="🩺" />
-        <KpiCard label="Total Consultations" value="0" delta="0.0%" trend="up" subtext="Across medical team" icon="📋" />
-        <KpiCard label="Avg Consult Fee" value="₹0" delta="0.0%" trend="up" subtext="Per clinical session" icon="💰" />
+        <KpiCard label="Top Physician" value="Dr. Divya Balasubramanian" delta="₹9,84,000 billings" trend="up" subtext="328 consults" icon="🩺" />
+        <KpiCard label="Total Consultations" value="2,140" delta="+18.2%" trend="up" subtext="Across medical board" icon="📋" />
+        <KpiCard label="Avg Consult Fee" value="₹2,695" delta="+7.4%" trend="up" subtext="Per clinical session" icon="💰" />
         <KpiCard label="Medical Rating" value="4.92 / 5.0" delta="Top Tier" trend="up" subtext="Patient parent reviews" icon="⭐" />
       </div>
 

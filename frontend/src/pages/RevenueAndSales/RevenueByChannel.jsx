@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function RevenueByChannel() {
-  const channels = [];
+  const channels = [
+    { name: 'Android Mobile App', icon: '📱', color: '#10b981', share: '34.5%', rev: '₹38,40,000', orders: '1,420', aov: '₹2,704' },
+    { name: 'iOS Mobile App', icon: '🍏', color: '#0ea5e9', share: '28.2%', rev: '₹31,35,000', orders: '980', aov: '₹3,198' },
+    { name: 'Web Direct Portal', icon: '💻', color: '#8b5cf6', share: '14.8%', rev: '₹16,45,000', orders: '540', aov: '₹3,046' },
+    { name: 'Partner Veterinary Clinics', icon: '🏥', color: '#f59e0b', share: '8.4%', rev: '₹9,35,000', orders: '195', aov: '₹4,794' },
+    { name: 'In-Clinic Digital Kiosks', icon: '🏪', color: '#ec4899', share: '4.6%', rev: '₹5,12,000', orders: '165', aov: '₹3,103' },
+    { name: 'Corporate Pet Benefits (B2B)', icon: '🏢', color: '#6366f1', share: '3.2%', rev: '₹3,56,000', orders: '84', aov: '₹4,238' },
+    { name: 'WhatsApp Concierge Care', icon: '💬', color: '#22c55e', share: '2.5%', rev: '₹2,78,000', orders: '112', aov: '₹2,482' },
+    { name: 'Tele-Health Instant Consults', icon: '🩺', color: '#14b8a6', share: '1.8%', rev: '₹2,00,000', orders: '98', aov: '₹2,040' },
+    { name: 'Emergency Rapid Dispatch', icon: '🚑', color: '#ef4444', share: '1.2%', rev: '₹1,34,000', orders: '32', aov: '₹4,187' },
+    { name: 'Pet Insurance Direct Billing', icon: '🛡️', color: '#f97316', share: '0.8%', rev: '₹89,000', orders: '22', aov: '₹4,045' }
+  ];
 
   return (
     <DashboardLayout
@@ -12,13 +23,13 @@ export default function RevenueByChannel() {
       title="Channel Attribution & Performance"
       subtitle="Platform contribution, order volumes, and average ticket sizes across customer entrypoints"
       icon="📱"
-      badge="Multi-Channel"
+      badge="10 Omni-Channels"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Top Channel" value="Android App" delta="46.2% share" trend="up" subtext="₹0" icon="📱" />
-        <KpiCard label="Highest Ticket Size" value="iOS Mobile" delta="₹0" trend="up" subtext="+20% vs Android" icon="🍏" />
-        <KpiCard label="Web Direct Volume" value="₹0" delta="18.4% share" trend="neutral" subtext="242 orders" icon="💻" />
-        <KpiCard label="Partner Network" value="₹0" delta="7.6% share" trend="up" subtext="142 clinic orders" icon="🏥" />
+        <KpiCard label="Top Channel" value="Android App" delta="34.5% share" trend="up" subtext="₹38.4L volume" icon="📱" />
+        <KpiCard label="Highest Ticket Size" value="Partner Clinics" delta="₹4,794 AOV" trend="up" subtext="+58% vs blended" icon="🏥" />
+        <KpiCard label="Web Direct Volume" value="₹16,45,000" delta="14.8% share" trend="neutral" subtext="540 orders" icon="💻" />
+        <KpiCard label="Total Omnichannel Sales" value="₹1,11,24,000" delta="3,648 orders" trend="up" subtext="10 Active Channels" icon="🌐" />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>

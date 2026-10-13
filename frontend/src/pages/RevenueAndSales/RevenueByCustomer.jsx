@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function RevenueByCustomer() {
-  const customers = [];
+  const customers = [
+    { name: 'Ananya Deshmukh', city: 'Bengaluru', pet: 'Golden Retriever (Leo, 3y)', spend: '₹1,84,500', orders: 24, aov: '₹7,688', tier: 'Diamond' },
+    { name: 'Vikramaditya Singhania', city: 'Mumbai', pet: 'Persian Cat (Milo, 2y)', spend: '₹1,56,200', orders: 19, aov: '₹8,221', tier: 'Diamond' },
+    { name: 'Rohan & Sneha Kapoor', city: 'Delhi NCR', pet: 'German Shepherd (Thor, 4y)', spend: '₹1,38,900', orders: 18, aov: '₹7,717', tier: 'Diamond' },
+    { name: 'Meera Nambiar', city: 'Hyderabad', pet: 'Beagle (Buddy, 1y)', spend: '₹1,12,400', orders: 15, aov: '₹7,493', tier: 'Diamond' },
+    { name: 'Kavita & Rajesh Iyer', city: 'Chennai', pet: 'Labrador Retriever (Bruno, 5y)', spend: '₹98,600', orders: 14, aov: '₹7,043', tier: 'Gold' },
+    { name: 'Dr. Siddharth Malhotra', city: 'Pune', pet: 'Cocker Spaniel (Charlie, 3y)', spend: '₹87,400', orders: 12, aov: '₹7,283', tier: 'Gold' },
+    { name: 'Pooja & Amit Verma', city: 'Kolkata', pet: 'Siberian Husky (Ghost, 2y)', spend: '₹76,800', orders: 11, aov: '₹6,982', tier: 'Gold' },
+    { name: 'Farhan Akhtar Khan', city: 'Ahmedabad', pet: 'French Bulldog (Coco, 2y)', spend: '₹64,500', orders: 9, aov: '₹7,167', tier: 'Gold' },
+    { name: 'Deepa & Arvind Swamy', city: 'Kochi', pet: 'Shih Tzu (Bella, 4y)', spend: '₹52,300', orders: 8, aov: '₹6,538', tier: 'Silver' },
+    { name: 'Tanvi Chatterjee', city: 'Chandigarh', pet: 'Indie Rescue (Sheru, 3y)', spend: '₹41,900', orders: 7, aov: '₹5,986', tier: 'Silver' }
+  ];
 
   return (
     <DashboardLayout
@@ -15,10 +26,10 @@ export default function RevenueByCustomer() {
       badge="Top Clients"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
-        <KpiCard label="Top Client Spend" value="₹0" delta="18 orders" trend="up" subtext="Diamond Tier" icon="💎" />
-        <KpiCard label="Avg Lifetime Value" value="₹0" delta="0.0%" trend="up" subtext="Per active parent" icon="📈" />
-        <KpiCard label="Repeat Customer Rate" value="0.0%" delta="0.0%" trend="up" subtext="Multi-order loyalty" icon="🔁" />
-        <KpiCard label="Loyalty Tier Members" value="0" delta="Tiered base" trend="neutral" subtext="Diamond/Gold/Silver" icon="🏅" />
+        <KpiCard label="Top Client Spend" value="₹1,84,500" delta="24 orders" trend="up" subtext="Diamond Tier" icon="💎" />
+        <KpiCard label="Avg Lifetime Value" value="₹1,01,350" delta="+16.4%" trend="up" subtext="Top 10 cohort average" icon="📈" />
+        <KpiCard label="Repeat Customer Rate" value="84.2%" delta="+5.8%" trend="up" subtext="Multi-order loyalty" icon="🔁" />
+        <KpiCard label="Loyalty Tier Members" value="1,420" delta="Tiered base" trend="neutral" subtext="Diamond/Gold/Silver" icon="🏅" />
       </div>
 
       <div style={{
