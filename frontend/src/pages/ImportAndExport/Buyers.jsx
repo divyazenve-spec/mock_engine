@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function Buyers() {
-  const buyers = [];
+  const buyers = [
+    { code: 'BUY-INT-01', name: 'Al-Khail Falcon & Equine Healthcare LLC', country: 'Dubai, UAE', type: 'Premier Equine Hospital Group', contractVal: '₹9.20 Cr ($1.1M)', paymentTerms: 'Irrevocable LC at Sight', rep: 'Tariq Mansoor', status: 'Active Tier-1' },
+    { code: 'BUY-INT-02', name: 'SingaVet Hospital Networks Pte', country: 'Singapore', type: 'Specialty Vet Chain (14 clinics)', contractVal: '₹6.40 Cr ($770K)', paymentTerms: 'Net 30 TT Wire', rep: 'Mei Ling Tan', status: 'Active Tier-1' },
+    { code: 'BUY-INT-03', name: 'Cotswolds Pet Healthcare Ltd', country: 'United Kingdom', type: 'High-End Companion Animal Group', contractVal: '₹5.80 Cr ($700K)', paymentTerms: 'Irrevocable LC 60 Days', rep: 'Oliver Sterling', status: 'Active Tier-1' },
+    { code: 'BUY-INT-04', name: 'Outback Equine & Canine Centers', country: 'Australia', type: 'Large Animal & Livestock Consortium', contractVal: '₹7.50 Cr ($900K)', paymentTerms: 'Sight Bank Wire', rep: 'Liam Hemsworth', status: 'Active Tier-1' },
+    { code: 'BUY-INT-05', name: 'Royal Falcon Care Medical Hospital', country: 'Qatar', type: 'Royal Falcon & Avian Specialty', contractVal: '₹4.80 Cr ($580K)', paymentTerms: '100% Confirmed LC', rep: 'Fahad Al-Thani', status: 'Active Tier-1' },
+    { code: 'BUY-INT-06', name: 'Maple Leaf Vet Specialty Partners', country: 'Canada', type: 'Emergency & Critical Care Chain', contractVal: '₹4.20 Cr ($505K)', paymentTerms: 'Net 45 Bank Wire', rep: 'Jean-Luc Dubois', status: 'Active' },
+    { code: 'BUY-INT-07', name: 'Najd Veterinary PolyClinics', country: 'Saudi Arabia', type: 'Livestock & Camel Care Network', contractVal: '₹6.90 Cr ($830K)', paymentTerms: 'Irrevocable LC at Sight', rep: 'Abdullah Al-Dosari', status: 'Active Tier-1' },
+    { code: 'BUY-INT-08', name: 'Serengeti Wildlife Conservation Trust', country: 'Kenya', type: 'Sanctuary Wildlife Medical Supplies', contractVal: '₹2.90 Cr ($350K)', paymentTerms: 'Advance NGO TT', rep: 'Dr. Jane Odhiambo', status: 'Active' },
+    { code: 'BUY-INT-09', name: 'EuroPet Tierarzt Distributoren GmbH', country: 'Germany', type: 'DACH Region Veterinary Wholesale', contractVal: '₹5.30 Cr ($640K)', paymentTerms: 'CAD Bank Transfer', rep: 'Klaus Fischer', status: 'Active' },
+    { code: 'BUY-INT-10', name: 'PetCare ASEAN Distribution Sdn Bhd', country: 'Malaysia', type: 'Southeast Asia Pet Retail Distributor', contractVal: '₹3.40 Cr ($410K)', paymentTerms: 'LC 30 Days', rep: 'Zulkepli Hassan', status: 'Active' }
+  ];
 
   const card = { background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(0,0,0,0.08))', borderRadius: '12px', padding: '22px 24px' };
 
@@ -14,17 +25,17 @@ export default function Buyers() {
       title="International Buyers & Distribution Partners"
       subtitle="Overseas retail chains, international veterinary hospital groups, luxury boutique distributors, and credit limits"
       icon="🤝"
-      badge=""
+      badge="10"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Active Global Buyers" value="0 Overseas Accounts" delta="" trend="neutral" subtext="Direct export agreements" icon="🤝" />
-        <KpiCard label="Annual Contracted Demand" value="$0 USD" delta="0.0%" trend="neutral" subtext="₹0 INR equivalent" icon="💰" />
-        <KpiCard label="Buyer Payment Track Record" value="0.0%" delta="Zero default history" trend="neutral" subtext="Bank LC backed" icon="🛡️" />
-        <KpiCard label="Export Territory Expansion" value="0 New Countries" delta="" trend="neutral" subtext="Regulatory clearance underway" icon="🌍" />
+        <KpiCard label="Active Global Buyers" value="10 Overseas Accounts" delta="8 countries" trend="up" subtext="Direct export agreements" icon="🤝" />
+        <KpiCard label="Annual Contracted Demand" value="$6.8M USD" delta="+28.5% YoY" trend="up" subtext="₹56.4 Cr INR equivalent" icon="💰" />
+        <KpiCard label="Buyer Payment Track Record" value="100%" delta="Zero default history" trend="up" subtext="Bank LC backed" icon="🛡️" />
+        <KpiCard label="Export Territory Expansion" value="8 Active Regions" delta="Regulatory cleared" trend="up" subtext="Expansion pipeline" icon="🌍" />
       </div>
 
       <div style={card}>
-        <h3 style={{ margin: '0 0 12px', fontSize: '16px', fontWeight: 700, color: 'var(--foreground, #0f172a)' }}>International Buyer Master Ledger</h3>
+        <h3 style={{ margin: '0 0 12px', fontSize: '16px', fontWeight: 700, color: 'var(--foreground, #0f172a)' }}>International Buyer Master Ledger ({buyers.length} records)</h3>
         <p style={{ margin: '0 0 16px', fontSize: '12px', color: 'var(--muted-foreground, #64748b)' }}>Commercial contracts, buyer classification, payment security, and account managers</p>
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '12px' }}>
