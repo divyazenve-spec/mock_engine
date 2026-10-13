@@ -5,7 +5,138 @@ import KpiCard from '../shared/KpiCard';
 export default function Recruitment() {
   const [stageFilter, setStageFilter] = useState('ALL');
 
-  const jobs = [];
+  const jobs = [
+    {
+      id: 'REQ-2026-081',
+      title: 'Senior Small Animal Surgeon (Orthopedics)',
+      recruiter: 'Ananya Sen',
+      dept: 'Clinical Services',
+      location: 'Indiranagar Super-Specialty Hospital',
+      openings: 2,
+      applicants: 48,
+      screened: 16,
+      interview: 6,
+      offer: 2,
+      priority: 'Urgent'
+    },
+    {
+      id: 'REQ-2026-082',
+      title: 'Registered Veterinary Nurse (ICU Specialist)',
+      recruiter: 'Ananya Sen',
+      dept: 'Clinical Services',
+      location: 'Koramangala Super-Specialty Hospital',
+      openings: 4,
+      applicants: 72,
+      screened: 24,
+      interview: 12,
+      offer: 3,
+      priority: 'Urgent'
+    },
+    {
+      id: 'REQ-2026-083',
+      title: 'Clinical Pharmacist & Formulary Specialist',
+      recruiter: 'Rohan Verma',
+      dept: 'Pharmacy',
+      location: 'Whitefield Fulfilment Hub',
+      openings: 2,
+      applicants: 34,
+      screened: 14,
+      interview: 5,
+      offer: 1,
+      priority: 'High'
+    },
+    {
+      id: 'REQ-2026-084',
+      title: 'Hyperlocal Fleet Dispatcher & Route Planner',
+      recruiter: 'Rohan Verma',
+      dept: 'Logistics',
+      location: 'HSR Layout Node',
+      openings: 3,
+      applicants: 52,
+      screened: 20,
+      interview: 8,
+      offer: 2,
+      priority: 'High'
+    },
+    {
+      id: 'REQ-2026-085',
+      title: 'Senior AI Engineer (Pet Diagnostics & LLMs)',
+      recruiter: 'Ananya Sen',
+      dept: 'Technology',
+      location: 'Bellandur Tech Park HQ',
+      openings: 2,
+      applicants: 86,
+      screened: 18,
+      interview: 4,
+      offer: 1,
+      priority: 'Urgent'
+    },
+    {
+      id: 'REQ-2026-086',
+      title: 'Dark Store Operations Lead',
+      recruiter: 'Rohan Verma',
+      dept: 'Warehouse Ops',
+      location: 'Electronic City Warehouse',
+      openings: 1,
+      applicants: 26,
+      screened: 10,
+      interview: 3,
+      offer: 1,
+      priority: 'High'
+    },
+    {
+      id: 'REQ-2026-087',
+      title: 'Customer Delight Concierge (Kannada & English)',
+      recruiter: 'Rohan Verma',
+      dept: 'Customer Delight',
+      location: 'Central Support HQ',
+      openings: 5,
+      applicants: 110,
+      screened: 35,
+      interview: 18,
+      offer: 4,
+      priority: 'Urgent'
+    },
+    {
+      id: 'REQ-2026-088',
+      title: 'Biomarker Lab Technologist',
+      recruiter: 'Ananya Sen',
+      dept: 'Clinical Services',
+      location: 'Jayanagar Clinic',
+      openings: 2,
+      applicants: 29,
+      screened: 12,
+      interview: 4,
+      offer: 1,
+      priority: 'Standard'
+    },
+    {
+      id: 'REQ-2026-089',
+      title: 'Corporate HR Generalist & Payroll Specialist',
+      recruiter: 'Ananya Sen',
+      dept: 'HR & People',
+      location: 'Koramangala HQ',
+      openings: 1,
+      applicants: 42,
+      screened: 15,
+      interview: 5,
+      offer: 1,
+      priority: 'Standard'
+    },
+    {
+      id: 'REQ-2026-090',
+      title: 'Senior Fullstack Engineer (React & FastAPI)',
+      recruiter: 'Ananya Sen',
+      dept: 'Technology',
+      location: 'Bellandur Tech Park HQ',
+      openings: 2,
+      applicants: 95,
+      screened: 22,
+      interview: 7,
+      offer: 2,
+      priority: 'High'
+    }
+  ];
 
   return (
     <DashboardLayout
@@ -18,10 +149,10 @@ export default function Recruitment() {
     >
       {/* Top Level KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Open Requisitions" value="0" delta="--" trend="neutral" subtext="Clinical, logistics & tech" icon="📢" />
-        <KpiCard label="Active Applicants Funnel" value="0" delta="0.0%" trend="neutral" subtext="LinkedIn, IIM/VCI job boards" icon="📥" />
-        <KpiCard label="Interviews in Flight" value="0" delta="--" trend="neutral" subtext="Scheduled this fortnight" icon="🎙️" />
-        <KpiCard label="Average Time to Hire" value="0 Days" delta="0.0%" trend="neutral" subtext="Industry average benchmark" icon="⚡" />
+        <KpiCard label="Open Requisitions" value="28 Open Roles" delta="+4 this month" trend="neutral" subtext="Across 10 key requisitions" icon="📢" />
+        <KpiCard label="Active Applicants Funnel" value="604 Candidates" delta="+18.5%" trend="up" subtext="LinkedIn, IIM/VCI job boards" icon="📥" />
+        <KpiCard label="Interviews in Flight" value="64 Interviews" delta="Active" trend="up" subtext="Scheduled this fortnight" icon="🎙️" />
+        <KpiCard label="Average Time to Hire" value="19 Days" delta="-4 Days" trend="up" subtext="Industry benchmark: 35 days" icon="⚡" />
       </div>
 
       {/* Requisitions Pipeline Table */}

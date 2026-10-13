@@ -5,9 +5,27 @@ import KpiCard from '../shared/KpiCard';
 export default function Onboarding() {
   const [selectedCohort, setSelectedCohort] = useState('October 2026');
 
-  const recruits = [];
+  const recruits = [
+    { name: 'Dr. Arvind Swaminathan', role: 'Associate Veterinary Surgeon', dept: 'Clinical Care', joinDate: '2026-10-15', buddy: 'Dr. Priya Nair', itHardware: 'MacBook Pro M3 + iPad Pro', bvg: 'Verified (SpringVerify)', completion: 90, status: 'In Progress' },
+    { name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Clinical Care', joinDate: '2026-10-01', buddy: 'Dr. Rajesh Varma', itHardware: 'ThinkPad P16s + Lab Terminal', bvg: 'Verified (SpringVerify)', completion: 100, status: 'Completed' },
+    { name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical Care', joinDate: '2026-10-06', buddy: 'Pooja Hegde', itHardware: 'Dell Latitude 7440', bvg: 'Verified (SpringVerify)', completion: 100, status: 'Completed' },
+    { name: 'Rohan Shenoy', role: 'Emergency Critical Care Vet', dept: 'Emergency & ICU', joinDate: '2026-10-18', buddy: 'Dr. Rajesh Varma', itHardware: 'MacBook Air M3', bvg: 'Verified (SpringVerify)', completion: 75, status: 'In Progress' },
+    { name: 'Ananya Sen', role: 'Lead Talent Acquisition & HR', dept: 'People & HR', joinDate: '2026-09-28', buddy: 'Vikramaditya Rao', itHardware: 'MacBook Air M3', bvg: 'Verified (SpringVerify)', completion: 100, status: 'Completed' },
+    { name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', joinDate: '2026-10-03', buddy: 'Sneha Kulkarni', itHardware: 'MacBook Air M3', bvg: 'Verified (SpringVerify)', completion: 100, status: 'Completed' },
+    { name: 'Sumitra Banerjee', role: 'Compounding Pharmacist', dept: 'Pharmacy & OTC', joinDate: '2026-10-20', buddy: 'Sneha Kulkarni', itHardware: 'Dell OptiPlex Pharma Terminal', bvg: 'Under Review', completion: 60, status: 'In Progress' },
+    { name: 'Tanmay Joshi', role: 'Full-Stack Telehealth Engineer', dept: 'Technology & AI', joinDate: '2026-10-22', buddy: 'Vikramaditya Rao', itHardware: 'MacBook Pro M3 Max', bvg: 'Verified (SpringVerify)', completion: 50, status: 'In Progress' },
+    { name: 'Farooq Abdullah', role: 'Cold-Chain Logistics Executive', dept: 'Supply Chain & Ops', joinDate: '2026-10-08', buddy: 'Karthik Subramaniam', itHardware: 'Samsung Galaxy Tab Active', bvg: 'Verified (SpringVerify)', completion: 100, status: 'Completed' },
+    { name: 'Meera Krishnan', role: 'Feline Behavioral Specialist', dept: 'Clinical Care', joinDate: '2026-10-25', buddy: 'Dr. Priya Nair', itHardware: 'iPad Air + Apple Pencil', bvg: 'Under Review', completion: 40, status: 'In Progress' }
+  ];
 
-  const checklistItems = [];
+  const checklistItems = [
+    { title: 'Karnataka State Veterinary Council (KSVC) License Verification', progress: '10/10 Verified' },
+    { title: 'Statutory Aadhaar / PAN / EPFO UAN Linkage', progress: '10/10 Completed' },
+    { title: 'SpringVerify Address & Criminal Record Checks', progress: '10/10 Cleared' },
+    { title: 'Zenve Pet EHR & Diagnostic System Training', progress: '8/10 Certified' },
+    { title: 'Corporate Medical & Pet Healthcare Group Insurance Enrollment', progress: '10/10 Enrolled' },
+    { title: 'Anti-Bite Safety & Biohazard Waste Protocol Orientation', progress: '9/10 Completed' }
+  ];
 
   return (
     <DashboardLayout
@@ -16,14 +34,14 @@ export default function Onboarding() {
       title="New Hire Onboarding & Day-1 Readiness"
       subtitle="Recruit integration journeys, hardware provisioning, background checks, medical council verification, and buddy assignments"
       icon="🐣"
-      badge=""
+      badge="10 Active Recruits"
     >
       {/* Top Level KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Active Onboarding Cohort" value="0" delta="--" trend="neutral" subtext="Clinical, tech & operations" icon="👥" />
-        <KpiCard label="Average Day-1 Readiness" value="0.0%" delta="--" trend="neutral" subtext="Zero downtime on joining day" icon="💻" />
-        <KpiCard label="Background Checks (BGV)" value="0.0%" delta="--" trend="neutral" subtext="SpringVerify certified" icon="🛡️" />
-        <KpiCard label="Buddy Allocation Rate" value="0.0%" delta="--" trend="neutral" subtext="Accelerates time-to-productivity" icon="🤝" />
+        <KpiCard label="Active Onboarding Cohort" value="10 Recruits" delta="+4 vs Sep" trend="positive" subtext="Clinical, tech & operations" icon="👥" />
+        <KpiCard label="Average Day-1 Readiness" value="98.5%" delta="+2.4%" trend="positive" subtext="Zero downtime on joining day" icon="💻" />
+        <KpiCard label="Background Checks (BGV)" value="100% Verified" delta="10/10 Cleared" trend="positive" subtext="SpringVerify certified" icon="🛡️" />
+        <KpiCard label="Buddy Allocation Rate" value="100%" delta="10 Assigned" trend="positive" subtext="Accelerates time-to-productivity" icon="🤝" />
       </div>
 
       {/* Onboarding Recruits Table */}

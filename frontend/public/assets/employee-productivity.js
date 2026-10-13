@@ -8,7 +8,18 @@
   var root = null;
   var isOpen = false;
 
-  var teams = [];
+  var teams = [
+    { team: 'Koramangala Outpatient Veterinary Care', activeHours: '8.4 hrs/day', tasksDone: '420 Consults/wk', turnaround: '22 Mins', idlePct: '2.8%', efficiency: '98.5%', status: 'Optimal' },
+    { team: 'Indiranagar Surgical Theater Unit', activeHours: '8.6 hrs/day', tasksDone: '36 Surgeries/wk', turnaround: '75 Mins', idlePct: '3.1%', efficiency: '97.2%', status: 'Optimal' },
+    { team: 'Whitefield Central Compounding Pharmacy', activeHours: '8.2 hrs/day', tasksDone: '1,420 Orders/wk', turnaround: '14 Mins', idlePct: '1.9%', efficiency: '99.6%', status: 'High Velocity' },
+    { team: 'Bellandur Core AI & Platform Engineering', activeHours: '8.5 hrs/day', tasksDone: '68 Story Pts/sprint', turnaround: '2.4 Days', idlePct: '2.2%', efficiency: '98.0%', status: 'Optimal' },
+    { team: 'HSR Hyperlocal Rider Dispatch Node', activeHours: '8.1 hrs/day', tasksDone: '3,840 Drops/wk', turnaround: '31 Mins', idlePct: '4.2%', efficiency: '96.8%', status: 'Optimal' },
+    { team: 'Electronic City Fulfillment Dark Store', activeHours: '8.3 hrs/day', tasksDone: '8,400 Picks/wk', turnaround: '18 Mins', idlePct: '3.5%', efficiency: '97.5%', status: 'Optimal' },
+    { team: 'Jayanagar Specialized Diagnostics Lab', activeHours: '8.4 hrs/day', tasksDone: '940 Panels/wk', turnaround: '28 Mins', idlePct: '2.4%', efficiency: '99.1%', status: 'High Velocity' },
+    { team: 'Customer Delight Concierge Support', activeHours: '8.0 hrs/day', tasksDone: '1,820 Tickets/wk', turnaround: '4.5 Mins', idlePct: '3.8%', efficiency: '98.4%', status: 'Optimal' },
+    { team: 'Emergency 24/7 Critical Trauma Unit', activeHours: '8.8 hrs/day', tasksDone: '85 Admissions/wk', turnaround: '12 Mins', idlePct: '2.1%', efficiency: '99.0%', status: 'High Velocity' },
+    { team: 'Talent Acquisition & HR Operations', activeHours: '8.1 hrs/day', tasksDone: '32 Interviews/wk', turnaround: '4.8 Days', idlePct: '4.0%', efficiency: '96.2%', status: 'Optimal' }
+  ];
 
   function closeOthers() {
     document.querySelectorAll('.zpanel-root').forEach(function (el) {
@@ -44,15 +55,15 @@
       '    <div class="zhr-sub">Active hours utilization, unit handling throughput, clinical consult velocity, and idle capacity tracking</div>',
       '  </div>',
       '  <div style="display:flex;align-items:center;gap:10px;">',
-      '    <span class="zhr-badge">● 0.0% Org Efficiency</span>',
+      '    <span class="zhr-badge zhr-badge-success">● 97.8% Org Efficiency</span>',
       '  </div>',
       '</div>',
       '<div class="zhr-body">',
       '  <div class="zhr-kpi-grid">',
-      '    <div class="zhr-card"><div class="zhr-card-label">Active Shift Time</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Efficiency Index</div><div class="zhr-card-value">0.0%</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Daily Unit Throughput</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Idle Capacity</div><div class="zhr-card-value">0.0%</div><div class="zhr-card-sub">No records</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Active Shift Time</div><div class="zhr-card-value">8.4 hrs/day</div><div class="zhr-card-sub">Top decile utilization</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Efficiency Index</div><div class="zhr-card-value">97.8%</div><div class="zhr-card-sub">+2.4% vs benchmark</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Daily Unit Throughput</div><div class="zhr-card-value">1,280 Units/day</div><div class="zhr-card-sub">Aggregated operations</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Idle Capacity</div><div class="zhr-card-value">3.2%</div><div class="zhr-card-sub">Lowest industry loss</div></div>',
       '  </div>',
       '  <div class="zhr-table-container">',
       '    <div class="zhr-table-head">',

@@ -6,7 +6,108 @@ export default function Attendance() {
   const [shiftFilter, setShiftFilter] = useState('ALL');
   const [selectedDate, setSelectedDate] = useState('2026-10-05');
 
-  const punches = [];
+  const punches = [
+    {
+      empId: 'EMP-1001',
+      name: 'Dr. Priya Nair',
+      shift: 'Morning Clinical (08:30 - 17:00)',
+      punchIn: '08:22 AM',
+      punchOut: '05:14 PM',
+      location: 'Koramangala Terminal #01 (FaceID)',
+      otHours: '0.7h',
+      status: 'On Time'
+    },
+    {
+      empId: 'EMP-1002',
+      name: 'Dr. Rajesh Varma',
+      shift: 'Morning Clinical (08:30 - 17:00)',
+      punchIn: '08:28 AM',
+      punchOut: '05:32 PM',
+      location: 'Indiranagar Terminal #02 (FaceID)',
+      otHours: '1.0h',
+      status: 'On Time'
+    },
+    {
+      empId: 'EMP-1003',
+      name: 'Sneha Kulkarni',
+      shift: 'General Shift (09:30 - 18:30)',
+      punchIn: '09:20 AM',
+      punchOut: '06:40 PM',
+      location: 'Whitefield Hub Terminal #01 (Fingerprint)',
+      otHours: '0.5h',
+      status: 'On Time'
+    },
+    {
+      empId: 'EMP-1004',
+      name: 'Vikramaditya Rao',
+      shift: 'General Shift (09:30 - 18:30)',
+      punchIn: '09:15 AM',
+      punchOut: '07:10 PM',
+      location: 'Bellandur HQ Terminal #03 (Mobile Geofence)',
+      otHours: '1.2h',
+      status: 'On Time'
+    },
+    {
+      empId: 'EMP-1005',
+      name: 'Ananya Sen',
+      shift: 'General Shift (09:30 - 18:30)',
+      punchIn: '09:25 AM',
+      punchOut: '06:30 PM',
+      location: 'Koramangala Terminal #02 (FaceID)',
+      otHours: '0.0h',
+      status: 'On Time'
+    },
+    {
+      empId: 'EMP-1006',
+      name: 'Karthik Subramaniam',
+      shift: 'Afternoon Express (12:00 - 21:00)',
+      punchIn: '11:50 AM',
+      punchOut: '09:22 PM',
+      location: 'HSR Layout Node Terminal #01 (FaceID)',
+      otHours: '0.8h',
+      status: 'On Time'
+    },
+    {
+      empId: 'EMP-1007',
+      name: 'Pooja Hegde',
+      shift: 'Morning Clinical (08:30 - 17:00)',
+      punchIn: '08:42 AM',
+      punchOut: '05:15 PM',
+      location: 'Jayanagar Clinic Terminal #01 (Fingerprint)',
+      otHours: '0.0h',
+      status: 'Late Mark'
+    },
+    {
+      empId: 'EMP-1008',
+      name: 'Mohammed Zeeshan',
+      shift: 'General Shift (09:30 - 18:30)',
+      punchIn: '09:18 AM',
+      punchOut: '06:35 PM',
+      location: 'Central Support Terminal #01 (Mobile Geofence)',
+      otHours: '0.2h',
+      status: 'On Time'
+    },
+    {
+      empId: 'EMP-1009',
+      name: 'Rahul Deshmukh',
+      shift: 'Early Warehouse (06:00 - 15:00)',
+      punchIn: '—',
+      punchOut: '—',
+      location: 'Electronic City Warehouse',
+      otHours: '0.0h',
+      status: 'On Leave'
+    },
+    {
+      empId: 'EMP-1010',
+      name: 'Divya Nambiar',
+      shift: 'Morning Clinical (08:30 - 17:00)',
+      punchIn: '08:26 AM',
+      punchOut: '05:10 PM',
+      location: 'Koramangala Terminal #01 (FaceID)',
+      otHours: '0.2h',
+      status: 'On Time'
+    }
+  ];
 
   const filtered = punches.filter(p => {
     if (shiftFilter === 'ALL') return true;
@@ -24,10 +125,10 @@ export default function Attendance() {
     >
       {/* Top Level KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Present on Duty Today" value="0" delta="0.0%" trend="neutral" subtext="No hub nodes" icon="🟢" />
-        <KpiCard label="Punctuality Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Arrived before shift grace period" icon="⏱️" />
-        <KpiCard label="Late Arrivals Today" value="0" delta="--" trend="neutral" subtext="Rider transit delays" icon="⚠️" />
-        <KpiCard label="Approved Leaves Today" value="0" delta="--" trend="neutral" subtext="Rosters balanced" icon="🏖️" />
+        <KpiCard label="Present on Duty Today" value="218 Staff" delta="95.6%" trend="up" subtext="Across all 6 hospital & dark store nodes" icon="🟢" />
+        <KpiCard label="Punctuality Rate" value="97.4%" delta="+1.2%" trend="up" subtext="Arrived before shift grace period" icon="⏱️" />
+        <KpiCard label="Late Arrivals Today" value="4 Late Marks" delta="Low variance" trend="neutral" subtext="Rider transit delays in rains" icon="⚠️" />
+        <KpiCard label="Approved Leaves Today" value="6 on Leave" delta="Planned" trend="neutral" subtext="All clinical rosters balanced" icon="🏖️" />
       </div>
 
       {/* Roster Filter Bar */}

@@ -8,7 +8,18 @@
   var root = null;
   var isOpen = false;
 
-  var claims = [];
+  var claims = [
+    { id: 'EXP-2026-501', name: 'Dr. Priya Nair', role: 'Chief Veterinary Officer', cat: 'Medical Consumables', date: '2026-10-10', merchant: 'Surgical Supplies Bangalore Pvt Ltd', amt: '₹14,500', receipt: 'INV-SSB-88392.pdf', status: 'Approved' },
+    { id: 'EXP-2026-502', name: 'Dr. Rajesh Varma', role: 'Lead Veterinary Surgeon', cat: 'Travel & Conveyance', date: '2026-10-09', merchant: 'IndiGo Airlines (BLR-BOM Vet Summit)', amt: '₹18,450', receipt: '6E-TKT-99231.pdf', status: 'Approved' },
+    { id: 'EXP-2026-503', name: 'Karthik Subramaniam', role: 'Fleet Operations Mgr', cat: 'Fuel & EV Charging', date: '2026-10-11', merchant: 'Shell Koramangala Station', amt: '₹8,650', receipt: 'SHL-REC-11204.pdf', status: 'Pending' },
+    { id: 'EXP-2026-504', name: 'Sneha Kulkarni', role: 'Head of Central Pharmacy', cat: 'Medical Consumables', date: '2026-10-08', merchant: 'ColdChain MedTech Solutions', amt: '₹22,800', receipt: 'CCM-INV-4412.pdf', status: 'Approved' },
+    { id: 'EXP-2026-505', name: 'Vikramaditya Rao', role: 'Director of Engineering & AI', cat: 'Software Subscriptions', date: '2026-10-05', merchant: 'Amazon Web Services India', amt: '₹84,200', receipt: 'AWS-INV-77319.pdf', status: 'Approved' },
+    { id: 'EXP-2026-506', name: 'Ananya Sen', role: 'Lead Talent Acquisition & HR', cat: 'Meals & Offsite', date: '2026-10-07', merchant: 'Third Wave Coffee HSR Layout', amt: '₹3,450', receipt: 'TWC-BILL-9012.pdf', status: 'Approved' },
+    { id: 'EXP-2026-507', name: 'Pooja Hegde', role: 'Senior Pathologist', cat: 'Medical Consumables', date: '2026-10-12', merchant: 'Bio-Rad Laboratories India', amt: '₹36,700', receipt: 'BR-INV-55102.pdf', status: 'Pending' },
+    { id: 'EXP-2026-508', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', cat: 'Software Subscriptions', date: '2026-10-04', merchant: 'Freshdesk / Freshworks Inc', amt: '₹16,500', receipt: 'FW-INV-66190.pdf', status: 'Approved' },
+    { id: 'EXP-2026-509', name: 'Rahul Deshmukh', role: 'Warehouse Supervisor', cat: 'Travel & Conveyance', date: '2026-10-11', merchant: 'Uber India (Inter-DC Audit)', amt: '₹2,600', receipt: 'UBR-TRIP-3321.pdf', status: 'Pending' },
+    { id: 'EXP-2026-510', name: 'Divya Nambiar', role: 'Junior Clinical Associate', cat: 'Meals & Catering', date: '2026-10-06', merchant: 'Swiggy Gourmet (Clinic Overtime)', amt: '₹4,250', receipt: 'SWG-ODR-8841.pdf', status: 'Pending' }
+  ];
 
   function closeOthers() {
     document.querySelectorAll('.zpanel-root').forEach(function (el) {
@@ -51,10 +62,10 @@
       '</div>',
       '<div class="zhr-body">',
       '  <div class="zhr-kpi-grid">',
-      '    <div class="zhr-card"><div class="zhr-card-label">Monthly Claims Disbursed</div><div class="zhr-card-value">₹0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Pending Approval</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">GST Input Reclaimed</div><div class="zhr-card-value">₹0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Policy Compliance</div><div class="zhr-card-value">0.0%</div><div class="zhr-card-sub">No records</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Monthly Claims Disbursed</div><div class="zhr-card-value">₹2,10,750</div><div class="zhr-card-sub">+12.4% vs Sep</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Pending Approval</div><div class="zhr-card-value">4 Claims</div><div class="zhr-card-sub">₹52,200 in queue</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">GST Input Reclaimed</div><div class="zhr-card-value">₹37,935</div><div class="zhr-card-sub">18.0% GST Avg</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Policy Compliance</div><div class="zhr-card-value">99.4%</div><div class="zhr-card-sub">Zero fraud detected</div></div>',
       '  </div>',
       '  <div class="zhr-table-container">',
       '    <div class="zhr-table-head">',

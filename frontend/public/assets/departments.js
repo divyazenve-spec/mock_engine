@@ -8,7 +8,18 @@
   var root = null;
   var isOpen = false;
 
-  var departments = [];
+  var departments = [
+    { id: 'DEPT-01', name: 'Clinical Services', color: '#3b82f6', staff: 64, desc: 'Primary & specialized veterinary medicine, soft tissue and orthopedic surgery, emergency intensive care.', lead: 'Dr. Priya Nair', budget: '₹52,40,000', openings: 3 },
+    { id: 'DEPT-02', name: 'Pharmacy & Therapeutics', color: '#10b981', staff: 26, desc: 'Central veterinary pharmacy, temperature-sensitive cold chain drugs, prescription validation.', lead: 'Sneha Kulkarni', budget: '₹19,40,000', openings: 1 },
+    { id: 'DEPT-03', name: 'Hyperlocal Logistics', color: '#f59e0b', staff: 48, desc: '45-minute pet medicine express dispatch fleet, temperature-monitored smart delivery pods.', lead: 'Karthik Subramaniam', budget: '₹21,80,000', openings: 2 },
+    { id: 'DEPT-04', name: 'Dark Store Fulfillment', color: '#6366f1', staff: 20, desc: 'Micro-fulfillment centers across Bangalore micro-markets, automated inventory pick and pack.', lead: 'Rahul Deshmukh', budget: '₹12,60,000', openings: 1 },
+    { id: 'DEPT-05', name: 'Technology & AI Core', color: '#ec4899', staff: 22, desc: 'Pet electronic health records, AI radiology assistance, telehealth streaming platform.', lead: 'Vikramaditya Rao', budget: '₹28,60,000', openings: 2 },
+    { id: 'DEPT-06', name: 'Customer Delight', color: '#14b8a6', staff: 18, desc: '24/7 pet parent support helpline, post-op consultation follow-ups, concierge appointment scheduling.', lead: 'Mohammed Zeeshan', budget: '₹8,50,000', openings: 1 },
+    { id: 'DEPT-07', name: 'Diagnostics & Pathology', color: '#8b5cf6', staff: 12, desc: 'In-house diagnostic laboratory, hematology, PCR panels, biochemical assays, cytopathology.', lead: 'Pooja Hegde', budget: '₹9,80,000', openings: 1 },
+    { id: 'DEPT-08', name: 'People, Culture & HR', color: '#f43f5e', staff: 8, desc: 'Clinical talent acquisition, veterinarian credential verification, payroll, employee welfare.', lead: 'Ananya Sen', budget: '₹5,40,000', openings: 0 },
+    { id: 'DEPT-09', name: 'Emergency & Critical ICU', color: '#ef4444', staff: 14, desc: 'Round-the-clock ventilator support, trauma resuscitation, post-operative oxygen therapy.', lead: 'Dr. Rajesh Varma', budget: '₹15,20,000', openings: 2 },
+    { id: 'DEPT-10', name: 'Finance & Compliance', color: '#06b6d4', staff: 6, desc: 'Financial audit, GST invoicing, statutory compliances, vendor payables and CAPEX.', lead: 'Suresh Gopalan', budget: '₹4,90,000', openings: 1 }
+  ];
 
   function closeOthers() {
     document.querySelectorAll('.zpanel-root').forEach(function (el) {
@@ -52,15 +63,15 @@
       '    <div class="zhr-sub">Operational divisions, divisional leadership, monthly payroll allocation, and team capacity</div>',
       '  </div>',
       '  <div style="display:flex;align-items:center;gap:10px;">',
-      '    <span class="zhr-badge zhr-badge-success">● 6 Core Divisions</span>',
+      '    <span class="zhr-badge zhr-badge-success">● 10 Operational Divisions</span>',
       '  </div>',
       '</div>',
       '<div class="zhr-body">',
       '  <div class="zhr-kpi-grid">',
-      '    <div class="zhr-card"><div class="zhr-card-label">Divisions Operating</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Total Monthly Budget</div><div class="zhr-card-value">₹0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Open Requisitions</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Avg Dept Health Score</div><div class="zhr-card-value">0.0</div><div class="zhr-card-sub">No records</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Divisions Operating</div><div class="zhr-card-value">10</div><div class="zhr-card-sub">All active in Bangalore</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Total Monthly Budget</div><div class="zhr-card-value">₹1.77 Cr</div><div class="zhr-card-sub">94.2% budget utilization</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Open Requisitions</div><div class="zhr-card-value">14 Roles</div><div class="zhr-card-sub">Across 8 departments</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Avg Dept Health Score</div><div class="zhr-card-value">98.4%</div><div class="zhr-card-sub">Top decile efficiency</div></div>',
       '  </div>',
       '  <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));gap:16px;">' + cards + '</div>',
       '</div>'

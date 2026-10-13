@@ -5,7 +5,18 @@ import KpiCard from '../shared/KpiCard';
 export default function EmployeeExpenses() {
   const [filterCategory, setFilterCategory] = useState('ALL');
 
-  const [claims, setClaims] = useState([]);
+  const [claims, setClaims] = useState([
+    { id: 'EXP-2026-501', empName: 'Dr. Priya Nair', role: 'Chief Veterinary Officer', dept: 'Clinical Care', category: 'Medical Consumables', date: '2026-10-10', merchant: 'Surgical Supplies Bangalore Pvt Ltd', amount: '₹14,500', receipt: 'INV-SSB-88392.pdf', status: 'Approved' },
+    { id: 'EXP-2026-502', empName: 'Dr. Rajesh Varma', role: 'Lead Veterinary Surgeon', dept: 'Clinical Care', category: 'Travel & Conveyance', date: '2026-10-09', merchant: 'IndiGo Airlines (BLR to BOM Vet Summit)', amount: '₹18,450', receipt: '6E-TKT-99231.pdf', status: 'Approved' },
+    { id: 'EXP-2026-503', empName: 'Karthik Subramaniam', role: 'Hyperlocal Fleet Operations Mgr', dept: 'Logistics & Fleet', category: 'Fuel & EV Charging', date: '2026-10-11', merchant: 'Shell Koramangala Station', amount: '₹8,650', receipt: 'SHL-REC-11204.pdf', status: 'Pending' },
+    { id: 'EXP-2026-504', empName: 'Sneha Kulkarni', role: 'Head of Central Pharmacy', dept: 'Pharmacy', category: 'Medical Consumables', date: '2026-10-08', merchant: 'ColdChain MedTech Solutions', amount: '₹22,800', receipt: 'CCM-INV-4412.pdf', status: 'Approved' },
+    { id: 'EXP-2026-505', empName: 'Vikramaditya Rao', role: 'Director of Engineering & AI', dept: 'Technology & AI', category: 'Software Subscriptions', date: '2026-10-05', merchant: 'Amazon Web Services / AWS India', amount: '₹84,200', receipt: 'AWS-INV-77319.pdf', status: 'Approved' },
+    { id: 'EXP-2026-506', empName: 'Ananya Sen', role: 'Lead Talent Acquisition & HR', dept: 'People & HR', category: 'Meals & Offsite', date: '2026-10-07', merchant: 'Third Wave Coffee HSR Layout', amount: '₹3,450', receipt: 'TWC-BILL-9012.pdf', status: 'Approved' },
+    { id: 'EXP-2026-507', empName: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Diagnostics & Pathology', category: 'Medical Consumables', date: '2026-10-12', merchant: 'Bio-Rad Laboratories India', amount: '₹36,700', receipt: 'BR-INV-55102.pdf', status: 'Pending' },
+    { id: 'EXP-2026-508', empName: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', category: 'Software Subscriptions', date: '2026-10-04', merchant: 'Freshdesk / Freshworks Inc', amount: '₹16,500', receipt: 'FW-INV-66190.pdf', status: 'Approved' },
+    { id: 'EXP-2026-509', empName: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', dept: 'Warehouse & Logistics', category: 'Travel & Conveyance', date: '2026-10-11', merchant: 'Uber India (Inter-warehouse audit)', amount: '₹2,600', receipt: 'UBR-TRIP-3321.pdf', status: 'Pending' },
+    { id: 'EXP-2026-510', empName: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical Care', category: 'Meals & Offsite', date: '2026-10-06', merchant: 'Swiggy Gourmet Catering (Clinic Overtime)', amount: '₹4,250', receipt: 'SWG-ODR-8841.pdf', status: 'Pending' }
+  ]);
 
   function handleAction(id, newStatus) {
     setClaims(claims.map(c => c.id === id ? { ...c, status: newStatus } : c));
@@ -13,7 +24,7 @@ export default function EmployeeExpenses() {
 
   const filtered = claims.filter(c => {
     if (filterCategory === 'ALL') return true;
-    return c.category.includes(filterCategory);
+    return c.category.toLowerCase().includes(filterCategory.toLowerCase());
   });
 
   return (
@@ -23,14 +34,14 @@ export default function EmployeeExpenses() {
       title="Expense Reimbursements & Financial Disbursals"
       subtitle="Corporate travel, clinical consumable claims, fuel stipends, software subscriptions, and tax invoice audits"
       icon="🧾"
-      badge=""
+      badge="10 Logged Claims"
     >
       {/* Top Level KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Monthly Claims Disbursed" value="₹0" delta="0.0%" trend="neutral" subtext="No divisions" icon="💵" />
-        <KpiCard label="Pending Approval Queue" value="0" delta="₹0" trend="neutral" subtext="Standard manager SLA" icon="⏳" />
-        <KpiCard label="GST Input Credit Reclaimed" value="₹0" delta="0.0%" trend="neutral" subtext="Direct tax savings for Zenve" icon="🏛️" />
-        <KpiCard label="Policy Compliance Rate" value="0.0%" delta="Zero fraud detected" trend="neutral" subtext="Automated OCR receipt scan" icon="🛡️" />
+        <KpiCard label="Monthly Claims Disbursed" value="₹2,10,750" delta="+12.4% vs Sep" trend="positive" subtext="Across 10 corporate divisions" icon="💵" />
+        <KpiCard label="Pending Approval Queue" value="4 Claims" delta="₹52,200 pending" trend="neutral" subtext="Standard 24h manager SLA" icon="⏳" />
+        <KpiCard label="GST Input Credit Reclaimed" value="₹37,935" delta="18.0% GST Avg" trend="positive" subtext="Direct tax savings for Zenve" icon="🏛️" />
+        <KpiCard label="Policy Compliance Rate" value="99.4%" delta="Zero fraud detected" trend="positive" subtext="Automated OCR receipt scan" icon="🛡️" />
       </div>
 
       {/* Expense Filter Bar */}

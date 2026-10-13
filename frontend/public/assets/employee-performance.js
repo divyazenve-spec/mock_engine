@@ -8,7 +8,18 @@
   var root = null;
   var isOpen = false;
 
-  var performers = [];
+  var performers = [
+    { name: 'Dr. Priya Nair', role: 'Chief Veterinary Officer', dept: 'Clinical Care', score: 98.5, rating: '5★ Elite', cases: '542 Consults', csat: '4.95', sla: '99.2%', status: 'Appraised' },
+    { name: 'Dr. Rajesh Varma', role: 'Lead Veterinary Surgeon', dept: 'Clinical Care', score: 96.2, rating: '5★ Elite', cases: '184 Surgeries', csat: '4.92', sla: '98.5%', status: 'Appraised' },
+    { name: 'Sneha Kulkarni', role: 'Head of Central Pharmacy', dept: 'Pharmacy', score: 94.8, rating: '4★ Strong', cases: '4,280 Orders', csat: '4.88', sla: '99.5%', status: 'Appraised' },
+    { name: 'Vikramaditya Rao', role: 'Director of Engineering & AI', dept: 'Technology & AI', score: 99.1, rating: '5★ Elite', cases: '48 Deployments', csat: '4.98', sla: '99.9%', status: 'Appraised' },
+    { name: 'Ananya Sen', role: 'Lead Talent Acquisition & HR', dept: 'People & HR', score: 92.4, rating: '4★ Strong', cases: '24 Hires', csat: '4.85', sla: '96.4%', status: 'Appraised' },
+    { name: 'Karthik Subramaniam', role: 'Hyperlocal Fleet Operations Mgr', dept: 'Logistics', score: 95.0, rating: '5★ Elite', cases: '18,420 Drops', csat: '4.90', sla: '98.8%', status: 'Appraised' },
+    { name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Diagnostics', score: 93.7, rating: '4★ Strong', cases: '1,420 Panels', csat: '4.89', sla: '97.6%', status: 'In Review' },
+    { name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', score: 96.8, rating: '5★ Elite', cases: '2,940 Tickets', csat: '4.93', sla: '99.1%', status: 'Appraised' },
+    { name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', dept: 'Warehouse', score: 88.5, rating: '3★ Meets Expectations', cases: '34,200 Picks', csat: '4.82', sla: '95.2%', status: 'In Review' },
+    { name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical Care', score: 91.2, rating: '4★ Strong', cases: '380 Consults', csat: '4.80', sla: '96.0%', status: 'Appraised' }
+  ];
 
   function closeOthers() {
     document.querySelectorAll('.zpanel-root').forEach(function (el) {
@@ -46,10 +57,10 @@
       '</div>',
       '<div class="zhr-body">',
       '  <div class="zhr-kpi-grid">',
-      '    <div class="zhr-card"><div class="zhr-card-label">Average KPI Score</div><div class="zhr-card-value">0.0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Top Performers (5★)</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Client CSAT Rating</div><div class="zhr-card-value">0.0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Appraisals Completed</div><div class="zhr-card-value">0.0</div><div class="zhr-card-sub">No records</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Average KPI Score</div><div class="zhr-card-value">94.8%</div><div class="zhr-card-sub">+3.2% vs Q2</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Top Performers (5★)</div><div class="zhr-card-value">6 Staff</div><div class="zhr-card-sub">Eligible for bonuses</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Client CSAT Rating</div><div class="zhr-card-value">4.91 / 5.0</div><div class="zhr-card-sub">Top decile rating</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Appraisals Completed</div><div class="zhr-card-value">100%</div><div class="zhr-card-sub">10 / 10 scorecards ready</div></div>',
       '  </div>',
       '  <div class="zhr-table-container">',
       '    <div class="zhr-table-head">',

@@ -5,9 +5,26 @@ import KpiCard from '../shared/KpiCard';
 export default function SalaryCost() {
   const [viewBy, setViewBy] = useState('department');
 
-  const deptCosts = [];
+  const deptCosts = [
+    { dept: 'Clinical Veterinary Services', headcount: 48, monthlyCTC: '₹38,50,000', annualCTC: '₹4,62,00,000', pctShare: 21.2, color: '#10b981' },
+    { dept: 'Technology & AI Engineering', headcount: 28, monthlyCTC: '₹36,20,000', annualCTC: '₹4,34,40,000', pctShare: 20.0, color: '#8b5cf6' },
+    { dept: 'Central Pet Pharmacy', headcount: 34, monthlyCTC: '₹22,80,000', annualCTC: '₹2,73,60,000', pctShare: 12.6, color: '#0ea5e9' },
+    { dept: 'Hyperlocal Logistics Fleet', headcount: 42, monthlyCTC: '₹21,50,000', annualCTC: '₹2,58,00,000', pctShare: 11.9, color: '#f59e0b' },
+    { dept: 'Veterinary Surgery & ICU', headcount: 15, monthlyCTC: '₹16,40,000', annualCTC: '₹1,96,80,000', pctShare: 9.1, color: '#06b6d4' },
+    { dept: 'Dark Store & Warehouse Hubs', headcount: 22, monthlyCTC: '₹12,40,000', annualCTC: '₹1,48,80,000', pctShare: 6.8, color: '#ec4899' },
+    { dept: 'Pathology & Diagnostic Labs', headcount: 12, monthlyCTC: '₹11,60,000', annualCTC: '₹1,39,20,000', pctShare: 6.4, color: '#6366f1' },
+    { dept: 'Customer Delight & Concierge', headcount: 16, monthlyCTC: '₹9,80,000', annualCTC: '₹1,17,60,000', pctShare: 5.4, color: '#14b8a6' },
+    { dept: 'Finance, Procurement & Audit', headcount: 5, monthlyCTC: '₹6,20,000', annualCTC: '₹74,40,000', pctShare: 3.4, color: '#eab308' },
+    { dept: 'HR & Talent Acquisition', headcount: 6, monthlyCTC: '₹5,80,000', annualCTC: '₹69,60,000', pctShare: 3.2, color: '#84cc16' }
+  ];
 
-  const salaryBands = [];
+  const salaryBands = [
+    { band: 'Executive / C-Suite (L7)', range: '₹35L - ₹60L+', count: 6, totalSpend: '₹2,85,00,000' },
+    { band: 'Principal Surgeons & Directors (L6)', range: '₹20L - ₹35L', count: 18, totalSpend: '₹4,50,00,000' },
+    { band: 'Lead Specialists & Sr Engineers (L5)', range: '₹12L - ₹20L', count: 34, totalSpend: '₹5,10,00,000' },
+    { band: 'Veterinary Associates & Managers (L4)', range: '₹6L - ₹12L', count: 72, totalSpend: '₹6,12,00,000' },
+    { band: 'Fleet Logistics, Pickers & Technicians (L3)', range: '₹3L - ₹6L', count: 98, totalSpend: '₹3,17,00,000' }
+  ];
 
   return (
     <DashboardLayout
@@ -20,10 +37,10 @@ export default function SalaryCost() {
     >
       {/* Top Level KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Monthly Total CTC Burn" value="₹0 / mo" delta="0.0%" trend="neutral" subtext="Direct compensation & benefits" icon="💵" />
-        <KpiCard label="Annualized Payroll Commitment" value="₹0" delta="0.0%" trend="neutral" subtext="Projected for full financial year" icon="📊" />
-        <KpiCard label="Average CTC per Employee" value="₹0" delta="Median: ₹0" trend="neutral" subtext="Blended clinical, tech & fleet" icon="🏷️" />
-        <KpiCard label="Employer Statutory Match" value="₹0 / mo" delta="--" trend="neutral" subtext="Fully provisioned on balance sheet" icon="🏛️" />
+        <KpiCard label="Monthly Total CTC Burn" value="₹1.81 Cr / mo" delta="+4.2%" trend="up" subtext="Direct compensation & benefits" icon="💵" />
+        <KpiCard label="Annualized Payroll Commitment" value="₹21.74 Cr" delta="+6.5%" trend="up" subtext="Projected for full financial year" icon="📊" />
+        <KpiCard label="Average CTC per Employee" value="₹9.54 LPA" delta="Median: ₹8.4L" trend="up" subtext="Blended clinical, tech & fleet" icon="🏷️" />
+        <KpiCard label="Employer Statutory Match" value="₹21.74L / mo" delta="EPFO & ESIC" trend="neutral" subtext="Fully provisioned on balance sheet" icon="🏛️" />
       </div>
 
       {/* View Switcher */}

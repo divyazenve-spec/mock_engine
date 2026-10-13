@@ -8,7 +8,18 @@
   var root = null;
   var isOpen = false;
 
-  var leaveRequests = [];
+  var leaveRequests = [
+    { id: 'LV-2026-101', name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', type: 'Annual Leave', dates: '12 Oct - 15 Oct 2026', reason: 'Family wedding ceremony', bal: '14 Days Left', status: 'Pending' },
+    { id: 'LV-2026-102', name: 'Dr. Rajesh Varma', role: 'Lead Veterinary Surgeon', type: 'Conference Leave', dates: '22 Oct - 24 Oct 2026', reason: 'Indian Veterinary Congress Mumbai', bal: '8 Days Left', status: 'Approved' },
+    { id: 'LV-2026-103', name: 'Sneha Kulkarni', role: 'Head of Central Pharmacy', type: 'Casual Leave', dates: '19 Oct 2026 (1 Day)', reason: 'Personal dental appointment', bal: '11 Days Left', status: 'Pending' },
+    { id: 'LV-2026-104', name: 'Karthik Subramaniam', role: 'Hyperlocal Fleet Operations Mgr', type: 'Sick Leave', dates: '08 Oct - 09 Oct 2026', reason: 'Viral fever recuperation', bal: '10 Days Left', status: 'Approved' },
+    { id: 'LV-2026-105', name: 'Divya Nambiar', role: 'Junior Clinical Associate', type: 'Casual Leave', dates: '28 Oct 2026 (1 Day)', reason: 'Family event', bal: '12 Days Left', status: 'Pending' },
+    { id: 'LV-2026-106', name: 'Vikramaditya Rao', role: 'Director of Engineering & AI', type: 'Paternity Leave', dates: '01 Nov - 14 Nov 2026', reason: 'Childbirth support', bal: '15 Days Left', status: 'Approved' },
+    { id: 'LV-2026-107', name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', type: 'Annual Leave', dates: '26 Oct - 30 Oct 2026', reason: 'Diwali festive vacation', bal: '9 Days Left', status: 'Pending' },
+    { id: 'LV-2026-108', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', type: 'Compensatory Off', dates: '16 Oct 2026 (1 Day)', reason: 'Overtime worked during weekend camp', bal: '3 Days Left', status: 'Approved' },
+    { id: 'LV-2026-109', name: 'Dr. Priya Nair', role: 'Chief Veterinary Officer', type: 'Conference Leave', dates: '05 Nov - 07 Nov 2026', reason: 'World Small Animal Vet Association (WSAVA)', bal: '16 Days Left', status: 'Pending' },
+    { id: 'LV-2026-110', name: 'Ananya Sen', role: 'Lead Talent Acquisition & HR', type: 'Casual Leave', dates: '23 Oct 2026 (1 Day)', reason: 'Personal errands', bal: '13 Days Left', status: 'Pending' }
+  ];
 
   function closeOthers() {
     document.querySelectorAll('.zpanel-root').forEach(function (el) {
@@ -45,15 +56,15 @@
       '    <div class="zhr-sub">PTO balances, pending managerial signoffs, sick leaves, and public holiday calendars</div>',
       '  </div>',
       '  <div style="display:flex;align-items:center;gap:10px;">',
-      '    <span class="zhr-badge zhr-badge-warning">● 3 Pending Approvals</span>',
+      '    <span class="zhr-badge zhr-badge-warning">● 6 Pending Approvals</span>',
       '  </div>',
       '</div>',
       '<div class="zhr-body">',
       '  <div class="zhr-kpi-grid">',
-      '    <div class="zhr-card"><div class="zhr-card-label">Currently on Leave</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Pending Approval</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Avg Org PTO Balance</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Upcoming Q4 Holidays</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Currently on Leave</div><div class="zhr-card-value">1 Staff</div><div class="zhr-card-sub">Rahul Deshmukh</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Pending Approval</div><div class="zhr-card-value">6 Staff</div><div class="zhr-card-sub">Manager review pending</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Avg Org PTO Balance</div><div class="zhr-card-value">14.2 Days</div><div class="zhr-card-sub">Adequate coverage</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Upcoming Q4 Holidays</div><div class="zhr-card-value">4 Days</div><div class="zhr-card-sub">Karnataka state gazetted</div></div>',
       '  </div>',
       '  <div class="zhr-table-container">',
       '    <div class="zhr-table-head">',

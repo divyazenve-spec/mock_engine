@@ -5,7 +5,128 @@ import KpiCard from '../shared/KpiCard';
 export default function Departments() {
   const [selectedDept, setSelectedDept] = useState(null);
 
-  const departments = [];
+  const departments = [
+    {
+      id: 'DEPT-01',
+      name: 'Clinical Veterinary Services',
+      headcount: 48,
+      color: '#10b981',
+      description: 'Super-specialty veterinary consultations, routine diagnostics, preventive care, and ICU inpatient coverage across Bengaluru hospitals.',
+      lead: 'Dr. Priya Nair (Chief Vet Officer)',
+      budget: '₹38.5L / mo',
+      openings: 6,
+      kpiHealth: 98.2,
+      retention: '97.4%'
+    },
+    {
+      id: 'DEPT-02',
+      name: 'Veterinary Surgery & Anesthesiology',
+      headcount: 15,
+      color: '#06b6d4',
+      description: 'Laparoscopic, orthopedic, neurosurgical and soft-tissue procedures with sterile operating theatres and dedicated post-op recovery suites.',
+      lead: 'Dr. Rajesh Varma (Lead Surgeon)',
+      budget: '₹16.4L / mo',
+      openings: 2,
+      kpiHealth: 99.1,
+      retention: '98.5%'
+    },
+    {
+      id: 'DEPT-03',
+      name: 'Central Pet Pharmacy & Cold Chain',
+      headcount: 34,
+      color: '#0ea5e9',
+      description: 'Formulary management, batch verification, automated prescription dispensing, and 2°C–8°C cold-chain biologics compliance.',
+      lead: 'Sneha Kulkarni (Head of Pharmacy)',
+      budget: '₹22.8L / mo',
+      openings: 3,
+      kpiHealth: 96.8,
+      retention: '96.2%'
+    },
+    {
+      id: 'DEPT-04',
+      name: 'Hyperlocal 60-Min Logistics Fleet',
+      headcount: 42,
+      color: '#f59e0b',
+      description: 'Temperature-monitored dark store to doorstep delivery network powering 60-minute emergency medication and pet nutrition logistics.',
+      lead: 'Karthik Subramaniam (Fleet Manager)',
+      budget: '₹21.5L / mo',
+      openings: 5,
+      kpiHealth: 94.5,
+      retention: '92.8%'
+    },
+    {
+      id: 'DEPT-05',
+      name: 'Technology & AI Engineering',
+      headcount: 28,
+      color: '#8b5cf6',
+      description: 'Electronic Health Record (EHR) pipelines, IoT diagnostic sensors, Gemini symptom analysis, and high-availability clinical core APIs.',
+      lead: 'Vikramaditya Rao (Director AI/Eng)',
+      budget: '₹36.2L / mo',
+      openings: 4,
+      kpiHealth: 97.4,
+      retention: '96.8%'
+    },
+    {
+      id: 'DEPT-06',
+      name: 'Dark Store & Warehouse Hubs',
+      headcount: 22,
+      color: '#ec4899',
+      description: 'Central fulfilment warehousing, SKU pallet management, supplier receiving docks, and high-velocity picking automation.',
+      lead: 'Rahul Deshmukh (Warehouse Lead)',
+      budget: '₹12.4L / mo',
+      openings: 2,
+      kpiHealth: 95.0,
+      retention: '94.6%'
+    },
+    {
+      id: 'DEPT-07',
+      name: 'Customer Delight & Pet Concierge',
+      headcount: 16,
+      color: '#14b8a6',
+      description: '24x7 multilingual pet parent assistance, post-op consultation follow-ups, prescription renewals, and care coordinator booking.',
+      lead: 'Mohammed Zeeshan (CX Lead)',
+      budget: '₹9.8L / mo',
+      openings: 3,
+      kpiHealth: 96.2,
+      retention: '95.1%'
+    },
+    {
+      id: 'DEPT-08',
+      name: 'Pathology & Diagnostic Laboratories',
+      headcount: 12,
+      color: '#6366f1',
+      description: 'Automated hematology, biochemical profiling, microbiological cultures, and rapid point-of-care PCR diagnostic testing.',
+      lead: 'Pooja Hegde (Chief Pathologist)',
+      budget: '₹11.6L / mo',
+      openings: 1,
+      kpiHealth: 98.6,
+      retention: '97.2%'
+    },
+    {
+      id: 'DEPT-09',
+      name: 'Human Resources & Talent Acquisition',
+      headcount: 6,
+      color: '#84cc16',
+      description: 'Clinical recruitment, Karnataka Veterinary Council verification, staff learning & development, payroll, and cultural governance.',
+      lead: 'Ananya Sen (Lead TA & People)',
+      budget: '₹5.8L / mo',
+      openings: 1,
+      kpiHealth: 95.8,
+      retention: '96.0%'
+    },
+    {
+      id: 'DEPT-10',
+      name: 'Finance, Procurement & Audit',
+      headcount: 5,
+      color: '#eab308',
+      description: 'Corporate treasury, pharma vendor billing, GST compliance, asset capitalization, and operational unit financial audits.',
+      lead: 'Harish Mehta (VP Finance)',
+      budget: '₹6.2L / mo',
+      openings: 1,
+      kpiHealth: 97.0,
+      retention: '98.0%'
+    }
+  ];
 
   return (
     <DashboardLayout
@@ -18,10 +139,10 @@ export default function Departments() {
     >
       {/* Top Level KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Operating Units" value="0" delta="--" trend="neutral" subtext="Clinical, logistics & tech" icon="🏛️" />
-        <KpiCard label="Total Monthly Budget" value="₹0 / mo" delta="0.0%" trend="neutral" subtext="Direct payroll & incentives" icon="💳" />
-        <KpiCard label="Open Requisitions" value="0" delta="--" trend="neutral" subtext="No departments" icon="📢" />
-        <KpiCard label="Average Org Health" value="0.0" delta="0.0%" trend="neutral" subtext="Blended satisfaction & SLA" icon="⭐" />
+        <KpiCard label="Total Operating Units" value="10 Units" delta="+2 YoY" trend="up" subtext="Clinical, logistics & tech" icon="🏛️" />
+        <KpiCard label="Total Monthly Budget" value="₹1.81 Cr / mo" delta="+4.2%" trend="up" subtext="Direct payroll & incentives" icon="💳" />
+        <KpiCard label="Open Requisitions" value="28 Open Roles" delta="Active" trend="neutral" subtext="Across 10 divisions" icon="📢" />
+        <KpiCard label="Average Org Health" value="96.8%" delta="+1.8%" trend="up" subtext="Blended satisfaction & SLA" icon="⭐" />
       </div>
 
       {/* Department Cards Grid */}

@@ -7,7 +7,158 @@ export default function Payroll() {
   const [disbursed, setDisbursed] = useState(true);
   const [showPayslip, setShowPayslip] = useState(null);
 
-  const payrollRecords = [];
+  const payrollRecords = [
+    {
+      empId: 'EMP-1001',
+      name: 'Dr. Priya Nair',
+      role: 'Chief Veterinary Officer',
+      dept: 'Clinical',
+      basic: '₹95,000',
+      hra: '₹45,000',
+      allowances: '₹45,000',
+      pfDeduction: '₹11,400',
+      tds: '₹18,500',
+      netPay: '₹1,55,100',
+      bankAcc: 'HDFC •••• 4091',
+      pan: 'ABCDE1234F',
+      disbursedDate: '01 Oct 2026'
+    },
+    {
+      empId: 'EMP-1002',
+      name: 'Dr. Rajesh Varma',
+      role: 'Lead Veterinary Surgeon',
+      dept: 'Clinical',
+      basic: '₹88,000',
+      hra: '₹40,000',
+      allowances: '₹42,000',
+      pfDeduction: '₹10,560',
+      tds: '₹16,200',
+      netPay: '₹1,43,240',
+      bankAcc: 'ICICI •••• 8821',
+      pan: 'BCDEF2345G',
+      disbursedDate: '01 Oct 2026'
+    },
+    {
+      empId: 'EMP-1003',
+      name: 'Sneha Kulkarni',
+      role: 'Head of Central Pharmacy',
+      dept: 'Pharmacy',
+      basic: '₹65,000',
+      hra: '₹30,000',
+      allowances: '₹30,000',
+      pfDeduction: '₹7,800',
+      tds: '₹10,500',
+      netPay: '₹1,06,700',
+      bankAcc: 'Axis •••• 3349',
+      pan: 'CDEFG3456H',
+      disbursedDate: '01 Oct 2026'
+    },
+    {
+      empId: 'EMP-1004',
+      name: 'Vikramaditya Rao',
+      role: 'Director of Engineering & AI',
+      dept: 'Technology',
+      basic: '₹1,20,000',
+      hra: '₹55,000',
+      allowances: '₹50,000',
+      pfDeduction: '₹14,400',
+      tds: '₹26,000',
+      netPay: '₹1,84,600',
+      bankAcc: 'HDFC •••• 9912',
+      pan: 'DEFGH4567I',
+      disbursedDate: '01 Oct 2026'
+    },
+    {
+      empId: 'EMP-1005',
+      name: 'Ananya Sen',
+      role: 'Lead Talent Acquisition & HR',
+      dept: 'HR & People',
+      basic: '₹55,000',
+      hra: '₹25,000',
+      allowances: '₹25,000',
+      pfDeduction: '₹6,600',
+      tds: '₹7,500',
+      netPay: '₹90,900',
+      bankAcc: 'Kotak •••• 1245',
+      pan: 'EFGHI5678J',
+      disbursedDate: '01 Oct 2026'
+    },
+    {
+      empId: 'EMP-1006',
+      name: 'Karthik Subramaniam',
+      role: 'Hyperlocal Fleet Operations Mgr',
+      dept: 'Logistics',
+      basic: '₹52,000',
+      hra: '₹22,000',
+      allowances: '₹24,000',
+      pfDeduction: '₹6,240',
+      tds: '₹6,800',
+      netPay: '₹84,960',
+      bankAcc: 'SBI •••• 5532',
+      pan: 'FGHIJ6789K',
+      disbursedDate: '01 Oct 2026'
+    },
+    {
+      empId: 'EMP-1007',
+      name: 'Pooja Hegde',
+      role: 'Senior Veterinary Pathologist',
+      dept: 'Clinical',
+      basic: '₹68,000',
+      hra: '₹30,000',
+      allowances: '₹32,000',
+      pfDeduction: '₹8,160',
+      tds: '₹11,000',
+      netPay: '₹1,10,840',
+      bankAcc: 'HDFC •••• 6610',
+      pan: 'GHIJK7890L',
+      disbursedDate: '01 Oct 2026'
+    },
+    {
+      empId: 'EMP-1008',
+      name: 'Mohammed Zeeshan',
+      role: 'Lead Customer Experience',
+      dept: 'Customer Delight',
+      basic: '₹42,000',
+      hra: '₹18,000',
+      allowances: '₹18,000',
+      pfDeduction: '₹5,040',
+      tds: '₹4,200',
+      netPay: '₹68,760',
+      bankAcc: 'ICICI •••• 7741',
+      pan: 'HIJKL8901M',
+      disbursedDate: '01 Oct 2026'
+    },
+    {
+      empId: 'EMP-1009',
+      name: 'Rahul Deshmukh',
+      role: 'Dark Store Warehouse Supervisor',
+      dept: 'Warehouse',
+      basic: '₹40,000',
+      hra: '₹16,000',
+      allowances: '₹18,000',
+      pfDeduction: '₹4,800',
+      tds: '₹3,800',
+      netPay: '₹65,400',
+      bankAcc: 'Canara •••• 8820',
+      pan: 'IJKLM9012N',
+      disbursedDate: '01 Oct 2026'
+    },
+    {
+      empId: 'EMP-1010',
+      name: 'Divya Nambiar',
+      role: 'Junior Clinical Associate',
+      dept: 'Clinical',
+      basic: '₹38,000',
+      hra: '₹15,000',
+      allowances: '₹15,000',
+      pfDeduction: '₹4,560',
+      tds: '₹3,200',
+      netPay: '₹60,240',
+      bankAcc: 'HDFC •••• 1044',
+      pan: 'JKLMN0123O',
+      disbursedDate: '01 Oct 2026'
+    }
+  ];
 
   return (
     <DashboardLayout
@@ -19,7 +170,7 @@ export default function Payroll() {
       badge=""
       actions={
         <button
-          onClick={() => alert('Bank NEFT batch export initiated for all 0 accounts.')}
+          onClick={() => alert(`Bank NEFT batch export initiated for all ${payrollRecords.length} accounts.`)}
           style={{
             padding: '6px 14px',
             borderRadius: '8px',
@@ -40,10 +191,10 @@ export default function Payroll() {
     >
       {/* Top Level KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Gross Payroll Disbursal" value="₹0" delta="0.0%" trend="neutral" subtext="Current period" icon="💵" />
-        <KpiCard label="Statutory Deductions (PF/ESI)" value="₹0" delta="--" trend="neutral" subtext="Remitted to EPFO & ESIC" icon="🏛️" />
-        <KpiCard label="Income Tax TDS Deducted" value="₹0" delta="0.0%" trend="neutral" subtext="Tax deposit ready" icon="🧾" />
-        <KpiCard label="Net Disbursed to Bank" value="₹0" delta="0 Accounts" trend="neutral" subtext="Zero transaction failures" icon="✅" />
+        <KpiCard label="Gross Payroll Disbursal" value="₹1,81,20,000" delta="+4.2%" trend="up" subtext="Current period cycle" icon="💵" />
+        <KpiCard label="Statutory Deductions (PF/ESI)" value="₹21,74,400" delta="Remitted to EPFO" trend="up" subtext="Remitted to EPFO & ESIC" icon="🏛️" />
+        <KpiCard label="Income Tax TDS Deducted" value="₹18,50,000" delta="+2.8%" trend="neutral" subtext="Tax deposit ready" icon="🧾" />
+        <KpiCard label="Net Disbursed to Bank" value="₹1,40,95,600" delta="208 Accounts" trend="up" subtext="Zero transaction failures" icon="✅" />
       </div>
 
       {/* Month Selector Bar */}

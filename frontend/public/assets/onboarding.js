@@ -8,7 +8,18 @@
   var root = null;
   var isOpen = false;
 
-  var recruits = [];
+  var recruits = [
+    { name: 'Dr. Arvind Swaminathan', role: 'Associate Veterinary Surgeon', dept: 'Clinical Care', date: '2026-10-15', buddy: 'Dr. Priya Nair', hardware: 'MacBook Pro M3 + iPad', bvg: 'Verified (SpringVerify)', pct: 90, status: 'In Progress' },
+    { name: 'Pooja Hegde', role: 'Senior Pathologist', dept: 'Clinical Care', date: '2026-10-01', buddy: 'Dr. Rajesh Varma', hardware: 'ThinkPad P16s + Lab Terminal', bvg: 'Verified (SpringVerify)', pct: 100, status: 'Completed' },
+    { name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical Care', date: '2026-10-06', buddy: 'Pooja Hegde', hardware: 'Dell Latitude 7440', bvg: 'Verified (SpringVerify)', pct: 100, status: 'Completed' },
+    { name: 'Rohan Shenoy', role: 'Emergency Critical Care Vet', dept: 'Emergency & ICU', date: '2026-10-18', buddy: 'Dr. Rajesh Varma', hardware: 'MacBook Air M3', bvg: 'Verified (SpringVerify)', pct: 75, status: 'In Progress' },
+    { name: 'Ananya Sen', role: 'Lead Talent Acquisition & HR', dept: 'People & HR', date: '2026-09-28', buddy: 'Vikramaditya Rao', hardware: 'MacBook Air M3', bvg: 'Verified (SpringVerify)', pct: 100, status: 'Completed' },
+    { name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', date: '2026-10-03', buddy: 'Sneha Kulkarni', hardware: 'MacBook Air M3', bvg: 'Verified (SpringVerify)', pct: 100, status: 'Completed' },
+    { name: 'Sumitra Banerjee', role: 'Compounding Pharmacist', dept: 'Pharmacy & OTC', date: '2026-10-20', buddy: 'Sneha Kulkarni', hardware: 'Dell OptiPlex Pharma Terminal', bvg: 'Under Review', pct: 60, status: 'In Progress' },
+    { name: 'Tanmay Joshi', role: 'Full-Stack Telehealth Engineer', dept: 'Technology & AI', date: '2026-10-22', buddy: 'Vikramaditya Rao', hardware: 'MacBook Pro M3 Max', bvg: 'Verified (SpringVerify)', pct: 50, status: 'In Progress' },
+    { name: 'Farooq Abdullah', role: 'Cold-Chain Logistics Executive', dept: 'Supply Chain & Ops', date: '2026-10-08', buddy: 'Karthik Subramaniam', hardware: 'Samsung Galaxy Tab Active', bvg: 'Verified (SpringVerify)', pct: 100, status: 'Completed' },
+    { name: 'Meera Krishnan', role: 'Feline Behavioral Specialist', dept: 'Clinical Care', date: '2026-10-25', buddy: 'Dr. Priya Nair', hardware: 'iPad Air + Apple Pencil', bvg: 'Under Review', pct: 40, status: 'In Progress' }
+  ];
 
   function closeOthers() {
     document.querySelectorAll('.zpanel-root').forEach(function (el) {
@@ -45,15 +56,15 @@
       '    <div class="zhr-sub">Recruit integration journeys, hardware provisioning, background checks, medical council verification, and buddy assignments</div>',
       '  </div>',
       '  <div style="display:flex;align-items:center;gap:10px;">',
-      '    <span class="zhr-badge">● 0.0% SLA Adherence</span>',
+      '    <span class="zhr-badge zhr-badge-success">● 98.5% SLA Adherence</span>',
       '  </div>',
       '</div>',
       '<div class="zhr-body">',
       '  <div class="zhr-kpi-grid">',
-      '    <div class="zhr-card"><div class="zhr-card-label">Active Cohort</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Day-1 Readiness</div><div class="zhr-card-value">0.0%</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Background Checks</div><div class="zhr-card-value">0.0%</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Buddy Allocation</div><div class="zhr-card-value">0.0%</div><div class="zhr-card-sub">No records</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Active Cohort</div><div class="zhr-card-value">10 Recruits</div><div class="zhr-card-sub">Clinical & tech joiners</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Day-1 Readiness</div><div class="zhr-card-value">98.5%</div><div class="zhr-card-sub">Zero IT downtime</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Background Checks</div><div class="zhr-card-value">100% Verified</div><div class="zhr-card-sub">SpringVerify certified</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Buddy Allocation</div><div class="zhr-card-value">100% Assigned</div><div class="zhr-card-sub">10 / 10 paired</div></div>',
       '  </div>',
       '  <div class="zhr-table-container">',
       '    <div class="zhr-table-head">',

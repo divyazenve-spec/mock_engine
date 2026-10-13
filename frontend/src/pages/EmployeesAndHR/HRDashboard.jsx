@@ -12,13 +12,57 @@ export default function HRDashboard() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showReqModal, setShowReqModal] = useState(false);
 
-  const deptHeadcounts = [];
+  const deptHeadcounts = [
+    { name: 'Clinical Veterinary Services', count: 48, budget: '₹38.5L / mo', color: '#10b981' },
+    { name: 'Central Pet Pharmacy', count: 34, budget: '₹22.8L / mo', color: '#0ea5e9' },
+    { name: 'Hyperlocal 60-Min Logistics', count: 42, budget: '₹21.5L / mo', color: '#f59e0b' },
+    { name: 'Technology & AI Engineering', count: 28, budget: '₹36.2L / mo', color: '#8b5cf6' },
+    { name: 'Warehouse & Inventory Hubs', count: 22, budget: '₹12.4L / mo', color: '#ec4899' },
+    { name: 'Customer Delight & Concierge', count: 16, budget: '₹9.8L / mo', color: '#14b8a6' },
+    { name: 'Diagnostic Labs & Pathology', count: 12, budget: '₹11.6L / mo', color: '#6366f1' },
+    { name: 'HR & Talent Acquisition', count: 6, budget: '₹5.8L / mo', color: '#84cc16' },
+    { name: 'Finance & Audit Operations', count: 5, budget: '₹6.2L / mo', color: '#eab308' },
+    { name: 'Veterinary Surgery & ICU', count: 15, budget: '₹16.4L / mo', color: '#06b6d4' }
+  ];
 
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState([
+    { id: 'EMP-1001', name: 'Dr. Priya Nair', role: 'Chief Veterinary Officer', dept: 'Clinical', loc: 'Koramangala Super-Specialty Hospital', email: 'priya.nair@zenvepet.com', phone: '+91 98450 11201', joined: '15 Jan 2022', status: 'Active', salary: '₹2,10,000 / mo', rating: '5.0★' },
+    { id: 'EMP-1002', name: 'Dr. Rajesh Varma', role: 'Lead Veterinary Surgeon', dept: 'Clinical', loc: 'Indiranagar Hospital', email: 'rajesh.varma@zenvepet.com', phone: '+91 98450 22302', joined: '04 Mar 2022', status: 'Active', salary: '₹1,90,000 / mo', rating: '4.9★' },
+    { id: 'EMP-1003', name: 'Sneha Kulkarni', role: 'Head of Central Pharmacy', dept: 'Pharmacy', loc: 'Whitefield Fulfilment Hub', email: 'sneha.kulkarni@zenvepet.com', phone: '+91 98450 33403', joined: '10 Aug 2022', status: 'Active', salary: '₹1,40,000 / mo', rating: '4.9★' },
+    { id: 'EMP-1004', name: 'Vikramaditya Rao', role: 'Director of Engineering & AI', dept: 'Technology', loc: 'Bellandur Tech Park HQ', email: 'vikram.rao@zenvepet.com', phone: '+91 98450 44504', joined: '01 Feb 2023', status: 'Active', salary: '₹2,50,000 / mo', rating: '5.0★' },
+    { id: 'EMP-1005', name: 'Ananya Sen', role: 'Lead Talent Acquisition & HR', dept: 'HR', loc: 'Koramangala Central HQ', email: 'ananya.sen@zenvepet.com', phone: '+91 98450 55605', joined: '18 May 2023', status: 'Active', salary: '₹1,18,000 / mo', rating: '4.8★' },
+    { id: 'EMP-1006', name: 'Karthik Subramaniam', role: 'Hyperlocal Fleet Operations Mgr', dept: 'Logistics', loc: 'HSR Sector 2 Hub', email: 'karthik.s@zenvepet.com', phone: '+91 98450 66706', joined: '12 Jul 2023', status: 'Active', salary: '₹1,10,000 / mo', rating: '4.9★' },
+    { id: 'EMP-1007', name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Clinical', loc: 'Jayanagar 4th Block Clinic', email: 'pooja.hegde@zenvepet.com', phone: '+91 98450 77807', joined: '20 Sep 2023', status: 'Active', salary: '₹1,45,000 / mo', rating: '4.9★' },
+    { id: 'EMP-1008', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', loc: 'Central Support Node', email: 'm.zeeshan@zenvepet.com', phone: '+91 98450 88908', joined: '05 Jan 2024', status: 'Active', salary: '₹88,000 / mo', rating: '4.8★' },
+    { id: 'EMP-1009', name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', dept: 'Warehouse', loc: 'Electronic City Warehouse', email: 'rahul.d@zenvepet.com', phone: '+91 98450 99009', joined: '15 Mar 2024', status: 'On Leave', salary: '₹82,000 / mo', rating: '4.7★' },
+    { id: 'EMP-1010', name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical', loc: 'Koramangala Super-Specialty Hospital', email: 'divya.nambiar@zenvepet.com', phone: '+91 98450 00110', joined: '01 Aug 2024', status: 'Probation', salary: '₹75,000 / mo', rating: '4.8★' }
+  ]);
 
-  const [leaveRequests, setLeaveRequests] = useState([]);
+  const [leaveRequests, setLeaveRequests] = useState([
+    { id: 'LV-2026-101', name: 'Dr. Priya Nair', role: 'Chief Veterinary Officer', type: 'Casual Leave', dates: '18 Oct - 20 Oct (3d)', reason: 'Indian Vet Congress Keynote', bal: '14 Days Remaining', status: 'Pending' },
+    { id: 'LV-2026-102', name: 'Rahul Deshmukh', role: 'Warehouse Supervisor', type: 'Privilege Leave', dates: '10 Oct - 16 Oct (7d)', reason: 'Family Wedding', bal: '8 Days Remaining', status: 'Approved' },
+    { id: 'LV-2026-103', name: 'Sneha Kulkarni', role: 'Head of Pharmacy', type: 'Sick Leave', dates: '02 Oct - 03 Oct (2d)', reason: 'Seasonal Flu Recovery', bal: '10 Days Remaining', status: 'Approved' },
+    { id: 'LV-2026-104', name: 'Karthik Subramaniam', role: 'Fleet Manager', type: 'Comp Off', dates: '22 Oct (1d)', reason: 'Overtime festival coverage', bal: '3 Days Remaining', status: 'Pending' },
+    { id: 'LV-2026-105', name: 'Mohammed Zeeshan', role: 'CX Lead', type: 'Casual Leave', dates: '24 Oct - 25 Oct (2d)', reason: 'Personal errands', bal: '12 Days Remaining', status: 'Pending' },
+    { id: 'LV-2026-106', name: 'Dr. Rajesh Varma', role: 'Lead Surgeon', type: 'Maternity/Paternity', dates: '01 Nov - 15 Nov (15d)', reason: 'Paternity leave', bal: '15 Days Remaining', status: 'Approved' },
+    { id: 'LV-2026-107', name: 'Pooja Hegde', role: 'Pathologist', type: 'Casual Leave', dates: '28 Oct (1d)', reason: 'Family Function', bal: '11 Days Remaining', status: 'Pending' },
+    { id: 'LV-2026-108', name: 'Vikramaditya Rao', role: 'Engineering Director', type: 'Privilege Leave', dates: '12 Nov - 16 Nov (5d)', reason: 'Annual Vacation', bal: '18 Days Remaining', status: 'Pending' },
+    { id: 'LV-2026-109', name: 'Ananya Sen', role: 'Talent Acquisition', type: 'Casual Leave', dates: '19 Oct (1d)', reason: 'Doctor Appointment', bal: '9 Days Remaining', status: 'Approved' },
+    { id: 'LV-2026-110', name: 'Divya Nambiar', role: 'Clinical Associate', type: 'Casual Leave', dates: '21 Oct (1d)', reason: 'University Convocation', bal: '5 Days Remaining', status: 'Pending' }
+  ]);
 
-  const [openJobs, setOpenJobs] = useState([]);
+  const [openJobs, setOpenJobs] = useState([
+    { id: 'REQ-2026-081', title: 'Senior Small Animal Surgeon (Orthopedics)', dept: 'Clinical', loc: 'Indiranagar Hospital', openings: 2, applicants: 48, interview: 6, priority: 'Urgent' },
+    { id: 'REQ-2026-082', title: 'Registered Veterinary Nurse (ICU Specialist)', dept: 'Clinical', loc: 'Koramangala Hospital', openings: 4, applicants: 72, interview: 12, priority: 'Urgent' },
+    { id: 'REQ-2026-083', title: 'Clinical Pharmacist & Formulary Specialist', dept: 'Pharmacy', loc: 'Whitefield Hub', openings: 2, applicants: 34, interview: 5, priority: 'High' },
+    { id: 'REQ-2026-084', title: 'Hyperlocal Fleet Dispatcher & Route Planner', dept: 'Logistics', loc: 'HSR Layout Node', openings: 3, applicants: 52, interview: 8, priority: 'High' },
+    { id: 'REQ-2026-085', title: 'Senior AI Engineer (Pet Diagnostics & LLMs)', dept: 'Technology', loc: 'Bellandur HQ', openings: 2, applicants: 86, interview: 4, priority: 'Urgent' },
+    { id: 'REQ-2026-086', title: 'Dark Store Operations Lead', dept: 'Warehouse', loc: 'Electronic City Hub', openings: 1, applicants: 26, interview: 3, priority: 'High' },
+    { id: 'REQ-2026-087', title: 'Customer Delight Concierge (Kannada & English)', dept: 'Customer Delight', loc: 'Central Support HQ', openings: 5, applicants: 110, interview: 18, priority: 'Urgent' },
+    { id: 'REQ-2026-088', title: 'Biomarker Lab Technologist', dept: 'Clinical', loc: 'Jayanagar Clinic', openings: 2, applicants: 29, interview: 4, priority: 'Standard' },
+    { id: 'REQ-2026-089', title: 'Corporate HR Generalist & Payroll Specialist', dept: 'HR', loc: 'Koramangala HQ', openings: 1, applicants: 42, interview: 5, priority: 'Standard' },
+    { id: 'REQ-2026-090', title: 'Senior Fullstack Engineer (React & FastAPI)', dept: 'Technology', loc: 'Bellandur HQ', openings: 2, applicants: 95, interview: 7, priority: 'High' }
+  ]);
 
   function approveLeave(id) {
     setLeaveRequests(leaveRequests.map(l => l.id === id ? { ...l, status: 'Approved' } : l));
@@ -100,11 +144,11 @@ export default function HRDashboard() {
       }}>
         {[
           { id: 'overview', label: 'HR Executive Overview', icon: '🧑‍💼' },
-          { id: 'directory', label: 'Workforce Directory', icon: '👥', badge: '0' },
-          { id: 'attendance', label: 'Attendance & Leaves', icon: '⏰', badge: '0 Pending' },
-          { id: 'payroll', label: 'Payroll & Cost Ledger', icon: '💵', badge: '₹0' },
-          { id: 'recruitment', label: 'Talent Acquisition', icon: '📢', badge: '0 Roles' },
-          { id: 'performance', label: 'Performance & Culture', icon: '⭐', badge: '0.0%' }
+          { id: 'directory', label: 'Workforce Directory', icon: '👥', badge: '10' },
+          { id: 'attendance', label: 'Attendance & Leaves', icon: '⏰', badge: '6 Pending' },
+          { id: 'payroll', label: 'Payroll & Cost Ledger', icon: '💵', badge: '₹1.81 Cr' },
+          { id: 'recruitment', label: 'Talent Acquisition', icon: '📢', badge: '10 Roles' },
+          { id: 'performance', label: 'Performance & Culture', icon: '⭐', badge: '95.2%' }
         ].map(t => (
           <button
             key={t.id}
@@ -148,10 +192,10 @@ export default function HRDashboard() {
         <div>
           {/* Top Level KPIs */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', marginBottom: '20px' }}>
-            <KpiCard label="Active Headcount" value="0" delta="0.0%" trend="neutral" subtext="No core divisions" icon="👥" />
-            <KpiCard label="Monthly Payroll Burn" value="₹0" delta="0.0%" trend="neutral" subtext="Salaries, PF, ESI & bonuses" icon="💵" />
-            <KpiCard label="Workforce Retention Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Top-quartile benchmark" icon="🤝" />
-            <KpiCard label="eNPS Pulse Score" value="0.0 eNPS" delta="--" trend="neutral" subtext="Quarterly employee pulse" icon="❤️" />
+            <KpiCard label="Active Headcount" value="228 Staff" delta="+14 YoY" trend="up" subtext="Across 10 core divisions" icon="👥" />
+            <KpiCard label="Monthly Payroll Burn" value="₹1,81,20,000" delta="+4.2%" trend="up" subtext="Salaries, PF, ESI & bonuses" icon="💵" />
+            <KpiCard label="Workforce Retention Rate" value="96.8%" delta="+2.4%" trend="up" subtext="Top-quartile healthcare benchmark" icon="🤝" />
+            <KpiCard label="eNPS Pulse Score" value="+68 eNPS" delta="+5.2" trend="up" subtext="Quarterly employee pulse" icon="❤️" />
           </div>
 
           {/* Department Stratification & Vital Signs */}
@@ -173,7 +217,7 @@ export default function HRDashboard() {
                   </div>
                 ) : (
                   deptHeadcounts.map(d => {
-                    const pct = Math.round((d.count / 208) * 100);
+                    const pct = Math.round((d.count / 228) * 100);
                     return (
                       <div key={d.name}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
@@ -203,23 +247,23 @@ export default function HRDashboard() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                 <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)' }}>
                   <div style={{ fontSize: '11px', color: '#10b981', fontWeight: 600 }}>Clocked In Today</div>
-                  <div style={{ fontSize: '20px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>0 / 0</div>
-                  <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>0.0% active staffing</div>
+                  <div style={{ fontSize: '20px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>218 / 228</div>
+                  <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>95.6% active staffing coverage</div>
                 </div>
                 <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(14,165,233,0.06)', border: '1px solid rgba(14,165,233,0.2)' }}>
                   <div style={{ fontSize: '11px', color: '#38bdf8', fontWeight: 600 }}>Time to Hire</div>
-                  <div style={{ fontSize: '20px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>0 Days</div>
-                  <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>No active requisitions</div>
+                  <div style={{ fontSize: '20px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>19 Days</div>
+                  <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>10 active requisitions</div>
                 </div>
                 <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)' }}>
                   <div style={{ fontSize: '11px', color: '#fbbf24', fontWeight: 600 }}>Pending Leaves</div>
-                  <div style={{ fontSize: '20px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>0 Requests</div>
-                  <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>0 awaiting signoff</div>
+                  <div style={{ fontSize: '20px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>6 Requests</div>
+                  <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>Manager queue awaiting signoff</div>
                 </div>
                 <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(139,92,246,0.06)', border: '1px solid rgba(139,92,246,0.2)' }}>
                   <div style={{ fontSize: '11px', color: '#c4b5fd', fontWeight: 600 }}>Day-1 Readiness</div>
-                  <div style={{ fontSize: '20px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>0.0%</div>
-                  <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>No pending onboarding</div>
+                  <div style={{ fontSize: '20px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>98.5%</div>
+                  <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>Hardware & BGV pre-provisioned</div>
                 </div>
               </div>
             </div>
@@ -420,10 +464,10 @@ export default function HRDashboard() {
       {activeTab === 'payroll' && (
         <div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', marginBottom: '20px' }}>
-            <KpiCard label="Monthly Gross Disbursal" value="₹0" delta="0.0%" trend="neutral" subtext="Current period" icon="💵" />
-            <KpiCard label="PF &amp; ESI Statutory" value="₹0" delta="Remitted to EPFO" trend="neutral" subtext="Zero compliance default" icon="🏛️" />
-            <KpiCard label="TDS Tax Deducted" value="₹0" delta="0.0%" trend="neutral" subtext="Tax deposit ready" icon="🧾" />
-            <KpiCard label="Annualized CTC Spend" value="₹0" delta="0.0%" trend="neutral" subtext="Current financial plan" icon="💰" />
+            <KpiCard label="Monthly Gross Disbursal" value="₹1,81,20,000" delta="+4.2%" trend="up" subtext="Current period" icon="💵" />
+            <KpiCard label="PF &amp; ESI Statutory" value="₹21,74,400" delta="Remitted to EPFO" trend="up" subtext="Zero compliance default" icon="🏛️" />
+            <KpiCard label="TDS Tax Deducted" value="₹18,50,000" delta="+2.8%" trend="neutral" subtext="Tax deposit ready" icon="🧾" />
+            <KpiCard label="Annualized CTC Spend" value="₹21.74 Cr" delta="+6.5%" trend="up" subtext="Current financial plan" icon="💰" />
           </div>
 
           <div style={{
@@ -447,18 +491,18 @@ export default function HRDashboard() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '12px', fontSize: '12px' }}>
               <div style={{ background: 'rgba(0,0,0,0.25)', padding: '14px', borderRadius: '10px' }}>
                 <strong style={{ color: '#f8fafc' }}>Batch HDFC-0926-01 (Clinical &amp; Doctors)</strong>
-                <div style={{ color: '#34d399', fontFamily: '"IBM Plex Mono", monospace', fontSize: '16px', margin: '4px 0' }}>₹0</div>
-                <div style={{ color: '#94a3b8' }}>0 Accounts Credited · Verified ✅</div>
+                <div style={{ color: '#34d399', fontFamily: '"IBM Plex Mono", monospace', fontSize: '16px', margin: '4px 0' }}>₹66,50,000</div>
+                <div style={{ color: '#94a3b8' }}>48 Accounts Credited · Verified ✅</div>
               </div>
               <div style={{ background: 'rgba(0,0,0,0.25)', padding: '14px', borderRadius: '10px' }}>
                 <strong style={{ color: '#f8fafc' }}>Batch HDFC-0926-02 (Tech, Pharmacy, Ops)</strong>
-                <div style={{ color: '#34d399', fontFamily: '"IBM Plex Mono", monospace', fontSize: '16px', margin: '4px 0' }}>₹0</div>
-                <div style={{ color: '#94a3b8' }}>0 Accounts Credited · Verified ✅</div>
+                <div style={{ color: '#34d399', fontFamily: '"IBM Plex Mono", monospace', fontSize: '16px', margin: '4px 0' }}>₹70,40,000</div>
+                <div style={{ color: '#94a3b8' }}>82 Accounts Credited · Verified ✅</div>
               </div>
               <div style={{ background: 'rgba(0,0,0,0.25)', padding: '14px', borderRadius: '10px' }}>
                 <strong style={{ color: '#f8fafc' }}>Batch ICICI-0926-03 (Delivery Riders)</strong>
-                <div style={{ color: '#34d399', fontFamily: '"IBM Plex Mono", monospace', fontSize: '16px', margin: '4px 0' }}>₹0</div>
-                <div style={{ color: '#94a3b8' }}>0 Accounts Credited · Verified ✅</div>
+                <div style={{ color: '#34d399', fontFamily: '"IBM Plex Mono", monospace', fontSize: '16px', margin: '4px 0' }}>₹44,30,000</div>
+                <div style={{ color: '#94a3b8' }}>78 Accounts Credited · Verified ✅</div>
               </div>
             </div>
           </div>
@@ -542,10 +586,10 @@ export default function HRDashboard() {
       {activeTab === 'performance' && (
         <div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', marginBottom: '20px' }}>
-            <KpiCard label="Avg Org KPI Score" value="0.0" delta="0.0%" trend="neutral" subtext="No staff registered" icon="🎯" />
-            <KpiCard label="Top Performers" value="0" delta="0.0%" trend="neutral" subtext="Eligible for merit bonus" icon="🌟" />
-            <KpiCard label="Pet Parent CSAT" value="0.0" delta="--" trend="neutral" subtext="No reviews recorded" icon="❤️" />
-            <KpiCard label="Appraisals Completed" value="0" delta="0.0%" trend="neutral" subtext="No reviews pending" icon="📝" />
+            <KpiCard label="Avg Org KPI Score" value="94.6%" delta="+3.1%" trend="up" subtext="208 scorecards submitted" icon="🎯" />
+            <KpiCard label="Top Performers" value="42 Staff" delta="Tier 1" trend="up" subtext="Eligible for merit bonus" icon="🌟" />
+            <KpiCard label="Pet Parent CSAT" value="4.92 / 5.0" delta="+0.08" trend="up" subtext="12,480 pet reviews" icon="❤️" />
+            <KpiCard label="Appraisals Completed" value="98.2%" delta="4 Pending" trend="up" subtext="Cycle closing 31 Oct" icon="📝" />
           </div>
 
           <div style={{
@@ -554,9 +598,30 @@ export default function HRDashboard() {
             borderRadius: '12px',
             padding: '20px'
           }}>
-            <h3 style={{ margin: '0 0 14px', fontSize: '15px', fontWeight: 700 }}>🏆 Q3 2026 Employee Recognition &amp; Spot Awards</h3>
-            <div style={{ padding: '36px 16px', textAlign: 'center', color: '#94a3b8', background: 'rgba(0,0,0,0.15)', borderRadius: '10px' }}>
-              No spot awards recorded for the current cycle
+            <h3 style={{ margin: '0 0 14px', fontSize: '15px', fontWeight: 700 }}>🏆 Q3 2026 Employee Recognition &amp; Spot Awards (10 Honorees)</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px' }}>
+              {[
+                { name: 'Dr. Priya Nair', role: 'Chief Veterinary Officer', award: 'Clinical Life Saver of the Quarter', reason: 'Zero mortality in 42 emergency polytrauma surgeries' },
+                { name: 'Dr. Rajesh Varma', role: 'Lead Surgeon', award: 'Excellence in Surgical Care', reason: '99.4% post-operative recovery rate on 320 orthopedics' },
+                { name: 'Sneha Kulkarni', role: 'Head of Pharmacy', award: 'Zero Cold-Chain Deviation', reason: '100% audit pass across 16,000 temperature-controlled biologics' },
+                { name: 'Vikramaditya Rao', role: 'Engineering Director', award: 'AI Innovation Laureate', reason: 'Deployed Gemini pet symptom triaging with 94% diagnostic agreement' },
+                { name: 'Ananya Sen', role: 'Talent Acquisition', award: 'Rapid Scale Champion', reason: 'Hired 19 specialty vets with a record 19-day average time-to-hire' },
+                { name: 'Karthik Subramaniam', role: 'Fleet Manager', award: 'Lightning Dispatcher', reason: 'Achieved 44.2 min average 60-min express delivery in Bengaluru rains' },
+                { name: 'Pooja Hegde', role: 'Senior Pathologist', award: 'STAT Lab Master', reason: 'Under 3.2 hour turnaround on 1,280 critical biomarker profiles' },
+                { name: 'Mohammed Zeeshan', role: 'Customer Experience Lead', award: 'Pet Parent Delight Hero', reason: 'Maintained 4.98 CSAT across 4,680 empathetic support tickets' },
+                { name: 'Rahul Deshmukh', role: 'Warehouse Supervisor', award: 'Inventory Precision Award', reason: 'Zero inventory variance across 51,200 pick/pack orders' },
+                { name: 'Divya Nambiar', role: 'Junior Associate', award: 'Rising Star of the Year', reason: 'Exemplary clinical sedation monitoring across 180 critical patients' }
+              ].map(a => (
+                <div key={a.name} style={{ background: 'rgba(0,0,0,0.25)', padding: '14px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                    <strong style={{ color: '#f8fafc', fontSize: '13px' }}>{a.name}</strong>
+                    <span style={{ fontSize: '10px', padding: '2px 6px', borderRadius: '4px', background: 'rgba(245,158,11,0.15)', color: '#fbbf24', fontWeight: 600 }}>Spot Award</span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: '#94a3b8', marginTop: '2px' }}>{a.role}</div>
+                  <div style={{ color: '#38bdf8', fontSize: '12px', fontWeight: 600, marginTop: '8px' }}>🏅 {a.award}</div>
+                  <div style={{ color: '#cbd5e1', fontSize: '11px', marginTop: '4px', lineHeight: '1.4' }}>{a.reason}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

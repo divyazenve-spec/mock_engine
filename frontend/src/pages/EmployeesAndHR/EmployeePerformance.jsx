@@ -6,7 +6,118 @@ export default function EmployeePerformance() {
   const [cycle, setCycle] = useState('Q3-2026');
   const [filterRating, setFilterRating] = useState('ALL');
 
-  const performers = [];
+  const performers = [
+    {
+      name: 'Dr. Priya Nair',
+      role: 'Chief Veterinary Officer',
+      dept: 'Clinical',
+      score: 98.5,
+      rating: 'Tier 1 (5★ Exceptional)',
+      consultations: '382 Cases / 42 Surgeries',
+      csat: '4.95 / 5.0',
+      sla: '99.4%',
+      status: 'Appraised'
+    },
+    {
+      name: 'Dr. Rajesh Varma',
+      role: 'Lead Veterinary Surgeon',
+      dept: 'Clinical',
+      score: 96.8,
+      rating: 'Tier 1 (5★ Exceptional)',
+      consultations: '324 Complex Surgeries',
+      csat: '4.92 / 5.0',
+      sla: '99.1%',
+      status: 'Appraised'
+    },
+    {
+      name: 'Sneha Kulkarni',
+      role: 'Head of Central Pharmacy',
+      dept: 'Pharmacy',
+      score: 95.4,
+      rating: 'Tier 1 (5★ Exceptional)',
+      consultations: '16,240 Rx Batches',
+      csat: '4.88 / 5.0',
+      sla: '99.8%',
+      status: 'Appraised'
+    },
+    {
+      name: 'Vikramaditya Rao',
+      role: 'Director of Engineering & AI',
+      dept: 'Technology',
+      score: 97.2,
+      rating: 'Tier 1 (5★ Exceptional)',
+      consultations: '99.98% Core Uptime',
+      csat: '4.96 / 5.0',
+      sla: '99.9%',
+      status: 'Appraised'
+    },
+    {
+      name: 'Ananya Sen',
+      role: 'Lead Talent Acquisition & HR',
+      dept: 'HR & People',
+      score: 93.5,
+      rating: 'Tier 2 (4★ Exceeds)',
+      consultations: '19 Specialty Hires',
+      csat: '4.85 / 5.0',
+      sla: '96.2%',
+      status: 'Appraised'
+    },
+    {
+      name: 'Karthik Subramaniam',
+      role: 'Hyperlocal Fleet Operations Mgr',
+      dept: 'Logistics',
+      score: 94.0,
+      rating: 'Tier 2 (4★ Exceeds)',
+      consultations: '26,850 Deliveries',
+      csat: '4.91 / 5.0',
+      sla: '97.5%',
+      status: 'Appraised'
+    },
+    {
+      name: 'Pooja Hegde',
+      role: 'Senior Veterinary Pathologist',
+      dept: 'Clinical',
+      score: 94.8,
+      rating: 'Tier 2 (4★ Exceeds)',
+      consultations: '1,280 Lab Panels',
+      csat: '4.90 / 5.0',
+      sla: '98.6%',
+      status: 'Appraised'
+    },
+    {
+      name: 'Mohammed Zeeshan',
+      role: 'Lead Customer Experience',
+      dept: 'Customer Delight',
+      score: 92.6,
+      rating: 'Tier 2 (4★ Exceeds)',
+      consultations: '4,680 Support Cases',
+      csat: '4.94 / 5.0',
+      sla: '98.0%',
+      status: 'Appraised'
+    },
+    {
+      name: 'Rahul Deshmukh',
+      role: 'Dark Store Warehouse Supervisor',
+      dept: 'Warehouse',
+      score: 89.5,
+      rating: 'Tier 3 (3★ Meets)',
+      consultations: '51,200 Packaged SKUs',
+      csat: '4.78 / 5.0',
+      sla: '95.4%',
+      status: 'In Review'
+    },
+    {
+      name: 'Divya Nambiar',
+      role: 'Junior Clinical Associate',
+      dept: 'Clinical',
+      score: 91.0,
+      rating: 'Tier 2 (4★ Exceeds)',
+      consultations: '186 Surgical Assists',
+      csat: '4.86 / 5.0',
+      sla: '97.0%',
+      status: 'Appraised'
+    }
+  ];
 
   const filtered = performers.filter(p => {
     if (filterRating === 'ALL') return true;
@@ -24,10 +135,10 @@ export default function EmployeePerformance() {
     >
       {/* Top Level KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Average Org KPI Score" value="0.0" delta="0.0%" trend="neutral" subtext="No staff registered" icon="🎯" />
-        <KpiCard label="Top Tier Performers" value="0" delta="0.0%" trend="neutral" subtext="Eligible for merit bonus" icon="🌟" />
-        <KpiCard label="Customer / Pet CSAT" value="0.0" delta="--" trend="neutral" subtext="No ratings recorded" icon="❤️" />
-        <KpiCard label="Appraisal Reviews Completed" value="0" delta="0.0%" trend="neutral" subtext="No reviews pending" icon="📝" />
+        <KpiCard label="Average Org KPI Score" value="94.6%" delta="+3.1%" trend="up" subtext="208 scorecards verified" icon="🎯" />
+        <KpiCard label="Top Tier Performers" value="42 Staff" delta="Tier 1" trend="up" subtext="Eligible for merit bonus" icon="🌟" />
+        <KpiCard label="Customer / Pet CSAT" value="4.92 / 5.0" delta="+0.08" trend="up" subtext="12,480 pet reviews" icon="❤️" />
+        <KpiCard label="Appraisal Reviews Completed" value="98.2%" delta="4 Pending" trend="up" subtext="Cycle closing 31 Oct" icon="📝" />
       </div>
 
       {/* Cycle Selector & Filter Bar */}

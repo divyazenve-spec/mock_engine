@@ -8,7 +8,18 @@
   var root = null;
   var isOpen = false;
 
-  var punches = [];
+  var punches = [
+    { id: 'EMP-1001', name: 'Dr. Priya Nair', shift: '08:00 - 17:00 (General)', punchIn: '07:54 AM', punchOut: '17:15 PM', loc: 'FaceID · Koramangala Central', ot: '1.2h', status: 'On Time' },
+    { id: 'EMP-1002', name: 'Dr. Rajesh Varma', shift: '09:00 - 18:00 (Surgical)', punchIn: '08:48 AM', punchOut: '18:30 PM', loc: 'FaceID · Indiranagar Hub', ot: '1.5h', status: 'On Time' },
+    { id: 'EMP-1003', name: 'Sneha Kulkarni', shift: '08:30 - 17:30 (Morning)', punchIn: '08:22 AM', punchOut: '17:40 PM', loc: 'Biometric Palm · Whitefield', ot: '0.8h', status: 'On Time' },
+    { id: 'EMP-1004', name: 'Vikramaditya Rao', shift: '10:00 - 19:00 (Flexible)', punchIn: '09:50 AM', punchOut: '19:20 PM', loc: 'Geofence App · Bellandur Tech Park', ot: '0.5h', status: 'On Time' },
+    { id: 'EMP-1005', name: 'Ananya Sen', shift: '09:30 - 18:30 (HQ)', punchIn: '09:15 AM', punchOut: '18:45 PM', loc: 'FaceID · Koramangala HQ', ot: '0.2h', status: 'On Time' },
+    { id: 'EMP-1006', name: 'Karthik Subramaniam', shift: '07:00 - 16:00 (Early Shift)', punchIn: '06:45 AM', punchOut: '16:30 PM', loc: 'RFID Terminal · HSR Layout', ot: '1.0h', status: 'On Time' },
+    { id: 'EMP-1007', name: 'Pooja Hegde', shift: '08:00 - 17:00 (Lab Shift)', punchIn: '07:52 AM', punchOut: '17:10 PM', loc: 'Biometric Palm · Jayanagar Lab', ot: '0.5h', status: 'On Time' },
+    { id: 'EMP-1008', name: 'Mohammed Zeeshan', shift: '09:00 - 18:00 (Support)', punchIn: '08:55 AM', punchOut: '18:15 PM', loc: 'Geofence App · Support Node', ot: '0.5h', status: 'On Time' },
+    { id: 'EMP-1009', name: 'Rahul Deshmukh', shift: '06:00 - 15:00 (DC Shift)', punchIn: '—', punchOut: '—', loc: 'HR Leave Record · Electronic City', ot: '0.0h', status: 'Approved Leave' },
+    { id: 'EMP-1010', name: 'Divya Nambiar', shift: '08:30 - 17:30 (OPD Shift)', punchIn: '08:42 AM', punchOut: '17:35 PM', loc: 'FaceID · Koramangala Central', ot: '0.0h', status: 'Late Mark' }
+  ];
 
   function closeOthers() {
     document.querySelectorAll('.zpanel-root').forEach(function (el) {
@@ -40,15 +51,15 @@
       '    <div class="zhr-sub">Live biometric terminal clock-in stream, geo-fenced mobile punches, shift rosters, and punctuality monitoring</div>',
       '  </div>',
       '  <div style="display:flex;align-items:center;gap:10px;">',
-      '    <span class="zhr-badge">● 0 Clocked In Today</span>',
+      '    <span class="zhr-badge zhr-badge-success">● 9 Clocked In Today</span>',
       '  </div>',
       '</div>',
       '<div class="zhr-body">',
       '  <div class="zhr-kpi-grid">',
-      '    <div class="zhr-card"><div class="zhr-card-label">Present on Duty</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Punctuality Rate</div><div class="zhr-card-value">0.0%</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Late Marks Today</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Approved Off / Leave</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Present on Duty</div><div class="zhr-card-value">9 Staff</div><div class="zhr-card-sub">90% daily roster</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Punctuality Rate</div><div class="zhr-card-value">98.2%</div><div class="zhr-card-sub">+1.2% this month</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Late Marks Today</div><div class="zhr-card-value">1 Staff</div><div class="zhr-card-sub">Grace period applied</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Approved Off / Leave</div><div class="zhr-card-value">1 Staff</div><div class="zhr-card-sub">Rahul Deshmukh</div></div>',
       '  </div>',
       '  <div class="zhr-table-container">',
       '    <div class="zhr-table-head">',

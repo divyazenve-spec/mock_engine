@@ -7,7 +7,18 @@
 
   var root = null;
   var isOpen = false;
-  var employees = [];
+  var employees = [
+    { id: 'EMP-1001', name: 'Dr. Priya Nair', role: 'Chief Veterinary Officer', dept: 'Clinical', loc: 'Koramangala Central', email: 'priya.nair@zenvepet.in', phone: '+91 98450 11001', joined: '2023-01-15', status: 'Active', salary: '₹24,00,000' },
+    { id: 'EMP-1002', name: 'Dr. Rajesh Varma', role: 'Lead Veterinary Surgeon', dept: 'Clinical', loc: 'Indiranagar Hub', email: 'rajesh.varma@zenvepet.in', phone: '+91 98450 11002', joined: '2023-03-01', status: 'Active', salary: '₹21,50,000' },
+    { id: 'EMP-1003', name: 'Sneha Kulkarni', role: 'Head of Central Pharmacy', dept: 'Pharmacy', loc: 'Whitefield Annex', email: 'sneha.kulkarni@zenvepet.in', phone: '+91 98450 11003', joined: '2023-04-10', status: 'Active', salary: '₹16,80,000' },
+    { id: 'EMP-1004', name: 'Vikramaditya Rao', role: 'Director of Engineering & AI', dept: 'Technology', loc: 'Bellandur Tech Park', email: 'vikram.rao@zenvepet.in', phone: '+91 98450 11004', joined: '2023-02-15', status: 'Active', salary: '₹34,00,000' },
+    { id: 'EMP-1005', name: 'Ananya Sen', role: 'Lead Talent Acquisition & HR', dept: 'HR & People', loc: 'Koramangala HQ', email: 'ananya.sen@zenvepet.in', phone: '+91 98450 11005', joined: '2023-06-20', status: 'Active', salary: '₹14,50,000' },
+    { id: 'EMP-1006', name: 'Karthik Subramaniam', role: 'Hyperlocal Fleet Operations Mgr', dept: 'Logistics', loc: 'HSR Layout Node', email: 'karthik.s@zenvepet.in', phone: '+91 98450 11006', joined: '2023-05-12', status: 'Active', salary: '₹13,20,000' },
+    { id: 'EMP-1007', name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Clinical', loc: 'Jayanagar Specialty', email: 'pooja.hegde@zenvepet.in', phone: '+91 98450 11007', joined: '2023-08-01', status: 'Active', salary: '₹15,60,000' },
+    { id: 'EMP-1008', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', loc: 'Support Node Central', email: 'm.zeeshan@zenvepet.in', phone: '+91 98450 11008', joined: '2023-07-15', status: 'Active', salary: '₹12,40,000' },
+    { id: 'EMP-1009', name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', dept: 'Warehouse', loc: 'Electronic City DC', email: 'rahul.d@zenvepet.in', phone: '+91 98450 11009', joined: '2023-09-01', status: 'On Leave', salary: '₹9,80,000' },
+    { id: 'EMP-1010', name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical', loc: 'Koramangala Central', email: 'divya.n@zenvepet.in', phone: '+91 98450 11010', joined: '2024-01-10', status: 'Active', salary: '₹8,50,000' }
+  ];
 
   function closeOthers() {
     document.querySelectorAll('.zpanel-root').forEach(function (el) {
@@ -55,10 +66,10 @@
       '</div>',
       '<div class="zhr-body">',
       '  <div class="zhr-kpi-grid">',
-      '    <div class="zhr-card"><div class="zhr-card-label">Total Roster</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Active on Duty</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">On Approved Leave</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Probation / Training</div><div class="zhr-card-value">0</div><div class="zhr-card-sub">No records</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Total Roster</div><div class="zhr-card-value">10 Staff</div><div class="zhr-card-sub">Core roster tracked</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Active on Duty</div><div class="zhr-card-value">9 Staff</div><div class="zhr-card-sub">90% operational coverage</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">On Approved Leave</div><div class="zhr-card-value">1 Staff</div><div class="zhr-card-sub">Approved casual leave</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Probation / Training</div><div class="zhr-card-value">1 Staff</div><div class="zhr-card-sub">Divya Nambiar (Q4)</div></div>',
       '  </div>',
       '  <div class="zhr-card" style="padding:12px 18px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;">',
       '    <input type="text" id="zhr-search-input" placeholder="Search by name, role, department, location, ID..." style="flex:1;max-width:450px;padding:8px 14px;border-radius:7px;border:1px solid rgba(255,255,255,0.12);background:rgba(0,0,0,0.3);color:#fff;font-size:12px;outline:none;" />',

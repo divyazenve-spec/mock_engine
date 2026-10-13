@@ -9,7 +9,18 @@ export default function AllEmployees() {
   const [selectedEmp, setSelectedEmp] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
 
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState([
+    { id: 'EMP-1001', name: 'Dr. Priya Nair', role: 'Chief Veterinary Officer', dept: 'Clinical', location: 'Koramangala Hospital', type: 'Full-time', joined: '15 Jan 2022', status: 'Active', email: 'priya.nair@zenvepet.com', phone: '+91 98450 11201', salary: '₹2,10,000 / mo', rating: '5.0 ★' },
+    { id: 'EMP-1002', name: 'Dr. Rajesh Varma', role: 'Lead Veterinary Surgeon', dept: 'Clinical', location: 'Indiranagar Hospital', type: 'Full-time', joined: '04 Mar 2022', status: 'Active', email: 'rajesh.varma@zenvepet.com', phone: '+91 98450 22302', salary: '₹1,90,000 / mo', rating: '4.9 ★' },
+    { id: 'EMP-1003', name: 'Sneha Kulkarni', role: 'Head of Central Pharmacy', dept: 'Pharmacy', location: 'Whitefield Hub', type: 'Full-time', joined: '10 Aug 2022', status: 'Active', email: 'sneha.kulkarni@zenvepet.com', phone: '+91 98450 33403', salary: '₹1,40,000 / mo', rating: '4.9 ★' },
+    { id: 'EMP-1004', name: 'Vikramaditya Rao', role: 'Director of Engineering & AI', dept: 'Technology', location: 'Bellandur HQ', type: 'Full-time', joined: '01 Feb 2023', status: 'Active', email: 'vikram.rao@zenvepet.com', phone: '+91 98450 44504', salary: '₹2,50,000 / mo', rating: '5.0 ★' },
+    { id: 'EMP-1005', name: 'Ananya Sen', role: 'Lead Talent Acquisition & HR', dept: 'Clinical', location: 'Koramangala HQ', type: 'Full-time', joined: '18 May 2023', status: 'Active', email: 'ananya.sen@zenvepet.com', phone: '+91 98450 55605', salary: '₹1,18,000 / mo', rating: '4.8 ★' },
+    { id: 'EMP-1006', name: 'Karthik Subramaniam', role: 'Hyperlocal Fleet Operations Mgr', dept: 'Logistics', location: 'HSR Layout Node', type: 'Full-time', joined: '12 Jul 2023', status: 'Active', email: 'karthik.s@zenvepet.com', phone: '+91 98450 66706', salary: '₹1,10,000 / mo', rating: '4.9 ★' },
+    { id: 'EMP-1007', name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Clinical', location: 'Jayanagar Clinic', type: 'Full-time', joined: '20 Sep 2023', status: 'Active', email: 'pooja.hegde@zenvepet.com', phone: '+91 98450 77807', salary: '₹1,45,000 / mo', rating: '4.9 ★' },
+    { id: 'EMP-1008', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', location: 'Central Support Node', type: 'Full-time', joined: '05 Jan 2024', status: 'Active', email: 'm.zeeshan@zenvepet.com', phone: '+91 98450 88908', salary: '₹88,000 / mo', rating: '4.8 ★' },
+    { id: 'EMP-1009', name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', dept: 'Warehouse', location: 'Electronic City Warehouse', type: 'Full-time', joined: '15 Mar 2024', status: 'On Leave', email: 'rahul.d@zenvepet.com', phone: '+91 98450 99009', salary: '₹82,000 / mo', rating: '4.7 ★' },
+    { id: 'EMP-1010', name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical', location: 'Koramangala Hospital', type: 'Full-time', joined: '01 Aug 2024', status: 'Probation', email: 'divya.nambiar@zenvepet.com', phone: '+91 98450 00110', salary: '₹75,000 / mo', rating: '4.8 ★' }
+  ]);
 
   const filtered = employees.filter(e => {
     const matchSearch = (e.name + ' ' + e.role + ' ' + e.id + ' ' + e.email + ' ' + e.location).toLowerCase().includes(searchTerm.toLowerCase());
@@ -51,10 +62,10 @@ export default function AllEmployees() {
     >
       {/* Top Level KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Staff Members" value="0" delta="0.0%" trend="neutral" subtext="No divisions active" icon="👥" />
-        <KpiCard label="Active on Duty" value="0" delta="0.0%" trend="neutral" subtext="In clinic, warehouse & field" icon="🟢" />
-        <KpiCard label="On Approved Leave" value="0" delta="--" trend="neutral" subtext="Adequately backed up" icon="🏖️" />
-        <KpiCard label="Probation / Onboarding" value="0" delta="--" trend="neutral" subtext="All mentoring on track" icon="🐣" />
+        <KpiCard label="Total Staff Members" value="228 Staff" delta="+14 YoY" trend="up" subtext="Across 10 core divisions" icon="👥" />
+        <KpiCard label="Active on Duty" value="218 Active" delta="95.6%" trend="up" subtext="In clinic, warehouse & field" icon="🟢" />
+        <KpiCard label="On Approved Leave" value="6 Staff" delta="Planned" trend="neutral" subtext="Adequately backed up" icon="🏖️" />
+        <KpiCard label="Probation / Onboarding" value="4 Joiners" delta="On Track" trend="up" subtext="All mentoring on track" icon="🐣" />
       </div>
 
       {/* Filter and Search Bar */}
