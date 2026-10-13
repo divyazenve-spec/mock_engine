@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function CustomerSegmentation() {
-  const segments = [];
+  const segments = [
+    { name: 'Premium Pamperers', count: 1840, share: '14.7%', behavior: 'High grooming frequency, organic treats & designer collars', aov: '₹3,850', arpu: '₹92,400', campaign: 'Spa & Fashion Exclusive Showcase' },
+    { name: 'Medical & Chronic Guardians', count: 1420, share: '11.4%', behavior: 'Strict Rx diets, timely insulin, monthly blood work', aov: '₹4,200', arpu: '₹1,00,800', campaign: 'Auto-Refill Guarantee & Doctor Support' },
+    { name: 'Budget-Conscious Practicalists', count: 2980, share: '23.9%', behavior: 'Bulk kibble bags, economy vaccinations, deal hunters', aov: '₹1,650', arpu: '₹39,600', campaign: 'Monthly Smart Saver Bulk Discounts' },
+    { name: 'Multi-Pet Dynasties (Dogs + Cats)', count: 1650, share: '13.2%', behavior: 'Balanced purchases across species, high cart sizes', aov: '₹5,100', arpu: '₹1,22,400', campaign: 'Multi-Pet Club Tiered Cashback' },
+    { name: 'Puppy / Kitten First-Timers', count: 1140, share: '9.1%', behavior: 'High pediatric guidance needs, training pads, vaccines', aov: '₹2,900', arpu: '₹69,600', campaign: 'First Year Milestone Concierge' },
+    { name: 'Quick-Commerce Urgent Shoppers', count: 1280, share: '10.3%', behavior: 'Immediate 60-min deliveries for food, meds & sprays', aov: '₹2,100', arpu: '₹50,400', campaign: 'Express Dark-Store Free Shipping' },
+    { name: 'Natural & Raw Food Enthusiasts', count: 840, share: '6.7%', behavior: 'BARF diets, grain-free meals, refrigerated bone broth', aov: '₹4,400', arpu: '₹1,05,600', campaign: 'Farm-Fresh Cold Chain Alerts' },
+    { name: 'Working Pet Parents', count: 920, share: '7.4%', behavior: 'High weekend boarding, automated feeders, smart cameras', aov: '₹3,200', arpu: '₹76,800', campaign: 'Weekend Daycare & Sitter Pass' },
+    { name: 'Senior Pet Companions', count: 760, share: '6.1%', behavior: 'Orthopedic comfort, joint supplements, calm clinic visits', aov: '₹2,800', arpu: '₹67,200', campaign: 'Senior Mobility & Comfort Care' },
+    { name: 'Cat-Only Urban Minimalists', count: 650, share: '5.2%', behavior: 'Tofu litter, wet mousse cans, catnip scratching posts', aov: '₹1,950', arpu: '₹46,800', campaign: 'Feline Oasis Secret Deals' }
+  ];
 
   const cardStyle = { background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(0,0,0,0.08))', borderRadius: '12px', padding: '22px 24px' };
 
@@ -17,10 +28,10 @@ export default function CustomerSegmentation() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Persona Segments" value="0" delta="--" trend="neutral" subtext="Dynamic daily cluster updates" icon="🧩" />
-        <KpiCard label="Multi-Pet Cluster Share" value="0.0%" delta="0.0%" trend="neutral" subtext="No households" icon="🐾" />
-        <KpiCard label="Senior & Chronic Care" value="0.0%" delta="0.0%" trend="neutral" subtext="No recurring spend" icon="🩺" />
-        <KpiCard label="Segment Campaign ROAS" value="0.0x" delta="--" trend="neutral" subtext="Hyper-personalized recommendations" icon="🎯" />
+        <KpiCard label="Total Persona Segments" value="10 Active" delta="+2 New" trend="up" subtext="Dynamic daily cluster updates" icon="🧩" />
+        <KpiCard label="Multi-Pet Cluster Share" value="28.5%" delta="+6.4%" trend="up" subtext="Multi-pet households" icon="🐾" />
+        <KpiCard label="Senior & Chronic Care" value="17.5%" delta="+4.2%" trend="up" subtext="High recurring predictability" icon="🩺" />
+        <KpiCard label="Segment Campaign ROAS" value="6.8x" delta="+1.4x" trend="up" subtext="Hyper-personalized CRM" icon="🎯" />
       </div>
 
       <div style={cardStyle}>

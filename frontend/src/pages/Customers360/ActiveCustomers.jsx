@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function ActiveCustomers() {
-  const activeCohorts = [];
+  const activeCohorts = [
+    { cohort: 'Daily Hyper-Engagers (DAU)', count: '1,840', pctTotal: '14.7%', frequency: 'Daily health logs, food tracker & community', topActivity: '60-Min Quick Commerce', trend: '+24.2% ↑' },
+    { cohort: 'Weekly Active Shoppers (WAU)', count: '4,620', pctTotal: '37.0%', frequency: 'Bi-weekly kibble replenishment & treats', topActivity: 'Fast Express Delivery', trend: '+18.5% ↑' },
+    { cohort: 'Monthly Health & Clinic Cohort', count: '2,460', pctTotal: '19.7%', frequency: 'Monthly wellness checkup & Rx refill', topActivity: 'Veterinary Clinic & Rx', trend: '+12.8% ↑' },
+    { cohort: 'Multi-Pet Active Parents', count: '1,980', pctTotal: '15.9%', frequency: 'Cross-purchases for dogs & cats', topActivity: 'Omnichannel Combo', trend: '+28.4% ↑' },
+    { cohort: 'Grooming & Spa Subscribers', count: '890', pctTotal: '7.1%', frequency: 'Fortnightly grooming appointment bookings', topActivity: 'Luxury In-Clinic Spa', trend: '+16.2% ↑' },
+    { cohort: 'Chronic Illness Management', count: '640', pctTotal: '5.1%', frequency: 'Scheduled insulin, cardiac & renal diet', topActivity: 'Cold-Chain Pharmacy', trend: '+9.4% ↑' },
+    { cohort: 'New Puppy/Kitten Parents (0-6M)', count: '780', pctTotal: '6.2%', frequency: 'Milestone vaccines, training treats, chip', topActivity: 'Pediatric Vet Packages', trend: '+31.5% ↑' },
+    { cohort: 'Weekend Walkers & Daycare Cohort', count: '520', pctTotal: '4.2%', frequency: 'Weekend social play sessions & boarding', topActivity: 'Clinic Daycare & Boarding', trend: '+21.0% ↑' },
+    { cohort: 'Senior Pet Supportive Care', count: '430', pctTotal: '3.4%', frequency: 'Joint supplements, orthopedic beds, therapy', topActivity: 'Geriatric Vet Support', trend: '+8.7% ↑' },
+    { cohort: 'Premium Fashion & Accessories', count: '680', pctTotal: '5.4%', frequency: 'Designer harnesses, winter coats, bowties', topActivity: 'Zenve Fashion Boutique', trend: '+26.8% ↑' }
+  ];
 
   const cardStyle = { background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(0,0,0,0.08))', borderRadius: '12px', padding: '22px 24px' };
 
@@ -17,10 +28,10 @@ export default function ActiveCustomers() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Monthly Active Customers" value="0" delta="0.0%" trend="neutral" subtext="Transacting or visiting" icon="⚡" />
-        <KpiCard label="DAU / MAU Stickiness" value="0.0%" delta="Top decile consumer app" trend="neutral" subtext="High daily app utility" icon="📱" />
-        <KpiCard label="Avg Order Interval" value="0 Days" delta="--" trend="neutral" subtext="Faster replenishment" icon="⏱️" />
-        <KpiCard label="Omni-Channel Engaged" value="0.0%" delta="App + Physical Clinic" trend="neutral" subtext="Highest LTV customer bracket" icon="🏬" />
+        <KpiCard label="Monthly Active Customers" value="8,920" delta="+22.1%" trend="up" subtext="Transacting or clinic visit" icon="⚡" />
+        <KpiCard label="DAU / MAU Stickiness" value="28.6%" delta="+4.2%" trend="up" subtext="High daily app utility" icon="📱" />
+        <KpiCard label="Avg Order Interval" value="14.2 Days" delta="-2.8 Days" trend="up" subtext="Faster replenishment" icon="⏱️" />
+        <KpiCard label="Omni-Channel Engaged" value="44.8%" delta="+9.5%" trend="up" subtext="App + Physical Clinic" icon="🏬" />
       </div>
 
       <div style={cardStyle}>

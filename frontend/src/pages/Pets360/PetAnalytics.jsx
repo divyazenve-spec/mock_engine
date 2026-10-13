@@ -8,24 +8,42 @@ export default function PetAnalytics() {
   const [searchBreed, setSearchBreed] = useState('');
   const [selectedHub, setSelectedHub] = useState('ALL');
 
-  const breedDistribution = [];
+  const breedDistribution = [
+    { breed: 'Golden Retriever', species: 'Dog', count: 1, pct: 10, avgAge: '3.5 yrs', vaxRate: '100%', microchipRate: '100%', riskTier: 'Moderate (Hip OA)' },
+    { breed: 'German Shepherd', species: 'Dog', count: 1, pct: 10, avgAge: '2.0 yrs', vaxRate: '100%', microchipRate: '100%', riskTier: 'Moderate (GI/Dysplasia)' },
+    { breed: 'Shih Tzu', species: 'Dog', count: 1, pct: 10, avgAge: '4.2 yrs', vaxRate: '100%', microchipRate: '100%', riskTier: 'High (Atopy/Dental)' },
+    { breed: 'Beagle', species: 'Dog', count: 1, pct: 10, avgAge: '1.5 yrs', vaxRate: '100%', microchipRate: '100%', riskTier: 'Low (Active/Ear)' },
+    { breed: 'French Bulldog', species: 'Dog', count: 1, pct: 10, avgAge: '2.8 yrs', vaxRate: '100%', microchipRate: '100%', riskTier: 'High (Brachycephalic)' },
+    { breed: 'Labrador Retriever', species: 'Dog', count: 1, pct: 10, avgAge: '5.0 yrs', vaxRate: '100%', microchipRate: '100%', riskTier: 'Moderate (Obesity/Joint)' },
+    { breed: 'Persian Cat', species: 'Cat', count: 1, pct: 10, avgAge: '3.0 yrs', vaxRate: '100%', microchipRate: '100%', riskTier: 'High (FLUTD/Renal)' },
+    { breed: 'Indie / Desi Dog', species: 'Dog', count: 1, pct: 10, avgAge: '1.2 yrs', vaxRate: '100%', microchipRate: '100%', riskTier: 'Low (Hardy/Skin)' },
+    { breed: 'Pug', species: 'Dog', count: 1, pct: 10, avgAge: '6.0 yrs', vaxRate: '100%', microchipRate: '100%', riskTier: 'High (Corneal/Airway)' },
+    { breed: 'Rottweiler', species: 'Dog', count: 1, pct: 10, avgAge: '2.2 yrs', vaxRate: '100%', microchipRate: '100%', riskTier: 'Moderate (GDV/Cardiac)' }
+  ];
 
   const lifeStages = [
     { stage: 'Pediatric / Puppy & Kitten (< 1 yr)', pets: 0, pct: 0, color: '#2563eb', focus: 'Primary DHPPiL/Tricat series, microchipping, puppy socialization, nutritional formulas' },
-    { stage: 'Young Adult (1 – 3 yrs)', pets: 0, pct: 0, color: '#10b981', focus: 'Annual booster immunization, dental prophylaxis scaling, flea & tick prevention, desexing' },
-    { stage: 'Mature Adult (4 – 6 yrs)', pets: 0, pct: 0, color: '#f59e0b', focus: 'Caloric weight tracking, baseline blood chemistry & urinalysis, joint mobility supplements' },
-    { stage: 'Senior Companion (7 – 10 yrs)', pets: 0, pct: 0, color: '#8b5cf6', focus: 'Geriatric screening, renal SDMA biomarker panels, cardiac doppler ultrasound, arthritis analgesia' },
+    { stage: 'Young Adult (1 – 3 yrs)', pets: 5, pct: 50, color: '#10b981', focus: 'Annual booster immunization, dental prophylaxis scaling, flea & tick prevention, desexing' },
+    { stage: 'Mature Adult (4 – 6 yrs)', pets: 4, pct: 40, color: '#f59e0b', focus: 'Caloric weight tracking, baseline blood chemistry & urinalysis, joint mobility supplements' },
+    { stage: 'Senior Companion (7 – 10 yrs)', pets: 1, pct: 10, color: '#8b5cf6', focus: 'Geriatric screening, renal SDMA biomarker panels, cardiac doppler ultrasound, arthritis analgesia' },
     { stage: 'Super Senior / Geriatric (11+ yrs)', pets: 0, pct: 0, color: '#ef4444', focus: 'Cognitive dysfunction support, palliative comfort protocols, sub-Q hydration therapy' }
   ];
 
   const bcsDistribution = [
-    { label: 'BCS 1-3 (Underweight)', count: 0, pct: 0, color: '#3b82f6', tag: 'High-density caloric nutrition & deworming' },
-    { label: 'BCS 4-5 (Ideal & Optimal)', count: 0, pct: 0, color: '#10b981', tag: 'Balanced maintenance diet & regular exercise' },
-    { label: 'BCS 6-7 (Overweight)', count: 0, pct: 0, color: '#f59e0b', tag: 'Caloric restriction & portion management' },
+    { label: 'BCS 1-3 (Underweight)', count: 1, pct: 10, color: '#3b82f6', tag: 'High-density caloric nutrition & deworming' },
+    { label: 'BCS 4-5 (Ideal & Optimal)', count: 7, pct: 70, color: '#10b981', tag: 'Balanced maintenance diet & regular exercise' },
+    { label: 'BCS 6-7 (Overweight)', count: 2, pct: 20, color: '#f59e0b', tag: 'Caloric restriction & portion management' },
     { label: 'BCS 8-9 (Clinically Obese)', count: 0, pct: 0, color: '#ef4444', tag: 'Satiety metabolic diet & endocrinology workup' }
   ];
 
-  const regionalHubs = [];
+  const regionalHubs = [
+    { city: 'Bengaluru - Indiranagar Flagship', pets: 3, share: '30%', visitsPerPet: 4.8, vaxRate: '100%', wellnessPlan: '78%' },
+    { city: 'Bengaluru - Koramangala Specialty', pets: 2, share: '20%', visitsPerPet: 4.2, vaxRate: '100%', wellnessPlan: '82%' },
+    { city: 'Bengaluru - Whitefield Super-Center', pets: 2, share: '20%', visitsPerPet: 3.9, vaxRate: '100%', wellnessPlan: '71%' },
+    { city: 'Bengaluru - HSR Layout Clinic', pets: 1, share: '10%', visitsPerPet: 3.5, vaxRate: '100%', wellnessPlan: '65%' },
+    { city: 'Bengaluru - JP Nagar Wellness', pets: 1, share: '10%', visitsPerPet: 3.1, vaxRate: '100%', wellnessPlan: '60%' },
+    { city: 'Bengaluru - Malleshwaram North', pets: 1, share: '10%', visitsPerPet: 2.8, vaxRate: '100%', wellnessPlan: '58%' }
+  ];
 
   const filteredBreeds = breedDistribution.filter(b => {
     const matchesSpecies = speciesFilter === 'ALL' || b.species === speciesFilter;
@@ -40,7 +58,7 @@ export default function PetAnalytics() {
       title="Pet Population Demographics & Statistical Analytics"
       subtitle="Holistic statistical analysis of registered companion animals, species segmentation, life-stage epidemiology, BCS distribution, and clinical compliance"
       icon="📊"
-      badge=""
+      badge="10 Analyzed Pets"
       actions={
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           {['7D', '30D', '90D', '1Y', 'ALL'].map(t => (
@@ -67,11 +85,11 @@ export default function PetAnalytics() {
     >
       {/* KPI Ribbon */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px', marginBottom: '22px' }}>
-        <KpiCard label="Registered Population" value="0" delta="0.0%" trend="neutral" subtext="No registered pets" icon="🐾" />
-        <KpiCard label="Sterilization Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Reduces behavioral & cancer risks" icon="✂️" />
-        <KpiCard label="Microchip RFID Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="ISO 11784/11785 compliant" icon="📡" />
-        <KpiCard label="Average Body Condition" value="0.0" delta="0.0%" trend="neutral" subtext="Standard condition" icon="⚖️" />
-        <KpiCard label="Preventive Compliance" value="0.0%" delta="0.0%" trend="neutral" subtext="Vaccine & deworming adherence" icon="🛡️" />
+        <KpiCard label="Registered Population" value="10" delta="+100%" trend="up" subtext="10 registered companion pets" icon="🐾" />
+        <KpiCard label="Sterilization Rate" value="80.0%" delta="8/10 Spayed/Neutered" trend="up" subtext="Reduces behavioral & cancer risks" icon="✂️" />
+        <KpiCard label="Microchip RFID Rate" value="100%" delta="10/10 chipped" trend="up" subtext="ISO 11784/11785 compliant" icon="📡" />
+        <KpiCard label="Average Body Condition" value="4.8 / 9" delta="Optimal Range" trend="up" subtext="Standard condition" icon="⚖️" />
+        <KpiCard label="Preventive Compliance" value="96.4%" delta="+8.2% YoY" trend="up" subtext="Vaccine & deworming adherence" icon="🛡️" />
       </div>
 
       {/* Cohort & Life-Stage Analytics */}
@@ -90,7 +108,7 @@ export default function PetAnalytics() {
               <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#64748b' }}>Longitudinal population pyramid based on biological age stages</p>
             </div>
             <span style={{ fontSize: '11px', background: '#f1f5f9', padding: '4px 8px', borderRadius: '4px', fontWeight: 600, color: '#475569' }}>
-              Median: 0 Yrs
+              Median: 2.9 Yrs
             </span>
           </div>
 

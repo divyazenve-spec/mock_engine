@@ -5,9 +5,30 @@ import KpiCard from '../shared/KpiCard';
 export default function PetsDashboard() {
   const [activeTab, setActiveTab] = useState('ALL');
 
-  const subcategories = [];
+  const subcategories = [
+    { name: 'All Pets', desc: 'Census registry of all active patients & breeds', icon: '🐾' },
+    { name: 'Pet Profiles', desc: 'Longitudinal clinical profiles & patient dossiers', icon: '📋' },
+    { name: 'Pet Health Records', desc: 'Electronic health records, vitals & SOAP notes', icon: '🩺' },
+    { name: 'Vaccination Records', desc: 'Digital vaccination passports & lot tracing', icon: '💉' },
+    { name: 'Treatment History', desc: 'Inpatient protocols, ICU & surgical logs', icon: '🏥' },
+    { name: 'Prescription History', desc: 'Veterinary Rx & medication dispensation history', icon: '💊' },
+    { name: 'Purchase History', desc: 'Nutrition, pharmacy & merchandise orders', icon: '📦' },
+    { name: 'Pet Analytics', desc: 'Population demographics & statistical analytics', icon: '📊' },
+    { name: 'Pet Health Insights', desc: 'AI intelligence & epidemiological surveillance', icon: '🧠' }
+  ];
 
-  const recentPets = [];
+  const recentPets = [
+    { id: 'PET-001', name: 'Max', species: 'Dog', breed: 'Golden Retriever', age: '3.5 yrs', parent: 'Priya Sharma', status: 'Healthy', vax: 'Up to Date', score: 96 },
+    { id: 'PET-002', name: 'Bella', species: 'Dog', breed: 'German Shepherd', age: '2.0 yrs', parent: 'Rahul Verma', status: 'Recovered', vax: 'Up to Date', score: 91 },
+    { id: 'PET-003', name: 'Coco', species: 'Dog', breed: 'Shih Tzu', age: '4.2 yrs', parent: 'Ananya Rao', status: 'Maintenance', vax: 'Up to Date', score: 88 },
+    { id: 'PET-004', name: 'Rocky', species: 'Dog', breed: 'Beagle', age: '1.5 yrs', parent: 'Vikram Singh', status: 'Healthy', vax: 'Up to Date', score: 95 },
+    { id: 'PET-005', name: 'Milo', species: 'Dog', breed: 'French Bulldog', age: '2.8 yrs', parent: 'Deepika Padukone', status: 'Post-Op', vax: 'Due Soon', score: 89 },
+    { id: 'PET-006', name: 'Leo', species: 'Dog', breed: 'Labrador Retriever', age: '5.0 yrs', parent: 'Siddharth Roy', status: 'Rehab', vax: 'Up to Date', score: 87 },
+    { id: 'PET-007', name: 'Luna', species: 'Cat', breed: 'Persian Cat', age: '3.0 yrs', parent: 'Kavita Iyer', status: 'Dietary Mgt', vax: 'Due Soon', score: 90 },
+    { id: 'PET-008', name: 'Simba', species: 'Dog', breed: 'Indie / Desi Dog', age: '1.2 yrs', parent: 'Arjun Kapoor', status: 'Healthy', vax: 'Up to Date', score: 98 },
+    { id: 'PET-009', name: 'Oreo', species: 'Dog', breed: 'Pug', age: '6.0 yrs', parent: 'Meera Nair', status: 'Monitoring', vax: 'Up to Date', score: 85 },
+    { id: 'PET-010', name: 'Bruno', species: 'Dog', breed: 'Rottweiler', age: '2.2 yrs', parent: 'Rohan Mehra', status: 'Post-Op', vax: 'Up to Date', score: 93 }
+  ];
 
   return (
     <DashboardLayout
@@ -16,7 +37,7 @@ export default function PetsDashboard() {
       title="Pet Health Intelligence & Census Control Center"
       subtitle="Master control center for registered companion animals: longitudinal electronic health records, digital vaccine passports, and clinical analytics"
       icon="🐾"
-      badge=""
+      badge="10 Active Patients"
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -38,11 +59,11 @@ export default function PetsDashboard() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px', marginBottom: '20px' }}>
-        <KpiCard label="Total Registered Pets" value="0" delta="0.0%" trend="neutral" subtext="Canine & Feline" icon="🐾" />
-        <KpiCard label="Canine Population" value="0" delta="0.0%" trend="neutral" subtext="Primary demographic" icon="🐕" />
-        <KpiCard label="Feline Population" value="0" delta="0.0%" trend="neutral" subtext="No growth" icon="🐈" />
-        <KpiCard label="Immunization Compliance" value="0.0%" delta="0 Active" trend="neutral" subtext="Vaccine passports valid" icon="💉" />
-        <KpiCard label="Microchip Enrollment" value="0.0%" delta="0 Chipped" trend="neutral" subtext="RFID registered" icon="🏷️" />
+        <KpiCard label="Total Registered Pets" value="10" delta="+100%" trend="up" subtext="Canine & Feline" icon="🐾" />
+        <KpiCard label="Canine Population" value="9" delta="90%" trend="up" subtext="Primary demographic" icon="🐕" />
+        <KpiCard label="Feline Population" value="1" delta="10%" trend="neutral" subtext="Persian cohort" icon="🐈" />
+        <KpiCard label="Immunization Compliance" value="100%" delta="10 Active" trend="up" subtext="Vaccine passports valid" icon="💉" />
+        <KpiCard label="Microchip Enrollment" value="100%" delta="10 Chipped" trend="up" subtext="RFID registered" icon="🏷️" />
       </div>
 
       {/* Subcategory Grid */}

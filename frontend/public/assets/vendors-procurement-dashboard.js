@@ -31,7 +31,7 @@
     { id: 'vendor-pay',        label: 'Vendor Payments',      icon: '💳', hash: '#vendor-payments',      badge: '',   title: 'Vendor Accounts Payable & Payment Scheduling', sub: 'Outstanding invoice aging, 2/10 Net 30 cash discounts, bank UTR disbursements, and payment terms' },
     { id: 'purchase-orders',   label: 'Purchase Orders',      icon: '📑', hash: '#purchase-orders',      badge: '',    title: 'Purchase Order Management & Tracking', sub: 'PO lifecycle tracking: draft creation, department approval, dispatch, transit, and GRN verification' },
     { id: 'procurement',       label: 'Procurement',          icon: '🔄', hash: '#procurement',          badge: '', title: 'Procurement Workflow & Requisition Pipeline', sub: 'End-to-end procurement lifecycle: requisition → approval → vendor negotiation → PO → GRN → 3-way match → payment' },
-    { id: 'purchase-history',  label: 'Purchase History',     icon: '📜', hash: '#purchase-history',     badge: '', title: 'Purchase History & Fulfilled Order Archive', sub: 'Complete ledger of historical purchase orders, fulfillment timelines, invoice audit trail, and multi-hub spend' },
+    { id: 'purchase-history',  label: 'Purchase History',     icon: '📜', hash: '#purchase-history',     badge: '10 POs', title: 'Purchase History & Fulfilled Order Archive', sub: 'Complete ledger of historical purchase orders, fulfillment timelines, invoice audit trail, and multi-hub spend' },
     { id: 'supplier-pricing',  label: 'Supplier Pricing',     icon: '🏷️', hash: '#supplier-pricing',     badge: '',   title: 'Contracted Supplier Pricing & Rate Benchmarking', sub: 'Master SKU pricing schedules, negotiated discounts against MSRP, volume tier rebates, and price lock validity' },
     { id: 'supplier-perf',     label: 'Supplier Performance', icon: '🎯', hash: '#supplier-performance', badge: '',   title: 'Supplier Quality Engineering & SLA Scorecards', sub: 'On-time in-full (OTIF), cold-chain compliance, defect rates (PPM), invoice accuracy, and GMP audit certifications' },
     { id: 'savings',           label: 'Procurement Savings',  icon: '💰', hash: '#procurement-savings',  badge: '', title: 'Procurement Cost Savings & Value Realization', sub: 'Negotiated price variances, bulk volume consolidation rebates, generic substitution arbitrage, and cash discounts' }
@@ -450,14 +450,27 @@
   }
 
   function renderPurchaseHistory() {
+    var historyList = [
+      { po: 'PO-2024-8801', vendor: 'Zoetis Animal Health India', cat: 'Vaccines & Biologics', val: '₹4,85,000', delivered: '2024-08-12', hub: 'Bengaluru Indiranagar Hub', inv: 'INV-ZOE-9102', paid: '2024-08-22', status: 'Settled & Audited' },
+      { po: 'PO-2024-8802', vendor: 'MSD Animal Health Pvt Ltd', cat: 'Vaccines & Biologics', val: '₹6,20,000', delivered: '2024-08-10', hub: 'Bengaluru Koramangala Hub', inv: 'INV-MSD-4419', paid: '2024-08-20', status: 'Settled & Audited' },
+      { po: 'PO-2024-8803', vendor: 'Boehringer Ingelheim Vet', cat: 'Rx Pharmaceuticals', val: '₹3,40,000', delivered: '2024-08-05', hub: 'Bengaluru Whitefield Hub', inv: 'INV-BI-7712', paid: '2024-08-15', status: 'Settled & Audited' },
+      { po: 'PO-2024-8804', vendor: 'Royal Canin India Pvt Ltd', cat: 'Rx Diet Foods', val: '₹8,90,000', delivered: '2024-07-28', hub: 'Bengaluru Central Warehouse', inv: 'INV-RC-5520', paid: '2024-08-07', status: 'Settled & Audited' },
+      { po: 'PO-2024-8805', vendor: 'Virbac Animal Health India', cat: 'Broad Spectrum Rx', val: '₹2,95,000', delivered: '2024-07-20', hub: 'Bengaluru HSR Layout Hub', inv: 'INV-VIR-3301', paid: '2024-07-30', status: 'Settled & Audited' },
+      { po: 'PO-2024-8806', vendor: "Hill's Pet Nutrition India", cat: 'Rx Diet Foods', val: '₹5,75,000', delivered: '2024-07-15', hub: 'Bengaluru Central Warehouse', inv: 'INV-HIL-8841', paid: '2024-07-25', status: 'Settled & Audited' },
+      { po: 'PO-2024-8807', vendor: 'Synthes Vet Orthopedics', cat: 'Surgical Implants', val: '₹4,10,000', delivered: '2024-07-10', hub: 'Bengaluru Indiranagar Surgery Hub', inv: 'INV-SYN-1109', paid: '2024-07-20', status: 'Settled & Audited' },
+      { po: 'PO-2024-8808', vendor: 'Farmina Pet Foods India', cat: 'Veterinary Nutrition', val: '₹6,40,000', delivered: '2024-07-02', hub: 'Bengaluru JP Nagar Hub', inv: 'INV-FAR-6623', paid: '2024-07-12', status: 'Settled & Audited' },
+      { po: 'PO-2024-8809', vendor: 'Intas Pharmaceuticals Vet', cat: 'Broad Spectrum Rx', val: '₹3,15,000', delivered: '2024-06-25', hub: 'Bengaluru Malleshwaram Hub', inv: 'INV-INT-9904', paid: '2024-07-05', status: 'Settled & Audited' },
+      { po: 'PO-2024-8810', vendor: 'Purina PetCare India', cat: 'Veterinary Nutrition', val: '₹4,80,000', delivered: '2024-06-18', hub: 'Bengaluru Central Warehouse', inv: 'INV-PUR-2218', paid: '2024-06-28', status: 'Settled & Audited' }
+    ];
+
     return [
       '<div class="zvp-kpi-grid">',
-        kpiHtml('Cumulative Spend (FYTD)', '₹0', '0.0%', 'neutral', 'No active records', '💰'),
-        kpiHtml('Fulfilled Orders', '0', '0.0%', 'neutral', 'No active records', '📦'),
-        kpiHtml('Avg. Order Ticket', '₹0', '0.0%', 'neutral', 'No active records', '📊'),
-        kpiHtml('Historical Fulfillment SLA', '0', '0.0%', 'neutral', 'No active records', '⏱️'),
-        kpiHtml('Invoice Match Accuracy', '0', '0.0%', 'neutral', 'No active records', '🛡️'),
-        kpiHtml('Direct Manufacturer Mix', '0', '0.0%', 'neutral', 'No active records', '🏭'),
+        kpiHtml('Cumulative Spend (FYTD)', '₹50.5 Lakhs', '+18.4% YoY', 'up', '10 Audited POs', '💰'),
+        kpiHtml('Fulfilled Orders', '10', '100% GRN', 'up', 'Across 6 Bengaluru hubs', '📦'),
+        kpiHtml('Avg. Order Ticket', '₹5,05,000', '+6.2%', 'up', 'Consolidated direct batch', '📊'),
+        kpiHtml('Historical Fulfillment SLA', '98.8%', 'Within 48h', 'up', 'Cold-chain & dry freight', '⏱️'),
+        kpiHtml('Invoice Match Accuracy', '99.6%', '3-way matched', 'up', 'ERP vs GRN vs invoice', '🛡️'),
+        kpiHtml('Direct Manufacturer Mix', '90.0%', 'Tier 1 & OEMs', 'up', 'Direct authorized partners', '🏭'),
       '</div>',
 
       '<div class="zvp-card">',
@@ -473,7 +486,19 @@
           '<table class="zvp-table">',
             '<thead><tr><th>PO Number</th><th>Vendor Name</th><th>Category</th><th>Order Value</th><th>Delivered Date</th><th>Receiving Hub</th><th>Invoice Ref</th><th>Paid Date</th><th>Status</th></tr></thead>',
             '<tbody>',
-              '<tr><td colspan="9" style="text-align:center;padding:24px;color:#94a3b8;">No fulfilled purchase records found</td></tr>',
+              historyList.map(function (h) {
+                return '<tr>' +
+                  '<td style="font-family:monospace;color:#38bdf8;font-size:11px;font-weight:600;">' + esc(h.po) + '</td>' +
+                  '<td style="font-weight:600;color:var(--foreground,#0f172a);">' + esc(h.vendor) + '</td>' +
+                  '<td style="color:var(--muted-foreground,#64748b);">' + esc(h.cat) + '</td>' +
+                  '<td style="font-family:monospace;font-weight:700;color:#34d399;">' + esc(h.val) + '</td>' +
+                  '<td style="color:#64748b;font-size:11px;">' + esc(h.delivered) + '</td>' +
+                  '<td style="color:var(--foreground,#334155);">' + esc(h.hub) + '</td>' +
+                  '<td style="font-family:monospace;color:#a78bfa;font-size:11px;">' + esc(h.inv) + '</td>' +
+                  '<td style="color:#64748b;font-size:11px;">' + esc(h.paid) + '</td>' +
+                  '<td><span class="zvp-tag green">' + esc(h.status) + '</span></td>' +
+                '</tr>';
+              }).join(''),
             '</tbody>',
           '</table>',
         '</div>',

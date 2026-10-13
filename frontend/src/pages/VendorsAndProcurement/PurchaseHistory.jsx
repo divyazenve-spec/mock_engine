@@ -7,9 +7,25 @@ export default function PurchaseHistory() {
   const [filterQuarter, setFilterQuarter] = useState('ALL');
   const [filterCategory, setFilterCategory] = useState('ALL');
 
-  const historyRecords = [];
+  const historyRecords = [
+    { poNumber: 'PO-2024-8801', vendor: 'Zoetis Animal Health India', category: 'Vaccines & Biologics', itemsCount: 14, orderValue: '₹4,85,000', deliveredDate: '2024-08-12', location: 'Bengaluru Indiranagar Hub', invoiceRef: 'INV-ZOE-9102', paidDate: '2024-08-22', status: 'Settled & Audited' },
+    { poNumber: 'PO-2024-8802', vendor: 'MSD Animal Health Pvt Ltd', category: 'Vaccines & Biologics', itemsCount: 18, orderValue: '₹6,20,000', deliveredDate: '2024-08-10', location: 'Bengaluru Koramangala Hub', invoiceRef: 'INV-MSD-4419', paidDate: '2024-08-20', status: 'Settled & Audited' },
+    { poNumber: 'PO-2024-8803', vendor: 'Boehringer Ingelheim Vet', category: 'Rx Pharmaceuticals', itemsCount: 8, orderValue: '₹3,40,000', deliveredDate: '2024-08-05', location: 'Bengaluru Whitefield Hub', invoiceRef: 'INV-BI-7712', paidDate: '2024-08-15', status: 'Settled & Audited' },
+    { poNumber: 'PO-2024-8804', vendor: 'Royal Canin India Pvt Ltd', category: 'Rx Diet Foods', itemsCount: 25, orderValue: '₹8,90,000', deliveredDate: '2024-07-28', location: 'Bengaluru Central Warehouse', invoiceRef: 'INV-RC-5520', paidDate: '2024-08-07', status: 'Settled & Audited' },
+    { poNumber: 'PO-2024-8805', vendor: 'Virbac Animal Health India', category: 'Broad Spectrum Rx', itemsCount: 16, orderValue: '₹2,95,000', deliveredDate: '2024-07-20', location: 'Bengaluru HSR Layout Hub', invoiceRef: 'INV-VIR-3301', paidDate: '2024-07-30', status: 'Settled & Audited' },
+    { poNumber: 'PO-2024-8806', vendor: "Hill's Pet Nutrition India", category: 'Rx Diet Foods', itemsCount: 20, orderValue: '₹5,75,000', deliveredDate: '2024-07-15', location: 'Bengaluru Central Warehouse', invoiceRef: 'INV-HIL-8841', paidDate: '2024-07-25', status: 'Settled & Audited' },
+    { poNumber: 'PO-2024-8807', vendor: 'Synthes Vet Orthopedics', category: 'Surgical Implants', itemsCount: 6, orderValue: '₹4,10,000', deliveredDate: '2024-07-10', location: 'Bengaluru Indiranagar Surgery Hub', invoiceRef: 'INV-SYN-1109', paidDate: '2024-07-20', status: 'Settled & Audited' },
+    { poNumber: 'PO-2024-8808', vendor: 'Farmina Pet Foods India', category: 'Veterinary Nutrition', itemsCount: 30, orderValue: '₹6,40,000', deliveredDate: '2024-07-02', location: 'Bengaluru JP Nagar Hub', invoiceRef: 'INV-FAR-6623', paidDate: '2024-07-12', status: 'Settled & Audited' },
+    { poNumber: 'PO-2024-8809', vendor: 'Intas Pharmaceuticals Vet', category: 'Broad Spectrum Rx', itemsCount: 22, orderValue: '₹3,15,000', deliveredDate: '2024-06-25', location: 'Bengaluru Malleshwaram Hub', invoiceRef: 'INV-INT-9904', paidDate: '2024-07-05', status: 'Settled & Audited' },
+    { poNumber: 'PO-2024-8810', vendor: 'Purina PetCare India', category: 'Veterinary Nutrition', itemsCount: 15, orderValue: '₹4,80,000', deliveredDate: '2024-06-18', location: 'Bengaluru Central Warehouse', invoiceRef: 'INV-PUR-2218', paidDate: '2024-06-28', status: 'Settled & Audited' }
+  ];
 
-  const quarterlySpend = [];
+  const quarterlySpend = [
+    { quarter: 'Q1 FY24-25 (Apr – Jun)', totalSpend: '₹48.2 Lakhs', ordersCount: '42 POs', avgTicket: '₹1,14,760', onTimeDelivery: '98.4% SLA' },
+    { quarter: 'Q2 FY24-25 (Jul – Sep)', totalSpend: '₹52.8 Lakhs', ordersCount: '46 POs', avgTicket: '₹1,14,780', onTimeDelivery: '98.9% SLA' },
+    { quarter: 'Q3 FY23-24 (Oct – Dec)', totalSpend: '₹44.1 Lakhs', ordersCount: '38 POs', avgTicket: '₹1,16,050', onTimeDelivery: '97.8% SLA' },
+    { quarter: 'Q4 FY23-24 (Jan – Mar)', totalSpend: '₹46.5 Lakhs', ordersCount: '40 POs', avgTicket: '₹1,16,250', onTimeDelivery: '98.1% SLA' }
+  ];
 
   const filtered = historyRecords.filter(r => {
     if (filterCategory !== 'ALL' && r.category !== filterCategory) return false;
@@ -29,7 +45,7 @@ export default function PurchaseHistory() {
       title="Purchase History & Fulfilled Order Archive"
       subtitle="Complete ledger of historical purchase orders, fulfillment timelines, invoice audit trail, and multi-hub spend"
       icon="📜"
-      badge=""
+      badge="10 Archived POs"
       actions={
         <button onClick={() => alert('Exporting Purchase History Audit Ledger (CSV)...')} style={{ padding: '6px 14px', borderRadius: '8px', border: '1px solid #3b82f6', background: 'rgba(59,130,246,0.15)', color: '#60a5fa', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}>
           📥 Export Audit Ledger
@@ -37,12 +53,12 @@ export default function PurchaseHistory() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Cumulative Spend (FYTD)" value="₹0" delta="0.0%" trend="neutral" subtext="No active records" icon="💰" />
-        <KpiCard label="Fulfilled Orders" value="0 Orders" delta="" trend="neutral" subtext="No active records" icon="📦" />
-        <KpiCard label="Avg. Order Value" value="₹0" delta="0.0%" trend="neutral" subtext="No active records" icon="📊" />
-        <KpiCard label="Historical Fulfillment SLA" value="0.0%" delta="0.0%" trend="neutral" subtext="No active records" icon="⏱️" />
-        <KpiCard label="Invoice Match Accuracy" value="0.0%" delta="" trend="neutral" subtext="No active records" icon="🛡️" />
-        <KpiCard label="Active Supplier Count" value="0 Vendors" delta="" trend="neutral" subtext="No active records" icon="🏭" />
+        <KpiCard label="Cumulative Spend (FYTD)" value="₹50.5 Lakhs" delta="+18.4% YoY" trend="up" subtext="10 Audited POs" icon="💰" />
+        <KpiCard label="Fulfilled Orders" value="10 Orders" delta="100% GRN Verified" trend="up" subtext="Across 6 Bengaluru hubs" icon="📦" />
+        <KpiCard label="Avg. Order Value" value="₹5,05,000" delta="+6.2%" trend="up" subtext="Consolidated direct batch" icon="📊" />
+        <KpiCard label="Historical Fulfillment SLA" value="98.8%" delta="Within 48h" trend="up" subtext="Cold-chain & dry freight" icon="⏱️" />
+        <KpiCard label="Invoice Match Accuracy" value="99.6%" delta="3-way matched" trend="up" subtext="ERP vs GRN vs invoice" icon="🛡️" />
+        <KpiCard label="Active Supplier Count" value="10 Vendors" delta="Tier 1 & OEMs" trend="up" subtext="Direct authorized partners" icon="🏭" />
       </div>
 
       {/* Quarterly Spend Overview */}

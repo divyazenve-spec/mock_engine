@@ -6,7 +6,18 @@ export default function PurchaseHistory() {
   const [filter, setFilter] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const purchases = [];
+  const purchases = [
+    { id: 'ORD-8811', date: '2024-09-15', pet: 'Max (Golden Retriever)', item: 'Royal Canin Maxi Adult (15kg) + Joint Care Chews', category: 'Food & Nutrition', channel: 'Auto-Ship Delivery', parent: 'Priya Sharma', amount: '₹8,900', status: 'Delivered' },
+    { id: 'ORD-8812', date: '2024-09-12', pet: 'Bella (German Shepherd)', item: 'Hill\'s Prescription Diet Gastrointestinal Biome (12kg)', category: 'Prescription Diet', channel: 'In-Clinic Pharmacy', parent: 'Rahul Verma', amount: '₹10,500', status: 'Delivered' },
+    { id: 'ORD-8813', date: '2024-09-10', pet: 'Coco (Shih Tzu)', item: 'Apoquel 5.4mg (30 Tabs) + Malaseb Medicated Shampoo', category: 'Pharmacy & Wellness', channel: 'Same-Day Dispatch', parent: 'Ananya Rao', amount: '₹4,850', status: 'Delivered' },
+    { id: 'ORD-8814', date: '2024-09-08', pet: 'Rocky (Beagle)', item: 'Drools Focus Super Premium Puppy + Kong Classic Toy', category: 'Food & Nutrition', channel: 'E-Commerce App', parent: 'Vikram Singh', amount: '₹3,400', status: 'Delivered' },
+    { id: 'ORD-8815', date: '2024-09-05', pet: 'Milo (French Bulldog)', item: 'Royal Canin French Bulldog Adult + Cooling Harness', category: 'Food & Nutrition', channel: 'Auto-Ship Delivery', parent: 'Deepika Padukone', amount: '₹6,700', status: 'Delivered' },
+    { id: 'ORD-8816', date: '2024-09-02', pet: 'Leo (Labrador)', item: 'Purina Pro Plan Mobility Joint Care (12kg) + Fish Oil', category: 'Prescription Diet', channel: 'In-Clinic Pharmacy', parent: 'Siddharth Roy', amount: '₹9,200', status: 'Delivered' },
+    { id: 'ORD-8817', date: '2024-08-30', pet: 'Luna (Persian Cat)', item: 'Royal Canin Feline Urinary S/O Wet & Dry Pack (4kg)', category: 'Prescription Diet', channel: 'Auto-Ship Delivery', parent: 'Kavita Iyer', amount: '₹4,200', status: 'Delivered' },
+    { id: 'ORD-8818', date: '2024-08-28', pet: 'Simba (Indie / Desi Dog)', item: 'Bravecto Tick & Flea Chewable + Calcium Syrup 500ml', category: 'Pharmacy & Wellness', channel: 'E-Commerce App', parent: 'Arjun Kapoor', amount: '₹3,150', status: 'Delivered' },
+    { id: 'ORD-8819', date: '2024-08-25', pet: 'Oreo (Pug)', item: 'Farmina N&D Quinoa Skin & Coat (7kg)', category: 'Food & Nutrition', channel: 'Auto-Ship Delivery', parent: 'Meera Nair', amount: '₹5,400', status: 'Delivered' },
+    { id: 'ORD-8820', date: '2024-08-20', pet: 'Bruno (Rottweiler)', item: 'Orijen Amazing Grains Puppy Large Breed (11.4kg) + Leash', category: 'Food & Nutrition', channel: 'In-Clinic Pharmacy', parent: 'Rohan Mehra', amount: '₹12,400', status: 'Delivered' }
+  ];
 
   const filtered = purchases.filter(p => {
     const matchesFilter = filter === 'ALL' || p.category === filter || p.status === filter;
@@ -24,7 +35,7 @@ export default function PurchaseHistory() {
       title="Pet Nutrition, Pharmacy & Merchandise Purchases"
       subtitle="Complete ledger of food, prescription diets, tick & flea treatments, and accessories purchased across omni-channels"
       icon="🐾"
-      badge=""
+      badge="10 Orders Logged"
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           {['ALL', 'Food & Nutrition', 'Prescription Diet', 'Pharmacy & Wellness', 'Delivered'].map(f => (
@@ -49,10 +60,10 @@ export default function PurchaseHistory() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px', marginBottom: '20px' }}>
-        <KpiCard label="Total Pet Orders" value="0" delta="0.0%" trend="neutral" subtext="All categories" icon="📦" />
-        <KpiCard label="Average Pet Spend / Yr" value="₹0" delta="0.0%" trend="neutral" subtext="Annualized LTV" icon="💰" />
-        <KpiCard label="Prescription Diet Share" value="0.0%" delta="0.0%" trend="neutral" subtext="High margin" icon="🥗" />
-        <KpiCard label="Auto-Ship Recurring" value="0.0%" delta="0.0%" trend="neutral" subtext="High retention" icon="🔄" />
+        <KpiCard label="Total Pet Orders" value="10" delta="+100%" trend="up" subtext="All categories" icon="📦" />
+        <KpiCard label="Average Pet Spend / Yr" value="₹40,165" delta="+22% YoY" trend="up" subtext="Annualized LTV" icon="💰" />
+        <KpiCard label="Prescription Diet Share" value="42.5%" delta="High margin" trend="up" subtext="Clinical nutrition" icon="🥗" />
+        <KpiCard label="Auto-Ship Recurring" value="80.0%" delta="4/5 active" trend="up" subtext="High retention" icon="🔄" />
       </div>
 
       <div style={{

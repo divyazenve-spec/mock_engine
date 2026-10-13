@@ -2,7 +2,18 @@ import React, { useState } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
-const INITIAL_TICKETS = [];
+const INITIAL_TICKETS = [
+  { id: 'TIK-4401', customer: 'Priya Sharma', pet: 'Max (Golden Retriever)', category: 'Delivery Delay', priority: 'High', issue: 'Emergency Prescription delayed by 45 mins past 60-min express SLA in Indiranagar', rep: 'Kiran R. (Escalations)', sla: '18 mins (Target 30m)', remedy: 'Delivery fee waived + ₹250 instant wallet credit', csat: '5.0 ⭐', status: 'Closed' },
+  { id: 'TIK-4402', customer: 'Rahul Verma', pet: 'Bella (Persian Cat)', category: 'Packaging', priority: 'Medium', issue: 'Royal Canin Mother & Babycat kibble bag had a microscopic seal tear during transit', rep: 'Sneha P. (Quality)', sla: '25 mins (Target 45m)', remedy: 'Fresh 2kg pack dispatched with complimentary catnip treat', csat: '5.0 ⭐', status: 'Closed' },
+  { id: 'TIK-4403', customer: 'Ananya Iyer', pet: 'Coco (Shih Tzu)', category: 'Billing', priority: 'Low', issue: 'First-time subscriber discount coupon (PETPASS20) did not deduct on UPI auto-debit', rep: 'Rohan M. (FinOps)', sla: '12 mins (Target 30m)', remedy: '₹340 credited directly to original UPI source + ₹100 credit', csat: '5.0 ⭐', status: 'Closed' },
+  { id: 'TIK-4404', customer: 'Vikram Malhotra', pet: 'Rocky (German Shepherd)', category: 'Clinic', priority: 'High', issue: 'Consultation delayed by 30 mins due to emergency trauma surgery at Koramangala clinic', rep: 'Dr. Tanya S. (Chief Vet)', sla: '35 mins (Target 60m)', remedy: 'Consultation complimentary + VIP priority lane allocated', csat: '4.8 ⭐', status: 'Closed' },
+  { id: 'TIK-4405', customer: 'Deepika Nair', pet: 'Milo (Beagle)', category: 'Pharmacy', priority: 'Critical', issue: 'Cold-chain Canine Insulin arrived at +9.2°C temperature threshold (Safe limit: 2-8°C)', rep: 'Amit K. (Pharma Lead)', sla: '22 mins (Target 30m)', remedy: 'Instant temperature-controlled courier dispatched + verified zero cost', csat: '5.0 ⭐', status: 'Closed' },
+  { id: 'TIK-4406', customer: 'Siddharth Rao', pet: 'Leo (Labrador)', category: 'Delivery Delay', priority: 'Medium', issue: 'Heavy monsoon downpour delayed orthopaedic mattress delivery to Whitefield by 2 hours', rep: 'Pooja B. (Logistics)', sla: '40 mins (Target 60m)', remedy: 'Priority express dispatch + waterproof bed protector gift', csat: '4.7 ⭐', status: 'Closed' },
+  { id: 'TIK-4407', customer: 'Kavita Menon', pet: 'Luna (Siberian Husky)', category: 'Clinic', priority: 'Low', issue: 'Grooming deshedding session was rescheduled on short notice due to power grid failure', rep: 'Vinay T. (Ops)', sla: '15 mins (Target 45m)', remedy: 'Complimentary spa upgrade + lavender aromabath pass', csat: '5.0 ⭐', status: 'Closed' },
+  { id: 'TIK-4408', customer: 'Arjun Kapoor', pet: 'Simba (Indie Dog)', category: 'Pharmacy', priority: 'High', issue: 'NexGard tick chewable single blister strip missing in 3-pack combo box', rep: 'Sneha P. (Quality)', sla: '28 mins (Target 45m)', remedy: 'Full 3-pack dispatched free of cost + immediate apology follow-up', csat: '4.9 ⭐', status: 'Closed' },
+  { id: 'TIK-4409', customer: 'Meera Nambiar', pet: 'Oreo (French Bulldog)', category: 'Delivery Delay', priority: 'High', issue: 'Rider delivered to Block B security gate instead of direct apartment doorstep', rep: 'Kiran R. (Escalations)', sla: '14 mins (Target 20m)', remedy: 'Delivery executive rerouted + ₹150 wallet credit applied', csat: '4.9 ⭐', status: 'Closed' },
+  { id: 'TIK-4410', customer: 'Rohan Gupta', pet: 'Bruno (Rottweiler)', category: 'Packaging', priority: 'Low', issue: 'Joint supplement bottle cap was overtightened and seal difficult to open', rep: 'Rohan M. (Customer Care)', sla: '20 mins (Target 30m)', remedy: 'Bottle replacement with easy-twist cap shipped immediately', csat: '5.0 ⭐', status: 'Closed' }
+];
 
 export default function CustomerComplaints() {
   const [tickets, setTickets] = useState(INITIAL_TICKETS);
@@ -98,16 +109,16 @@ export default function CustomerComplaints() {
       title="Customer Complaints & Grievance Resolution"
       subtitle="Executive grievance telemetry, root-cause categorization, SLA turnaround countdowns, and automated pet parent compensation SOPs"
       icon="⚠️"
-      badge=""
+      badge="10 Grievances Tracked"
     >
       {/* 6 Executive KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Grievances (MTD)" value="0" delta="0.0%" trend="neutral" subtext="No order grievances" icon="⚠️" />
-        <KpiCard label="First Contact Resolution" value="0.0%" delta="0.0%" trend="neutral" subtext="Resolved in initial interaction" icon="⚡" />
-        <KpiCard label="Avg. SLA Resolution Time" value="0" delta="0.0%" trend="neutral" subtext="Standard SLA" icon="⏱️" />
-        <KpiCard label="Post-Resolution CSAT" value="0.0" delta="0.0%" trend="neutral" subtext="No delight ratings" icon="⭐" />
-        <KpiCard label="Cold-Chain / Rx SLA" value="0.0%" delta="Zero breaches" trend="neutral" subtext="Insulin & emergency Rx" icon="❄️" />
-        <KpiCard label="Sentiment Recovery" value="0.0%" delta="0.0%" trend="neutral" subtext="Retained pet parent accounts" icon="❤️" />
+        <KpiCard label="Total Grievances (MTD)" value="10" delta="-28.4%" trend="down" subtext="Resolved across Bengaluru" icon="⚠️" />
+        <KpiCard label="First Contact Resolution" value="92.4%" delta="+4.2%" trend="up" subtext="Resolved in initial interaction" icon="⚡" />
+        <KpiCard label="Avg. SLA Resolution Time" value="21 mins" delta="-6 mins" trend="up" subtext="Target: <30 mins" icon="⏱️" />
+        <KpiCard label="Post-Resolution CSAT" value="4.92 / 5" delta="+0.18" trend="up" subtext="Delighted pet parents" icon="⭐" />
+        <KpiCard label="Cold-Chain / Rx SLA" value="100.0%" delta="Zero breaches" trend="up" subtext="Insulin & emergency Rx" icon="❄️" />
+        <KpiCard label="Sentiment Recovery" value="98.2%" delta="+3.1%" trend="up" subtext="Retained pet parent accounts" icon="❤️" />
       </div>
 
       {/* 2-Column Root Cause and SOP Remedy Cards */}
@@ -119,8 +130,24 @@ export default function CustomerComplaints() {
             <span style={{ fontSize: '11px', fontWeight: 700, padding: '3px 8px', borderRadius: '12px', background: '#ecfdf5', color: '#059669' }}>Real-Time Telemetry</span>
           </div>
 
-          <div style={{ textAlign: 'center', padding: '36px', color: '#94a3b8', fontSize: '13px' }}>
-            No grievance telemetry records found
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {[
+              { label: 'Delivery Delay / ETA Breach', count: 3, pct: 30, color: '#f59e0b' },
+              { label: 'Packaging & Damaged Seal', count: 2, pct: 20, color: '#3b82f6' },
+              { label: 'Pharmacy & Cold-Chain Check', count: 2, pct: 20, color: '#ef4444' },
+              { label: 'Clinic Schedule Adjustment', count: 2, pct: 20, color: '#8b5cf6' },
+              { label: 'Billing / Wallet Credit Adjustment', count: 1, pct: 10, color: '#10b981' }
+            ].map(item => (
+              <div key={item.label}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
+                  <span style={{ fontWeight: 600, color: '#334155' }}>{item.label}</span>
+                  <span style={{ fontWeight: 700, color: '#0f172a' }}>{item.count} tickets ({item.pct}%)</span>
+                </div>
+                <div style={{ height: '7px', background: '#e2e8f0', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{ height: '100%', width: `${item.pct}%`, background: item.color, borderRadius: '4px' }} />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

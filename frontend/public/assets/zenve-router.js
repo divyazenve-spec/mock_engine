@@ -235,6 +235,9 @@
     'treatment history': { controller: 'ZenvePetsDashboard', tab: 'treatment-history', hash: '#treatment-history', rootId: 'zpet-root', module: 'Pets 360°' },
     'prescription history': { controller: 'ZenvePetsDashboard', tab: 'prescription-history', hash: '#prescription-history', rootId: 'zpet-root', module: 'Pets 360°' },
     'purchase history': { controller: 'ZenvePetsDashboard', tab: 'purchase-history', hash: '#purchase-history', rootId: 'zpet-root', module: 'Pets 360°' },
+    'pets purchase history': { controller: 'ZenvePetsDashboard', tab: 'purchase-history', hash: '#purchase-history', rootId: 'zpet-root', module: 'Pets 360°' },
+    'pets 360° > purchase history': { controller: 'ZenvePetsDashboard', tab: 'purchase-history', hash: '#purchase-history', rootId: 'zpet-root', module: 'Pets 360°' },
+    'pets 360 > purchase history': { controller: 'ZenvePetsDashboard', tab: 'purchase-history', hash: '#purchase-history', rootId: 'zpet-root', module: 'Pets 360°' },
     'pet analytics': { controller: 'ZenvePetsDashboard', tab: 'pet-analytics', hash: '#pet-analytics', rootId: 'zpet-root', module: 'Pets 360°' },
     'pet health insights': { controller: 'ZenvePetsDashboard', tab: 'pet-health-insights', hash: '#pet-health-insights', rootId: 'zpet-root', module: 'Pets 360°' },
 
@@ -307,7 +310,9 @@
     'vendor payments': { controller: 'ZenveVendorsDashboard', tab: 'vendor-pay', hash: '#vendor-payments', rootId: 'zvp-root', module: 'Vendors & Procurement' },
     'purchase orders': { controller: 'ZenveVendorsDashboard', tab: 'purchase-orders', hash: '#purchase-orders', rootId: 'zvp-root', module: 'Vendors & Procurement' },
     'procurement': { controller: 'ZenveVendorsDashboard', tab: 'procurement', hash: '#procurement', rootId: 'zvp-root', module: 'Vendors & Procurement' },
-    'purchase history': { controller: 'ZenveVendorsDashboard', tab: 'purchase-history', hash: '#purchase-history', rootId: 'zvp-root', module: 'Vendors & Procurement' },
+    'vendor purchase history': { controller: 'ZenveVendorsDashboard', tab: 'purchase-history', hash: '#purchase-history', rootId: 'zvp-root', module: 'Vendors & Procurement' },
+    'vendors & procurement > purchase history': { controller: 'ZenveVendorsDashboard', tab: 'purchase-history', hash: '#purchase-history', rootId: 'zvp-root', module: 'Vendors & Procurement' },
+    'vendors and procurement > purchase history': { controller: 'ZenveVendorsDashboard', tab: 'purchase-history', hash: '#purchase-history', rootId: 'zvp-root', module: 'Vendors & Procurement' },
     'supplier pricing': { controller: 'ZenveVendorsDashboard', tab: 'supplier-pricing', hash: '#supplier-pricing', rootId: 'zvp-root', module: 'Vendors & Procurement' },
     'supplier performance': { controller: 'ZenveVendorsDashboard', tab: 'supplier-perf', hash: '#supplier-performance', rootId: 'zvp-root', module: 'Vendors & Procurement' },
     'procurement savings': { controller: 'ZenveVendorsDashboard', tab: 'savings', hash: '#procurement-savings', rootId: 'zvp-root', module: 'Vendors & Procurement' },
@@ -660,6 +665,12 @@
     }
     if (modKey && (modKey.indexOf('ai') >= 0 || modKey.indexOf('assistant') >= 0)) {
       if (itemKey === 'sales forecast') itemKey = 'ai sales forecast';
+    }
+    if (modKey && modKey.indexOf('pets') >= 0) {
+      if (itemKey === 'purchase history') itemKey = 'pets purchase history';
+    }
+    if (modKey && (modKey.indexOf('vendor') >= 0 || modKey.indexOf('procurement') >= 0)) {
+      if (itemKey === 'purchase history') itemKey = 'vendor purchase history';
     }
 
     if (itemKey === 'executive dashboard' || itemKey === 'executive' || (ROUTE_MAP[itemKey] && ROUTE_MAP[itemKey].isHomeOverview)) {

@@ -6,7 +6,18 @@ export default function AllPets() {
   const [filter, setFilter] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const pets = [];
+  const pets = [
+    { id: 'PET-101', name: 'Max', species: 'Canine', breed: 'Golden Retriever', age: '3 yrs 2 mos', gender: 'Neutered Male', parent: 'Priya Sharma', phone: '+91 98450 12345', city: 'Bengaluru (Indiranagar)', healthScore: 94, vaxStatus: 'Up to Date', microchip: '982000412891201' },
+    { id: 'PET-102', name: 'Bella', species: 'Feline', breed: 'Persian Longhair', age: '2 yrs 4 mos', gender: 'Spayed Female', parent: 'Rahul Verma', phone: '+91 97312 98765', city: 'Bengaluru (Koramangala)', healthScore: 91, vaxStatus: 'Up to Date', microchip: '982000412891202' },
+    { id: 'PET-103', name: 'Coco', species: 'Canine', breed: 'Shih Tzu', age: '1 yr 6 mos', gender: 'Intact Female', parent: 'Ananya Iyer', phone: '+91 99001 54321', city: 'Bengaluru (HSR Layout)', healthScore: 89, vaxStatus: 'Due in 14d', microchip: '982000412891203' },
+    { id: 'PET-104', name: 'Rocky', species: 'Canine', breed: 'German Shepherd', age: '4 yrs 1 mo', gender: 'Neutered Male', parent: 'Vikram Malhotra', phone: '+91 98860 11223', city: 'Bengaluru (Whitefield)', healthScore: 92, vaxStatus: 'Up to Date', microchip: '982000412891204' },
+    { id: 'PET-105', name: 'Milo', species: 'Canine', breed: 'Beagle', age: '2 yrs 8 mos', gender: 'Neutered Male', parent: 'Deepika Nair', phone: '+91 96118 77665', city: 'Bengaluru (Jayanagar)', healthScore: 86, vaxStatus: 'Up to Date', microchip: '982000412891205' },
+    { id: 'PET-106', name: 'Leo', species: 'Canine', breed: 'Labrador Retriever', age: '5 yrs 3 mos', gender: 'Neutered Male', parent: 'Siddharth Rao', phone: '+91 94480 33445', city: 'Bengaluru (JP Nagar)', healthScore: 90, vaxStatus: 'Up to Date', microchip: '982000412891206' },
+    { id: 'PET-107', name: 'Luna', species: 'Canine', breed: 'Siberian Husky', age: '3 yrs 0 mos', gender: 'Spayed Female', parent: 'Kavita Menon', phone: '+91 98200 66778', city: 'Bengaluru (Bellandur)', healthScore: 93, vaxStatus: 'Up to Date', microchip: '982000412891207' },
+    { id: 'PET-108', name: 'Simba', species: 'Canine', breed: 'Indie Hound Cross', age: '1 yr 2 mos', gender: 'Neutered Male', parent: 'Arjun Kapoor', phone: '+91 97401 22334', city: 'Bengaluru (Sadashivnagar)', healthScore: 97, vaxStatus: 'Up to Date', microchip: '982000412891208' },
+    { id: 'PET-109', name: 'Oreo', species: 'Canine', breed: 'French Bulldog', age: '2 yrs 1 mo', gender: 'Intact Male', parent: 'Meera Nambiar', phone: '+91 96325 88990', city: 'Bengaluru (Hebbal)', healthScore: 88, vaxStatus: 'Due in 14d', microchip: '982000412891209' },
+    { id: 'PET-110', name: 'Bruno', species: 'Canine', breed: 'Rottweiler', age: '3 yrs 6 mos', gender: 'Neutered Male', parent: 'Rohan Gupta', phone: '+91 98110 44556', city: 'Bengaluru (Electronic City)', healthScore: 91, vaxStatus: 'Up to Date', microchip: '982000412891210' }
+  ];
 
   const filtered = pets.filter(p => {
     const matchesFilter = filter === 'ALL' || p.species === filter || p.vaxStatus === filter;
@@ -26,7 +37,7 @@ export default function AllPets() {
       title="Master Pet Registry & Census"
       subtitle="Complete database of registered companion animals, pet parents, microchip IDs, and longitudinal health statuses"
       icon="🐾"
-      badge=""
+      badge="10 Registered Pets"
       actions={
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           {['ALL', 'Canine', 'Feline', 'Avian', 'Up to Date', 'Due in 14d', 'Overdue'].map(f => (
@@ -51,11 +62,11 @@ export default function AllPets() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px', marginBottom: '20px' }}>
-        <KpiCard label="Total Registered Pets" value="0" delta="0.0%" trend="neutral" subtext="Canine, Feline & Exotic" icon="🐾" />
-        <KpiCard label="Canine Share" value="0.0%" delta="0 Dogs" trend="neutral" subtext="Primary demographic" icon="🐕" />
-        <KpiCard label="Feline Share" value="0.0%" delta="0 Cats" trend="neutral" subtext="No growth" icon="🐈" />
-        <KpiCard label="Vaccine Compliant" value="0.0%" delta="0 Active" trend="neutral" subtext="Health pass verified" icon="💉" />
-        <KpiCard label="Microchip Enrolled" value="0.0%" delta="0 Chipped" trend="neutral" subtext="ISO 11784 RFID standard" icon="🏷️" />
+        <KpiCard label="Total Registered Pets" value="10" delta="+100%" trend="up" subtext="Canine & Feline Registry" icon="🐾" />
+        <KpiCard label="Canine Share" value="90.0%" delta="9 Dogs" trend="up" subtext="Primary demographic" icon="🐕" />
+        <KpiCard label="Feline Share" value="10.0%" delta="1 Cat" trend="neutral" subtext="Bella (Persian)" icon="🐈" />
+        <KpiCard label="Vaccine Compliant" value="100.0%" delta="8 / 10 Valid" trend="up" subtext="Health pass verified" icon="💉" />
+        <KpiCard label="Microchip Enrolled" value="100.0%" delta="10 Chipped" trend="up" subtext="ISO 11784 RFID standard" icon="🏷️" />
       </div>
 
       <div style={{

@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function CustomerLifetimeValue() {
-  const ltvSegments = [];
+  const ltvSegments = [
+    { segment: 'VIP Diamond Cohort (Top 2%)', customers: 250, avgLifespan: '38 Months', avgAnnualSpend: '₹1,95,000', ltvValue: '₹6,17,500', marginContrib: '44.5%', ltvCac: '18.2x' },
+    { segment: 'Elite Multi-Pet Gold (Top 8%)', customers: 980, avgLifespan: '32 Months', avgAnnualSpend: '₹1,24,000', ltvValue: '₹3,30,600', marginContrib: '41.2%', ltvCac: '12.4x' },
+    { segment: 'Chronic Care & Medical (Top 15%)', customers: 1450, avgLifespan: '28 Months', avgAnnualSpend: '₹88,000', ltvValue: '₹2,05,300', marginContrib: '38.6%', ltvCac: '9.8x' },
+    { segment: 'Subscription Food & Essentials', customers: 2860, avgLifespan: '24 Months', avgAnnualSpend: '₹54,000', ltvValue: '₹1,08,000', marginContrib: '32.4%', ltvCac: '7.6x' },
+    { segment: 'Regular Care & Grooming', customers: 2240, avgLifespan: '18 Months', avgAnnualSpend: '₹36,000', ltvValue: '₹54,000', marginContrib: '36.8%', ltvCac: '5.4x' },
+    { segment: 'Occasional Clinic & Retail', customers: 1890, avgLifespan: '14 Months', avgAnnualSpend: '₹22,000', ltvValue: '₹25,600', marginContrib: '28.5%', ltvCac: '3.8x' },
+    { segment: 'Digital App Shoppers (Single Cat)', customers: 1120, avgLifespan: '16 Months', avgAnnualSpend: '₹26,000', ltvValue: '₹34,600', marginContrib: '31.0%', ltvCac: '4.6x' },
+    { segment: 'Fashion & Accessories Shoppers', customers: 640, avgLifespan: '12 Months', avgAnnualSpend: '₹18,500', ltvValue: '₹18,500', marginContrib: '48.2%', ltvCac: '3.2x' },
+    { segment: 'Emergency & One-Off Clinic', customers: 720, avgLifespan: '8 Months', avgAnnualSpend: '₹14,000', ltvValue: '₹9,300', marginContrib: '35.0%', ltvCac: '2.1x' },
+    { segment: 'Reactivated Dormant Accounts', customers: 330, avgLifespan: '10 Months', avgAnnualSpend: '₹16,200', ltvValue: '₹13,500', marginContrib: '29.8%', ltvCac: '2.8x' }
+  ];
 
   const cardStyle = { background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(0,0,0,0.08))', borderRadius: '12px', padding: '22px 24px' };
 
@@ -17,10 +28,10 @@ export default function CustomerLifetimeValue() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Average Blended LTV" value="₹0" delta="0.0%" trend="neutral" subtext="No active accounts" icon="💎" />
-        <KpiCard label="Blended LTV : CAC Multiple" value="0.0x" delta="--" trend="neutral" subtext="Standard payback" icon="📈" />
-        <KpiCard label="Average Customer Lifespan" value="0 Months" delta="0.0%" trend="neutral" subtext="Increasing membership retention" icon="⏳" />
-        <KpiCard label="Cumulative Cohort GMV" value="₹0" delta="Historic realized value" trend="neutral" subtext="Since platform inception" icon="💰" />
+        <KpiCard label="Average Blended LTV" value="₹42,650" delta="+14.6%" trend="up" subtext="Across all cohorts" icon="💎" />
+        <KpiCard label="Blended LTV : CAC Multiple" value="8.4x" delta="+1.2x" trend="up" subtext="Top-tier capital efficiency" icon="📈" />
+        <KpiCard label="Average Customer Lifespan" value="21.4 Months" delta="+3.8 Mo" trend="up" subtext="Subscribers & clinic clients" icon="⏳" />
+        <KpiCard label="Cumulative Cohort GMV" value="₹14.8 Cr" delta="+26.2%" trend="up" subtext="Realized value since launch" icon="💰" />
       </div>
 
       <div style={cardStyle}>

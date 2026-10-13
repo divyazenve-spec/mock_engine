@@ -7,9 +7,31 @@ export default function PetHealthInsights() {
   const [searchQuery, setSearchQuery] = useState('');
   const [actionMessage, setActionMessage] = useState('');
 
-  const insights = [];
+  const insights = [
+    { id: 'INS-01', title: 'Seasonal Canine Parvovirus & Vector Alert - East Bengaluru Hub', category: 'Infectious Epidemiology', severity: 'Critical', metric: '100% Vax Protected', preventable: 'Averts Outbreaks', cohort: 'Puppies & Young Canines (Indiranagar / Whitefield)', description: 'Geographic micro-clustering detected a surge in tick-borne hemoprotozoa cases across eastern corridors. Automated reminder broadcasts triggered for Bravecto/Simparica administration.', recommendation: 'Mandatory 4DX snap testing for febrile presentations and vector prophylaxis recall.', impact: 'Zero transmission among registered cohort', actionLabel: 'Dispatch Vector SMS' },
+    { id: 'INS-02', title: 'Brachycephalic Upper Airway Monitoring - Milo & Oreo', category: 'Breed Genetic Risks', severity: 'Warning', metric: '2 Patients Monitored', preventable: 'Stenotic Prevention', cohort: 'French Bulldogs & Pugs (Grade 2 BAS)', description: 'Thermal stress indices in Bengaluru summer triggered heat vulnerability advisory. Milo completed successful staph surgical correction; Oreo recommended for cooling pad protocol.', recommendation: 'Schedule prophylactic elongated soft palate review before peak dry season.', impact: '95% reduction in respiratory distress', actionLabel: 'Book Airway Review' },
+    { id: 'INS-03', title: 'Canine Hip Dysplasia & OA Management Protocol - Max', category: 'Musculoskeletal & Mobility', severity: 'Warning', metric: '82% Mobility Restored', preventable: 'Prevents Joint Collapse', cohort: 'Large Breed Canines > 25kg (Golden Retrievers)', description: 'Gait telemetry analysis and radiographic scoring showed Grade 2 coxofemoral laxity. Regenerative PRP and bi-weekly hydrotherapy achieved marked pain reduction without steroid dependency.', recommendation: 'Continuous Glyco-Flex 3 supplementation and quarterly mobility scoring.', impact: 'Maintained independent active ambulation', actionLabel: 'Refill Joint Formula' },
+    { id: 'INS-04', title: 'Feline Lower Urinary Tract Surveillance - Luna', category: 'Metabolic & Feline Renal', severity: 'Critical', metric: 'pH 6.4 Controlled', preventable: 'Prevents Obstruction', cohort: 'Persian & Indoor Feline Breeds (Water-Averse)', description: 'Urinalysis indicated microscopic struvite crystalluria. Therapeutic prescription diet (Royal Canin S/O) and ceramic water fountain installation reversed crystal precipitation.', recommendation: 'Bimonthly urine specific gravity test and wet food intake tracking.', impact: 'Zero repeat urethral obstruction', actionLabel: 'Order Urinary S/O Pack' },
+    { id: 'INS-05', title: 'Atopic Dermatitis & Cytopoint mAb Response - Coco', category: 'Immunology & Allergy', severity: 'Milestone', metric: 'Pruritus Index: 1/10', preventable: 'Prevents Secondary Pyoderma', cohort: 'Toy & Long-Haired Breeds (Shih Tzu / Lhasa)', description: 'Targeted Interleukin-31 antibody (Cytopoint 10mg) halted intractable itch-scratch cycles. Elimination diet trial established environmental dust-mite etiology.', recommendation: 'Maintain 8-week maintenance injections and chlorhexidine shampoo regimen.', impact: '100% resolution of skin erythema', actionLabel: 'Schedule Next Cytopoint' },
+    { id: 'INS-06', title: 'Kennel Cough Tracheobronchitis Exposure - Rocky', category: 'Respiratory Cluster', severity: 'Milestone', metric: 'Resolved (Day 8)', preventable: 'Vaccine Preventable', cohort: 'Boarding & Daycare Active Canines', description: 'Bordetella bronchiseptica exposure post-boarding treated swiftly with nebulization and doxycycline. Nobivac KC booster logged for all dog park companions.', recommendation: 'Mandatory intrapent immunization prior to seasonal boarding.', impact: 'Zero secondary bronchopneumonia', actionLabel: 'Log Boarding Clearance' },
+    { id: 'INS-07', title: 'Post-Gastroenteritis Gut Flora Reconstitution - Bella', category: 'Gastroenterology', severity: 'Milestone', metric: 'Normal Stool Score 2', preventable: 'Dietary Discipline', cohort: 'Working & Guard Breeds (German Shepherd)', description: 'Follow-up fecal analysis post-acute enteritis verified zero bacterial overgrowth. Hill\'s GI Biome prebiotic fiber successfully normalized microbiome biodiversity.', recommendation: 'Taper off anti-emetics; maintain strict probiotic administration for 14 days.', impact: 'Weight recovery of +1.2kg in 2 weeks', actionLabel: 'Verify Microbiome Panel' },
+    { id: 'INS-08', title: 'Prophylactic Laparoscopic Gastropexy Efficacy - Bruno', category: 'Surgical Prophylaxis', severity: 'Milestone', metric: 'Zero GDV Risk', preventable: 'Life-Saving Intervention', cohort: 'Deep-Chested Molosser Breeds (Rottweiler)', description: 'Minimally invasive laparoscopic gastropexy permanently fixed the gastric antrum to abdominal wall, neutralizing life-threatening gastric torsion risk.', recommendation: 'Standard post-surgical incision check at Day 10 and gradual return to exercise.', impact: 'Lifetime eradication of torsion mortality', actionLabel: 'Schedule Suture Check' },
+    { id: 'INS-09', title: 'Senior Canine Cognitive & Geriatric Biomarker Check - Leo', category: 'Geriatric Wellness', severity: 'Warning', metric: 'SDMA 11 µg/dL (Normal)', preventable: 'Early Renal Staging', cohort: 'Canines 5+ Years (Labrador)', description: 'Comprehensive baseline geriatric screening confirmed early osteoarthritis in right stifle, but excellent renal/hepatic clearance biomarkers.', recommendation: 'Transition to Royal Canin Mobility diet; commence low-impact swimming exercises.', impact: 'Preserved lean muscle mass & joint ease', actionLabel: 'Initiate Hydro Protocol' },
+    { id: 'INS-10', title: 'Desi / Indie Resilience & Vaccination Passport - Simba', category: 'Community Health', severity: 'Milestone', metric: 'Optimal BCS 5.0', preventable: 'Full Core Immunity', cohort: 'Native / Indie Breeds (Hardy Phenotype)', description: 'Full core immunizations (DHPPi + Rabies) and broad-spectrum parasite deworming completed. Superior immunological response recorded with zero adverse events.', recommendation: 'Routine annual booster in August 2025; ongoing basic flea control.', impact: 'Exemplary baseline companion health', actionLabel: 'Issue Digital Passport' }
+  ];
 
-  const biomarkerSurveillance = [];
+  const biomarkerSurveillance = [
+    { test: 'SDMA (Symmetric Dimethylarginine)', indication: 'Early Renal Function (25% loss detection)', tested: 10, normal: '9 (90%)', atRisk: '1 (10%)', pathological: '0 (0%)', action: 'Renal protective wet diet' },
+    { test: 'Canine 4Dx Plus (Heartworm, Lyme, Ehrlichia, Anaplasma)', indication: 'Tick-borne Hemoparasite Surveillance', tested: 10, normal: '9 (90%)', atRisk: '1 (10%)', pathological: '0 (0%)', action: 'Simparica Trio + Doxycycline' },
+    { test: 'Alanine Aminotransferase (ALT)', indication: 'Hepatic Parenchymal Integrity', tested: 10, normal: '10 (100%)', atRisk: '0 (0%)', pathological: '0 (0%)', action: 'Standard dietary support' },
+    { test: 'Serum Alkaline Phosphatase (ALP)', indication: 'Cholestasis & Bone Turnover', tested: 10, normal: '9 (90%)', atRisk: '1 (10%)', pathological: '0 (0%)', action: 'Hepatoprotective SAMe' },
+    { test: 'Serum Lipase (DGGR / cPLI)', indication: 'Pancreatic Inflammation (Pancreatitis)', tested: 10, normal: '10 (100%)', atRisk: '0 (0%)', pathological: '0 (0%)', action: 'Low-fat dietary restriction' },
+    { test: 'Thyroxine (Total T4 & fT4 by ED)', indication: 'Canine Hypo / Feline Hyperthyroidism', tested: 10, normal: '10 (100%)', atRisk: '0 (0%)', pathological: '0 (0%)', action: 'Annual endocrine screening' },
+    { test: 'Urine Protein:Creatinine (UPC) Ratio', indication: 'Glomerular Proteinuria Early Marker', tested: 10, normal: '9 (90%)', atRisk: '1 (10%)', pathological: '0 (0%)', action: 'ACE inhibitor evaluation' },
+    { test: 'Cardiac Troponin I (cTnI)', indication: 'Myocardial Injury & DCM Detection', tested: 10, normal: '10 (100%)', atRisk: '0 (0%)', pathological: '0 (0%)', action: 'Cardiology ultrasound' },
+    { test: 'Fructosamine & Fasting Glucose', indication: 'Diabetes Mellitus Glycemic Trend', tested: 10, normal: '10 (100%)', atRisk: '0 (0%)', pathological: '0 (0%)', action: 'Weight management' },
+    { test: 'Cobalamin (Vit B12) & Folate', indication: 'Distal Ileal GI Absorption & IBD', tested: 10, normal: '9 (90%)', atRisk: '1 (10%)', pathological: '0 (0%)', action: 'Oral cobalamin supplementation' }
+  ];
 
   const handleAction = (title, label) => {
     setActionMessage(`Executing "${label}" for: ${title}`);
@@ -31,7 +53,7 @@ export default function PetHealthInsights() {
       title="Zenve AI Pet Health Intelligence & Epidemiological Surveillance"
       subtitle="Machine learning-driven epidemiological alert triggers, infectious disease clustering, genetic risk flags, biomarker surveillance, and proactive clinical recall protocols"
       icon="🧠"
-      badge=""
+      badge="10 Active Intelligence Signals"
       actions={
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           {['ALL', 'Critical', 'Warning', 'Milestone'].map(f => (
@@ -79,11 +101,11 @@ export default function PetHealthInsights() {
 
       {/* KPI Ribbon */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px', marginBottom: '22px' }}>
-        <KpiCard label="Population Health Index" value="0.0" delta="Optimal Health Band" trend="neutral" subtext="Aggregated clinical wellness score" icon="🧠" />
-        <KpiCard label="Active Surveillance Triggers" value="0" delta="--" trend="neutral" subtext="Epidemiological clusters" icon="🚨" />
-        <KpiCard label="Early Morbidity Staging" value="0.0%" delta="0.0%" trend="neutral" subtext="Averts late-stage hospitalization" icon="🛡️" />
-        <KpiCard label="Parent Recall Action Rate" value="0.0%" delta="0 Recalls" trend="neutral" subtext="WhatsApp & push response" icon="📱" />
-        <KpiCard label="Chronic Care Cohort" value="0" delta="--" trend="neutral" subtext="Enrolled in remote monitoring" icon="🩺" />
+        <KpiCard label="Population Health Index" value="91.8" delta="Optimal Health Band" trend="up" subtext="Aggregated clinical wellness score" icon="🧠" />
+        <KpiCard label="Active Surveillance Triggers" value="10" delta="10 Monitored" trend="up" subtext="Epidemiological clusters" icon="🚨" />
+        <KpiCard label="Early Morbidity Staging" value="94.5%" delta="+6.2% YoY" trend="up" subtext="Averts late-stage hospitalization" icon="🛡️" />
+        <KpiCard label="Parent Recall Action Rate" value="88.4%" delta="9/10 Recalls" trend="up" subtext="WhatsApp & push response" icon="📱" />
+        <KpiCard label="Chronic Care Cohort" value="4" delta="4 Active" trend="neutral" subtext="Enrolled in remote monitoring" icon="🩺" />
       </div>
 
       {/* Filter and Search Bar */}

@@ -6,7 +6,18 @@ export default function TreatmentHistory() {
   const [filter, setFilter] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const treatments = [];
+  const treatments = [
+    { id: 'TRT-701', pet: 'Max (Golden Retriever)', condition: 'Bilateral Hip Dysplasia (Grade 2)', procedure: 'Platelet-Rich Plasma (PRP) Injection + Hydrotherapy', duration: '4 Weeks', vet: 'Dr. Ramesh Rao', cost: '₹14,500', outcome: 'Resolved (Active Mobility)' },
+    { id: 'TRT-702', pet: 'Bella (German Shepherd)', condition: 'Gastroenteritis & Dehydration', procedure: 'IV Fluids (Ringer Lactate) + Anti-emetic Protocol', duration: '24 Hours ICU', vet: 'Dr. Priya Nair', cost: '₹4,800', outcome: 'Discharged (Full Recovery)' },
+    { id: 'TRT-703', pet: 'Coco (Shih Tzu)', condition: 'Canine Atopic Dermatitis', procedure: 'Cytopoint mAb Therapy + Medicated Chlorhexidine Baths', duration: '6 Weeks', vet: 'Dr. Ramesh Rao', cost: '₹8,200', outcome: 'Resolved (Zero Pruritus)' },
+    { id: 'TRT-704', pet: 'Rocky (Beagle)', condition: 'Canine Infectious Tracheobronchitis', procedure: 'Nebulization + Doxycycline & Bronchodilators', duration: '10 Days', vet: 'Dr. Ananya Sen', cost: '₹3,500', outcome: 'Resolved (Cough Free)' },
+    { id: 'TRT-705', pet: 'Milo (French Bulldog)', condition: 'Brachycephalic Airway Syndrome', procedure: 'Stenotic Nares Rhinoplasty & Soft Palate Resection', duration: '3 Days Inpatient', vet: 'Dr. Vikram Malhotra', cost: '₹28,000', outcome: 'Discharged (Normal Airway)' },
+    { id: 'TRT-706', pet: 'Leo (Labrador)', condition: 'Cruciate Ligament Strain', procedure: 'Laser Therapy + NSAID Carprofen Protocol', duration: '3 Weeks Rehab', vet: 'Dr. Priya Nair', cost: '₹9,600', outcome: 'Rehab (Weight Reduced)' },
+    { id: 'TRT-707', pet: 'Luna (Persian Cat)', condition: 'Feline Lower Urinary Tract Disease', procedure: 'Urinary Catheterization + Therapeutic Royal Canin S/O', duration: '48 Hours Stay', vet: 'Dr. Ananya Sen', cost: '₹6,400', outcome: 'Stable (Dietary Mgt)' },
+    { id: 'TRT-708', pet: 'Simba (Indie / Desi Dog)', condition: 'Flea Allergy Dermatitis & Pyoderma', procedure: 'Simparica Trio + Cephalexin Oral Antibiotics', duration: '2 Weeks', vet: 'Dr. Ramesh Rao', cost: '₹2,900', outcome: 'Resolved (Coat Regrowth)' },
+    { id: 'TRT-709', pet: 'Oreo (Pug)', condition: 'Corneal Ulcer (Right Eye)', procedure: 'Debridement + Ofloxacin & Hyaluronic Eye Drops', duration: '14 Days', vet: 'Dr. Vikram Malhotra', cost: '₹4,200', outcome: 'Resolved (Cornea Clear)' },
+    { id: 'TRT-710', pet: 'Bruno (Rottweiler)', condition: 'Gastric Dilatation-Volvulus (GDV Risk)', procedure: 'Prophylactic Laparoscopic Gastropexy + Castration', duration: '36 Hours Inpatient', vet: 'Dr. Priya Nair', cost: '₹32,500', outcome: 'Recovery (Complete)' }
+  ];
 
   const filtered = treatments.filter(t => {
     const matchesFilter = filter === 'ALL' || t.outcome.includes(filter);
@@ -24,7 +35,7 @@ export default function TreatmentHistory() {
       title="Inpatient Protocols, ICU & Surgical Recovery Logs"
       subtitle="Historical treatment regimens, emergency interventions, surgical procedures, and discharge outcome tracking"
       icon="🐾"
-      badge=""
+      badge="10 Recorded Episodes"
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           {['ALL', 'Resolved', 'Discharged', 'Rehab', 'Stable', 'Recovery'].map(f => (
@@ -49,10 +60,10 @@ export default function TreatmentHistory() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px', marginBottom: '20px' }}>
-        <KpiCard label="Total Procedures Logged" value="0" delta="0.0%" trend="neutral" subtext="Medical & surgical" icon="💊" />
-        <KpiCard label="Average Recovery Rate" value="0.0%" delta="High success" trend="neutral" subtext="Discharged safely" icon="📈" />
-        <KpiCard label="Avg Inpatient Stay" value="0 Days" delta="0.0%" trend="neutral" subtext="Optimized recovery" icon="⏱️" />
-        <KpiCard label="Surgical Success Rate" value="0.0%" delta="Zero sepsis" trend="neutral" subtext="Sterile theater suite" icon="🏥" />
+        <KpiCard label="Total Procedures Logged" value="10" delta="+100%" trend="up" subtext="Medical & surgical" icon="💊" />
+        <KpiCard label="Average Recovery Rate" value="98.5%" delta="High success" trend="up" subtext="Discharged safely" icon="📈" />
+        <KpiCard label="Avg Inpatient Stay" value="1.2 Days" delta="-20% vs benchmark" trend="up" subtext="Optimized recovery" icon="⏱️" />
+        <KpiCard label="Surgical Success Rate" value="100%" delta="Zero sepsis" trend="up" subtext="Sterile theater suite" icon="🏥" />
       </div>
 
       <div style={{

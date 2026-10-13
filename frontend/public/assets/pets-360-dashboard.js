@@ -28,20 +28,97 @@
 
   var root = null;
 
-  /* ── Master Mock Datasets ─────────────────────────────────────────── */
-  var PETS = [];
+  /* ── Master Mock Datasets (10 Records Each for All Sub-Domains) ──── */
+  var PETS = [
+    { id: 'PET-101', name: 'Max', species: 'Canine', breed: 'Golden Retriever', age: '3 yrs 2 mos', dob: 'Nov 2021', gender: 'Neutered Male', weight: '32.4 kg (Optimal)', color: 'Dark Golden', parent: 'Priya Sharma', phone: '+91 98450 12345', email: 'priya.sharma@gmail.com', city: 'Bengaluru (Indiranagar)', address: '12th Main, HAL 2nd Stage, Indiranagar', clinic: 'Zenve Koramangala Super Clinic', primaryVet: 'Dr. Tanya S. (BVSc & AH)', healthScore: 94, vaxStatus: 'Up to Date', microchip: '982000412891201', diet: 'Royal Canin Maxi Adult (380g/day) + Salmon Omega-3', allergies: 'Chicken byproduct (mild contact pruritus)', notes: 'Bilateral hip palpation clear; teeth pristine post annual scaling; cardiac auscultation grade 0.', insurance: 'PetCover Gold Shield (#PCG-881920)', avatar: '🐕' },
+    { id: 'PET-102', name: 'Bella', species: 'Feline', breed: 'Persian Longhair', age: '2 yrs 4 mos', dob: 'Sep 2022', gender: 'Spayed Female', weight: '4.1 kg (Ideal)', color: 'Pure White / Copper Eyes', parent: 'Rahul Verma', phone: '+91 97312 98765', email: 'rahul.verma@techmail.com', city: 'Bengaluru (Koramangala)', address: '4th Block, Koramangala, Bengaluru', clinic: 'Zenve Koramangala Super Clinic', primaryVet: 'Dr. Vikram Rao (Feline Specialist)', healthScore: 91, vaxStatus: 'Up to Date', microchip: '982000412891202', diet: 'Royal Canin Persian Adult + Hairball Control Pastes', allergies: 'Synthetic flea collars (pyrethroid sensitivity)', notes: 'Feline renal SDMA normal; tear ducts flushed cleanly; coat combed without matting.', insurance: 'PawProtect Silver Plus (#PPS-331042)', avatar: '🐈' },
+    { id: 'PET-103', name: 'Coco', species: 'Canine', breed: 'Shih Tzu', age: '1 yr 6 mos', dob: 'Jul 2023', gender: 'Intact Female', weight: '6.2 kg (Ideal)', color: 'Tri-color (Gold, White & Black)', parent: 'Ananya Iyer', phone: '+91 99001 54321', email: 'ananya.iyer@outlook.com', city: 'Bengaluru (HSR Layout)', address: 'Sector 2, HSR Layout, Bengaluru', clinic: 'Zenve HSR Clinic & Spa', primaryVet: 'Dr. Ananya Roy (Dermatology)', healthScore: 89, vaxStatus: 'Due in 14d', microchip: '982000412891203', diet: 'Farmina N&D Small Breed Pumpkin & Lamb', allergies: 'Pollen seasonal allergic contact dermatitis', notes: 'Ear canal cytology clear of Malassezia; patellar score Grade 0 bilaterally.', insurance: 'Care4Pets Shield (#C4P-552910)', avatar: '🐕' },
+    { id: 'PET-104', name: 'Rocky', species: 'Canine', breed: 'German Shepherd', age: '4 yrs 1 mo', dob: 'Dec 2020', gender: 'Neutered Male', weight: '38.6 kg (Athletic)', color: 'Black & Tan Saddle', parent: 'Vikram Malhotra', phone: '+91 98860 11223', email: 'v.malhotra@corp.in', city: 'Bengaluru (Whitefield)', address: 'Prestige Ozone, Whitefield, Bengaluru', clinic: 'Zenve Whitefield Specialty Hospital', primaryVet: 'Dr. Rajesh Patel (Orthopedic Surgeon)', healthScore: 92, vaxStatus: 'Up to Date', microchip: '982000412891204', diet: 'Taste of the Wild High Prairie + Joint Synovial Chews', allergies: 'Wheat gluten & corn meal fillers', notes: 'Right TPLO surgical follow-up shows 100% bone union; gait symmetrical on pressure plate.', insurance: 'Zenve Elite Lifetime (#ZEL-109284)', avatar: '🐕' },
+    { id: 'PET-105', name: 'Milo', species: 'Canine', breed: 'Beagle', age: '2 yrs 8 mos', dob: 'May 2022', gender: 'Neutered Male', weight: '14.2 kg (BCS 5)', color: 'Classic Tri-color Hound', parent: 'Deepika Nair', phone: '+91 96118 77665', email: 'deepika.nair@biotech.res', city: 'Bengaluru (Jayanagar)', address: '4th T Block, Jayanagar, Bengaluru', clinic: 'Zenve Jayanagar Clinic', primaryVet: 'Dr. Priya Desai (Internal Medicine)', healthScore: 86, vaxStatus: 'Up to Date', microchip: '982000412891205', diet: 'Hill\'s Science Diet Light Adult (Caloric Controlled)', allergies: 'Beef liver jerky treats', notes: 'Weight successfully lowered from 15.4 kg to 14.2 kg; fasting glucose 88 mg/dL.', insurance: 'PetCover Gold Shield (#PCG-882411)', avatar: '🐕' },
+    { id: 'PET-106', name: 'Leo', species: 'Canine', breed: 'Labrador Retriever', age: '5 yrs 3 mos', dob: 'Oct 2019', gender: 'Neutered Male', weight: '34.8 kg (Ideal)', color: 'Chocolate Brown', parent: 'Siddharth Rao', phone: '+91 94480 33445', email: 'sid.rao@fintech.io', city: 'Bengaluru (JP Nagar)', address: 'Brigade Millennium, JP Nagar 7th Phase', clinic: 'Zenve Jayanagar Clinic', primaryVet: 'Dr. Tanya S. (BVSc & AH)', healthScore: 90, vaxStatus: 'Up to Date', microchip: '982000412891206', diet: 'Orijen Six Fish Grain-Free + Glucosamine-Chondroitin', allergies: 'Soy protein isolate', notes: 'Cardiorespiratory stamina excellent; routine ultrasound clean; thyroid profile T4 normal.', insurance: 'PawProtect Silver Plus (#PPS-338901)', avatar: '🐕' },
+    { id: 'PET-107', name: 'Luna', species: 'Canine', breed: 'Siberian Husky', age: '3 yrs 0 mos', dob: 'Jan 2022', gender: 'Spayed Female', weight: '21.5 kg (Lean)', color: 'Silver & White / Bi-eyed', parent: 'Kavita Menon', phone: '+91 98200 66778', email: 'kavita.menon@designhub.in', city: 'Bengaluru (Bellandur)', address: 'Green Glen Layout, Bellandur, Bengaluru', clinic: 'Zenve HSR Clinic & Spa', primaryVet: 'Dr. Ananya Roy (Dermatology)', healthScore: 93, vaxStatus: 'Up to Date', microchip: '982000412891207', diet: 'Acana Wild Prairie + Zinc Methionine Supplements', allergies: 'Humid heat rash (prescribed cool indoor climate)', notes: 'Dermal barrier reinforced with ceramide shampoos; coat density optimal.', insurance: 'Care4Pets Shield (#C4P-559021)', avatar: '🐕' },
+    { id: 'PET-108', name: 'Simba', species: 'Canine', breed: 'Indie Hound Cross', age: '1 yr 2 mos', dob: 'Nov 2023', gender: 'Neutered Male', weight: '18.2 kg (Vigorous)', color: 'Fawn & Tan Short Coat', parent: 'Arjun Kapoor', phone: '+91 97401 22334', email: 'arjun.k@venturecap.co', city: 'Bengaluru (Sadashivnagar)', address: 'Armane Nagar, Sadashivnagar, Bengaluru', clinic: 'Zenve Central Animal Hospital', primaryVet: 'Dr. Tanya S. (BVSc & AH)', healthScore: 97, vaxStatus: 'Up to Date', microchip: '982000412891208', diet: 'Fresh Home-cooked Chicken, Rice, Pumpkin & Bone Broth', allergies: 'None known (robust native immunity)', notes: 'Complete vaccination series finalized; CBC parameters perfect; high athletic stamina.', insurance: 'Zenve Elite Lifetime (#ZEL-104920)', avatar: '🐕' },
+    { id: 'PET-109', name: 'Oreo', species: 'Canine', breed: 'French Bulldog', age: '2 yrs 1 mo', dob: 'Dec 2022', gender: 'Intact Male', weight: '11.8 kg (Stocky)', color: 'Black & White Pied', parent: 'Meera Nambiar', phone: '+91 96325 88990', email: 'meera.nambiar@gmail.com', city: 'Bengaluru (Hebbal)', address: 'Godrej Woodsman Estate, Hebbal, Bengaluru', clinic: 'Zenve Central Animal Hospital', primaryVet: 'Dr. Rajesh Patel (Airway Specialist)', healthScore: 88, vaxStatus: 'Due in 14d', microchip: '982000412891209', diet: 'Royal Canin French Bulldog Adult + Digest Zen', allergies: 'Dust mites & synthetic room fragrances', notes: 'Stenotic nares evaluate BOAS Grade 1 (mild); soft palate unobstructed; no exercise distress.', insurance: 'PetCover Gold Shield (#PCG-889102)', avatar: '🐕' },
+    { id: 'PET-110', name: 'Bruno', species: 'Canine', breed: 'Rottweiler', age: '3 yrs 6 mos', dob: 'Jul 2021', gender: 'Neutered Male', weight: '46.2 kg (Powerful)', color: 'Mahogany & Black', parent: 'Rohan Gupta', phone: '+91 98110 44556', email: 'rohan.g@startupnest.in', city: 'Bengaluru (Electronic City)', address: 'Neeladri Nagar, Phase 1, Electronic City', clinic: 'Zenve Koramangala Super Clinic', primaryVet: 'Dr. Rajesh Patel (Orthopedic Surgeon)', healthScore: 91, vaxStatus: 'Up to Date', microchip: '982000412891210', diet: 'Farmina N&D Maxi Pumpkin, Lamb & Blueberry + Joint Chews', allergies: 'Dairy milk proteins (lactose intolerant)', notes: 'Elbow dysplasia screen clear; cardiac echo verified 0 murmur; temperament calm.', insurance: 'Zenve Elite Lifetime (#ZEL-108845)', avatar: '🐕' }
+  ];
 
-  var HEALTH_RECORDS = [];
+  var HEALTH_RECORDS = [
+    { id: 'EHR-8801', date: '10 Oct 2026', pet: 'Max (Golden Retriever)', type: 'Annual Wellness & ECG', vitals: 'Temp: 38.6°C • HR: 88 bpm • Wt: 32.4 kg', diagnosis: 'Comprehensive Wellness Clearance', notes: 'Cardiac ECG shows normal sinus rhythm; dentition Grade 0; clear corneas.', vet: 'Dr. Tanya S.', status: 'Resolved' },
+    { id: 'EHR-8802', date: '08 Oct 2026', pet: 'Bella (Persian Cat)', type: 'Renal Biomarker Screening', vitals: 'Temp: 38.2°C • HR: 140 bpm • Wt: 4.1 kg', diagnosis: 'Feline Renal SDMA Normal Screening', notes: 'Creatinine 1.2 mg/dL, SDMA 9 ug/dL (Well below reference threshold of 14).', vet: 'Dr. Vikram Rao', status: 'Resolved' },
+    { id: 'EHR-8803', date: '05 Oct 2026', pet: 'Coco (Shih Tzu)', type: 'Dermatology Cytology Exam', vitals: 'Temp: 38.4°C • HR: 110 bpm • Wt: 6.2 kg', diagnosis: 'Mild Atopic Allergic Pruritus', notes: 'Tape strip cytology confirmed zero yeast; prescribed hypoallergenic chlorhexidine rinse.', vet: 'Dr. Ananya Roy', status: 'Under Regimen' },
+    { id: 'EHR-8804', date: '01 Oct 2026', pet: 'Rocky (German Shepherd)', type: 'Orthopedic Digital Radiography', vitals: 'Temp: 38.5°C • HR: 76 bpm • Wt: 38.6 kg', diagnosis: 'Post-TPLO 12-Month Osseous Consolidation', notes: 'Digital X-ray confirms 100% cortical bridging; full weight bearing on hindlimb.', vet: 'Dr. Rajesh Patel', status: 'Resolved' },
+    { id: 'EHR-8805', date: '28 Sep 2026', pet: 'Milo (Beagle)', type: 'Metabolic & Thyroid Evaluation', vitals: 'Temp: 38.7°C • HR: 92 bpm • Wt: 14.2 kg', diagnosis: 'Canine Dietary Obesity - In Remission', notes: 'Loss of 1.2 kg achieved via portion control; fasting triglycerides normalized.', vet: 'Dr. Priya Desai', status: 'Under Regimen' },
+    { id: 'EHR-8806', date: '25 Sep 2026', pet: 'Leo (Labrador Retriever)', type: 'Senior Wellness & Ultrasound', vitals: 'Temp: 38.3°C • HR: 80 bpm • Wt: 34.8 kg', diagnosis: 'Age-Appropriate Hepatosplenic Scan', notes: 'Abdominal ultrasound shows homogenous liver & spleen parenchyma; no cystic lesions.', vet: 'Dr. Tanya S.', status: 'Resolved' },
+    { id: 'EHR-8807', date: '22 Sep 2026', pet: 'Luna (Siberian Husky)', type: 'Dermal Barrier Follow-up', vitals: 'Temp: 38.5°C • HR: 84 bpm • Wt: 21.5 kg', diagnosis: 'Seasonal Humidity Erythema Resolved', notes: 'Skin lesion completely epithelized; full hair regrowth noted on ventral abdomen.', vet: 'Dr. Ananya Roy', status: 'Resolved' },
+    { id: 'EHR-8808', date: '18 Sep 2026', pet: 'Simba (Indie Hound)', type: 'Juvenile Vitality & Microchipping', vitals: 'Temp: 38.4°C • HR: 96 bpm • Wt: 18.2 kg', diagnosis: 'Juvenile Health Passport Certification', notes: 'ISO 11784 RFID transponder implanted in left interscapular space; verified with scanner.', vet: 'Dr. Tanya S.', status: 'Resolved' },
+    { id: 'EHR-8809', date: '14 Sep 2026', pet: 'Oreo (French Bulldog)', type: 'Upper Airway BOAS Assessment', vitals: 'Temp: 38.8°C • HR: 104 bpm • Wt: 11.8 kg', diagnosis: 'BOAS Grade 1 (Stable Non-Surgical)', notes: 'Pharyngeal airway unobstructed; heat tolerance testing passed with 15-min trot.', vet: 'Dr. Rajesh Patel', status: 'Chronic Monitoring' },
+    { id: 'EHR-8810', date: '10 Sep 2026', pet: 'Bruno (Rottweiler)', type: 'Cardiology Echo & Holter Screen', vitals: 'Temp: 38.5°C • HR: 72 bpm • Wt: 46.2 kg', diagnosis: 'Cardiovascular Clearance Screening', notes: 'Left ventricular fractional shortening 36% (Normal: 28-40%); zero premature contractions.', vet: 'Dr. Rajesh Patel', status: 'Resolved' }
+  ];
 
-  var VACCINATIONS = [];
+  var VACCINATIONS = [
+    { passId: 'VAX-901', pet: 'Max (Golden Retriever)', vaccine: 'Nobivac DHPPiL + Lepto 4', manufacturer: 'MSD Animal Health', batch: 'MSD-DH9821', administeredOn: '12 Jan 2026', nextDue: '12 Jan 2027', vet: 'Dr. Tanya S.', status: 'Valid Pass' },
+    { passId: 'VAX-902', pet: 'Bella (Persian Cat)', vaccine: 'Felocell 4 (FVRCP + Chlamydia)', manufacturer: 'Zoetis Biologicals', batch: 'ZOE-FC4419', administeredOn: '14 Feb 2026', nextDue: '14 Feb 2027', vet: 'Dr. Vikram Rao', status: 'Valid Pass' },
+    { passId: 'VAX-903', pet: 'Coco (Shih Tzu)', vaccine: 'Defensor 3 (Rabies Inactivated)', manufacturer: 'Zoetis Biologicals', batch: 'ZOE-RB8830', administeredOn: '25 Oct 2025', nextDue: '25 Oct 2026', vet: 'Dr. Ananya Roy', status: 'Due in 14d' },
+    { passId: 'VAX-904', pet: 'Rocky (German Shepherd)', vaccine: 'Nobivac KC (Bordetella Intranasal)', manufacturer: 'MSD Animal Health', batch: 'MSD-KC1290', administeredOn: '04 Mar 2026', nextDue: '04 Mar 2027', vet: 'Dr. Rajesh Patel', status: 'Valid Pass' },
+    { passId: 'VAX-905', pet: 'Milo (Beagle)', vaccine: 'Vanguard Plus 5/L (Canine Core)', manufacturer: 'Zoetis Biologicals', batch: 'ZOE-VG6620', administeredOn: '20 Apr 2026', nextDue: '20 Apr 2027', vet: 'Dr. Priya Desai', status: 'Valid Pass' },
+    { passId: 'VAX-906', pet: 'Leo (Labrador Retriever)', vaccine: 'Nobivac Rabies (Monovalent 3-Yr)', manufacturer: 'MSD Animal Health', batch: 'MSD-RB7710', administeredOn: '18 May 2025', nextDue: '18 May 2027', vet: 'Dr. Tanya S.', status: 'Valid Pass' },
+    { passId: 'VAX-907', pet: 'Luna (Siberian Husky)', vaccine: 'Nobivac DHPPiL (Core 7-in-1)', manufacturer: 'MSD Animal Health', batch: 'MSD-DH3342', administeredOn: '05 Jun 2026', nextDue: '05 Jun 2027', vet: 'Dr. Ananya Roy', status: 'Valid Pass' },
+    { passId: 'VAX-908', pet: 'Simba (Indie Hound)', vaccine: 'Vanguard Plus 5/CV-L (9-in-1 Combo)', manufacturer: 'Zoetis Biologicals', batch: 'ZOE-VG9901', administeredOn: '08 Jul 2026', nextDue: '08 Jul 2027', vet: 'Dr. Tanya S.', status: 'Valid Pass' },
+    { passId: 'VAX-909', pet: 'Oreo (French Bulldog)', vaccine: 'Nobivac Canine Parvovirus Pro', manufacturer: 'MSD Animal Health', batch: 'MSD-PV5520', administeredOn: '28 Oct 2025', nextDue: '28 Oct 2026', vet: 'Dr. Rajesh Patel', status: 'Due in 14d' },
+    { passId: 'VAX-910', pet: 'Bruno (Rottweiler)', vaccine: 'Defensor 3 + Leptomune Booste', manufacturer: 'Zoetis Biologicals', batch: 'ZOE-DL8810', administeredOn: '15 Aug 2026', nextDue: '15 Aug 2027', vet: 'Dr. Rajesh Patel', status: 'Valid Pass' }
+  ];
 
-  var TREATMENTS = [];
+  var TREATMENTS = [
+    { id: 'TRT-701', date: '04 Oct 2026', pet: 'Max (Golden Retriever)', condition: 'Supragingival Calculus & Tartar', procedure: 'Ultrasonic Piezo Dental Scaling & Fluoride Polish', duration: '45 mins (Day Care)', vet: 'Dr. Tanya S.', cost: '₹4,500', outcome: 'Resolved & Clean' },
+    { id: 'TRT-702', date: '01 Oct 2026', pet: 'Bella (Persian Cat)', condition: 'Nasolacrimal Duct Hyper-Secretions', procedure: 'Atraumatic Tear Duct Hydro-Flushing', duration: '30 mins (Outpatient)', vet: 'Dr. Vikram Rao', cost: '₹2,800', outcome: 'Full Recovery' },
+    { id: 'TRT-703', date: '28 Sep 2026', pet: 'Coco (Shih Tzu)', condition: 'Acute Grass Burr Foreign Body', procedure: 'Otoscopic Aural Extraction + Soothing Wash', duration: '20 mins (Outpatient)', vet: 'Dr. Ananya Roy', cost: '₹1,950', outcome: 'Resolved' },
+    { id: 'TRT-704', date: '24 Sep 2026', pet: 'Rocky (German Shepherd)', condition: 'Right Hind Cranial Cruciate Rupture', procedure: 'Tibial Plateau Leveling Osteotomy (TPLO)', duration: '120 mins (2d ICU)', vet: 'Dr. Rajesh Patel', cost: '₹38,000', outcome: 'Discharged & Mobile' },
+    { id: 'TRT-705', date: '20 Sep 2026', pet: 'Milo (Beagle)', condition: 'Dietary Indiscretion Vomiting', procedure: 'IV Ringer Lactate Hydration + Maropitant', duration: '4 hrs (Day Inpatient)', vet: 'Dr. Priya Desai', cost: '₹3,400', outcome: 'Fully Recovered' },
+    { id: 'TRT-706', date: '15 Sep 2026', pet: 'Leo (Labrador Retriever)', condition: 'Bilateral Stifle Osteoarthritis', procedure: 'Intra-articular Hyaluronic Acid Infiltration', duration: '40 mins (Outpatient)', vet: 'Dr. Rajesh Patel', cost: '₹8,500', outcome: 'Discharged' },
+    { id: 'TRT-707', date: '10 Sep 2026', pet: 'Luna (Siberian Husky)', condition: 'Interdigital Furunculosis', procedure: 'Warm Antiseptic Hydro-therapy & Debridement', duration: '25 mins (Outpatient)', vet: 'Dr. Ananya Roy', cost: '₹2,200', outcome: 'Resolved' },
+    { id: 'TRT-708', date: '05 Sep 2026', pet: 'Simba (Indie Hound)', condition: 'Routine Population Control', procedure: 'Pre-Scrotal Closed Orchiectomy (Neutering)', duration: '35 mins (Day Care)', vet: 'Dr. Tanya S.', cost: '₹5,500', outcome: 'Full Recovery' },
+    { id: 'TRT-709', date: '01 Sep 2026', pet: 'Oreo (French Bulldog)', condition: 'Stenotic Nares (Airway Narrowing)', procedure: 'CO2 Laser Wedge Rhinoplasty Resection', duration: '50 mins (Day Care)', vet: 'Dr. Rajesh Patel', cost: '₹14,000', outcome: 'Discharged & Clear' },
+    { id: 'TRT-710', date: '25 Aug 2026', pet: 'Bruno (Rottweiler)', condition: 'Benign Histiocytoma on Left Flank', procedure: 'Cryosurgical Cryo-Probe Ablation', duration: '30 mins (Outpatient)', vet: 'Dr. Rajesh Patel', cost: '₹6,200', outcome: 'Resolved' }
+  ];
 
-  var PRESCRIPTIONS = [];
+  var PRESCRIPTIONS = [
+    { id: 'RX-5501', date: '10 Oct 2026', pet: 'Max (Golden Retriever)', medicine: 'NexGard Spectra (15-30kg)', dosage: '1 Chewable Tablet monthly orally', indication: 'Heartworm & Tick Prevention', prescriber: 'Dr. Tanya S.', pharmacyStatus: 'Dispensed' },
+    { id: 'RX-5502', date: '08 Oct 2026', pet: 'Bella (Persian Cat)', medicine: 'Revolution Plus Feline (2.5-5kg)', dosage: '1 Topical Pipette monthly transdermal', indication: 'Feline Ecto/Endoparasite Shield', prescriber: 'Dr. Vikram Rao', pharmacyStatus: 'Dispensed' },
+    { id: 'RX-5503', date: '05 Oct 2026', pet: 'Coco (Shih Tzu)', medicine: 'Apoquel (Oclacitinib) 3.6mg', dosage: '0.5 Tablet twice daily for 7 days', indication: 'Atopic Dermatitis Pruritus Relief', prescriber: 'Dr. Ananya Roy', pharmacyStatus: 'Active Refill' },
+    { id: 'RX-5504', date: '01 Oct 2026', pet: 'Rocky (German Shepherd)', medicine: 'Synoquin EFA Large Breed', dosage: '2 Tablets daily with morning kibble', indication: 'Joint Cartilage Repair Post-Op', prescriber: 'Dr. Rajesh Patel', pharmacyStatus: 'Active Refill' },
+    { id: 'RX-5505', date: '28 Sep 2026', pet: 'Milo (Beagle)', medicine: 'Caninsulin (Purified Porcine)', dosage: '4 IU twice daily SQ with meals', indication: 'Canine Diabetes Mellitus Support', prescriber: 'Dr. Priya Desai', pharmacyStatus: 'Active Refill' },
+    { id: 'RX-5506', date: '25 Sep 2026', pet: 'Leo (Labrador Retriever)', medicine: 'Carprofen (Rimadyl) 75mg', dosage: '1 Tablet once daily for 5 days post-exercise', indication: 'Hip Arthritic Analgesic Care', prescriber: 'Dr. Tanya S.', pharmacyStatus: 'Dispensed' },
+    { id: 'RX-5507', date: '22 Sep 2026', pet: 'Luna (Siberian Husky)', medicine: 'Nutricoat Advance Omega Tonic', dosage: '5 ml orally daily mixed with meals', indication: 'Arctic Coat Density & Dermal Shield', prescriber: 'Dr. Ananya Roy', pharmacyStatus: 'Dispensed' },
+    { id: 'RX-5508', date: '18 Sep 2026', pet: 'Simba (Indie Hound)', medicine: 'Bravecto Chewable (10-20kg)', dosage: '1 Tablet every 12 weeks orally', indication: 'Extended Tick & Flea Protection', prescriber: 'Dr. Tanya S.', pharmacyStatus: 'Dispensed' },
+    { id: 'RX-5509', date: '14 Sep 2026', pet: 'Oreo (French Bulldog)', medicine: 'Optixcare L-Lysine Eye Lube', dosage: '1 Drop twice daily in both eyes', indication: 'Brachycephalic Corneal Hydration', prescriber: 'Dr. Rajesh Patel', pharmacyStatus: 'Dispensed' },
+    { id: 'RX-5510', date: '10 Sep 2026', pet: 'Bruno (Rottweiler)', medicine: 'Hepatosyl Plus Liver Support', dosage: '2 Capsules daily before food', indication: 'Hepatic Metabolic Optimization', prescriber: 'Dr. Rajesh Patel', pharmacyStatus: 'Active Refill' }
+  ];
 
-  var PURCHASES = [];
+  var PURCHASES = [
+    { id: 'ORD-8811', date: '11 Oct 2026', pet: 'Max (Golden Retriever)', item: 'Royal Canin Maxi Adult Dog Food 15kg', category: 'Food & Nutrition', channel: 'Zenve App (Instant 60m)', parent: 'Priya Sharma', amount: '₹9,850', status: 'Delivered' },
+    { id: 'ORD-8812', date: '09 Oct 2026', pet: 'Bella (Persian Cat)', item: 'Royal Canin Persian Adult Cat Food 4kg', category: 'Food & Nutrition', channel: 'Zenve App (AutoShip)', parent: 'Rahul Verma', amount: '₹3,750', status: 'Delivered' },
+    { id: 'ORD-8813', date: '07 Oct 2026', pet: 'Coco (Shih Tzu)', item: 'Apoquel 3.6mg (20 Tabs) + Shampoo', category: 'Pharmacy & Wellness', channel: 'Zenve HSR Clinic Pharmacy', parent: 'Ananya Iyer', amount: '₹2,650', status: 'Delivered' },
+    { id: 'ORD-8814', date: '05 Oct 2026', pet: 'Rocky (German Shepherd)', item: 'Orthopedic Memory Foam Bed (XL)', category: 'Merchandise & Gear', channel: 'Zenve Web Store', parent: 'Vikram Malhotra', amount: '₹6,400', status: 'Delivered' },
+    { id: 'ORD-8815', date: '03 Oct 2026', pet: 'Milo (Beagle)', item: 'Caninsulin Cold-Chain Cartridge (10ml)', category: 'Prescription Diet', channel: 'Express Cold-Chain Van', parent: 'Deepika Nair', amount: '₹2,400', status: 'Delivered' },
+    { id: 'ORD-8816', date: '01 Oct 2026', pet: 'Leo (Labrador Retriever)', item: 'Orijen Six Fish Grain-Free 11.4kg', category: 'Food & Nutrition', channel: 'Zenve App (AutoShip)', parent: 'Siddharth Rao', amount: '₹12,400', status: 'Delivered' },
+    { id: 'ORD-8817', date: '29 Sep 2026', pet: 'Luna (Siberian Husky)', item: 'Furminator Deshedding Tool + Omega Tonic', category: 'Pharmacy & Wellness', channel: 'Zenve Web Store', parent: 'Kavita Menon', amount: '₹3,200', status: 'Delivered' },
+    { id: 'ORD-8818', date: '26 Sep 2026', pet: 'Simba (Indie Hound)', item: 'Bravecto Chewable 10-20kg (1 Tab)', category: 'Pharmacy & Wellness', channel: 'Central Hospital Counter', parent: 'Arjun Kapoor', amount: '₹1,950', status: 'Delivered' },
+    { id: 'ORD-8819', date: '24 Sep 2026', pet: 'Oreo (French Bulldog)', item: 'Royal Canin French Bulldog Adult 9kg', category: 'Food & Nutrition', channel: 'Zenve App (Instant 60m)', parent: 'Meera Nambiar', amount: '₹6,800', status: 'Delivered' },
+    { id: 'ORD-8820', date: '20 Sep 2026', pet: 'Bruno (Rottweiler)', item: 'Heavy-Duty K9 Tactical Harness & Leash', category: 'Merchandise & Gear', channel: 'Zenve Web Store', parent: 'Rohan Gupta', amount: '₹4,500', status: 'Delivered' }
+  ];
 
-  var INSIGHTS = [];
+  var INSIGHTS = [
+    { id: 'INS-01', category: 'Critical Outbreak', severity: 'Critical', title: 'Seasonal Canine Kennel Cough (Bordetella) Cluster in Indiranagar Hub', timeframe: 'Last 7 Days', metric: '14 Active Cases (Cluster)', preventable: '98% Vaccine Shield', description: 'Surveillance telemetry detects a 3.4x spike in canine acute tracheobronchitis cases centered within a 4km radius of Indiranagar dog parks.', recommendation: 'Trigger priority WhatsApp alert advising parents of socialized dogs to verify Nobivac KC intranasal booster status.', cohort: 'Indiranagar & Koramangala Canines (n=184)', impact: 'Averts 85% secondary hospital admissions', actionLabel: 'Broadcast Vaccine Recall Alert' },
+    { id: 'INS-02', category: 'Breed Genetic Risk', severity: 'Warning', title: 'Brachycephalic Airway (BOAS) Early Warning for French Bulldogs & Pugs', timeframe: 'Ongoing 2026', metric: '68% Stenotic Risk', preventable: 'Early Laser Correction', description: 'Patients under 24 months exhibiting audible stertor or thermal distress during midday periods require endoscopic upper respiratory assessment.', recommendation: 'Schedule prophylactic soft palate & nares screening at 6-month wellness visits to prevent irreversible laryngeal collapse.', cohort: 'Brachycephalic Breeds (Frenchies, Pugs, Shih Tzus)', impact: 'Reduces emergency heat-stroke interventions by 75%', actionLabel: 'Schedule Airway Screenings' },
+    { id: 'INS-03', category: 'Clinical Warning', severity: 'Warning', title: 'Subclinical SDMA Biomarker Elevation Detected in Senior Felines (>7 Yrs)', timeframe: 'MTD Analysis', metric: '18 Felines Flagged', preventable: 'Renal Diet Prescribed', description: 'Biomarker panels reveal SDMA levels between 14-18 ug/dL prior to serum creatinine elevation, identifying early Stage-1 chronic kidney disease.', recommendation: 'Switch immediately to renal-protective wet formulas (low phosphorus) and start automated home hydration monitoring.', cohort: 'Felines Aged 7+ Years Across Bengaluru Hubs', impact: 'Extends median renal lifespan by 3.2 years', actionLabel: 'Deploy Renal Diet Protocol' },
+    { id: 'INS-04', category: 'Wellness Milestone', severity: 'Milestone', title: 'Annual Core Immunization Adherence Reaches 94.2% Network Milestone', timeframe: 'YTD 2026', metric: '94.2% Herd Immunity', preventable: 'Zero Rabies Breaches', description: 'Digital health passports and automated WhatsApp 14-day countdown reminders have successfully minimized vaccine defaults across Bengaluru.', recommendation: 'Issue loyalty tier bonus points (₹250 Zenve Wellness Credit) to pet parents with continuous 3-year vaccination compliance.', cohort: 'All Verified Microchipped Patients (n=1,240)', impact: 'Sustains city-wide herd immunity barrier', actionLabel: 'Issue Compliance Credits' },
+    { id: 'INS-05', category: 'Clinical Warning', severity: 'Warning', title: 'Canine Atopic Dermatitis Surge Linked to Post-Monsoon Pollen Spores', timeframe: 'Past 14 Days', metric: '28 Cases Reported', preventable: 'Cytology Cleared', description: 'Elevated atmospheric humidity combined with pollen counts has provoked bilateral paw licking and ventral erythema in sensitive breeds.', recommendation: 'Prescribe ceramide-infused antiseptic baths and Apoquel short-course interventions before secondary pyoderma manifests.', cohort: 'Labradors, Golden Retrievers & Shih Tzus', impact: 'Eliminates 90% severe secondary bacterial infections', actionLabel: 'Send Dermal Care Guide' },
+    { id: 'INS-06', category: 'Breed Genetic Risk', severity: 'Warning', title: 'Large Breed Hip Dysplasia Surveillance & Early Synovial Radiography', timeframe: 'Q3-Q4 2026', metric: '42 Candidates Screened', preventable: 'PennHIP Certified', description: 'Large breeds over 25 kg entering their 12th month require distraction index hip screening to evaluate joint laxity and prevent osteoarthritis.', recommendation: 'Recommend weight optimization (BCS 4-5) and initiate daily EPA/DHA Omega-3 supplementation combined with collagen peptides.', cohort: 'German Shepherds, Rottweilers, Labradors (1-2 yrs)', impact: 'Delays joint degradation onset by up to 5 years', actionLabel: 'Initiate Joint Care Protocol' },
+    { id: 'INS-07', category: 'Critical Outbreak', severity: 'Critical', title: 'Canine Parvovirus Alert: Unvaccinated Pediatric Puppies Under 6 Months', timeframe: 'Active Surveillance', metric: '5 Suspected Cases', preventable: '100% Core Vax Efficacy', description: 'Gastrointestinal PCR diagnostics identified 5 viral enteritis cases in newly purchased pet shop puppies lacking cold-chain vaccine validation.', recommendation: 'Activate strict emergency isolation protocol in Whitefield & Central clinics; enforce mandatory cold-chain verification.', cohort: 'Unvaccinated / Incomplete Puppy Series (< 6 mos)', impact: 'Prevents transmission in hospital lobbies', actionLabel: 'Lock Down ICU Isolation' },
+    { id: 'INS-08', category: 'Wellness Milestone', severity: 'Milestone', title: 'Dental Prophylaxis Awareness Campaign Reduces Periodontal Disease by 32%', timeframe: 'Past 60 Days', metric: '32% Morbidity Drop', preventable: 'Ultrasonic Scaling', description: 'Pet parents booking ultrasonic dental prophylaxis have increased by 48%, significantly reducing Grade 3-4 calculus and bacteremia risk.', recommendation: 'Expand dental checkup vouchers for senior dogs during their routine biannual wellness appointments.', cohort: 'Adult Dogs (Ages 3-8 Yrs)', impact: 'Prevents systemic cardiac valve endocarditis', actionLabel: 'Issue Dental Vouchers' },
+    { id: 'INS-09', category: 'Clinical Warning', severity: 'Warning', title: 'Feline Lower Urinary Tract (FLUTD) Risk in Dry-Food Exclusive Diets', timeframe: 'Past 30 Days', metric: '12 Male Cats Treated', preventable: 'Hydration Therapy', description: 'Male adult cats fed exclusively dry kibble with low water intake show microscopic struvite crystal formation in urinalysis sediment.', recommendation: 'Instruct pet parents to transition 50% of caloric intake to wet pouches and install continuous running-water cat fountains.', cohort: 'Indoor Felines on Dry Kibble Regimens', impact: 'Averts emergency urethral obstruction surgeries', actionLabel: 'Send FLUTD Prevention Plan' },
+    { id: 'INS-10', category: 'Wellness Milestone', severity: 'Milestone', title: 'Microchip RFID 100% Identification Rate for Lost Companion Recovery', timeframe: 'Year-to-Date', metric: '100% Reunited Rate', preventable: 'ISO 11784 RFID Standard', description: 'All 8 stray or lost companion animals presented to Zenve network hospitals with microchips were reunited with verified parents in < 3 hours.', recommendation: 'Offer subsidized microchipping during every primary puppy vaccination visit across all Bengaluru partner clinics.', cohort: 'All Un-chipped Enrolled Pets', impact: 'Guarantees lifetime identification and recovery safety', actionLabel: 'Promote Microchip Subsidies' }
+  ];
 
   /* ── UI Initialization ────────────────────────────────────────────── */
   function ensureRoot() {
@@ -58,7 +135,7 @@
       '    <div class="zpet-title-group">',
       '      <div class="zpet-title-row">',
       '        <h2 class="zpet-main-title" id="zpet-header-title">Pets 360° Control Center</h2>',
-      '        <span class="zpet-status-badge"><span class="zpet-status-dot"></span> 0 Pets</span>',
+      '        <span class="zpet-status-badge"><span class="zpet-status-dot"></span> 10 Registered Patients</span>',
       '      </div>',
       '      <p class="zpet-subtitle" id="zpet-header-sub">Master census, digital vaccination passports, longitudinal EHRs, and AI health intelligence</p>',
       '    </div>',
@@ -143,11 +220,11 @@
 
     container.innerHTML = [
       '<div class="zpet-kpi-grid">',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Total Registered Pets</span><span class="zpet-kpi-icon">🐾</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Canine & Feline census</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Canine Share</span><span class="zpet-kpi-icon">🐕</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Active patients</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Feline Share</span><span class="zpet-kpi-icon">🐈</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> No cats recorded</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Vaccine Compliance</span><span class="zpet-kpi-icon">💉</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Valid passports</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Microchip Enrolled</span><span class="zpet-kpi-icon">🏷️</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> ISO 11784 RFID</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Total Registered Pets</span><span class="zpet-kpi-icon">🐾</span></div><div class="zpet-kpi-val">10</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">+100%</span> Active Census</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Canine Share</span><span class="zpet-kpi-icon">🐕</span></div><div class="zpet-kpi-val">90.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">9 Dogs</span> Active Patients</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Feline Share</span><span class="zpet-kpi-icon">🐈</span></div><div class="zpet-kpi-val">10.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">1 Cat</span> Bella (Persian)</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Vaccine Compliance</span><span class="zpet-kpi-icon">💉</span></div><div class="zpet-kpi-val">100.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">8 Up to Date</span> 2 Due in 14d</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Microchip Enrolled</span><span class="zpet-kpi-icon">🏷️</span></div><div class="zpet-kpi-val">100.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">10 / 10 Chipped</span> ISO 11784 RFID</div></div>',
       '</div>',
       '<div class="zpet-toolbar">',
       '  <div class="zpet-search-wrap">',
@@ -202,10 +279,10 @@
     var p = PETS[0];
     container.innerHTML = [
       '<div class="zpet-kpi-grid">',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Selected Profile</span><span class="zpet-kpi-icon">🐕</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub">' + p.breed + '</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Body Condition</span><span class="zpet-kpi-icon">⚖️</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Weight stable</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Biological Passport</span><span class="zpet-kpi-icon">💉</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub">DHPPiL & Rabies verified</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Primary Physician</span><span class="zpet-kpi-icon">👨‍⚕️</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub">Koramangala Super Clinic</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Selected Profile</span><span class="zpet-kpi-icon">🐕</span></div><div class="zpet-kpi-val">' + p.name + '</div><div class="zpet-kpi-sub">' + p.breed + ' (' + p.id + ')</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Body Condition</span><span class="zpet-kpi-icon">⚖️</span></div><div class="zpet-kpi-val">BCS 5 / 9</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">' + p.weight + '</span> Weight optimal</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Biological Passport</span><span class="zpet-kpi-icon">💉</span></div><div class="zpet-kpi-val">' + p.healthScore + ' / 100</div><div class="zpet-kpi-sub">' + p.vaxStatus + ' • All cores valid</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Primary Physician</span><span class="zpet-kpi-icon">👨‍⚕️</span></div><div class="zpet-kpi-val">Dr. Tanya S.</div><div class="zpet-kpi-sub">' + p.clinic + '</div></div>',
       '</div>',
       '<div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;">',
       '  <div class="zpet-card" style="padding:24px;">',
@@ -256,10 +333,10 @@
 
     container.innerHTML = [
       '<div class="zpet-kpi-grid">',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Cumulative EHRs</span><span class="zpet-kpi-icon">📋</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Longitudinal logs</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Monthly Admissions</span><span class="zpet-kpi-icon">📅</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Current cycle</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Active Chronic Regimens</span><span class="zpet-kpi-icon">💊</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub">Renal, cardiac, endocrine</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Vitals Compliance</span><span class="zpet-kpi-icon">🩺</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Complete telemetry</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Cumulative EHRs</span><span class="zpet-kpi-icon">📋</span></div><div class="zpet-kpi-val">10</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">+100%</span> Longitudinal Logs</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Monthly Admissions</span><span class="zpet-kpi-icon">📅</span></div><div class="zpet-kpi-val">10</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">Active</span> Current Cycle</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Active Chronic Regimens</span><span class="zpet-kpi-icon">💊</span></div><div class="zpet-kpi-val">3</div><div class="zpet-kpi-sub">Renal, cardiac, endocrine</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Vitals Compliance</span><span class="zpet-kpi-icon">🩺</span></div><div class="zpet-kpi-val">100.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">10 / 10 Checked</span> Complete Telemetry</div></div>',
       '</div>',
       '<div class="zpet-toolbar">',
       '  <div class="zpet-search-wrap">',
@@ -310,10 +387,10 @@
 
     container.innerHTML = [
       '<div class="zpet-kpi-grid">',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Immunization Doses</span><span class="zpet-kpi-icon">💉</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> YTD administered</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Herd Immunity Rate</span><span class="zpet-kpi-icon">🛡️</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Protected cohort</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Due Within 30d</span><span class="zpet-kpi-icon">🔔</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub">No recalls sent</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Cold-Chain Verified</span><span class="zpet-kpi-icon">❄️</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">Temperature monitored</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Immunization Doses</span><span class="zpet-kpi-icon">💉</span></div><div class="zpet-kpi-val">10</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">+100%</span> YTD Administered</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Herd Immunity Rate</span><span class="zpet-kpi-icon">🛡️</span></div><div class="zpet-kpi-val">94.2%</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">10 Verified</span> Protected Cohort</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Due Within 30d</span><span class="zpet-kpi-icon">🔔</span></div><div class="zpet-kpi-val">2</div><div class="zpet-kpi-sub">Coco & Oreo (WhatsApp notified)</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Cold-Chain Verified</span><span class="zpet-kpi-icon">❄️</span></div><div class="zpet-kpi-val">100.0%</div><div class="zpet-kpi-sub">Temperature monitored (2-8°C)</div></div>',
       '</div>',
       '<div class="zpet-toolbar">',
       '  <div class="zpet-search-wrap">',
@@ -364,10 +441,10 @@
 
     container.innerHTML = [
       '<div class="zpet-kpi-grid">',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Treatments Logged</span><span class="zpet-kpi-icon">💊</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Medical & surgical</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Recovery Rate</span><span class="zpet-kpi-icon">📈</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Safely discharged</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Avg Inpatient Stay</span><span class="zpet-kpi-icon">⏱️</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub">No stay data</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Surgical Sepsis Rate</span><span class="zpet-kpi-icon">🏥</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">Sterile theater protocol</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Treatments Logged</span><span class="zpet-kpi-icon">💊</span></div><div class="zpet-kpi-val">10</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">+100%</span> Medical & Surgical</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Recovery Rate</span><span class="zpet-kpi-icon">📈</span></div><div class="zpet-kpi-val">98.5%</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">10 / 10 Discharged</span> Zero Complications</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Avg Inpatient Stay</span><span class="zpet-kpi-icon">⏱️</span></div><div class="zpet-kpi-val">1.2 Days</div><div class="zpet-kpi-sub">Day care & ICU optimized</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Surgical Sepsis Rate</span><span class="zpet-kpi-icon">🏥</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">Zero surgical site sepsis</div></div>',
       '</div>',
       '<div class="zpet-toolbar">',
       '  <div class="zpet-search-wrap">',
@@ -418,10 +495,10 @@
 
     container.innerHTML = [
       '<div class="zpet-kpi-grid">',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Rx Generated</span><span class="zpet-kpi-icon">💊</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Tamper-proof logs</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Chronic Refills</span><span class="zpet-kpi-icon">🔄</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub">Auto-scheduled delivery</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Dispense SLA</span><span class="zpet-kpi-icon">⏱️</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub">Standard SLA</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Drug Interaction Check</span><span class="zpet-kpi-icon">🛡️</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">AI safety verified</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Rx Generated</span><span class="zpet-kpi-icon">💊</span></div><div class="zpet-kpi-val">10</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">+100%</span> Tamper-Proof Digital</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Chronic Refills</span><span class="zpet-kpi-icon">🔄</span></div><div class="zpet-kpi-val">4 Active</div><div class="zpet-kpi-sub">Auto-scheduled delivery</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Dispense SLA</span><span class="zpet-kpi-icon">⏱️</span></div><div class="zpet-kpi-val">18 Mins</div><div class="zpet-kpi-sub">In-house pharmacy SLA</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Drug Interaction Check</span><span class="zpet-kpi-icon">🛡️</span></div><div class="zpet-kpi-val">100.0%</div><div class="zpet-kpi-sub">AI species/weight verified</div></div>',
       '</div>',
       '<div class="zpet-toolbar">',
       '  <div class="zpet-search-wrap">',
@@ -472,10 +549,10 @@
 
     container.innerHTML = [
       '<div class="zpet-kpi-grid">',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Cumulative Orders</span><span class="zpet-kpi-icon">🛍️</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Omni-channel</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Avg Pet LTV / Yr</span><span class="zpet-kpi-icon">💰</span></div><div class="zpet-kpi-val">₹0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Annualized spend</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Rx Diet Penetration</span><span class="zpet-kpi-icon">🥗</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">0.0% retention</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Auto-Ship Subscribers</span><span class="zpet-kpi-icon">🔄</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">0 active subscriptions</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Cumulative Orders</span><span class="zpet-kpi-icon">🛍️</span></div><div class="zpet-kpi-val">10</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">100% Fulfilled</span> Total: ₹53,900</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Avg Pet Spend / Yr</span><span class="zpet-kpi-icon">💰</span></div><div class="zpet-kpi-val">₹40,165</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">+18.4%</span> Annualized LTV</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Rx Diet Penetration</span><span class="zpet-kpi-icon">🥗</span></div><div class="zpet-kpi-val">42.5%</div><div class="zpet-kpi-sub">High margin nutrition</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Auto-Ship Subscribers</span><span class="zpet-kpi-icon">🔄</span></div><div class="zpet-kpi-val">80.0%</div><div class="zpet-kpi-sub">8 active monthly AutoShips</div></div>',
       '</div>',
       '<div class="zpet-toolbar">',
       '  <div class="zpet-search-wrap">',
@@ -519,9 +596,27 @@
   }
 
   /* ── 8. Pet Analytics ── */
-  var BREEDS_ANALYTICS = [];
+  var BREEDS_ANALYTICS = [
+    { breed: 'Golden Retriever', species: 'Canine', count: 184, pct: 18.4, avgAge: '3.6 Yrs', vaxRate: '96.2%', microchipRate: '98.0%', riskTier: 'Mod Risk (Hip Laxity)' },
+    { breed: 'Labrador Retriever', species: 'Canine', count: 162, pct: 16.2, avgAge: '4.2 Yrs', vaxRate: '95.1%', microchipRate: '96.5%', riskTier: 'Mod Risk (Obesity)' },
+    { breed: 'German Shepherd', species: 'Canine', count: 128, pct: 12.8, avgAge: '3.8 Yrs', vaxRate: '94.8%', microchipRate: '97.2%', riskTier: 'High Risk (Dysplasia/TPLO)' },
+    { breed: 'Shih Tzu', species: 'Canine', count: 112, pct: 11.2, avgAge: '2.4 Yrs', vaxRate: '92.4%', microchipRate: '94.0%', riskTier: 'Mod Risk (Atopic Skin)' },
+    { breed: 'Beagle', species: 'Canine', count: 96, pct: 9.6, avgAge: '3.1 Yrs', vaxRate: '93.5%', microchipRate: '95.2%', riskTier: 'Mod Risk (Endocrine/Weight)' },
+    { breed: 'Persian Longhair', species: 'Feline', count: 88, pct: 8.8, avgAge: '2.8 Yrs', vaxRate: '91.8%', microchipRate: '92.4%', riskTier: 'High Risk (Renal PKD/FLUTD)' },
+    { breed: 'Indie Hound Cross', species: 'Canine', count: 82, pct: 8.2, avgAge: '2.1 Yrs', vaxRate: '97.5%', microchipRate: '98.8%', riskTier: 'Low Risk (Native Hardy)' },
+    { breed: 'French Bulldog', species: 'Canine', count: 64, pct: 6.4, avgAge: '2.0 Yrs', vaxRate: '90.5%', microchipRate: '93.0%', riskTier: 'High Risk (BOAS Airway)' },
+    { breed: 'Siberian Husky', species: 'Canine', count: 48, pct: 4.8, avgAge: '3.4 Yrs', vaxRate: '94.0%', microchipRate: '96.0%', riskTier: 'Mod Risk (Thermal Stress)' },
+    { breed: 'Rottweiler', species: 'Canine', count: 36, pct: 3.6, avgAge: '3.9 Yrs', vaxRate: '95.8%', microchipRate: '97.0%', riskTier: 'High Risk (Cardiac/Elbow)' }
+  ];
 
-  var REGIONAL_HUBS = [];
+  var REGIONAL_HUBS = [
+    { city: 'Zenve Koramangala Super Clinic', pets: 342, share: '34.2%', visits: '4.6 / yr', vaxRate: '96.4%', plan: 'Zenve Care+ (68%)' },
+    { city: 'Zenve Indiranagar Specialty Hub', pets: 228, share: '22.8%', visits: '4.2 / yr', vaxRate: '95.2%', plan: 'Zenve Care+ (64%)' },
+    { city: 'Zenve HSR Clinic & Spa', pets: 165, share: '16.5%', visits: '3.9 / yr', vaxRate: '93.8%', plan: 'Zenve Care+ (58%)' },
+    { city: 'Zenve Whitefield Specialty Hospital', pets: 144, share: '14.4%', visits: '4.8 / yr', vaxRate: '97.1%', plan: 'Zenve Care+ (72%)' },
+    { city: 'Zenve Jayanagar Clinic', pets: 72, share: '7.2%', visits: '3.8 / yr', vaxRate: '94.5%', plan: 'Zenve Care+ (52%)' },
+    { city: 'Zenve Central Animal Hospital', pets: 49, share: '4.9%', visits: '5.2 / yr', vaxRate: '98.0%', plan: 'Zenve Care+ (80%)' }
+  ];
 
   function renderAnalytics(container) {
     var q = S.searchQuery.toLowerCase();
@@ -533,38 +628,38 @@
 
     container.innerHTML = [
       '<div class="zpet-kpi-grid">',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Registered Cohort</span><span class="zpet-kpi-icon">📊</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> No registered cohort</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Sterilization Rate</span><span class="zpet-kpi-icon">✂️</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">0.0% desexed</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Microchip RFID Rate</span><span class="zpet-kpi-icon">📡</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">0.0% tagged pets</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Avg Body Condition</span><span class="zpet-kpi-icon">⚖️</span></div><div class="zpet-kpi-val">0.0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Standard condition</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Preventive Adherence</span><span class="zpet-kpi-icon">🛡️</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">0.0% compliance</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Registered Cohort</span><span class="zpet-kpi-icon">📊</span></div><div class="zpet-kpi-val">10</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">1,000 Sample</span> Active Population</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Sterilization Rate</span><span class="zpet-kpi-icon">✂️</span></div><div class="zpet-kpi-val">80.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">8 / 10 Pets</span> Desexed</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Microchip RFID Rate</span><span class="zpet-kpi-icon">📡</span></div><div class="zpet-kpi-val">100.0%</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">10 / 10 Pets</span> ISO 11784 Tagged</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Avg Body Condition</span><span class="zpet-kpi-icon">⚖️</span></div><div class="zpet-kpi-val">BCS 4.8</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">Optimal</span> 1-9 Scale</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Preventive Adherence</span><span class="zpet-kpi-icon">🛡️</span></div><div class="zpet-kpi-val">96.4%</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">+4.2%</span> Annual Checkups</div></div>',
       '</div>',
 
       '<div style="display:grid;grid-template-columns:1.3fr 1fr;gap:20px;margin-bottom:20px;">',
       '  <div class="zpet-card" style="padding:20px;">',
       '    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">',
       '      <div><h3 style="margin:0;font-size:15px;font-weight:700;">Life-Stage & Age Cohort Epidemiology</h3><p style="margin:2px 0 0;font-size:12px;color:#64748b;">Population pyramid across developmental life stages</p></div>',
-      '      <span style="font-size:11px;background:#f1f5f9;padding:4px 8px;border-radius:4px;font-weight:600;color:#475569;">Median: 0 Yrs</span>',
+      '      <span style="font-size:11px;background:#f1f5f9;padding:4px 8px;border-radius:4px;font-weight:600;color:#475569;">Median: 3.1 Yrs</span>',
       '    </div>',
       '    <div style="display:flex;flex-direction:column;gap:14px;">',
       '      <div style="padding:12px 14px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0;">',
-      '        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:6px;"><span>Pediatric / Puppy & Kitten (&lt; 1 yr)</span><span style="color:#2563eb;">0 pets (0.0%)</span></div>',
-      '        <div style="width:100%;height:7px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-bottom:8px;"><div style="width:0%;height:100%;background:#2563eb;"></div></div>',
+      '        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:6px;"><span>Pediatric / Puppy & Kitten (&lt; 1 yr)</span><span style="color:#2563eb;">2 pets (20.0%)</span></div>',
+      '        <div style="width:100%;height:7px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-bottom:8px;"><div style="width:20%;height:100%;background:#2563eb;"></div></div>',
       '        <div style="font-size:11px;color:#64748b;"><b>Clinical Focus:</b> Primary DHPPiL/Tricat series, microchipping, puppy socialization, nutritional formulas</div>',
       '      </div>',
       '      <div style="padding:12px 14px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0;">',
-      '        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:6px;"><span>Young Adult (1 – 3 yrs)</span><span style="color:#10b981;">0 pets (0.0%)</span></div>',
-      '        <div style="width:100%;height:7px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-bottom:8px;"><div style="width:0%;height:100%;background:#10b981;"></div></div>',
+      '        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:6px;"><span>Young Adult (1 – 3 yrs)</span><span style="color:#10b981;">5 pets (50.0%)</span></div>',
+      '        <div style="width:100%;height:7px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-bottom:8px;"><div style="width:50%;height:100%;background:#10b981;"></div></div>',
       '        <div style="font-size:11px;color:#64748b;"><b>Clinical Focus:</b> Annual booster immunization, dental prophylaxis scaling, flea & tick prevention, desexing</div>',
       '      </div>',
       '      <div style="padding:12px 14px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0;">',
-      '        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:6px;"><span>Mature Adult (4 – 6 yrs)</span><span style="color:#f59e0b;">0 pets (0.0%)</span></div>',
-      '        <div style="width:100%;height:7px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-bottom:8px;"><div style="width:0%;height:100%;background:#f59e0b;"></div></div>',
+      '        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:6px;"><span>Mature Adult (4 – 6 yrs)</span><span style="color:#f59e0b;">2 pets (20.0%)</span></div>',
+      '        <div style="width:100%;height:7px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-bottom:8px;"><div style="width:20%;height:100%;background:#f59e0b;"></div></div>',
       '        <div style="font-size:11px;color:#64748b;"><b>Clinical Focus:</b> Caloric weight tracking, baseline blood chemistry & urinalysis, joint mobility supplements</div>',
       '      </div>',
       '      <div style="padding:12px 14px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0;">',
-      '        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:6px;"><span>Senior Companion (7 – 10 yrs)</span><span style="color:#8b5cf6;">0 pets (0.0%)</span></div>',
-      '        <div style="width:100%;height:7px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-bottom:8px;"><div style="width:0%;height:100%;background:#8b5cf6;"></div></div>',
+      '        <div style="display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:6px;"><span>Senior Companion (7 – 10 yrs)</span><span style="color:#8b5cf6;">1 pet (10.0%)</span></div>',
+      '        <div style="width:100%;height:7px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin-bottom:8px;"><div style="width:10%;height:100%;background:#8b5cf6;"></div></div>',
       '        <div style="font-size:11px;color:#64748b;"><b>Clinical Focus:</b> Geriatric screening, renal SDMA biomarker panels, cardiac doppler ultrasound, arthritis analgesia</div>',
       '      </div>',
       '      <div style="padding:12px 14px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0;">',
@@ -581,18 +676,18 @@
       '      <p style="margin:0 0 14px;font-size:12px;color:#64748b;">Nutritional stratification across registered population</p>',
       '      <div style="display:flex;flex-direction:column;gap:10px;">',
       '        <div style="padding:10px 12px;border-radius:6px;background:#f8fafc;border:1px solid #e2e8f0;">',
-      '          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:4px;"><span>BCS 1-3 (Underweight)</span><span style="color:#3b82f6;">0 pets (0.0%)</span></div>',
-      '          <div style="width:100%;height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin-bottom:4px;"><div style="width:0%;height:100%;background:#3b82f6;"></div></div>',
+      '          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:4px;"><span>BCS 1-3 (Underweight)</span><span style="color:#3b82f6;">1 pet (10.0%)</span></div>',
+      '          <div style="width:100%;height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin-bottom:4px;"><div style="width:10%;height:100%;background:#3b82f6;"></div></div>',
       '          <div style="font-size:11px;color:#64748b;">High-density caloric nutrition & deworming</div>',
       '        </div>',
       '        <div style="padding:10px 12px;border-radius:6px;background:#f8fafc;border:1px solid #e2e8f0;">',
-      '          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:4px;"><span>BCS 4-5 (Ideal & Optimal)</span><span style="color:#10b981;">0 pets (0.0%)</span></div>',
-      '          <div style="width:100%;height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin-bottom:4px;"><div style="width:0%;height:100%;background:#10b981;"></div></div>',
+      '          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:4px;"><span>BCS 4-5 (Ideal & Optimal)</span><span style="color:#10b981;">7 pets (70.0%)</span></div>',
+      '          <div style="width:100%;height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin-bottom:4px;"><div style="width:70%;height:100%;background:#10b981;"></div></div>',
       '          <div style="font-size:11px;color:#64748b;">Balanced maintenance diet & regular exercise</div>',
       '        </div>',
       '        <div style="padding:10px 12px;border-radius:6px;background:#f8fafc;border:1px solid #e2e8f0;">',
-      '          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:4px;"><span>BCS 6-7 (Overweight)</span><span style="color:#f59e0b;">0 pets (0.0%)</span></div>',
-      '          <div style="width:100%;height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin-bottom:4px;"><div style="width:0%;height:100%;background:#f59e0b;"></div></div>',
+      '          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-bottom:4px;"><span>BCS 6-7 (Overweight)</span><span style="color:#f59e0b;">2 pets (20.0%)</span></div>',
+      '          <div style="width:100%;height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin-bottom:4px;"><div style="width:20%;height:100%;background:#f59e0b;"></div></div>',
       '          <div style="font-size:11px;color:#64748b;">Caloric restriction & portion management</div>',
       '        </div>',
       '        <div style="padding:10px 12px;border-radius:6px;background:#f8fafc;border:1px solid #e2e8f0;">',
@@ -606,10 +701,10 @@
       '    <div class="zpet-card" style="padding:20px;">',
       '      <h3 style="margin:0 0 12px;font-size:14px;font-weight:700;">Gender & Reproductive Status</h3>',
       '      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">',
-      '        <div style="padding:10px;background:#eff6ff;border-radius:8px;border:1px solid #bfdbfe;text-align:center;"><div style="font-size:18px;font-weight:800;color:#1d4ed8;">0</div><div style="font-size:11px;font-weight:600;color:#1e40af;">Neutered Males (0.0%)</div></div>',
-      '        <div style="padding:10px;background:#fdf2f8;border-radius:8px;border:1px solid #fbcfe8;text-align:center;"><div style="font-size:18px;font-weight:800;color:#be185d;">0</div><div style="font-size:11px;font-weight:600;color:#9d174d;">Spayed Females (0.0%)</div></div>',
-      '        <div style="padding:10px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;text-align:center;"><div style="font-size:18px;font-weight:800;color:#475569;">0</div><div style="font-size:11px;font-weight:600;color:#64748b;">Intact Males (0.0%)</div></div>',
-      '        <div style="padding:10px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;text-align:center;"><div style="font-size:18px;font-weight:800;color:#475569;">0</div><div style="font-size:11px;font-weight:600;color:#64748b;">Intact Females (0.0%)</div></div>',
+      '        <div style="padding:10px;background:#eff6ff;border-radius:8px;border:1px solid #bfdbfe;text-align:center;"><div style="font-size:18px;font-weight:800;color:#1d4ed8;">6</div><div style="font-size:11px;font-weight:600;color:#1e40af;">Neutered Males (60%)</div></div>',
+      '        <div style="padding:10px;background:#fdf2f8;border-radius:8px;border:1px solid #fbcfe8;text-align:center;"><div style="font-size:18px;font-weight:800;color:#be185d;">2</div><div style="font-size:11px;font-weight:600;color:#9d174d;">Spayed Females (20%)</div></div>',
+      '        <div style="padding:10px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;text-align:center;"><div style="font-size:18px;font-weight:800;color:#475569;">1</div><div style="font-size:11px;font-weight:600;color:#64748b;">Intact Male (10%)</div></div>',
+      '        <div style="padding:10px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;text-align:center;"><div style="font-size:18px;font-weight:800;color:#475569;">1</div><div style="font-size:11px;font-weight:600;color:#64748b;">Intact Female (10%)</div></div>',
       '      </div>',
       '    </div>',
       '  </div>',
@@ -678,7 +773,18 @@
   }
 
   /* ── 9. Pet Health Insights ── */
-  var BIOMARKERS = [];
+  var BIOMARKERS = [
+    { test: 'Feline Symmetric Dimethylarginine (SDMA)', indication: 'Early Renal GFR Loss (>25% Loss)', tested: 248, normal: '218 (87.9%)', atRisk: '22 Borderline', pathological: '8 Confirmed', action: 'Prescribe Renal-Specific Ultra Diet' },
+    { test: 'Canine NT-proBNP Biomarker', indication: 'Myocardial Wall Stress / Dilated Cardio', tested: 186, normal: '162 (87.1%)', atRisk: '16 Elevated', pathological: '8 High Severity', action: 'Full Doppler Echocardiogram' },
+    { test: 'Canine Spec cPL (Pancreatic Lipase)', indication: 'Acute Necrotizing Pancreatitis', tested: 142, normal: '124 (87.3%)', atRisk: '12 Borderline', pathological: '6 Active Pancreatitis', action: 'Low-Fat Gastro Diet + IV Fluid Protocol' },
+    { test: 'Total T4 & Free T4 Equilibrium Dialysis', indication: 'Canine Hypothyroidism / Feline Hyper-T', tested: 195, normal: '171 (87.7%)', atRisk: '15 Equivocal', pathological: '9 Confirmed Endocrine', action: 'Levothyroxine Sodium Replacement' },
+    { test: 'Fecal Antigen ELISA (Giardia & Crypto)', indication: 'Refractory Enteric Protozoan Zoonosis', tested: 160, normal: '144 (90.0%)', atRisk: '6 Subclinical', pathological: '10 Positive Cyst Shedding', action: 'Fenbendazole Course + Sanitization' },
+    { test: 'Canine High-Sensitivity CRP (C-Reactive)', indication: 'Systemic Inflammation / Sepsis', tested: 110, normal: '92 (83.6%)', atRisk: '11 Moderately Elevated', pathological: '7 Acute Sepsis Spike', action: 'Broad-Spectrum Antimicrobial Triage' },
+    { test: 'Bile Acids Pre/Post Prandial Assay', indication: 'Portosystemic Hepatic Shunts & Cirrhosis', tested: 84, normal: '74 (88.1%)', atRisk: '6 Mild Elevation', pathological: '4 Hepatic Shunt Risk', action: 'Hepatic Ultrasound & Lactulose Regimen' },
+    { test: 'Urine Protein:Creatinine Ratio (UPC)', indication: 'Glomerulonephropathy & Proteinuria', tested: 135, normal: '118 (87.4%)', atRisk: '12 Micro-Proteinuria', pathological: '5 Macro-Proteinuria', action: 'ACE Inhibitor (Benazepril) Titration' },
+    { test: 'Canine Troponin I (cTnI) High Sensitivity', indication: 'Acute Myocardial Ischemic Injury', tested: 78, normal: '68 (87.2%)', atRisk: '6 Minor Injury', pathological: '4 Severe Ischemia', action: 'ICU Telemetry & Oxygen Therapy' },
+    { test: 'Serum Cortisol Post-ACTH Stimulation', indication: 'Adrenal Hyper / Hypoadrenocorticism', tested: 65, normal: '56 (86.2%)', atRisk: '5 Equivocal', pathological: '4 Cushing / Addisonian', action: 'Trilostane / Fludrocortisone Titration' }
+  ];
 
   function renderInsights(container) {
     var q = S.searchQuery.toLowerCase();
@@ -690,11 +796,11 @@
 
     container.innerHTML = [
       '<div class="zpet-kpi-grid">',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Population Health Index</span><span class="zpet-kpi-icon">🧠</span></div><div class="zpet-kpi-val">0.0</div><div class="zpet-kpi-sub"><span class="zpet-badge-neu">0.0%</span> Low morbidity risk</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Active Surveillance</span><span class="zpet-kpi-icon">🚨</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub">No active warnings</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Early Morbidity Staging</span><span class="zpet-kpi-icon">🛡️</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">Standard monitoring</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Parent Recall Action</span><span class="zpet-kpi-icon">📱</span></div><div class="zpet-kpi-val">0.0%</div><div class="zpet-kpi-sub">No recalls sent</div></div>',
-      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Chronic Care Cohort</span><span class="zpet-kpi-icon">🩺</span></div><div class="zpet-kpi-val">0</div><div class="zpet-kpi-sub">Remote health telemetry</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Population Health Index</span><span class="zpet-kpi-icon">🧠</span></div><div class="zpet-kpi-val">91.8</div><div class="zpet-kpi-sub"><span class="zpet-badge-pos">+3.4%</span> Low Morbidity Band</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Active Surveillance</span><span class="zpet-kpi-icon">🚨</span></div><div class="zpet-kpi-val">10 Signals</div><div class="zpet-kpi-sub">2 Critical, 5 Warnings, 3 Milestones</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Early Morbidity Staging</span><span class="zpet-kpi-icon">🛡️</span></div><div class="zpet-kpi-val">94.5%</div><div class="zpet-kpi-sub">Averts Late Hospitalization</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Parent Recall Action</span><span class="zpet-kpi-icon">📱</span></div><div class="zpet-kpi-val">88.4%</div><div class="zpet-kpi-sub">WhatsApp & In-App Response</div></div>',
+      '  <div class="zpet-kpi"><div class="zpet-kpi-top"><span class="zpet-kpi-label">Chronic Care Cohort</span><span class="zpet-kpi-icon">🩺</span></div><div class="zpet-kpi-val">4 Enrolled</div><div class="zpet-kpi-sub">Remote Health Telemetry</div></div>',
       '</div>',
 
       '<div class="zpet-toolbar">',

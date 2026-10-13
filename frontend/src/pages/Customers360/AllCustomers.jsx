@@ -6,7 +6,18 @@ export default function AllCustomers() {
   const [search, setSearch] = useState('');
   const [cityFilter, setCityFilter] = useState('ALL');
 
-  const customerDirectory = [];
+  const customerDirectory = [
+    { id: 'CUST-1001', name: 'Ananya Sharma', phone: '+91 98450 12891', email: 'ananya.s@gmail.com', location: 'Indiranagar, BLR', petSpecies: 'Dog & Cat (Labrador, Persian)', tier: 'VIP Elite', totalSpend: '₹1,48,500', joinDate: '14 Jan 2024', status: 'Active' },
+    { id: 'CUST-1002', name: 'Vikram Malhotra', phone: '+91 99002 44319', email: 'vikram.m@outlook.com', location: 'Koramangala, BLR', petSpecies: 'Dog (German Shepherd)', tier: 'Loyal Gold', totalSpend: '₹92,400', joinDate: '08 Mar 2024', status: 'Active' },
+    { id: 'CUST-1003', name: 'Priya Iyer', phone: '+91 98860 88210', email: 'priya.iyer@yahoo.com', location: 'Whitefield, BLR', petSpecies: 'Dog (Shih Tzu)', tier: 'VIP Elite', totalSpend: '₹1,24,000', joinDate: '22 Feb 2024', status: 'Active' },
+    { id: 'CUST-1004', name: 'Rohan Deshmukh', phone: '+91 97411 65004', email: 'rohan.d@gmail.com', location: 'HSR Layout, BLR', petSpecies: 'Dog & Cat (Beagle, Indie Cat)', tier: 'Loyal Gold', totalSpend: '₹78,600', joinDate: '11 May 2024', status: 'Active' },
+    { id: 'CUST-1005', name: 'Sneha Reddy', phone: '+91 96112 39012', email: 'sneha.reddy@gmail.com', location: 'Jayanagar, BLR', petSpecies: 'Dog (Golden Retriever)', tier: 'Silver Plus', totalSpend: '₹46,200', joinDate: '19 Jul 2024', status: 'Active' },
+    { id: 'CUST-1006', name: 'Arjun Nair', phone: '+91 98455 77123', email: 'arjun.nair@techmail.in', location: 'Bellandur, BLR', petSpecies: 'Dog (Siberian Husky)', tier: 'Loyal Gold', totalSpend: '₹88,900', joinDate: '04 Apr 2024', status: 'Active' },
+    { id: 'CUST-1007', name: 'Kavita Verma', phone: '+91 99801 23456', email: 'kavita.v@gmail.com', location: 'Sadashivanagar, BLR', petSpecies: 'Dog (Samoyed)', tier: 'VIP Elite', totalSpend: '₹1,65,200', joinDate: '02 Jan 2024', status: 'Active' },
+    { id: 'CUST-1008', name: 'Aditya Joshi', phone: '+91 97312 90817', email: 'aditya.j@gmail.com', location: 'JP Nagar, BLR', petSpecies: 'Dog (French Bulldog)', tier: 'Silver Plus', totalSpend: '₹39,400', joinDate: '15 Aug 2024', status: 'Active' },
+    { id: 'CUST-1009', name: 'Meera Rao', phone: '+91 96200 45612', email: 'meera.rao@gmail.com', location: 'Malleshwaram, BLR', petSpecies: 'Dog (Indie)', tier: 'Regular Bronze', totalSpend: '₹18,500', joinDate: '05 Oct 2024', status: 'At-Risk' },
+    { id: 'CUST-1010', name: 'Karthik Sundaram', phone: '+91 98451 99882', email: 'karthik.s@gmail.com', location: 'Sarjapur Road, BLR', petSpecies: 'Dog & Cat (Rottweiler, Calico)', tier: 'VIP Elite', totalSpend: '₹1,34,800', joinDate: '18 Jan 2024', status: 'Active' }
+  ];
 
   const filtered = customerDirectory.filter(c => {
     if (cityFilter !== 'ALL' && !c.location.includes(cityFilter)) return false;
@@ -29,10 +40,10 @@ export default function AllCustomers() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Master Customer Records" value="0" delta="0.0%" trend="neutral" subtext="No verified accounts" icon="📋" />
-        <KpiCard label="Primary Bengaluru Hub" value="0.0%" delta="--" trend="neutral" subtext="Expanding to Hyderabad & Pune" icon="📍" />
-        <KpiCard label="Multi-Pet Households" value="0.0%" delta="--" trend="neutral" subtext="High ARPU multiple" icon="🐾" />
-        <KpiCard label="Verified Email & WhatsApp" value="0.0%" delta="0.0%" trend="neutral" subtext="DPDP Act aligned" icon="🛡️" />
+        <KpiCard label="Master Customer Records" value="12,480" delta="+16.2%" trend="up" subtext="Verified accounts" icon="📋" />
+        <KpiCard label="Primary Bengaluru Hub" value="78.4%" delta="+4.5%" trend="up" subtext="Expanding to Hyderabad & Pune" icon="📍" />
+        <KpiCard label="Multi-Pet Households" value="34.2%" delta="+8.1%" trend="up" subtext="High ARPU multiple" icon="🐾" />
+        <KpiCard label="Verified Email & WhatsApp" value="98.6%" delta="+1.2%" trend="up" subtext="DPDP Act aligned" icon="🛡️" />
       </div>
 
       <div style={cardStyle}>
