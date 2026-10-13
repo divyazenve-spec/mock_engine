@@ -6,7 +6,18 @@ export default function ActiveSubscriptions() {
   const [planFilter, setPlanFilter] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const subscribers = [];
+  const subscribers = [
+    { subId: 'SUB-ACT-1001', petName: 'Rocky (Golden Retriever)', parent: 'Arunachalam Murthy', plan: 'Puppy & Kitten Complete Wellness', autoDebit: 'UPI AutoPay (HDFC)', monthlyFee: '₹1,499', nextRenewal: '18 Oct 2026', status: 'Active' },
+    { subId: 'SUB-ACT-1002', petName: 'Bella (Persian Cat)', parent: 'Pooja Venkatesh', plan: 'Feline Essential Health & Nutrition', autoDebit: 'Credit Card E-Mandate (ICICI)', monthlyFee: '₹1,299', nextRenewal: '20 Oct 2026', status: 'Active' },
+    { subId: 'SUB-ACT-1003', petName: 'Bruno (German Shepherd)', parent: 'Vikramaditya Rao', plan: 'Zenve Prime Fresh Nutrition Auto-Ship', autoDebit: 'UPI AutoPay (Google Pay / SBI)', monthlyFee: '₹3,499', nextRenewal: '22 Oct 2026', status: 'Active' },
+    { subId: 'SUB-ACT-1004', petName: 'Max (Labrador 9yr)', parent: 'Sunita Deshmukh', plan: 'Senior Pet Chronic Care & Mobility', autoDebit: 'E-NACH Mandate (Axis Bank)', monthlyFee: '₹2,999', nextRenewal: '16 Oct 2026', status: 'Active' },
+    { subId: 'SUB-ACT-1005', petName: 'Leo (Shih Tzu)', parent: 'Kavita Singhania', plan: 'Dermatology & Allergy Relief Care', autoDebit: 'Debit Card Mandate (Kotak)', monthlyFee: '₹2,499', nextRenewal: '19 Oct 2026', status: 'Active' },
+    { subId: 'SUB-ACT-1006', petName: 'Milo & Oscar (Beagles)', parent: 'Rajesh Kulkarni', plan: 'Multi-Pet Family Platinum Care', autoDebit: 'Credit Card E-Mandate (HDFC)', monthlyFee: '₹4,499', nextRenewal: '25 Oct 2026', status: 'Active' },
+    { subId: 'SUB-ACT-1007', petName: 'Simba (Indie Pup)', parent: 'Ananya Sharma', plan: 'Puppy & Kitten Complete Wellness', autoDebit: 'UPI AutoPay (PhonePe / Axis)', monthlyFee: '₹1,499', nextRenewal: '21 Oct 2026', status: 'Active' },
+    { subId: 'SUB-ACT-1008', petName: 'Zara (Siberian Husky)', parent: 'Aditya Malhotra', plan: 'Adult Canine Preventive Care', autoDebit: 'Credit Card Mandate (Amex)', monthlyFee: '₹1,999', nextRenewal: '24 Oct 2026', status: 'Active' },
+    { subId: 'SUB-ACT-1009', petName: 'Shadow (British Shorthair)', parent: 'Meera Nambiar', plan: 'Telehealth 24/7 Digital Concierge', autoDebit: 'UPI AutoPay (Paytm / ICICI)', monthlyFee: '₹699', nextRenewal: '28 Oct 2026', status: 'Active' },
+    { subId: 'SUB-ACT-1010', petName: 'Thunderbolt (Stallion)', parent: 'Captain R. S. Rathore', plan: 'Equine Elite Stables Wellness', autoDebit: 'Corporate RTGS Standing Mandate', monthlyFee: '₹8,999', nextRenewal: '30 Oct 2026', status: 'Active' }
+  ];
 
   const filtered = subscribers.filter(s => {
     if (planFilter !== 'ALL' && !s.plan.toLowerCase().includes(planFilter.toLowerCase())) return false;
@@ -26,19 +37,19 @@ export default function ActiveSubscriptions() {
       title="Active Member Roster & Auto-Debit Mandates"
       subtitle="Live subscriber cohort, e-mandate banking authorizations, recurring fulfillment status, and pet health profiles"
       icon="✅"
-      badge=""
+      badge="10"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Active Subscriptions" value="0 Pets" delta="" trend="neutral" subtext="Across all regions" icon="✅" />
-        <KpiCard label="Auto-Debit E-Mandate Success" value="0.0%" delta="NPCI UPI & E-NACH" trend="neutral" subtext="Automated tokenization" icon="💳" />
-        <KpiCard label="Average Subscriber Longevity" value="0.0 Months" delta="" trend="neutral" subtext="High brand stickiness" icon="⏱️" />
-        <KpiCard label="Active MRR Realization" value="₹0" delta="0.0%" trend="neutral" subtext="Zero manual collection" icon="💰" />
+        <KpiCard label="Total Active Subscriptions" value="1,388 Pets" delta="Across 10 plans" trend="up" subtext="Active roster count" icon="✅" />
+        <KpiCard label="Auto-Debit E-Mandate Success" value="97.4%" delta="NPCI UPI & E-NACH" trend="up" subtext="Automated tokenization" icon="💳" />
+        <KpiCard label="Average Subscriber Longevity" value="18.4 Months" delta="Low churn rate" trend="up" subtext="High brand stickiness" icon="⏱️" />
+        <KpiCard label="Active MRR Realization" value="₹28.92 L" delta="98.6% realized" trend="up" subtext="Zero manual collection" icon="💰" />
       </div>
 
       <div style={card}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
           <div>
-            <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: 'var(--foreground, #0f172a)' }}>Live Active Subscribers Master Roster</h3>
+            <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: 'var(--foreground, #0f172a)' }}>Live Active Subscribers Master Roster ({filtered.length} records)</h3>
             <p style={{ margin: '3px 0 0', fontSize: '12px', color: 'var(--muted-foreground, #64748b)' }}>Pet parent name, active wellness plan, auto-debit method, and next billing milestone</p>
           </div>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>

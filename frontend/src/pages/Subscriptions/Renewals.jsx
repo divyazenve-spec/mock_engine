@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function Renewals() {
-  const renewals = [];
+  const renewals = [
+    { cohort: 'Cycle-2026-10-A (1st-5th)', scheduled: 420, successful: '408 Success (97.1%)', retryQueue: '10 In Retry', failed: '2 Failed', rate: '97.1%', processedRev: '₹8,74,000' },
+    { cohort: 'Cycle-2026-10-B (6th-10th)', scheduled: 380, successful: '369 Success (97.1%)', retryQueue: '8 In Retry', failed: '3 Failed', rate: '97.1%', processedRev: '₹7,92,000' },
+    { cohort: 'Cycle-2026-09-C (21st-25th)', scheduled: 350, successful: '341 Success (97.4%)', retryQueue: '6 In Retry', failed: '3 Failed', rate: '97.4%', processedRev: '₹7,28,000' },
+    { cohort: 'Cycle-2026-09-B (11th-15th)', scheduled: 395, successful: '385 Success (97.5%)', retryQueue: '7 In Retry', failed: '3 Failed', rate: '97.5%', processedRev: '₹8,22,000' },
+    { cohort: 'Cycle-2026-09-A (1st-5th)', scheduled: 410, successful: '399 Success (97.3%)', retryQueue: '8 In Retry', failed: '3 Failed', rate: '97.3%', processedRev: '₹8,52,000' },
+    { cohort: 'Cycle-2026-08-D (26th-31st)', scheduled: 320, successful: '312 Success (97.5%)', retryQueue: '6 In Retry', failed: '2 Failed', rate: '97.5%', processedRev: '₹6,65,000' },
+    { cohort: 'Cycle-2026-08-C (16th-20th)', scheduled: 360, successful: '350 Success (97.2%)', retryQueue: '8 In Retry', failed: '2 Failed', rate: '97.2%', processedRev: '₹7,48,000' },
+    { cohort: 'Cycle-2026-08-B (6th-10th)', scheduled: 375, successful: '365 Success (97.3%)', retryQueue: '7 In Retry', failed: '3 Failed', rate: '97.3%', processedRev: '₹7,80,000' },
+    { cohort: 'Cycle-2026-08-A (1st-5th)', scheduled: 390, successful: '381 Success (97.7%)', retryQueue: '6 In Retry', failed: '3 Failed', rate: '97.7%', processedRev: '₹8,12,000' },
+    { cohort: 'Cycle-2026-07-D (26th-31st)', scheduled: 310, successful: '302 Success (97.4%)', retryQueue: '5 In Retry', failed: '3 Failed', rate: '97.4%', processedRev: '₹6,45,000' }
+  ];
 
   const card = { background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(0,0,0,0.08))', borderRadius: '12px', padding: '22px 24px' };
 
@@ -14,17 +25,17 @@ export default function Renewals() {
       title="Automated Billing Cycles & Renewal Rates"
       subtitle="Monthly automated debit execution, dunning management, card & UPI retry algorithms, and successful collection velocity"
       icon="🔄"
-      badge=""
+      badge="10"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="First-Pass Renewal Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Automated mandate execution" icon="🔄" />
-        <KpiCard label="Smart Dunning Recovery" value="0.0%" delta="" trend="neutral" subtext="WhatsApp prompt + UPI retry" icon="⚡" />
-        <KpiCard label="Processed Renewal Value" value="₹0" delta="" trend="neutral" subtext="Direct settlement to bank" icon="💰" />
-        <KpiCard label="Involuntary Churn Rate" value="0.0%" delta="" trend="neutral" subtext="Industry benchmark 0.0%" icon="📉" />
+        <KpiCard label="First-Pass Renewal Rate" value="97.3%" delta="+1.8% vs Q2" trend="up" subtext="Automated mandate execution" icon="🔄" />
+        <KpiCard label="Smart Dunning Recovery" value="88.5%" delta="WhatsApp prompt + retry" trend="up" subtext="Dunning recovery rate" icon="⚡" />
+        <KpiCard label="Processed Renewal Value" value="₹28.14 L" delta="MTD collected" trend="up" subtext="Direct settlement to bank" icon="💰" />
+        <KpiCard label="Involuntary Churn Rate" value="0.4%" delta="-0.2% vs target" trend="up" subtext="Payment failure churn" icon="📉" />
       </div>
 
       <div style={card}>
-        <h3 style={{ margin: '0 0 12px', fontSize: '16px', fontWeight: 700, color: 'var(--foreground, #0f172a)' }}>Monthly Renewal Batches & Auto-Debit Performance</h3>
+        <h3 style={{ margin: '0 0 12px', fontSize: '16px', fontWeight: 700, color: 'var(--foreground, #0f172a)' }}>Monthly Renewal Batches & Auto-Debit Performance ({renewals.length} Batches)</h3>
         <p style={{ margin: '0 0 16px', fontSize: '12px', color: 'var(--muted-foreground, #64748b)' }}>Scheduled debits, payment success rates, smart retry recovery, and collected funds</p>
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '12px' }}>
