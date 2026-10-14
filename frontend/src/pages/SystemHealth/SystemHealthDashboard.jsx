@@ -5,7 +5,98 @@ import KpiCard from '../shared/KpiCard';
 export default function SystemHealthDashboard() {
   const [toast, setToast] = useState('');
 
-  const services = [];
+  const services = [
+  {
+    "name": "FastAPI ASGI Gateway Engine",
+    "type": "Python 3.12 / Uvicorn ASGI",
+    "host": "127.0.0.1:8000",
+    "latency": "14.2 ms",
+    "load": "18% / 284 MB",
+    "uptime": "99.98%",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "SQLite WAL Analytical Datastore",
+    "type": "Embedded SQLite 3.45 / WAL Mode",
+    "host": "local://database/zenvebi.db",
+    "latency": "0.8 ms",
+    "load": "0.8% / 148 MB",
+    "uptime": "100%",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Redis Session & Cache Cluster",
+    "type": "In-Memory Key-Value Cache",
+    "host": "aws-mumbai.redis.internal:6379",
+    "latency": "1.2 ms",
+    "load": "32% / 1.4 GB",
+    "uptime": "99.99%",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Razorpay Webhook Listener",
+    "type": "Fintech Inbound Callback Service",
+    "host": "api.zenve.io/v1/payments",
+    "latency": "38 ms",
+    "load": "12% / 112 MB",
+    "uptime": "99.95%",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Zoho CRM & Leads Pipeline",
+    "type": "REST Webhook Bidirectional Sync",
+    "host": "crm.zoho.com/v2/records",
+    "latency": "142 ms",
+    "load": "15% / 94 MB",
+    "uptime": "99.90%",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Cold-Chain IoT Telemetry Broker",
+    "type": "MQTT / TLS Chiller Sensor Broker",
+    "host": "iot.ap-south-1.amazonaws.com:8883",
+    "latency": "22 ms",
+    "load": "24% / 168 MB",
+    "uptime": "99.96%",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "SAP ERP Financial Ledger CDC",
+    "type": "Apache Kafka / Debezium Connector",
+    "host": "sap-gateway.internal:8443",
+    "latency": "84 ms",
+    "load": "28% / 420 MB",
+    "uptime": "99.92%",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Meta CAPI & Google Ads Stream",
+    "type": "Server-to-Server Attribution API",
+    "host": "graph.facebook.com/v19.0",
+    "latency": "68 ms",
+    "load": "16% / 138 MB",
+    "uptime": "99.94%",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Gupshup WhatsApp & SMS Engine",
+    "type": "Cloud Communication Gateway",
+    "host": "api.gupshup.io/sm/api/v1",
+    "latency": "44 ms",
+    "load": "14% / 126 MB",
+    "uptime": "99.95%",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Elasticsearch OpenSearch Indexer",
+    "type": "Distributed Full-Text Search Cluster",
+    "host": "es-cluster.ap-south-1:9200",
+    "latency": "28 ms",
+    "load": "34% / 2.1 GB",
+    "uptime": "99.91%",
+    "status": "OPERATIONAL"
+  }
+];
 
   const runAllDiagnostics = () => {
     setToast('Dispatched synthetic health probes to all 8 core services & external integrations.');
@@ -76,10 +167,10 @@ export default function SystemHealthDashboard() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Overall System Uptime" value="0.0%" delta="0.0%" trend="neutral" subtext="System uptime" icon="🟢" />
-        <KpiCard label="Core Backend Latency" value="0.0 ms" delta="0.0%" trend="neutral" subtext="Backend latency" icon="⚡" />
-        <KpiCard label="Active Microservices" value="0 / 0 Online" delta="0.0%" trend="neutral" subtext="Microservice status" icon="🖥️" />
-        <KpiCard label="API Failure Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Failure rate monitor" icon="🛡️" />
+        <KpiCard label="Overall System Uptime" value="99.98%" delta="+0.04%" trend="positive" subtext="Trailing 30-day SLA" icon="🟢" />
+        <KpiCard label="Core Backend Latency" value="14.2 ms" delta="-3.8ms" trend="positive" subtext="FastAPI uvicorn ASGI" icon="⚡" />
+        <KpiCard label="Active Microservices" value="10 / 10 Online" delta="100%" trend="positive" subtext="Zero failed daemons" icon="🖥️" />
+        <KpiCard label="API Failure Rate" value="0.02%" delta="-0.08%" trend="positive" subtext="Within 0.1% budget" icon="🛡️" />
       </div>
 
       {/* System Infrastructure Matrix */}
@@ -100,7 +191,7 @@ export default function SystemHealthDashboard() {
             </p>
           </div>
           <span style={{ fontSize: '11px', color: '#64748b', fontWeight: 600, background: '#f8fafc', padding: '3px 9px', borderRadius: '99px', border: '1px solid #e2e8f0' }}>
-            ● 0 Services Active
+            ● 10 Services Active
           </span>
         </div>
 

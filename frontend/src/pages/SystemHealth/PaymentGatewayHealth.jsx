@@ -3,7 +3,128 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function PaymentGatewayHealth() {
-  const [gateways, setGateways] = useState([]);
+  const [gateways, setGateways] = useState([
+  {
+    "name": "Razorpay UPI Autopay",
+    "provider": "Razorpay Software Pvt Ltd",
+    "ping": "32 ms",
+    "latency": "32 ms",
+    "success": "99.82%",
+    "successRate": "99.82%",
+    "uptime": "99.98%",
+    "webhook": "18ms (Healthy)",
+    "webhookHealth": "18ms (Healthy)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Razorpay NetBanking Core",
+    "provider": "Razorpay Aggregator",
+    "ping": "48 ms",
+    "latency": "48 ms",
+    "success": "98.64%",
+    "successRate": "98.64%",
+    "uptime": "99.92%",
+    "webhook": "24ms (Healthy)",
+    "webhookHealth": "24ms (Healthy)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "HDFC SmartHub Gateway",
+    "provider": "HDFC Bank Ltd",
+    "ping": "42 ms",
+    "latency": "42 ms",
+    "success": "99.40%",
+    "successRate": "99.40%",
+    "uptime": "99.96%",
+    "webhook": "22ms (Healthy)",
+    "webhookHealth": "22ms (Healthy)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Stripe International USD/EUR",
+    "provider": "Stripe Inc",
+    "ping": "118 ms",
+    "latency": "118 ms",
+    "success": "98.92%",
+    "successRate": "98.92%",
+    "uptime": "99.95%",
+    "webhook": "45ms (Healthy)",
+    "webhookHealth": "45ms (Healthy)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Cashfree Express Payouts",
+    "provider": "Cashfree Payments India",
+    "ping": "28 ms",
+    "latency": "28 ms",
+    "success": "99.94%",
+    "successRate": "99.94%",
+    "uptime": "99.99%",
+    "webhook": "14ms (Optimal)",
+    "webhookHealth": "14ms (Optimal)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Paytm UPI & Wallet Gateway",
+    "provider": "One97 Communications",
+    "ping": "36 ms",
+    "latency": "36 ms",
+    "success": "99.12%",
+    "successRate": "99.12%",
+    "uptime": "99.90%",
+    "webhook": "19ms (Healthy)",
+    "webhookHealth": "19ms (Healthy)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Pine Labs In-Clinic POS",
+    "provider": "Pine Labs Ltd",
+    "ping": "64 ms",
+    "latency": "64 ms",
+    "success": "99.78%",
+    "successRate": "99.78%",
+    "uptime": "99.94%",
+    "webhook": "38ms (Healthy)",
+    "webhookHealth": "38ms (Healthy)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "CarePal Pet Insurance TPA",
+    "provider": "CarePal Health TPA",
+    "ping": "140 ms",
+    "latency": "140 ms",
+    "success": "97.80%",
+    "successRate": "97.80%",
+    "uptime": "99.85%",
+    "webhook": "68ms (Stable)",
+    "webhookHealth": "68ms (Stable)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Bajaj Finserv No-Cost EMI",
+    "provider": "Bajaj Finance Ltd",
+    "ping": "78 ms",
+    "latency": "78 ms",
+    "success": "98.50%",
+    "successRate": "98.50%",
+    "uptime": "99.88%",
+    "webhook": "42ms (Healthy)",
+    "webhookHealth": "42ms (Healthy)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "COD Smart Reconciliation",
+    "provider": "Delhivery & Shadowfax COD",
+    "ping": "52 ms",
+    "latency": "52 ms",
+    "success": "99.20%",
+    "successRate": "99.20%",
+    "uptime": "99.92%",
+    "webhook": "28ms (Healthy)",
+    "webhookHealth": "28ms (Healthy)",
+    "status": "OPERATIONAL"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -57,10 +178,10 @@ export default function PaymentGatewayHealth() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Overall Success Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Across payment modes" icon="🟢" />
-        <KpiCard label="Average Webhook Latency" value="0 ms" delta="0.0%" trend="neutral" subtext="Callback fulfillment" icon="⚡" />
-        <KpiCard label="Failed Transactions" value="0.0%" delta="0.0%" trend="neutral" subtext="Transaction monitoring" icon="🛡️" />
-        <KpiCard label="Instant Refund SLA" value="0.0%" delta="0.0%" trend="neutral" subtext="Refund processing SLA" icon="💳" />
+        <KpiCard label="Overall Success Rate" value="99.82%" delta="+0.14%" trend="positive" subtext="Payment success monitor" icon="🟢" />
+        <KpiCard label="Average Webhook Latency" value="18 ms" delta="-4ms" trend="positive" subtext="Webhook response callbacks" icon="⚡" />
+        <KpiCard label="Failed Transactions" value="0.18%" delta="-0.12%" trend="positive" subtext="Failure rate monitor" icon="🛡️" />
+        <KpiCard label="Instant Refund SLA" value="99.6%" delta="Optimal" trend="positive" subtext="Refund processing SLA" icon="💳" />
       </div>
 
       {/* Gateway Status Table */}

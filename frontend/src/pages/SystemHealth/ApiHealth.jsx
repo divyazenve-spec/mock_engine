@@ -3,7 +3,118 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function ApiHealth() {
-  const [endpoints, setEndpoints] = useState([]);
+  const [endpoints, setEndpoints] = useState([
+  {
+    "method": "GET",
+    "route": "/api/v1/health",
+    "p50": "4.2 ms",
+    "p95": "9.8 ms",
+    "p99": "16.4 ms",
+    "rps": "142 rps",
+    "errors": "0.00%",
+    "err": "0.00%",
+    "status": "HEALTHY"
+  },
+  {
+    "method": "POST",
+    "route": "/api/v1/orders/checkout",
+    "p50": "24.8 ms",
+    "p95": "48.2 ms",
+    "p99": "84.0 ms",
+    "rps": "48 rps",
+    "errors": "0.02%",
+    "err": "0.02%",
+    "status": "HEALTHY"
+  },
+  {
+    "method": "GET",
+    "route": "/api/v1/inventory/stockouts",
+    "p50": "8.4 ms",
+    "p95": "16.2 ms",
+    "p99": "26.8 ms",
+    "rps": "84 rps",
+    "errors": "0.00%",
+    "err": "0.00%",
+    "status": "HEALTHY"
+  },
+  {
+    "method": "POST",
+    "route": "/api/v1/prescriptions/verify",
+    "p50": "18.2 ms",
+    "p95": "34.5 ms",
+    "p99": "52.0 ms",
+    "rps": "22 rps",
+    "errors": "0.01%",
+    "err": "0.01%",
+    "status": "HEALTHY"
+  },
+  {
+    "method": "GET",
+    "route": "/api/v1/analytics/realtime",
+    "p50": "12.6 ms",
+    "p95": "28.4 ms",
+    "p99": "45.2 ms",
+    "rps": "120 rps",
+    "errors": "0.00%",
+    "err": "0.00%",
+    "status": "HEALTHY"
+  },
+  {
+    "method": "POST",
+    "route": "/api/v1/ai/consultation/suggest",
+    "p50": "142.0 ms",
+    "p95": "280.0 ms",
+    "p99": "420.0 ms",
+    "rps": "18 rps",
+    "errors": "0.04%",
+    "err": "0.04%",
+    "status": "HEALTHY"
+  },
+  {
+    "method": "GET",
+    "route": "/api/v1/riders/telemetry",
+    "p50": "6.8 ms",
+    "p95": "14.2 ms",
+    "p99": "22.0 ms",
+    "rps": "210 rps",
+    "errors": "0.00%",
+    "err": "0.00%",
+    "status": "HEALTHY"
+  },
+  {
+    "method": "PUT",
+    "route": "/api/v1/patients/{id}/vitals",
+    "p50": "9.4 ms",
+    "p95": "18.6 ms",
+    "p99": "31.2 ms",
+    "rps": "34 rps",
+    "errors": "0.01%",
+    "err": "0.01%",
+    "status": "HEALTHY"
+  },
+  {
+    "method": "GET",
+    "route": "/api/v1/accounting/reconcile",
+    "p50": "32.1 ms",
+    "p95": "64.2 ms",
+    "p99": "112.0 ms",
+    "rps": "15 rps",
+    "errors": "0.00%",
+    "err": "0.00%",
+    "status": "HEALTHY"
+  },
+  {
+    "method": "POST",
+    "route": "/api/v1/notifications/dispatch",
+    "p50": "14.5 ms",
+    "p95": "28.8 ms",
+    "p99": "48.0 ms",
+    "rps": "65 rps",
+    "errors": "0.00%",
+    "err": "0.00%",
+    "status": "HEALTHY"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -57,10 +168,10 @@ export default function ApiHealth() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Average P50 Latency" value="0.0 ms" delta="0.0%" trend="neutral" subtext="Sub-5ms median" icon="⚡" />
-        <KpiCard label="P99 Tail Latency" value="0.0 ms" delta="0.0%" trend="neutral" subtext="Latency budget" icon="🛡️" />
-        <KpiCard label="API Error Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="HTTP 5xx errors" icon="🟢" />
-        <KpiCard label="Total Requests Today" value="0" delta="0.0%" trend="neutral" subtext="Requests monitor" icon="📊" />
+        <KpiCard label="Average P50 Latency" value="12.4 ms" delta="-2.1ms" trend="positive" subtext="FastAPI uvicorn core" icon="⚡" />
+        <KpiCard label="P99 Tail Latency" value="68.5 ms" delta="-14.2ms" trend="positive" subtext="Below 120ms SLA" icon="🛡️" />
+        <KpiCard label="API Error Rate" value="0.01%" delta="-0.05%" trend="positive" subtext="Server fault monitor" icon="🟢" />
+        <KpiCard label="Total Requests Today" value="2,842,100" delta="+14.8%" trend="positive" subtext="Request counter" icon="📊" />
       </div>
 
       {/* HTTP Status Code Distribution */}

@@ -3,7 +3,138 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function CrmStatus() {
-  const [connectors, setConnectors] = useState([]);
+  const [connectors, setConnectors] = useState([
+  {
+    "name": "Zoho CRM Master Pet Records",
+    "endpoint": "https://crm.zoho.com/api/v2/contacts",
+    "type": "Core Contact & Pet Profile Master",
+    "role": "Core Contact & Pet Profile Master",
+    "volume": "142,850 Records",
+    "syncedContacts": "142,850 Records",
+    "freq": "Real-time Webhook",
+    "syncFrequency": "Real-time Webhook",
+    "lastSync": "Just now (2s ago)",
+    "tokenExpiry": "Valid (OAuth 84d)",
+    "status": "SYNCHRONIZED"
+  },
+  {
+    "name": "Salesforce Health Cloud Vets",
+    "endpoint": "https://healthcloud.salesforce.com/v58",
+    "type": "Hospital Enterprise Vets Directory",
+    "role": "Hospital Enterprise Vets Directory",
+    "volume": "1,420 Vets",
+    "syncedContacts": "1,420 Vets",
+    "freq": "Hourly Delta Batch",
+    "syncFrequency": "Hourly Delta Batch",
+    "lastSync": "14 mins ago",
+    "tokenExpiry": "Valid (OAuth 52d)",
+    "status": "SYNCHRONIZED"
+  },
+  {
+    "name": "HubSpot Marketing Leads",
+    "endpoint": "https://api.hubapi.com/crm/v3/deals",
+    "type": "Lead Scoring & Acquisition Pipeline",
+    "role": "Lead Scoring & Acquisition Pipeline",
+    "volume": "48,200 Leads",
+    "syncedContacts": "48,200 Leads",
+    "freq": "15 Mins Polling",
+    "syncFrequency": "15 Mins Polling",
+    "lastSync": "4 mins ago",
+    "tokenExpiry": "Valid (API Key)",
+    "status": "SYNCHRONIZED"
+  },
+  {
+    "name": "Zendesk VIP Customer Support",
+    "endpoint": "https://zenve.zendesk.com/api/v2/tickets",
+    "type": "Omnichannel VIP Escalations",
+    "role": "Omnichannel VIP Escalations",
+    "volume": "12,400 Tickets",
+    "syncedContacts": "12,400 Tickets",
+    "freq": "Sub-second WebSocket",
+    "syncFrequency": "Sub-second WebSocket",
+    "lastSync": "Just now (1s ago)",
+    "tokenExpiry": "Valid (OAuth 120d)",
+    "status": "SYNCHRONIZED"
+  },
+  {
+    "name": "Freshdesk Clinic OPD Tickets",
+    "endpoint": "https://zenve-opd.freshdesk.com/api/v2",
+    "type": "In-Clinic Front Desk Triage",
+    "role": "In-Clinic Front Desk Triage",
+    "volume": "24,800 Encounters",
+    "syncedContacts": "24,800 Encounters",
+    "freq": "5 Mins Polling",
+    "syncFrequency": "5 Mins Polling",
+    "lastSync": "2 mins ago",
+    "tokenExpiry": "Valid (API Key)",
+    "status": "SYNCHRONIZED"
+  },
+  {
+    "name": "Klaviyo Lifecycle Segments",
+    "endpoint": "https://a.klaviyo.com/api/profiles",
+    "type": "Pet Food Subscription Lifecycle",
+    "role": "Pet Food Subscription Lifecycle",
+    "volume": "84,000 Profiles",
+    "syncedContacts": "84,000 Profiles",
+    "freq": "Hourly Sync",
+    "syncFrequency": "Hourly Sync",
+    "lastSync": "28 mins ago",
+    "tokenExpiry": "Valid (Bearer 90d)",
+    "status": "SYNCHRONIZED"
+  },
+  {
+    "name": "MoEngage Push Notification CRM",
+    "endpoint": "https://api.moengage.com/v1/customers",
+    "type": "Behavioral Retention Triggers",
+    "role": "Behavioral Retention Triggers",
+    "volume": "118,500 Devices",
+    "syncedContacts": "118,500 Devices",
+    "freq": "Real-time Event Stream",
+    "syncFrequency": "Real-time Event Stream",
+    "lastSync": "Sub-second stream",
+    "tokenExpiry": "Valid (API Key)",
+    "status": "SYNCHRONIZED"
+  },
+  {
+    "name": "WhatsApp Business CRM Connector",
+    "endpoint": "https://api.gupshup.io/wa/crm/v1",
+    "type": "WhatsApp Chatbot & Tele-Consults",
+    "role": "WhatsApp Chatbot & Tele-Consults",
+    "volume": "96,200 Chats",
+    "syncedContacts": "96,200 Chats",
+    "freq": "Real-time Inbound",
+    "syncFrequency": "Real-time Inbound",
+    "lastSync": "Just now (4s ago)",
+    "tokenExpiry": "Valid (System Token)",
+    "status": "SYNCHRONIZED"
+  },
+  {
+    "name": "CleverTap Pet Parent Retention",
+    "endpoint": "https://api.clevertap.com/1/upload",
+    "type": "Churn Prediction & Win-Back",
+    "role": "Churn Prediction & Win-Back",
+    "volume": "72,400 Segments",
+    "syncedContacts": "72,400 Segments",
+    "freq": "Daily Recalibration",
+    "syncFrequency": "Daily Recalibration",
+    "lastSync": "45 mins ago",
+    "tokenExpiry": "Valid (Passcode)",
+    "status": "SYNCHRONIZED"
+  },
+  {
+    "name": "LeadSquared B2B Franchise Leads",
+    "endpoint": "https://api.leadsquared.com/v2/Lead",
+    "type": "B2B Veterinary Clinic Partnerships",
+    "role": "B2B Veterinary Clinic Partnerships",
+    "volume": "3,450 Franchisees",
+    "syncedContacts": "3,450 Franchisees",
+    "freq": "30 Mins Polling",
+    "syncFrequency": "30 Mins Polling",
+    "lastSync": "12 mins ago",
+    "tokenExpiry": "Valid (Access Key)",
+    "status": "SYNCHRONIZED"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -57,10 +188,10 @@ export default function CrmStatus() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Synced Pet Profiles" value="0" delta="0.0%" trend="neutral" subtext="CRM master sync" icon="🐾" />
-        <KpiCard label="Sync Lag" value="0.0 s" delta="0.0%" trend="neutral" subtext="Webhook powered" icon="⚡" />
-        <KpiCard label="Failed Sync Payloads" value="0 Failed" delta="0.0%" trend="neutral" subtext="Dead letter queue: 0" icon="🟢" />
-        <KpiCard label="API Quota Remaining" value="0.0%" delta="0.0%" trend="neutral" subtext="Daily CRM quota" icon="📊" />
+        <KpiCard label="Synced Pet Profiles" value="142,850" delta="+4,200" trend="positive" subtext="CRM sync master" icon="🐾" />
+        <KpiCard label="Sync Lag" value="0.8 s" delta="-0.4s" trend="positive" subtext="Webhook pipeline" icon="⚡" />
+        <KpiCard label="Failed Sync Payloads" value="0 Failed" delta="Optimal" trend="positive" subtext="Payload delivery nominal" icon="🟢" />
+        <KpiCard label="API Quota Remaining" value="88.4%" delta="Safe" trend="positive" subtext="CRM daily quota" icon="📊" />
       </div>
 
       {/* CRM Connectors Table */}

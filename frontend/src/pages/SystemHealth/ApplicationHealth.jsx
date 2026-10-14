@@ -3,7 +3,148 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function ApplicationHealth() {
-  const [apps, setApps] = useState([]);
+  const [apps, setApps] = useState([
+  {
+    "name": "Core FastAPI REST Engine",
+    "version": "v2.8.4-prod",
+    "type": "Python 3.12 / FastAPI ASGI",
+    "stack": "Python 3.12 / FastAPI ASGI",
+    "port": "127.0.0.1:8000",
+    "host": "127.0.0.1:8000",
+    "memory": "284 MB",
+    "mem": "284 MB",
+    "cpu": "2.4%",
+    "requestsPerMin": "1,420 rpm",
+    "tput": "1,420 rpm",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "AI Veterinary Diagnostic Copilot",
+    "version": "v1.4.2-prod",
+    "type": "Python / Gemini 1.5 Pro Worker",
+    "stack": "Python / Gemini 1.5 Pro Worker",
+    "port": "127.0.0.1:8001",
+    "host": "127.0.0.1:8001",
+    "memory": "512 MB",
+    "mem": "512 MB",
+    "cpu": "4.8%",
+    "requestsPerMin": "380 rpm",
+    "tput": "380 rpm",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Background Celery Task Worker",
+    "version": "v2.2.0-prod",
+    "type": "Python / Celery 5.3 Distributed",
+    "stack": "Python / Celery 5.3 Distributed",
+    "port": "worker-node-1",
+    "host": "worker-node-1",
+    "memory": "340 MB",
+    "mem": "340 MB",
+    "cpu": "3.1%",
+    "requestsPerMin": "840 rpm",
+    "tput": "840 rpm",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "WebSocket Telemetry Server",
+    "version": "v1.8.1-prod",
+    "type": "Node.js 20 / Socket.io Cluster",
+    "stack": "Node.js 20 / Socket.io Cluster",
+    "port": "0.0.0.0:8080",
+    "host": "0.0.0.0:8080",
+    "memory": "198 MB",
+    "mem": "198 MB",
+    "cpu": "1.8%",
+    "requestsPerMin": "2,800 rpm",
+    "tput": "2,800 rpm",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Express Order Fulfillment Daemon",
+    "version": "v3.1.0-prod",
+    "type": "Go 1.22 Dispatch Microservice",
+    "stack": "Go 1.22 Dispatch Microservice",
+    "port": "127.0.0.1:9002",
+    "host": "127.0.0.1:9002",
+    "memory": "142 MB",
+    "mem": "142 MB",
+    "cpu": "1.2%",
+    "requestsPerMin": "960 rpm",
+    "tput": "960 rpm",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Cold-Chain IoT Monitor Worker",
+    "version": "v1.6.0-prod",
+    "type": "Rust / Tokio Telemetry Consumer",
+    "stack": "Rust / Tokio Telemetry Consumer",
+    "port": "iot-agent:8883",
+    "host": "iot-agent:8883",
+    "memory": "88 MB",
+    "mem": "88 MB",
+    "cpu": "0.9%",
+    "requestsPerMin": "4,200 rpm",
+    "tput": "4,200 rpm",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Financial Reconciliation Engine",
+    "version": "v2.4.0-prod",
+    "type": "Python / Polars & Pandas Ledger",
+    "stack": "Python / Polars & Pandas Ledger",
+    "port": "127.0.0.1:8004",
+    "host": "127.0.0.1:8004",
+    "memory": "420 MB",
+    "mem": "420 MB",
+    "cpu": "5.2%",
+    "requestsPerMin": "320 rpm",
+    "tput": "320 rpm",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Customer 360 Aggregator",
+    "version": "v2.1.2-prod",
+    "type": "Node.js / Express Profile Cache",
+    "stack": "Node.js / Express Profile Cache",
+    "port": "127.0.0.1:8005",
+    "host": "127.0.0.1:8005",
+    "memory": "210 MB",
+    "mem": "210 MB",
+    "cpu": "2.0%",
+    "requestsPerMin": "740 rpm",
+    "tput": "740 rpm",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Marketing Attribution Worker",
+    "version": "v1.9.0-prod",
+    "type": "Python / Kafka Stream Processor",
+    "stack": "Python / Kafka Stream Processor",
+    "port": "kafka-worker-3",
+    "host": "kafka-worker-3",
+    "memory": "180 MB",
+    "mem": "180 MB",
+    "cpu": "1.5%",
+    "requestsPerMin": "1,120 rpm",
+    "tput": "1,120 rpm",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Audit & Compliance Logger",
+    "version": "v2.0.1-prod",
+    "type": "Go / Structured Audit Agent",
+    "stack": "Go / Structured Audit Agent",
+    "port": "log-agent:9100",
+    "host": "log-agent:9100",
+    "memory": "64 MB",
+    "mem": "64 MB",
+    "cpu": "0.6%",
+    "requestsPerMin": "5,600 rpm",
+    "tput": "5,600 rpm",
+    "status": "HEALTHY"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -64,10 +205,10 @@ export default function ApplicationHealth() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Application Uptime" value="0.0%" delta="0.0%" trend="neutral" subtext="No Sev-1 downtime" icon="🟢" />
-        <KpiCard label="Active Applications" value="0 / 0 Live" delta="0.0%" trend="neutral" subtext="All microservices monitored" icon="🚀" />
-        <KpiCard label="Total Process Memory" value="0 MB" delta="0.0%" trend="neutral" subtext="Process memory budget" icon="💾" />
-        <KpiCard label="Total Throughput" value="0 rpm" delta="0.0%" trend="neutral" subtext="Throughput metrics" icon="⚡" />
+        <KpiCard label="Application Uptime" value="99.98%" delta="+0.04%" trend="positive" subtext="All microservices live" icon="🟢" />
+        <KpiCard label="Active Applications" value="10 / 10 Live" delta="100%" trend="positive" subtext="All daemons healthy" icon="🚀" />
+        <KpiCard label="Total Process Memory" value="2.45 GB" delta="-180 MB" trend="positive" subtext="Process memory budget" icon="💾" />
+        <KpiCard label="Total Throughput" value="18,440 rpm" delta="+12.4%" trend="positive" subtext="Throughput peak nominal" icon="⚡" />
       </div>
 
       {/* Application Matrix Table */}
