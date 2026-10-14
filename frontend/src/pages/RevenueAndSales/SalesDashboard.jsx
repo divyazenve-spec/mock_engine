@@ -3,38 +3,6 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function SalesDashboard() {
-  return (
-    <DashboardLayout
-      category="Revenue & Sales"
-      subcategory="Sales Dashboard"
-      title="Executive Sales Overview"
-      subtitle="Comprehensive revenue velocity, order volumes, and financial transaction streams"
-      icon="💼"
-      badge="Live Feed"
-      actions={
-        <>
-          <button style={{
-            background: 'var(--card, #1e293b)',
-            border: '1px solid var(--border, rgba(255,255,255,0.1))',
-            color: 'var(--foreground, #f8fafc)',
-            padding: '6px 14px',
-            borderRadius: '8px',
-            fontSize: '12px',
-            fontWeight: 600,
-            cursor: 'pointer'
-          }}>14D Filter</button>
-          <button style={{
-            background: 'var(--primary, #3b82f6)',
-            border: 'none',
-            color: '#fff',
-            padding: '6px 14px',
-            borderRadius: '8px',
-            fontSize: '12px',
-            fontWeight: 600,
-            cursor: 'pointer'
-          }}>Export Report</button>
-        </>
-      }
   const velocityData = [
     { day: 'Day 1', rev: 142000, orders: 52 },
     { day: 'Day 2', rev: 158000, orders: 58 },

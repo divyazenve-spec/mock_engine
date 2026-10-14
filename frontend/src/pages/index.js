@@ -26,7 +26,16 @@ export {
 } from './RevenueAndSales';
 
 // 3. Orders & Operations
-export { default as OrdersDashboard } from './OrdersAndOperations/OrdersDashboard';
+export {
+  OrdersDashboard,
+  AllOrdersDashboard,
+  OrderManagement,
+  OrderStatus,
+  ReturnsAndRefunds,
+  Cancellations,
+  DeliveryPerformance,
+  SixtyMinuteDelivery
+} from './OrdersAndOperations';
 
 // 4. Products & Inventory
 export {

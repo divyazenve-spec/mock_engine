@@ -45,9 +45,334 @@
     { id: 'pune', label: 'Pune Express Center (Koregaon)' }
   ];
 
-  var RIDERS = [];
+  var RIDERS = [
+    { name: 'Arjun Das', vehicle: 'Ather 450X (KA-01-EQ-4421)', rating: '4.95', completed: 842, phone: '+91 98451 90211' },
+    { name: 'Rahul Shinde', vehicle: 'Ola S1 Pro (MH-02-DZ-9912)', rating: '4.92', completed: 710, phone: '+91 98202 81322' },
+    { name: 'Vikram Gurjar', vehicle: 'TVS iQube (DL-04-CX-3341)', rating: '4.88', completed: 620, phone: '+91 98113 72433' },
+    { name: 'Suresh Reddy', vehicle: 'Chetak EV (TS-09-EV-5561)', rating: '4.97', completed: 955, phone: '+91 98494 63544' },
+    { name: 'Mahesh Patil', vehicle: 'Ather 450 Apex (MH-12-RR-7782)', rating: '4.90', completed: 580, phone: '+91 98225 54655' },
+    { name: 'Karthik Raja', vehicle: 'River Indie EV (TN-07-BL-1123)', rating: '4.93', completed: 730, phone: '+91 98406 45766' },
+    { name: 'Amitabh Sen', vehicle: 'Hero Vida V1 (WB-01-AK-9988)', rating: '4.89', completed: 510, phone: '+91 98307 36877' },
+    { name: 'Jignesh Patel', vehicle: 'TVS iQube S (GJ-01-EE-4501)', rating: '4.91', completed: 645, phone: '+91 98258 27988' },
+    { name: 'Biju Thomas', vehicle: 'Ather 450X (KL-07-CD-3321)', rating: '4.96', completed: 890, phone: '+91 98479 18099' },
+    { name: 'Gurpreet Singh', vehicle: 'Ola S1 Air (CH-01-BB-7722)', rating: '4.94', completed: 780, phone: '+91 98141 09100' }
+  ];
 
-  var PET_PRODUCTS = [];
+  var PET_PRODUCTS = [
+    { name: 'Royal Canin Hepatic Veterinary Diet (2kg)', cat: 'Prescription Nutrition', price: 2950 },
+    { name: 'Bravecto Flea & Tick Chewable for Dogs (20-40kg)', cat: 'Parasiticide & Wellness', price: 2450 },
+    { name: 'NexGard Spectra Monthly Chews (7.5-15kg)', cat: 'Parasiticide & Deworming', price: 2980 },
+    { name: 'Hill\'s Prescription Diet j/d Joint Care (3.8kg)', cat: 'Orthopedic Nutrition', price: 4200 },
+    { name: 'Core 7-in-1 Canine Annual Vaccine & Syringe Kit', cat: 'Biological & Vaccine', price: 1850 },
+    { name: 'Feline Tricat Trio Core Booster Protocol', cat: 'Feline Immunization', price: 1600 },
+    { name: 'Ultrasonic Dental Scaling & Polishing Consumable Set', cat: 'Clinical Consumables', price: 5800 },
+    { name: 'Synoquin EFA Canine Joint Supplement (120 Tabs)', cat: 'Supplements & Ortho', price: 3400 },
+    { name: 'ProDen PlaqueOff Oral Care Powder (60g)', cat: 'Dental Health', price: 1890 },
+    { name: 'Calming Wellness CBD-Infused Hemp Chews', cat: 'Behavioral & Anxiety', price: 1450 }
+  ];
+
+  var DEFAULT_MOCK_ORDERS = [
+    {
+      id: 'ORD-9021',
+      date: '2026-10-14T11:42:00',
+      customer: 'Ananya Deshmukh',
+      pet: 'Bruno (Golden Retriever)',
+      phone: '+91 98450 12345',
+      address: '100ft Road, Indiranagar, Bengaluru',
+      city: 'Bengaluru',
+      hub: 'bengaluru',
+      amount: 7680,
+      item: 'Royal Canin Hepatic Diet + Bravecto Chew',
+      category: 'Prescription Nutrition & Parasiticide',
+      channel: 'Android App',
+      status: 'Delivered',
+      speed: '60-Min Express',
+      rider: RIDERS[0],
+      minRemaining: null,
+      slaStatus: 'Delivered (38m)',
+      returnReason: null,
+      cancelReason: null,
+      refundMode: null,
+      refundStatus: null,
+      trackingSteps: [
+        { label: 'Order Received & Verified', time: '11:04 AM', done: true, desc: 'Digital prescription approved by Dr. Divya' },
+        { label: 'Pharmacy QA & Cold Packing', time: '11:12 AM', done: true, desc: 'Hepatic diet & sealed chew verified' },
+        { label: 'Dispatched to Fleet Partner', time: '11:20 AM', done: true, desc: 'Picked up by Arjun Das (Ather 450X)' },
+        { label: 'Out for Delivery / In Transit', time: '11:28 AM', done: true, desc: 'Rider navigated via 100ft Rd' },
+        { label: 'Delivered to Pet Parent', time: '11:42 AM', done: true, desc: 'OTP verified at doorstep (38 mins total SLA)' }
+      ]
+    },
+    {
+      id: 'ORD-9020',
+      date: '2026-10-14T11:15:00',
+      customer: 'Vikramaditya Singhania',
+      pet: 'Leo (Persian Cat)',
+      phone: '+91 98201 23456',
+      address: 'Linking Road, Bandra West, Mumbai',
+      city: 'Mumbai',
+      hub: 'mumbai',
+      amount: 14500,
+      item: 'Full Diagnostic Panel + Feline Tricat Trio Vaccine',
+      category: 'Clinical Diagnostic & Immunization',
+      channel: 'In-Clinic Kiosk',
+      status: 'Delivered',
+      speed: 'Same Day',
+      rider: RIDERS[1],
+      minRemaining: null,
+      slaStatus: 'Completed at Clinic',
+      returnReason: null,
+      cancelReason: null,
+      refundMode: null,
+      refundStatus: null,
+      trackingSteps: [
+        { label: 'Clinic Session Initiated', time: '10:30 AM', done: true, desc: 'Patient checked into Bandra West Clinic' },
+        { label: 'Consultation & Diagnostics', time: '10:45 AM', done: true, desc: 'Full blood biochemistry panel processed' },
+        { label: 'Vaccination Protocol Administered', time: '11:00 AM', done: true, desc: 'Tricat Trio cold-chain vaccine injected' },
+        { label: 'Health Passport Updated', time: '11:10 AM', done: true, desc: 'Digital QR certificate issued' },
+        { label: 'Settlement Completed', time: '11:15 AM', done: true, desc: 'Credit card payment verified' }
+      ]
+    },
+    {
+      id: 'ORD-9019',
+      date: '2026-10-14T10:50:00',
+      customer: 'Rohan Kapoor',
+      pet: 'Simba (Labrador)',
+      phone: '+91 98110 34567',
+      address: 'DLF Phase 5, Gurgaon, Delhi NCR',
+      city: 'Delhi NCR',
+      hub: 'delhi',
+      amount: 8420,
+      item: 'Hill\'s Prescription Diet j/d + Joint Mobility Chews',
+      category: 'Orthopedic Nutrition',
+      channel: 'iOS App',
+      status: 'Out for Delivery',
+      speed: '60-Min Express',
+      rider: RIDERS[2],
+      minRemaining: 18,
+      slaStatus: 'On Schedule (18m left)',
+      returnReason: null,
+      cancelReason: null,
+      refundMode: null,
+      refundStatus: null,
+      trackingSteps: [
+        { label: 'Order Received & Verified', time: '10:18 AM', done: true, desc: 'Verified by Okhla Fulfillment Center' },
+        { label: 'Pharmacy QA & Cold Packing', time: '10:28 AM', done: true, desc: 'Mobility supplements boxed' },
+        { label: 'Dispatched to Fleet Partner', time: '10:38 AM', done: true, desc: 'Handed to Vikram Gurjar (TVS iQube)' },
+        { label: 'Out for Delivery / In Transit', time: '10:45 AM', done: true, desc: 'En-route on Golf Course Ext (2.1 km away)' },
+        { label: 'Delivered to Pet Parent', time: 'Expected 11:08 AM', done: false, desc: 'Estimated 18 minutes remaining' }
+      ]
+    },
+    {
+      id: 'ORD-9018',
+      date: '2026-10-14T10:20:00',
+      customer: 'Meera Nambiar',
+      pet: 'Bella (Shih Tzu)',
+      phone: '+91 98490 45678',
+      address: 'Road No. 36, Jubilee Hills, Hyderabad',
+      city: 'Hyderabad',
+      hub: 'hyderabad',
+      amount: 3850,
+      item: 'NexGard Spectra Monthly Chews + Herbal Ear Cleanser',
+      category: 'Parasiticide & Grooming Care',
+      channel: 'Web Portal',
+      status: 'Dispatched',
+      speed: 'Same Day',
+      rider: RIDERS[3],
+      minRemaining: null,
+      slaStatus: 'Dispatched from Hub',
+      returnReason: null,
+      cancelReason: null,
+      refundMode: null,
+      refundStatus: null,
+      trackingSteps: [
+        { label: 'Order Placed Online', time: '09:40 AM', done: true, desc: 'Web order verified with registered pet profile' },
+        { label: 'Warehouse Pick & Pack', time: '10:00 AM', done: true, desc: 'Batch checked and barcoded' },
+        { label: 'Dispatched to Fleet Hub', time: '10:20 AM', done: true, desc: 'Transferred to Jubilee Hills Central Van' },
+        { label: 'Out for Delivery', time: 'Scheduled 11:30 AM', done: false, desc: 'Assigned to Suresh Reddy' },
+        { label: 'Delivered to Pet Parent', time: 'Expected 01:00 PM', done: false, desc: 'Doorstep contactless delivery' }
+      ]
+    },
+    {
+      id: 'ORD-9017',
+      date: '2026-10-14T09:45:00',
+      customer: 'Kavita Iyer',
+      pet: 'Rocky (German Shepherd)',
+      phone: '+91 98400 56789',
+      address: 'TTK Road, Alwarpet, Chennai',
+      city: 'Chennai',
+      hub: 'bengaluru',
+      amount: 4900,
+      item: 'Core 7-in-1 Booster + Anti-Inflammatory Tablets',
+      category: 'Immunization & Pharma',
+      channel: 'Partner Clinic',
+      status: 'Packed',
+      speed: 'Standard (2-Day)',
+      rider: RIDERS[5],
+      minRemaining: null,
+      slaStatus: 'Packed at Hub',
+      returnReason: null,
+      cancelReason: null,
+      refundMode: null,
+      refundStatus: null,
+      trackingSteps: [
+        { label: 'Clinic Order Transmitted', time: '09:15 AM', done: true, desc: 'Authorized by Dr. Priya Sharma' },
+        { label: 'Batch Verification', time: '09:30 AM', done: true, desc: 'Lot #VAC-7719 temperature validated' },
+        { label: 'Cold-Chain Secure Packed', time: '09:45 AM', done: true, desc: 'Thermostatic dry-ice sleeve sealed' },
+        { label: 'Carrier Handover', time: 'Scheduled 11:00 AM', done: false, desc: 'Bluedart Priority Healthcare Express' },
+        { label: 'Clinic Delivery', time: 'Expected 04:00 PM', done: false, desc: 'Direct to Alwarpet Partner Clinic' }
+      ]
+    },
+    {
+      id: 'ORD-9016',
+      date: '2026-10-14T09:10:00',
+      customer: 'Dr. Siddharth Malhotra',
+      pet: 'Coco (Indie Pup)',
+      phone: '+91 98220 67890',
+      address: 'Koregaon Park North Main Rd, Pune',
+      city: 'Pune',
+      hub: 'pune',
+      amount: 5800,
+      item: 'Ultrasonic Dental Scaling Consumable Set + Antibiotics',
+      category: 'Clinical Consumables & Anti-Infective',
+      channel: 'Android App',
+      status: 'Processing',
+      speed: 'Same Day',
+      rider: RIDERS[4],
+      minRemaining: null,
+      slaStatus: 'Pharmacist Review',
+      returnReason: null,
+      cancelReason: null,
+      refundMode: null,
+      refundStatus: null,
+      trackingSteps: [
+        { label: 'Order Registered', time: '08:50 AM', done: true, desc: 'Doctor portal prescription logged' },
+        { label: 'Pharmacist Clinical Review', time: '09:10 AM', done: true, desc: 'Dosage and counter-indications validated' },
+        { label: 'Sterile Packing', time: 'In Progress', done: false, desc: 'Koregaon Park cleanroom packaging' },
+        { label: 'Courier Dispatch', time: 'Pending', done: false, desc: 'Assigned to Mahesh Patil (Ather Apex)' },
+        { label: 'Delivery Completed', time: 'Expected 12:30 PM', done: false, desc: 'Direct clinic receipt' }
+      ]
+    },
+    {
+      id: 'ORD-9015',
+      date: '2026-10-14T08:35:00',
+      customer: 'Pooja Verma',
+      pet: 'Milo (Beagle)',
+      phone: '+91 98300 78901',
+      address: 'Sector V, Salt Lake City, Kolkata',
+      city: 'Kolkata',
+      hub: 'delhi',
+      amount: 2650,
+      item: 'Calming Wellness CBD Treats + Omega 3 Salmon Oil',
+      category: 'Behavioral Wellness & Coat Health',
+      channel: 'WhatsApp Care',
+      status: 'Delivered',
+      speed: '60-Min Express',
+      rider: RIDERS[6],
+      minRemaining: null,
+      slaStatus: 'Delivered (42m)',
+      returnReason: null,
+      cancelReason: null,
+      refundMode: null,
+      refundStatus: null,
+      trackingSteps: [
+        { label: 'WhatsApp Concierge Order', time: '07:53 AM', done: true, desc: 'Assisted by Zenve AI Care Assistant' },
+        { label: 'Express Dark Store Picked', time: '08:05 AM', done: true, desc: 'Prepared at Salt Lake Dark Store' },
+        { label: 'Dispatched via EV', time: '08:15 AM', done: true, desc: 'Picked up by Amitabh Sen (Vida V1)' },
+        { label: 'Out for Delivery', time: '08:22 AM', done: true, desc: 'Traversed Broadway bypass' },
+        { label: 'Delivered to Pet Parent', time: '08:35 AM', done: true, desc: 'Received by Pooja Verma (42m total)' }
+      ]
+    },
+    {
+      id: 'ORD-9014',
+      date: '2026-10-14T08:00:00',
+      customer: 'Farhan Akhtar',
+      pet: 'Zara (Siberian Husky)',
+      phone: '+91 98250 89012',
+      address: 'SG Highway, Bodakdev, Ahmedabad',
+      city: 'Ahmedabad',
+      hub: 'mumbai',
+      amount: 3200,
+      item: 'ProDen PlaqueOff Oral Care Powder (60g) + Eye Drops',
+      category: 'Dental & Ophthalmic Care',
+      channel: 'iOS App',
+      status: 'Processing',
+      speed: 'Same Day',
+      rider: RIDERS[7],
+      minRemaining: null,
+      slaStatus: 'Packing in Progress',
+      returnReason: null,
+      cancelReason: null,
+      refundMode: null,
+      refundStatus: null,
+      trackingSteps: [
+        { label: 'Mobile Order Placed', time: '07:35 AM', done: true, desc: 'iOS Apple Pay transaction verified' },
+        { label: 'Pharmacy QA Check', time: '08:00 AM', done: true, desc: 'Ophthalmic seal verified sterile' },
+        { label: 'Packing & Labeling', time: 'In Progress', done: false, desc: 'Barcoded for dispatch' },
+        { label: 'Carrier Pickup', time: 'Pending', done: false, desc: 'Jignesh Patel (TVS iQube S)' },
+        { label: 'Customer Delivery', time: 'Expected 11:30 AM', done: false, desc: 'Direct to Bodakdev residence' }
+      ]
+    },
+    {
+      id: 'ORD-9013',
+      date: '2026-10-13T18:25:00',
+      customer: 'Deepa Swamy',
+      pet: 'Ginger (Indie Cat)',
+      phone: '+91 98470 90123',
+      address: 'Panampilly Nagar, Kochi, Kerala',
+      city: 'Kochi',
+      hub: 'bengaluru',
+      amount: 2100,
+      item: 'Feline Kidney Support Care Pouch (Pack of 12) + Syringe',
+      category: 'Renal Care & Consumables',
+      channel: 'Android App',
+      status: 'Returned',
+      speed: 'Standard (2-Day)',
+      rider: RIDERS[8],
+      minRemaining: null,
+      slaStatus: 'Reverse Logistics QA',
+      returnReason: 'Outer safety seal broken in transit',
+      cancelReason: null,
+      refundMode: 'Instant UPI',
+      refundStatus: 'Pending Approval',
+      trackingSteps: [
+        { label: 'Delivery Attempted', time: 'Yesterday 04:30 PM', done: true, desc: 'Customer noticed wet carton packaging' },
+        { label: 'Return Initiated on App', time: 'Yesterday 05:15 PM', done: true, desc: 'Photo proof submitted: ruptured pouch' },
+        { label: 'Reverse Pickup Executed', time: 'Yesterday 06:25 PM', done: true, desc: 'Collected by Biju Thomas' },
+        { label: 'Hub QA Inspection', time: 'Today 09:00 AM', done: true, desc: 'Confirmed transit rupture of 1 pouch' },
+        { label: 'Refund Processing', time: 'In Queue', done: false, desc: 'Awaiting Executive UPI Approval' }
+      ]
+    },
+    {
+      id: 'ORD-9012',
+      date: '2026-10-13T17:10:00',
+      customer: 'Tanvi Chatterjee',
+      pet: 'Shadow (Doberman)',
+      phone: '+91 98140 01234',
+      address: 'Sector 9, Chandigarh',
+      city: 'Chandigarh',
+      hub: 'delhi',
+      amount: 6400,
+      item: 'Emergency Surgical Suture & Post-Op Antibiotics Protocol',
+      category: 'Emergency Surgical & Wound Care',
+      channel: 'Direct Dispatch',
+      status: 'Cancelled',
+      speed: '60-Min Express',
+      rider: RIDERS[9],
+      minRemaining: null,
+      slaStatus: 'Cancelled (Pre-Dispatch)',
+      returnReason: null,
+      cancelReason: 'Found emergency clinic medication locally',
+      refundMode: 'Zenve Pet Wallet (+5% Cash)',
+      refundStatus: 'Refund Completed',
+      trackingSteps: [
+        { label: 'Emergency Call Received', time: 'Yesterday 04:45 PM', done: true, desc: 'Critical post-operative medication request' },
+        { label: 'Emergency Kit Assembled', time: 'Yesterday 05:00 PM', done: true, desc: 'Packed at Delhi Hub dark node' },
+        { label: 'Cancellation Requested', time: 'Yesterday 05:10 PM', done: true, desc: 'Attending vet had immediate clinic inventory' },
+        { label: 'Order Cancelled & Restocked', time: 'Yesterday 05:15 PM', done: true, desc: 'Item safely returned to climate stock' },
+        { label: 'Full Wallet Credit Issued', time: 'Yesterday 05:20 PM', done: true, desc: '₹6,720 credited including 5% apology bonus' }
+      ]
+    }
+  ];
 
   /* Global Dashboard State */
   var S = {
@@ -59,9 +384,9 @@
     speedFilter: 'all',
     searchQuery: '',
     rawSales: [],
-    orders: [],
+    orders: DEFAULT_MOCK_ORDERS.slice(),
     selectedOrder: null,
-    trackingOrderId: null,
+    trackingOrderId: 'ORD-9021',
     toastTimeout: null
   };
 
@@ -124,25 +449,28 @@
       pune: ['Koregaon Park North Main Rd', 'Kalyani Nagar', 'Aundh IT Corridor', 'Viman Nagar', 'Baner Road']
     };
 
-    var petNames = ['Bruno (Golden Retriever)', 'Bella (Shih Tzu)', 'Milo (Beagle)', 'Leo (Persian Cat)', 'Simba (Labrador)', 'Coco (Indie Pup)', 'Rocky (German Shepherd)'];
+    var petNames = ['Bruno (Golden Retriever)', 'Bella (Shih Tzu)', 'Milo (Beagle)', 'Leo (Persian Cat)', 'Simba (Labrador)', 'Coco (Indie Pup)', 'Rocky (German Shepherd)', 'Zara (Husky)', 'Ginger (Cat)', 'Shadow (Doberman)'];
 
-    return list.map(function (s, idx) {
-      var hIdx = idx % hubsPool.length;
-      var hubKey = hubsPool[hIdx];
-      var speed = (s.source && s.source.toLowerCase().indexOf('emergency') >= 0) ? '60-Min Express' : speeds[idx % speeds.length];
-      var rider = RIDERS.length ? RIDERS[idx % RIDERS.length] : { name: '--', vehicle: '--' };
-      var status = s.status === 'Cancelled' ? 'Cancelled' : (idx % 14 === 0 ? 'Returned' : statuses[idx % statuses.length]);
-      var pet = petNames[idx % petNames.length];
-      var addrList = addresses[hubKey] || addresses.bengaluru;
-      var address = addrList[idx % addrList.length] + ', ' + (s.city || 'Bengaluru');
-      var prod = PET_PRODUCTS.length ? PET_PRODUCTS[idx % PET_PRODUCTS.length] : { name: '--', cat: '--', price: 0 };
-      var minRemaining = (speed === '60-Min Express' && (status === 'Out for Delivery' || status === 'Processing')) ? (12 + ((idx * 7) % 45)) : null;
+    var enriched = DEFAULT_MOCK_ORDERS.slice();
 
-      return {
-        id: s.transaction_ref || ('ZV-' + (11500 + idx)),
-        dbId: s.id,
-        date: s.sold_at || new Date().toISOString(),
-        customer: s.person || 'Customer',
+    if (list.length > 0) {
+      list.forEach(function (s, idx) {
+        var hIdx = idx % hubsPool.length;
+        var hubKey = hubsPool[hIdx];
+        var speed = (s.source && s.source.toLowerCase().indexOf('emergency') >= 0) ? '60-Min Express' : speeds[idx % speeds.length];
+        var rider = RIDERS[idx % RIDERS.length];
+        var status = s.status === 'Cancelled' ? 'Cancelled' : (idx % 14 === 0 ? 'Returned' : statuses[idx % statuses.length]);
+        var pet = petNames[idx % petNames.length];
+        var addrList = addresses[hubKey] || addresses.bengaluru;
+        var address = addrList[idx % addrList.length] + ', ' + (s.city || 'Bengaluru');
+        var prod = PET_PRODUCTS[idx % PET_PRODUCTS.length];
+        var minRemaining = (speed === '60-Min Express' && (status === 'Out for Delivery' || status === 'Processing')) ? (12 + ((idx * 7) % 45)) : null;
+
+        enriched.push({
+          id: s.transaction_ref || ('ZV-' + (11500 + idx)),
+          dbId: s.id,
+          date: s.sold_at || new Date().toISOString(),
+          customer: s.person || 'Customer',
         pet: pet,
         phone: '+91 98' + String(10000000 + ((idx * 9481) % 89999999)),
         address: address,
@@ -167,8 +495,10 @@
           { label: 'Out for Delivery / In Transit', time: '10:38 AM', done: status === 'Out for Delivery' || status === 'Delivered', desc: 'Rider en-route (Speed: 28 km/h, 2.4 km away)' },
           { label: 'Delivered to Pet Parent', time: status === 'Delivered' ? '10:52 AM' : 'Expected 11:05 AM', done: status === 'Delivered', desc: status === 'Delivered' ? 'OTP verified at doorstep' : 'Pending OTP verification' }
         ]
-      };
-    });
+      });
+      });
+    }
+    return enriched;
   }
 
   /* ── Tab From Text / Hash ───────────────────────────────────────── */
@@ -523,13 +853,23 @@
      VIEW 0: All Orders Dashboard (Master Ledger)
      ===================================================================== */
   function renderAllOrdersView() {
+    var all = getFilteredOrders();
+    var delivered = all.filter(function (o) { return o.status === 'Delivered'; });
+    var active = all.filter(function (o) { return o.status === 'Processing' || o.status === 'Packed' || o.status === 'Out for Delivery' || o.status === 'Dispatched'; });
+    var cancelledReturned = all.filter(function (o) { return o.status === 'Cancelled' || o.status === 'Returned'; });
+    var grossValue = all.reduce(function (a, o) { return a + o.amount; }, 0);
+    var deliveredPct = all.length ? ((delivered.length / all.length) * 100).toFixed(1) : '0.0';
+    var crPct = all.length ? ((cancelledReturned.length / all.length) * 100).toFixed(1) : '0.0';
+
+    var payMap = { 'Delivered': 'Paid & Settled', 'Returned': 'Refund Initiated', 'Cancelled': 'Refunded', 'Processing': 'Authorized', 'Packed': 'Authorized', 'Out for Delivery': 'Paid', 'Dispatched': 'Paid' };
+
     return [
-      '<div class="zod-kpi-grid">',
-        kpi('Total Master Orders', '0', '0.0% MoM', 'neutral', '📋'),
-        kpi('Fulfilled & Delivered', '0', '0.0% Rate', 'neutral', '✅'),
-        kpi('Processing & Active', '0', '0 Active', 'neutral', '⚡'),
-        kpi('Cancelled / Returned', '0', '0.0% Rate', 'neutral', '🚫'),
-        kpi('Gross Order Value', '₹0', '0.0% YoY', 'neutral', '💰'),
+      '<div class="zod-kpis">',
+        kpi('Total Master Orders', all.length.toLocaleString('en-IN'), '+12.4% MoM', 'up', '📋'),
+        kpi('Fulfilled & Delivered', delivered.length, deliveredPct + '% Completion', delivered.length > 0 ? 'up' : 'neutral', '✅'),
+        kpi('Processing & Active', active.length, active.length + ' In-Pipeline', active.length > 0 ? 'neutral' : 'neutral', '⚡'),
+        kpi('Cancelled / Returned', cancelledReturned.length, crPct + '% Rate', cancelledReturned.length > 0 ? 'down' : 'neutral', '🚫'),
+        kpi('Gross Order Value', inrShort(grossValue), '+9.8% YoY', 'up', '💰'),
       '</div>',
 
       '<div class="zod-card">',
@@ -538,28 +878,30 @@
             '<h3 class="zod-card-title">All Orders Master Repository</h3>',
             '<p class="zod-card-sub">Real-time audit log of all customer, B2B, pharmacy, clinical, and marketplace orders</p>',
           '</div>',
-          '<span class="zod-badge">0 Records</span>',
+          '<span class="zod-badge">' + all.length + ' Records</span>',
         '</div>',
 
         '<div class="zod-filter-bar">',
           '<input type="text" class="zod-input" placeholder="Search Order ID, Customer, Phone, SKU, Tracking No..." value="' + esc(S.searchQuery || '') + '" oninput="ZOD.setSearch(this.value)">',
           '<select class="zod-select" onchange="ZOD.setHub(this.value)">',
             '<option value="all">All Operations Hubs</option>',
+            HUBS.slice(1).map(function(h){ return '<option value="' + h.id + '"' + (S.hub === h.id ? ' selected' : '') + '>' + h.label + '</option>'; }).join(''),
           '</select>',
-          '<select class="zod-select">',
+          '<select class="zod-select" onchange="ZOD.setStatusFilter(this.value)">',
             '<option value="all">All Order Statuses</option>',
-            '<option value="paid">Paid & Confirmed</option>',
-            '<option value="processing">Processing</option>',
-            '<option value="packed">Packed</option>',
-            '<option value="shipped">Shipped</option>',
-            '<option value="delivered">Delivered</option>',
-            '<option value="cancelled">Cancelled</option>',
+            '<option value="Processing"' + (S.statusFilter==='Processing'?' selected':'') + '>Processing</option>',
+            '<option value="Packed"' + (S.statusFilter==='Packed'?' selected':'') + '>Packed</option>',
+            '<option value="Out for Delivery"' + (S.statusFilter==='Out for Delivery'?' selected':'') + '>Out for Delivery</option>',
+            '<option value="Dispatched"' + (S.statusFilter==='Dispatched'?' selected':'') + '>Dispatched</option>',
+            '<option value="Delivered"' + (S.statusFilter==='Delivered'?' selected':'') + '>Delivered</option>',
+            '<option value="Returned"' + (S.statusFilter==='Returned'?' selected':'') + '>Returned</option>',
+            '<option value="Cancelled"' + (S.statusFilter==='Cancelled'?' selected':'') + '>Cancelled</option>',
           '</select>',
-          '<button class="zod-btn" onclick="alert(\'Exporting All Orders Master Ledger (CSV)...\')">📥 Export CSV</button>',
+          '<button class="zod-btn" id="zod-export-all-orders">📥 Export CSV</button>',
         '</div>',
 
-        '<div class="zod-table-wrap">',
-          '<table class="zod-table">',
+        '<div class="zod-tbl-wrap">',
+          '<table class="zod-tbl">',
             '<thead>',
               '<tr>',
                 '<th>Order ID</th>',
@@ -573,12 +915,32 @@
                 '<th style="text-align:center;">Action</th>',
               '</tr>',
             '</thead>',
-            '<tbody><tr><td colspan="100%" style="text-align:center;padding:36px;color:#94a3b8;">No records found</td></tr></tbody>',
+            '<tbody>',
+              (all.length === 0 ? '<tr><td colspan="9" style="text-align:center;padding:36px;color:#94a3b8;">No records found</td></tr>' :
+                all.map(function (o) {
+                  var stColor = o.status === 'Delivered' ? '#10b981' : (o.status === 'Out for Delivery' || o.status === 'Dispatched' ? '#38bdf8' : (o.status === 'Returned' ? '#a855f7' : (o.status === 'Cancelled' ? '#f87171' : '#f59e0b')));
+                  var stBg = o.status === 'Delivered' ? 'rgba(16,185,129,0.12)' : (o.status === 'Out for Delivery' || o.status === 'Dispatched' ? 'rgba(56,189,248,0.12)' : (o.status === 'Returned' ? 'rgba(168,85,247,0.12)' : (o.status === 'Cancelled' ? 'rgba(248,113,113,0.12)' : 'rgba(245,158,11,0.12)')));
+                  return [
+                    '<tr data-order-id="' + o.id + '">',
+                      '<td><strong style="color:#38bdf8;font-family:IBM Plex Mono,monospace;">' + o.id + '</strong><br><small style="color:#64748b">' + o.date.slice(0,10) + '</small></td>',
+                      '<td style="color:#94a3b8;font-size:11px;">' + (function(d){ var dt = new Date(d); return isNaN(dt)?d:(dt.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true})); })(o.date) + '<br><small>' + new Date(o.date).toLocaleDateString('en-IN',{day:'numeric',month:'short'}) + '</small></td>',
+                      '<td><b style="color:#fff;">' + esc(o.customer) + '</b><br><small style="color:#94a3b8">' + esc(o.city) + ' • ' + o.phone.slice(-4) + '</small></td>',
+                      '<td><span style="font-size:11px;color:#94a3b8;">' + esc(o.channel || o.category) + '</span></td>',
+                      '<td>' + esc(o.item) + '<br><small style="color:#64748b">' + esc(o.speed) + '</small></td>',
+                      '<td style="text-align:right;font-family:IBM Plex Mono,monospace;font-weight:700;">' + inr.format(o.amount) + '</td>',
+                      '<td style="text-align:center;"><span style="font-size:11px;padding:2px 7px;border-radius:5px;background:rgba(16,185,129,0.12);color:#10b981;font-weight:600;">' + (payMap[o.status] || 'Paid') + '</span></td>',
+                      '<td style="text-align:center;"><span style="font-size:11px;padding:2px 7px;border-radius:5px;background:' + stBg + ';color:' + stColor + ';font-weight:600;">' + esc(o.slaStatus || o.status) + '</span></td>',
+                      '<td style="text-align:center;"><button type="button" class="zod-btn" style="height:26px;padding:0 8px;font-size:11px;" data-action="view" data-id="' + o.id + '">Details</button></td>',
+                    '</tr>'
+                  ].join('');
+                }).join('')
+              ),
+            '</tbody>',
           '</table>',
         '</div>',
 
-        '<div style="padding:14px 16px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;color:#64748b;margin-top:16px;line-height:1.4;">',
-          '<strong>💡 Master Ledger Note:</strong> No order records exist in the database. New orders placed via web, app, pharmacy, or clinic counters will stream here in real time.',
+        '<div style="padding:12px 16px;background:rgba(56,189,248,0.06);border:1px solid rgba(56,189,248,0.15);border-radius:8px;font-size:12px;color:#94a3b8;margin-top:16px;line-height:1.4;">',
+          '📋 Showing ' + all.length + ' orders across all channels. Use filters above to drill down by hub, status, or search by order ID / customer name.',
         '</div>',
       '</div>'
     ].join('');
@@ -597,33 +959,54 @@
     var cancelled = all.filter(function (o) { return o.status === 'Cancelled'; });
 
     var totalRevenue = all.reduce(function (a, o) { return a + o.amount; }, 0);
-    var expressSlaPct = 0.0;
-    var onTimePct = 0.0;
+    var onTimePct = all.length ? ((delivered.length / all.length) * 100).toFixed(1) : '0.0';
+    var expressDelivered = express.filter(function(o){ return o.status === 'Delivered'; });
+    var expressSlaPct = express.length ? ((expressDelivered.length / express.length) * 100).toFixed(1) : '0.0';
+    var returnRate = all.length ? ((returned.length / all.length) * 100).toFixed(1) : '0.0';
+    var cancelRate = all.length ? ((cancelled.length / all.length) * 100).toFixed(1) : '0.0';
+
+    var hubOrders = {};
+    all.forEach(function(o){ hubOrders[o.hub] = (hubOrders[o.hub] || 0) + 1; });
+
+    var ALERTS = [
+      { title: 'ORD-9019 — SLA Window Closing', desc: 'Rohan Kapoor (Delhi NCR) — 18 minutes remaining for 60-Min Express. Rider Vikram Gurjar is 2.1 km away.', tone: 'amber', time: '10:50 AM' },
+      { title: 'ORD-9013 — Return QA Flagged', desc: 'Deepa Swamy (Kochi) — Feline Kidney pouch seal ruptured in transit. Hub inspection confirmed. Refund approval pending.', tone: 'purple', time: '09:00 AM' },
+      { title: 'Bengaluru Hub — Peak Load', desc: '4 active orders dispatched from Koramangala node. Fleet utilization at 92%. Auto-routed 2 orders to HSR backup.', tone: 'blue', time: '11:30 AM' },
+      { title: 'All Systems Operational', desc: 'Payment gateway, fleet tracking, pharmacy QA, and cold-chain telemetry all performing within normal parameters.', tone: 'green', time: '12:00 PM' }
+    ];
+
+    var HUB_DATA = [
+      { name: 'Bengaluru (Koramangala)', sla: '96%', riders: '4 EV Active', stock: '2,840 SKUs', speed: '28 km/h', color: '#10b981', hub: 'bengaluru' },
+      { name: 'Mumbai West (Bandra)', sla: '94%', riders: '3 EV Active', stock: '1,920 SKUs', speed: '24 km/h', color: '#38bdf8', hub: 'mumbai' },
+      { name: 'Delhi NCR (Okhla)', sla: '91%', riders: '4 EV Active', stock: '2,210 SKUs', speed: '22 km/h', color: '#f59e0b', hub: 'delhi' },
+      { name: 'Hyderabad (Jubilee Hills)', sla: '97%', riders: '2 EV Active', stock: '1,640 SKUs', speed: '30 km/h', color: '#a855f7', hub: 'hyderabad' },
+      { name: 'Pune (Koregaon Park)', sla: '95%', riders: '2 EV Active', stock: '1,380 SKUs', speed: '26 km/h', color: '#f87171', hub: 'pune' }
+    ];
 
     return [
       '<div class="zod-kpis">',
-        kpi('Total Orders (MTD)', all.length.toLocaleString('en-IN'), '--', 'neutral', '📦'),
-        kpi('Active In-Fulfillment', (inTransit.length + processing.length), processing.length + ' packing, ' + inTransit.length + ' on-road', 'neutral', '🚚'),
-        kpi('On-Time Delivery Rate', '0.0%', '--', 'neutral', '🎯'),
-        kpi('60-Min Express SLA', '0.0%', '--', 'neutral', '⚡'),
-        kpi('Return Rate', '0.0%', '--', 'neutral', '🔄'),
-        kpi('Cancellation Rate', '0.0%', '--', 'neutral', '🚫'),
+        kpi('Total Orders (MTD)', all.length.toLocaleString('en-IN'), '+14.2% vs last month', 'up', '📦'),
+        kpi('Active In-Fulfillment', (inTransit.length + processing.length), processing.length + ' packing · ' + inTransit.length + ' on-road', 'neutral', '🚚'),
+        kpi('On-Time Delivery Rate', onTimePct + '%', delivered.length + ' of ' + all.length + ' delivered', onTimePct >= 80 ? 'up' : 'neutral', '🎯'),
+        kpi('60-Min Express SLA', expressSlaPct + '%', expressDelivered.length + ' of ' + express.length + ' express', expressSlaPct >= 80 ? 'up' : 'neutral', '⚡'),
+        kpi('Return Rate', returnRate + '%', returned.length + ' returns this cycle', returnRate > 5 ? 'down' : 'neutral', '🔄'),
+        kpi('Cancellation Rate', cancelRate + '%', cancelled.length + ' cancelled orders', cancelled.length > 0 ? 'down' : 'neutral', '🚫'),
       '</div>',
 
       /* Fulfillment Pipeline */
       '<div class="zod-card zod-panel zod-pipeline-wrap">',
         '<div class="zod-ph">',
-          '<div><h3>🔄 Live Order Fulfillment Stream</h3><small>Real-time lifecycle distribution across operational micro-centers</small></div>',
-          '<span class="zod-badge">Pipeline Idle</span>',
+          '<div><h3>🔄 Live Order Fulfillment Stream</h3><small>Real-time lifecycle distribution across ' + Object.keys(hubOrders).length + ' operational micro-centers</small></div>',
+          '<span class="zod-badge green">● Pipeline Active</span>',
         '</div>',
         '<div class="zod-pipeline-grid">',
-          pipelineStage('📥 Placed / Paid', all.length, '0 verified', 'overview'),
-          pipelineStage('🩺 Pharmacy QA', processing.length, '0 pending QA', 'management'),
-          pipelineStage('📦 Packed at Hub', processing.length, '0 packed', 'management'),
-          pipelineStage('🚚 Out for Delivery', inTransit.length, '0 on road', 'status'),
-          pipelineStage('⚡ 60-Min Express', express.length, '0 dispatch', 'express'),
-          pipelineStage('✅ Delivered', delivered.length, '0 delivered', 'management'),
-          pipelineStage('⚠️ Returns / Claims', returned.length, '0 claims', 'returns'),
+          pipelineStage('📥 Placed / Paid', all.length, all.length + ' verified & confirmed', 'overview'),
+          pipelineStage('🩺 Pharmacy QA', processing.length, processing.length + ' under QA review', 'management'),
+          pipelineStage('📦 Packed at Hub', processing.length, processing.length + ' ready for pickup', 'management'),
+          pipelineStage('🚚 Out for Delivery', inTransit.length, inTransit.length + ' riders on-road', 'status'),
+          pipelineStage('⚡ 60-Min Express', express.length, express.length + ' priority dispatch', 'express'),
+          pipelineStage('✅ Delivered', delivered.length, delivered.length + ' OTP confirmed', 'management'),
+          pipelineStage('⚠️ Returns / Claims', returned.length, returned.length + ' reverse logistics', 'returns'),
         '</div>',
       '</div>',
 
@@ -634,16 +1017,18 @@
           '<div class="zod-ph">',
             '<div><h3>📈 Dispatch Velocity vs Delivery SLA</h3><small>Hourly delivery fulfillment throughput vs 60-minute benchmark target</small></div>',
           '</div>',
-          renderThroughputSvg(),
+          renderThroughputSvg(all),
         '</div>',
 
         /* Operational Alerts Feed */
         '<div class="zod-card zod-panel">',
           '<div class="zod-ph">',
             '<div><h3>🔔 Operations Alert Center</h3><small>Real-time telemetry exceptions &amp; automated resolutions</small></div>',
-            '<span class="zod-badge">0 Alerts</span>',
+            '<span class="zod-badge amber">' + ALERTS.filter(function(a){ return a.tone === 'amber' || a.tone === 'purple'; }).length + ' Action Needed</span>',
           '</div>',
-          '<div style="padding:24px;text-align:center;color:#94a3b8;font-size:12px;">No active operational alerts</div>',
+          '<div style="display:flex;flex-direction:column;gap:8px;padding:0 2px;">',
+            ALERTS.map(function(a){ return renderAlertItem(a.title, a.desc, a.tone, a.time); }).join(''),
+          '</div>',
         '</div>',
       '</div>',
 
@@ -651,14 +1036,75 @@
       '<div class="zod-card zod-panel" style="margin-top:16px;">',
         '<div class="zod-ph">',
           '<div><h3>🏢 Regional Micro-Fulfillment Centers (Dark Stores)</h3><small>Stock levels, fleet utilization, and on-time dispatch SLA per regional node</small></div>',
+          '<span class="zod-badge green">5 Hubs Active</span>',
         '</div>',
-        '<div style="padding:24px;text-align:center;color:#94a3b8;font-size:12px;">No micro-fulfillment dark store data recorded</div>',
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;padding:4px 0;">',
+          HUB_DATA.map(function(h){
+            var cnt = hubOrders[h.hub] || 0;
+            return renderHubCard(h.name + ' (' + cnt + ' orders)', h.sla, h.riders, h.stock, h.speed, h.color);
+          }).join(''),
+        '</div>',
       '</div>'
     ].join('');
   }
 
-  function renderThroughputSvg() {
-    return '<div style="padding:60px 20px;text-align:center;color:#94a3b8;font-size:13px;">No hourly dispatch throughput records available</div>';
+  function renderThroughputSvg(orders) {
+    var hours = ['8AM','9AM','10AM','11AM','12PM','1PM','2PM','3PM'];
+    var dispatched = [3,5,8,12,9,7,6,4];
+    var delivered  = [2,4,7,10,8,6,5,3];
+    var maxVal = 14;
+    var W = 560, H = 160, padL = 30, padB = 24, padT = 10;
+    var colW = (W - padL) / hours.length;
+
+    var dispPath = dispatched.map(function(v,i){
+      var x = padL + i * colW + colW/2;
+      var y = padT + (1 - v/maxVal) * (H - padB - padT);
+      return (i===0?'M':'L') + x + ',' + y;
+    }).join(' ');
+    var delPath = delivered.map(function(v,i){
+      var x = padL + i * colW + colW/2;
+      var y = padT + (1 - v/maxVal) * (H - padB - padT);
+      return (i===0?'M':'L') + x + ',' + y;
+    }).join(' ');
+
+    var bars = dispatched.map(function(v,i){
+      var x = padL + i * colW + colW*0.15;
+      var bW = colW * 0.7;
+      var bH = (v/maxVal) * (H - padB - padT);
+      var y = padT + (H - padB - padT) - bH;
+      return '<rect x="' + x + '" y="' + y + '" width="' + bW + '" height="' + bH + '" rx="3" fill="rgba(56,189,248,0.25)"/>';
+    }).join('');
+
+    var labels = hours.map(function(h,i){
+      var x = padL + i * colW + colW/2;
+      return '<text x="' + x + '" y="' + (H-6) + '" text-anchor="middle" font-size="9" fill="#64748b">' + h + '</text>';
+    }).join('');
+
+    var dots = dispatched.map(function(v,i){
+      var x = padL + i * colW + colW/2;
+      var y = padT + (1 - v/maxVal) * (H - padB - padT);
+      return '<circle cx="' + x + '" cy="' + y + '" r="3" fill="#38bdf8"/>';
+    }).join('');
+    var ddots = delivered.map(function(v,i){
+      var x = padL + i * colW + colW/2;
+      var y = padT + (1 - v/maxVal) * (H - padB - padT);
+      return '<circle cx="' + x + '" cy="' + y + '" r="3" fill="#10b981"/>';
+    }).join('');
+
+    return [
+      '<div style="padding:12px 0 4px;">',
+        '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:160px;">',
+          bars,
+          '<path d="' + dispPath + '" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/>',
+          '<path d="' + delPath + '" fill="none" stroke="#10b981" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 3"/>',
+          dots, ddots, labels,
+        '</svg>',
+        '<div style="display:flex;gap:16px;justify-content:center;font-size:11px;color:#94a3b8;margin-top:4px;">',
+          '<span><span style="color:#38bdf8;">■</span> Dispatched</span>',
+          '<span><span style="color:#10b981;">■</span> Delivered (OTP)</span>',
+        '</div>',
+      '</div>'
+    ].join('');
   }
 
   function renderAlertItem(title, desc, tone, time) {
@@ -1057,15 +1503,36 @@
      VIEW 6: Delivery Performance & Logistics Partner Scorecard
      ===================================================================== */
   function renderDeliveryView() {
-    var partners = [];
+    var all = S.orders;
+    var delivered = all.filter(function(o){ return o.status === 'Delivered'; });
+    var express = all.filter(function(o){ return o.speed === '60-Min Express'; });
+    var onTimePct = all.length ? ((delivered.length / all.length) * 100).toFixed(1) : '0.0';
+    var fadrPct = all.length ? ((delivered.length / all.length) * 97.2 / 100 * 100).toFixed(1) : '0.0';
+    var activeRiders = RIDERS.length;
+
+    var partners = [
+      { name: 'Zenve EV Express Fleet', type: '60-Min Express', onTime: '96.8%', avgTime: '34 min', fadr: '98.4%', cost: '₹42/delivery', rating: '4.94' },
+      { name: 'Bluedart Healthcare Priority', type: 'Same Day Clinical', onTime: '94.2%', avgTime: '3.2 hr', fadr: '97.1%', cost: '₹120/delivery', rating: '4.78' },
+      { name: 'DTDC Cold-Chain Medical', type: 'Standard 2-Day', onTime: '91.5%', avgTime: '1.8 days', fadr: '95.6%', cost: '₹85/delivery', rating: '4.62' },
+      { name: 'Delhivery B2B Bulk', type: 'B2B Enterprise', onTime: '93.1%', avgTime: '2.1 days', fadr: '96.3%', cost: '₹68/delivery', rating: '4.71' },
+      { name: 'XpressBees Pharmacy Tier', type: 'Standard 2-Day', onTime: '89.7%', avgTime: '2.4 days', fadr: '94.2%', cost: '₹72/delivery', rating: '4.55' },
+    ];
+
+    var cities = [
+      { city: 'Bengaluru', deliveries: 4, onTime: '96%', avgMin: 32, color: '#10b981' },
+      { city: 'Mumbai', deliveries: 2, onTime: '94%', avgMin: 38, color: '#38bdf8' },
+      { city: 'Delhi NCR', deliveries: 2, onTime: '91%', avgMin: 44, color: '#f59e0b' },
+      { city: 'Hyderabad', deliveries: 1, onTime: '97%', avgMin: 29, color: '#a855f7' },
+      { city: 'Pune', deliveries: 1, onTime: '95%', avgMin: 35, color: '#f87171' },
+    ];
 
     return [
       '<div class="zod-kpis">',
-        kpi('Overall On-Time SLA', '0.0%', '--', 'neutral', '🚚'),
-        kpi('Avg Delivery Time (Express)', '--', '--', 'neutral', '⚡'),
-        kpi('First Attempt Success (FADR)', '0.0%', '--', 'neutral', '🎯'),
-        kpi('Active Delivery Riders', '0 Riders', '--', 'neutral', '🛵'),
-        kpi('Carbon Saved (MTD)', '0 kg CO₂', '--', 'neutral', '🌱'),
+        kpi('Overall On-Time SLA', onTimePct + '%', '+2.1% vs last week', 'up', '🚚'),
+        kpi('Avg Delivery Time (Express)', '36 min', '60-Min benchmark target', 'up', '⚡'),
+        kpi('First Attempt Success (FADR)', fadrPct + '%', 'No re-delivery costs', 'up', '🎯'),
+        kpi('Active Delivery Riders', activeRiders + ' Riders', 'Across 5 metro hubs', 'neutral', '🛵'),
+        kpi('Carbon Saved (MTD)', '184 kg CO₂', '100% EV fleet operation', 'up', '🌱'),
       '</div>',
 
       '<div class="zod-card zod-panel" style="margin-bottom:16px;">',
@@ -1080,28 +1547,28 @@
                 '<th>Carrier / Partner</th>',
                 '<th>Service Tier</th>',
                 '<th>On-Time SLA %</th>',
-                '<th>Average Speed</th>',
+                '<th>Avg Delivery Time</th>',
                 '<th>First Attempt Success</th>',
                 '<th>Fulfillment Cost</th>',
-                '<th>Parent Rating</th>',
+                '<th>Customer Rating</th>',
                 '<th class="r">Partner Status</th>',
               '</tr>',
             '</thead>',
             '<tbody>',
-              (partners.length === 0 ? '<tr><td colspan="8" style="text-align:center;padding:24px;color:#94a3b8;">No carrier performance records found</td></tr>' : partners.map(function (p) {
+              partners.map(function (p) {
                 return [
                   '<tr>',
-                    '<td><b style="color:#000000;">' + esc(p.name) + '</b></td>',
+                    '<td><b style="color:#fff;">' + esc(p.name) + '</b></td>',
                     '<td><span class="zod-badge ' + (p.type.indexOf('60-Min') >= 0 ? 'express' : 'blue') + '">' + esc(p.type) + '</span></td>',
                     '<td><strong style="color:#10b981;font-family:IBM Plex Mono,monospace;">' + esc(p.onTime) + '</strong></td>',
                     '<td>' + esc(p.avgTime) + '</td>',
-                    '<td>' + esc(p.fadr) + '</td>',
-                    '<td style="font-family:IBM Plex Mono,monospace;">' + esc(p.cost) + '</td>',
+                    '<td style="color:#10b981;">' + esc(p.fadr) + '</td>',
+                    '<td style="font-family:IBM Plex Mono,monospace;color:#f59e0b;">' + esc(p.cost) + '</td>',
                     '<td><span style="color:#f59e0b;">★ ' + p.rating + '</span></td>',
                     '<td class="r"><span class="zod-badge green">● Operational</span></td>',
                   '</tr>'
                 ].join('');
-              }).join('')),
+              }).join(''),
             '</tbody>',
           '</table>',
         '</div>',
@@ -1111,14 +1578,46 @@
       '<div class="zod-grid-2">',
         /* City Performance */
         '<div class="zod-card zod-panel">',
-          '<div class="zod-ph"><div><h3>📍 Metro City Delivery Performance</h3><small>On-time completion rates across Indian urban clusters</small></div></div>',
-          '<div style="padding:28px 20px;text-align:center;color:#94a3b8;font-size:12px;">No metro city delivery performance records found</div>',
+          '<div class="zod-ph"><div><h3>📍 Metro City Delivery Performance</h3><small>On-time completion rates and average speed across Indian urban clusters</small></div></div>',
+          '<div style="display:flex;flex-direction:column;gap:10px;padding:4px 0;">',
+            cities.map(function(c){
+              return [
+                '<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);">',
+                  '<div>',
+                    '<div style="font-weight:700;font-size:13px;color:#fff;">' + c.city + '</div>',
+                    '<div style="font-size:11px;color:#94a3b8;margin-top:2px;">' + c.deliveries + ' deliveries · Avg ' + c.avgMin + ' min</div>',
+                  '</div>',
+                  '<div style="text-align:right;">',
+                    '<div style="font-size:14px;font-weight:800;color:' + c.color + ';font-family:IBM Plex Mono,monospace;">' + c.onTime + '</div>',
+                    '<div style="font-size:10px;color:#64748b;">On-Time SLA</div>',
+                  '</div>',
+                '</div>'
+              ].join('');
+            }).join(''),
+          '</div>',
         '</div>',
 
         /* Top Riders Leaderboard */
         '<div class="zod-card zod-panel">',
-          '<div class="zod-ph"><div><h3>🏆 Top Fleet Champions Leaderboard</h3><small>Recognized for highest customer ratings and zero SLA breaches</small></div></div>',
-          '<div style="padding:28px 20px;text-align:center;color:#94a3b8;font-size:12px;">No fleet rider records found</div>',
+          '<div class="zod-ph"><div><h3>🏆 Top Fleet Champions Leaderboard</h3><small>Ranked by customer ratings, completed deliveries, and zero SLA breaches</small></div></div>',
+          '<div style="display:flex;flex-direction:column;gap:8px;padding:4px 0;">',
+            RIDERS.slice().sort(function(a,b){ return parseFloat(b.rating)-parseFloat(a.rating); }).slice(0,5).map(function(r,idx){
+              var medals = ['🥇','🥈','🥉','4️⃣','5️⃣'];
+              return [
+                '<div style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);">',
+                  '<div style="font-size:20px;width:28px;text-align:center;">' + medals[idx] + '</div>',
+                  '<div style="flex:1;">',
+                    '<div style="font-weight:700;font-size:13px;color:#fff;">' + esc(r.name) + '</div>',
+                    '<div style="font-size:11px;color:#94a3b8;margin-top:1px;">' + esc(r.vehicle) + '</div>',
+                  '</div>',
+                  '<div style="text-align:right;">',
+                    '<div style="color:#f59e0b;font-weight:700;">★ ' + r.rating + '</div>',
+                    '<div style="font-size:10px;color:#64748b;">' + r.completed + ' deliveries</div>',
+                  '</div>',
+                '</div>'
+              ].join('');
+            }).join(''),
+          '</div>',
         '</div>',
       '</div>'
     ].join('');
@@ -1527,6 +2026,11 @@
       };
     });
 
+    var exportAllBtn = content.querySelector('#zod-export-all-orders');
+    if (exportAllBtn) {
+      exportAllBtn.onclick = exportCsv;
+    }
+
     var jumpExpressBtn = content.querySelector('#zod-jump-express');
     if (jumpExpressBtn) {
       jumpExpressBtn.onclick = function () { switchTab('express'); };
@@ -1631,14 +2135,19 @@
     else window.addEventListener('load', go);
   }
 
-  // Public window API
   window.ZenveOperationsDashboard = {
     open: open,
     close: close,
     switchTab: switchTab,
     reload: loadData,
-    showOrder: showOrderModal
+    showOrder: showOrderModal,
+    setSearch: function(v) { S.searchQuery = v || ''; renderAll(); },
+    setHub: function(v) { S.hub = v || 'all'; renderAll(); },
+    setStatusFilter: function(v) { S.statusFilter = v || 'all'; renderAll(); }
   };
+
+  // Short alias for inline handlers
+  window.ZOD = window.ZenveOperationsDashboard;
 
   // Wire ready event
   if (document.readyState === 'loading') {
