@@ -6,9 +6,22 @@ export default function Hospitals() {
   const [selectedHospital, setSelectedHospital] = useState('ALL');
   const [toast, setToast] = useState('');
 
-  const hospitalsData = [];
+    const hospitalsData = [
+    { code: 'HOSP-BLR-01', name: 'Zenve Indiranagar Central Hospital', city: 'Bengaluru', status: '24x7 Operational', type: 'Tertiary Care Referral & Trauma Center', bedsOccupied: 23, bedsTotal: 28, icuPods: 6, otCount: 3, otUtilization: '94%', leadSurgeon: 'Dr. Rajeshwari Swaminathan', imaging: '16-Slice CT, 4D Ultrasound, Digital Fluoroscopy', bloodBank: '18 Units (Canine DEA 1.1 / Feline A&B)', monthlyBillings: '₹28.40 L' },
+    { code: 'HOSP-BOM-01', name: 'Zenve Bandra West Emergency Trauma Centre', city: 'Mumbai', status: '24x7 Operational', type: 'Tertiary Care Emergency & Critical Surgery', bedsOccupied: 20, bedsTotal: 24, icuPods: 5, otCount: 2, otUtilization: '91%', leadSurgeon: 'Dr. Vikramaditya Rathore', imaging: 'High-Res Digital Radiography & Video-Endoscopy', bloodBank: '14 Units (Cryoprecipitate & Packed RBCs)', monthlyBillings: '₹25.10 L' },
+    { code: 'HOSP-DEL-01', name: 'Zenve DLF CyberCity Critical Care Hospital', city: 'Delhi NCR', status: '24x7 Operational', type: 'Tertiary Multi-Specialty & Oncology Center', bedsOccupied: 26, bedsTotal: 32, icuPods: 8, otCount: 3, otUtilization: '96%', leadSurgeon: 'Dr. Maya Chandran', imaging: '32-Slice CT Scanner, MRI Facility, Echocardiogram', bloodBank: '22 Units (Canine Universal Negative & Plasma)', monthlyBillings: '₹31.25 L' },
+    { code: 'HOSP-HYD-01', name: 'Zenve Jubilee Hills Specialty Center', city: 'Hyderabad', status: '24x7 Operational', type: 'Tertiary Neurology, Ortho & Spine Hospital', bedsOccupied: 18, bedsTotal: 22, icuPods: 4, otCount: 2, otUtilization: '89%', leadSurgeon: 'Dr. Anirudh Sen', imaging: 'C-Arm Fluoroscopy, High-Frequency Ultrasound', bloodBank: '12 Units (Packed Cells & Fresh Frozen Plasma)', monthlyBillings: '₹21.60 L' },
+    { code: 'HOSP-PNQ-01', name: 'Zenve Koregaon Park Veterinary Hospital', city: 'Pune', status: '24x7 Operational', type: 'Tertiary Multi-Specialty Hospital', bedsOccupied: 16, bedsTotal: 20, icuPods: 4, otCount: 2, otUtilization: '88%', leadSurgeon: 'Dr. Rohan Kulkarni', imaging: 'Digital DR X-Ray, Color Doppler Ultrasound', bloodBank: '10 Units (Whole Blood & Platelet Concentrates)', monthlyBillings: '₹18.90 L' }
+  ];
 
-  const otSchedule = [];
+  const otSchedule = [
+    { ot: 'OT Suite 1 (Laminar Flow)', patient: 'Bruno (Golden Retriever)', procedure: 'TPLO Cruciate Ligament Stabilization', surgeon: 'Dr. Rajeshwari Swaminathan', anesthesia: 'Dr. Anirudh Sen', time: '10:30 – 12:30', status: 'In Progress' },
+    { ot: 'OT Suite 2 (Emergency)', patient: 'Simba (German Shepherd)', procedure: 'Emergency GDV Decompression & Gastropexy', surgeon: 'Dr. Vikramaditya Rathore', anesthesia: 'Dr. Rohan Kulkarni', time: '11:15 – 13:45', status: 'In Progress' },
+    { ot: 'OT Suite 1', patient: 'Coco (Labrador Retriever)', procedure: 'Splenectomy & Abdominal Exploration', surgeon: 'Dr. Rohan Kulkarni', anesthesia: 'Dr. Sneha Nair', time: '13:30 – 15:00', status: 'Scheduled' },
+    { ot: 'OT Suite 3', patient: 'Bella (Shih Tzu)', procedure: 'Emergency Pyometra Ovariohysterectomy', surgeon: 'Dr. Maya Chandran', anesthesia: 'Dr. Pooja Mehta', time: '14:00 – 15:30', status: 'Scheduled' },
+    { ot: 'Minor OT 1', patient: 'Luna (British Shorthair)', procedure: 'Corneal Grafting & Conjunctival Flap', surgeon: 'Dr. Karthik Sundaram', anesthesia: 'Dr. Gaurav Sharma', time: '15:00 – 16:00', status: 'Scheduled' },
+    { ot: 'OT Suite 2', patient: 'Zoe (Siberian Husky)', procedure: 'Diaphragmatic Hernia Repair', surgeon: 'Dr. Vikramaditya Rathore', anesthesia: 'Dr. Ananya Ray', time: '08:30 – 10:15', status: 'Completed' }
+  ];
 
   const filteredHospitals = selectedHospital === 'ALL' ? hospitalsData : hospitalsData.filter(h => h.code === selectedHospital);
 
@@ -62,14 +75,14 @@ export default function Hospitals() {
         </div>
       )}
 
-      {/* KPI Cards */}
+            {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Tertiary Hospitals" value="0" delta="--" trend="neutral" subtext="Bengaluru, Mumbai, Delhi" icon="🏢" />
-        <KpiCard label="Inpatient Census" value="0" delta="0.0%" trend="neutral" subtext="Across ICU & post-op wards" icon="🛏️" />
-        <KpiCard label="Operating Theatres" value="0" delta="0.0%" trend="neutral" subtext="No surgical suites active" icon="🔪" />
-        <KpiCard label="Critical Care Pods" value="0" delta="--" trend="neutral" subtext="Continuous vitals logging" icon="💓" />
-        <KpiCard label="Blood Bank Inventory" value="0 Units" delta="--" trend="neutral" subtext="Canine & feline matched" icon="🩸" />
-        <KpiCard label="Hospital Billings MTD" value="₹0" delta="0.0%" trend="neutral" subtext="Inpatient & surgical care" icon="💰" />
+        <KpiCard label="Tertiary Hospitals" value="5 Flagships" delta="24x7 Coverage" trend="up" subtext="BLR, BOM, DEL, HYD, PUN" icon="🏢" />
+        <KpiCard label="Inpatient Census" value="103 / 126 Beds" delta="81.7%" trend="up" subtext="Across ICU & post-op wards" icon="🛏️" />
+        <KpiCard label="Operating Theatres" value="12 Suites" delta="100% Active" trend="up" subtext="Laminar Flow & C-Arm" icon="🔪" />
+        <KpiCard label="Critical Care Pods" value="27 Pods" delta="Continuous" trend="up" subtext="Continuous vitals logging" icon="💓" />
+        <KpiCard label="Blood Bank Inventory" value="76 Units" delta="+18 Units" trend="up" subtext="Canine & feline matched" icon="🩸" />
+        <KpiCard label="Hospital Billings MTD" value="₹1.25 Cr" delta="+16.2%" trend="up" subtext="Inpatient & surgical care" icon="💰" />
       </div>
 
       {/* Flagship Hospital Profiles */}

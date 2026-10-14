@@ -8,7 +8,18 @@ export default function ClinicPatients() {
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [toast, setToast] = useState('');
 
-  const inpatientList = [];
+    const inpatientList = [
+    { id: 'INP-8801', petName: 'Max', species: 'Labrador Retriever', weight: '32 kg', bed: 'ICU Pod-01', facility: 'Indiranagar Central Hospital', diagnosis: 'Post-TPLO Cruciate Stabilization Recovery', doctor: 'Dr. Rajeshwari Swaminathan', vitals: 'HR: 104 bpm | Temp: 38.6°C | SpO2: 98%', wardStatus: 'High Dependency', dischargeEta: 'Tomorrow, 04:00 PM' },
+    { id: 'INP-8802', petName: 'Cleo', species: 'Siamese Cat', weight: '3.8 kg', bed: 'Feline Isolation Bay-2', facility: 'Bandra Trauma Centre', diagnosis: 'FLUTD De-obstruction & IV Diuresis', doctor: 'Dr. Pooja Mehta', vitals: 'HR: 160 bpm | Temp: 38.2°C | SpO2: 99%', wardStatus: 'High Dependency', dischargeEta: '16 Oct 2026' },
+    { id: 'INP-8803', petName: 'Thor', species: 'Great Dane', weight: '54 kg', bed: 'ICU Large Ward-03', facility: 'DLF CyberCity Hospital', diagnosis: 'Post-GDV Gastropexy Continuous Telemetry', doctor: 'Dr. Vikramaditya Rathore', vitals: 'HR: 92 bpm | Temp: 38.5°C | SpO2: 97%', wardStatus: 'Critical ICU', dischargeEta: '17 Oct 2026' },
+    { id: 'INP-8804', petName: 'Cookie', species: 'Cocker Spaniel', weight: '14 kg', bed: 'Step-Down Ward-05', facility: 'Jubilee Hills Center', diagnosis: 'Acute Hemorrhagic Gastroenteritis', doctor: 'Dr. Anirudh Sen', vitals: 'HR: 112 bpm | Temp: 38.8°C | SpO2: 98%', wardStatus: 'Stable Inpatient', dischargeEta: 'Today, 06:00 PM' },
+    { id: 'INP-8805', petName: 'Shadow', species: 'Doberman Pinscher', weight: '36 kg', bed: 'Surgical Ward-02', facility: 'Indiranagar Central Hospital', diagnosis: 'External Skeletal Fixation Radius-Ulna', doctor: 'Dr. Maya Chandran', vitals: 'HR: 88 bpm | Temp: 38.4°C | SpO2: 99%', wardStatus: 'Discharge Ready', dischargeEta: 'Today, 02:30 PM' },
+    { id: 'INP-8806', petName: 'Whiskey', species: 'Beagle', weight: '12 kg', bed: 'ICU Pod-02', facility: 'Koregaon Park Hospital', diagnosis: 'Parvoviral Enteritis & Septicemia Support', doctor: 'Dr. Rohan Kulkarni', vitals: 'HR: 128 bpm | Temp: 39.2°C | SpO2: 96%', wardStatus: 'Isolation Ward', dischargeEta: '18 Oct 2026' },
+    { id: 'INP-8807', petName: 'Bella', species: 'Persian Cat', weight: '4.2 kg', bed: 'Daycare Suite-01', facility: 'Andheri Care Clinic', diagnosis: 'Full Mouth Dental Extractions & Fluid Therapy', doctor: 'Dr. Sneha Nair', vitals: 'HR: 155 bpm | Temp: 38.3°C | SpO2: 98%', wardStatus: 'Discharge Ready', dischargeEta: 'Today, 05:00 PM' },
+    { id: 'INP-8808', petName: 'Tiger', species: 'Indie Dog', weight: '22 kg', bed: 'Trauma Bay-03', facility: 'Bandra Trauma Centre', diagnosis: 'Pelvic Fracture Post-RTA Stabilization', doctor: 'Dr. Vikramaditya Rathore', vitals: 'HR: 118 bpm | Temp: 38.1°C | SpO2: 95%', wardStatus: 'Critical ICU', dischargeEta: '19 Oct 2026' },
+    { id: 'INP-8809', petName: 'Mia', species: 'Golden Retriever', weight: '29 kg', bed: 'Oncology Bay-01', facility: 'Indiranagar Central Hospital', diagnosis: 'Post-Mastectomy & Chemo Hydration Protocol', doctor: 'Dr. Rajeshwari Swaminathan', vitals: 'HR: 96 bpm | Temp: 38.7°C | SpO2: 99%', wardStatus: 'Stable Inpatient', dischargeEta: '16 Oct 2026' },
+    { id: 'INP-8810', petName: 'Casper', species: 'Pomeranian', weight: '5.5 kg', bed: 'Cardiac Ward-02', facility: 'DLF CyberCity Hospital', diagnosis: 'CHF Acute Pulmonary Edema Diuresis', doctor: 'Dr. Gaurav Sharma', vitals: 'HR: 135 bpm | Temp: 38.4°C | SpO2: 94%', wardStatus: 'Critical ICU', dischargeEta: '17 Oct 2026' }
+  ];
 
   const filtered = useMemo(() => {
     return inpatientList.filter(p => {
@@ -73,14 +84,14 @@ export default function ClinicPatients() {
         </div>
       )}
 
-      {/* KPI Cards */}
+            {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Admitted Inpatients" value="0" delta="0.0%" trend="neutral" subtext="No inpatients admitted" icon="🛏️" />
-        <KpiCard label="Critical ICU Pods" value="0" delta="--" trend="neutral" subtext="Continuous vitals telemetry" icon="💓" />
-        <KpiCard label="Daily OPD Consults" value="0" delta="0.0%" trend="neutral" subtext="No OPD visits logged" icon="🐾" />
-        <KpiCard label="Planned Discharges" value="0" delta="--" trend="neutral" subtext="Post-op recovery cleared" icon="🏡" />
-        <KpiCard label="Average Length of Stay" value="0 Days" delta="0.0%" trend="neutral" subtext="Rapid patient stabilization" icon="📅" />
-        <KpiCard label="Hospital Infection Rate" value="0.0%" delta="--" trend="neutral" subtext="UV-C sterilized wards" icon="🛡️" />
+        <KpiCard label="Admitted Inpatients" value="64 Pets" delta="82.5%" trend="up" subtext="Across 10 facilities" icon="🛏️" />
+        <KpiCard label="Critical ICU Pods" value="18 Pets" delta="Continuous" trend="up" subtext="Continuous vitals telemetry" icon="💓" />
+        <KpiCard label="Daily OPD Consults" value="485 Pets" delta="+14.6%" trend="up" subtext="Network OPD visits" icon="🐾" />
+        <KpiCard label="Planned Discharges" value="14 Pets" delta="Post-Op Ready" trend="up" subtext="Post-op recovery cleared" icon="🏡" />
+        <KpiCard label="Average Length of Stay" value="2.4 Days" delta="-0.3 days" trend="up" subtext="Rapid patient stabilization" icon="📅" />
+        <KpiCard label="Hospital Infection Rate" value="0.08%" delta="-0.02%" trend="up" subtext="UV-C sterilized wards" icon="🛡️" />
       </div>
 
       {/* Patients Filter & Inpatient Census Table */}

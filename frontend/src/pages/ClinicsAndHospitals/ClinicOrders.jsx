@@ -9,7 +9,18 @@ export default function ClinicOrders() {
   const [showPOModal, setShowPOModal] = useState(false);
   const [toast, setToast] = useState('');
 
-  const requisitions = [];
+    const requisitions = [
+    { id: 'REQ-CLIN-4011', facility: 'Indiranagar Central Hospital', category: 'Surgical Implants', items: 'Titanium Locking Bone Plates 3.5mm Set (4 Kits)', vendor: 'Synthes Vet India', eta: 'Tomorrow, 11:00 AM', value: 184000, status: 'Dispatched' },
+    { id: 'REQ-CLIN-4012', facility: 'Bandra Trauma Centre', category: 'Anesthesia', items: 'Isoflurane Inhalation Anesthetic 250ml (20 Units)', vendor: 'Abbott Healthcare', eta: 'Today, 04:00 PM', value: 76500, status: 'Delivered' },
+    { id: 'REQ-CLIN-4013', facility: 'DLF CyberCity Hospital', category: 'Medical Gases', items: 'Medical Grade Liquid Oxygen Cylinder Refill (2 Cryo)', vendor: 'Inox Air Products', eta: 'Today, 02:30 PM', value: 48000, status: 'Delivered' },
+    { id: 'REQ-CLIN-4014', facility: 'Jubilee Hills Center', category: 'Surgical Consumables', items: 'Ethicon Monocryl/Vicryl Absorbable Sutures 3-0/4-0 (15 Boxes)', vendor: 'Johnson & Johnson Med', eta: '16 Oct 2026', value: 54200, status: 'Approved' },
+    { id: 'REQ-CLIN-4015', facility: 'Indiranagar Central Hospital', category: 'Vaccines & Cold Chain', items: 'Rabies & DHPPiL Core Vaccine Cold Chain (500 Doses)', vendor: 'Zoetis Animal Health', eta: '15 Oct 2026', value: 195000, status: 'Delivered' },
+    { id: 'REQ-CLIN-4016', facility: 'Koregaon Park Hospital', category: 'ICU Equipment', items: 'Microflex Vet IV Infusion Pumps & Extension Sets (6 Units)', vendor: 'B. Braun Medical', eta: '17 Oct 2026', value: 112000, status: 'Approved' },
+    { id: 'REQ-CLIN-4017', facility: 'Andheri Link Rd Clinic', category: 'Dental & Diagnostic', items: 'Digital Dental X-Ray Sensor Size 2 (1 Set)', vendor: 'Carestream Dental', eta: '14 Oct 2026', value: 82000, status: 'Delivered' },
+    { id: 'REQ-CLIN-4018', facility: 'Saket Pet Wellness', category: 'Diagnostics', items: 'Rapid In-Clinic FeLV/FIV & Parvo Combo Tests (100 Tests)', vendor: 'IDEXX Laboratories', eta: '15 Oct 2026', value: 68500, status: 'Dispatched' },
+    { id: 'REQ-CLIN-4019', facility: 'Gachibowli Daycare', category: 'Pathology Rotors', items: 'VetScan Comprehensive Chemistry Rotor Discs (50 Rotors)', vendor: 'Zoetis Diagnostics', eta: '16 Oct 2026', value: 92400, status: 'Delivered' },
+    { id: 'REQ-CLIN-4020', facility: 'Alwarpet Community Clinic', category: 'Microsurgical Tools', items: 'Ophthalmic Microsurgical Trephines & Blades (2 Kits)', vendor: 'Fine Science Tools', eta: '18 Oct 2026', value: 43800, status: 'Pending Review' }
+  ];
 
   const filtered = useMemo(() => {
     return requisitions.filter(r => {
@@ -81,14 +92,14 @@ export default function ClinicOrders() {
         </div>
       )}
 
-      {/* KPI Cards */}
+            {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Active Requisitions" value="0" delta="--" trend="neutral" subtext="No requisitions active" icon="📦" />
-        <KpiCard label="Procurement Value" value="₹0" delta="--" trend="neutral" subtext="Consumables & implants" icon="💰" />
-        <KpiCard label="Surgical Implants" value="0" delta="--" trend="neutral" subtext="Titanium plates & pins" icon="🦴" />
-        <KpiCard label="Diagnostic Reagents" value="0" delta="--" trend="neutral" subtext="Zero stockout SLA" icon="🔬" />
-        <KpiCard label="On-Time Delivery SLA" value="0.0%" delta="0.0%" trend="neutral" subtext="Surgical readiness maintained" icon="⏱️" />
-        <KpiCard label="Average PO Turnaround" value="0 Hours" delta="--" trend="neutral" subtext="Fast-track approval" icon="⚡" />
+        <KpiCard label="Active Requisitions" value="48 Orders" delta="+12 MTD" trend="up" subtext="Clinical PO volume" icon="📦" />
+        <KpiCard label="Procurement Value" value="₹24.85 L" delta="+11.2%" trend="up" subtext="Consumables & implants" icon="💰" />
+        <KpiCard label="Surgical Implants" value="28 Kits" delta="100%" trend="up" subtext="Titanium plates & pins" icon="🦴" />
+        <KpiCard label="Diagnostic Reagents" value="1,200 Tests" delta="Zero stockout" trend="up" subtext="IDEXX & Zoetis assays" icon="🔬" />
+        <KpiCard label="On-Time Delivery SLA" value="99.4%" delta="+0.8%" trend="up" subtext="Surgical readiness maintained" icon="⏱️" />
+        <KpiCard label="Average PO Turnaround" value="4.2 Hours" delta="-1.8 hrs" trend="up" subtext="Fast-track approval" icon="⚡" />
       </div>
 
       {/* Orders Filter & Table */}
@@ -175,7 +186,7 @@ export default function ClinicOrders() {
               </tr>
             </thead>
             <tbody>
-              {filtered.length === 0 ? (<tr><td colSpan="8" style={{ textAlign: "center", padding: "32px", color: "var(--muted-foreground, #64748b)" }}>No requisition records found</td></tr>) : filtered.map((req, idx) => (
+              {filtered.length === 0 ? (<tr><td colSpan="9" style={{ textAlign: "center", padding: "32px", color: "var(--muted-foreground, #64748b)" }}>No requisition records found</td></tr>) : filtered.map((req, idx) => (
                 <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                   <td style={{ padding: '10px 12px', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 600, color: '#38bdf8' }}>{req.id}</td>
                   <td style={{ padding: '10px 12px', fontWeight: 600 }}>{req.facility}</td>

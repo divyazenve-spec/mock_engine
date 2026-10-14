@@ -44,19 +44,92 @@
   ];
 
   /* ── Datasets ─────────────────────────────────────────────────── */
-  var FACILITIES = [];
+  var FACILITIES = [
+    { id: 'FAC-01', name: 'Zenve Indiranagar Central Hospital', type: 'Tertiary 24x7 Referral Hospital', city: 'Bengaluru', beds: '28 Beds (6 ICU)', ot: '3 Modular OTs', rev: '₹28.40 L', status: 'Operational', lead: 'Dr. Rajeshwari Swaminathan' },
+    { id: 'FAC-02', name: 'Zenve Bandra West Trauma Centre', type: 'Tertiary 24x7 Referral Hospital', city: 'Mumbai', beds: '24 Beds (5 ICU)', ot: '2 Modular OTs', rev: '₹25.10 L', status: 'Operational', lead: 'Dr. Vikramaditya Rathore' },
+    { id: 'FAC-03', name: 'Zenve DLF CyberCity Critical Care', type: 'Tertiary 24x7 Referral Hospital', city: 'Delhi NCR', beds: '32 Beds (8 ICU)', ot: '3 Modular OTs', rev: '₹31.25 L', status: 'Operational', lead: 'Dr. Maya Chandran' },
+    { id: 'FAC-04', name: 'Zenve Jubilee Hills Specialty Center', type: 'Tertiary 24x7 Referral Hospital', city: 'Hyderabad', beds: '22 Beds (4 ICU)', ot: '2 Modular OTs', rev: '₹21.60 L', status: 'Operational', lead: 'Dr. Anirudh Sen' },
+    { id: 'FAC-05', name: 'Zenve Koregaon Park Veterinary Hospital', type: 'Tertiary 24x7 Referral Hospital', city: 'Pune', beds: '20 Beds (4 ICU)', ot: '2 Modular OTs', rev: '₹18.90 L', status: 'Operational', lead: 'Dr. Rohan Kulkarni' },
+    { id: 'FAC-06', name: 'Zenve Koramangala Care Clinic', type: 'Primary OPD & Diagnostics', city: 'Bengaluru', beds: '6 Daycare Pods', ot: '1 Minor OT', rev: '₹9.40 L', status: 'Operational', lead: 'Dr. Sneha Nair' },
+    { id: 'FAC-07', name: 'Zenve Andheri Link Rd Clinic', type: 'Secondary Care Clinic', city: 'Mumbai', beds: '8 Daycare Pods', ot: '1 Minor OT', rev: '₹11.20 L', status: 'Operational', lead: 'Dr. Pooja Mehta' },
+    { id: 'FAC-08', name: 'Zenve Saket Pet Wellness & Diagnostics', type: 'Primary OPD & Diagnostics', city: 'Delhi NCR', beds: '6 Daycare Pods', ot: '1 Minor OT', rev: '₹8.85 L', status: 'Operational', lead: 'Dr. Gaurav Sharma' },
+    { id: 'FAC-09', name: 'Zenve Gachibowli Daycare & Dental', type: 'Secondary Care Clinic', city: 'Hyderabad', beds: '8 Daycare Pods', ot: '1 Minor OT', rev: '₹10.15 L', status: 'Operational', lead: 'Dr. Divya Reddy' },
+    { id: 'FAC-10', name: 'Zenve Alwarpet Community Pet Clinic', type: 'Primary OPD & Diagnostics', city: 'Chennai', beds: '5 Daycare Pods', ot: '1 Minor OT', rev: '₹7.90 L', status: 'Operational', lead: 'Dr. Karthik Sundaram' }
+  ];
 
-  var LIVE_ADMISSIONS = [];
+  var LIVE_ADMISSIONS = [
+    { id: 'ADM-401', pet: 'Bruno (Golden Retriever, 4y)', reason: 'TPLO Cruciate Ligament Rupture', facility: 'Indiranagar Central Hospital', doctor: 'Dr. Rajeshwari Swaminathan', bed: 'ICU Pod-02', status: 'In Surgery' },
+    { id: 'ADM-402', pet: 'Milo (Persian Cat, 3y)', reason: 'Feline Lower Urinary Tract Obstruction', facility: 'Bandra Trauma Centre', doctor: 'Dr. Pooja Mehta', bed: 'Critical Ward-04', status: 'Admitted' },
+    { id: 'ADM-403', pet: 'Simba (German Shepherd, 6y)', reason: 'Gastric Dilatation-Volvulus (GDV)', facility: 'DLF CyberCity Hospital', doctor: 'Dr. Vikramaditya Rathore', bed: 'OT Suite-01', status: 'In Surgery' },
+    { id: 'ADM-404', pet: 'Bella (Shih Tzu, 5y)', reason: 'Pyometra Emergency Ovariohysterectomy', facility: 'Jubilee Hills Center', doctor: 'Dr. Anirudh Sen', bed: 'Recovery Ward-03', status: 'Post-Op' },
+    { id: 'ADM-405', pet: 'Leo (Beagle, 2y)', reason: 'Foreign Body Endoscopic Retrieval', facility: 'Indiranagar Central Hospital', doctor: 'Dr. Maya Chandran', bed: 'Prep Bay-01', status: 'Admitted' },
+    { id: 'ADM-406', pet: 'Coco (Labrador, 7y)', reason: 'Splenic Hemangiosarcoma Resection', facility: 'Koregaon Park Hospital', doctor: 'Dr. Rohan Kulkarni', bed: 'OT Suite-02', status: 'In Surgery' },
+    { id: 'ADM-407', pet: 'Zoe (Siberian Husky, 1y)', reason: 'Diaphragmatic Hernia Repair', facility: 'Bandra Trauma Centre', doctor: 'Dr. Vikramaditya Rathore', bed: 'ICU Pod-01', status: 'In Surgery' },
+    { id: 'ADM-408', pet: 'Oreo (Indie Dog, 3y)', reason: 'Femoral Fracture Locking Plate', facility: 'DLF CyberCity Hospital', doctor: 'Dr. Gaurav Sharma', bed: 'Trauma Bay-02', status: 'Admitted' },
+    { id: 'ADM-409', pet: 'Luna (British Shorthair, 4y)', reason: 'Corneal Ulcer Conjunctival Flap', facility: 'Indiranagar Central Hospital', doctor: 'Dr. Sneha Nair', bed: 'Minor OT-01', status: 'Post-Op' },
+    { id: 'ADM-410', pet: 'Rocky (Rottweiler, 5y)', reason: 'Acute Pancreatitis & Ketoacidosis', facility: 'Jubilee Hills Center', doctor: 'Dr. Divya Reddy', bed: 'ICU Pod-03', status: 'Admitted' }
+  ];
 
-  var INPATIENTS = [];
+  var INPATIENTS = [
+    { id: 'INP-8801', pet: 'Max (Labrador, 5y)', owner: 'Vikram Malhotra', admitDate: '12 Oct 2026', facility: 'Indiranagar Central Hospital', bed: 'ICU Pod-01', dx: 'Post-TPLO Recovery & Pain Mgt', doc: 'Dr. Rajeshwari Swaminathan', vitals: 'HR: 104 bpm | Temp: 38.6°C | SpO2: 98%', status: 'Stable Recovery' },
+    { id: 'INP-8802', pet: 'Cleo (Siamese Cat, 2y)', owner: 'Ananya Iyer', admitDate: '13 Oct 2026', facility: 'Bandra Trauma Centre', bed: 'Feline Isolation Bay-2', dx: 'FLUTD De-obstruction & IV Fluids', doc: 'Dr. Pooja Mehta', vitals: 'HR: 160 bpm | Temp: 38.2°C | SpO2: 99%', status: 'High Dependency' },
+    { id: 'INP-8803', pet: 'Thor (Great Dane, 4y)', owner: 'Kabir Deshmukh', admitDate: '11 Oct 2026', facility: 'DLF CyberCity Hospital', bed: 'ICU Large Ward-03', dx: 'Post-GDV Gastropexy Telemetry', doc: 'Dr. Vikramaditya Rathore', vitals: 'HR: 92 bpm | Temp: 38.5°C | SpO2: 97%', status: 'Critical Care' },
+    { id: 'INP-8804', pet: 'Cookie (Cocker Spaniel, 6y)', owner: 'Meera Nambiar', admitDate: '13 Oct 2026', facility: 'Jubilee Hills Center', bed: 'Step-Down Ward-05', dx: 'Acute Hemorrhagic Gastroenteritis', doc: 'Dr. Anirudh Sen', vitals: 'HR: 112 bpm | Temp: 38.8°C | SpO2: 98%', status: 'Stable Recovery' },
+    { id: 'INP-8805', pet: 'Shadow (Doberman, 3y)', owner: 'Arjun Singhania', admitDate: '10 Oct 2026', facility: 'Indiranagar Central Hospital', bed: 'Surgical Ward-02', dx: 'External Fixation Radius-Ulna', doc: 'Dr. Maya Chandran', vitals: 'HR: 88 bpm | Temp: 38.4°C | SpO2: 99%', status: 'Stable Recovery' },
+    { id: 'INP-8806', pet: 'Whiskey (Beagle, 4y)', owner: 'Rohit Verma', admitDate: '13 Oct 2026', facility: 'Koregaon Park Hospital', bed: 'ICU Pod-02', dx: 'Parvoviral Enteritis & Sepsis', doc: 'Dr. Rohan Kulkarni', vitals: 'HR: 128 bpm | Temp: 39.2°C | SpO2: 96%', status: 'Critical Care' },
+    { id: 'INP-8807', pet: 'Bella (Persian Cat, 5y)', owner: 'Sunita Agarwal', admitDate: '12 Oct 2026', facility: 'Andheri Care Clinic', bed: 'Daycare Suite-01', dx: 'Full Mouth Extractions Fluid Therapy', doc: 'Dr. Sneha Nair', vitals: 'HR: 155 bpm | Temp: 38.3°C | SpO2: 98%', status: 'Stable Recovery' },
+    { id: 'INP-8808', pet: 'Tiger (Indie Dog, 2y)', owner: 'Karan Kapoor', admitDate: '14 Oct 2026', facility: 'Bandra Trauma Centre', bed: 'Trauma Bay-03', dx: 'Pelvic Fracture Post-RTA', doc: 'Dr. Vikramaditya Rathore', vitals: 'HR: 118 bpm | Temp: 38.1°C | SpO2: 95%', status: 'High Dependency' },
+    { id: 'INP-8809', pet: 'Mia (Golden Retriever, 7y)', owner: 'Pooja Hegde', admitDate: '11 Oct 2026', facility: 'Indiranagar Central Hospital', bed: 'Oncology Bay-01', dx: 'Post-Mastectomy & Chemo Infusion', doc: 'Dr. Rajeshwari Swaminathan', vitals: 'HR: 96 bpm | Temp: 38.7°C | SpO2: 99%', status: 'Stable Recovery' },
+    { id: 'INP-8810', pet: 'Casper (Spitz, 8y)', owner: 'Aditya Menon', admitDate: '14 Oct 2026', facility: 'DLF CyberCity Hospital', bed: 'Cardiac Ward-02', dx: 'CHF Acute Pulmonary Edema', doc: 'Dr. Gaurav Sharma', vitals: 'HR: 135 bpm | Temp: 38.4°C | SpO2: 94%', status: 'Critical Care' }
+  ];
 
-  var DOCTORS = [];
+  var DOCTORS = [
+    { id: 'DOC-01', name: 'Dr. Rajeshwari Swaminathan', qual: 'B.V.Sc & A.H, M.V.Sc (Surgery & Rad)', vci: 'VCI-KAR-2012-0891', spec: 'Orthopedic Surgery & TPLO', base: 'Indiranagar Central Hospital', shift: 'Morning (08:00 – 16:00)', consults: 1420, surgeries: 284, csat: '4.98 ★', status: 'In Surgery', bio: 'Senior orthopedic veterinary surgeon with 14+ years in canine cruciate repair, arthroscopy, and complex osteosynthesis.', gradYear: 2012 },
+    { id: 'DOC-02', name: 'Dr. Vikramaditya Rathore', qual: 'B.V.Sc & A.H, M.V.Sc, Dipl. ECVS', vci: 'VCI-MAH-2010-0412', spec: 'Trauma & Soft Tissue Surgery', base: 'Bandra Trauma Centre', shift: 'Emergency 24x7 Rotation', consults: 1680, surgeries: 312, csat: '4.96 ★', status: 'On Duty', bio: 'Trauma and critical care specialist pioneering emergency GDV decompressions, thoracic trauma repair, and microvascular surgery.', gradYear: 2010 },
+    { id: 'DOC-03', name: 'Dr. Maya Chandran', qual: 'B.V.Sc & A.H, M.V.Sc (Internal Med)', vci: 'VCI-DEL-2014-1104', spec: 'Internal Medicine & Oncology', base: 'DLF CyberCity Hospital', shift: 'Morning (09:00 – 17:00)', consults: 2140, surgeries: 48, csat: '4.95 ★', status: 'On Duty', bio: 'Specialist in companion animal nephrology, endocrinology, hematologic malignancies, and targeted chemotherapy protocols.', gradYear: 2014 },
+    { id: 'DOC-04', name: 'Dr. Anirudh Sen', qual: 'B.V.Sc & A.H, M.V.Sc, PhD (Neuro)', vci: 'VCI-TEL-2013-0678', spec: 'Neurosurgery & Spine', base: 'Jubilee Hills Center', shift: 'Morning (08:00 – 16:00)', consults: 1120, surgeries: 164, csat: '4.97 ★', status: 'On Duty', bio: 'Veterinary neurosurgeon specializing in hemilaminectomy, ventral slot decompression, and spinal trauma restoration.', gradYear: 2013 },
+    { id: 'DOC-05', name: 'Dr. Sneha Nair', qual: 'B.V.Sc & A.H, MRCVS', vci: 'VCI-KAR-2017-2034', spec: 'Feline Medicine & Dentistry', base: 'Koramangala Care Clinic', shift: 'General (10:00 – 18:00)', consults: 1890, surgeries: 86, csat: '4.94 ★', status: 'On Duty', bio: 'ISFM Certified feline practitioner specializing in stress-free handling, geriatric feline renal care, and maxillofacial dentistry.', gradYear: 2017 },
+    { id: 'DOC-06', name: 'Dr. Rohan Kulkarni', qual: 'B.V.Sc & A.H, M.V.Sc (Clinical Med)', vci: 'VCI-MAH-2015-1445', spec: 'Critical Care & Emergency', base: 'Koregaon Park Hospital', shift: 'Night Shift (20:00 – 08:00)', consults: 1340, surgeries: 72, csat: '4.92 ★', status: 'On Call', bio: 'Emergency & Critical Care clinician leading the 24x7 intensive care unit, mechanical ventilation, and CPR protocols.', gradYear: 2015 },
+    { id: 'DOC-07', name: 'Dr. Pooja Mehta', qual: 'B.V.Sc & A.H, PGD-Surg', vci: 'VCI-MAH-2018-2490', spec: 'Soft Tissue Surgery', base: 'Andheri Link Rd Clinic', shift: 'Evening (14:00 – 22:00)', consults: 1210, surgeries: 118, csat: '4.93 ★', status: 'On Duty', bio: 'Experienced in minimally invasive laparoscopic spays, intestinal resections, and reconstructive skin flaps.', gradYear: 2018 },
+    { id: 'DOC-08', name: 'Dr. Gaurav Sharma', qual: 'B.V.Sc & A.H, M.V.Sc (Surgery)', vci: 'VCI-DEL-2016-1782', spec: 'Orthopedics & Arthroscopy', base: 'Saket Pet Wellness', shift: 'Morning (08:00 – 16:00)', consults: 1460, surgeries: 134, csat: '4.91 ★', status: 'On Duty', bio: 'Expert in juvenile orthopedic conditions, patellar luxation correction, and stifle stabilization.', gradYear: 2016 },
+    { id: 'DOC-09', name: 'Dr. Divya Reddy', qual: 'B.V.Sc & A.H, M.V.Sc (Dermatology)', vci: 'VCI-TEL-2017-2190', spec: 'Dermatology & Allergy', base: 'Gachibowli Daycare', shift: 'General (09:30 – 17:30)', consults: 1980, surgeries: 24, csat: '4.96 ★', status: 'On Duty', bio: 'Dermatology fellow focusing on allergic dermatitis, immunotherapy, deep otitis management, and videootoscopy.', gradYear: 2017 },
+    { id: 'DOC-10', name: 'Dr. Karthik Sundaram', qual: 'B.V.Sc & A.H, M.V.Sc (Ophthalmology)', vci: 'VCI-TN-2015-1329', spec: 'Ophthalmology', base: 'Alwarpet Community Clinic', shift: 'General (10:00 – 18:00)', consults: 1530, surgeries: 94, csat: '4.95 ★', status: 'On Duty', bio: 'Ophthalmic microsurgeon performing phacoemulsification for cataracts, conjunctival flaps, and glaucoma shunt implants.', gradYear: 2015 }
+  ];
 
-  var CLINIC_ORDERS = [];
+  var CLINIC_ORDERS = [
+    { po: 'PO-CLIN-4011', facility: 'Indiranagar Central Hospital', item: 'Titanium Locking Bone Plates 3.5mm Set', vendor: 'Synthes Vet India', qty: '4 Kits', cost: '₹1,84,000', priority: 'Critical', status: 'Approved & Dispatched' },
+    { po: 'PO-CLIN-4012', facility: 'Bandra Trauma Centre', item: 'Isoflurane Inhalation Anesthetic 250ml', vendor: 'Abbott Healthcare', qty: '20 Units', cost: '₹76,500', priority: 'High', status: 'Delivered' },
+    { po: 'PO-CLIN-4013', facility: 'DLF CyberCity Hospital', item: 'Medical Grade Liquid Oxygen Cylinder Refill', vendor: 'Inox Air Products', qty: '2 Cryo Cyl', cost: '₹48,000', priority: 'Critical', status: 'Delivered' },
+    { po: 'PO-CLIN-4014', facility: 'Jubilee Hills Center', item: 'Ethicon Monocryl/Vicryl Absorbable Sutures', vendor: 'Johnson & Johnson Med', qty: '15 Boxes', cost: '₹54,200', priority: 'High', status: 'Approved' },
+    { po: 'PO-CLIN-4015', facility: 'Indiranagar Central Hospital', item: 'Rabies & DHPPiL Vaccine Cold Chain (500 Doses)', vendor: 'Zoetis Animal Health', qty: '500 Vials', cost: '₹1,95,000', priority: 'Critical', status: 'Delivered' },
+    { po: 'PO-CLIN-4016', facility: 'Koregaon Park Hospital', item: 'Microflex Vet IV Infusion Pumps & Sets', vendor: 'B. Braun Medical', qty: '6 Units', cost: '₹1,12,000', priority: 'High', status: 'Approved' },
+    { po: 'PO-CLIN-4017', facility: 'Andheri Link Rd Clinic', item: 'Digital Dental X-Ray Sensor Size 2', vendor: 'Carestream Dental', qty: '1 Set', cost: '₹82,000', priority: 'Routine', status: 'Delivered' },
+    { po: 'PO-CLIN-4018', facility: 'Saket Pet Wellness', item: 'Rapid In-Clinic FeLV/FIV & Parvo Combo Tests', vendor: 'IDEXX Laboratories', qty: '100 Tests', cost: '₹68,500', priority: 'High', status: 'Approved & Dispatched' },
+    { po: 'PO-CLIN-4019', facility: 'Gachibowli Daycare', item: 'VetScan Comprehensive Chemistry Rotor Discs', vendor: 'Zoetis Diagnostics', qty: '50 Rotors', cost: '₹92,400', priority: 'Routine', status: 'Delivered' },
+    { po: 'PO-CLIN-4020', facility: 'Alwarpet Community Clinic', item: 'Ophthalmic Microsurgical Trephines & Blades', vendor: 'Fine Science Tools', qty: '2 Kits', cost: '₹43,800', priority: 'Routine', status: 'Pending Approval' }
+  ];
 
-  var COMMISSIONS = [];
+  var COMMISSIONS = [
+    { id: 'COM-2026-901', partner: 'Dr. Arvind Pet Care Clinic, HSR Layout', type: 'Referring Primary Clinic', cases: 18, val: '₹4,85,000', rate: '12%', comm: '₹58,200', tds: '₹5,820', net: '₹52,380', status: 'Paid' },
+    { id: 'COM-2026-902', partner: 'Paws & Claws Specialty, Juhu', type: 'Referring Primary Clinic', cases: 22, val: '₹6,40,000', rate: '12%', comm: '₹76,800', tds: '₹7,680', net: '₹69,120', status: 'Approved' },
+    { id: 'COM-2026-903', partner: 'Dr. Roy Imaging & Ultrasound Lab, Gurgaon', type: 'Diagnostic Partner', cases: 35, val: '₹3,90,000', rate: '10%', comm: '₹39,000', tds: '₹3,900', net: '₹35,100', status: 'Paid' },
+    { id: 'COM-2026-904', partner: 'Canine Care Centre, Banjara Hills', type: 'Referring Primary Clinic', cases: 14, val: '₹3,65,000', rate: '12%', comm: '₹43,800', tds: '₹4,380', net: '₹39,420', status: 'Approved' },
+    { id: 'COM-2026-905', partner: 'Dr. Meenakshi Sundaram (Visiting Cardiologist)', type: 'Visiting Specialist', cases: 12, val: '₹5,20,000', rate: '25%', comm: '₹1,30,000', tds: '₹13,000', net: '₹1,17,000', status: 'Approved' },
+    { id: 'COM-2026-906', partner: 'Aundh Pet Clinic & Daycare, Pune', type: 'Referring Primary Clinic', cases: 16, val: '₹3,45,000', rate: '12%', comm: '₹41,400', tds: '₹4,140', net: '₹37,260', status: 'Paid' },
+    { id: 'COM-2026-907', partner: 'Velachery Veterinary Center, Chennai', type: 'Referring Primary Clinic', cases: 11, val: '₹2,80,000', rate: '12%', comm: '₹33,600', tds: '₹3,360', net: '₹30,240', status: 'Pending' },
+    { id: 'COM-2026-908', partner: 'Dr. Kapoor Oncology Consultancy, Vasant Kunj', type: 'Visiting Specialist', cases: 9, val: '₹4,95,000', rate: '25%', comm: '₹1,23,750', tds: '₹12,375', net: '₹1,11,375', status: 'Approved' },
+    { id: 'COM-2026-909', partner: 'South Mumbai Pet Hospital Network', type: 'Corporate Referral', cases: 28, val: '₹8,10,000', rate: '10%', comm: '₹81,000', tds: '₹8,100', net: '₹72,900', status: 'Paid' },
+    { id: 'COM-2026-910', partner: 'Kalyan Nagar Pet Polyclinic, Bengaluru', type: 'Referring Primary Clinic', cases: 15, val: '₹3,75,000', rate: '12%', comm: '₹45,000', tds: '₹4,500', net: '₹40,500', status: 'Approved' }
+  ];
 
-  var AMBULANCE_FLEET = [];
+  var AMBULANCE_FLEET = [
+    { vehicle: 'KA-03-AG-4412', id: 'AMB-BLR-01', status: 'In Transit (Emergency)', base: 'Indiranagar Central Hospital', medic: 'Paramedic Harish B. & Vet Tech Anitha', equipment: 'Onboard O2 Concentrator, Defibrillator & Neonatal Incubator', eta: '8 mins (HAL Airport Rd)' },
+    { vehicle: 'MH-02-DN-7731', id: 'AMB-BOM-01', status: 'Dispatched to Scene', base: 'Bandra Trauma Centre', medic: 'Paramedic Nilesh Shinde & Dr. Rathore', equipment: 'Mobile Suction, Multipara Monitor, Splint Kits', eta: '12 mins (Linking Road)' },
+    { vehicle: 'DL-01-ZA-9920', id: 'AMB-NCR-01', status: 'Standby at Base', base: 'DLF CyberCity Hospital', medic: 'Paramedic Rakesh Tanwar & Vet Tech Neetu', equipment: 'Advanced Life Support ICU, Cryo Oxygen, Syringe Drivers', eta: 'Immediate Base Ready' },
+    { vehicle: 'TS-09-EV-3345', id: 'AMB-HYD-01', status: 'Returning to Base', base: 'Jubilee Hills Center', medic: 'Paramedic Santosh K. & Vet Tech Praveen', equipment: 'Crash Cart, Portable Ultrasound, Hydraulic Pet Stretcher', eta: '15 mins (Road No. 36)' },
+    { vehicle: 'MH-12-PQ-8812', id: 'AMB-PUN-01', status: 'In Transit (Inter-Hospital)', base: 'Koregaon Park Hospital', medic: 'Paramedic Vaibhav J. & Vet Tech Meena', equipment: 'Ventilator Support, Heated Recovery Pod, IV Infusion', eta: '20 mins (Viman Nagar)' },
+    { vehicle: 'KA-04-MK-1190', id: 'AMB-BLR-02', status: 'Standby at Base', base: 'Koramangala Care Clinic', medic: 'Paramedic Suresh G. & Vet Tech Deepa', equipment: 'Basic Emergency Trauma Kit, Oxygen Resuscitation Bag', eta: 'Immediate Base Ready' }
+  ];
 
   /* ── State ─────────────────────────────────────────────────────── */
   var S = {
@@ -135,12 +208,12 @@
   function renderDashboard() {
     return [
       '<div class="zch-kpi-grid">',
-        kpiHtml('Network Inpatients', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🛏️'),
-        kpiHtml('Active Surgical Theatres', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🩺'),
-        kpiHtml('Clinical Quality Index', '0.0%', '0.0%', 'neutral', 'neutral', 'No active records', '🛡️'),
-        kpiHtml('Emergency Admissions', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🚨'),
-        kpiHtml('Network Monthly Revenue', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '💎'),
-        kpiHtml('Emergency Ambulances', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🚑'),
+        kpiHtml('Network Inpatients', '64 Beds', '+8.2%', 'up', '82% occupancy (10 centers)', '🛏️'),
+        kpiHtml('Active Surgical Theatres', '12 Suites', '100%', 'up', 'Laminar flow modular OTs', '🩺'),
+        kpiHtml('Clinical Quality Index', '99.4%', '+0.4%', 'up', 'Zero hospital-acquired infections', '🛡️'),
+        kpiHtml('Emergency Admissions', '28 Today', '+12.5%', 'up', 'Critical care triage', '🚨'),
+        kpiHtml('Network Monthly Revenue', '₹1.53 Cr', '+16.8%', 'up', 'Exceeding budget by ₹18.5L', '💎'),
+        kpiHtml('Emergency Ambulances', '6 ALS Units', '100%', 'up', 'Avg urban response: 11 mins', '🚑'),
       '</div>',
 
       '<div class="zch-grid-2">',
@@ -197,10 +270,10 @@
   function renderAllClinics() {
     return [
       '<div class="zch-kpi-grid">',
-        kpiHtml('Outpatient Facilities', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🏨'),
-        kpiHtml('Daily OPD Footfall', '0', '0.0%', 'neutral', 'neutral', 'No active records', '👥'),
-        kpiHtml('Average Consultation Time', '0 mins', '0.0%', 'neutral', 'neutral', 'No active records', '⏱️'),
-        kpiHtml('Outpatient Revenue', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '💰'),
+        kpiHtml('Outpatient Facilities', '10 Centers', '+2 YoY', 'up', '5 Tertiary + 5 Outpatient Care', '🏨'),
+        kpiHtml('Daily OPD Footfall', '485 Pets', '+14.6%', 'up', 'Canine, Feline & Exotic consults', '👥'),
+        kpiHtml('Average Consultation Time', '24 mins', '-3 mins', 'up', 'Thorough clinical diagnosis', '⏱️'),
+        kpiHtml('Outpatient Revenue', '₹39.80 L', '+18.2%', 'up', 'Monthly consultation realized', '💰'),
       '</div>',
 
       '<div class="zch-card">',
@@ -238,10 +311,10 @@
   function renderHospitals() {
     return [
       '<div class="zch-kpi-grid">',
-        kpiHtml('Tertiary Referral Hospitals', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🚨'),
-        kpiHtml('Total Licensed Beds', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🛏️'),
-        kpiHtml('Modular Operating Theatres', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🩺'),
-        kpiHtml('Emergency Blood Bank', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🩸'),
+        kpiHtml('Tertiary Referral Hospitals', '5 Flagships', '24x7', 'up', 'BLR, BOM, DEL, HYD, PUN', '🚨'),
+        kpiHtml('Total Licensed Beds', '126 Beds', '82.5%', 'up', '27 High-Dependency & ICU pods', '🛏️'),
+        kpiHtml('Modular Operating Theatres', '12 Suites', '100%', 'up', 'Laminar Flow & C-Arm imaging', '🩺'),
+        kpiHtml('Emergency Blood Bank', '48 Units', '+12 Units', 'up', 'Canine DEA 1.1 & Feline blood', '🩸'),
       '</div>',
 
       '<div class="zch-grid-2">',
@@ -281,7 +354,41 @@
             '<table class="zch-table">',
               '<thead><tr><th>Patient & Surgery</th><th>OT Suite</th><th>Surgeon</th><th>Anesthetist</th><th>Schedule</th></tr></thead>',
               '<tbody>',
-                '<tr><td colspan="5" style="text-align:center;padding:28px;color:#94a3b8;">No scheduled surgical procedures</td></tr>',
+                                '<tr>' +
+                  '<td><b>Bruno</b> (Golden Retriever)<br><span style="font-size:10px;color:#38bdf8;">TPLO Cruciate Ligament Repair</span></td>' +
+                  '<td><span class="zch-badge blue">OT Suite 1 (Laminar Flow)</span></td>' +
+                  '<td><b style="color:#fff;">Dr. Rajeshwari Swaminathan</b></td>' +
+                  '<td><span style="color:#94a3b8;">Dr. Anirudh Sen</span></td>' +
+                  '<td><span class="zch-badge red">In Progress (10:30–12:30)</span></td>' +
+                '</tr>' +
+                '<tr>' +
+                  '<td><b>Simba</b> (German Shepherd)<br><span style="font-size:10px;color:#38bdf8;">Emergency GDV Gastropexy</span></td>' +
+                  '<td><span class="zch-badge red">OT Suite 2 (Emergency)</span></td>' +
+                  '<td><b style="color:#fff;">Dr. Vikramaditya Rathore</b></td>' +
+                  '<td><span style="color:#94a3b8;">Dr. Rohan Kulkarni</span></td>' +
+                  '<td><span class="zch-badge red">In Progress (11:15–13:45)</span></td>' +
+                '</tr>' +
+                '<tr>' +
+                  '<td><b>Coco</b> (Labrador Retriever)<br><span style="font-size:10px;color:#38bdf8;">Splenectomy & Biopsy</span></td>' +
+                  '<td><span class="zch-badge blue">OT Suite 1</span></td>' +
+                  '<td><b style="color:#fff;">Dr. Rohan Kulkarni</b></td>' +
+                  '<td><span style="color:#94a3b8;">Dr. Sneha Nair</span></td>' +
+                  '<td><span class="zch-badge amber">Next Up (13:30–15:00)</span></td>' +
+                '</tr>' +
+                '<tr>' +
+                  '<td><b>Bella</b> (Shih Tzu)<br><span style="font-size:10px;color:#38bdf8;">Pyometra Ovariohysterectomy</span></td>' +
+                  '<td><span class="zch-badge blue">OT Suite 3</span></td>' +
+                  '<td><b style="color:#fff;">Dr. Maya Chandran</b></td>' +
+                  '<td><span style="color:#94a3b8;">Dr. Pooja Mehta</span></td>' +
+                  '<td><span class="zch-badge green">Scheduled (14:00–15:30)</span></td>' +
+                '</tr>' +
+                '<tr>' +
+                  '<td><b>Luna</b> (British Shorthair)<br><span style="font-size:10px;color:#38bdf8;">Corneal Conjunctival Graft</span></td>' +
+                  '<td><span class="zch-badge purple">Minor OT 1</span></td>' +
+                  '<td><b style="color:#fff;">Dr. Karthik Sundaram</b></td>' +
+                  '<td><span style="color:#94a3b8;">Dr. Gaurav Sharma</span></td>' +
+                  '<td><span class="zch-badge green">Scheduled (15:00–16:00)</span></td>' +
+                '</tr>' ,
               '</tbody>',
             '</table>',
           '</div>',
@@ -294,10 +401,10 @@
   function renderPerformance() {
     return [
       '<div class="zch-kpi-grid">',
-        kpiHtml('Surgical Success Rate', '0.0%', '0.0%', 'neutral', 'neutral', 'No active records', '🩺'),
-        kpiHtml('Client CSAT Score', '0.0', '0.0%', 'neutral', 'neutral', 'No active records', '⭐'),
-        kpiHtml('Average Wait Time', '0 mins', '0.0%', 'neutral', 'neutral', 'No active records', '⏱️'),
-        kpiHtml('Clinical Audit Compliance', '0.0%', '0.0%', 'neutral', 'neutral', 'No active records', '📋'),
+        kpiHtml('Surgical Success Rate', '99.2%', '+0.5%', 'up', 'Complex ortho, soft tissue & neuro', '🩺'),
+        kpiHtml('Client CSAT Score', '4.95 ★', '+0.04', 'up', '4,200+ verified pet parent ratings', '⭐'),
+        kpiHtml('Average Wait Time', '8.5 mins', '-4.2 mins', 'up', 'Digital token & triage system', '⏱️'),
+        kpiHtml('Clinical Audit Compliance', '98.8%', '+1.2%', 'up', 'NABH/VCI safety standards', '📋'),
       '</div>',
 
       '<div class="zch-card">',
@@ -336,12 +443,12 @@
   function renderRevenue() {
     return [
       '<div class="zch-kpi-grid">',
-        kpiHtml('Total Network Revenue', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '💰'),
-        kpiHtml('Surgeries & Procedures', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '🩺'),
-        kpiHtml('Outpatient Consultations', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '👥'),
-        kpiHtml('Diagnostic Imaging & Lab', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '🔬'),
-        kpiHtml('Inpatient ICU & Wards', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '🛏️'),
-        kpiHtml('Avg Ticket Size / Pet', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '📈'),
+        kpiHtml('Total Network Revenue', '₹1,53,35,000', '+16.8%', 'up', 'Current month billings', '💰'),
+        kpiHtml('Surgeries & Procedures', '₹58,40,000', '38.1%', 'up', 'Ortho, Neuro & Soft Tissue', '🩺'),
+        kpiHtml('Outpatient Consultations', '₹39,80,000', '25.9%', 'up', 'Specialist & preventive OPD', '👥'),
+        kpiHtml('Diagnostic Imaging & Lab', '₹19,90,000', '13.0%', 'up', 'CT, X-ray, Ultrasound & Path', '🔬'),
+        kpiHtml('Inpatient ICU & Wards', '₹27,60,000', '18.0%', 'up', 'High-dependency recovery care', '🛏️'),
+        kpiHtml('Avg Ticket Size / Pet', '₹3,160', '+9.4%', 'up', 'Comprehensive care bundling', '📈'),
       '</div>',
 
       '<div class="zch-grid-2">',
@@ -349,7 +456,13 @@
           '<div class="zch-card-head">',
             '<div><h3 class="zch-card-title">Departmental Revenue Contribution</h3><p class="zch-card-sub">Clinical billing distribution across major practice streams</p></div>',
           '</div>',
-          '<div style="text-align:center;padding:36px 20px;color:#94a3b8;font-size:13px;">No departmental revenue contribution data</div>',
+                    '<div style="display:flex;flex-direction:column;gap:14px;padding:8px 0;">' +
+            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#fff;font-weight:600;">Surgeries & Specialized Procedures</span><strong style="color:#10b981;font-family:IBM Plex Mono,monospace;">₹58,40,000 (38.1%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:38.1%;background:#10b981;"></div></div></div>' +
+            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#fff;font-weight:600;">Outpatient Consultations & Vaccinations</span><strong style="color:#38bdf8;font-family:IBM Plex Mono,monospace;">₹39,80,000 (25.9%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:25.9%;background:#38bdf8;"></div></div></div>' +
+            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#fff;font-weight:600;">Inpatient ICU, Wards & Daycare Stays</span><strong style="color:#a855f7;font-family:IBM Plex Mono,monospace;">₹27,60,000 (18.0%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:18.0%;background:#a855f7;"></div></div></div>' +
+            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#fff;font-weight:600;">Diagnostic Imaging (CT/X-Ray) & Pathology Lab</span><strong style="color:#f59e0b;font-family:IBM Plex Mono,monospace;">₹19,90,000 (13.0%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:13.0%;background:#f59e0b;"></div></div></div>' +
+            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#fff;font-weight:600;">Emergency Mobile ICU & Hospital Pharmacy</span><strong style="color:#ec4899;font-family:IBM Plex Mono,monospace;">₹7,65,000 (5.0%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:5.0%;background:#ec4899;"></div></div></div>' +
+          '</div>' ,
         '</div>',
 
         '<div class="zch-card">',
@@ -382,10 +495,10 @@
   function renderOrders() {
     return [
       '<div class="zch-kpi-grid">',
-        kpiHtml('Clinical PO Volume', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '📦'),
-        kpiHtml('Critical Implants & Ortho', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🔩'),
-        kpiHtml('Medical Gases (O2 & N2O)', '0', '0.0%', 'neutral', 'neutral', 'No active records', '💨'),
-        kpiHtml('Pending Approvals', '0 POs', '0.0%', 'neutral', 'neutral', 'No active records', '⏳'),
+        kpiHtml('Clinical PO Volume', '₹24,85,000', '+11.2%', 'up', '48 clinical purchase orders', '📦'),
+        kpiHtml('Critical Implants & Ortho', '28 Kits', '100%', 'up', 'Synthes titanium locking plates', '🔩'),
+        kpiHtml('Medical Gases (O2 & N2O)', '18 Cyl', 'Zero Stockout', 'up', 'Cryo & Liquid O2 backup', '💨'),
+        kpiHtml('Pending Approvals', '3 POs', '₹1.85 L', 'warn', 'Requires Medical Director sign-off', '⏳'),
       '</div>',
 
       '<div class="zch-card">',
@@ -421,10 +534,10 @@
   function renderPatients() {
     return [
       '<div class="zch-kpi-grid">',
-        kpiHtml('Active Inpatients', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🐾'),
-        kpiHtml('Critical Care ICU', '0', '0.0%', 'neutral', 'neutral', 'No active records', '❤️'),
-        kpiHtml('Average Length of Stay', '0', '0.0%', 'neutral', 'neutral', 'No active records', '📅'),
-        kpiHtml('Discharges Planned Today', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🏠'),
+        kpiHtml('Active Inpatients', '64 Pets', '82.5%', 'up', '10 facilities nationwide', '🐾'),
+        kpiHtml('Critical Care ICU', '18 Pets', 'Continuous', 'up', 'Post-op & emergency trauma pods', '❤️'),
+        kpiHtml('Average Length of Stay', '2.4 Days', '-0.3 days', 'up', 'Optimal clinical recovery cycle', '📅'),
+        kpiHtml('Discharges Planned Today', '14 Pets', 'Post-Op Ready', 'up', 'Home care protocols delivered', '🏠'),
       '</div>',
 
       '<div class="zch-card">',
@@ -474,12 +587,12 @@
 
     return [
       '<div class="zch-kpi-grid">',
-        kpiHtml('Registered Veterinary Doctors', '0', '0.0%', 'neutral', 'neutral', 'No active records', '👨‍⚕️'),
-        kpiHtml('Specialist Surgeons', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🔪'),
-        kpiHtml('Clinicians On-Duty Now', '0', '0.0%', 'neutral', 'neutral', 'No active records', '⚡'),
-        kpiHtml('In Surgery Right Now', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🩺'),
-        kpiHtml('Doctor Patient CSAT', '0.0', '0.0%', 'neutral', 'neutral', 'No active records', '⭐'),
-        kpiHtml('Monthly Consultations', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🐾'),
+        kpiHtml('Registered Veterinary Doctors', '28 Clinicians', '+4 YoY', 'up', '100% VCI licensed & verified', '👨‍⚕️'),
+        kpiHtml('Specialist Surgeons', '12 Specialists', 'Diplomates', 'up', 'Ortho, Neuro, Trauma & Onco', '🔪'),
+        kpiHtml('Clinicians On-Duty Now', '18 Doctors', 'Full Shift', 'up', 'All OPD & triage desks active', '⚡'),
+        kpiHtml('In Surgery Right Now', '4 Surgeons', 'Live OTs', 'up', 'Tertiary modular theatres', '🩺'),
+        kpiHtml('Doctor Patient CSAT', '4.95 ★', '+0.03', 'up', '3,850+ verified consultations', '⭐'),
+        kpiHtml('Monthly Consultations', '4,850 Pets', '+15.2%', 'up', 'Network-wide patient volume', '🐾'),
       '</div>',
 
       '<div class="zch-card">',
@@ -573,30 +686,43 @@
         '<div class="zch-card">',
           '<div class="zch-card-head">',
             '<div><h3 class="zch-card-title">🚨 Emergency & 24x7 Night Trauma Roster</h3><p class="zch-card-sub">Immediate on-call coverage for critical emergency surgical interventions</p></div>',
-            '<span class="zch-badge">INACTIVE</span>',
+            '<span class="zch-badge green">ACTIVE 24x7</span>',
           '</div>',
           '<div style="display:flex;flex-direction:column;gap:10px;">',
-            '<div style="text-align:center;padding:32px;color:#94a3b8;font-size:12px;">No active emergency doctor assignments</div>',
+                      '<div style="display:flex;flex-direction:column;gap:10px;">' +
+            '<div style="background:#090e17;border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:center;">' +
+              '<div><b style="color:#fff;font-size:13px;">Dr. Vikramaditya Rathore</b> <span class="zch-badge red">Primary Trauma On-Call</span><div style="font-size:11px;color:#94a3b8;margin-top:2px;">Bandra Trauma Centre • Cell: +91 98201 44102</div></div>' +
+              '<span style="font-family:IBM Plex Mono,monospace;font-size:11px;color:#38bdf8;font-weight:600;">Active 24x7</span>' +
+            '</div>' +
+            '<div style="background:#090e17;border:1px solid rgba(59,130,246,0.2);border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:center;">' +
+              '<div><b style="color:#fff;font-size:13px;">Dr. Rohan Kulkarni</b> <span class="zch-badge blue">Critical Care & Vent</span><div style="font-size:11px;color:#94a3b8;margin-top:2px;">Koregaon Park Hospital • Cell: +91 98450 88219</div></div>' +
+              '<span style="font-family:IBM Plex Mono,monospace;font-size:11px;color:#38bdf8;font-weight:600;">Active 24x7</span>' +
+            '</div>' +
+            '<div style="background:#090e17;border:1px solid rgba(168,85,247,0.2);border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:center;">' +
+              '<div><b style="color:#fff;font-size:13px;">Dr. Anirudh Sen</b> <span class="zch-badge purple">Emergency Spine Decompression</span><div style="font-size:11px;color:#94a3b8;margin-top:2px;">Jubilee Hills Center • Cell: +91 99890 12055</div></div>' +
+              '<span style="font-family:IBM Plex Mono,monospace;font-size:11px;color:#38bdf8;font-weight:600;">On-Call</span>' +
+            '</div>' +
+          '</div>' ,
           '</div>',
         '</div>',
 
         '<div class="zch-card">',
           '<div class="zch-card-head">',
             '<div><h3 class="zch-card-title">📚 Continuing Veterinary Medical Education (CME)</h3><p class="zch-card-sub">Clinical accreditation status, surgical simulations, and peer case audits</p></div>',
-            '<span class="zch-badge">0% COMPLIANT</span>',
+            '<span class="zch-badge green">98.4% COMPLIANT</span>',
           '</div>',
           '<div style="display:flex;flex-direction:column;gap:12px;padding:4px 0;">',
             '<div>',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;"><span>Small Animal Arthroscopy & TPLO Hands-on</span><strong style="color:#38bdf8;">0/0 Surgeons Certified</strong></div>',
-              '<div class="zch-progress-bar"><div class="zch-progress-fill" style="width:0%;background:#38bdf8;"></div></div>',
+              '<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;"><span>Small Animal Arthroscopy & TPLO Hands-on</span><strong style="color:#38bdf8;">8/10 Surgeons Certified</strong></div>',
+              '<div class="zch-progress-bar"><div class="zch-progress-fill" style="width:80%;background:#38bdf8;"></div></div>',
             '</div>',
             '<div>',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;"><span>Feline Friendly Clinical Handling Protocol</span><strong style="color:#34d399;">0/0 Clinicians Completed</strong></div>',
-              '<div class="zch-progress-bar"><div class="zch-progress-fill" style="width:0%;background:#34d399;"></div></div>',
+              '<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;"><span>Feline Friendly Clinical Handling Protocol</span><strong style="color:#34d399;">10/10 Clinicians Completed</strong></div>',
+              '<div class="zch-progress-bar"><div class="zch-progress-fill" style="width:100%;background:#34d399;"></div></div>',
             '</div>',
             '<div>',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;"><span>Antimicrobial Stewardship & Infection Control</span><strong style="color:#c084fc;">Annual Audit Score: 0.0%</strong></div>',
-              '<div class="zch-progress-bar"><div class="zch-progress-fill" style="width:0%;background:#c084fc;"></div></div>',
+              '<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;"><span>Antimicrobial Stewardship & Infection Control</span><strong style="color:#c084fc;">Annual Audit Score: 98.4%</strong></div>',
+              '<div class="zch-progress-bar"><div class="zch-progress-fill" style="width:98.4%;background:#c084fc;"></div></div>',
             '</div>',
           '</div>',
         '</div>',
@@ -608,10 +734,10 @@
   function renderCommissions() {
     return [
       '<div class="zch-kpi-grid">',
-        kpiHtml('Total Partner Payouts', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '🤝'),
-        kpiHtml('Referral Cases Handled', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🔄'),
-        kpiHtml('Average Commission Rate', '0.0%', '0.0%', 'neutral', 'neutral', 'No active records', '📊'),
-        kpiHtml('Statutory TDS Deducted', '₹0', '0.0%', 'neutral', 'neutral', 'No active records', '🏛️'),
+        kpiHtml('Total Partner Payouts', '₹5,48,225', '+14.5%', 'up', 'Net disbursed this month', '🤝'),
+        kpiHtml('Referral Cases Handled', '190 Cases', '+24 MoM', 'up', 'Tertiary surgical referrals', '🔄'),
+        kpiHtml('Average Commission Rate', '13.8%', 'Tiered', 'up', '10%–25% based on specialty', '📊'),
+        kpiHtml('Statutory TDS Deducted', '₹60,912', '10% Sec 194J', 'up', 'Directly remitted to Traces', '🏛️'),
       '</div>',
 
       '<div class="zch-card">',
@@ -648,29 +774,62 @@
   function renderNetwork() {
     return [
       '<div class="zch-kpi-grid">',
-        kpiHtml('Active Network Facilities', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🌐'),
-        kpiHtml('ALS Pet Ambulance Fleet', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🚑'),
-        kpiHtml('Inter-Facility Transfers', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🔄'),
-        kpiHtml('Avg Emergency Transit Time', '0', '0.0%', 'neutral', 'neutral', 'No active records', '⏱️'),
-        kpiHtml('Cloud Tele-PACS Sync', '0.0%', '0.0%', 'neutral', 'neutral', 'No active records', '📶'),
-        kpiHtml('Expansion Pipeline', '0', '0.0%', 'neutral', 'neutral', 'No active records', '🏗️'),
+        kpiHtml('Active Network Facilities', '10 Centers', '+3 pipeline', 'up', '5 Flagships + 5 Outpatient Clinics', '🌐'),
+        kpiHtml('ALS Pet Ambulance Fleet', '6 Units', '100% Active', 'up', 'Mobile intensive care ICU', '🚑'),
+        kpiHtml('Inter-Facility Transfers', '42 Transfers', '+18.2%', 'up', 'Clinic to Tertiary Hospital', '🔄'),
+        kpiHtml('Avg Emergency Transit Time', '11.4 mins', '-2.1 mins', 'up', 'Fastest urban pet response', '⏱️'),
+        kpiHtml('Cloud Tele-PACS Sync', '99.8%', 'Zero Latency', 'up', 'CT / X-ray multi-center access', '📶'),
+        kpiHtml('Expansion Pipeline', '4 Hubs', 'Q1-Q2 2027', 'up', 'Kolkata, Ahmedabad, Kochi, Chd', '🏗️'),
       '</div>',
 
       '<div class="zch-grid-2">',
         '<div class="zch-card">',
           '<div class="zch-card-head">',
             '<div><h3 class="zch-card-title">Hub-and-Spoke Regional Corridors</h3><p class="zch-card-sub">Tertiary hubs anchor specialized neuro, ortho, and oncologic care</p></div>',
-            '<span class="zch-badge">0% TELEMED</span>',
+            '<span class="zch-badge green">99.8% TELEMED SYNC</span>',
           '</div>',
           '<div style="display:flex;flex-direction:column;gap:12px;">',
-            '<div style="text-align:center;padding:32px;color:#94a3b8;font-size:12px;">No regional hub or spoke corridor records found</div>',
+                      '<div style="display:flex;flex-direction:column;gap:12px;">' +
+            '<div style="background:#090e17;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">' +
+              '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
+                '<b style="color:#fff;font-size:13px;">South Corridor (Bengaluru Metro Hub)</b>' +
+                '<span class="zch-badge green">99.8% Sync</span>' +
+              '</div>' +
+              '<div style="font-size:12px;color:#94a3b8;">Indiranagar Central (Hub) ↔ Koramangala Care ↔ Whitefield Diagnostics</div>' +
+              '<div style="font-size:11px;color:#38bdf8;margin-top:4px;">18 Inter-facility transfers • 2 Ambulances active</div>' +
+            '</div>' +
+            '<div style="background:#090e17;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">' +
+              '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
+                '<b style="color:#fff;font-size:13px;">West Corridor (Mumbai MMR Hub)</b>' +
+                '<span class="zch-badge green">99.5% Sync</span>' +
+              '</div>' +
+              '<div style="font-size:12px;color:#94a3b8;">Bandra Trauma Centre (Hub) ↔ Andheri Link Rd ↔ Powai Satellite</div>' +
+              '<div style="font-size:11px;color:#38bdf8;margin-top:4px;">12 Inter-facility transfers • 1 Ambulance active</div>' +
+            '</div>' +
+            '<div style="background:#090e17;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">' +
+              '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
+                '<b style="color:#fff;font-size:13px;">North Corridor (Delhi NCR Hub)</b>' +
+                '<span class="zch-badge green">99.9% Sync</span>' +
+              '</div>' +
+              '<div style="font-size:12px;color:#94a3b8;">DLF CyberCity (Hub) ↔ Saket Diagnostics ↔ Noida Care Unit</div>' +
+              '<div style="font-size:11px;color:#38bdf8;margin-top:4px;">10 Inter-facility transfers • 1 Ambulance active</div>' +
+            '</div>' +
+            '<div style="background:#090e17;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">' +
+              '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
+                '<b style="color:#fff;font-size:13px;">Deccan Corridor (Hyderabad Hub)</b>' +
+                '<span class="zch-badge green">99.2% Sync</span>' +
+              '</div>' +
+              '<div style="font-size:12px;color:#94a3b8;">Jubilee Hills Center (Hub) ↔ Gachibowli Daycare & Dental</div>' +
+              '<div style="font-size:11px;color:#38bdf8;margin-top:4px;">8 Inter-facility transfers • 1 Ambulance active</div>' +
+            '</div>' +
+          '</div>' ,
           '</div>',
         '</div>',
 
         '<div class="zch-card">',
           '<div class="zch-card-head">',
             '<div><h3 class="zch-card-title">24x7 ALS Mobile ICU Pet Ambulances</h3><p class="zch-card-sub">GPS tracked veterinary emergency response units</p></div>',
-            '<span class="zch-badge">0 UNITS LIVE</span>',
+            '<span class="zch-badge red">6 UNITS LIVE</span>',
           '</div>',
           '<div style="display:flex;flex-direction:column;gap:10px;">',
             (AMBULANCE_FLEET.length ? AMBULANCE_FLEET.map(function (amb) {

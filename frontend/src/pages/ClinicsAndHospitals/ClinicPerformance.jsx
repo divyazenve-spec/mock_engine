@@ -5,7 +5,18 @@ import KpiCard from '../shared/KpiCard';
 export default function ClinicPerformance() {
   const [selectedSort, setSelectedSort] = useState('csat');
 
-  const performanceMetrics = [];
+    const performanceMetrics = [
+    { name: 'Zenve Indiranagar Central Hospital', city: 'Bengaluru', opd: 580, surgeries: 48, waitTime: '7.5 Mins', bedOcc: '82%', readmission: '0.6%', csat: 4.98, revPerDoc: '₹7.10 L' },
+    { name: 'Zenve Bandra West Trauma Centre', city: 'Mumbai', opd: 540, surgeries: 44, waitTime: '8.0 Mins', bedOcc: '83%', readmission: '0.8%', csat: 4.96, revPerDoc: '₹6.80 L' },
+    { name: 'Zenve DLF CyberCity Critical Care', city: 'Delhi NCR', opd: 620, surgeries: 52, waitTime: '9.0 Mins', bedOcc: '81%', readmission: '0.7%', csat: 4.95, revPerDoc: '₹7.80 L' },
+    { name: 'Zenve Jubilee Hills Specialty Center', city: 'Hyderabad', opd: 490, surgeries: 38, waitTime: '8.5 Mins', bedOcc: '82%', readmission: '0.9%', csat: 4.97, revPerDoc: '₹6.40 L' },
+    { name: 'Zenve Koregaon Park Hospital', city: 'Pune', opd: 450, surgeries: 32, waitTime: '8.0 Mins', bedOcc: '80%', readmission: '0.8%', csat: 4.92, revPerDoc: '₹5.90 L' },
+    { name: 'Zenve Koramangala Care Clinic', city: 'Bengaluru', opd: 410, surgeries: 14, waitTime: '6.5 Mins', bedOcc: '75%', readmission: '0.4%', csat: 4.94, revPerDoc: '₹4.70 L' },
+    { name: 'Zenve Andheri Link Rd Clinic', city: 'Mumbai', opd: 430, surgeries: 16, waitTime: '7.0 Mins', bedOcc: '78%', readmission: '0.5%', csat: 4.93, revPerDoc: '₹5.10 L' },
+    { name: 'Zenve Saket Pet Wellness', city: 'Delhi NCR', opd: 380, surgeries: 12, waitTime: '8.0 Mins', bedOcc: '72%', readmission: '0.6%', csat: 4.91, revPerDoc: '₹4.40 L' },
+    { name: 'Zenve Gachibowli Daycare', city: 'Hyderabad', opd: 390, surgeries: 15, waitTime: '7.5 Mins', bedOcc: '74%', readmission: '0.5%', csat: 4.96, revPerDoc: '₹4.60 L' },
+    { name: 'Zenve Alwarpet Community Clinic', city: 'Chennai', opd: 340, surgeries: 10, waitTime: '6.0 Mins', bedOcc: '70%', readmission: '0.4%', csat: 4.95, revPerDoc: '₹4.20 L' }
+  ];
 
   const sortedData = [...performanceMetrics].sort((a, b) => {
     if (selectedSort === 'csat') return b.csat - a.csat;
@@ -45,14 +56,14 @@ export default function ClinicPerformance() {
         </div>
       }
     >
-      {/* KPI Cards */}
+            {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Average OPD Wait Time" value="0 Mins" delta="0.0%" trend="neutral" subtext="From check-in to consultation" icon="⏱️" />
-        <KpiCard label="Surgical Success Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Zero intra-op fatalities" icon="🔪" />
-        <KpiCard label="Patient CSAT Score" value="0.0" delta="0.0 NPS" trend="neutral" subtext="No reviews recorded" icon="⭐" />
-        <KpiCard label="30-Day Readmission Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Post-surgical recovery" icon="🔄" />
-        <KpiCard label="Diagnostic Turnaround" value="0 Mins" delta="--" trend="neutral" subtext="Blood & imaging reports" icon="🔬" />
-        <KpiCard label="Daily OPD Throughput" value="0" delta="0.0%" trend="neutral" subtext="No facilities active" icon="🐾" />
+        <KpiCard label="Average OPD Wait Time" value="7.8 Mins" delta="-3.4 mins" trend="up" subtext="From check-in to consultation" icon="⏱️" />
+        <KpiCard label="Surgical Success Rate" value="99.2%" delta="+0.5%" trend="up" subtext="Zero intra-op fatalities" icon="🔪" />
+        <KpiCard label="Patient CSAT Score" value="4.95 ★" delta="+0.04 NPS" trend="up" subtext="4,200+ verified ratings" icon="⭐" />
+        <KpiCard label="30-Day Readmission Rate" value="0.62%" delta="-0.2%" trend="up" subtext="Post-surgical recovery" icon="🔄" />
+        <KpiCard label="Diagnostic Turnaround" value="22 Mins" delta="-6 mins" trend="up" subtext="Blood & imaging reports" icon="🔬" />
+        <KpiCard label="Daily OPD Throughput" value="485 Pets" delta="+14.6%" trend="up" subtext="Across 10 facilities" icon="🐾" />
       </div>
 
       {/* Benchmarking Table */}
@@ -110,7 +121,7 @@ export default function ClinicPerformance() {
               </tr>
             </thead>
             <tbody>
-              {sortedData.length === 0 ? (<tr><td colSpan="8" style={{ textAlign: "center", padding: "32px", color: "var(--muted-foreground, #64748b)" }}>No clinical performance records found</td></tr>) : sortedData.map((row, idx) => (
+              {sortedData.length === 0 ? (<tr><td colSpan="9" style={{ textAlign: "center", padding: "32px", color: "var(--muted-foreground, #64748b)" }}>No clinical performance records found</td></tr>) : sortedData.map((row, idx) => (
                 <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                   <td style={{ padding: '10px 12px', fontWeight: 600, color: '#fff' }}>{row.name}</td>
                   <td style={{ padding: '10px 12px', color: '#94a3b8' }}>{row.city}</td>

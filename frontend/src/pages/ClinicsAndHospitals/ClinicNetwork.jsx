@@ -6,11 +6,34 @@ export default function ClinicNetwork() {
   const [selectedCity, setSelectedCity] = useState('All');
   const [selectedTier, setSelectedTier] = useState('All');
 
-  const facilities = [];
+    const facilities = [
+    { id: 'FAC-01', name: 'Zenve Indiranagar Central Hospital', city: 'Bengaluru', tier: 'Tertiary Flagship', role: 'Regional Tertiary Hub & ICU', beds: '28 Beds (6 ICU)', ots: '3 Modular OTs', ambulance: '2 ALS Units Assigned', telemed: 'Central Command Host', referralsReceived: '42 / Mo', status: 'Operational' },
+    { id: 'FAC-02', name: 'Zenve Bandra West Trauma Centre', city: 'Mumbai', tier: 'Tertiary Flagship', role: '24x7 Emergency Trauma Hub', beds: '24 Beds (5 ICU)', ots: '2 Modular OTs', ambulance: '1 ALS Unit Assigned', telemed: 'Hub Console Active', referralsReceived: '38 / Mo', status: 'Operational' },
+    { id: 'FAC-03', name: 'Zenve DLF CyberCity Critical Care', city: 'Delhi NCR', tier: 'Tertiary Flagship', role: 'Multi-Specialty & Onco Hub', beds: '32 Beds (8 ICU)', ots: '3 Modular OTs', ambulance: '1 ALS Unit Assigned', telemed: 'Hub Console Active', referralsReceived: '46 / Mo', status: 'Operational' },
+    { id: 'FAC-04', name: 'Zenve Jubilee Hills Specialty Center', city: 'Hyderabad', tier: 'Tertiary Flagship', role: 'Spine & Neurosurgery Hub', beds: '22 Beds (4 ICU)', ots: '2 Modular OTs', ambulance: '1 ALS Unit Assigned', telemed: 'Hub Console Active', referralsReceived: '34 / Mo', status: 'Operational' },
+    { id: 'FAC-05', name: 'Zenve Koregaon Park Hospital', city: 'Pune', tier: 'Tertiary Flagship', role: 'Tertiary Care Referral Hospital', beds: '20 Beds (4 ICU)', ots: '2 Modular OTs', ambulance: '1 ALS Unit Assigned', telemed: 'Hub Console Active', referralsReceived: '28 / Mo', status: 'Operational' },
+    { id: 'FAC-06', name: 'Zenve Koramangala Care Clinic', city: 'Bengaluru', tier: 'Secondary Specialty', role: 'Feline & Dental Daycare Spoke', beds: '6 Daycare Pods', ots: '1 Minor OT', ambulance: 'Stationed Spoke Unit', telemed: 'Tele-PACS Connected', referralsReceived: '14 / Mo', status: 'Operational' },
+    { id: 'FAC-07', name: 'Zenve Andheri Link Rd Clinic', city: 'Mumbai', tier: 'Secondary Specialty', role: 'Surgery & Daycare Spoke', beds: '8 Daycare Pods', ots: '1 Minor OT', ambulance: 'Corridor Linked', telemed: 'Tele-PACS Connected', referralsReceived: '18 / Mo', status: 'Operational' },
+    { id: 'FAC-08', name: 'Zenve Saket Pet Wellness & Diagnostics', city: 'Delhi NCR', tier: 'Primary Express', role: 'Diagnostics & OPD Spoke', beds: '6 Daycare Pods', ots: '1 Minor OT', ambulance: 'Corridor Linked', telemed: 'Tele-PACS Connected', referralsReceived: '12 / Mo', status: 'Operational' },
+    { id: 'FAC-09', name: 'Zenve Gachibowli Daycare & Dental', city: 'Hyderabad', tier: 'Secondary Specialty', role: 'Dermatology & Daycare Spoke', beds: '8 Daycare Pods', ots: '1 Minor OT', ambulance: 'Corridor Linked', telemed: 'Tele-PACS Connected', referralsReceived: '15 / Mo', status: 'Operational' },
+    { id: 'FAC-10', name: 'Zenve Alwarpet Community Pet Clinic', city: 'Chennai', tier: 'Primary Express', role: 'Primary OPD & Diagnostics', beds: '5 Daycare Pods', ots: '1 Minor OT', ambulance: 'On-Call Unit', telemed: 'Tele-PACS Connected', referralsReceived: '10 / Mo', status: 'Operational' }
+  ];
 
-  const ambulanceFleet = [];
+  const ambulanceFleet = [
+    { vehicle: 'KA-03-AG-4412', id: 'AMB-BLR-01', status: 'In Transit (Emergency)', base: 'Indiranagar Central Hospital', city: 'Bengaluru', medic: 'Paramedic Harish B. & Vet Tech Anitha', equipment: 'Onboard O2 Concentrator, Defibrillator & Neonatal Incubator', pet: 'Triage Case: Golden Retriever Trauma', eta: '8 mins (HAL Airport Rd)' },
+    { vehicle: 'MH-02-DN-7731', id: 'AMB-BOM-01', status: 'Dispatched to Scene', base: 'Bandra Trauma Centre', city: 'Mumbai', medic: 'Paramedic Nilesh Shinde & Dr. Rathore', equipment: 'Mobile Suction, Multipara Monitor, Splint Kits', pet: 'Triage Case: Suspected GDV', eta: '12 mins (Linking Road)' },
+    { vehicle: 'DL-01-ZA-9920', id: 'AMB-NCR-01', status: 'Standby at Base', base: 'DLF CyberCity Hospital', city: 'Delhi NCR', medic: 'Paramedic Rakesh Tanwar & Vet Tech Neetu', equipment: 'Advanced Life Support ICU, Cryo Oxygen, Syringe Drivers', pet: 'Base Ready', eta: 'Immediate Base Ready' },
+    { vehicle: 'TS-09-EV-3345', id: 'AMB-HYD-01', status: 'Returning to Base', base: 'Jubilee Hills Center', city: 'Hyderabad', medic: 'Paramedic Santosh K. & Vet Tech Praveen', equipment: 'Crash Cart, Portable Ultrasound, Hydraulic Pet Stretcher', pet: 'Transfer Completed: Canine Spine Case', eta: '15 mins (Road No. 36)' },
+    { vehicle: 'MH-12-PQ-8812', id: 'AMB-PUN-01', status: 'In Transit (Inter-Hospital)', base: 'Koregaon Park Hospital', city: 'Pune', medic: 'Paramedic Vaibhav J. & Vet Tech Meena', equipment: 'Ventilator Support, Heated Recovery Pod, IV Infusion', pet: 'Patient Transfer: Sepsis Support', eta: '20 mins (Viman Nagar)' },
+    { vehicle: 'KA-04-MK-1190', id: 'AMB-BLR-02', status: 'Standby at Base', base: 'Koramangala Care Clinic', city: 'Bengaluru', medic: 'Paramedic Suresh G. & Vet Tech Deepa', equipment: 'Basic Emergency Trauma Kit, Oxygen Resuscitation Bag', pet: 'Base Ready', eta: 'Immediate Base Ready' }
+  ];
 
-  const expansionRoadmap = [];
+  const expansionRoadmap = [
+    { quarter: 'Q1 2027', facility: 'Zenve Kolkata Salt Lake Tertiary Hospital', city: 'Kolkata', type: 'Tertiary Care Flagship (30 Beds, 3 OTs)', status: 'MEP Fitout', progress: '85% Complete', targetOpening: 'February 2027' },
+    { quarter: 'Q2 2027', facility: 'Zenve Ahmedabad SG Highway Center', city: 'Ahmedabad', type: 'Secondary Care Clinic & CT Lab', status: 'Civil Structure Ready', progress: '65% Complete', targetOpening: 'April 2027' },
+    { quarter: 'Q2 2027', facility: 'Zenve Kochi Panampilly Nagar Clinic', city: 'Kochi', type: 'Primary OPD & Daycare Hub', status: 'Architectural Blueprint Approved', progress: '35% Complete', targetOpening: 'June 2027' },
+    { quarter: 'Q3 2027', facility: 'Zenve Chandigarh Sector 17 Care Center', city: 'Chandigarh', type: 'Emergency Clinic & Daycare', status: 'Lease Signed & Permitted', progress: '15% Complete', targetOpening: 'August 2027' }
+  ];
 
   const filteredFacilities = facilities.filter(f => {
     const matchesCity = selectedCity === 'All' || f.city === selectedCity;
@@ -83,53 +106,53 @@ export default function ClinicNetwork() {
         </div>
       }
     >
-      {/* KPI Cards */}
+            {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '24px' }}>
         <KpiCard
           title="Active Healthcare Facilities"
-          value="0"
-          change="--"
-          trend="neutral"
+          value="10 Centers"
+          change="+3 YoY"
+          trend="up"
           description="Operational licensed veterinary centers"
           icon="🏥"
         />
         <KpiCard
           title="ALS Pet Ambulance Fleet"
-          value="0"
-          change="--"
-          trend="neutral"
+          value="6 Units"
+          change="100% Active"
+          trend="up"
           description="GPS-monitored mobile ICU vehicles"
           icon="🚑"
         />
         <KpiCard
           title="Inter-Facility Transfers"
-          value="0"
-          change="--"
-          trend="neutral"
+          value="42 Transfers"
+          change="+18.2%"
+          trend="up"
           description="Primary clinic to tertiary ICU referrals"
           icon="🔄"
         />
         <KpiCard
           title="Avg Emergency Transit Time"
-          value="0"
-          change="--"
-          trend="neutral"
+          value="11.4 Mins"
+          change="-2.1 mins"
+          trend="up"
           description="Point of pickup to tertiary triage intake"
           icon="⏱️"
         />
         <KpiCard
           title="Network System Uptime"
-          value="0.0%"
-          change="--"
-          trend="neutral"
+          value="99.98%"
+          change="Zero downtime"
+          trend="up"
           description="Continuous EMR, PACS & telemetry link"
           icon="📶"
         />
         <KpiCard
           title="Expansion Pipeline"
-          value="0"
-          change="--"
-          trend="neutral"
+          value="4 Hubs"
+          change="FY 2027"
+          trend="up"
           description="Active construction & MEP fitout stage"
           icon="🏗️"
         />
@@ -164,8 +187,39 @@ export default function ClinicNetwork() {
           </span>
         </div>
 
-        <div style={{ textAlign: 'center', padding: '32px', color: 'var(--muted-foreground, #64748b)', fontSize: '13px' }}>
-          No regional healthcare hub records found
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '12px' }}>
+          <div style={{ background: '#131f38', border: '1px solid #1e293b', borderRadius: '8px', padding: '12px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+              <strong style={{ color: '#f8fafc', fontSize: '13px' }}>South Corridor (Bengaluru)</strong>
+              <span style={{ fontSize: '11px', color: '#10b981', fontWeight: 600 }}>99.8% Sync</span>
+            </div>
+            <div style={{ fontSize: '11px', color: '#94a3b8' }}>Indiranagar Central (Hub) ↔ Koramangala Care ↔ Whitefield Diagnostics</div>
+            <div style={{ fontSize: '10px', color: '#38bdf8', marginTop: '6px' }}>18 Inter-facility transfers • 2 Ambulances active</div>
+          </div>
+          <div style={{ background: '#131f38', border: '1px solid #1e293b', borderRadius: '8px', padding: '12px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+              <strong style={{ color: '#f8fafc', fontSize: '13px' }}>West Corridor (Mumbai MMR)</strong>
+              <span style={{ fontSize: '11px', color: '#10b981', fontWeight: 600 }}>99.5% Sync</span>
+            </div>
+            <div style={{ fontSize: '11px', color: '#94a3b8' }}>Bandra Trauma Centre (Hub) ↔ Andheri Link Rd ↔ Powai Satellite</div>
+            <div style={{ fontSize: '10px', color: '#38bdf8', marginTop: '6px' }}>12 Inter-facility transfers • 1 Ambulance active</div>
+          </div>
+          <div style={{ background: '#131f38', border: '1px solid #1e293b', borderRadius: '8px', padding: '12px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+              <strong style={{ color: '#f8fafc', fontSize: '13px' }}>North Corridor (Delhi NCR)</strong>
+              <span style={{ fontSize: '11px', color: '#10b981', fontWeight: 600 }}>99.9% Sync</span>
+            </div>
+            <div style={{ fontSize: '11px', color: '#94a3b8' }}>DLF CyberCity (Hub) ↔ Saket Diagnostics ↔ Noida Care Unit</div>
+            <div style={{ fontSize: '10px', color: '#38bdf8', marginTop: '6px' }}>10 Inter-facility transfers • 1 Ambulance active</div>
+          </div>
+          <div style={{ background: '#131f38', border: '1px solid #1e293b', borderRadius: '8px', padding: '12px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+              <strong style={{ color: '#f8fafc', fontSize: '13px' }}>Deccan Corridor (Hyderabad)</strong>
+              <span style={{ fontSize: '11px', color: '#10b981', fontWeight: 600 }}>99.2% Sync</span>
+            </div>
+            <div style={{ fontSize: '11px', color: '#94a3b8' }}>Jubilee Hills Center (Hub) ↔ Gachibowli Daycare & Dental</div>
+            <div style={{ fontSize: '10px', color: '#38bdf8', marginTop: '6px' }}>8 Inter-facility transfers • 1 Ambulance active</div>
+          </div>
         </div>
       </div>
 

@@ -8,7 +8,18 @@ export default function ClinicDoctors() {
   const [search, setSearch] = useState('');
   const [toast, setToast] = useState('');
 
-  const doctorsList = [];
+    const doctorsList = [
+    { name: 'Dr. Rajeshwari Swaminathan', qualification: 'B.V.Sc & A.H, M.V.Sc (Surgery & Rad)', specialty: 'Orthopedics', facility: 'Indiranagar Central Hospital', vci: 'VCI-KAR-2012-0891', shift: 'Morning (08:00 – 16:00)', consults: 1420, surgeries: 284, rating: 4.98, status: 'In Surgery' },
+    { name: 'Dr. Vikramaditya Rathore', qualification: 'B.V.Sc & A.H, M.V.Sc (Surgery), Dipl. ECVS', specialty: 'Laparoscopy', facility: 'Bandra Trauma Centre', vci: 'VCI-MAH-2010-0412', shift: 'Emergency 24x7 Rotation', consults: 1680, surgeries: 312, rating: 4.96, status: 'On Duty' },
+    { name: 'Dr. Maya Chandran', qualification: 'B.V.Sc & A.H, M.V.Sc (Internal Medicine)', specialty: 'Cardiology', facility: 'DLF CyberCity Hospital', vci: 'VCI-DEL-2014-1104', shift: 'Morning (09:00 – 17:00)', consults: 2140, surgeries: 48, rating: 4.95, status: 'On Duty' },
+    { name: 'Dr. Anirudh Sen', qualification: 'B.V.Sc & A.H, M.V.Sc, PhD (Neurology)', specialty: 'Orthopedics', facility: 'Jubilee Hills Center', vci: 'VCI-TEL-2013-0678', shift: 'Morning (08:00 – 16:00)', consults: 1120, surgeries: 164, rating: 4.97, status: 'On Duty' },
+    { name: 'Dr. Sneha Nair', qualification: 'B.V.Sc & A.H, MRCVS', specialty: 'Feline', facility: 'Koramangala Care Clinic', vci: 'VCI-KAR-2017-2034', shift: 'General (10:00 – 18:00)', consults: 1890, surgeries: 86, rating: 4.94, status: 'On Duty' },
+    { name: 'Dr. Rohan Kulkarni', qualification: 'B.V.Sc & A.H, M.V.Sc (Clinical Med)', specialty: 'Laparoscopy', facility: 'Koregaon Park Hospital', vci: 'VCI-MAH-2015-1445', shift: 'Night Shift (20:00 – 08:00)', consults: 1340, surgeries: 72, rating: 4.92, status: 'On Duty' },
+    { name: 'Dr. Pooja Mehta', qualification: 'B.V.Sc & A.H, PGD-Surg', specialty: 'Laparoscopy', facility: 'Andheri Link Rd Clinic', vci: 'VCI-MAH-2018-2490', shift: 'Evening (14:00 – 22:00)', consults: 1210, surgeries: 118, rating: 4.93, status: 'On Duty' },
+    { name: 'Dr. Gaurav Sharma', qualification: 'B.V.Sc & A.H, M.V.Sc (Surgery)', specialty: 'Orthopedics', facility: 'Saket Pet Wellness', vci: 'VCI-DEL-2016-1782', shift: 'Morning (08:00 – 16:00)', consults: 1460, surgeries: 134, rating: 4.91, status: 'On Duty' },
+    { name: 'Dr. Divya Reddy', qualification: 'B.V.Sc & A.H, M.V.Sc (Dermatology)', specialty: 'Dermatology', facility: 'Gachibowli Daycare', vci: 'VCI-TEL-2017-2190', shift: 'General (09:30 – 17:30)', consults: 1980, surgeries: 24, rating: 4.96, status: 'On Duty' },
+    { name: 'Dr. Karthik Sundaram', qualification: 'B.V.Sc & A.H, M.V.Sc (Ophthalmology)', specialty: 'Feline', facility: 'Alwarpet Community Clinic', vci: 'VCI-TN-2015-1329', shift: 'General (10:00 – 18:00)', consults: 1530, surgeries: 94, rating: 4.95, status: 'Off Duty' }
+  ];
 
   const filtered = useMemo(() => {
     return doctorsList.filter(d => {
@@ -73,14 +84,14 @@ export default function ClinicDoctors() {
         </div>
       )}
 
-      {/* KPI Cards */}
+            {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Network Clinicians" value="0" delta="--" trend="neutral" subtext="No centers active" icon="👨‍⚕️" />
-        <KpiCard label="Specialist Surgeons" value="0" delta="--" trend="neutral" subtext="Board-certified M.V.Sc" icon="🔪" />
-        <KpiCard label="Clinicians On-Duty Now" value="0" delta="--" trend="neutral" subtext="All OPD suites staffed" icon="⚡" />
-        <KpiCard label="Daily Consults / Doc" value="0" delta="--" trend="neutral" subtext="No consults logged" icon="🩺" />
-        <KpiCard label="Doctor Patient CSAT" value="0.0" delta="--" trend="neutral" subtext="No reviews recorded" icon="⭐" />
-        <KpiCard label="CME Training Credits" value="0.0%" delta="--" trend="neutral" subtext="Annual surgical workshops" icon="📚" />
+        <KpiCard label="Network Clinicians" value="28 Clinicians" delta="+4 YoY" trend="up" subtext="10 centers active" icon="👨‍⚕️" />
+        <KpiCard label="Specialist Surgeons" value="12 Specialists" delta="Board-certified" trend="up" subtext="Diplomates & M.V.Sc" icon="🔪" />
+        <KpiCard label="Clinicians On-Duty Now" value="18 Doctors" delta="Full shift" trend="up" subtext="All OPD suites staffed" icon="⚡" />
+        <KpiCard label="Daily Consults / Doc" value="17 Patients" delta="+2.4" trend="up" subtext="Optimal clinical pacing" icon="🩺" />
+        <KpiCard label="Doctor Patient CSAT" value="4.95 ★" delta="+0.03" trend="up" subtext="3,850+ verified reviews" icon="⭐" />
+        <KpiCard label="CME Training Credits" value="98.4%" delta="+3.2%" trend="up" subtext="Annual surgical workshops" icon="📚" />
       </div>
 
       {/* Clinicians Table */}

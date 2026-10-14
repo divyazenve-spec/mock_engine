@@ -5,9 +5,29 @@ import KpiCard from '../shared/KpiCard';
 export default function ClinicsDashboard() {
   const [selectedPeriod, setSelectedPeriod] = useState('Today');
 
-  const facilityHighlights = [];
+    const facilityHighlights = [
+    { name: 'Zenve Indiranagar Central Hospital', type: 'Tertiary 24x7 Referral Hospital', city: 'Bengaluru', beds: '28 Beds (6 ICU)', ot: '3 Modular OTs', rev: '₹28.40 L' },
+    { name: 'Zenve Bandra West Trauma Centre', type: 'Tertiary 24x7 Referral Hospital', city: 'Mumbai', beds: '24 Beds (5 ICU)', ot: '2 Modular OTs', rev: '₹25.10 L' },
+    { name: 'Zenve DLF CyberCity Critical Care', type: 'Tertiary 24x7 Referral Hospital', city: 'Delhi NCR', beds: '32 Beds (8 ICU)', ot: '3 Modular OTs', rev: '₹31.25 L' },
+    { name: 'Zenve Jubilee Hills Specialty Center', type: 'Tertiary 24x7 Referral Hospital', city: 'Hyderabad', beds: '22 Beds (4 ICU)', ot: '2 Modular OTs', rev: '₹21.60 L' },
+    { name: 'Zenve Koregaon Park Veterinary Hospital', type: 'Tertiary 24x7 Referral Hospital', city: 'Pune', beds: '20 Beds (4 ICU)', ot: '2 Modular OTs', rev: '₹18.90 L' },
+    { name: 'Zenve Koramangala Care Clinic', type: 'Primary OPD & Diagnostics', city: 'Bengaluru', beds: '6 Daycare Pods', ot: '1 Minor OT', rev: '₹9.40 L' },
+    { name: 'Zenve Andheri Link Rd Clinic', type: 'Secondary Care Clinic', city: 'Mumbai', beds: '8 Daycare Pods', ot: '1 Minor OT', rev: '₹11.20 L' },
+    { name: 'Zenve Saket Pet Wellness & Diagnostics', type: 'Primary OPD & Diagnostics', city: 'Delhi NCR', beds: '6 Daycare Pods', ot: '1 Minor OT', rev: '₹8.85 L' }
+  ];
 
-  const liveAdmissions = [];
+    const liveAdmissions = [
+    { id: 'ADM-401', pet: 'Bruno (Golden Retriever, 4y)', reason: 'TPLO Cruciate Ligament Rupture', facility: 'Indiranagar Central Hospital', doctor: 'Dr. Rajeshwari Swaminathan', bed: 'ICU Pod-02', status: 'In Surgery', time: '10:30 AM' },
+    { id: 'ADM-402', pet: 'Milo (Persian Cat, 3y)', reason: 'Feline Lower Urinary Tract Obstruction', facility: 'Bandra Trauma Centre', doctor: 'Dr. Pooja Mehta', bed: 'Critical Ward-04', status: 'Admitted', time: '10:45 AM' },
+    { id: 'ADM-403', pet: 'Simba (German Shepherd, 6y)', reason: 'Gastric Dilatation-Volvulus (GDV)', facility: 'DLF CyberCity Hospital', doctor: 'Dr. Vikramaditya Rathore', bed: 'OT Suite-01', status: 'In Surgery', time: '11:15 AM' },
+    { id: 'ADM-404', pet: 'Bella (Shih Tzu, 5y)', reason: 'Pyometra Emergency Ovariohysterectomy', facility: 'Jubilee Hills Center', doctor: 'Dr. Anirudh Sen', bed: 'Recovery Ward-03', status: 'Post-Op Recovery', time: '09:20 AM' },
+    { id: 'ADM-405', pet: 'Leo (Beagle, 2y)', reason: 'Foreign Body Endoscopic Retrieval', facility: 'Indiranagar Central Hospital', doctor: 'Dr. Maya Chandran', bed: 'Prep Bay-01', status: 'Admitted', time: '11:30 AM' },
+    { id: 'ADM-406', pet: 'Coco (Labrador, 7y)', reason: 'Splenic Hemangiosarcoma Resection', facility: 'Koregaon Park Hospital', doctor: 'Dr. Rohan Kulkarni', bed: 'OT Suite-02', status: 'In Surgery', time: '11:45 AM' },
+    { id: 'ADM-407', pet: 'Zoe (Siberian Husky, 1y)', reason: 'Diaphragmatic Hernia Repair', facility: 'Bandra Trauma Centre', doctor: 'Dr. Vikramaditya Rathore', bed: 'ICU Pod-01', status: 'In Surgery', time: '12:00 PM' },
+    { id: 'ADM-408', pet: 'Oreo (Indie Dog, 3y)', reason: 'Femoral Fracture Locking Plate', facility: 'DLF CyberCity Hospital', doctor: 'Dr. Gaurav Sharma', bed: 'Trauma Bay-02', status: 'Admitted', time: '12:15 PM' },
+    { id: 'ADM-409', pet: 'Luna (British Shorthair, 4y)', reason: 'Corneal Ulcer Conjunctival Flap', facility: 'Indiranagar Central Hospital', doctor: 'Dr. Sneha Nair', bed: 'Minor OT-01', status: 'Post-Op Recovery', time: '08:50 AM' },
+    { id: 'ADM-410', pet: 'Rocky (Rottweiler, 5y)', reason: 'Acute Pancreatitis & Ketoacidosis', facility: 'Jubilee Hills Center', doctor: 'Dr. Divya Reddy', bed: 'ICU Pod-03', status: 'Admitted', time: '12:30 PM' }
+  ];
 
   return (
     <DashboardLayout
@@ -72,14 +92,14 @@ export default function ClinicsDashboard() {
         </div>
       }
     >
-      {/* Network Overview KPIs */}
+            {/* Network Overview KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Network Facilities" value="0" delta="--" trend="neutral" subtext="No facilities active" icon="🏥" />
-        <KpiCard label="Network Inpatient Beds" value="0" delta="0.0%" trend="neutral" subtext="No beds occupied" icon="🛏️" />
-        <KpiCard label="OT Surgical Utilization" value="0.0%" delta="0.0%" trend="neutral" subtext="No active surgeries" icon="⚡" />
-        <KpiCard label="In-Clinic Monthly Billings" value="₹0" delta="0.0%" trend="neutral" subtext="OPD, Surgeries & ICU" icon="💰" />
-        <KpiCard label="Daily OPD Consults" value="0" delta="--" trend="neutral" subtext="Across all OPD desks" icon="🐾" />
-        <KpiCard label="Emergency Response SLA" value="0 Mins" delta="--" trend="neutral" subtext="Critical care protocol" icon="🚨" />
+        <KpiCard label="Network Facilities" value="10 Centers" delta="+2 YoY" trend="up" subtext="5 Hospitals + 5 Clinics" icon="🏥" />
+        <KpiCard label="Network Inpatient Beds" value="126 Beds" delta="82.5%" trend="up" subtext="64 Occupied / 27 ICU" icon="🛏️" />
+        <KpiCard label="OT Surgical Utilization" value="94.2%" delta="+6.8%" trend="up" subtext="12 Modular Suites Active" icon="⚡" />
+        <KpiCard label="In-Clinic Monthly Billings" value="₹1.53 Cr" delta="+16.8%" trend="up" subtext="OPD, Surgeries & ICU" icon="💰" />
+        <KpiCard label="Daily OPD Consults" value="485 Pets" delta="+14.6%" trend="up" subtext="Across all OPD desks" icon="🐾" />
+        <KpiCard label="Emergency Response SLA" value="11.4 Mins" delta="-2.1 mins" trend="up" subtext="Critical care protocol" icon="🚨" />
       </div>
 
       {/* Facilities & Surgical Theatres Grid */}
