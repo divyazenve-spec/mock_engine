@@ -5,9 +5,31 @@ import KpiCard from '../shared/KpiCard';
 export default function BalanceSheet() {
   const [asOfDate, setAsOfDate] = useState('September 30, 2026');
 
-  const assets = [];
+  const assets = [
+    { name: 'Cash & Liquid Bank Balances (HDFC + ICICI)', val: '₹8,84,00,000', prev: '₹7,90,00,000', change: '+11.9%', isSubtotal: false },
+    { name: 'Trade Receivables (Insurance TPAs & Corporate)', val: '₹2,85,00,000', prev: '₹2,95,00,000', change: '-3.4%', isSubtotal: false },
+    { name: 'Veterinary Pharmacy & Consumables Stock', val: '₹1,45,20,000', prev: '₹1,32,00,000', change: '+10.0%', isSubtotal: false },
+    { name: 'Prepaid Operational Leases & AMC Retainers', val: '₹42,50,000', prev: '₹38,00,000', change: '+11.8%', isSubtotal: false },
+    { name: 'Total Current Operating Assets', val: '₹13,56,70,000', prev: '₹12,55,00,000', change: '+8.1%', isSubtotal: true },
+    { name: 'Surgical OT Equipment, Ultrasounds & Digital X-Ray', val: '₹3,40,00,000', prev: '₹3,10,00,000', change: '+9.7%', isSubtotal: false },
+    { name: 'Hospital Modular Fitouts & Leasehold Infra', val: '₹95,00,000', prev: '₹90,00,000', change: '+5.6%', isSubtotal: false },
+    { name: 'Proprietary EHR Platform & AI Diagnostic Software', val: '₹35,80,000', prev: '₹32,00,000', change: '+11.9%', isSubtotal: false },
+    { name: 'Long-Term Facility Security Deposits', val: '₹15,00,000', prev: '₹15,00,000', change: '0.0%', isSubtotal: false },
+    { name: 'Total Capital & Operating Assets', val: '₹18,42,50,000', prev: '₹17,02,00,000', change: '+8.3%', isTotal: true }
+  ];
 
-  const liabilitiesAndEquity = [];
+  const liabilitiesAndEquity = [
+    { name: 'Trade Payables to Pharmaceutical Vendors', val: '₹1,92,00,000', prev: '₹1,85,00,000', change: '+3.8%', isSubtotal: false },
+    { name: 'Veterinary Surgeon Retainers & Staff Dues', val: '₹48,50,000', prev: '₹45,00,000', change: '+7.8%', isSubtotal: false },
+    { name: 'Statutory GST & TDS Withholding Obligations', val: '₹16,40,000', prev: '₹15,20,000', change: '+7.9%', isSubtotal: false },
+    { name: 'Client Advances & Annual Wellness Subscriptions', val: '₹5,40,000', prev: '₹4,80,000', change: '+12.5%', isSubtotal: false },
+    { name: 'Total Current Operating Liabilities', val: '₹2,62,30,000', prev: '₹2,50,00,000', change: '+4.9%', isSubtotal: true },
+    { name: 'Equity Share Capital (Face Value ₹10)', val: '₹5,00,00,000', prev: '₹5,00,00,000', change: '0.0%', isSubtotal: false },
+    { name: 'Securities Premium Account Reserve', val: '₹6,80,00,000', prev: '₹6,80,00,000', change: '0.0%', isSubtotal: false },
+    { name: 'Retained Operating Surplus & Free Reserves', val: '₹3,75,20,000', prev: '₹2,50,00,000', change: '+50.1%', isSubtotal: false },
+    { name: 'ESOP Trust Capital Pool Reserve', val: '₹25,00,000', prev: '₹22,00,000', change: '+13.6%', isSubtotal: false },
+    { name: 'Total Liabilities & Shareholders Equity', val: '₹18,42,50,000', prev: '₹17,02,00,000', change: '+8.3%', isTotal: true }
+  ];
 
   return (
     <DashboardLayout
@@ -16,7 +38,7 @@ export default function BalanceSheet() {
       title="Statement of Financial Position (Balance Sheet)"
       subtitle="Comprehensive capital structure, working capital liquidity, fixed hospital assets, and shareholder net worth"
       icon="🏛️"
-      badge="Net Worth: ₹0"
+      badge="Net Worth: ₹15.80 Cr"
       actions={
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <span style={{ fontSize: '12px', color: '#94a3b8' }}>As of: <b>{asOfDate}</b></span>
@@ -39,12 +61,12 @@ export default function BalanceSheet() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Assets" value="₹0" delta="0.0%" trend="neutral" subtext="Fully balanced" icon="🏛️" />
-        <KpiCard label="Shareholders Equity" value="₹0" delta="0.0%" trend="neutral" subtext="Strong net worth" icon="💎" />
-        <KpiCard label="Current Ratio" value="0.0x" delta="--" trend="neutral" subtext="High liquidity buffer" icon="💧" />
-        <KpiCard label="Quick Ratio" value="0.0x" delta="--" trend="neutral" subtext="Instant solvency" icon="⚡" />
-        <KpiCard label="Debt to Equity" value="0.0x" delta="Conservative" trend="neutral" subtext="No term debt" icon="🛡️" />
-        <KpiCard label="Working Capital" value="₹0" delta="0.0%" trend="neutral" subtext="Current A - Current L" icon="📈" />
+        <KpiCard label="Total Assets" value="₹18.42 Cr" delta="+8.3% YoY" trend="up" subtext="Fully balanced" icon="🏛️" />
+        <KpiCard label="Shareholders Equity" value="₹15.80 Cr" delta="+16.2% YoY" trend="up" subtext="Strong net worth" icon="💎" />
+        <KpiCard label="Current Ratio" value="5.17x" delta="High liquidity" trend="up" subtext="Benchmark: >2.0x" icon="💧" />
+        <KpiCard label="Quick Ratio" value="4.62x" delta="Instant solvency" trend="up" subtext="Excluding stock" icon="⚡" />
+        <KpiCard label="Debt to Equity" value="0.00x" delta="Zero Long-Term Debt" trend="up" subtext="Self-capitalized" icon="🛡️" />
+        <KpiCard label="Working Capital" value="₹10.94 Cr" delta="+8.9% YoY" trend="up" subtext="Current A - Current L" icon="📈" />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '20px' }}>
@@ -60,7 +82,7 @@ export default function BalanceSheet() {
               <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#fff' }}>💼 Assets Breakdown</h3>
               <p style={{ margin: '3px 0 0', fontSize: '12px', color: 'var(--muted-foreground, #94a3b8)' }}>Current liquid assets and capital infrastructure</p>
             </div>
-            <span style={{ fontSize: '11px', color: '#10b981', fontWeight: 600 }}>Total: ₹0</span>
+            <span style={{ fontSize: '11px', color: '#10b981', fontWeight: 600 }}>Total: ₹18.42 Cr</span>
           </div>
 
           <div style={{ overflowX: 'auto', margin: '0 -24px -22px' }}>
@@ -103,7 +125,7 @@ export default function BalanceSheet() {
               <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#fff' }}>⚖️ Liabilities & Equity</h3>
               <p style={{ margin: '3px 0 0', fontSize: '12px', color: 'var(--muted-foreground, #94a3b8)' }}>External obligations and shareholder capitalization</p>
             </div>
-            <span style={{ fontSize: '11px', color: '#38bdf8', fontWeight: 600 }}>Total: ₹0</span>
+            <span style={{ fontSize: '11px', color: '#38bdf8', fontWeight: 600 }}>Total: ₹18.42 Cr</span>
           </div>
 
           <div style={{ overflowX: 'auto', margin: '0 -24px -22px' }}>

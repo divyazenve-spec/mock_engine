@@ -5,7 +5,18 @@ import KpiCard from '../shared/KpiCard';
 export default function AccountsReceivable() {
   const [filterBucket, setFilterBucket] = useState('ALL');
 
-  const debtors = [];
+  const debtors = [
+    { id: 'AR-301', client: 'Bajaj Allianz Pet Insurance TPA', type: 'Insurance TPA', totalDue: '₹6,40,000', bucket: '0–30 Days', dso: '18 Days', creditLimit: '₹15,00,000', status: 'Current' },
+    { id: 'AR-302', client: 'Digit Pet Shield Direct Settlement', type: 'Insurance TPA', totalDue: '₹4,80,000', bucket: '0–30 Days', dso: '21 Days', creditLimit: '₹12,00,000', status: 'Current' },
+    { id: 'AR-303', client: 'Paws & Care Canine Rescue NGO', type: 'Charity / NGO', totalDue: '₹1,20,000', bucket: '0–30 Days', dso: '25 Days', creditLimit: '₹3,00,000', status: 'Current' },
+    { id: 'AR-304', client: 'Bangalore Police K9 Unit Care', type: 'Government Contract', totalDue: '₹3,50,000', bucket: '0–30 Days', dso: '28 Days', creditLimit: '₹8,00,000', status: 'Scheduled' },
+    { id: 'AR-305', client: 'Tails Corporate Pet Wellness Bengaluru', type: 'B2B Corporate Wellness', totalDue: '₹2,30,000', bucket: '0–30 Days', dso: '24 Days', creditLimit: '₹5,00,000', status: 'Current' },
+    { id: 'AR-306', client: 'Future Generali Pet Health Claim Desk', type: 'Insurance TPA', totalDue: '₹3,60,000', bucket: '31–60 Days', dso: '42 Days', creditLimit: '₹8,00,000', status: 'Follow-up' },
+    { id: 'AR-307', client: 'ZenVe Corporate Staff Pet Benefit Plan', type: 'Employee Benefit', totalDue: '₹1,80,000', bucket: '31–60 Days', dso: '36 Days', creditLimit: '₹4,00,000', status: 'Scheduled' },
+    { id: 'AR-308', client: 'Dr. Sharma Satellite Referral Clinic', type: 'Partner Clinic Network', totalDue: '₹1,40,000', bucket: '31–60 Days', dso: '45 Days', creditLimit: '₹3,00,000', status: 'Warning' },
+    { id: 'AR-309', client: 'Blue Cross Community Animal Aid', type: 'Animal Welfare Trust', totalDue: '₹2,10,000', bucket: '61–90 Days', dso: '68 Days', creditLimit: '₹3,00,000', status: 'Escalated' },
+    { id: 'AR-310', client: 'VIP Elite Kennel Club Breeding Group', type: 'Institutional Breeder', totalDue: '₹1,40,000', bucket: '90+ Days', dso: '104 Days', creditLimit: '₹2,50,000', status: 'Notice Sent' }
+  ];
 
   const filteredDebtors = filterBucket === 'ALL' ? debtors : debtors.filter(d => d.bucket === filterBucket);
 
@@ -38,12 +49,12 @@ export default function AccountsReceivable() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Receivables (AR)" value="₹0" delta="0.0%" trend="neutral" subtext="No debtors" icon="📥" />
-        <KpiCard label="Days Sales Outstanding (DSO)" value="0 Days" delta="0.0%" trend="neutral" subtext="Industry average benchmark" icon="⏱️" />
-        <KpiCard label="Current (0–30 Days)" value="₹0" delta="0.0%" trend="neutral" subtext="Healthy collection" icon="🛡️" />
-        <KpiCard label="31–60 Days Overdue" value="₹0" delta="0.0%" trend="neutral" subtext="Active follow-up" icon="⚡" />
-        <KpiCard label="Overdue >60 Days" value="₹0" delta="0.0%" trend="neutral" subtext="Escalated collections" icon="🚨" />
-        <KpiCard label="Bad Debt Provision" value="₹0" delta="0.0%" trend="neutral" subtext="Exceptionally low risk" icon="💎" />
+        <KpiCard label="Total Receivables (AR)" value="₹28,50,000" delta="-4.2% MoM" trend="up" subtext="Across 10 corporate accounts" icon="📥" />
+        <KpiCard label="Days Sales Outstanding (DSO)" value="22 Days" delta="-3 Days MoM" trend="up" subtext="Industry benchmark 35 days" icon="⏱️" />
+        <KpiCard label="Current (0–30 Days)" value="₹18,20,000" delta="63.9% of AR" trend="up" subtext="Healthy collection" icon="🛡️" />
+        <KpiCard label="31–60 Days Overdue" value="₹6,80,000" delta="23.8% of AR" trend="neutral" subtext="Active follow-up" icon="⚡" />
+        <KpiCard label="Overdue >60 Days" value="₹3,50,000" delta="12.3% of AR" trend="down" subtext="Escalated collections" icon="🚨" />
+        <KpiCard label="Bad Debt Provision" value="₹45,000" delta="1.5% coverage" trend="up" subtext="Exceptionally low risk" icon="💎" />
       </div>
 
       <div style={{

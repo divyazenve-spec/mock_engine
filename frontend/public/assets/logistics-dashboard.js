@@ -30,21 +30,109 @@
   ];
 
   /* ── Master Datasets ──────────────────────────────────────────────── */
-  var ORDERS = [];
+    var ORDERS = [
+    { id: 'ORD-9281', customer: 'Neha Sharma', pet: 'Bruno (Golden Retriever)', hub: 'Indiranagar Micro-Hub', rider: 'Rohan Deshmukh (EV-04)', items: 'Vanguard Plus 5/CV-L Vaccine + Apoquel 16mg', type: '60-Min Express', temp: '3.8°C', status: 'Delivered', eta: '24 mins' },
+    { id: 'ORD-9282', customer: 'Rajesh Sundaram', pet: 'Milo (Persian Cat)', hub: 'Koramangala 24x7 Hub', rider: 'Suresh Kumar (EV-11)', items: 'Royal Canin Renal Diet 4kg + FortiFlora', type: '60-Min Express', temp: 'Ambient', status: 'Out for Delivery', eta: '12 mins' },
+    { id: 'ORD-9283', customer: 'Dr. Amitava Roy', pet: 'Leo (German Shepherd)', hub: 'Whitefield Hub', rider: 'Vinod Nair (EV-19)', items: 'Bravecto Chewable 20-40kg + Ear Cleanser', type: 'Same-Day Standard', temp: 'Ambient', status: 'In Transit', eta: '38 mins' },
+    { id: 'ORD-9284', customer: 'Sunita Agarwal', pet: 'Coco (Shih Tzu)', hub: 'Bandra West Hub', rider: 'Sachin Kadam (EV-08)', items: 'Nobivac Rabies 10 Vials + Syringes (Clinical)', type: '60-Min Express', temp: '4.2°C', status: 'In Transit', eta: '18 mins' },
+    { id: 'ORD-9285', customer: 'Vikramaditya Sen', pet: 'Simba (Labrador)', hub: 'HSR Layout Hub', rider: 'Ajay Gowda (EV-23)', items: 'Farmina N&D Pumpkin 12kg + Joint Treats', type: 'Same-Day Standard', temp: 'Ambient', status: 'Delivered', eta: '35 mins' },
+    { id: 'ORD-9286', customer: 'Meera Nambiar', pet: 'Bella (Beagle)', hub: 'Saket Micro-Hub', rider: 'Pradeep Singh (EV-31)', items: 'Metacam Oral 1.5mg/ml + Vetmedin 5mg', type: '60-Min Express', temp: 'Ambient', status: 'Out for Delivery', eta: '9 mins' },
+    { id: 'ORD-9287', customer: 'Tanmay Joshi', pet: 'Oreo (French Bulldog)', hub: 'Andheri West Hub', rider: 'Ganesh More (EV-14)', items: 'Zoetis Cerenia Anti-Emetic + IV Cannula', type: '60-Min Express', temp: 'Ambient', status: 'In Transit', eta: '22 mins' },
+    { id: 'ORD-9288', customer: 'Ananya Bhattacharya', pet: 'Whiskey (Indie Dog)', hub: 'JP Nagar Care Hub', rider: 'Manjunath R (EV-27)', items: 'Malaseb Medicated Shampoo + Ceftriaxone', type: 'Same-Day Standard', temp: 'Ambient', status: 'Dispatched', eta: '45 mins' },
+    { id: 'ORD-9289', customer: 'Harish Pillai', pet: 'Rocky (Rottweiler)', hub: 'Indiranagar Micro-Hub', rider: 'Rohan Deshmukh (EV-04)', items: 'TPLO Post-Op Dressing Kit + Pain Meds', type: '60-Min Express', temp: 'Ambient', status: 'Delivered', eta: '28 mins' },
+    { id: 'ORD-9290', customer: 'Pooja Varma', pet: 'Ginger (Tabby Cat)', hub: 'Gurugram DLF Hub', rider: 'Deepak Yadav (EV-42)', items: "Hill's Prescription Diet k/d 5kg", type: '60-Min Express', temp: 'Ambient', status: 'Failed Attempt', eta: 'Re-attempting' }
+  ];
 
-  var PARTNERS = [];
+    var PARTNERS = [
+    { name: 'Zenve Direct EV Fleet', type: 'Dedicated In-House EV', fleetSize: '76 EVs', activeNow: 38, onTimeSla: '99.4%', avgCost: '₹46.50', coldChainReady: 'Yes (IoT Smart Box)', rating: '4.94 / 5', status: 'Primary' },
+    { name: 'Shadowfax Hyperlocal', type: 'Contracted 3PL Hyperlocal', fleetSize: '45 On-Demand', activeNow: 24, onTimeSla: '97.8%', avgCost: '₹62.00', coldChainReady: 'Yes (Gel-Packs)', rating: '4.82 / 5', status: 'Primary' },
+    { name: 'Dunzo for Business', type: 'B2B Quick Courier', fleetSize: '35 On-Demand', activeNow: 18, onTimeSla: '96.9%', avgCost: '₹65.00', coldChainReady: 'Yes (Insulated)', rating: '4.78 / 5', status: 'Active' },
+    { name: 'Porter Enterprise', type: 'Inter-Hub Bulk Transfer', fleetSize: '16 Mini Trucks', activeNow: 11, onTimeSla: '98.5%', avgCost: '₹140.00', coldChainReady: 'Yes (Reefer Van)', rating: '4.89 / 5', status: 'Primary' },
+    { name: 'Blitz Express Electric', type: 'Green EV Partner Fleet', fleetSize: '25 EV Bikes', activeNow: 14, onTimeSla: '98.2%', avgCost: '₹51.00', coldChainReady: 'Yes (IoT Box)', rating: '4.86 / 5', status: 'Active' },
+    { name: 'BlueDart Cold-Chain Express', type: 'National Cold Chain Air', fleetSize: 'Scheduled Lines', activeNow: 6, onTimeSla: '99.8%', avgCost: '₹220.00', coldChainReady: 'Yes (Dry Ice/2-8°C)', rating: '4.95 / 5', status: 'Primary' },
+    { name: 'Borzo Delivery', type: 'Emergency Surge Fleet', fleetSize: '20 On-Demand', activeNow: 8, onTimeSla: '95.4%', avgCost: '₹68.00', coldChainReady: 'No (Dry Cargo Only)', rating: '4.65 / 5', status: 'Active' },
+    { name: 'Loadshare Networks', type: 'Regional Intra-City Hubs', fleetSize: '18 Vans', activeNow: 9, onTimeSla: '97.1%', avgCost: '₹95.00', coldChainReady: 'Yes (Insulated Boxes)', rating: '4.74 / 5', status: 'Active' },
+    { name: 'Zypp Electric Logistics', type: 'Leased Commercial EV Fleet', fleetSize: '20 EV Scooters', activeNow: 12, onTimeSla: '98.0%', avgCost: '₹48.00', coldChainReady: 'Yes (Smart Box)', rating: '4.83 / 5', status: 'Active' },
+    { name: 'Delhivery Flash', type: 'Inter-City Express', fleetSize: 'Scheduled Air/Surface', activeNow: 5, onTimeSla: '98.4%', avgCost: '₹115.00', coldChainReady: 'Yes (Gel Pack Shippers)', rating: '4.88 / 5', status: 'Active' }
+  ];
 
-  var TRACKING_STREAMS = [];
+    var TRACKING_STREAMS = [
+    { trackerId: 'TRK-01', rider: 'Rohan Deshmukh (EV-04)', location: 'Indiranagar 100ft Rd, BLR', temp: '3.8°C', battery: '82%', eta: '7 mins' },
+    { trackerId: 'TRK-02', rider: 'Suresh Kumar (EV-11)', location: 'Koramangala 4th Block, BLR', temp: 'Ambient', battery: '76%', eta: '12 mins' },
+    { trackerId: 'TRK-03', rider: 'Sachin Kadam (EV-08)', location: 'Hill Road, Bandra West, BOM', temp: '4.2°C', battery: '89%', eta: '15 mins' },
+    { trackerId: 'TRK-04', rider: 'Vinod Nair (EV-19)', location: 'ITPL Main Rd, Whitefield, BLR', temp: 'Ambient', battery: '64%', eta: '21 mins' },
+    { trackerId: 'TRK-05', rider: 'Pradeep Singh (EV-31)', location: 'Saket District Centre, DEL', temp: 'Ambient', battery: '78%', eta: '9 mins' },
+    { trackerId: 'TRK-06', rider: 'Ajay Gowda (EV-23)', location: '27th Main Rd, HSR Layout, BLR', temp: 'Ambient', battery: '91%', eta: '18 mins' },
+    { trackerId: 'TRK-07', rider: 'Ganesh More (EV-14)', location: 'Lokhandwala Complex, BOM', temp: '3.6°C', battery: '71%', eta: '14 mins' },
+    { trackerId: 'TRK-08', rider: 'Manjunath R (EV-27)', location: '15th Cross, JP Nagar, BLR', temp: 'Ambient', battery: '84%', eta: '25 mins' },
+    { trackerId: 'TRK-09', rider: 'Deepak Yadav (EV-42)', location: 'DLF Phase 4, Gurugram', temp: 'Ambient', battery: '68%', eta: '19 mins' },
+    { trackerId: 'TRK-10', rider: 'Farhan Akhtar (EV-06)', location: 'Jubilee Hills Checkpost, HYD', temp: '4.0°C', battery: '95%', eta: '11 mins' }
+  ];
 
-  var HUBS_60M = [];
+    var HUBS_60M = [
+    { hub: 'Indiranagar Micro-Hub', city: 'Bengaluru', orders60m: '84 Orders', avgFulfillment: '24 mins', dispatchTime: '4.2 mins', breachCount: 0, slaCompliance: '99.6%', peakCapacity: '12 EVs' },
+    { hub: 'Koramangala 24x7 Hub', city: 'Bengaluru', orders60m: '96 Orders', avgFulfillment: '26 mins', dispatchTime: '4.8 mins', breachCount: 1, slaCompliance: '99.0%', peakCapacity: '14 EVs' },
+    { hub: 'Bandra West Micro-Hub', city: 'Mumbai', orders60m: '72 Orders', avgFulfillment: '29 mins', dispatchTime: '5.1 mins', breachCount: 1, slaCompliance: '98.6%', peakCapacity: '10 EVs' },
+    { hub: 'HSR Layout Hub', city: 'Bengaluru', orders60m: '58 Orders', avgFulfillment: '27 mins', dispatchTime: '4.5 mins', breachCount: 0, slaCompliance: '99.4%', peakCapacity: '8 EVs' },
+    { hub: 'Whitefield Care Hub', city: 'Bengaluru', orders60m: '52 Orders', avgFulfillment: '32 mins', dispatchTime: '5.4 mins', breachCount: 2, slaCompliance: '97.8%', peakCapacity: '8 EVs' },
+    { hub: 'Andheri West Hub', city: 'Mumbai', orders60m: '64 Orders', avgFulfillment: '31 mins', dispatchTime: '5.2 mins', breachCount: 1, slaCompliance: '98.4%', peakCapacity: '9 EVs' },
+    { hub: 'Saket Care Micro-Hub', city: 'Delhi-NCR', orders60m: '48 Orders', avgFulfillment: '34 mins', dispatchTime: '5.6 mins', breachCount: 2, slaCompliance: '97.2%', peakCapacity: '7 EVs' },
+    { hub: 'JP Nagar Hub', city: 'Bengaluru', orders60m: '42 Orders', avgFulfillment: '28 mins', dispatchTime: '4.6 mins', breachCount: 0, slaCompliance: '99.2%', peakCapacity: '6 EVs' },
+    { hub: 'Gurugram DLF Hub', city: 'Delhi-NCR', orders60m: '38 Orders', avgFulfillment: '33 mins', dispatchTime: '5.3 mins', breachCount: 1, slaCompliance: '97.9%', peakCapacity: '6 EVs' },
+    { hub: 'Jubilee Hills Hub', city: 'Hyderabad', orders60m: '36 Orders', avgFulfillment: '29 mins', dispatchTime: '4.9 mins', breachCount: 0, slaCompliance: '99.1%', peakCapacity: '5 EVs' }
+  ];
 
-  var SLA_DATA = [];
+    var SLA_DATA = [
+    { tier: '60-Minute Urgent Rx', target: '< 60 mins', actual: '26.4 mins', volume: '8,820 orders', breaches: 14, compliance: '99.4%', status: 'World Class' },
+    { tier: 'Refrigerated Vaccine Express', target: '< 45 mins (2-8°C)', actual: '22.8 mins', volume: '3,450 orders', breaches: 2, compliance: '99.8%', status: 'World Class' },
+    { tier: 'Same-Day Prescription Diets', target: '< 4 hours', actual: '2.1 hours', volume: '7,640 orders', breaches: 18, compliance: '98.8%', status: 'World Class' },
+    { tier: 'Surgical Emergency Fast-Track', target: '< 30 mins', actual: '19.2 mins', volume: '620 orders', breaches: 0, compliance: '100%', status: 'World Class' },
+    { tier: 'Standard Next-Day Supplies', target: '< 24 hours', actual: '14.2 hours', volume: '4,100 orders', breaches: 11, compliance: '99.1%', status: 'World Class' },
+    { tier: 'Inter-Hub Emergency Transfer', target: '< 90 mins', actual: '54.0 mins', volume: '840 orders', breaches: 3, compliance: '98.9%', status: 'World Class' },
+    { tier: 'Specialty Compounded Rx', target: '< 3 hours', actual: '1.9 hours', volume: '510 orders', breaches: 4, compliance: '98.2%', status: 'Exceeding' },
+    { tier: 'Clinical Pathology Sample Pickup', target: '< 45 mins', actual: '28.4 mins', volume: '1,280 orders', breaches: 2, compliance: '99.6%', status: 'World Class' },
+    { tier: 'Senior Pet Palliative Care Kits', target: '< 90 mins', actual: '42.0 mins', volume: '480 orders', breaches: 1, compliance: '99.5%', status: 'World Class' },
+    { tier: 'Suburban Extended Radius', target: '< 120 mins', actual: '78.5 mins', volume: '920 orders', breaches: 2, compliance: '98.7%', status: 'Exceeding' }
+  ];
 
-  var COST_DATA = [];
+    var COST_DATA = [
+    { component: 'Rider Fuel / Power per Drop', internalEv: '₹2.80 (Electric)', partner3pl: '₹14.50 (Petrol ICE)', variance: '-80.7% EV Advantage', shareOfCost: '16.2%' },
+    { component: 'Rider Payout / Base Fare', internalEv: '₹28.00', partner3pl: '₹36.00', variance: '-22.2% EV Advantage', shareOfCost: '54.5%' },
+    { component: 'Insulated & Cold-Box Amortization', internalEv: '₹3.40', partner3pl: '₹6.20', variance: '-45.2% Own Assets', shareOfCost: '7.8%' },
+    { component: 'Packaging, Ice-Gel Packs & Tamper Seal', internalEv: '₹4.20', partner3pl: '₹4.20', variance: '0.0% Standardized', shareOfCost: '7.2%' },
+    { component: 'GPS Telematics, SIM & IoT Sensors', internalEv: '₹1.10', partner3pl: '₹2.80', variance: '-60.7% Central IoT', shareOfCost: '2.8%' },
+    { component: 'Hub Sortation, Pick & Pack Labor', internalEv: '₹3.60', partner3pl: '₹3.60', variance: '0.0% Fixed Darkstore', shareOfCost: '6.4%' },
+    { component: 'Transit Spoilage & Breakage Loss', internalEv: '₹0.40', partner3pl: '₹1.80', variance: '-77.8% Secure Pods', shareOfCost: '1.2%' },
+    { component: 'Doorstep Re-attempt & NDR Reverse', internalEv: '₹0.80', partner3pl: '₹2.40', variance: '-66.7% WhatsApp Bot', shareOfCost: '1.8%' },
+    { component: 'Dispatch Software & Route Optimization', internalEv: '₹1.20', partner3pl: '₹2.50', variance: '-52.0% Internal Tech', shareOfCost: '2.1%' },
+    { component: 'Total Blended Cost per Drop', internalEv: '₹46.50', partner3pl: '₹68.00', variance: '-31.6% EV Fleet Edge', shareOfCost: '100.0%' }
+  ];
 
-  var FAILED_CAUSES = [];
+    var FAILED_CAUSES = [
+    { cause: 'Customer Unavailable / Door Locked', incidents: 38, pct: '44.2%', avgResolution: 'Automated IVR + 15m wait timer + Neighbor drop', rtoImpact: '0.1% RTO' },
+    { cause: 'Incorrect / Incomplete Street Address', incidents: 16, pct: '18.6%', avgResolution: 'WhatsApp live GPS pin sharing + Map update', rtoImpact: '0.2% RTO' },
+    { cause: 'Customer Requested Reschedule', incidents: 12, pct: '14.0%', avgResolution: 'One-click evening slot lock via app push', rtoImpact: '0.0% RTO' },
+    { cause: 'Gated Community / Security Access Delay', incidents: 7, pct: '8.1%', avgResolution: 'Digital visitor pre-authorization token (MyGate)', rtoImpact: '0.0% RTO' },
+    { cause: 'Heavy Rain / Flash Waterlogging', incidents: 5, pct: '5.8%', avgResolution: 'Alternative waterproof pod dispatch + Surge SLA banner', rtoImpact: '0.0% RTO' },
+    { cause: 'OTP Verification Delay at Doorstep', incidents: 3, pct: '3.5%', avgResolution: 'Fallback SMS OTP + Call verification backup', rtoImpact: '0.0% RTO' },
+    { cause: 'Pet Parent Emergency Vet Transit', incidents: 2, pct: '2.3%', avgResolution: 'Rerouted directly to clinic emergency reception desk', rtoImpact: '0.0% RTO' },
+    { cause: 'Customer Cancelled at Doorstep', incidents: 1, pct: '1.2%', avgResolution: 'Reverse pickup to micro-hub cold-chain within 20m', rtoImpact: '100% RTO' },
+    { cause: 'Rider EV Flat Tyre / Mechanical', incidents: 1, pct: '1.2%', avgResolution: 'Immediate secondary rider handover via SOS telematics', rtoImpact: '0.0% RTO' },
+    { cause: 'Cold-Box Seal Sensor Trigger (Precautionary)', incidents: 1, pct: '1.2%', avgResolution: 'Automatic rejection and instant fresh batch dispatch', rtoImpact: '0.0% Spoilage' }
+  ];
 
-  var TOP_RIDERS = [];
+    var TOP_RIDERS = [
+    { rank: 1, name: 'Rohan Deshmukh', vehicleId: 'EV-BLR-04', hub: 'Indiranagar Hub', deliveries: '448 Drops', onTime: '99.6%', avgSpeed: '27.4 km/h', csat: '4.98 / 5', badge: 'Diamond Speedstar' },
+    { rank: 2, name: 'Suresh Kumar', vehicleId: 'EV-BLR-11', hub: 'Koramangala Hub', deliveries: '432 Drops', onTime: '99.4%', avgSpeed: '26.8 km/h', csat: '4.96 / 5', badge: 'Gold Master Courier' },
+    { rank: 3, name: 'Sachin Kadam', vehicleId: 'EV-BOM-08', hub: 'Bandra West Hub', deliveries: '416 Drops', onTime: '99.1%', avgSpeed: '25.2 km/h', csat: '4.95 / 5', badge: 'Cold-Chain Champion' },
+    { rank: 4, name: 'Ajay Gowda', vehicleId: 'EV-BLR-23', hub: 'HSR Layout Hub', deliveries: '404 Drops', onTime: '98.9%', avgSpeed: '28.1 km/h', csat: '4.94 / 5', badge: 'Hyperlocal Ace' },
+    { rank: 5, name: 'Vinod Nair', vehicleId: 'EV-BLR-19', hub: 'Whitefield Hub', deliveries: '392 Drops', onTime: '98.6%', avgSpeed: '29.0 km/h', csat: '4.92 / 5', badge: 'Zero Incident Star' },
+    { rank: 6, name: 'Pradeep Singh', vehicleId: 'EV-DEL-31', hub: 'Saket Micro-Hub', deliveries: '388 Drops', onTime: '98.4%', avgSpeed: '27.5 km/h', csat: '4.91 / 5', badge: 'Capital Express' },
+    { rank: 7, name: 'Ganesh More', vehicleId: 'EV-BOM-14', hub: 'Andheri West Hub', deliveries: '376 Drops', onTime: '98.2%', avgSpeed: '24.8 km/h', csat: '4.90 / 5', badge: 'Monsoon Hero' },
+    { rank: 8, name: 'Manjunath R', vehicleId: 'EV-BLR-27', hub: 'JP Nagar Hub', deliveries: '364 Drops', onTime: '98.5%', avgSpeed: '26.2 km/h', csat: '4.89 / 5', badge: 'Precision Deliverer' },
+    { rank: 9, name: 'Deepak Yadav', vehicleId: 'EV-DEL-42', hub: 'Gurugram Hub', deliveries: '352 Drops', onTime: '97.9%', avgSpeed: '28.8 km/h', csat: '4.88 / 5', badge: 'Speed Specialist' },
+    { rank: 10, name: 'Farhan Akhtar', vehicleId: 'EV-HYD-06', hub: 'Jubilee Hills Hub', deliveries: '344 Drops', onTime: '98.3%', avgSpeed: '27.1 km/h', csat: '4.87 / 5', badge: 'Deccan Ace' }
+  ];
 
   /* ── Helpers ──────────────────────────────────────────────────────── */
   function showToast(msg) {
@@ -215,23 +303,23 @@
       '<div class="zlog-kpi-grid">',
       '  <div class="zlog-kpi">',
       '    <div class="zlog-kpi-top"><span class="zlog-kpi-label">Active Hyperlocal Fleet</span><span class="zlog-kpi-icon">🛵</span></div>',
-      '    <div class="zlog-kpi-val">0 EV Riders</div>',
-      '    <div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• 0% Active</span><span class="zlog-subtext">0 riders on road</span></div>',
+      '    <div class="zlog-kpi-val">76 EV Riders</div>',
+      '    <div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ 100% Electric</span><span class="zlog-subtext">38 active now on road</span></div>',
       '  </div>',
       '  <div class="zlog-kpi">',
       '    <div class="zlog-kpi-top"><span class="zlog-kpi-label">Avg Fulfillment Speed</span><span class="zlog-kpi-icon">⚡</span></div>',
-      '    <div class="zlog-kpi-val">-- mins</div>',
-      '    <div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• Target &lt; 60m</span><span class="zlog-subtext">No delivery records</span></div>',
+      '    <div class="zlog-kpi-val">31 mins</div>',
+      '    <div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ Target &lt; 60m</span><span class="zlog-subtext">Order to doorstep</span></div>',
       '  </div>',
       '  <div class="zlog-kpi">',
       '    <div class="zlog-kpi-top"><span class="zlog-kpi-label">Cold-Chain Integrity</span><span class="zlog-kpi-icon">❄️</span></div>',
-      '    <div class="zlog-kpi-val">0.0%</div>',
-      '    <div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• Constant 2-8°C</span><span class="zlog-subtext">0 refrigerated drops</span></div>',
+      '    <div class="zlog-kpi-val">100.0%</div>',
+      '    <div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ Constant 2-8°C</span><span class="zlog-subtext">Zero vaccine excursion</span></div>',
       '  </div>',
       '  <div class="zlog-kpi">',
       '    <div class="zlog-kpi-top"><span class="zlog-kpi-label">Delivery Failure Rate</span><span class="zlog-kpi-icon">🎯</span></div>',
-      '    <div class="zlog-kpi-val">0.0%</div>',
-      '    <div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• Benchmark 0.0%</span><span class="zlog-subtext">0 failed attempts</span></div>',
+      '    <div class="zlog-kpi-val">0.8%</div>',
+      '    <div class="zlog-kpi-bottom"><span class="zlog-delta up">↓ Benchmark &lt; 3.5%</span><span class="zlog-subtext">First-attempt OTP success</span></div>',
       '  </div>',
       '</div>',
 
@@ -319,10 +407,10 @@
 
     return [
       '<div class="zlog-kpi-grid">',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Dispatched Today</span><span class="zlog-kpi-icon">📦</span></div><div class="zlog-kpi-val">0 Orders</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• 0%</span><span class="zlog-subtext">Across 0 micro-hubs</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Active In-Transit</span><span class="zlog-kpi-icon">🛵</span></div><div class="zlog-kpi-val">0 Parcels</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• Live Now</span><span class="zlog-subtext">Avg speed 0.0 km/h</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">60-Min Express Tier</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">0 Orders</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• 0% mix</span><span class="zlog-subtext">No express orders</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Doorstep OTP Rate</span><span class="zlog-kpi-icon">🎯</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• 0.0%</span><span class="zlog-subtext">No handoffs</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Dispatched Today</span><span class="zlog-kpi-icon">📦</span></div><div class="zlog-kpi-val">482 Orders</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ +18.4% vs yday</span><span class="zlog-subtext">Across 14 micro-hubs</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Active In-Transit</span><span class="zlog-kpi-icon">🛵</span></div><div class="zlog-kpi-val">38 Parcels</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ Live Now</span><span class="zlog-subtext">Avg speed 26.8 km/h</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">60-Min Express Tier</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">294 Orders</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ 61% mix</span><span class="zlog-subtext">Rapid medication dispatch</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Doorstep OTP Rate</span><span class="zlog-kpi-icon">🎯</span></div><div class="zlog-kpi-val">99.2%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ +0.4% MoM</span><span class="zlog-subtext">Verified handoffs</span></div></div>',
       '</div>',
 
       '<div class="zlog-card">',
@@ -371,10 +459,10 @@
   function renderDeliveryPartners() {
     return [
       '<div class="zlog-kpi-grid">',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Dedicated Fleet</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">0 EV Riders</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• 0%</span><span class="zlog-subtext">0 carbon emissions</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Active On Road</span><span class="zlog-kpi-icon">🛵</span></div><div class="zlog-kpi-val">0 Riders</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• 0 Capacity</span><span class="zlog-subtext">No active riders</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Blended On-Time SLA</span><span class="zlog-kpi-icon">⏱️</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• 0.0%</span><span class="zlog-subtext">No delivery data</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Avg Fleet Rating</span><span class="zlog-kpi-icon">⭐</span></div><div class="zlog-kpi-val">0.0 / 5</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• --</span><span class="zlog-subtext">No ratings recorded</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Dedicated Fleet</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">76 EV Riders</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ 100% Electric</span><span class="zlog-subtext">Zero carbon emissions</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Active On Road</span><span class="zlog-kpi-icon">🛵</span></div><div class="zlog-kpi-val">117 Riders</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ High Capacity</span><span class="zlog-subtext">Zenve + 3PL partners</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Blended On-Time SLA</span><span class="zlog-kpi-icon">⏱️</span></div><div class="zlog-kpi-val">98.6%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ +0.8% MoM</span><span class="zlog-subtext">Weighted network avg</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Avg Fleet Rating</span><span class="zlog-kpi-icon">⭐</span></div><div class="zlog-kpi-val">4.86 / 5</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ Exceptional</span><span class="zlog-subtext">Doorstep pet parent CSAT</span></div></div>',
       '</div>',
 
       '<div class="zlog-card">',
@@ -413,10 +501,10 @@
   function renderDeliveryTracking() {
     return [
       '<div class="zlog-kpi-grid">',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Live Tracked Riders</span><span class="zlog-kpi-icon">📡</span></div><div class="zlog-kpi-val">0 Active</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• 0%</span><span class="zlog-subtext">No active telemetry</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Refrigerated Parcels</span><span class="zlog-kpi-icon">❄️</span></div><div class="zlog-kpi-val">0 Boxes</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• --</span><span class="zlog-subtext">No refrigerated drops</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Average Speed</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">0.0 km/h</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• --</span><span class="zlog-subtext">No telemetry data</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Fleet Battery Health</span><span class="zlog-kpi-icon">🔋</span></div><div class="zlog-kpi-val">0% Avg</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• --</span><span class="zlog-subtext">No vehicles active</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Live Tracked Riders</span><span class="zlog-kpi-icon">📡</span></div><div class="zlog-kpi-val">38 Active</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ 100% Lock</span><span class="zlog-subtext">Sub-second GPS updates</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Refrigerated Parcels</span><span class="zlog-kpi-icon">❄️</span></div><div class="zlog-kpi-val">14 Boxes</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ 2-8°C Safe</span><span class="zlog-subtext">IoT Bluetooth sensors</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Average Speed</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">26.8 km/h</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ Optimal</span><span class="zlog-subtext">Zero traffic infractions</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Fleet Battery Health</span><span class="zlog-kpi-icon">🔋</span></div><div class="zlog-kpi-val">74% Avg</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ All &gt; 30%</span><span class="zlog-subtext">Fast-swap ready</span></div></div>',
       '</div>',
 
       '<div class="zlog-grid-2">',
@@ -468,10 +556,10 @@
   function renderSixtyMinuteDelivery() {
     return [
       '<div class="zlog-kpi-grid">',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Avg Doorstep Speed</span><span class="zlog-kpi-icon">⏱️</span></div><div class="zlog-kpi-val">--</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No delivery records</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Rapid SLA Compliance</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No records</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Pick & Pack Velocity</span><span class="zlog-kpi-icon">📦</span></div><div class="zlog-kpi-val">--</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No packing data</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">60-Min Volume</span><span class="zlog-kpi-icon">🚀</span></div><div class="zlog-kpi-val">0 Orders</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No express orders</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Avg Doorstep Speed</span><span class="zlog-kpi-icon">⏱️</span></div><div class="zlog-kpi-val">28.4 mins</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ -3.2m vs SLA</span><span class="zlog-subtext">Benchmark &lt; 60m</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Rapid SLA Compliance</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">98.8%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ +0.6% MoM</span><span class="zlog-subtext">Across 10 urban hubs</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Pick & Pack Velocity</span><span class="zlog-kpi-icon">📦</span></div><div class="zlog-kpi-val">4.9 mins</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ -0.8m faster</span><span class="zlog-subtext">Darkstore barcode binning</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">60-Min Volume</span><span class="zlog-kpi-icon">🚀</span></div><div class="zlog-kpi-val">8,820 Orders</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ 61% of total</span><span class="zlog-subtext">Monthly express dispatches</span></div></div>',
       '</div>',
 
       '<div class="zlog-card">',
@@ -485,7 +573,20 @@
       '    <table class="zlog-table">',
       '      <thead><tr><th>Hub Location</th><th>City</th><th>60M Orders</th><th>Avg Doorstep Time</th><th>Pack Time</th><th>Breaches</th><th>SLA Compliance</th><th>Active EV Pool</th></tr></thead>',
       '      <tbody>',
-      '  <tr><td colspan=\"8\" style=\"text-align:center;padding:24px;color:#64748b;\">No micro-hub records found</td></tr>',
+      HUBS_60M.map(function (h) {
+        return [
+          '<tr>',
+          '  <td style="font-weight:700;color:#0f172a;">' + h.hub + '</td>',
+          '  <td style="color:#64748b;">' + h.city + '</td>',
+          '  <td style="font-weight:600;font-family:monospace;">' + h.orders60m + '</td>',
+          '  <td style="color:#2563eb;font-weight:700;font-family:monospace;">' + h.avgFulfillment + '</td>',
+          '  <td style="color:#16a34a;font-weight:600;">' + h.dispatchTime + '</td>',
+          '  <td style="color:' + (h.breachCount > 0 ? '#dc2626' : '#475569') + ';font-weight:600;">' + h.breachCount + '</td>',
+          '  <td style="color:#16a34a;font-weight:700;font-family:monospace;">' + h.slaCompliance + '</td>',
+          '  <td><span class="zlog-tag green">' + h.peakCapacity + '</span></td>',
+          '</tr>'
+        ].join('');
+      }).join(''),
       '      </tbody>',
       '    </table>',
       '  </div>',
@@ -496,10 +597,10 @@
   function renderDeliverySLA() {
     return [
       '<div class="zlog-kpi-grid">',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Overall SLA Rate</span><span class="zlog-kpi-icon">🛡️</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No delivery records</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Cold-Chain SLA</span><span class="zlog-kpi-icon">❄️</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No temperature records</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">First Attempt SLA</span><span class="zlog-kpi-icon">🎯</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No attempt data</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Total Breaches (MTD)</span><span class="zlog-kpi-icon">📉</span></div><div class="zlog-kpi-val">0 Breaches</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">0 total orders</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Overall SLA Rate</span><span class="zlog-kpi-icon">🛡️</span></div><div class="zlog-kpi-val">99.1%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ +0.9% MoM</span><span class="zlog-subtext">Target: 95.0%</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Cold-Chain SLA</span><span class="zlog-kpi-icon">❄️</span></div><div class="zlog-kpi-val">100.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ Zero spoilage</span><span class="zlog-subtext">2-8°C constant</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">First Attempt SLA</span><span class="zlog-kpi-icon">🎯</span></div><div class="zlog-kpi-val">99.2%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ +0.3% MoM</span><span class="zlog-subtext">Doorstep OTP success</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Total Breaches (MTD)</span><span class="zlog-kpi-icon">📉</span></div><div class="zlog-kpi-val">57 Breaches</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↓ -18.2% vs last mo</span><span class="zlog-subtext">Across 26,630 orders</span></div></div>',
       '</div>',
 
       '<div class="zlog-card">',
@@ -536,10 +637,10 @@
   function renderDeliveryCost() {
     return [
       '<div class="zlog-kpi-grid">',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Blended Cost / Drop</span><span class="zlog-kpi-icon">💰</span></div><div class="zlog-kpi-val">₹0.00</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No cost records</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Internal EV Fleet Cost</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">₹0.00</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No fleet records</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">3PL Partner Cost</span><span class="zlog-kpi-icon">🛵</span></div><div class="zlog-kpi-val">₹0.00</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No 3PL records</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Monthly Fleet Spend</span><span class="zlog-kpi-icon">📉</span></div><div class="zlog-kpi-val">₹0.00</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">0 deliveries</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Blended Cost / Drop</span><span class="zlog-kpi-icon">💰</span></div><div class="zlog-kpi-val">₹54.20</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↓ -₹6.40 vs FY25</span><span class="zlog-subtext">Target &lt; ₹60</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Internal EV Fleet Cost</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">₹46.50</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↓ 31.6% cheaper</span><span class="zlog-subtext">Own electric fleet</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">3PL Partner Cost</span><span class="zlog-kpi-icon">🛵</span></div><div class="zlog-kpi-val">₹68.00</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">• Flex on-demand</span><span class="zlog-subtext">Surge & overflow</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Monthly Fleet Spend</span><span class="zlog-kpi-icon">📉</span></div><div class="zlog-kpi-val">₹14.42 Lakhs</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↓ -8.4% vs budget</span><span class="zlog-subtext">26,600 deliveries</span></div></div>',
       '</div>',
 
       '<div class="zlog-card">',
@@ -553,7 +654,17 @@
       '    <table class="zlog-table">',
       '      <thead><tr><th>Cost Component</th><th>Internal EV Fleet</th><th>Partner 3PL</th><th>Variance (EV Advantage)</th><th>Share of Cost</th></tr></thead>',
       '      <tbody>',
-      '  <tr><td colspan=\"5\" style=\"text-align:center;padding:24px;color:#64748b;\">No delivery cost records found</td></tr>',
+      COST_DATA.map(function (c) {
+        return [
+          '<tr>',
+          '  <td style="font-weight:700;color:#0f172a;">' + c.component + '</td>',
+          '  <td style="font-family:monospace;color:#16a34a;font-weight:700;">' + c.internalEv + '</td>',
+          '  <td style="font-family:monospace;color:#dc2626;font-weight:700;">' + c.partner3pl + '</td>',
+          '  <td style="color:#2563eb;font-weight:600;">' + c.variance + '</td>',
+          '  <td style="font-family:monospace;color:#475569;font-weight:700;">' + c.shareOfCost + '</td>',
+          '</tr>'
+        ].join('');
+      }).join(''),
       '      </tbody>',
       '    </table>',
       '  </div>',
@@ -564,10 +675,10 @@
   function renderFailedDeliveries() {
     return [
       '<div class="zlog-kpi-grid">',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Failed Attempt Rate</span><span class="zlog-kpi-icon">🎯</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No attempt data</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">NDR Recovery Rate</span><span class="zlog-kpi-icon">🔄</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No recovery records</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Return to Origin (RTO)</span><span class="zlog-kpi-icon">📦</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">0 orders</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Avg Re-attempt Speed</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">--</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No re-attempts</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Failed Attempt Rate</span><span class="zlog-kpi-icon">🎯</span></div><div class="zlog-kpi-val">0.8%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↓ -0.3% MoM</span><span class="zlog-subtext">Benchmark: 3.5%</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">NDR Recovery Rate</span><span class="zlog-kpi-icon">🔄</span></div><div class="zlog-kpi-val">94.8%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ +2.1% MoM</span><span class="zlog-subtext">Re-delivered same day</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Return to Origin (RTO)</span><span class="zlog-kpi-icon">📦</span></div><div class="zlog-kpi-val">0.08%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↓ Ultra-low</span><span class="zlog-subtext">Only 21 orders / mo</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Avg Re-attempt Speed</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">42 mins</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ Fast loop</span><span class="zlog-subtext">Automated WhatsApp bot</span></div></div>',
       '</div>',
 
       '<div class="zlog-card">',
@@ -581,7 +692,17 @@
       '    <table class="zlog-table">',
       '      <thead><tr><th>Failure Root Cause</th><th>Incidents</th><th>% of Failures</th><th>Automated SOP & Resolution</th><th>RTO Impact</th></tr></thead>',
       '      <tbody>',
-      '  <tr><td colspan=\"5\" style=\"text-align:center;padding:24px;color:#64748b;\">No failed delivery records found</td></tr>',
+      FAILED_CAUSES.map(function (f) {
+        return [
+          '<tr>',
+          '  <td style="font-weight:700;color:#0f172a;">' + f.cause + '</td>',
+          '  <td style="font-weight:700;color:#dc2626;font-family:monospace;">' + f.incidents + '</td>',
+          '  <td style="font-weight:600;font-family:monospace;">' + f.pct + '</td>',
+          '  <td style="color:#475569;font-size:11px;">' + f.avgResolution + '</td>',
+          '  <td><span class="zlog-tag ' + (f.rtoImpact.indexOf('100%') >= 0 ? 'red' : 'green') + '">' + f.rtoImpact + '</span></td>',
+          '</tr>'
+        ].join('');
+      }).join(''),
       '      </tbody>',
       '    </table>',
       '  </div>',
@@ -592,10 +713,10 @@
   function renderDeliveryPerformance() {
     return [
       '<div class="zlog-kpi-grid">',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Network CSAT Score</span><span class="zlog-kpi-icon">⭐</span></div><div class="zlog-kpi-val">0.0 / 5</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No ratings recorded</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">On-Time Delivery Rate</span><span class="zlog-kpi-icon">⏱️</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">Across 0 EV riders</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Avg Fleet Velocity</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">0.0 km/h</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">No telemetry data</span></div></div>',
-      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Cold-Chain Audit Pass</span><span class="zlog-kpi-icon">❄️</span></div><div class="zlog-kpi-val">0.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta neutral">--</span><span class="zlog-subtext">0 vaccine drops</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Network CSAT Score</span><span class="zlog-kpi-icon">⭐</span></div><div class="zlog-kpi-val">4.92 / 5</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ Exceptional</span><span class="zlog-subtext">14,280 pet parent reviews</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">On-Time Delivery Rate</span><span class="zlog-kpi-icon">⏱️</span></div><div class="zlog-kpi-val">98.8%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ +0.6% MoM</span><span class="zlog-subtext">Across 76 EV couriers</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Avg Fleet Velocity</span><span class="zlog-kpi-icon">⚡</span></div><div class="zlog-kpi-val">26.8 km/h</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ Optimal city pace</span><span class="zlog-subtext">Zero traffic infractions</span></div></div>',
+      '  <div class="zlog-kpi"><div class="zlog-kpi-top"><span class="zlog-kpi-label">Cold-Chain Audit Pass</span><span class="zlog-kpi-icon">❄️</span></div><div class="zlog-kpi-val">100.0%</div><div class="zlog-kpi-bottom"><span class="zlog-delta up">↑ 2-8°C Verified</span><span class="zlog-subtext">3,450 vaccine drops</span></div></div>',
       '</div>',
 
       '<div class="zlog-card">',
@@ -609,7 +730,21 @@
       '    <table class="zlog-table">',
       '      <thead><tr><th>Rank</th><th>Rider Name</th><th>EV Unit</th><th>Base Hub</th><th>Deliveries (MTD)</th><th>On-Time %</th><th>Avg Speed</th><th>Doorstep CSAT</th><th>Achievement Badge</th></tr></thead>',
       '      <tbody>',
-      '  <tr><td colspan=\"9\" style=\"text-align:center;padding:24px;color:#64748b;\">No rider performance records found</td></tr>',
+      TOP_RIDERS.map(function (r) {
+        return [
+          '<tr>',
+          '  <td style="font-weight:700;color:#f59e0b;">#' + r.rank + '</td>',
+          '  <td style="font-weight:700;color:#0f172a;">' + r.name + '</td>',
+          '  <td style="font-family:monospace;color:#64748b;">' + r.vehicleId + '</td>',
+          '  <td style="color:#475569;">' + r.hub + '</td>',
+          '  <td style="font-weight:700;color:#0f172a;font-family:monospace;">' + r.deliveries + '</td>',
+          '  <td style="color:#16a34a;font-weight:700;font-family:monospace;">' + r.onTime + '</td>',
+          '  <td style="color:#2563eb;font-weight:600;">' + r.avgSpeed + '</td>',
+          '  <td style="color:#d97706;font-weight:700;">' + r.csat + '</td>',
+          '  <td><span class="zlog-tag blue">' + r.badge + '</span></td>',
+          '</tr>'
+        ].join('');
+      }).join(''),
       '      </tbody>',
       '    </table>',
       '  </div>',

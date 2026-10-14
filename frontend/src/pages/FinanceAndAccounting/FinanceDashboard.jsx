@@ -5,11 +5,38 @@ import KpiCard from '../shared/KpiCard';
 export default function FinanceDashboard() {
   const [period, setPeriod] = useState('Month to Date');
 
-  const pnlSummary = [];
+  const pnlSummary = [
+    { metric: 'Gross Outpatient (OPD) Revenue', mtd: '₹54,20,000', budget: '₹50,00,000', var: '+8.4%', status: 'Favorable' },
+    { metric: 'Inpatient Surgical & Critical Care', mtd: '₹38,60,000', budget: '₹35,00,000', var: '+10.3%', status: 'Favorable' },
+    { metric: 'In-House Veterinary Pharmacy', mtd: '₹28,45,000', budget: '₹26,50,000', var: '+7.4%', status: 'Favorable' },
+    { metric: 'Diagnostics & Pathology Lab', mtd: '₹14,80,000', budget: '₹14,00,000', var: '+5.7%', status: 'Favorable' },
+    { metric: 'B2B Corporate Wellness & Kennels', mtd: '₹6,80,000', budget: '₹6,50,000', var: '+4.6%', status: 'Favorable' },
+    { metric: 'Total Cost of Goods Sold (COGS)', mtd: '₹62,85,000', budget: '₹63,00,000', var: '-0.2%', status: 'Favorable' },
+    { metric: 'Consolidated Gross Profit (56.0%)', mtd: '₹80,00,000', budget: '₹69,00,000', var: '+15.9%', status: 'Favorable' },
+    { metric: 'Operating OPEX (Excl. Depr)', mtd: '₹45,71,600', budget: '₹45,00,000', var: '+1.6%', status: 'Caution' },
+    { metric: 'Operating EBITDA (24.0% Margin)', mtd: '₹34,28,400', budget: '₹24,00,000', var: '+42.8%', status: 'Favorable' },
+    { metric: 'Net Profit After Tax (PAT - 18.3%)', mtd: '₹26,10,200', budget: '₹18,00,000', var: '+45.0%', status: 'Favorable' }
+  ];
 
-  const agingBuckets = [];
+  const agingBuckets = [
+    { bucket: 'Current (0–30 Days)', risk: 'Low', ar: '₹19,43,700', arPct: '68.2%', ap: '₹13,63,200', apPct: '71.0%' },
+    { bucket: '31–60 Days (Grace Window)', risk: 'Low', ar: '₹5,61,450', arPct: '19.7%', ap: '₹3,85,920', apPct: '20.1%' },
+    { bucket: '61–90 Days (Warning Notice)', risk: 'Medium', ar: '₹2,45,100', arPct: '8.6%', ap: '₹1,40,160', apPct: '7.3%' },
+    { bucket: '90+ Days (Delinquent/Disputed)', risk: 'High', ar: '₹99,750', arPct: '3.5%', ap: '₹30,720', apPct: '1.6%' }
+  ];
 
-  const recentTransactions = [];
+  const recentTransactions = [
+    { id: 'TXN-9401', type: 'B2B Corporate Collection', desc: 'Quarterly Employee Pet Wellness Retainer', party: 'Mars Petcare India Pvt Ltd', amt: '₹14,50,000', mode: 'CMS-NEFT', status: 'Settled' },
+    { id: 'TXN-9402', type: 'Direct Vendor Settlement', desc: 'Specialty Vaccines & Cold Chain Biologics', party: 'Zoetis Animal Health India', amt: '₹8,40,000', mode: 'RTGS', status: 'Settled' },
+    { id: 'TXN-9403', type: 'Digital Gateway Inbound', desc: 'Daily Outpatient UPI Settlement Batch', party: 'Razorpay Auto-Sweep Nodal', amt: '₹6,85,400', mode: 'IMPS', status: 'Settled' },
+    { id: 'TXN-9404', type: 'Hospital Facility Lease', desc: 'Tertiary Hub Infrastructure & Common Maint', party: 'Prestige Tech Cloud Park', amt: '₹4,20,000', mode: 'ECS Mandate', status: 'Settled' },
+    { id: 'TXN-9405', type: 'Direct Vendor Settlement', desc: 'Prescription Therapeutics & Antibiotics', party: 'Boehringer Ingelheim Vet', amt: '₹5,75,000', mode: 'NEFT', status: 'Settled' },
+    { id: 'TXN-9406', type: 'Insurance TPA Inbound', desc: 'Cashless Surgical Claim Re-imbursement', party: 'Future Generali Pet Cover', amt: '₹3,40,000', mode: 'RTGS', status: 'Settled' },
+    { id: 'TXN-9407', type: 'Clinical Staffing Payroll', desc: 'Veterinary Surgeons & Nursing Specialists', party: 'Clinical Veterinary Operations', amt: '₹18,50,000', mode: 'HDFC Corporate', status: 'Settled' },
+    { id: 'TXN-9408', type: 'Statutory Tax Payment', desc: 'GSTR-3B Output GST Net Challan (ITNS 281)', party: 'GST Portal GSTIN 29AABCZ8412', amt: '₹9,80,000', mode: 'Govt e-Challan', status: 'Settled' },
+    { id: 'TXN-9409', type: 'Digital Gateway Inbound', desc: 'POS Front-Desk Card & QR Realization', party: 'Pine Labs Terminal Batch', amt: '₹4,12,000', mode: 'Auto-Sweep', status: 'Settled' },
+    { id: 'TXN-9410', type: 'Medical Equipment Lease', desc: 'Digital Ultrasound & X-Ray Annual AMC', party: 'Wipro GE Healthcare Ltd', amt: '₹2,90,000', mode: 'ECS Mandate', status: 'Settled' }
+  ];
 
   return (
     <DashboardLayout
@@ -18,7 +45,7 @@ export default function FinanceDashboard() {
       title="Financial Intelligence & Executive Control Center"
       subtitle="Network-wide GAAP profit and loss, operating liquidity, working capital aging, and statutory tax compliance"
       icon="💰"
-      badge=""
+      badge="EBITDA: 24.0%"
       actions={
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <div style={{ display: 'flex', background: 'rgba(255,255,255,0.05)', padding: '3px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }}>
@@ -61,12 +88,12 @@ export default function FinanceDashboard() {
     >
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Gross Invoiced Revenue" value="₹0" delta="0.0%" trend="neutral" subtext="All channels" icon="💰" />
-        <KpiCard label="Net Operating EBITDA" value="₹0" delta="0.0%" trend="neutral" subtext="Operating surplus" icon="⚡" />
-        <KpiCard label="Net Profit (PAT)" value="₹0" delta="0.0%" trend="neutral" subtext="Post tax & depreciation" icon="🏆" />
-        <KpiCard label="Cash & Bank Balances" value="₹0" delta="--" trend="neutral" subtext="Zero short-term debt" icon="🏦" />
-        <KpiCard label="Accounts Receivable (AR)" value="₹0" delta="0.0%" trend="neutral" subtext="Aging status" icon="📥" />
-        <KpiCard label="Accounts Payable (AP)" value="₹0" delta="0.0%" trend="neutral" subtext="Optimal working capital" icon="📤" />
+        <KpiCard label="Gross Invoiced Revenue" value="₹1,42,85,000" delta="+18.4%" trend="up" subtext="All 14 centers + app" icon="💰" />
+        <KpiCard label="Net Operating EBITDA" value="₹34,28,400" delta="+24.0%" trend="up" subtext="Operating surplus" icon="⚡" />
+        <KpiCard label="Net Profit (PAT)" value="₹26,10,200" delta="+19.2%" trend="up" subtext="Post tax & depreciation" icon="🏆" />
+        <KpiCard label="Cash & Bank Balances" value="₹8,84,00,000" delta="14.2 Mo Runway" trend="up" subtext="Zero term debt" icon="🏦" />
+        <KpiCard label="Accounts Receivable (AR)" value="₹28,50,000" delta="22 Days DSO" trend="up" subtext="Low delinquency" icon="📥" />
+        <KpiCard label="Accounts Payable (AP)" value="₹19,20,000" delta="34 Days DPO" trend="neutral" subtext="Optimal working capital" icon="📤" />
       </div>
 
       {/* Grid: P&L Statement and Working Capital Aging */}

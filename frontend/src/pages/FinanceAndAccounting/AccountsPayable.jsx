@@ -5,7 +5,18 @@ import KpiCard from '../shared/KpiCard';
 export default function AccountsPayable() {
   const [vendorFilter, setVendorFilter] = useState('ALL');
 
-  const payables = [];
+  const payables = [
+    { id: 'AP-501', vendor: 'Zoetis India Biologicals Ltd', category: 'Vaccines & Monoclonal', balance: '₹4,20,000', terms: 'Net 45', dueIn: 'In 12 Days', earlyDiscount: '₹8,400 (2%)', status: 'Approved for Batch' },
+    { id: 'AP-502', vendor: 'Boehringer Ingelheim Animal Health', category: 'Cardiology & Parasiticides', balance: '₹3,10,000', terms: 'Net 30', dueIn: 'In 4 Days', earlyDiscount: '₹6,200 (2%)', status: 'Approved for Batch' },
+    { id: 'AP-503', vendor: 'IDEXX Laboratories Diagnostics India', category: 'Analyzer Reagents & Cartridges', balance: '₹2,60,000', terms: 'Net 30', dueIn: 'In 8 Days', earlyDiscount: '₹5,200 (2%)', status: 'Approved for Batch' },
+    { id: 'AP-504', vendor: 'Royal Canin India Clinical Feeds', category: 'Therapeutic Nutrition', balance: '₹2,15,000', terms: 'Net 30', dueIn: 'In 15 Days', earlyDiscount: '₹4,300 (2%)', status: 'Scheduled' },
+    { id: 'AP-505', vendor: 'B. Braun Medical Surgical Supplies', category: 'IV Sets & Suture Consumables', balance: '₹1,85,000', terms: 'Net 60', dueIn: 'In 22 Days', earlyDiscount: '₹3,700 (2%)', status: 'Pending GRN Match' },
+    { id: 'AP-506', vendor: 'Virbac Animal Health India', category: 'Dermatology & Otic Care', balance: '₹1,60,000', terms: 'Net 45', dueIn: 'In 18 Days', earlyDiscount: '₹3,200 (2%)', status: 'Approved for Batch' },
+    { id: 'AP-507', vendor: 'Wipro GE Healthcare Diagnostics', category: 'Ultrasound AMC & Spares', balance: '₹1,40,000', terms: 'Net 30', dueIn: 'In 5 Days', earlyDiscount: '₹2,800 (2%)', status: 'Scheduled' },
+    { id: 'AP-508', vendor: 'PetsFirst Sterilization & Waste Logistics', category: 'Biohazard Medical Waste', balance: '₹65,000', terms: 'Net 15', dueIn: 'Overdue', earlyDiscount: 'None', status: 'Disputed' },
+    { id: 'AP-509', vendor: "Hill's Pet Nutrition Prescription Diet", category: 'Renal & Mobility Kibble', balance: '₹95,000', terms: 'Net 30', dueIn: 'In 19 Days', earlyDiscount: '₹1,900 (2%)', status: 'Scheduled' },
+    { id: 'AP-510', vendor: 'Elanco India Parasiticide Care', category: 'Dewormers & Topical Sprays', balance: '₹70,000', terms: 'Net 45', dueIn: 'In 25 Days', earlyDiscount: '₹1,400 (2%)', status: 'Approved for Batch' }
+  ];
 
   return (
     <DashboardLayout
@@ -36,12 +47,12 @@ export default function AccountsPayable() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Payables (AP)" value="₹0" delta="Optimal working cap" trend="neutral" subtext="No vendors" icon="📤" />
-        <KpiCard label="Days Payable Outstanding (DPO)" value="0 Days" delta="--" trend="neutral" subtext="Vendor terms maximized" icon="⏱️" />
-        <KpiCard label="Approved for Immediate Run" value="₹0" delta="0.0%" trend="neutral" subtext="Full match verified" icon="✅" />
-        <KpiCard label="Early Settlement Discounts" value="₹0" delta="--" trend="neutral" subtext="Cash savings captured" icon="🎁" />
-        <KpiCard label="Pending GRN Match" value="₹0" delta="--" trend="neutral" subtext="Warehouse verification" icon="🔍" />
-        <KpiCard label="Disputed Invoices" value="₹0" delta="--" trend="neutral" subtext="Biohazard waste billing" icon="⚠️" />
+        <KpiCard label="Total Payables (AP)" value="₹19,20,000" delta="Optimal working cap" trend="up" subtext="Across 10 key suppliers" icon="📤" />
+        <KpiCard label="Days Payable Outstanding (DPO)" value="34 Days" delta="+4 Days MoM" trend="up" subtext="Vendor terms maximized" icon="⏱️" />
+        <KpiCard label="Approved for Immediate Run" value="₹9,45,000" delta="49.2% of AP" trend="up" subtext="Full match verified" icon="✅" />
+        <KpiCard label="Early Settlement Discounts" value="₹38,400" delta="2.0% average" trend="up" subtext="Cash savings captured" icon="🎁" />
+        <KpiCard label="Pending GRN Match" value="₹1,85,000" delta="Warehouse hold" trend="neutral" subtext="Warehouse verification" icon="🔍" />
+        <KpiCard label="Disputed Invoices" value="₹65,000" delta="1 pending issue" trend="down" subtext="Biohazard waste billing" icon="⚠️" />
       </div>
 
       <div style={{

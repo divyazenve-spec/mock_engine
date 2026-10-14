@@ -3,22 +3,103 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function MarketingSpend() {
-  const lineItems = [];
+  const spendItems = [
+  {
+    "category": "Paid Search Engine Marketing (Google PPC)",
+    "budget": "₹70,000",
+    "actual": "₹68,500",
+    "variance": "+₹1,500",
+    "status": "Under Budget",
+    "share": "26.3%"
+  },
+  {
+    "category": "Paid Social Advertising (Meta & Reels)",
+    "budget": "₹65,000",
+    "actual": "₹62,000",
+    "variance": "+₹3,000",
+    "status": "Under Budget",
+    "share": "23.8%"
+  },
+  {
+    "category": "YouTube & Video Creative Production",
+    "budget": "₹28,000",
+    "actual": "₹25,000",
+    "variance": "+₹3,000",
+    "status": "Under Budget",
+    "share": "9.6%"
+  },
+  {
+    "category": "Veterinary Content & Medical SEO Copywriting",
+    "budget": "₹20,000",
+    "actual": "₹18,000",
+    "variance": "+₹2,000",
+    "status": "Under Budget",
+    "share": "6.9%"
+  },
+  {
+    "category": "Community Camps, Events & Pet Expos",
+    "budget": "₹18,000",
+    "actual": "₹16,000",
+    "variance": "+₹2,000",
+    "status": "Under Budget",
+    "share": "6.2%"
+  },
+  {
+    "category": "WhatsApp Business & Omnichannel CRM Messaging",
+    "budget": "₹16,000",
+    "actual": "₹14,500",
+    "variance": "+₹1,500",
+    "status": "Under Budget",
+    "share": "5.6%"
+  },
+  {
+    "category": "Pet Parent Referral Rewards & Vouchers",
+    "budget": "₹15,000",
+    "actual": "₹12,500",
+    "variance": "+₹2,500",
+    "status": "Under Budget",
+    "share": "4.8%"
+  },
+  {
+    "category": "Marketing Automation & Analytics Tools",
+    "budget": "₹12,000",
+    "actual": "₹11,500",
+    "variance": "+₹500",
+    "status": "Under Budget",
+    "share": "4.4%"
+  },
+  {
+    "category": "Pet Influencer & Breeder Engagement",
+    "budget": "₹18,000",
+    "actual": "₹17,000",
+    "variance": "+₹1,000",
+    "status": "Under Budget",
+    "share": "6.5%"
+  },
+  {
+    "category": "Print Collateral, Clinic Banners & Merch",
+    "budget": "₹18,000",
+    "actual": "₹15,000",
+    "variance": "+₹3,000",
+    "status": "Under Budget",
+    "share": "5.8%"
+  }
+];
 
   return (
     <DashboardLayout
       category="Marketing"
       subcategory="Marketing Spend"
-      title="Marketing Budget Allocation & Spend Burn"
-      subtitle="Monthly OPEX allocation, vendor disbursements, channel spend variance, and budget compliance"
+      title="Marketing Budget Allocation & OPEX Burn"
+      subtitle="Budget allocation, media spend share, agency disbursements, and departmental cost adherence"
       icon="💰"
-      badge=""
+      badge="Budget Adherence: 7.1% Under Plan"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Allocated Marketing Budget" value="₹0" delta="0.0%" trend="neutral" subtext="Approved by Finance" icon="📋" />
-        <KpiCard label="Actual Marketing Burn" value="₹0" delta="0.0%" trend="neutral" subtext="Variance: ₹0" icon="💳" />
-        <KpiCard label="Paid Media Share" value="0.0%" delta="0.0%" trend="neutral" subtext="Optimal target: 0%" icon="📊" />
-        <KpiCard label="Marketing % of GMV" value="0.0%" delta="0.0%" trend="neutral" subtext="Cost structure" icon="📈" />
+        <KpiCard label="Monthly Budget" value="₹2,80,000" delta="Finance Approved" trend="neutral" subtext="Current Period" icon="📋" />
+        <KpiCard label="Actual Burn" value="₹2,60,000" delta="7.1% Under Plan" trend="up" subtext="₹20,000 surplus" icon="💳" />
+        <KpiCard label="Media Spend Share" value="79.4%" delta="Target: 80%" trend="up" subtext="Paid ad networks" icon="📊" />
+        <KpiCard label="Mkt % of GMV" value="1.82%" delta="-0.3% MoM" trend="up" subtext="Cost structure" icon="📈" />
       </div>
 
       <div style={{
@@ -29,8 +110,8 @@ export default function MarketingSpend() {
         boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
       }}>
         <div style={{ padding: '16px 20px', borderBottom: '1px solid #e2e8f0' }}>
-          <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 700, color: '#0f172a' }}>Expense Line Items & Budget Adherence</h3>
-          <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#64748b' }}>Departmental OPEX tracking across performance advertising, content, and agency fees</p>
+          <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 700, color: '#0f172a' }}>Marketing Expense Line Items & OPEX Adherence</h3>
+          <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#64748b' }}>Departmental cost centers, agency fees, and influencer disbursements</p>
         </div>
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', textAlign: 'left' }}>
@@ -45,35 +126,18 @@ export default function MarketingSpend() {
               </tr>
             </thead>
             <tbody>
-              {lineItems.length === 0 ? (
-                <tr>
-                  <td colSpan="6" style={{ padding: '32px 16px', textAlign: 'center', color: '#94a3b8' }}>
-                    No marketing spend line items found
+              {spendItems.map(i => (
+                <tr key={i.category} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                  <td style={{ padding: '14px 16px', fontWeight: 600, color: '#0f172a' }}>{i.category}</td>
+                  <td style={{ padding: '14px 16px', fontFamily: '"IBM Plex Mono", monospace' }}>{i.budget}</td>
+                  <td style={{ padding: '14px 16px', fontWeight: 700, fontFamily: '"IBM Plex Mono", monospace' }}>{i.actual}</td>
+                  <td style={{ padding: '14px 16px', fontFamily: '"IBM Plex Mono", monospace', color: '#16a34a', fontWeight: 600 }}>{i.variance}</td>
+                  <td style={{ padding: '14px 16px' }}>
+                    <span style={{ display: 'inline-block', padding: '2px 8px', borderRadius: '4px', background: '#dcfce7', color: '#15803d', fontWeight: 600, fontSize: '11px' }}>{i.status}</span>
                   </td>
+                  <td style={{ padding: '14px 16px', fontWeight: 600, color: '#0f172a' }}>{i.share}</td>
                 </tr>
-              ) : (
-                lineItems.map(item => (
-                  <tr key={item.category} style={{ borderBottom: '1px solid #f1f5f9' }}>
-                    <td style={{ padding: '14px 16px', fontWeight: 600, color: '#0f172a' }}>{item.category}</td>
-                    <td style={{ padding: '14px 16px', fontFamily: '"IBM Plex Mono", monospace' }}>{item.budget}</td>
-                    <td style={{ padding: '14px 16px', fontWeight: 600, fontFamily: '"IBM Plex Mono", monospace', color: '#0f172a' }}>{item.actual}</td>
-                    <td style={{ padding: '14px 16px', color: '#16a34a', fontWeight: 600, fontFamily: '"IBM Plex Mono", monospace' }}>{item.variance}</td>
-                    <td style={{ padding: '14px 16px' }}>
-                      <span style={{ padding: '3px 8px', borderRadius: '4px', background: '#f0fdf4', color: '#16a34a', fontWeight: 600, fontSize: '11px' }}>
-                        {item.status}
-                      </span>
-                    </td>
-                    <td style={{ padding: '14px 16px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <div style={{ width: '60px', height: '6px', background: '#e2e8f0', borderRadius: '99px', overflow: 'hidden' }}>
-                          <div style={{ width: item.share, height: '100%', background: '#10b981' }} />
-                        </div>
-                        <span style={{ fontSize: '11px', fontWeight: 600, color: '#475569' }}>{item.share}</span>
-                      </div>
-                    </td>
-                  </tr>
-                ))
-              )}
+              ))}
             </tbody>
           </table>
         </div>

@@ -5,9 +5,29 @@ import KpiCard from '../shared/KpiCard';
 export default function Payments() {
   const [gatewayFilter, setGatewayFilter] = useState('ALL');
 
-  const gateways = [];
+  const gateways = [
+    { name: 'Razorpay Dynamic QR UPI', rail: 'Direct NPCI UPI Rail', processed: '₹46,20,000', txns: '4,120', mdrRate: '0.00%', mdrCost: '₹0', netSettled: '₹46,20,000', status: 'T+0 Instant' },
+    { name: 'Pine Labs Android POS', rail: 'Visa / MasterCard / RuPay Debit', processed: '₹32,50,000', txns: '1,840', mdrRate: '0.90%', mdrCost: '₹29,250', netSettled: '₹32,20,750', status: 'T+1 Morning' },
+    { name: 'PhonePe Merchant Gateway', rail: 'UPI AutoPay & In-App QR', processed: '₹15,65,000', txns: '1,380', mdrRate: '0.00%', mdrCost: '₹0', netSettled: '₹15,65,000', status: 'T+0 Instant' },
+    { name: 'Pine Labs Credit Card POS', rail: 'Domestic Premium & Corporate Cards', processed: '₹10,30,000', txns: '410', mdrRate: '1.65%', mdrCost: '₹16,995', netSettled: '₹10,13,005', status: 'T+1 Morning' },
+    { name: 'Cashfree Virtual Accounts', rail: 'B2B Bank NEFT / RTGS Collect', processed: '₹5,80,000', txns: '85', mdrRate: '₹15/txn', mdrCost: '₹1,275', netSettled: '₹5,78,725', status: 'T+0 Direct' },
+    { name: 'HDFC SmartHub NetBanking', rail: 'Retail Core NetBanking', processed: '₹1,90,000', txns: '142', mdrRate: '1.20%', mdrCost: '₹2,280', netSettled: '₹1,87,720', status: 'T+1 Sweep' },
+    { name: 'Stripe International Card Rail', rail: 'Expat & NRI Visa / Amex Gate', processed: '₹1,20,000', txns: '28', mdrRate: '2.90%', mdrCost: '₹3,480', netSettled: '₹1,16,520', status: 'T+2 Global' },
+    { name: 'PayU PG Checkout', rail: 'Secondary App Fallback Rail', processed: '₹80,000', txns: '64', mdrRate: '1.40%', mdrCost: '₹1,120', netSettled: '₹78,880', status: 'T+1 Morning' }
+  ];
 
-  const recentReceipts = [];
+  const recentReceipts = [
+    { txnId: 'PAY-9001', pet: 'Max (Golden Retriever)', client: 'Vikram Rao', facility: 'Indiranagar Flagship', amt: '₹56,640', channel: 'Pine Labs Credit POS', time: '10 mins ago', status: 'Settled' },
+    { txnId: 'PAY-9002', pet: 'Milo (Persian Cat)', client: 'Ananya Deshmukh', facility: 'Koramangala Supercare', amt: '₹11,210', channel: 'Razorpay UPI QR', time: '24 mins ago', status: 'Settled' },
+    { txnId: 'PAY-9003', pet: 'Thor (Rottweiler)', client: 'Karan Singhania', facility: 'Whitefield Emergency Hub', amt: '₹73,160', channel: 'HDFC NetBanking', time: '42 mins ago', status: 'Settled' },
+    { txnId: 'PAY-9004', pet: 'Bella (Shih Tzu)', client: 'Pooja Hegde', facility: 'Jayanagar Wellness Clinic', amt: '₹8,024', channel: 'PhonePe QR', time: '1 hr ago', status: 'Settled' },
+    { txnId: 'PAY-9005', pet: 'Simba (German Shepherd)', client: 'Rohit Verma', facility: 'HSR Layout Annex', amt: '₹9,676', channel: 'Razorpay UPI QR', time: '1 hr ago', status: 'Settled' },
+    { txnId: 'PAY-9006', pet: 'Bruno (Boxer)', client: 'Nisha Pillai', facility: 'Indiranagar Flagship', amt: '₹14,500', channel: 'Pine Labs RuPay POS', time: '2 hrs ago', status: 'Settled' },
+    { txnId: 'PAY-9007', pet: 'Coco (French Bulldog)', client: 'Sameer Sen', facility: 'Lavelle Road Specialty', amt: '₹22,400', channel: 'Razorpay UPI QR', time: '2 hrs ago', status: 'Settled' },
+    { txnId: 'PAY-9008', pet: 'Oscar (Beagle)', client: 'Siddharth Nambiar', facility: 'Lavelle Road Specialty', amt: '₹36,580', channel: 'Pine Labs Credit POS', time: '3 hrs ago', status: 'Settled' },
+    { txnId: 'PAY-9009', pet: 'Zara (Doberman)', client: 'Arjun Menon', facility: 'Koramangala Supercare', amt: '₹18,900', channel: 'Razorpay UPI QR', time: '3 hrs ago', status: 'Settled' },
+    { txnId: 'PAY-9010', pet: 'Leo (British Shorthair)', client: 'Meera Swaminathan', facility: 'Whitefield Emergency Hub', amt: '₹7,850', channel: 'PhonePe QR', time: '4 hrs ago', status: 'Settled' }
+  ];
 
   return (
     <DashboardLayout
@@ -38,12 +58,12 @@ export default function Payments() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Gross Digital Collections" value="₹0" delta="0.0%" trend="neutral" subtext="Inbound MTD flow" icon="💳" />
-        <KpiCard label="UPI Payment Share" value="0.0%" delta="0.0%" trend="neutral" subtext="No payment scans" icon="📱" />
-        <KpiCard label="Card & POS Volume" value="₹0" delta="0.0%" trend="neutral" subtext="Pine Labs smart terminals" icon="🏧" />
-        <KpiCard label="Blended MDR Cost" value="0.0%" delta="0.0%" trend="neutral" subtext="Minimal fee leakage" icon="💰" />
-        <KpiCard label="Failed / Dropped Txns" value="0.0%" delta="0.0%" trend="neutral" subtext="High gateway uptime" icon="🛡️" />
-        <KpiCard label="Settlement Window" value="T+0" delta="--" trend="neutral" subtext="Direct HDFC sweep" icon="⚡" />
+        <KpiCard label="Gross Digital Collections" value="₹1,14,35,000" delta="+13.2% MoM" trend="up" subtext="Inbound MTD flow" icon="💳" />
+        <KpiCard label="UPI Payment Share" value="54.2%" delta="+6.4% YoY" trend="up" subtext="Zero MDR settlement" icon="📱" />
+        <KpiCard label="Card & POS Volume" value="₹42,80,000" delta="37.4% share" trend="neutral" subtext="Pine Labs smart terminals" icon="🏧" />
+        <KpiCard label="Blended MDR Cost" value="0.48%" delta="-0.12% MoM" trend="up" subtext="Minimal fee leakage" icon="💰" />
+        <KpiCard label="Failed / Dropped Txns" value="0.18%" delta="-0.06%" trend="up" subtext="High gateway uptime" icon="🛡️" />
+        <KpiCard label="Settlement Window" value="T+0 / T+1" delta="Automated" trend="up" subtext="Direct HDFC sweep" icon="⚡" />
       </div>
 
       <div style={{

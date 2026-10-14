@@ -5,9 +5,26 @@ import KpiCard from '../shared/KpiCard';
 export default function ProcurementSavings() {
   const [selectedLever, setSelectedLever] = useState('ALL');
 
-  const savingsLevers = [];
+  const savingsLevers = [
+    { lever: 'Direct Manufacturer Master Contracting', realized: '₹2,45,000', target: '₹3,00,000', achievement: 81.7, color: '#34d399', desc: 'Disintermediating regional sub-distributors across Zoetis, MSD, and BI for direct national factory invoicing.' },
+    { lever: 'Centralized Bulk Volume Aggregation', realized: '₹1,68,000', target: '₹2,00,000', achievement: 84.0, color: '#38bdf8', desc: 'Consolidating prescription diets and surgical consumable demand across all 6 clinic hubs into bi-weekly orders.' },
+    { lever: 'Branded-to-Generic Substitution Arbitrage', realized: '₹1,18,000', target: '₹1,50,000', achievement: 78.7, color: '#a78bfa', desc: 'Formulating clinical protocols to use bioequivalent generic NSAIDs and antibiotics without impacting care quality.' },
+    { lever: 'Early Payment Cash Discounts (2/10 Net 30)', realized: '₹68,000', target: '₹80,000', achievement: 85.0, color: '#f59e0b', desc: 'Leveraging healthy treasury float to capture 2% upfront cash settlement discount on invoices cleared in 10 days.' },
+    { lever: 'Surgical Implant Tray Rationalization', realized: '₹43,000', target: '₹60,000', achievement: 71.7, color: '#10b981', desc: 'Standardizing on Synthes TPLO locking screw diameters to eliminate obsolete non-standard sterile kits.' }
+  ];
 
-  const initiatives = [];
+  const initiatives = [
+    { id: 'SAV-001', initiative: 'Zoetis Annual Direct Master Contract', category: 'Vaccines & Biologics', leadPartner: 'Zoetis India', lever: 'Contract Renegotiation', baselineSpend: '₹13,87,000', negotiatedSpend: '₹12,45,000', netSavings: '₹1,42,000', status: 'Realized' },
+    { id: 'SAV-002', initiative: 'MSD Bravecto Multi-Clinic Volume Tier Rebate', category: 'Ectoparasiticides', leadPartner: 'MSD Animal Health', lever: 'Volume Aggregation', baselineSpend: '₹11,92,000', negotiatedSpend: '₹10,80,000', netSavings: '₹1,12,000', status: 'Realized' },
+    { id: 'SAV-003', initiative: 'Royal Canin Central Warehouse Factory Direct', category: 'Clinical Diets', leadPartner: 'Royal Canin India', lever: 'Volume Aggregation', baselineSpend: '₹9,83,000', negotiatedSpend: '₹8,95,000', netSavings: '₹88,000', status: 'Realized' },
+    { id: 'SAV-004', initiative: 'Generic Meloxicam (Melonex) Clinical Switch', category: 'Generic APIs & NSAID', leadPartner: 'Intas Pharmaceuticals', lever: 'Generic Substitution', baselineSpend: '₹2,91,000', negotiatedSpend: '₹2,15,000', netSavings: '₹76,000', status: 'Realized' },
+    { id: 'SAV-005', initiative: 'Dynamic 2/10 Net 30 Early Payout Capture', category: 'Treasury & AP', leadPartner: 'Multiple Tier 1', lever: 'Cash Discounts', baselineSpend: '₹19,18,000', negotiatedSpend: '₹18,50,000', netSavings: '₹68,000', status: 'Realized' },
+    { id: 'SAV-006', initiative: 'TPLO Orthopedic Plate Tray Standardization', category: 'Surgical Implants', leadPartner: 'Synthes Vet Ortho', lever: 'Volume Aggregation', baselineSpend: '₹4,53,000', negotiatedSpend: '₹4,10,000', netSavings: '₹43,000', status: 'Realized' },
+    { id: 'SAV-007', initiative: "Hill's Prescription Diet Strategic Re-tender", category: 'Clinical Diets', leadPartner: "Hill's Pet Nutrition", lever: 'Contract Renegotiation', baselineSpend: '₹5,85,000', negotiatedSpend: '₹5,40,000', netSavings: '₹45,000', status: 'In Progress' },
+    { id: 'SAV-008', initiative: 'Broad-Spectrum Ceftriaxone Generic Protocol', category: 'Antibiotics', leadPartner: 'Intas Pharmaceuticals', lever: 'Generic Substitution', baselineSpend: '₹2,22,000', negotiatedSpend: '₹1,80,000', netSavings: '₹42,000', status: 'In Progress' },
+    { id: 'SAV-009', initiative: 'Virbac Dermatology Consumable Consolidation', category: 'Topicals', leadPartner: 'Virbac Animal Health', lever: 'Volume Aggregation', baselineSpend: '₹3,21,000', negotiatedSpend: '₹2,95,000', netSavings: '₹26,000', status: 'Realized' },
+    { id: 'SAV-010', initiative: 'Central IV Fluids Direct Batch Sourcing', category: 'Critical Care IV', leadPartner: 'Albert David Vet', lever: 'Generic Substitution', baselineSpend: '₹1,74,000', negotiatedSpend: '₹1,50,000', netSavings: '₹24,000', status: 'Pipeline' }
+  ];
 
   const filteredInitiatives = initiatives.filter(init => {
     if (selectedLever !== 'ALL' && init.lever !== selectedLever) return false;
@@ -40,12 +57,12 @@ export default function ProcurementSavings() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Realized Savings (FYTD)" value="₹0" delta="+108.2% vs target" trend="up" subtext="Across all 5 levers" icon="💰" />
-        <KpiCard label="Savings % of Addressable Spend" value="0.0%" delta="+2.3% YoY" trend="up" subtext="Total addressable spend" icon="📉" />
-        <KpiCard label="Cost Avoidance (Inflation)" value="₹0" delta="Price locks preserved" trend="up" subtext="Market inflation hedge" icon="🛡️" />
-        <KpiCard label="Generic Substitution Arbitrage" value="₹0" delta="33.4% lower unit cost" trend="up" subtext="Pharma & antibiotics" icon="💊" />
-        <KpiCard label="Early Pay Discounts Captured" value="₹0" delta="92.5% capture rate" trend="up" subtext="2/10 Net 30 terms" icon="⚡" />
-        <KpiCard label="Savings in Pipeline (H2)" value="₹0" delta="3 major RFPs active" trend="up" subtext="Targeted for closure" icon="🎯" />
+        <KpiCard label="Realized Savings (FYTD)" value="₹6.42 Lakhs" delta="+108.2% vs target" trend="up" subtext="Across all 5 levers" icon="💰" />
+        <KpiCard label="Savings % of Addressable Spend" value="12.1%" delta="+2.3% YoY" trend="up" subtext="Total addressable spend" icon="📉" />
+        <KpiCard label="Cost Avoidance (Inflation)" value="₹3.80 Lakhs" delta="Price locks preserved" trend="up" subtext="Market inflation hedge" icon="🛡️" />
+        <KpiCard label="Generic Substitution Arbitrage" value="₹1.18 Lakhs" delta="35.3% lower unit cost" trend="up" subtext="Pharma & antibiotics" icon="💊" />
+        <KpiCard label="Early Pay Discounts Captured" value="₹68,000" delta="92.5% capture rate" trend="up" subtext="2/10 Net 30 terms" icon="⚡" />
+        <KpiCard label="Savings in Pipeline (H2)" value="₹4.50 Lakhs" delta="3 major RFPs active" trend="up" subtext="Targeted for closure" icon="🎯" />
       </div>
 
       {/* Savings Levers Progress */}

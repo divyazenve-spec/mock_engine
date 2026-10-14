@@ -6,7 +6,18 @@ export default function DeliveryOrders() {
   const [filter, setFilter] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const orders = [];
+  const orders = [
+    { id: 'ORD-9281', customer: 'Neha Sharma', pet: 'Bruno (Golden Retriever)', hub: 'Indiranagar Micro-Hub', rider: 'Rohan Deshmukh (EV-04)', items: 'Vanguard Plus 5/CV-L Vaccine + Apoquel 16mg', type: '60-Min Express', temp: '3.8°C', status: 'Delivered', eta: '24 mins' },
+    { id: 'ORD-9282', customer: 'Rajesh Sundaram', pet: 'Milo (Persian Cat)', hub: 'Koramangala 24x7 Hub', rider: 'Suresh Kumar (EV-11)', items: 'Royal Canin Renal Diet 4kg + FortiFlora', type: '60-Min Express', temp: 'Ambient', status: 'Out for Delivery', eta: '12 mins' },
+    { id: 'ORD-9283', customer: 'Dr. Amitava Roy', pet: 'Leo (German Shepherd)', hub: 'Whitefield Hub', rider: 'Vinod Nair (EV-19)', items: 'Bravecto Chewable 20-40kg + Ear Cleanser', type: 'Same-Day Standard', temp: 'Ambient', status: 'In Transit', eta: '38 mins' },
+    { id: 'ORD-9284', customer: 'Sunita Agarwal', pet: 'Coco (Shih Tzu)', hub: 'Bandra West Hub', rider: 'Sachin Kadam (EV-08)', items: 'Nobivac Rabies 10 Vials + Syringes (Clinical)', type: '60-Min Express', temp: '4.2°C', status: 'In Transit', eta: '18 mins' },
+    { id: 'ORD-9285', customer: 'Vikramaditya Sen', pet: 'Simba (Labrador)', hub: 'HSR Layout Hub', rider: 'Ajay Gowda (EV-23)', items: 'Farmina N&D Pumpkin 12kg + Joint Treats', type: 'Same-Day Standard', temp: 'Ambient', status: 'Delivered', eta: '35 mins' },
+    { id: 'ORD-9286', customer: 'Meera Nambiar', pet: 'Bella (Beagle)', hub: 'Saket Micro-Hub', rider: 'Pradeep Singh (EV-31)', items: 'Metacam Oral 1.5mg/ml + Vetmedin 5mg', type: '60-Min Express', temp: 'Ambient', status: 'Out for Delivery', eta: '9 mins' },
+    { id: 'ORD-9287', customer: 'Tanmay Joshi', pet: 'Oreo (French Bulldog)', hub: 'Andheri West Hub', rider: 'Ganesh More (EV-14)', items: 'Zoetis Cerenia Anti-Emetic + IV Cannula', type: '60-Min Express', temp: 'Ambient', status: 'In Transit', eta: '22 mins' },
+    { id: 'ORD-9288', customer: 'Ananya Bhattacharya', pet: 'Whiskey (Indie Dog)', hub: 'JP Nagar Care Hub', rider: 'Manjunath R (EV-27)', items: 'Malaseb Medicated Shampoo + Ceftriaxone', type: 'Same-Day Standard', temp: 'Ambient', status: 'Dispatched', eta: '45 mins' },
+    { id: 'ORD-9289', customer: 'Harish Pillai', pet: 'Rocky (Rottweiler)', hub: 'Indiranagar Micro-Hub', rider: 'Rohan Deshmukh (EV-04)', items: 'TPLO Post-Op Dressing Kit + Pain Meds', type: '60-Min Express', temp: 'Ambient', status: 'Delivered', eta: '28 mins' },
+    { id: 'ORD-9290', customer: 'Pooja Varma', pet: 'Ginger (Tabby Cat)', hub: 'Gurugram DLF Hub', rider: 'Deepak Yadav (EV-42)', items: "Hill's Prescription Diet k/d 5kg", type: '60-Min Express', temp: 'Ambient', status: 'Failed Attempt', eta: 'Re-attempting' }
+  ];
 
   const filtered = orders.filter(o => {
     const matchFilter = filter === 'ALL' || o.status === filter;
@@ -24,13 +35,13 @@ export default function DeliveryOrders() {
       title="Live Delivery Orders Dispatch Stream"
       subtitle="Real-time parcel status, rider telematics, hyperlocal express fulfillment, and cold-chain parcel tracking"
       icon="📦"
-      badge=""
+      badge="Live Manifest"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard label="Dispatched Today" value="482 Orders" delta="+18.4% vs yday" trend="up" subtext="Across 14 micro-hubs" icon="📦" />
-        <KpiCard label="Active In-Transit" value="38 Parcels" delta="Live now" trend="neutral" subtext="Average speed 26 km/h" icon="🛵" />
+        <KpiCard label="Active In-Transit" value="38 Parcels" delta="Live now" trend="neutral" subtext="Average speed 26.8 km/h" icon="🛵" />
         <KpiCard label="60-Min Deliveries" value="294 Orders" delta="61% of volume" trend="up" subtext="Express rapid tier" icon="⚡" />
-        <KpiCard label="Delivery Success Rate" value="0.0%" delta="+0.4% MoM" trend="up" subtext="First attempt doorstep OTP" icon="🎯" />
+        <KpiCard label="Delivery Success Rate" value="99.2%" delta="+0.4% MoM" trend="up" subtext="First attempt doorstep OTP" icon="🎯" />
       </div>
 
       <div style={{

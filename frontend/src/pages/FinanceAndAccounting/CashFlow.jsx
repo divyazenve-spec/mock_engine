@@ -5,9 +5,26 @@ import KpiCard from '../shared/KpiCard';
 export default function CashFlow() {
   const [period, setPeriod] = useState('Current Quarter');
 
-  const cashFlowLines = [];
+  const cashFlowLines = [
+    { item: 'Operating Cash Collections from Pet Parents (OPD & Surgery)', section: 'Operating Activities (CFO)', amt: '+₹1,38,50,000', type: 'normal' },
+    { item: 'Corporate B2B Employee Wellness Retainer Inflow', section: 'Operating Activities (CFO)', amt: '+₹6,80,000', type: 'normal' },
+    { item: 'Cash Disbursements to Pharmaceutical & Implant Suppliers', section: 'Operating Activities (CFO)', amt: '-₹58,40,000', type: 'normal' },
+    { item: 'Veterinary Surgeon, Nursing Specialists & Clinical Salaries', section: 'Operating Activities (CFO)', amt: '-₹35,20,000', type: 'normal' },
+    { item: 'Hospital Leases, Clean Power & Bio-Hazard Facilities', section: 'Operating Activities (CFO)', amt: '-₹15,30,000', type: 'normal' },
+    { item: 'Net Cash Generated from Operating Activities (CFO)', section: 'Operating Activities (CFO)', amt: '+₹36,40,000', type: 'subtotal' },
+    { item: 'Capital Expenditure: Modular Surgical OTs & Ultrasounds', section: 'Investing Activities (CFI)', amt: '-₹8,25,000', type: 'normal' },
+    { item: 'Proprietary EHR & AI Telemedicine Diagnostic Platform IP', section: 'Investing Activities (CFI)', amt: '-₹2,40,000', type: 'normal' },
+    { item: 'Net Cash Used in Capital Investing Activities (CFI)', section: 'Investing Activities (CFI)', amt: '-₹10,65,000', type: 'subtotal' },
+    { item: 'Net Surplus Cash Flow & Opening Treasury Addition', section: 'Net Cash Flow', amt: '+₹25,75,000', type: 'total' }
+  ];
 
-  const bankAccounts = [];
+  const bankAccounts = [
+    { bank: 'HDFC Bank Corporate Current', acc: 'XXXX-4812', type: 'Primary Operating Account', bal: '₹4,12,50,000' },
+    { bank: 'ICICI Treasury High-Yield Sweep', acc: 'XXXX-8901', type: 'Liquid Capital Reserve', bal: '₹2,75,00,000' },
+    { bank: 'Axis Bank Hyperlocal Settlement Hub', acc: 'XXXX-3341', type: 'Vendor Disbursement CMS', bal: '₹1,18,40,000' },
+    { bank: 'State Bank of India Statutory Escrow', acc: 'XXXX-9912', type: 'GST & TDS Tax Account', bal: '₹48,10,000' },
+    { bank: 'Razorpay Auto-Sweep Nodal Clearing', acc: 'RZP-NODAL-01', type: 'UPI & Gateway Nodal', bal: '₹30,00,000' }
+  ];
 
   return (
     <DashboardLayout
@@ -38,12 +55,12 @@ export default function CashFlow() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Closing Cash Balance" value="₹0" delta="+₹0 MTD" trend="neutral" subtext="HDFC + ICICI + Axis" icon="🏦" />
-        <KpiCard label="Operating Cash (CFO)" value="+₹0" delta="Positive OCF" trend="neutral" subtext="Strong cash conversion" icon="⚡" />
-        <KpiCard label="Free Cash Flow (FCF)" value="+₹0" delta="CFO - CAPEX" trend="neutral" subtext="Self-funding expansion" icon="💎" />
-        <KpiCard label="Monthly Net Burn" value="₹0 (Profitable)" delta="Net Cash Flow +" trend="neutral" subtext="Self-sustaining" icon="🛡️" />
-        <KpiCard label="Cash Runway" value="0 Months" delta="Zero dilution needed" trend="neutral" subtext="Conservative buffer" icon="⏳" />
-        <KpiCard label="Operating Cash Ratio" value="0.0x" delta="High coverage" trend="neutral" subtext="CFO / Current Liab" icon="📈" />
+        <KpiCard label="Closing Cash Balance" value="₹8,84,00,000" delta="+₹25.75L MTD" trend="up" subtext="HDFC + ICICI + Axis" icon="🏦" />
+        <KpiCard label="Operating Cash (CFO)" value="+₹36,40,000" delta="106% EBITDA Conversion" trend="up" subtext="Strong cash conversion" icon="⚡" />
+        <KpiCard label="Free Cash Flow (FCF)" value="+₹28,15,000" delta="CFO - CAPEX" trend="up" subtext="Self-funding expansion" icon="💎" />
+        <KpiCard label="Monthly Net Burn" value="₹0 (Profitable)" delta="Zero Burn" trend="up" subtext="Self-sustaining" icon="🛡️" />
+        <KpiCard label="Cash Runway" value="14.2 Months" delta="Zero dilution needed" trend="up" subtext="Conservative buffer" icon="⏳" />
+        <KpiCard label="Operating Cash Ratio" value="2.82x" delta="High coverage" trend="up" subtext="CFO / Current Liab" icon="📈" />
       </div>
 
       <div style={{

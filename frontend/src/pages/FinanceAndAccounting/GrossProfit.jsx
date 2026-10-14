@@ -5,9 +5,31 @@ import KpiCard from '../shared/KpiCard';
 export default function GrossProfit() {
   const [viewBy, setViewBy] = useState('Department');
 
-  const departmentMargins = [];
+  const departmentMargins = [
+    { dept: 'Specialized Orthopedic Surgery', rev: '₹28,60,000', cogs: '₹10,20,000', gp: '₹18,40,000', margin: '64.3%', target: '60.0%', status: 'Exceeded' },
+    { dept: 'General Outpatient (OPD) Consults', rev: '₹32,40,000', cogs: '₹14,50,000', gp: '₹17,90,000', margin: '55.2%', target: '52.0%', status: 'Exceeded' },
+    { dept: 'In-House Veterinary Pharmacy', rev: '₹24,80,000', cogs: '₹12,02,000', gp: '₹12,78,000', margin: '51.5%', target: '48.0%', status: 'Exceeded' },
+    { dept: 'Pathology & Diagnostic Imaging', rev: '₹14,80,000', cogs: '₹5,74,000', gp: '₹9,06,000', margin: '61.2%', target: '55.0%', status: 'Exceeded' },
+    { dept: 'Emergency, Trauma & Critical Care', rev: '₹18,50,000', cogs: '₹7,65,000', gp: '₹10,85,000', margin: '58.6%', target: '54.0%', status: 'Exceeded' },
+    { dept: 'Oncology & Infusion Protocols', rev: '₹10,00,000', cogs: '₹3,90,000', gp: '₹6,10,000', margin: '61.0%', target: '58.0%', status: 'Exceeded' },
+    { dept: 'Veterinary Dental & Periodontal', rev: '₹4,80,000', cogs: '₹1,80,000', gp: '₹3,00,000', margin: '62.5%', target: '55.0%', status: 'Exceeded' },
+    { dept: 'Inpatient Hospitalization & Boarding', rev: '₹4,10,000', cogs: '₹1,50,000', gp: '₹2,60,000', margin: '63.4%', target: '50.0%', status: 'Exceeded' },
+    { dept: 'Clinical Nutrition & Diet Consultation', rev: '₹2,95,000', cogs: '₹1,40,000', gp: '₹1,55,000', margin: '52.5%', target: '45.0%', status: 'Exceeded' },
+    { dept: 'Physiotherapy & Hydrotherapy', rev: '₹1,90,000', cogs: '₹65,000', gp: '₹1,25,000', margin: '65.8%', target: '55.0%', status: 'Exceeded' }
+  ];
 
-  const unitEconomics = [];
+  const unitEconomics = [
+    { service: 'Tibial Plateau Leveling Osteotomy (TPLO)', avgPrice: '₹42,000', directCost: '₹14,800', contribution: '₹27,200', margin: '64.8%', volume: '38 cases/mo' },
+    { service: 'Comprehensive Blood Panel (IDEXX Catalyst)', avgPrice: '₹3,200', directCost: '₹1,150', contribution: '₹2,050', margin: '64.1%', volume: '480 tests/mo' },
+    { service: 'Digital Abdominal Ultrasound & Doppler', avgPrice: '₹3,800', directCost: '₹850', contribution: '₹2,950', margin: '77.6%', volume: '290 scans/mo' },
+    { service: 'Ultrasonic Dental Scaling & Polishing', avgPrice: '₹4,500', directCost: '₹1,400', contribution: '₹3,100', margin: '68.9%', volume: '95 cases/mo' },
+    { service: 'Puppy Complete Core Immunization Pack', avgPrice: '₹2,800', directCost: '₹1,180', contribution: '₹1,620', margin: '57.9%', volume: '420 packs/mo' },
+    { service: 'Canine Spay / Neuter (Laparoscopic)', avgPrice: '₹14,500', directCost: '₹4,600', contribution: '₹9,900', margin: '68.3%', volume: '115 cases/mo' },
+    { service: 'Emergency Gastrointestinal Foreign Body Removal', avgPrice: '₹36,000', directCost: '₹11,400', contribution: '₹24,600', margin: '68.3%', volume: '24 cases/mo' },
+    { service: 'Chemotherapy Protocol (Single Infusion)', avgPrice: '₹16,500', directCost: '₹5,800', contribution: '₹10,700', margin: '64.8%', volume: '32 cycles/mo' },
+    { service: 'Canine Hydrotherapy & Laser Rehab Session', avgPrice: '₹2,200', directCost: '₹550', contribution: '₹1,650', margin: '75.0%', volume: '140 sessions/mo' },
+    { service: 'Complex Fracture External Skeletal Fixation', avgPrice: '₹34,000', directCost: '₹11,800', contribution: '₹22,200', margin: '65.3%', volume: '22 cases/mo' }
+  ];
 
   return (
     <DashboardLayout
@@ -16,7 +38,7 @@ export default function GrossProfit() {
       title="Gross Profit & Contribution Margin Intelligence"
       subtitle="Unit economics by medical service, gross margin expansion across therapeutic specialties, and pricing leverage"
       icon="💎"
-      badge=""
+      badge="Margin: 56.0%"
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -38,12 +60,12 @@ export default function GrossProfit() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Gross Profit" value="₹0" delta="0.0%" trend="neutral" subtext="Revenue - COGS" icon="💎" />
-        <KpiCard label="Blended Gross Margin" value="0.0%" delta="0.0%" trend="neutral" subtext="Gross margin" icon="📈" />
-        <KpiCard label="Surgical Gross Margin" value="0.0%" delta="Highest margin unit" trend="neutral" subtext="Specialist OTs" icon="🩺" />
-        <KpiCard label="Diagnostics Margin" value="0.0%" delta="High capital efficiency" trend="neutral" subtext="In-house blood lab" icon="🔬" />
-        <KpiCard label="Pharmacy Gross Margin" value="0.0%" delta="0.0%" trend="neutral" subtext="Direct OEM sourcing" icon="💊" />
-        <KpiCard label="Price Realization Index" value="0" delta="0.0%" trend="neutral" subtext="Zero discounting in OTs" icon="🛡️" />
+        <KpiCard label="Total Gross Profit" value="₹80,00,000" delta="+15.9% vs Budget" trend="up" subtext="Revenue - COGS" icon="💎" />
+        <KpiCard label="Blended Gross Margin" value="56.0%" delta="+3.8% YoY" trend="up" subtext="Target: 52.0%" icon="📈" />
+        <KpiCard label="Surgical Gross Margin" value="64.3%" delta="Highest margin unit" trend="up" subtext="Specialist OTs" icon="🩺" />
+        <KpiCard label="Diagnostics Margin" value="61.2%" delta="High capital efficiency" trend="up" subtext="In-house blood lab" icon="🔬" />
+        <KpiCard label="Pharmacy Gross Margin" value="51.5%" delta="+3.5% YoY" trend="up" subtext="Direct OEM sourcing" icon="💊" />
+        <KpiCard label="Price Realization Index" value="102.4" delta="+2.4% price lever" trend="up" subtext="Zero discounting in OTs" icon="🛡️" />
       </div>
 
       <div style={{

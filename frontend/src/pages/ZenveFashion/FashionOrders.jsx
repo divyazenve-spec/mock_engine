@@ -7,7 +7,18 @@ export default function FashionOrders() {
   const [filterChannel, setFilterChannel] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const orders = [];
+  const orders = [
+    { orderId: 'ORD-F801', customer: 'Natasha Poonawalla', pet: 'Princess (Maltipoo)', items: 'Royal Brocade Pet Sherwani + Gold ID', channel: 'Bandra Boutique', customDetails: 'Gold Monogram "P"', value: '₹7,300', date: '2026-10-14', payment: 'Amex Centurion', status: 'In Tailoring' },
+    { orderId: 'ORD-F802', customer: 'Vikram Oberoi', pet: 'Thor (Golden Retriever)', items: 'Italian Leather Harness + Leash', channel: 'Online Store Drop', customDetails: 'Brass Nameplate Engraved', value: '₹6,850', date: '2026-10-14', payment: 'Razorpay CC', status: 'Dispatched' },
+    { orderId: 'ORD-F803', customer: 'Tanya Dubash', pet: 'Bella (Shih Tzu)', items: 'Cashmere Sweater + Linen Polo', channel: 'Indiranagar Studio', customDetails: 'Custom Back Length (32cm)', value: '₹5,100', date: '2026-10-13', payment: 'NetBanking', status: 'Delivered' },
+    { orderId: 'ORD-F804', customer: 'Rohit Singhania', pet: 'Simba (French Bulldog)', items: 'Velvet Evening Tuxedo & Bowtie', channel: 'Koramangala Lounge', customDetails: 'Silk Collar Initial "S"', value: '₹5,400', date: '2026-10-13', payment: 'POS Card', status: 'Delivered' },
+    { orderId: 'ORD-F805', customer: 'Meera Deora', pet: 'Coco (Persian Cat)', items: 'Merino Thermal Layer + Calfskin Collar', channel: 'Concierge Atelier', customDetails: 'Made-to-Measure Cat Pattern', value: '₹5,450', date: '2026-10-13', payment: 'UPI Instant', status: 'Delivered' },
+    { orderId: 'ORD-F806', customer: 'Kabir Wadia', pet: 'Ghost (Siberian Husky)', items: 'Alpine StormShield Trench (XXL)', channel: 'Bandra Boutique', customDetails: 'High-Vis Patch "GHOST"', value: '₹4,200', date: '2026-10-12', payment: 'Apple Pay', status: 'Delivered' },
+    { orderId: 'ORD-F807', customer: 'Ananya Birla', pet: 'Mochi (Pomeranian)', items: 'Monaco Linen Polo + Rose Gold Leash', channel: 'Online Store Drop', customDetails: 'Rose Gold Charm Engraving', value: '₹4,350', date: '2026-10-12', payment: 'Razorpay CC', status: 'Delivered' },
+    { orderId: 'ORD-F808', customer: 'Devika Ruia', pet: 'Zara (Beagle)', items: 'Orthopedic Rain Booties (Set of 4)', channel: 'Indiranagar Studio', customDetails: 'In-Store Paw Sizing Verified', value: '₹1,850', date: '2026-10-12', payment: 'UPI Instant', status: 'Delivered' },
+    { orderId: 'ORD-F809', customer: 'Siddharth Goenka', pet: 'Bruno (Labrador)', items: 'Alpine StormShield + Leather Harness', channel: 'Online Store Drop', customDetails: 'Reflective Name Stamping', value: '₹7,850', date: '2026-10-11', payment: 'Visa Infinite', status: 'Delivered' },
+    { orderId: 'ORD-F810', customer: 'Rhea Kapoor', pet: 'Leo (Toy Poodle)', items: 'Royal Brocade Sherwani + Velvet Bowtie', channel: 'Concierge Atelier', customDetails: 'Bridal Collection Custom Fit', value: '₹6,900', date: '2026-10-11', payment: 'Amex Platinum', status: 'Delivered' }
+  ];
 
   const filtered = orders.filter(o => {
     if (filterStatus !== 'ALL' && o.status !== filterStatus) return false;
@@ -37,11 +48,11 @@ export default function FashionOrders() {
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard label="Fashion Orders (MTD)" value="730 Orders" delta="+24.6% MoM" trend="up" subtext="Showroom & e-commerce" icon="🛍️" />
-        <KpiCard label="Average Order Value" value="₹0" delta="+₹0 FY25" trend="up" subtext="Bundled collar & harness" icon="💳" />
-        <KpiCard label="Monogram Customization" value="0.0%" delta="354 personalized items" trend="up" subtext="Custom name embroidery" icon="✨" />
-        <KpiCard label="In-Store Trial Conversion" value="0.0%" delta="+4.1% conversion" trend="up" subtext="Pet dressing rooms" icon="🐕" />
+        <KpiCard label="Average Order Value" value="₹6,650" delta="+₹820 vs FY25" trend="up" subtext="Bundled collar & harness" icon="💳" />
+        <KpiCard label="Monogram Customization" value="48.5%" delta="354 personalized items" trend="up" subtext="Custom name embroidery" icon="✨" />
+        <KpiCard label="In-Store Trial Conversion" value="68.2%" delta="+4.1% conversion" trend="up" subtext="Pet dressing rooms" icon="🐕" />
         <KpiCard label="Atelier Turnaround (TAT)" value="4.8 Days" delta="-1.2d faster" trend="up" subtext="Bespoke made-to-measure" icon="⏱️" />
-        <KpiCard label="On-Time Delivery Rate" value="0.0%" delta="Zero transit damage" trend="up" subtext="Luxury packaging" icon="📦" />
+        <KpiCard label="On-Time Delivery Rate" value="99.4%" delta="Zero transit damage" trend="up" subtext="Luxury packaging" icon="📦" />
       </div>
 
       <div style={card}>

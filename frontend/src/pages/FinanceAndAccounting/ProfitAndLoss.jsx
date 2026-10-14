@@ -5,7 +5,18 @@ import KpiCard from '../shared/KpiCard';
 export default function ProfitAndLoss() {
   const [period, setPeriod] = useState('FY 2026-27 Q2');
 
-  const pnlWaterfall = [];
+  const pnlWaterfall = [
+    { code: 'REV-01', line: 'Gross Clinical Outpatient (OPD) Consultations', type: 'Revenue', actual: '₹54,20,000', budget: '₹50,00,000', var: '+8.4%', pctOfRev: '37.9%' },
+    { code: 'REV-02', line: 'Inpatient Surgical & Orthopedic Case Fees', type: 'Revenue', actual: '₹38,60,000', budget: '₹35,00,000', var: '+10.3%', pctOfRev: '27.0%' },
+    { code: 'REV-03', line: 'Pharmacy & Cold-Chain Biological Sales', type: 'Revenue', actual: '₹28,45,000', budget: '₹26,50,000', var: '+7.4%', pctOfRev: '19.9%' },
+    { code: 'REV-04', line: 'In-House Diagnostic Pathology & Ultrasound Scans', type: 'Revenue', actual: '₹14,80,000', budget: '₹14,00,000', var: '+5.7%', pctOfRev: '10.4%' },
+    { code: 'REV-05', line: 'B2B Corporate Wellness & Kennel Health Contracts', type: 'Revenue', actual: '₹6,80,000', budget: '₹6,50,000', var: '+4.6%', pctOfRev: '4.8%' },
+    { code: 'TOT-REV', line: 'Consolidated Gross Operating Revenue', type: 'KeyResult', actual: '₹1,42,85,000', budget: '₹1,32,00,000', var: '+8.2%', pctOfRev: '100.0%' },
+    { code: 'COG-01', line: 'Direct Pharmaceuticals, Titanium Implants & Consumables', type: 'COGS', actual: '₹62,85,000', budget: '₹63,00,000', var: '-0.2%', pctOfRev: '44.0%' },
+    { code: 'TOT-GP', line: 'Gross Operating Profit (Gross Margin)', type: 'KeyResult', actual: '₹80,00,000', budget: '₹69,00,000', var: '+15.9%', pctOfRev: '56.0%' },
+    { code: 'OPX-01', line: 'Staffing, Leases, Bio-Waste & Admin Overheads', type: 'OPEX', actual: '₹45,71,600', budget: '₹45,00,000', var: '+1.6%', pctOfRev: '32.0%' },
+    { code: 'NET-PAT', line: 'Net Profit After Tax (PAT)', type: 'KeyResult', actual: '₹26,10,200', budget: '₹18,00,000', var: '+45.0%', pctOfRev: '18.3%' }
+  ];
 
   return (
     <DashboardLayout
@@ -14,7 +25,7 @@ export default function ProfitAndLoss() {
       title="Profit & Loss Statement (P&L / Income Statement)"
       subtitle="Audited GAAP & Ind-AS income statement, operating revenue streams, cost absorption, and net profit margins"
       icon="📈"
-      badge=""
+      badge="PAT Margin: 18.3%"
       actions={
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <select
@@ -52,12 +63,12 @@ export default function ProfitAndLoss() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Gross Revenue" value="₹0" delta="0.0%" trend="neutral" subtext="Top line" icon="💰" />
-        <KpiCard label="Cost of Goods Sold" value="₹0" delta="0.0%" trend="neutral" subtext="Cost of goods" icon="📦" />
-        <KpiCard label="Gross Profit" value="₹0" delta="0.0%" trend="neutral" subtext="Gross margin" icon="📊" />
-        <KpiCard label="Operating OPEX" value="₹0" delta="0.0%" trend="neutral" subtext="Disciplined burn" icon="🏢" />
-        <KpiCard label="Operating EBITDA" value="₹0" delta="0.0%" trend="neutral" subtext="EBITDA margin" icon="⚡" />
-        <KpiCard label="Net Profit (PAT)" value="₹0" delta="0.0%" trend="neutral" subtext="Clean net earnings" icon="🏆" />
+        <KpiCard label="Gross Revenue" value="₹1,42,85,000" delta="+18.4%" trend="up" subtext="Top line inflow" icon="💰" />
+        <KpiCard label="Cost of Goods Sold" value="₹62,85,000" delta="44.0% of rev" trend="down" subtext="Direct medical cost" icon="📦" />
+        <KpiCard label="Gross Profit" value="₹80,00,000" delta="+56.0% margin" trend="up" subtext="Gross contribution" icon="📊" />
+        <KpiCard label="Operating OPEX" value="₹45,71,600" delta="32.0% burn" trend="neutral" subtext="Controlled overheads" icon="🏢" />
+        <KpiCard label="Operating EBITDA" value="₹34,28,400" delta="+24.0% margin" trend="up" subtext="Operating surplus" icon="⚡" />
+        <KpiCard label="Net Profit (PAT)" value="₹26,10,200" delta="+18.3% margin" trend="up" subtext="Clean net earnings" icon="🏆" />
       </div>
 
       <div style={{

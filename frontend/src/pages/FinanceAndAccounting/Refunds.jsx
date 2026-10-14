@@ -5,7 +5,18 @@ import KpiCard from '../shared/KpiCard';
 export default function Refunds() {
   const [filterReason, setFilterReason] = useState('ALL');
 
-  const refunds = [];
+  const refunds = [
+    { id: 'REF-201', invId: 'INV-2026-880', client: 'Geeta Krishnan (Rusty - Beagle)', amt: '₹1,200', reason: 'Consult Rescheduled - Emergency Conflict', rail: 'Razorpay UPI', time: 'Today 09:30 AM', status: 'Refunded' },
+    { id: 'REF-202', invId: 'INV-2026-874', client: 'Rahul Nair (Simba - Golden Retriever)', amt: '₹6,800', reason: 'Pharmacy Unopened Renal Diet Return', rail: 'Original Card Rail', time: 'Yesterday', status: 'Refunded' },
+    { id: 'REF-203', invId: 'INV-2026-869', client: 'Sneha Kapoor (Bella - Persian Cat)', amt: '₹4,500', reason: 'Duplicate Front-Desk POS Tap', rail: 'Pine Labs Reversal', time: 'Yesterday', status: 'Settled' },
+    { id: 'REF-204', invId: 'INV-2026-855', client: 'Arun Varma (Rocky - Rottweiler)', amt: '₹12,000', reason: 'Pre-Op Deposit Adjustment Post-Surgery', rail: 'NEFT Account Sweep', time: 'Oct 11, 2026', status: 'Refunded' },
+    { id: 'REF-205', invId: 'INV-2026-848', client: 'Kavita Menon (Leo - Shih Tzu)', amt: '₹2,500', reason: 'Vaccine Cold-chain Delivery Delay Credit', rail: 'PhonePe UPI', time: 'Oct 10, 2026', status: 'Refunded' },
+    { id: 'REF-206', invId: 'INV-2026-832', client: 'Aditya Sen (Milo - Indie Pup)', amt: '₹1,800', reason: 'OPD Consultation Doctor Out of Station', rail: 'Razorpay UPI', time: 'Oct 09, 2026', status: 'Refunded' },
+    { id: 'REF-207', invId: 'INV-2026-820', client: 'Deepak Joshi (Thor - German Shepherd)', amt: '₹19,500', reason: 'Duplicate POS Debit Gateway Timeout', rail: 'HDFC PG Reversal', time: 'Oct 08, 2026', status: 'Settled' },
+    { id: 'REF-208', invId: 'INV-2026-811', client: 'Sunita Rao (Zoe - Cocker Spaniel)', amt: '₹8,200', reason: 'Unused Surgical Implant Exchange Return', rail: 'Original Card Rail', time: 'Oct 06, 2026', status: 'Refunded' },
+    { id: 'REF-209', invId: 'INV-2026-795', client: 'Farhan Akhtar (Bruno - Boxer)', amt: '₹3,400', reason: 'Telemetry ECG Artifact Cancellation', rail: 'Razorpay UPI', time: 'Oct 04, 2026', status: 'Refunded' },
+    { id: 'REF-210', invId: 'INV-2026-788', client: 'Divya Nambisan (Coco - Dachshund)', amt: '₹14,600', reason: 'Insurance Pre-Auth Settlement Overcharge', rail: 'NEFT Client Sweep', time: 'Oct 02, 2026', status: 'Refunded' }
+  ];
 
   return (
     <DashboardLayout
@@ -14,15 +25,15 @@ export default function Refunds() {
       title="Refunds, Reversals & Dispute Resolution"
       subtitle="Chargeback dispute defense, automated reversal processing, medication return audit, and customer credit ledger"
       icon="🔄"
-      badge=""
+      badge="0.59% Refund Rate"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Processed Refunds" value="₹0" delta="--" trend="neutral" subtext="No refunds recorded" icon="🔄" />
-        <KpiCard label="Cancelled OPD Consults" value="₹0" delta="--" trend="neutral" subtext="No cancellations" icon="📅" />
-        <KpiCard label="Pharmacy Sealed Returns" value="₹0" delta="--" trend="neutral" subtext="No returns" icon="💊" />
-        <KpiCard label="Duplicate POS Swipes" value="₹0" delta="--" trend="neutral" subtext="No reversals" icon="💳" />
-        <KpiCard label="Avg Dispute TAT" value="--" delta="--" trend="neutral" subtext="No disputes" icon="⏱️" />
-        <KpiCard label="Chargeback Loss Rate" value="0.0%" delta="--" trend="neutral" subtext="0 chargebacks" icon="🛡️" />
+        <KpiCard label="Total Processed Refunds" value="₹84,500" delta="0.59% of revenue" trend="up" subtext="Across 10 audited cases" icon="🔄" />
+        <KpiCard label="Cancelled OPD Consults" value="₹18,500" delta="Doctor rescheduling" trend="neutral" subtext="Instant automated credit" icon="📅" />
+        <KpiCard label="Pharmacy Sealed Returns" value="₹32,000" delta="Sealed batch checked" trend="up" subtext="Within 7-day policy" icon="💊" />
+        <KpiCard label="Duplicate POS Swipes" value="₹24,000" delta="Bank gateway sync" trend="up" subtext="100% resolved in 24h" icon="💳" />
+        <KpiCard label="Avg Dispute TAT" value="4.2 Hours" delta="-1.5h MoM" trend="up" subtext="Industry benchmark 48h" icon="⏱️" />
+        <KpiCard label="Chargeback Loss Rate" value="0.02%" delta="Minimal dispute loss" trend="up" subtext="Full evidence trail" icon="🛡️" />
       </div>
 
       <div style={{
@@ -36,7 +47,7 @@ export default function Refunds() {
             <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#fff' }}>📋 Customer Refunds & Disputed Reversals Log</h3>
             <p style={{ margin: '3px 0 0', fontSize: '12px', color: 'var(--muted-foreground, #94a3b8)' }}>Audited clinical refunds linked directly to original tax invoices</p>
           </div>
-          <span style={{ fontSize: '11px', color: 'var(--muted-foreground, #94a3b8)', fontWeight: 600 }}>0 Active Disputes</span>
+          <span style={{ fontSize: '11px', color: '#10b981', fontWeight: 600 }}>10 Audited Records</span>
         </div>
 
         <div style={{ overflowX: 'auto', margin: '0 -24px -22px' }}>

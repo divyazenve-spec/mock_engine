@@ -5,9 +5,27 @@ import KpiCard from '../shared/KpiCard';
 export default function CostAnalysis() {
   const [costModel, setCostModel] = useState('Activity-Based');
 
-  const activityCosts = [];
+  const activityCosts = [
+    { activity: 'General Outpatient Consultation', type: 'Outpatient Care', unitCost: '₹280', benchmark: '₹450', variance: '-37.8%', efficiency: 'Tier-1 Leader' },
+    { activity: 'Canine TPLO Knee Reconstruction', type: 'Surgical Theatre', unitCost: '₹16,400', benchmark: '₹22,000', variance: '-25.5%', efficiency: 'High Margin' },
+    { activity: 'Abdominal Ultrasound Sonography', type: 'Diagnostic Imaging', unitCost: '₹620', benchmark: '₹950', variance: '-34.7%', efficiency: 'Optimal Asset Use' },
+    { activity: 'Automated Complete Blood Count (CBC)', type: 'Pathology Lab', unitCost: '₹145', benchmark: '₹220', variance: '-34.1%', efficiency: 'IDEXX High Volume' },
+    { activity: 'Overnight ICU Inpatient Bed-Day', type: 'Inpatient Critical Care', unitCost: '₹1,850', benchmark: '₹2,600', variance: '-28.8%', efficiency: 'Staff Shift Optimal' },
+    { activity: 'Dental Ultrasonic Scaling & Polishing', type: 'Preventive Care', unitCost: '₹890', benchmark: '₹1,400', variance: '-36.4%', efficiency: 'Automated Suite' },
+    { activity: 'High-Resolution Brain MRI Scan', type: 'Advanced Radiology', unitCost: '₹4,200', benchmark: '₹6,000', variance: '-30.0%', efficiency: 'In-house Magnet' },
+    { activity: 'Emergency Gastric Decompression & Surgery', type: 'Emergency Care', unitCost: '₹18,500', benchmark: '₹25,000', variance: '-26.0%', efficiency: 'Critical Response' },
+    { activity: 'Chemotherapy Intravenous Infusion', type: 'Oncology Services', unitCost: '₹2,900', benchmark: '₹4,200', variance: '-31.0%', efficiency: 'Bio-Safety Cabinet' },
+    { activity: 'Canine/Feline Core Annual Vaccination', type: 'Wellness Program', unitCost: '₹320', benchmark: '₹500', variance: '-36.0%', efficiency: 'Central Cold-Chain Bulk' }
+  ];
 
-  const costStructure = [];
+  const costStructure = [
+    { category: 'Clinical Staff Salaries (Permanent)', pct: '31.5%', monthlyAmt: '₹34,20,000', behavior: 'Fixed: 14 hospitals minimum staffing ratio' },
+    { category: 'Direct Surgical Consumables & Implants', pct: '28.2%', monthlyAmt: '₹30,62,000', behavior: 'Variable: Scales strictly with surgical caseload' },
+    { category: 'Facility Rent & Hospital Leases', pct: '10.6%', monthlyAmt: '₹11,50,000', behavior: 'Fixed: Long-term lease agreements across metros' },
+    { category: 'Pharmaceuticals & Cold-chain Vaccines', pct: '18.5%', monthlyAmt: '₹20,08,000', behavior: 'Semi-Variable: High inventory turn with buffer stock' },
+    { category: 'Medical Diagnostics Reagents & AMCs', pct: '6.8%', monthlyAmt: '₹7,38,000', behavior: 'Semi-Variable: Baseline commit + pay-per-test' },
+    { category: 'Cloud Infrastructure & Digital Telehealth', pct: '4.4%', monthlyAmt: '₹4,78,000', behavior: 'Variable: AWS serverless consumption & EHR licenses' }
+  ];
 
   return (
     <DashboardLayout
@@ -38,12 +56,12 @@ export default function CostAnalysis() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Network Monthly Breakeven" value="₹0" delta="Actual: ₹0" trend="neutral" subtext="No breakeven data" icon="⚖️" />
-        <KpiCard label="Margin of Safety" value="0.0%" delta="0.0%" trend="neutral" subtext="Substantial cushion" icon="🛡️" />
-        <KpiCard label="Cost / Inpatient Bed-Day" value="₹0" delta="0.0%" trend="neutral" subtext="Optimized nurse-to-pet ratio" icon="🛏️" />
-        <KpiCard label="Cost / Surgical OT Hour" value="₹0 / hr" delta="High throughput" trend="neutral" subtext="Operating theatres" icon="🩺" />
-        <KpiCard label="Fixed Cost Ratio" value="0.0%" delta="Lean real estate" trend="neutral" subtext="₹0 fixed base" icon="🏢" />
-        <KpiCard label="Variable Cost Ratio" value="0.0%" delta="High elasticity" trend="neutral" subtext="Low risk capital model" icon="📉" />
+        <KpiCard label="Network Monthly Breakeven" value="₹87,80,000" delta="Actual: ₹1,42,85,000" trend="up" subtext="61.5% capacity achieved" icon="⚖️" />
+        <KpiCard label="Margin of Safety" value="38.5%" delta="+4.2% pts" trend="up" subtext="Substantial cushion" icon="🛡️" />
+        <KpiCard label="Cost / Inpatient Bed-Day" value="₹1,850" delta="-6.2% vs BM" trend="up" subtext="Optimized nurse-to-pet ratio" icon="🛏️" />
+        <KpiCard label="Cost / Surgical OT Hour" value="₹3,400 / hr" delta="High throughput" trend="up" subtext="Operating theatres" icon="🩺" />
+        <KpiCard label="Fixed Cost Ratio" value="31.5%" delta="Lean real estate" trend="up" subtext="₹34.2L fixed base" icon="🏢" />
+        <KpiCard label="Variable Cost Ratio" value="68.5%" delta="High elasticity" trend="up" subtext="Low risk capital model" icon="📉" />
       </div>
 
       <div style={{

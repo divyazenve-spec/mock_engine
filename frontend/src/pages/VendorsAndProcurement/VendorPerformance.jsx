@@ -5,7 +5,18 @@ import KpiCard from '../shared/KpiCard';
 export default function VendorPerformance() {
   const [sortBy, setSortBy] = useState('score');
 
-  const vendors = [];
+  const vendors = [
+    { name: 'Zoetis Animal Health India', onTime: 99.2, quality: 99.8, fillRate: 98.6, defect: 0.02, lead: '2.1d', compliance: 100, score: 99.2, trend: 'up' },
+    { name: 'MSD Animal Health Pvt Ltd', onTime: 98.9, quality: 99.5, fillRate: 98.2, defect: 0.03, lead: '2.4d', compliance: 100, score: 98.7, trend: 'up' },
+    { name: 'Royal Canin India Pvt Ltd', onTime: 98.4, quality: 99.6, fillRate: 97.8, defect: 0.04, lead: '3.2d', compliance: 99, score: 98.1, trend: 'up' },
+    { name: 'Boehringer Ingelheim Vet', onTime: 98.1, quality: 99.4, fillRate: 97.4, defect: 0.03, lead: '2.8d', compliance: 99, score: 97.8, trend: 'up' },
+    { name: "Hill's Pet Nutrition India", onTime: 97.8, quality: 99.1, fillRate: 96.9, defect: 0.05, lead: '3.5d', compliance: 98, score: 97.2, trend: 'up' },
+    { name: 'Synthes Vet Orthopedics', onTime: 96.5, quality: 99.7, fillRate: 95.8, defect: 0.04, lead: '4.1d', compliance: 98, score: 96.4, trend: 'neutral' },
+    { name: 'Farmina Pet Foods India', onTime: 97.2, quality: 98.9, fillRate: 96.2, defect: 0.06, lead: '3.0d', compliance: 97, score: 96.1, trend: 'up' },
+    { name: 'Virbac Animal Health India', onTime: 97.5, quality: 99.0, fillRate: 96.5, defect: 0.05, lead: '2.7d', compliance: 98, score: 96.3, trend: 'up' },
+    { name: 'Intas Pharmaceuticals Vet', onTime: 96.8, quality: 98.7, fillRate: 95.4, defect: 0.07, lead: '3.8d', compliance: 97, score: 95.6, trend: 'neutral' },
+    { name: 'Purina PetCare India', onTime: 96.1, quality: 98.5, fillRate: 94.8, defect: 0.08, lead: '4.2d', compliance: 96, score: 95.1, trend: 'up' }
+  ];
 
   const sorted = [...vendors].sort((a, b) => b[sortBy] - a[sortBy]);
   const card = { background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(255,255,255,0.08))', borderRadius: '12px', padding: '22px 24px' };
@@ -22,12 +33,12 @@ export default function VendorPerformance() {
       badge="Monthly Scorecard"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Avg. On-Time Delivery" value="0.0%" delta="+1.2% MoM" trend="up" subtext="Across all vendors" icon="⏱️" />
-        <KpiCard label="Avg. Fill Rate" value="0.0%" delta="+0.8% MoM" trend="up" subtext="Order fulfillment" icon="📦" />
-        <KpiCard label="Avg. Defect Rate" value="0.0%" delta="-0.04% MoM" trend="up" subtext="Quality compliance" icon="🎯" />
-        <KpiCard label="Avg. Lead Time" value="6.2 Days" delta="-0.5d improvement" trend="up" subtext="Order to receipt" icon="🚛" />
-        <KpiCard label="Preferred Vendor SLA" value="0.0%" delta="MSD, Zoetis, BI" trend="up" subtext="Top 3 performers" icon="⭐" />
-        <KpiCard label="Vendors Below Target" value="2 Vendors" delta="Below 94% threshold" trend="down" subtext="Improvement notices sent" icon="⚠️" />
+        <KpiCard label="Avg. On-Time Delivery" value="98.4%" delta="+1.2% MoM" trend="up" subtext="Across all vendors" icon="⏱️" />
+        <KpiCard label="Avg. Fill Rate" value="97.2%" delta="+0.8% MoM" trend="up" subtext="Order fulfillment" icon="📦" />
+        <KpiCard label="Avg. Defect Rate" value="0.04%" delta="-0.02% MoM" trend="up" subtext="Quality compliance" icon="🎯" />
+        <KpiCard label="Avg. Lead Time" value="3.1 Days" delta="-0.5d improvement" trend="up" subtext="Order to receipt" icon="🚛" />
+        <KpiCard label="Preferred Vendor SLA" value="99.2%" delta="Zoetis, MSD, RC" trend="up" subtext="Top 3 performers" icon="⭐" />
+        <KpiCard label="Vendors Below Target" value="0 Vendors" delta="100% >= 95% threshold" trend="up" subtext="Zero penalty notices" icon="✅" />
       </div>
 
       <div style={card}>
@@ -66,7 +77,7 @@ export default function VendorPerformance() {
                   <td style={{ padding: '11px 12px' }}>
                     <span style={{ padding: '3px 10px', borderRadius: '6px', background: scoreColor(v.score) + '22', color: scoreColor(v.score), fontSize: '12px', fontWeight: 700, fontFamily: '"IBM Plex Mono", monospace' }}>{v.score}</span>
                   </td>
-                  <td style={{ padding: '11px 12px', fontSize: '14px' }}>{v.trend === 'up' ? '▲' : v.trend === 'down' ? '▼' : '●'}</td>
+                  <td style={{ padding: '11px 12px', fontSize: '14px', color: v.trend === 'up' ? '#34d399' : '#94a3b8' }}>{v.trend === 'up' ? '▲' : '●'}</td>
                 </tr>
               ))}
             </tbody>

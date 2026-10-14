@@ -5,9 +5,31 @@ import KpiCard from '../shared/KpiCard';
 export default function NetProfit() {
   const [period, setPeriod] = useState('Current Quarter');
 
-  const netProfitSteps = [];
+  const netProfitSteps = [
+    { step: 'Gross Invoiced Revenue', note: 'Combined veterinary consultations, surgery, pharmacy & diagnostics', amt: '₹1,42,85,000', margin: '100.0%', isKey: true },
+    { step: 'Direct Cost of Goods Sold (COGS)', note: 'Pharmaceuticals, surgical consumables, implants, lab reagents', amt: '-₹62,85,000', margin: '-44.0%', isKey: false },
+    { step: 'Gross Profit', note: 'Trading surplus generated directly by clinical care teams', amt: '₹80,00,000', margin: '56.0%', isKey: true },
+    { step: 'Operating Expenses (OPEX)', note: 'Clinical payroll, facility lease, utilities, digital cloud, marketing', amt: '-₹45,71,600', margin: '-32.0%', isKey: false },
+    { step: 'Operating EBITDA', note: 'Core earnings before financing, tax, and capital write-offs', amt: '₹34,28,400', margin: '24.0%', isKey: true },
+    { step: 'Depreciation & Amortization (D&A)', note: 'MRI, CT-64, ultrasound machines, surgery suites & hospital fixtures', amt: '-₹3,18,133', margin: '-2.2%', isKey: false },
+    { step: 'Operating Profit (EBIT)', note: 'Earnings before interest & tax from ongoing veterinary operations', amt: '₹31,10,267', margin: '21.8%', isKey: false },
+    { step: 'Finance Cost & Debt Servicing', note: 'Working capital OD interest, hospital equipment lease term loans', amt: '-₹1,80,000', margin: '-1.3%', isKey: false },
+    { step: 'Other Non-Operating Income', note: 'Treasury yields, vendor volume rebates & bio-waste recycling credit', amt: '+₹5,50,000', margin: '+3.9%', isKey: false },
+    { step: 'Net Profit After Tax (PAT)', note: 'Statutory bottom line surplus retained for clinic expansion', amt: '₹26,10,200', margin: '18.3%', isKey: true }
+  ];
 
-  const quarterlyPAT = [];
+  const quarterlyPAT = [
+    { quarter: 'FY24 Q1', rev: '₹92,50,000', pat: '₹11,10,000', margin: '12.0%', eps: '₹7.40' },
+    { quarter: 'FY24 Q2', rev: '₹98,20,000', pat: '₹12,76,600', margin: '13.0%', eps: '₹8.51' },
+    { quarter: 'FY24 Q3', rev: '₹1,04,50,000', pat: '₹14,63,000', margin: '14.0%', eps: '₹9.75' },
+    { quarter: 'FY24 Q4', rev: '₹1,12,00,000', pat: '₹16,80,000', margin: '15.0%', eps: '₹11.20' },
+    { quarter: 'FY25 Q1', rev: '₹1,18,40,000', pat: '₹18,35,200', margin: '15.5%', eps: '₹12.23' },
+    { quarter: 'FY25 Q2', rev: '₹1,24,60,000', pat: '₹20,55,900', margin: '16.5%', eps: '₹13.71' },
+    { quarter: 'FY25 Q3', rev: '₹1,31,20,000', pat: '₹22,96,000', margin: '17.5%', eps: '₹15.31' },
+    { quarter: 'FY25 Q4', rev: '₹1,38,00,000', pat: '₹24,84,000', margin: '18.0%', eps: '₹16.56' },
+    { quarter: 'FY26 Q1', rev: '₹1,40,50,000', pat: '₹25,57,100', margin: '18.2%', eps: '₹17.05' },
+    { quarter: 'FY26 Q2 (Current)', rev: '₹1,42,85,000', pat: '₹26,10,200', margin: '18.3%', eps: '₹17.40' }
+  ];
 
   return (
     <DashboardLayout
@@ -38,12 +60,12 @@ export default function NetProfit() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Net Profit (PAT)" value="₹0" delta="0.0%" trend="neutral" subtext="Current month surplus" icon="🏆" />
-        <KpiCard label="Net Profit Margin" value="0.0%" delta="0.0%" trend="neutral" subtext="Net margin" icon="📈" />
-        <KpiCard label="Profit Before Tax (PBT)" value="₹0" delta="0.0%" trend="neutral" subtext="Operating surplus" icon="💼" />
-        <KpiCard label="Effective Tax Rate" value="0.0%" delta="--" trend="neutral" subtext="Standard corporate slab" icon="🏛️" />
-        <KpiCard label="Annualized PAT Run-rate" value="₹0" delta="0.0%" trend="neutral" subtext="For hospital builds" icon="🏗️" />
-        <KpiCard label="Earnings Per Share (EPS)" value="₹0 / share" delta="0.0%" trend="neutral" subtext="Common shares" icon="💎" />
+        <KpiCard label="Net Profit (PAT)" value="₹26,10,200" delta="+14.8% YoY" trend="up" subtext="Current month surplus" icon="🏆" />
+        <KpiCard label="Net Profit Margin" value="18.3%" delta="+2.8% pts" trend="up" subtext="Net margin" icon="📈" />
+        <KpiCard label="Profit Before Tax (PBT)" value="₹34,80,267" delta="+13.5% YoY" trend="up" subtext="Operating surplus" icon="💼" />
+        <KpiCard label="Effective Tax Rate" value="25.0%" delta="Stable" trend="neutral" subtext="Standard corporate slab" icon="🏛️" />
+        <KpiCard label="Annualized PAT Run-rate" value="₹3.13 Cr" delta="+14.8%" trend="up" subtext="For hospital builds" icon="🏗️" />
+        <KpiCard label="Earnings Per Share (EPS)" value="₹17.40 / share" delta="+12.4%" trend="up" subtext="Common shares" icon="💎" />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '20px' }}>

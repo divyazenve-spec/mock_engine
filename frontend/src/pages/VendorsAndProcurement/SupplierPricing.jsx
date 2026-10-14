@@ -6,9 +6,24 @@ export default function SupplierPricing() {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const pricingData = [];
+  const pricingData = [
+    { sku: 'SKU-ZOE-01', name: 'Vanguard Plus 5/CV-L (25 Doses)', vendor: 'Zoetis Animal Health', category: 'Vaccines & Biologics', msrp: '₹8,500', contractedPrice: '₹6,120', discountPct: 28.0, minOrderQty: '20 packs', priceLockUntil: '2027-03-31', parityStatus: 'Best Price' },
+    { sku: 'SKU-ZOE-02', name: 'Apoquel 16mg (100 Tabs)', vendor: 'Zoetis Animal Health', category: 'Rx Therapeutics', msrp: '₹6,200', contractedPrice: '₹4,650', discountPct: 25.0, minOrderQty: '10 btls', priceLockUntil: '2027-03-31', parityStatus: 'Exclusive' },
+    { sku: 'SKU-MSD-01', name: 'Bravecto Chewable 20-40kg', vendor: 'MSD Animal Health', category: 'Antiparasitic & Rx', msrp: '₹2,850', contractedPrice: '₹2,080', discountPct: 27.0, minOrderQty: '30 packs', priceLockUntil: '2027-03-31', parityStatus: 'Best Price' },
+    { sku: 'SKU-MSD-02', name: 'Nobivac DHPPi + Lepto (50 Doses)', vendor: 'MSD Animal Health', category: 'Vaccines & Biologics', msrp: '₹12,000', contractedPrice: '₹8,760', discountPct: 27.0, minOrderQty: '15 packs', priceLockUntil: '2027-03-31', parityStatus: 'Best Price' },
+    { sku: 'SKU-RC-01', name: 'Royal Canin Gastrointestinal 15kg', vendor: 'Royal Canin India', category: 'Veterinary Nutrition', msrp: '₹10,200', contractedPrice: '₹7,750', discountPct: 24.0, minOrderQty: '25 bags', priceLockUntil: '2026-12-31', parityStatus: 'Review Due' },
+    { sku: 'SKU-RC-02', name: 'Royal Canin Hepatic Canine 12kg', vendor: 'Royal Canin India', category: 'Veterinary Nutrition', msrp: '₹8,900', contractedPrice: '₹6,850', discountPct: 23.0, minOrderQty: '20 bags', priceLockUntil: '2026-12-31', parityStatus: 'Review Due' },
+    { sku: 'SKU-BI-01', name: 'NexGard Spectra Large 15-30kg', vendor: 'Boehringer Ingelheim', category: 'Antiparasitic & Rx', msrp: '₹3,100', contractedPrice: '₹2,290', discountPct: 26.1, minOrderQty: '25 packs', priceLockUntil: '2027-06-30', parityStatus: 'Best Price' },
+    { sku: 'SKU-SYN-01', name: 'TPLO Titanium Locking Plate 3.5mm', vendor: 'Synthes Vet Orthopedics', category: 'Surgical Implants', msrp: '₹14,500', contractedPrice: '₹10,440', discountPct: 28.0, minOrderQty: '5 kits', priceLockUntil: '2027-06-30', parityStatus: 'Exclusive' },
+    { sku: 'SKU-HIL-01', name: "Hill's Prescription Diet k/d 12kg", vendor: "Hill's Pet Nutrition", category: 'Veterinary Nutrition', msrp: '₹9,400', contractedPrice: '₹7,240', discountPct: 23.0, minOrderQty: '20 bags', priceLockUntil: '2027-03-31', parityStatus: 'Negotiated' },
+    { sku: 'SKU-INT-01', name: 'Melonex Oral Suspension 100ml', vendor: 'Intas Pharmaceuticals', category: 'Generic APIs & NSAID', msrp: '₹420', contractedPrice: '₹265', discountPct: 36.9, minOrderQty: '50 btls', priceLockUntil: '2027-03-31', parityStatus: 'Best Price' }
+  ];
 
-  const volumeTiers = [];
+  const volumeTiers = [
+    { tier: 'Tier 1: Core Institutional', qtyRange: '10 - 25 units / Hub', discount: '20% - 25% Off MSRP', paymentTerms: 'Net 30 Days' },
+    { tier: 'Tier 2: Network Bulk Consolidation', qtyRange: '26 - 100 units / Hub', discount: '26% - 30% Off MSRP + 2% QBR Rebate', paymentTerms: '2/10 Net 30' },
+    { tier: 'Tier 3: Enterprise Annual Master', qtyRange: '> 100 units / Direct', discount: '31% - 38% Off MSRP + 3.5% Annual Bonus', paymentTerms: '2/10 Net 45' }
+  ];
 
   const filtered = pricingData.filter(item => {
     if (selectedCategory !== 'ALL' && item.category !== selectedCategory) return false;
@@ -47,11 +62,11 @@ export default function SupplierPricing() {
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard label="Contracted SKUs" value="1,420 Items" delta="100% price locked" trend="up" subtext="Under master agreements" icon="📋" />
-        <KpiCard label="Avg. Discount vs MSRP" value="0.0%" delta="+2.4% vs FY25" trend="up" subtext="Network-wide average" icon="🏷️" />
-        <KpiCard label="Active Price Locks" value="0.0%" delta="Protected through FY27" trend="up" subtext="Inflation hedge" icon="🔒" />
-        <KpiCard label="Price Reviews Due (<60d)" value="2 Agreements" delta="Royal Canin Nutrition" trend="neutral" subtext="Renewal negotiations scheduled" icon="⏳" />
-        <KpiCard label="Generic Arbitrage Margin" value="0.0%" delta="+12.8% vs branded" trend="up" subtext="NSAIDs & Antibiotics" icon="💊" />
-        <KpiCard label="Enterprise Volume Rebate" value="₹0" delta="Earned YTD" trend="up" subtext="Tier 2 & 3 order bonuses" icon="💵" />
+        <KpiCard label="Avg. Discount vs MSRP" value="26.8%" delta="+2.4% vs FY25" trend="up" subtext="Network-wide average" icon="🏷️" />
+        <KpiCard label="Active Price Locks" value="94.2%" delta="Protected through FY27" trend="up" subtext="Inflation hedge" icon="🔒" />
+        <KpiCard label="Price Reviews Due (<60d)" value="2 Agreements" delta="Royal Canin & Farmina" trend="neutral" subtext="Renewal negotiations scheduled" icon="⏳" />
+        <KpiCard label="Generic Arbitrage Margin" value="35.3%" delta="+12.8% vs branded" trend="up" subtext="NSAIDs & Antibiotics" icon="💊" />
+        <KpiCard label="Enterprise Volume Rebate" value="₹1.68 Lakhs" delta="Earned YTD" trend="up" subtext="Tier 2 & 3 order bonuses" icon="💵" />
       </div>
 
       {/* Volume Tier Matrix */}
@@ -94,7 +109,6 @@ export default function SupplierPricing() {
               <option value="Antiparasitic & Rx">Antiparasitic & Rx</option>
               <option value="Surgical Implants">Surgical Implants</option>
               <option value="Veterinary Nutrition">Veterinary Nutrition</option>
-              <option value="Dermatology & Topicals">Dermatology & Topicals</option>
               <option value="Generic APIs & NSAID">Generic APIs & NSAID</option>
             </select>
           </div>

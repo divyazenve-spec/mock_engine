@@ -5,9 +5,31 @@ import KpiCard from '../shared/KpiCard';
 export default function EBITDA() {
   const [metricView, setMetricView] = useState('Operating');
 
-  const facilityEbitda = [];
+  const facilityEbitda = [
+    { facility: 'Koramangala Central Tertiary Hospital', city: 'Bengaluru', rev: '₹38,50,000', ebitda: '₹9,54,800', margin: '24.8%', status: 'Top Performer' },
+    { facility: 'Indiranagar Surgical & Imaging Hub', city: 'Bengaluru', rev: '₹26,40,000', ebitda: '₹6,46,800', margin: '24.5%', status: 'Top Performer' },
+    { facility: 'Whitefield Specialized Veterinary Center', city: 'Bengaluru', rev: '₹22,10,000', ebitda: '₹5,19,350', margin: '23.5%', status: 'Top Performer' },
+    { facility: 'Bandra West Flagship Center', city: 'Mumbai', rev: '₹18,50,000', ebitda: '₹4,16,250', margin: '22.5%', status: 'Top Performer' },
+    { facility: 'HSR Layout 24/7 Emergency Clinic', city: 'Bengaluru', rev: '₹14,20,000', ebitda: '₹3,19,500', margin: '22.5%', status: 'Healthy' },
+    { facility: 'Jayanagar Specialty Outpatient Hub', city: 'Bengaluru', rev: '₹11,80,000', ebitda: '₹2,59,600', margin: '22.0%', status: 'Healthy' },
+    { facility: 'Vasant Vihar Premium Outpatient Hub', city: 'Delhi-NCR', rev: '₹10,50,000', ebitda: '₹2,20,500', margin: '21.0%', status: 'Healthy' },
+    { facility: 'Jubilee Hills Care Center', city: 'Hyderabad', rev: '₹8,40,000', ebitda: '₹1,68,000', margin: '20.0%', status: 'Healthy' },
+    { facility: 'Powai Lakes Outpatient Clinic', city: 'Mumbai', rev: '₹5,70,000', ebitda: '₹1,08,300', margin: '19.0%', status: 'Healthy' },
+    { facility: 'Bellandur Tech Park Express Clinic', city: 'Bengaluru', rev: '₹4,25,000', ebitda: '₹76,500', margin: '18.0%', status: 'Healthy' }
+  ];
 
-  const bridgeItems = [];
+  const bridgeItems = [
+    { step: 'Reported GAAP Operating Profit (EBIT)', amt: '₹28,85,000', type: 'subtotal' },
+    { step: 'Add: Depreciation on Medical Equipment & OT Hardware', amt: '+₹4,15,000', type: 'add' },
+    { step: 'Add: Amortization of EHR & Diagnostic Software Assets', amt: '+₹1,28,400', type: 'add' },
+    { step: 'Consolidated Operating EBITDA (Reported)', amt: '₹34,28,400', type: 'total' },
+    { step: 'Add: Non-Cash ESOP Stock Compensation Expense', amt: '+₹85,000', type: 'add' },
+    { step: 'Add: Pre-Opening Capex for Hyderabad Jubilee Hills OT', amt: '+₹68,000', type: 'add' },
+    { step: 'Add: One-Time NABH Hospital Accreditation Legal Fees', amt: '+₹42,000', type: 'add' },
+    { step: 'Less: Retroactive Manufacturer Volume Rebate Accrual', amt: '-₹35,000', type: 'deduct' },
+    { step: 'Add: Cloud Infrastructure R&D Pilot Migration Credits', amt: '+₹26,600', type: 'add' },
+    { step: 'Normalized Adjusted EBITDA (Management Measure)', amt: '₹36,15,000', type: 'total' }
+  ];
 
   return (
     <DashboardLayout
@@ -16,7 +38,7 @@ export default function EBITDA() {
       title="EBITDA & Operating Cash Flow Velocity"
       subtitle="Operating profitability before capital structure & tax deductions, facility EBITDA margins, and adjusted EBITDA bridge"
       icon="⚡"
-      badge="Operating EBITDA: 20.02%"
+      badge="EBITDA: 24.0%"
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -38,12 +60,12 @@ export default function EBITDA() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Operating EBITDA (MTD)" value="₹0" delta="0.0%" trend="neutral" subtext="Operating profit" icon="⚡" />
-        <KpiCard label="Normalized Adjusted EBITDA" value="₹0" delta="0.0%" trend="neutral" subtext="Adding non-recurring" icon="💎" />
-        <KpiCard label="Annualized EBITDA Run-rate" value="₹0" delta="0.0%" trend="neutral" subtext="Coverage metric" icon="📈" />
-        <KpiCard label="EBITDA-to-Cash Conversion" value="0.0%" delta="High cash flow" trend="neutral" subtext="CFO / EBITDA" icon="💧" />
-        <KpiCard label="Flagship Tertiary EBITDA" value="0.0%" delta="--" trend="neutral" subtext="Highest volume center" icon="🏥" />
-        <KpiCard label="Break-Even Hospital Month" value="0 Months" delta="0.0%" trend="neutral" subtext="Average new center" icon="⏱️" />
+        <KpiCard label="Operating EBITDA (MTD)" value="₹34,28,400" delta="+24.0% margin" trend="up" subtext="Operating surplus" icon="⚡" />
+        <KpiCard label="Normalized Adjusted EBITDA" value="₹36,15,000" delta="+25.3% margin" trend="up" subtext="Adding non-recurring" icon="💎" />
+        <KpiCard label="Annualized EBITDA Run-rate" value="₹4.11 Cr" delta="+28.4% YoY" trend="up" subtext="Coverage metric" icon="📈" />
+        <KpiCard label="EBITDA-to-Cash Conversion" value="106.2%" delta="High cash flow" trend="up" subtext="CFO / EBITDA" icon="💧" />
+        <KpiCard label="Flagship Tertiary EBITDA" value="24.8%" delta="Koramangala" trend="up" subtext="Highest volume center" icon="🏥" />
+        <KpiCard label="Break-Even Hospital Month" value="4.2 Months" delta="-0.8 Mo vs target" trend="up" subtext="Average new center" icon="⏱️" />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '20px' }}>

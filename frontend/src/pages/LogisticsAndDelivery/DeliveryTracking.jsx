@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function DeliveryTracking() {
-  const activeStreams = [];
+  const activeStreams = [
+    { trackerId: 'TRK-01', rider: 'Rohan Deshmukh (EV-04)', location: 'Indiranagar 100ft Rd, BLR', temp: '3.8°C', battery: '82%', eta: '7 mins' },
+    { trackerId: 'TRK-02', rider: 'Suresh Kumar (EV-11)', location: 'Koramangala 4th Block, BLR', temp: 'Ambient', battery: '76%', eta: '12 mins' },
+    { trackerId: 'TRK-03', rider: 'Sachin Kadam (EV-08)', location: 'Hill Road, Bandra West, BOM', temp: '4.2°C', battery: '89%', eta: '15 mins' },
+    { trackerId: 'TRK-04', rider: 'Vinod Nair (EV-19)', location: 'ITPL Main Rd, Whitefield, BLR', temp: 'Ambient', battery: '64%', eta: '21 mins' },
+    { trackerId: 'TRK-05', rider: 'Pradeep Singh (EV-31)', location: 'Saket District Centre, DEL', temp: 'Ambient', battery: '78%', eta: '9 mins' },
+    { trackerId: 'TRK-06', rider: 'Ajay Gowda (EV-23)', location: '27th Main Rd, HSR Layout, BLR', temp: 'Ambient', battery: '91%', eta: '18 mins' },
+    { trackerId: 'TRK-07', rider: 'Ganesh More (EV-14)', location: 'Lokhandwala Complex, BOM', temp: '3.6°C', battery: '71%', eta: '14 mins' },
+    { trackerId: 'TRK-08', rider: 'Manjunath R (EV-27)', location: '15th Cross, JP Nagar, BLR', temp: 'Ambient', battery: '84%', eta: '25 mins' },
+    { trackerId: 'TRK-09', rider: 'Deepak Yadav (EV-42)', location: 'DLF Phase 4, Gurugram', temp: 'Ambient', battery: '68%', eta: '19 mins' },
+    { trackerId: 'TRK-10', rider: 'Farhan Akhtar (EV-06)', location: 'Jubilee Hills Checkpost, HYD', temp: '4.0°C', battery: '95%', eta: '11 mins' }
+  ];
 
   return (
     <DashboardLayout
@@ -12,7 +23,7 @@ export default function DeliveryTracking() {
       title="Live GPS Fleet Telematics & Cold-Chain Tracking"
       subtitle="Real-time rider coordinates, digital cold-box temperature telemetry, EV battery state, and route milestones"
       icon="📍"
-      badge=""
+      badge="GPS & Telematics Live"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard label="Live Tracked Riders" value="38 Active" delta="100% Signal lock" trend="up" subtext="Sub-second GPS updates" icon="📡" />

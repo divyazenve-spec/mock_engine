@@ -3,22 +3,123 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function Advertising() {
-  const adSets = [];
+  const adSets = [
+  {
+    "name": "Canine Joint Health & Mobility Video",
+    "platform": "Meta Ads (IG/FB)",
+    "spend": "₹36,500",
+    "cpm": "₹112",
+    "cpc": "₹3.80",
+    "cpa": "₹228",
+    "roas": "6.4x",
+    "health": "Optimal"
+  },
+  {
+    "name": "Emergency Vet Near Me (Call Only)",
+    "platform": "Google Search PPC",
+    "spend": "₹34,000",
+    "cpm": "₹340",
+    "cpc": "₹14.20",
+    "cpa": "₹310",
+    "roas": "8.2x",
+    "health": "Optimal"
+  },
+  {
+    "name": "Kitten First Vaccine Starter Discount",
+    "platform": "Meta Ads (Feed & Story)",
+    "spend": "₹28,500",
+    "cpm": "₹95",
+    "cpc": "₹3.10",
+    "cpa": "₹215",
+    "roas": "5.8x",
+    "health": "Optimal"
+  },
+  {
+    "name": "Renal & Hepatic Prescription Diets",
+    "platform": "Google Shopping / PMax",
+    "spend": "₹24,800",
+    "cpm": "₹145",
+    "cpc": "₹5.60",
+    "cpa": "₹198",
+    "roas": "7.1x",
+    "health": "Optimal"
+  },
+  {
+    "name": "Senior Pet Blood Panel Screening",
+    "platform": "Meta Ads (IG Carousel)",
+    "spend": "₹22,000",
+    "cpm": "₹108",
+    "cpc": "₹4.10",
+    "cpa": "₹245",
+    "roas": "5.2x",
+    "health": "Scaling"
+  },
+  {
+    "name": "App Install - Free Vet Consultation",
+    "platform": "YouTube Video Action",
+    "spend": "₹25,000",
+    "cpm": "₹82",
+    "cpc": "₹2.90",
+    "cpa": "₹142",
+    "roas": "4.6x",
+    "health": "Scaling"
+  },
+  {
+    "name": "Dental Cleaning & Breath Check Camp",
+    "platform": "Meta Ads (Reels)",
+    "spend": "₹18,500",
+    "cpm": "₹102",
+    "cpc": "₹3.60",
+    "cpa": "₹235",
+    "roas": "5.0x",
+    "health": "Optimal"
+  },
+  {
+    "name": "Flea, Tick & Heartworm Prevention",
+    "platform": "Google Search Keyword",
+    "spend": "₹29,200",
+    "cpm": "₹180",
+    "cpc": "₹6.80",
+    "cpa": "₹260",
+    "roas": "6.1x",
+    "health": "Optimal"
+  },
+  {
+    "name": "Puppy Deworming & Pediatric Camp",
+    "platform": "Instagram Influencer Whitelist",
+    "spend": "₹19,000",
+    "cpm": "₹120",
+    "cpc": "₹4.50",
+    "cpa": "₹285",
+    "roas": "4.4x",
+    "health": "Scaling"
+  },
+  {
+    "name": "Orthopedic TPLO Surgical Consult Retargeting",
+    "platform": "Meta Dynamic Retargeting",
+    "spend": "₹22,500",
+    "cpm": "₹160",
+    "cpc": "₹7.20",
+    "cpa": "₹295",
+    "roas": "7.8x",
+    "health": "Optimal"
+  }
+];
 
   return (
     <DashboardLayout
       category="Marketing"
       subcategory="Advertising"
-      title="Paid Advertising Networks & Creative Efficiency"
-      subtitle="Meta Ads Manager, Google Ads MCC, CPM, CPC, cost-per-acquisition, and ad creative health"
+      title="Digital Advertising & Paid Media Control"
+      subtitle="Programmatic ads, ad network CPC/CPM, direct CPA, and creative fatigue diagnostics"
       icon="📢"
-      badge=""
+      badge="10 Active Ad Sets"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Average CPM" value="₹0" delta="0.0%" trend="neutral" subtext="Cost per 1,000 impressions" icon="👁️" />
-        <KpiCard label="Blended CPC" value="₹0" delta="0.0%" trend="neutral" subtext="Cost per ad click" icon="🖱️" />
-        <KpiCard label="Target CPA Adherence" value="₹0" delta="0.0%" trend="neutral" subtext="Cap set at ₹0" icon="🎯" />
-        <KpiCard label="Ad Spend Efficiency" value="0.0%" delta="0.0%" trend="neutral" subtext="Impression share score" icon="⚡" />
+        <KpiCard label="Average CPM" value="₹142" delta="-8.5% MoM" trend="up" subtext="Cost per 1K impressions" icon="👁️" />
+        <KpiCard label="Blended CPC" value="₹4.85" delta="-12.0%" trend="up" subtext="Cost per ad click" icon="🖱️" />
+        <KpiCard label="Target CPA" value="₹245" delta="Cap: ₹350" trend="up" subtext="Cost per acquisition" icon="🎯" />
+        <KpiCard label="Auction Share" value="68.4%" delta="+5.2%" trend="up" subtext="Top placement win rate" icon="⚡" />
       </div>
 
       <div style={{
@@ -29,8 +130,8 @@ export default function Advertising() {
         boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
       }}>
         <div style={{ padding: '16px 20px', borderBottom: '1px solid #e2e8f0' }}>
-          <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 700, color: '#0f172a' }}>Active Ad Network Placements & Performance</h3>
-          <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#64748b' }}>Platform spend, auction bid efficiency, and creative fatigue diagnostics</p>
+          <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 700, color: '#0f172a' }}>Active Ad Sets & Creative Flighting</h3>
+          <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#64748b' }}>Ad network spend, cost per acquisition, and creative fatigue diagnostics</p>
         </div>
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', textAlign: 'left' }}>
@@ -47,38 +148,32 @@ export default function Advertising() {
               </tr>
             </thead>
             <tbody>
-              {adSets.length === 0 ? (
-                <tr>
-                  <td colSpan="8" style={{ padding: '32px 16px', textAlign: 'center', color: '#94a3b8' }}>
-                    No advertising ad sets found
+              {adSets.map(a => (
+                <tr key={a.name} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                  <td style={{ padding: '14px 16px', fontWeight: 600, color: '#0f172a' }}>{a.name}</td>
+                  <td style={{ padding: '14px 16px', color: '#334155' }}>{a.platform}</td>
+                  <td style={{ padding: '14px 16px', fontWeight: 600, fontFamily: '"IBM Plex Mono", monospace' }}>{a.spend}</td>
+                  <td style={{ padding: '14px 16px', fontFamily: '"IBM Plex Mono", monospace' }}>{a.cpm}</td>
+                  <td style={{ padding: '14px 16px', fontFamily: '"IBM Plex Mono", monospace' }}>{a.cpc}</td>
+                  <td style={{ padding: '14px 16px', fontFamily: '"IBM Plex Mono", monospace', color: '#2563eb', fontWeight: 600 }}>{a.cpa}</td>
+                  <td style={{ padding: '14px 16px' }}>
+                    <span style={{ display: 'inline-block', padding: '3px 8px', borderRadius: '4px', background: '#dcfce7', color: '#15803d', fontWeight: 700, fontFamily: '"IBM Plex Mono", monospace' }}>{a.roas}</span>
+                  </td>
+                  <td style={{ padding: '14px 16px' }}>
+                    <span style={{
+                      display: 'inline-block',
+                      padding: '2px 8px',
+                      borderRadius: '9999px',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                      background: a.health === 'Optimal' ? '#dcfce7' : '#dbeafe',
+                      color: a.health === 'Optimal' ? '#16a34a' : '#2563eb'
+                    }}>
+                      {a.health}
+                    </span>
                   </td>
                 </tr>
-              ) : (
-                adSets.map(a => (
-                  <tr key={a.name} style={{ borderBottom: '1px solid #f1f5f9' }}>
-                    <td style={{ padding: '14px 16px', fontWeight: 600, color: '#0f172a' }}>{a.name}</td>
-                    <td style={{ padding: '14px 16px', color: '#475569' }}>{a.platform}</td>
-                    <td style={{ padding: '14px 16px', fontWeight: 600, fontFamily: '"IBM Plex Mono", monospace' }}>{a.spend}</td>
-                    <td style={{ padding: '14px 16px', fontFamily: '"IBM Plex Mono", monospace' }}>{a.cpm}</td>
-                    <td style={{ padding: '14px 16px', fontFamily: '"IBM Plex Mono", monospace' }}>{a.cpc}</td>
-                    <td style={{ padding: '14px 16px', color: '#2563eb', fontWeight: 600, fontFamily: '"IBM Plex Mono", monospace' }}>{a.cpa}</td>
-                    <td style={{ padding: '14px 16px', color: '#16a34a', fontWeight: 700, fontFamily: '"IBM Plex Mono", monospace' }}>{a.roas}</td>
-                    <td style={{ padding: '14px 16px' }}>
-                      <span style={{
-                        padding: '3px 8px',
-                        borderRadius: '6px',
-                        fontSize: '11px',
-                        fontWeight: 600,
-                        background: a.health === 'Optimal' ? '#f0fdf4' : a.health === 'Scaling' ? '#eff6ff' : '#fef3c7',
-                        color: a.health === 'Optimal' ? '#16a34a' : a.health === 'Scaling' ? '#2563eb' : '#d97706',
-                        border: `1px solid ${a.health === 'Optimal' ? '#bbf7d0' : a.health === 'Scaling' ? '#bfdbfe' : '#fde68a'}`
-                      }}>
-                        {a.health}
-                      </span>
-                    </td>
-                  </tr>
-                ))
-              )}
+              ))}
             </tbody>
           </table>
         </div>

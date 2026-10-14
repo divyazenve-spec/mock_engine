@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function DeliveryPartners() {
-  const partners = [];
+  const partners = [
+    { name: 'Zenve Direct EV Fleet', type: 'Dedicated In-House EV', fleetSize: '76 EVs', activeNow: 38, onTimeSla: '99.4%', avgCost: '₹46.50', coldChainReady: 'Yes (IoT Smart Box)', rating: '4.94 / 5', status: 'Primary' },
+    { name: 'Shadowfax Hyperlocal', type: 'Contracted 3PL Hyperlocal', fleetSize: '45 On-Demand', activeNow: 24, onTimeSla: '97.8%', avgCost: '₹62.00', coldChainReady: 'Yes (Gel-Packs)', rating: '4.82 / 5', status: 'Primary' },
+    { name: 'Dunzo for Business', type: 'B2B Quick Courier', fleetSize: '35 On-Demand', activeNow: 18, onTimeSla: '96.9%', avgCost: '₹65.00', coldChainReady: 'Yes (Insulated)', rating: '4.78 / 5', status: 'Active' },
+    { name: 'Porter Enterprise', type: 'Inter-Hub Bulk Transfer', fleetSize: '16 Mini Trucks', activeNow: 11, onTimeSla: '98.5%', avgCost: '₹140.00', coldChainReady: 'Yes (Reefer Van)', rating: '4.89 / 5', status: 'Primary' },
+    { name: 'Blitz Express Electric', type: 'Green EV Partner Fleet', fleetSize: '25 EV Bikes', activeNow: 14, onTimeSla: '98.2%', avgCost: '₹51.00', coldChainReady: 'Yes (IoT Box)', rating: '4.86 / 5', status: 'Active' },
+    { name: 'BlueDart Cold-Chain Express', type: 'National Cold Chain Air', fleetSize: 'Scheduled Lines', activeNow: 6, onTimeSla: '99.8%', avgCost: '₹220.00', coldChainReady: 'Yes (Dry Ice/2-8°C)', rating: '4.95 / 5', status: 'Primary' },
+    { name: 'Borzo Delivery', type: 'Emergency Surge Fleet', fleetSize: '20 On-Demand', activeNow: 8, onTimeSla: '95.4%', avgCost: '₹68.00', coldChainReady: 'No (Dry Cargo Only)', rating: '4.65 / 5', status: 'Active' },
+    { name: 'Loadshare Networks', type: 'Regional Intra-City Hubs', fleetSize: '18 Vans', activeNow: 9, onTimeSla: '97.1%', avgCost: '₹95.00', coldChainReady: 'Yes (Insulated Boxes)', rating: '4.74 / 5', status: 'Active' },
+    { name: 'Zypp Electric Logistics', type: 'Leased Commercial EV Fleet', fleetSize: '20 EV Scooters', activeNow: 12, onTimeSla: '98.0%', avgCost: '₹48.00', coldChainReady: 'Yes (Smart Box)', rating: '4.83 / 5', status: 'Active' },
+    { name: 'Delhivery Flash', type: 'Inter-City Express', fleetSize: 'Scheduled Air/Surface', activeNow: 5, onTimeSla: '98.4%', avgCost: '₹115.00', coldChainReady: 'Yes (Gel Pack Shippers)', rating: '4.88 / 5', status: 'Active' }
+  ];
 
   return (
     <DashboardLayout
@@ -12,12 +23,12 @@ export default function DeliveryPartners() {
       title="Fleet & 3PL Logistics Delivery Partners"
       subtitle="Dedicated EV rider fleets, contracted hyperlocal 3PLs, inter-hub transfer networks, and SLA scorecards"
       icon="🛵"
-      badge=""
+      badge="Multi-Fleet Network"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard label="Dedicated Fleet" value="76 EV Riders" delta="100% Electric" trend="up" subtext="Zero emissions hyperlocal" icon="⚡" />
         <KpiCard label="Active On Road" value="117 Riders" delta="Live capacity" trend="up" subtext="Zenve + 3PL partners" icon="🛵" />
-        <KpiCard label="Blended On-Time SLA" value="0.0%" delta="+0.8% MoM" trend="up" subtext="Weighted network avg" icon="⏱️" />
+        <KpiCard label="Blended On-Time SLA" value="98.6%" delta="+0.8% MoM" trend="up" subtext="Weighted network avg" icon="⏱️" />
         <KpiCard label="Avg Fleet Rating" value="4.86 / 5" delta="Exceptional" trend="up" subtext="Pet parent doorstep CSAT" icon="⭐" />
       </div>
 

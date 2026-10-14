@@ -38,13 +38,57 @@
   ];
 
   /* ── Master Datasets ─────────────────────────────────────────────── */
-  var VENDORS = [];
+    var VENDORS = [
+    { id: 'VEN-001', name: 'Zoetis Animal Health India', gstin: '27AAACZ0821G1ZX', category: 'Vaccines & Biologics', contact: 'Dr. Rajesh Nair', city: 'Mumbai HQ', spend: '₹12,45,000', pos: 14, rating: 'AAA', status: 'Preferred', since: '2022-04', onTime: 99.2, quality: 99.8, fillRate: 98.6, defect: 0.02, lead: '2.1d', compliance: 100, score: 99.2, trend: 'up' },
+    { id: 'VEN-002', name: 'MSD Animal Health Pvt Ltd', gstin: '29AABCM4512H1ZQ', category: 'Antiparasitics & Vaccines', contact: 'Priya Sreenivasan', city: 'Bengaluru', spend: '₹10,80,000', pos: 12, rating: 'AAA', status: 'Preferred', since: '2022-06', onTime: 98.9, quality: 99.5, fillRate: 98.2, defect: 0.03, lead: '2.4d', compliance: 100, score: 98.7, trend: 'up' },
+    { id: 'VEN-003', name: 'Royal Canin India Pvt Ltd', gstin: '27AABCR8830M1Z5', category: 'Clinical Veterinary Diets', contact: 'Anand Kulkarni', city: 'Mumbai', spend: '₹8,95,000', pos: 16, rating: 'AAA', status: 'Preferred', since: '2022-03', onTime: 98.4, quality: 99.6, fillRate: 97.8, defect: 0.04, lead: '3.2d', compliance: 99, score: 98.1, trend: 'up' },
+    { id: 'VEN-004', name: 'Boehringer Ingelheim Vet', gstin: '27AABCB9120N1ZV', category: 'Rx Therapeutics & NSAIDs', contact: 'Vikram Deshmukh', city: 'Mumbai', spend: '₹6,70,000', pos: 10, rating: 'AA+', status: 'Preferred', since: '2022-08', onTime: 98.1, quality: 99.4, fillRate: 97.4, defect: 0.03, lead: '2.8d', compliance: 99, score: 97.8, trend: 'up' },
+    { id: 'VEN-005', name: "Hill's Pet Nutrition India", gstin: '06AABCH3391K1ZY', category: 'Clinical Nutrition & Care', contact: 'Neha Malhotra', city: 'Gurugram', spend: '₹5,40,000', pos: 8, rating: 'AA+', status: 'Preferred', since: '2023-01', onTime: 97.8, quality: 99.1, fillRate: 96.9, defect: 0.05, lead: '3.5d', compliance: 98, score: 97.2, trend: 'up' },
+    { id: 'VEN-006', name: 'Synthes Vet Orthopedics', gstin: '29AABCS6724L1ZS', category: 'Surgical Implants & Hardware', contact: 'Arvind Sharma', city: 'Bengaluru', spend: '₹4,10,000', pos: 6, rating: 'AA', status: 'Active', since: '2023-03', onTime: 96.5, quality: 99.7, fillRate: 95.8, defect: 0.04, lead: '4.1d', compliance: 98, score: 96.4, trend: 'neutral' },
+    { id: 'VEN-007', name: 'Farmina Pet Foods India', gstin: '29AABCF9943P1Z3', category: 'Veterinary Nutrition', contact: 'Rohan Nambiar', city: 'Bengaluru', spend: '₹3,65,000', pos: 7, rating: 'AA', status: 'Active', since: '2023-05', onTime: 97.2, quality: 98.9, fillRate: 96.2, defect: 0.06, lead: '3.0d', compliance: 97, score: 96.1, trend: 'up' },
+    { id: 'VEN-008', name: 'Virbac Animal Health India', gstin: '27AABCV1034D1ZU', category: 'Dermatologicals & Anti-Infectives', contact: 'Sameer Patil', city: 'Mumbai', spend: '₹2,95,000', pos: 9, rating: 'AA', status: 'Active', since: '2023-07', onTime: 97.5, quality: 99.0, fillRate: 96.5, defect: 0.05, lead: '2.7d', compliance: 98, score: 96.3, trend: 'up' },
+    { id: 'VEN-009', name: 'Intas Pharmaceuticals Vet', gstin: '24AABCI7840E1ZT', category: 'Injectables & Critical Care', contact: 'Harish Solanki', city: 'Ahmedabad', spend: '₹2,15,000', pos: 8, rating: 'A+', status: 'Active', since: '2023-09', onTime: 96.8, quality: 98.7, fillRate: 95.4, defect: 0.07, lead: '3.8d', compliance: 97, score: 95.6, trend: 'neutral' },
+    { id: 'VEN-010', name: 'Purina PetCare India', gstin: '06AABCP2290R1ZW', category: 'Clinical Probiotics & Diets', contact: 'Divya Kapoor', city: 'Gurugram', spend: '₹1,65,000', pos: 5, rating: 'A+', status: 'Active', since: '2024-02', onTime: 96.1, quality: 98.5, fillRate: 94.8, defect: 0.08, lead: '4.2d', compliance: 96, score: 95.1, trend: 'up' }
+  ];
 
-  var PURCHASE_ORDERS = [];
+    var PURCHASE_ORDERS = [
+    { id: 'PO-2026-9401', poNumber: 'PO-2026-9401', vendor: 'Zoetis Animal Health India', items: 'Vanguard Plus 5/CV-L Vaccines (500 vials) + Apoquel 16mg (60 btls)', qty: '560 units', value: '₹3,85,000', amount: '₹3,85,000', raised: '2026-10-02', createdDate: '2026-10-02', delivery: '2026-10-06', deliveryEta: '2026-10-06', rcvd: '2026-10-05', approver: 'Dr. Ananya Sen', clinicHub: 'Koramangala Central Hub', priority: 'High', status: 'Fulfilled' },
+    { id: 'PO-2026-9402', poNumber: 'PO-2026-9402', vendor: 'MSD Animal Health Pvt Ltd', items: 'Bravecto Chewable 20-40kg (120 packs) + Nobivac Rabies (800 doses)', qty: '920 units', value: '₹4,50,000', amount: '₹4,50,000', raised: '2026-10-04', createdDate: '2026-10-04', delivery: '2026-10-08', deliveryEta: '2026-10-08', rcvd: '2026-10-07', approver: 'Dr. Vikram Deshmukh', clinicHub: 'Indiranagar Hub', priority: 'High', status: 'Fulfilled' },
+    { id: 'PO-2026-9403', poNumber: 'PO-2026-9403', vendor: 'Synthes Vet Orthopedics', items: 'Titanium TPLO Locking Plates 3.5mm + Cortical Screws (Kit of 40)', qty: '40 kits', value: '₹2,75,000', amount: '₹2,75,000', raised: '2026-10-06', createdDate: '2026-10-06', delivery: '2026-10-10', deliveryEta: '2026-10-10', rcvd: '2026-10-09', approver: 'Dr. Rajesh K', clinicHub: 'Indiranagar Surgery Hub', priority: 'Critical', status: 'GRN Verified' },
+    { id: 'PO-2026-9404', poNumber: 'PO-2026-9404', vendor: 'Royal Canin India Pvt Ltd', items: 'Gastrointestinal High Energy 15kg (80 bags) + Hepatic Vet Diet (50 bags)', qty: '130 bags', value: '₹5,40,000', amount: '₹5,40,000', raised: '2026-10-08', createdDate: '2026-10-08', delivery: '2026-10-12', deliveryEta: '2026-10-12', rcvd: 'In Transit', approver: 'Priya Sharma', clinicHub: 'Central Warehouse Bengaluru', priority: 'Standard', status: 'Dispatched' },
+    { id: 'PO-2026-9405', poNumber: 'PO-2026-9405', vendor: 'Boehringer Ingelheim Vet', items: 'NexGard Spectra 15-30kg (150 boxes) + Metacam 1.5mg/ml Oral (80 btls)', qty: '230 units', value: '₹3,15,000', amount: '₹3,15,000', raised: '2026-10-09', createdDate: '2026-10-09', delivery: '2026-10-13', deliveryEta: '2026-10-13', rcvd: 'In Transit', approver: 'Dr. Ananya Sen', clinicHub: 'Whitefield Hub', priority: 'High', status: 'Dispatched' },
+    { id: 'PO-2026-9406', poNumber: 'PO-2026-9406', vendor: "Hill's Pet Nutrition India", items: 'Prescription Diet k/d Renal Health 12kg (60 bags) + c/d Urinary (50 bags)', qty: '110 bags', value: '₹3,90,000', amount: '₹3,90,000', raised: '2026-10-10', createdDate: '2026-10-10', delivery: '2026-10-14', deliveryEta: '2026-10-14', rcvd: 'Awaiting Dispatch', approver: 'Priya Sharma', clinicHub: 'Central Warehouse Bengaluru', priority: 'Standard', status: 'Approved' },
+    { id: 'PO-2026-9407', poNumber: 'PO-2026-9407', vendor: 'Virbac Animal Health India', items: 'Clavamox Palatable Drops (100 btls) + Epiotic Ear Cleanser (200 btls)', qty: '300 btls', value: '₹1,85,000', amount: '₹1,85,000', raised: '2026-10-11', createdDate: '2026-10-11', delivery: '2026-10-15', deliveryEta: '2026-10-15', rcvd: 'Processing', approver: 'Dr. Vikram Deshmukh', clinicHub: 'HSR Layout Hub', priority: 'Medium', status: 'Approved' },
+    { id: 'PO-2026-9408', poNumber: 'PO-2026-9408', vendor: 'Intas Pharmaceuticals Vet', items: 'Melonex Plus Inj 100ml (150 vials) + Ceftriaxone Vet 3g (250 vials)', qty: '400 vials', value: '₹1,45,000', amount: '₹1,45,000', raised: '2026-10-11', createdDate: '2026-10-11', delivery: '2026-10-16', deliveryEta: '2026-10-16', rcvd: 'Order Confirmed', approver: 'Dr. Rajesh K', clinicHub: 'Malleshwaram Hub', priority: 'Standard', status: 'Approved' },
+    { id: 'PO-2026-9409', poNumber: 'PO-2026-9409', vendor: 'Farmina Pet Foods India', items: 'Vet Life Gastrointestinal 10kg (40 bags) + Vet Life Obesity (30 bags)', qty: '70 bags', value: '₹2,10,000', amount: '₹2,10,000', raised: '2026-10-12', createdDate: '2026-10-12', delivery: '2026-10-17', deliveryEta: '2026-10-17', rcvd: 'Stock Allocated', approver: 'Priya Sharma', clinicHub: 'JP Nagar Hub', priority: 'Standard', status: 'Approved' },
+    { id: 'PO-2026-9410', poNumber: 'PO-2026-9410', vendor: 'Purina PetCare India', items: 'Pro Plan Veterinary Diets FortiFlora Probiotic (120 boxes) + HA Diet (25 bags)', qty: '145 units', value: '₹1,65,000', amount: '₹1,65,000', raised: '2026-10-13', createdDate: '2026-10-13', delivery: '2026-10-18', deliveryEta: '2026-10-18', rcvd: 'In Transit', approver: 'Dr. Ananya Sen', clinicHub: 'Koramangala Central Hub', priority: 'Medium', status: 'Dispatched' }
+  ];
 
-  var PAYMENTS = [];
+    var PAYMENTS = [
+    { id: 'PAY-8901', invoiceNo: 'INV-ZOE-9102', vendor: 'Zoetis Animal Health India', poRef: 'PO-2026-9401', po: 'PO-2026-9401', amount: '₹3,85,000', gst: '₹69,300', tds: '₹7,700', due: '2026-10-20', dueDate: '2026-10-20', cashDiscount: '₹7,700', terms: '2/10 Net 30', bank: 'HDFC Bank', bankRef: 'HDFCR52026101201', method: 'RTGS', status: 'Paid' },
+    { id: 'PAY-8902', invoiceNo: 'INV-MSD-4419', vendor: 'MSD Animal Health Pvt Ltd', poRef: 'PO-2026-9402', po: 'PO-2026-9402', amount: '₹4,50,000', gst: '₹81,000', tds: '₹9,000', due: '2026-10-22', dueDate: '2026-10-22', cashDiscount: '₹9,000', terms: '2/10 Net 30', bank: 'ICICI Bank', bankRef: 'ICICN0926101402', method: 'NEFT', status: 'Paid' },
+    { id: 'PAY-8903', invoiceNo: 'INV-SYN-1109', vendor: 'Synthes Vet Orthopedics', poRef: 'PO-2026-9403', po: 'PO-2026-9403', amount: '₹2,75,000', gst: '₹49,500', tds: '₹5,500', due: '2026-10-24', dueDate: '2026-10-24', cashDiscount: '₹5,500', terms: '2/10 Net 30', bank: 'HDFC CMS', bankRef: 'CMS-SCH-9403', method: 'RTGS', status: 'Scheduled' },
+    { id: 'PAY-8904', invoiceNo: 'INV-RC-5520', vendor: 'Royal Canin India Pvt Ltd', poRef: 'PO-2026-9404', po: 'PO-2026-9404', amount: '₹5,40,000', gst: '₹97,200', tds: '₹10,800', due: '2026-10-26', dueDate: '2026-10-26', cashDiscount: '₹10,800', terms: '2/10 Net 30', bank: 'HDFC CMS', bankRef: 'CMS-SCH-9404', method: 'RTGS', status: 'Scheduled' },
+    { id: 'PAY-8905', invoiceNo: 'INV-BI-7712', vendor: 'Boehringer Ingelheim Vet', poRef: 'PO-2026-9405', po: 'PO-2026-9405', amount: '₹3,15,000', gst: '₹56,700', tds: '₹6,300', due: '2026-10-28', dueDate: '2026-10-28', cashDiscount: '₹6,300', terms: 'Net 30', bank: 'ICICI Bank', bankRef: 'CMS-PEND-9405', method: 'NEFT', status: 'Pending' },
+    { id: 'PAY-8906', invoiceNo: 'INV-HIL-8841', vendor: "Hill's Pet Nutrition India", poRef: 'PO-2026-9406', po: 'PO-2026-9406', amount: '₹3,90,000', gst: '₹70,200', tds: '₹7,800', due: '2026-10-30', dueDate: '2026-10-30', cashDiscount: '₹7,800', terms: 'Net 30', bank: 'HDFC CMS', bankRef: 'CMS-PEND-9406', method: 'NEFT', status: 'Pending' },
+    { id: 'PAY-8907', invoiceNo: 'INV-VIR-3301', vendor: 'Virbac Animal Health India', poRef: 'PO-2026-9407', po: 'PO-2026-9407', amount: '₹1,85,000', gst: '₹33,300', tds: '₹3,700', due: '2026-11-02', dueDate: '2026-11-02', cashDiscount: '₹3,700', terms: 'Net 30', bank: 'Axis Bank', bankRef: 'CMS-PEND-9407', method: 'NEFT', status: 'Pending' },
+    { id: 'PAY-8908', invoiceNo: 'INV-INT-9904', vendor: 'Intas Pharmaceuticals Vet', poRef: 'PO-2026-9408', po: 'PO-2026-9408', amount: '₹1,45,000', gst: '₹26,100', tds: '₹2,900', due: '2026-11-04', dueDate: '2026-11-04', cashDiscount: '₹2,900', terms: 'Net 30', bank: 'HDFC Bank', bankRef: 'CMS-PEND-9408', method: 'RTGS', status: 'Pending' },
+    { id: 'PAY-8909', invoiceNo: 'INV-FAR-6623', vendor: 'Farmina Pet Foods India', poRef: 'PO-2026-9409', po: 'PO-2026-9409', amount: '₹2,10,000', gst: '₹37,800', tds: '₹4,200', due: '2026-11-06', dueDate: '2026-11-06', cashDiscount: '₹4,200', terms: 'Net 30', bank: 'ICICI Bank', bankRef: 'CMS-PEND-9409', method: 'NEFT', status: 'Pending' },
+    { id: 'PAY-8910', invoiceNo: 'INV-PUR-2218', vendor: 'Purina PetCare India', poRef: 'PO-2026-9410', po: 'PO-2026-9410', amount: '₹1,65,000', gst: '₹29,700', tds: '₹3,300', due: '2026-11-08', dueDate: '2026-11-08', cashDiscount: '₹3,300', terms: 'Net 30', bank: 'HDFC CMS', bankRef: 'CMS-PEND-9410', method: 'NEFT', status: 'Pending' }
+  ];
 
-  var REQUISITIONS = [];
+    var REQUISITIONS = [
+    { id: 'REQ-2026-0501', department: 'Surgery OT — Indiranagar', item: 'Titanium Orthopedic Bone Plates 2.7mm/3.5mm', qty: '25 kits', urgency: 'Critical', requestedBy: 'Dr. Rajesh K', created: '2026-10-10', status: 'PO Raised' },
+    { id: 'REQ-2026-0502', department: '24x7 Emergency & ICU — Koramangala', item: 'Ceftriaxone + Sulbactam 3.0g Injectable Vials', qty: '200 vials', urgency: 'Critical', requestedBy: 'Dr. Ananya Sen', created: '2026-10-11', status: 'PO Raised' },
+    { id: 'REQ-2026-0503', department: 'Pharmacy Central Hub — Bengaluru', item: 'Bravecto Chewable Tablets for Dogs (All Weight Bands)', qty: '150 packs', urgency: 'High', requestedBy: 'K. Sunder', created: '2026-10-11', status: 'PO Raised' },
+    { id: 'REQ-2026-0504', department: 'Clinical Pathology Lab — Indiranagar', item: 'IDEXX Catalyst Chemistry Reagent Clips (Chem 17 + Lyte 4)', qty: '40 boxes', urgency: 'High', requestedBy: 'Dr. Meera N', created: '2026-10-12', status: 'In Approval' },
+    { id: 'REQ-2026-0505', department: 'Inpatient & Critical Care — Whitefield', item: 'Ringers Lactate + Normal Saline IV Fluids 500ml', qty: '500 bottles', urgency: 'High', requestedBy: 'Nurse Supriya', created: '2026-10-12', status: 'In Approval' },
+    { id: 'REQ-2026-0506', department: 'Nutrition & Preventive Wellness — HSR Hub', item: 'Royal Canin Hypoallergenic Hydrolyzed Protein 7kg', qty: '45 bags', urgency: 'Medium', requestedBy: 'Dr. Sneha V', created: '2026-10-12', status: 'Received' },
+    { id: 'REQ-2026-0507', department: 'Dermatology OPD — JP Nagar Hub', item: 'Apoquel (Oclacitinib) 5.4mg & 16mg Tablets', qty: '80 bottles', urgency: 'High', requestedBy: 'Dr. Kavita Rao', created: '2026-10-13', status: 'In Approval' },
+    { id: 'REQ-2026-0508', department: 'Dental Suite — Malleshwaram Hub', item: 'Ultrasonic Scaler Inserts & Dental Prophy Paste', qty: '15 sets', urgency: 'Medium', requestedBy: 'Dr. Arjun Patel', created: '2026-10-13', status: 'Pending' },
+    { id: 'REQ-2026-0509', department: 'Grooming & Medicated Spa — Indiranagar', item: 'Malaseb Medicated Antifungal Shampoo 250ml', qty: '120 bottles', urgency: 'Low', requestedBy: 'Pooja Nair', created: '2026-10-14', status: 'Pending' },
+    { id: 'REQ-2026-0510', department: 'Cardiology & Imaging — Koramangala', item: 'Vetmedin (Pimobendan) 1.25mg & 5mg Chewable', qty: '60 boxes', urgency: 'High', requestedBy: 'Dr. Vikram Deshmukh', created: '2026-10-14', status: 'Pending' }
+  ];
 
   /* ── State ───────────────────────────────────────────────────────── */
   var S = {
@@ -123,12 +167,12 @@
   function renderDashboard() {
     return [
       '<div class="zvp-kpi-grid">',
-        kpiHtml('Active Suppliers', '0', '0.0%', 'neutral', 'No active records', '🏭'),
-        kpiHtml('Open Purchase Orders', '₹0', '0.0%', 'neutral', 'No active records', '📑'),
-        kpiHtml('Procurement Savings', '₹0', '0.0%', 'neutral', 'No active records', '💰'),
-        kpiHtml('Vendor On-Time SLA', '0', '0.0%', 'neutral', 'No active records', '⏱️'),
-        kpiHtml('3-Way Match Rate', '0', '0.0%', 'neutral', 'No active records', '🎯'),
-        kpiHtml('Upcoming AP Payouts', '₹0', '0.0%', 'neutral', 'No active records', '💳'),
+        kpiHtml('Active Suppliers', '24 Vendors', '+3 YoY', 'up', '6 Preferred / 18 Active', '🏭'),
+        kpiHtml('Open Purchase Orders', '₹14.85 Lakhs', '6 Active POs', 'up', '4 in transit to hubs', '📑'),
+        kpiHtml('Procurement Savings', '₹6.42 Lakhs', '+12.1% of spend', 'up', '5 strategic levers', '💰'),
+        kpiHtml('Vendor On-Time SLA', '98.4%', '+1.2% MoM', 'up', 'Delivery compliance', '⏱️'),
+        kpiHtml('3-Way Match Rate', '99.2%', '+0.4% MoM', 'up', 'PO-GRN-Invoice matched', '🎯'),
+        kpiHtml('Upcoming AP Payouts', '₹8.15 Lakhs', 'Next 7 days', 'neutral', 'Cash discounts captured', '💳'),
       '</div>',
 
       '<div class="zvp-grid-2">',
@@ -169,15 +213,15 @@
           '</div>',
           '<div style="display:grid;gap:10px;">',
             '<div class="zvp-pipeline-stage" style="border-left-color:#a78bfa;">',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;"><strong>Stage 1: Requisitions</strong><span style="color:#a78bfa;font-weight:700;">0 Requests · ₹0</span></div>',
+              '<div style="display:flex;justify-content:space-between;font-size:12px;"><strong>Stage 1: Requisitions</strong><span style="color:#a78bfa;font-weight:700;">3 Requests · ₹4,10,000</span></div>',
               '<div style="font-size:11px;color:var(--muted-foreground,#64748b);">Surgery OT, Koramangala 24x7, and Central Hub approvals pending</div>',
             '</div>',
             '<div class="zvp-pipeline-stage" style="border-left-color:#38bdf8;">',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;"><strong>Stage 2: POs Issued & Dispatched</strong><span style="color:#38bdf8;font-weight:700;">0 POs · ₹0</span></div>',
+              '<div style="display:flex;justify-content:space-between;font-size:12px;"><strong>Stage 2: POs Issued & Dispatched</strong><span style="color:#38bdf8;font-weight:700;">4 POs · ₹12,10,000</span></div>',
               '<div style="font-size:11px;color:var(--muted-foreground,#64748b);">Direct-to-hub shipments in transit from Mumbai, Bengaluru, and Hyderabad</div>',
             '</div>',
             '<div class="zvp-pipeline-stage" style="border-left-color:#34d399;">',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;"><strong>Stage 3: GRN Verification & 3-Way Match</strong><span style="color:#34d399;font-weight:700;">0 POs · ₹0</span></div>',
+              '<div style="display:flex;justify-content:space-between;font-size:12px;"><strong>Stage 3: GRN Verification & 3-Way Match</strong><span style="color:#34d399;font-weight:700;">3 POs · ₹11,10,000</span></div>',
               '<div style="font-size:11px;color:var(--muted-foreground,#64748b);">Barcode scanned, cold chain integrity verified (2°C - 8°C), invoice matched</div>',
             '</div>',
           '</div>',
@@ -196,10 +240,10 @@
 
     return [
       '<div class="zvp-kpi-grid">',
-        kpiHtml('Registered Vendors', '0', '0.0%', 'neutral', 'No active records', '🏭'),
-        kpiHtml('Preferred AAA Vendors', '0', '0.0%', 'neutral', 'No active records', '⭐'),
-        kpiHtml('Active Geographies', '0', '0.0%', 'neutral', 'No active records', '📍'),
-        kpiHtml('Avg. Supplier Tenure', '0', '0.0%', 'neutral', 'No active records', '🤝'),
+        kpiHtml('Registered Vendors', '24 Vendors', '12 cities covered', 'up', 'Nationwide network', '🏭'),
+        kpiHtml('Preferred AAA Vendors', '6 Suppliers', 'AAA & AA+ rated', 'up', 'Priority allocation', '⭐'),
+        kpiHtml('Active Geographies', '12 Hub Cities', 'Across 4 zones', 'up', 'Cold chain enabled', '📍'),
+        kpiHtml('Avg. Supplier Tenure', '22 Months', 'Low turnover (<4%)', 'up', 'Strategic alliances', '🤝'),
       '</div>',
 
       '<div class="zvp-card">',
@@ -250,12 +294,12 @@
 
     return [
       '<div class="zvp-kpi-grid">',
-        kpiHtml('Avg. On-Time Delivery', '0', '0.0%', 'neutral', 'No active records', '⏱️'),
-        kpiHtml('Avg. Fill Rate', '0', '0.0%', 'neutral', 'No active records', '📦'),
-        kpiHtml('Avg. Quality Defect Rate', '0', '0.0%', 'neutral', 'No active records', '🎯'),
-        kpiHtml('Avg. Order Lead Time', '0', '0.0%', 'neutral', 'No active records', '🚛'),
-        kpiHtml('Top Tier SLA Score', '0', '0.0%', 'neutral', 'No active records', '⭐'),
-        kpiHtml('Below Target Vendors', '0', '0.0%', 'neutral', 'No active records', '⚠️'),
+        kpiHtml('Avg. On-Time Delivery', '98.4%', '+1.2% MoM', 'up', 'Benchmark: 95.0%', '⏱️'),
+        kpiHtml('Avg. Fill Rate', '97.2%', '+0.8% MoM', 'up', 'Complete deliveries', '📦'),
+        kpiHtml('Avg. Quality Defect Rate', '0.04%', '-0.02% MoM', 'up', 'Pharma & sterile specs', '🎯'),
+        kpiHtml('Avg. Order Lead Time', '3.1 Days', '-0.5d improvement', 'up', 'Direct to hub SLA', '🚛'),
+        kpiHtml('Top Tier SLA Score', '99.2 / 100', 'Zoetis India', 'up', 'Rank #1 composite', '⭐'),
+        kpiHtml('Below Target Vendors', '0 Vendors', 'All >= 95%', 'up', '100% compliance', '✅'),
       '</div>',
 
       '<div class="zvp-card">',
@@ -300,12 +344,12 @@
   function renderVendorPayments() {
     return [
       '<div class="zvp-kpi-grid">',
-        kpiHtml('Total Outstanding AP', '₹0', '0.0%', 'neutral', 'No active records', '💳'),
-        kpiHtml('Due This Week (<7d)', '₹0', '0.0%', 'neutral', 'No active records', '⏳'),
-        kpiHtml('Cash Discounts Captured', '₹0', '0.0%', 'neutral', 'No active records', '⚡'),
-        kpiHtml('Avg. Payment Cycle (DPO)', '0', '0.0%', 'neutral', 'No active records', '⏱️'),
-        kpiHtml('Electronic Payment SLA', '0', '0.0%', 'neutral', 'No active records', '🏦'),
-        kpiHtml('Pending 3-Way Match', '₹0', '0.0%', 'neutral', 'No active records', '📑'),
+        kpiHtml('Total Outstanding AP', '₹22.25 Lakhs', '8 Invoices', 'neutral', 'Current billing cycle', '💳'),
+        kpiHtml('Due This Week (<7d)', '₹8.15 Lakhs', '3 Invoices', 'neutral', 'Scheduled for payment', '⏳'),
+        kpiHtml('Cash Discounts Captured', '₹68,000', '92.5% captured', 'up', '2/10 Net 30 terms', '⚡'),
+        kpiHtml('Avg. Payment Cycle (DPO)', '26.4 Days', '-3.6d vs terms', 'up', 'Contractual Net 30', '⏱️'),
+        kpiHtml('Electronic Payment SLA', '100%', 'RTGS & NEFT CMS', 'up', 'Zero cheque payouts', '🏦'),
+        kpiHtml('Pending 3-Way Match', '₹0', '100% verified', 'up', 'Zero invoice holds', '📑'),
       '</div>',
 
       '<div class="zvp-card">',
@@ -351,12 +395,12 @@
 
     return [
       '<div class="zvp-kpi-grid">',
-        kpiHtml('Open Purchase Orders', '0 Active POs', '₹0', 'neutral', 'No active records', '📑'),
-        kpiHtml('POs in Transit', '0', '0.0%', 'neutral', 'No active records', '🚛'),
-        kpiHtml('GRN Verified (MTD)', '0', '0.0%', 'neutral', 'No active records', '✅'),
-        kpiHtml('Urgent OT Ortho Orders', '0', '0.0%', 'neutral', 'No active records', '🚨'),
-        kpiHtml('Avg. Approval Duration', '0', '0.0%', 'neutral', 'No active records', '⏱️'),
-        kpiHtml('Fulfillment Accuracy', '0', '0.0%', 'neutral', 'No active records', '🎯'),
+        kpiHtml('Open Purchase Orders', '6 Active POs', '₹14.85 Lakhs', 'up', 'Oct 2026 active pipeline', '📑'),
+        kpiHtml('POs in Transit', '3 POs', '₹10.20 Lakhs', 'up', 'En route to hubs', '🚛'),
+        kpiHtml('GRN Verified (MTD)', '4 POs', '100% audit pass', 'up', 'Cold chain verified', '✅'),
+        kpiHtml('Urgent OT Ortho Orders', '1 PO', '₹2.75 Lakhs', 'up', 'Synthes TPLO implants', '🚨'),
+        kpiHtml('Avg. Approval Duration', '1.8 Hours', '-0.6h improvement', 'up', 'Paperless ERP approval', '⏱️'),
+        kpiHtml('Fulfillment Accuracy', '99.4%', 'Zero wrong SKUs', 'up', 'Barcode scan validation', '🎯'),
       '</div>',
 
       '<div class="zvp-card">',
@@ -407,12 +451,12 @@
   function renderProcurement() {
     return [
       '<div class="zvp-kpi-grid">',
-        kpiHtml('Total Requisitions', '0', '0.0%', 'neutral', 'No active records', '📋'),
-        kpiHtml('POs Issued (MTD)', '0', '0.0%', 'neutral', 'No active records', '📑'),
-        kpiHtml('Requisition to PO Time', '0', '0.0%', 'neutral', 'No active records', '⏱️'),
-        kpiHtml('3-Way Match Rate', '0', '0.0%', 'neutral', 'No active records', '🎯'),
-        kpiHtml('Urgent Requisitions', '0', '0.0%', 'neutral', 'No active records', '🚨'),
-        kpiHtml('Cycle Cost Savings', '₹0', '0.0%', 'neutral', 'No active records', '💰'),
+        kpiHtml('Total Requisitions', '43 Requests', '+8 vs last month', 'up', 'Cross 6 clinic hubs', '📋'),
+        kpiHtml('POs Issued (MTD)', '18 POs', '₹38.5 Lakhs value', 'up', 'Oct 2026 cycle', '📑'),
+        kpiHtml('Requisition to PO Time', '1.6 Days', '-0.8d improvement', 'up', 'Fast-track workflows', '⏱️'),
+        kpiHtml('3-Way Match Rate', '99.2%', '+0.4% MoM', 'up', 'PO-GRN-Invoice matched', '🎯'),
+        kpiHtml('Urgent Requisitions', '2 Urgent', 'OT & ICU fast-track', 'up', '100% on schedule', '🚨'),
+        kpiHtml('Cycle Cost Savings', '₹6.42 Lakhs', '+12.1% of spend', 'up', 'Negotiation & volume', '💰'),
       '</div>',
 
       '<div class="zvp-card">',
@@ -507,16 +551,27 @@
   }
 
   function renderSupplierPricing() {
-    var skus = [];
+    var skus = [
+      { sku: 'SKU-ZOE-01', name: 'Vanguard Plus 5/CV-L (25 Doses)', vendor: 'Zoetis Animal Health', cat: 'Vaccines & Biologics', msrp: '₹8,500', contracted: '₹6,120', disc: '28.0%', moq: '20 packs', lock: '2027-03-31', parity: 'Best Price' },
+      { sku: 'SKU-ZOE-02', name: 'Apoquel 16mg (100 Tabs)', vendor: 'Zoetis Animal Health', cat: 'Rx Therapeutics', msrp: '₹6,200', contracted: '₹4,650', disc: '25.0%', moq: '10 btls', lock: '2027-03-31', parity: 'Exclusive' },
+      { sku: 'SKU-MSD-01', name: 'Bravecto Chewable 20-40kg', vendor: 'MSD Animal Health', cat: 'Ectoparasiticides', msrp: '₹2,850', contracted: '₹2,080', disc: '27.0%', moq: '30 packs', lock: '2027-03-31', parity: 'Best Price' },
+      { sku: 'SKU-MSD-02', name: 'Nobivac DHPPi + Lepto (50 Doses)', vendor: 'MSD Animal Health', cat: 'Vaccines & Biologics', msrp: '₹12,000', contracted: '₹8,760', disc: '27.0%', moq: '15 packs', lock: '2027-03-31', parity: 'Best Price' },
+      { sku: 'SKU-RC-01', name: 'Royal Canin Gastrointestinal 15kg', vendor: 'Royal Canin India', cat: 'Clinical Diets', msrp: '₹10,200', contracted: '₹7,750', disc: '24.0%', moq: '25 bags', lock: '2026-12-31', parity: 'Review Due' },
+      { sku: 'SKU-RC-02', name: 'Royal Canin Hepatic Canine 12kg', vendor: 'Royal Canin India', cat: 'Clinical Diets', msrp: '₹8,900', contracted: '₹6,850', disc: '23.0%', moq: '20 bags', lock: '2026-12-31', parity: 'Review Due' },
+      { sku: 'SKU-BI-01', name: 'NexGard Spectra Large 15-30kg', vendor: 'Boehringer Ingelheim', cat: 'Parasiticides', msrp: '₹3,100', contracted: '₹2,290', disc: '26.1%', moq: '25 packs', lock: '2027-06-30', parity: 'Best Price' },
+      { sku: 'SKU-SYN-01', name: 'TPLO Titanium Locking Plate 3.5mm', vendor: 'Synthes Vet Ortho', cat: 'Surgical Implants', msrp: '₹14,500', contracted: '₹10,440', disc: '28.0%', moq: '5 kits', lock: '2027-06-30', parity: 'Exclusive' },
+      { sku: 'SKU-HIL-01', name: "Hill's Prescription Diet k/d 12kg", vendor: "Hill's Pet Nutrition", cat: 'Clinical Diets', msrp: '₹9,400', contracted: '₹7,240', disc: '23.0%', moq: '20 bags', lock: '2027-03-31', parity: 'Negotiated' },
+      { sku: 'SKU-INT-01', name: 'Melonex Oral Suspension 100ml', vendor: 'Intas Pharmaceuticals', cat: 'Generic NSAID', msrp: '₹420', contracted: '₹265', disc: '36.9%', moq: '50 btls', lock: '2027-03-31', parity: 'Best Price' }
+    ];
 
     return [
       '<div class="zvp-kpi-grid">',
-        kpiHtml('Contracted SKUs', '0', '0.0%', 'neutral', 'No active records', '📋'),
-        kpiHtml('Avg. Discount vs MSRP', '0', '0.0%', 'neutral', 'No active records', '🏷️'),
-        kpiHtml('Active Price Locks', '0', '0.0%', 'neutral', 'No active records', '🔒'),
-        kpiHtml('Price Reviews Due (<60d)', '0', '0.0%', 'neutral', 'No active records', '⏳'),
-        kpiHtml('Generic Arbitrage Margin', '0', '0.0%', 'neutral', 'No active records', '💊'),
-        kpiHtml('Volume Rebates Earned', '₹0', '0.0%', 'neutral', 'No active records', '💵'),
+        kpiHtml('Contracted SKUs', '1,420 Items', '100% price locked', 'up', 'Under master agreements', '📋'),
+        kpiHtml('Avg. Discount vs MSRP', '26.8%', '+2.4% vs FY25', 'up', 'Network-wide average', '🏷️'),
+        kpiHtml('Active Price Locks', '94.2%', 'Protected thru FY27', 'up', 'Inflation hedge', '🔒'),
+        kpiHtml('Price Reviews Due (<60d)', '2 Agreements', 'Royal Canin & Farmina', 'neutral', 'Scheduled for Q4', '⏳'),
+        kpiHtml('Generic Arbitrage Margin', '35.3%', '+12.8% vs branded', 'up', 'Meloxicam & Ceftriaxone', '💊'),
+        kpiHtml('Volume Rebates Earned', '₹1.68 Lakhs', 'Tier 2 & 3 bonuses', 'up', 'Consolidated volume', '💵'),
       '</div>',
 
       '<div class="zvp-card">',
@@ -555,16 +610,27 @@
   }
 
   function renderSupplierPerformance() {
-    var supList = [];
+    var supList = [
+      { id: 'SUP-01', name: 'Zoetis Animal Health India', tier: 'Tier 1 Strategic', otif: 99.2, coldChain: 100, ppm: 18, invAcc: 99.8, lead: 2.1, cert: 'WHO-GMP & USFDA', status: 'Excellent' },
+      { id: 'SUP-02', name: 'MSD Animal Health Pvt Ltd', tier: 'Tier 1 Strategic', otif: 98.9, coldChain: 100, ppm: 24, invAcc: 99.6, lead: 2.4, cert: 'WHO-GMP & EMA', status: 'Excellent' },
+      { id: 'SUP-03', name: 'Royal Canin India Pvt Ltd', tier: 'Tier 1 Strategic', otif: 98.4, coldChain: 99.4, ppm: 32, invAcc: 99.2, lead: 3.2, cert: 'ISO 22000 & HACCP', status: 'Excellent' },
+      { id: 'SUP-04', name: 'Boehringer Ingelheim Vet', tier: 'Tier 1 Strategic', otif: 98.1, coldChain: 99.6, ppm: 28, invAcc: 99.4, lead: 2.8, cert: 'WHO-GMP & EU-GMP', status: 'Excellent' },
+      { id: 'SUP-05', name: "Hill's Pet Nutrition India", tier: 'Tier 2 Approved', otif: 97.8, coldChain: 99.1, ppm: 45, invAcc: 99.0, lead: 3.5, cert: 'SQF Level 3 & ISO', status: 'Good' },
+      { id: 'SUP-06', name: 'Synthes Vet Orthopedics', tier: 'Tier 2 Approved', otif: 96.5, coldChain: 99.8, ppm: 35, invAcc: 98.8, lead: 4.1, cert: 'ISO 13485 Med-Device', status: 'Good' },
+      { id: 'SUP-07', name: 'Farmina Pet Foods India', tier: 'Tier 2 Approved', otif: 97.2, coldChain: 98.9, ppm: 52, invAcc: 98.6, lead: 3.0, cert: 'ISO 9001 & Cruelty-Free', status: 'Good' },
+      { id: 'SUP-08', name: 'Virbac Animal Health India', tier: 'Tier 2 Approved', otif: 97.5, coldChain: 99.2, ppm: 48, invAcc: 99.1, lead: 2.7, cert: 'WHO-GMP & cGMP', status: 'Good' },
+      { id: 'SUP-09', name: 'Intas Pharmaceuticals Vet', tier: 'Tier 3 Qualified', otif: 96.8, coldChain: 98.8, ppm: 64, invAcc: 98.4, lead: 3.8, cert: 'WHO-GMP Certified', status: 'Good' },
+      { id: 'SUP-10', name: 'Purina PetCare India', tier: 'Tier 3 Qualified', otif: 96.1, coldChain: 98.5, ppm: 72, invAcc: 98.1, lead: 4.2, cert: 'FSSC 22000 & ISO', status: 'Acceptable' }
+    ];
 
     return [
       '<div class="zvp-kpi-grid">',
-        kpiHtml('Network OTIF Delivery Rate', '0', '0.0%', 'neutral', 'No active records', '⏱️'),
-        kpiHtml('Cold-Chain Compliance', '0', '0.0%', 'neutral', 'No active records', '❄️'),
-        kpiHtml('Avg. Defect PPM', '0', '0.0%', 'neutral', 'No active records', '🛡️'),
-        kpiHtml('Invoice Match Accuracy', '0', '0.0%', 'neutral', 'No active records', '📑'),
-        kpiHtml('Strategic Tier 1 Partners', '0', '0.0%', 'neutral', 'No active records', '⭐'),
-        kpiHtml('Audit Certifications', '0', '0.0%', 'neutral', 'No active records', '📜'),
+        kpiHtml('Network OTIF Delivery Rate', '98.4%', '+1.4% MoM', 'up', 'On-Time In-Full benchmark', '⏱️'),
+        kpiHtml('Cold-Chain Compliance', '100%', 'Zero breaches YTD', 'up', '2°C - 8°C vaccine integrity', '❄️'),
+        kpiHtml('Avg. Defect PPM', '38 PPM', '-14 PPM vs target', 'up', 'World-class pharma spec', '🛡️'),
+        kpiHtml('Invoice Match Accuracy', '99.2%', 'Three-way match', 'up', 'Discrepancy < 0.8%', '📑'),
+        kpiHtml('Strategic Tier 1 Partners', '4 Suppliers', '68% total spend', 'up', 'Zoetis, MSD, RC, BI', '⭐'),
+        kpiHtml('Audit Certifications', '100% Passed', '10 of 10 certified', 'up', 'WHO-GMP & ISO 13485', '📜'),
       '</div>',
 
       '<div class="zvp-card">',
@@ -602,16 +668,22 @@
   }
 
   function renderSavings() {
-    var levers = [];
+    var levers = [
+      { lever: 'Direct Manufacturer Master Contracting', realized: '₹2,45,000', target: '₹3,00,000', achievement: '81.7%', color: '#34d399', desc: 'Disintermediating regional sub-distributors across Zoetis, MSD, and BI for direct national factory invoicing.' },
+      { lever: 'Centralized Bulk Volume Aggregation', realized: '₹1,68,000', target: '₹2,00,000', achievement: '84.0%', color: '#38bdf8', desc: 'Consolidating prescription diets and surgical consumable demand across all 6 clinic hubs into bi-weekly orders.' },
+      { lever: 'Branded-to-Generic Substitution Arbitrage', realized: '₹1,18,000', target: '₹1,50,000', achievement: '78.7%', color: '#a78bfa', desc: 'Formulating clinical protocols to use bioequivalent generic NSAIDs and antibiotics without impacting care quality.' },
+      { lever: 'Early Payment Cash Discounts (2/10 Net 30)', realized: '₹68,000', target: '₹80,000', achievement: '85.0%', color: '#f59e0b', desc: 'Leveraging healthy treasury float to capture 2% upfront cash settlement discount on invoices cleared in 10 days.' },
+      { lever: 'Surgical Implant Tray Rationalization', realized: '₹43,000', target: '₹60,000', achievement: '71.7%', color: '#10b981', desc: 'Standardizing on Synthes TPLO locking screw diameters to eliminate obsolete non-standard sterile kits.' }
+    ];
 
     return [
       '<div class="zvp-kpi-grid">',
-        kpiHtml('Realized Savings (FYTD)', '₹0', '0.0%', 'neutral', 'No active records', '💰'),
-        kpiHtml('Savings % of Spend', '0', '0.0%', 'neutral', 'No active records', '📉'),
-        kpiHtml('Cost Avoidance (Inflation)', '₹0', '0.0%', 'neutral', 'No active records', '🛡️'),
-        kpiHtml('Generic Substitution Arbitrage', '₹0', '0.0%', 'neutral', 'No active records', '💊'),
-        kpiHtml('Early Pay Discounts Captured', '₹0', '0.0%', 'neutral', 'No active records', '⚡'),
-        kpiHtml('Savings in Pipeline (H2)', '₹0', '0.0%', 'neutral', 'No active records', '🎯'),
+        kpiHtml('Realized Savings (FYTD)', '₹6.42 Lakhs', '+108.2% vs target', 'up', 'Across all 5 levers', '💰'),
+        kpiHtml('Savings % of Spend', '12.1%', '+2.3% YoY', 'up', 'Addressable clinical spend', '📉'),
+        kpiHtml('Cost Avoidance (Inflation)', '₹3.80 Lakhs', 'Price locks preserved', 'up', 'Market inflation hedge', '🛡️'),
+        kpiHtml('Generic Substitution Arbitrage', '₹1.18 Lakhs', '35.3% lower unit cost', 'up', 'Pharma & antibiotics', '💊'),
+        kpiHtml('Early Pay Discounts Captured', '₹68,000', '92.5% capture rate', 'up', '2/10 Net 30 terms', '⚡'),
+        kpiHtml('Savings in Pipeline (H2)', '₹4.50 Lakhs', '3 major RFPs active', 'up', 'Targeted for closure', '🎯'),
       '</div>',
 
       '<div class="zvp-card">',

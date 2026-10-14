@@ -6,9 +6,24 @@ export default function SupplierPerformance() {
   const [selectedTier, setSelectedTier] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const suppliers = [];
+  const suppliers = [
+    { id: 'SUP-01', name: 'Zoetis Animal Health India', qbrTier: 'Tier 1 Strategic', otifRate: 99.2, coldChainCompliance: 100, defectPpm: 18, invoiceAccuracy: 99.8, avgLeadDays: 2.1, auditCert: 'WHO-GMP & USFDA', status: 'Excellent' },
+    { id: 'SUP-02', name: 'MSD Animal Health Pvt Ltd', qbrTier: 'Tier 1 Strategic', otifRate: 98.9, coldChainCompliance: 100, defectPpm: 24, invoiceAccuracy: 99.6, avgLeadDays: 2.4, auditCert: 'WHO-GMP & EMA', status: 'Excellent' },
+    { id: 'SUP-03', name: 'Royal Canin India Pvt Ltd', qbrTier: 'Tier 1 Strategic', otifRate: 98.4, coldChainCompliance: 99.4, defectPpm: 32, invoiceAccuracy: 99.2, avgLeadDays: 3.2, auditCert: 'ISO 22000 & HACCP', status: 'Excellent' },
+    { id: 'SUP-04', name: 'Boehringer Ingelheim Vet', qbrTier: 'Tier 1 Strategic', otifRate: 98.1, coldChainCompliance: 99.6, defectPpm: 28, invoiceAccuracy: 99.4, avgLeadDays: 2.8, auditCert: 'WHO-GMP & EU-GMP', status: 'Excellent' },
+    { id: 'SUP-05', name: "Hill's Pet Nutrition India", qbrTier: 'Tier 2 Preferred', otifRate: 97.8, coldChainCompliance: 99.1, defectPpm: 45, invoiceAccuracy: 99.0, avgLeadDays: 3.5, auditCert: 'SQF Level 3 & ISO', status: 'Good' },
+    { id: 'SUP-06', name: 'Synthes Vet Orthopedics', qbrTier: 'Tier 2 Preferred', otifRate: 96.5, coldChainCompliance: 99.8, defectPpm: 35, invoiceAccuracy: 98.8, avgLeadDays: 4.1, auditCert: 'ISO 13485 Med-Device', status: 'Good' },
+    { id: 'SUP-07', name: 'Farmina Pet Foods India', qbrTier: 'Tier 2 Preferred', otifRate: 97.2, coldChainCompliance: 98.9, defectPpm: 52, invoiceAccuracy: 98.6, avgLeadDays: 3.0, auditCert: 'ISO 9001 & Cruelty-Free', status: 'Good' },
+    { id: 'SUP-08', name: 'Virbac Animal Health India', qbrTier: 'Tier 2 Preferred', otifRate: 97.5, coldChainCompliance: 99.2, defectPpm: 48, invoiceAccuracy: 99.1, avgLeadDays: 2.7, auditCert: 'WHO-GMP & cGMP', status: 'Good' },
+    { id: 'SUP-09', name: 'Intas Pharmaceuticals Vet', qbrTier: 'Tier 3 Tactical', otifRate: 96.8, coldChainCompliance: 98.8, defectPpm: 64, invoiceAccuracy: 98.4, avgLeadDays: 3.8, auditCert: 'WHO-GMP Certified', status: 'Good' },
+    { id: 'SUP-10', name: 'Purina PetCare India', qbrTier: 'Tier 3 Tactical', otifRate: 96.1, coldChainCompliance: 98.5, defectPpm: 72, invoiceAccuracy: 98.1, avgLeadDays: 4.2, auditCert: 'FSSC 22000 & ISO', status: 'Acceptable' }
+  ];
 
-  const auditHighlights = [];
+  const auditHighlights = [
+    { title: 'Cold-Chain Integrity Compliance', status: '100% Pass', score: '2°C - 8°C Verified', desc: 'Active continuous temperature logger data verified for all vaccine & biologic consignments across hubs.' },
+    { title: 'Defect Rate (PPM Benchmark)', status: '38 PPM', score: 'World-Class Quality', desc: 'Pharmaceutical packaging, sterile packaging seal integrity, and batch code readability audited on GRN.' },
+    { title: '3-Way ERP Match Precision', status: '99.2% Match', score: 'Zero Discrepancies', desc: 'Automated digital verification of Purchase Order lines, Goods Receipt Notes (GRN), and Supplier Invoices.' }
+  ];
 
   const filtered = suppliers.filter(s => {
     if (selectedTier !== 'ALL' && s.qbrTier !== selectedTier) return false;
@@ -46,10 +61,10 @@ export default function SupplierPerformance() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Network OTIF Delivery Rate" value="0.0%" delta="+1.4% MoM" trend="up" subtext="On-Time In-Full benchmark" icon="⏱️" />
-        <KpiCard label="Cold-Chain Compliance" value="0.0%" delta="Zero breaches YTD" trend="up" subtext="2°C - 8°C vaccine integrity" icon="❄️" />
-        <KpiCard label="Avg. Defect PPM" value="48 PPM" delta="-12 PPM vs target" trend="up" subtext="World-class pharma spec" icon="🛡️" />
-        <KpiCard label="Invoice Match Accuracy" value="0.0%" delta="Three-way PO-GRN-Inv" trend="up" subtext="Discrepancy < 1.3%" icon="📑" />
+        <KpiCard label="Network OTIF Delivery Rate" value="98.4%" delta="+1.4% MoM" trend="up" subtext="On-Time In-Full benchmark" icon="⏱️" />
+        <KpiCard label="Cold-Chain Compliance" value="100%" delta="Zero breaches YTD" trend="up" subtext="2°C - 8°C vaccine integrity" icon="❄️" />
+        <KpiCard label="Avg. Defect PPM" value="38 PPM" delta="-14 PPM vs target" trend="up" subtext="World-class pharma spec" icon="🛡️" />
+        <KpiCard label="Invoice Match Accuracy" value="99.2%" delta="Three-way PO-GRN-Inv" trend="up" subtext="Discrepancy < 0.8%" icon="📑" />
         <KpiCard label="Strategic Tier 1 Suppliers" value="4 Vendors" delta="68% total spend" trend="up" subtext="High reliability index" icon="⭐" />
         <KpiCard label="Audit Recertifications" value="100% Passed" delta="10 of 10 certified" trend="up" subtext="WHO-GMP & ISO 13485" icon="📜" />
       </div>
@@ -59,7 +74,7 @@ export default function SupplierPerformance() {
         <h3 style={{ margin: '0 0 16px', fontSize: '16px', fontWeight: 700, color: 'var(--foreground, #0f172a)' }}>🛡️ Quality Assurance & Regulatory Compliance Highlights</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
           {auditHighlights.map((a, i) => (
-            <div key={i} style={{ background: 'rgba(0,0,0,0.22)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', padding: '16px' }}>
+            <div key={i} style={{ background: 'var(--muted, #f8fafc)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', padding: '16px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                 <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--foreground, #0f172a)' }}>{a.title}</span>
                 <span style={{ padding: '2px 8px', borderRadius: '4px', fontSize: '10px', fontWeight: 700, background: 'rgba(52,211,153,0.15)', color: '#34d399' }}>{a.status}</span>

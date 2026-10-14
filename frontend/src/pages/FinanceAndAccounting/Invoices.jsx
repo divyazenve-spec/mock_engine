@@ -6,7 +6,18 @@ export default function Invoices() {
   const [filterStatus, setFilterStatus] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const invoices = [];
+  const invoices = [
+    { id: 'INV-2026-901', date: '2026-10-14', client: 'Vikram Rao (Max - Golden Retriever)', facility: 'Indiranagar Flagship', items: 'TPLO Cruciate Knee Surgery & Implant', taxable: '₹48,000', gst: '₹8,640', total: '₹56,640', status: 'Paid' },
+    { id: 'INV-2026-902', date: '2026-10-14', client: 'Ananya Deshmukh (Milo - Persian Cat)', facility: 'Koramangala Supercare', items: 'Feline Renal Ultrasound & Comprehensive Bloods', taxable: '₹9,500', gst: '₹1,710', total: '₹11,210', status: 'Paid' },
+    { id: 'INV-2026-903', date: '2026-10-13', client: 'Karan Singhania (Thor - Rottweiler)', facility: 'Whitefield Emergency Hub', items: 'Gastric Dilatation Volvulus (GDV) Gastropexy', taxable: '₹62,000', gst: '₹11,160', total: '₹73,160', status: 'Paid' },
+    { id: 'INV-2026-904', date: '2026-10-13', client: 'Pooja Hegde (Bella - Shih Tzu)', facility: 'Jayanagar Wellness Clinic', items: 'Annual DHPPiL Vaccination & Dental Scaling', taxable: '₹6,800', gst: '₹1,224', total: '₹8,024', status: 'Paid' },
+    { id: 'INV-2026-905', date: '2026-10-12', client: 'Bajaj Allianz Pet Claim (Bruno - Boxer)', facility: 'Indiranagar Flagship', items: 'Inpatient ICU Chemotherapy Session & Monoclonal', taxable: '₹38,000', gst: '₹6,840', total: '₹44,840', status: 'Pending' },
+    { id: 'INV-2026-906', date: '2026-10-12', client: 'Rohit Verma (Simba - German Shepherd)', facility: 'HSR Layout Annex', items: 'Digital X-Ray Bilateral Hips & Cartilage Supplements', taxable: '₹8,200', gst: '₹1,476', total: '₹9,676', status: 'Paid' },
+    { id: 'INV-2026-907', date: '2026-10-11', client: 'Digit Pet TPA (Luna - Labrador)', facility: 'Koramangala Supercare', items: 'Arthroscopic Joint Debridement & MRI Scan', taxable: '₹54,000', gst: '₹9,720', total: '₹63,720', status: 'Pending' },
+    { id: 'INV-2026-908', date: '2026-10-10', client: 'Bangalore K9 Squad (Rex - Malinois)', facility: 'Indiranagar Flagship', items: 'Orthopedic Plate Revision & Post-Op Rehab', taxable: '₹42,500', gst: '₹7,650', total: '₹50,150', status: 'Paid' },
+    { id: 'INV-2026-909', date: '2026-10-09', client: 'Siddharth Nambiar (Oscar - Beagle)', facility: 'Lavelle Road Specialty', items: 'Endoscopic Foreign Body Gastric Removal', taxable: '₹31,000', gst: '₹5,580', total: '₹36,580', status: 'Paid' },
+    { id: 'INV-2026-910', date: '2026-09-28', client: 'Elite Kennel Breeders (Litter of 6)', facility: 'Whitefield Emergency Hub', items: 'Pre-adoption Health Screening & Microchipping', taxable: '₹24,000', gst: '₹4,320', total: '₹28,320', status: 'Overdue' }
+  ];
 
   const filtered = invoices.filter(inv => {
     if (filterStatus !== 'ALL' && inv.status !== filterStatus) return false;
@@ -46,12 +57,12 @@ export default function Invoices() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Invoices Issued (MTD)" value="0" delta="0.0%" trend="neutral" subtext="GST Compliant" icon="🧾" />
-        <KpiCard label="Total Invoiced Value" value="₹0" delta="₹0 GST Output" trend="neutral" subtext="Standard GST" icon="💰" />
-        <KpiCard label="Settled / Paid" value="₹0" delta="0.0%" trend="neutral" subtext="Instant digital pay" icon="✅" />
-        <KpiCard label="Pending Settlement" value="₹0" delta="Corporate B2B terms" trend="neutral" subtext="Within credit window" icon="⏳" />
-        <KpiCard label="Overdue Invoices" value="₹0" delta="--" trend="down" subtext="Follow-up notice sent" icon="⚠️" />
-        <KpiCard label="e-Invoice IRN Portal Sync" value="0.0%" delta="Sub-second sync" trend="neutral" subtext="NIC e-Invoice portal" icon="📶" />
+        <KpiCard label="Invoices Issued (MTD)" value="3,420" delta="+11.4% MoM" trend="up" subtext="GST Compliant" icon="🧾" />
+        <KpiCard label="Total Invoiced Value" value="₹1,42,85,000" delta="₹21,79,068 GST Output" trend="up" subtext="Standard GST" icon="💰" />
+        <KpiCard label="Settled / Paid" value="₹1,14,35,000" delta="80.0% settlement" trend="up" subtext="Instant digital pay" icon="✅" />
+        <KpiCard label="Pending Settlement" value="₹24,80,000" delta="Corporate B2B terms" trend="neutral" subtext="Within credit window" icon="⏳" />
+        <KpiCard label="Overdue Invoices" value="₹3,70,000" delta="2.6% of total" trend="down" subtext="Follow-up notice sent" icon="⚠️" />
+        <KpiCard label="e-Invoice IRN Portal Sync" value="99.9%" delta="Sub-second sync" trend="up" subtext="NIC e-Invoice portal" icon="📶" />
       </div>
 
       <div style={{

@@ -6,13 +6,24 @@ export default function AllVendors() {
   const [search, setSearch] = useState('');
   const [filterStatus, setFilterStatus] = useState('ALL');
 
-  const vendors = [];
+  const vendors = [
+    { id: 'VEN-001', name: 'Zoetis Animal Health India', gstin: '27AAACZ0821G1ZX', category: 'Vaccines & Biologics', contact: 'Dr. Rajesh Nair', city: 'Mumbai HQ', spend: '₹12,45,000', pos: 14, rating: 'AAA', status: 'Preferred', since: '2022-04' },
+    { id: 'VEN-002', name: 'MSD Animal Health Pvt Ltd', gstin: '29AABCM4512H1ZQ', category: 'Antiparasitics & Vaccines', contact: 'Priya Sreenivasan', city: 'Bengaluru', spend: '₹10,80,000', pos: 12, rating: 'AAA', status: 'Preferred', since: '2022-06' },
+    { id: 'VEN-003', name: 'Royal Canin India Pvt Ltd', gstin: '27AABCR8830M1Z5', category: 'Clinical Veterinary Diets', contact: 'Anand Kulkarni', city: 'Mumbai', spend: '₹8,95,000', pos: 16, rating: 'AAA', status: 'Preferred', since: '2022-03' },
+    { id: 'VEN-004', name: 'Boehringer Ingelheim Vet', gstin: '27AABCB9120N1ZV', category: 'Rx Therapeutics & NSAIDs', contact: 'Vikram Deshmukh', city: 'Mumbai', spend: '₹6,70,000', pos: 10, rating: 'AA+', status: 'Preferred', since: '2022-08' },
+    { id: 'VEN-005', name: "Hill's Pet Nutrition India", gstin: '06AABCH3391K1ZY', category: 'Clinical Nutrition & Care', contact: 'Neha Malhotra', city: 'Gurugram', spend: '₹5,40,000', pos: 8, rating: 'AA+', status: 'Preferred', since: '2023-01' },
+    { id: 'VEN-006', name: 'Synthes Vet Orthopedics', gstin: '29AABCS6724L1ZS', category: 'Surgical Implants & Hardware', contact: 'Arvind Sharma', city: 'Bengaluru', spend: '₹4,10,000', pos: 6, rating: 'AA', status: 'Active', since: '2023-03' },
+    { id: 'VEN-007', name: 'Farmina Pet Foods India', gstin: '29AABCF9943P1Z3', category: 'Veterinary Nutrition', contact: 'Rohan Nambiar', city: 'Bengaluru', spend: '₹3,65,000', pos: 7, rating: 'AA', status: 'Active', since: '2023-05' },
+    { id: 'VEN-008', name: 'Virbac Animal Health India', gstin: '27AABCV1034D1ZU', category: 'Dermatologicals & Anti-Infectives', contact: 'Sameer Patil', city: 'Mumbai', spend: '₹2,95,000', pos: 9, rating: 'AA', status: 'Active', since: '2023-07' },
+    { id: 'VEN-009', name: 'Intas Pharmaceuticals Vet', gstin: '24AABCI7840E1ZT', category: 'Injectables & Critical Care', contact: 'Harish Solanki', city: 'Ahmedabad', spend: '₹2,15,000', pos: 8, rating: 'A+', status: 'Active', since: '2023-09' },
+    { id: 'VEN-010', name: 'Purina PetCare India', gstin: '06AABCP2290R1ZW', category: 'Clinical Probiotics & Diets', contact: 'Divya Kapoor', city: 'Gurugram', spend: '₹1,65,000', pos: 5, rating: 'A+', status: 'Active', since: '2024-02' }
+  ];
 
   const filtered = vendors.filter(v => {
     if (filterStatus !== 'ALL' && v.status !== filterStatus) return false;
     if (search) {
       const q = search.toLowerCase();
-      return v.name.toLowerCase().includes(q) || v.category.toLowerCase().includes(q) || v.city.toLowerCase().includes(q);
+      return v.name.toLowerCase().includes(q) || v.category.toLowerCase().includes(q) || v.city.toLowerCase().includes(q) || v.gstin.toLowerCase().includes(q);
     }
     return true;
   });
@@ -26,7 +37,7 @@ export default function AllVendors() {
       title="Complete Vendor Directory & Supplier Registry"
       subtitle="All 24 registered suppliers with contacts, spend totals, quality ratings, and GSTIN verification status"
       icon="🏭"
-      badge=""
+      badge="24 Registered"
       actions={
         <button onClick={() => alert('Opening New Vendor Registration...')} style={{ padding: '6px 14px', borderRadius: '8px', border: '1px solid #3b82f6', background: 'rgba(59,130,246,0.15)', color: '#60a5fa', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}>
           + Register Vendor
