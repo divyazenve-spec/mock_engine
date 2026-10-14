@@ -3,7 +3,158 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function CriticalAlerts() {
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] = useState([
+  {
+    "id": "CRIT-101",
+    "title": "Main Biologics Vaccine Chiller Temperature Excursion",
+    "facility": "Indiranagar Surgical Hospital",
+    "hub": "Indiranagar Surgical Hospital",
+    "lead": "Dr. Vivek Menon",
+    "status": "Active",
+    "severity": "Critical",
+    "metric": "Chiller Temp: 9.8\u00b0C (Limit: 2\u00b0C - 8\u00b0C)",
+    "slaCountdown": "4 Mins to Escalation",
+    "time": "6 mins ago",
+    "impact": "\u20b94.2L biological vaccines & insulin at risk",
+    "actionTaken": "Auxiliary refrigeration engaged; transport box staged",
+    "action": "Auxiliary refrigeration engaged; transport box staged"
+  },
+  {
+    "id": "CRIT-102",
+    "title": "Primary HDFC UPI Payment Gateway Down",
+    "facility": "National Digital Commerce",
+    "hub": "National Digital Commerce",
+    "lead": "Pooja Deshmukh",
+    "status": "Active",
+    "severity": "Critical",
+    "metric": "Failure Rate: 84.2% on UPI collect calls",
+    "slaCountdown": "6 Mins to Escalation",
+    "time": "9 mins ago",
+    "impact": "\u20b96.8L/hr checkout volume stalling across app",
+    "actionTaken": "Auto-failover to Razorpay Secondary Pipeline executed",
+    "action": "Auto-failover to Razorpay Secondary Pipeline executed"
+  },
+  {
+    "id": "CRIT-103",
+    "title": "Bravecto 20-40kg Emergency Stockout at Koramangala",
+    "facility": "Koramangala Express Hub",
+    "hub": "Koramangala Express Hub",
+    "lead": "Ramesh Patel",
+    "status": "Active",
+    "severity": "Critical",
+    "metric": "Available Stock: 0 Units (Min Threshold: 40)",
+    "slaCountdown": "8 Mins to Escalation",
+    "time": "12 mins ago",
+    "impact": "42 patient prescription orders queued",
+    "actionTaken": "Express transfer PO-8821 dispatched from Central Depot",
+    "action": "Express transfer PO-8821 dispatched from Central Depot"
+  },
+  {
+    "id": "CRIT-104",
+    "title": "ICU Oxygen Manifold Pressure Drop Alert",
+    "facility": "Bandra West Medical Center",
+    "hub": "Bandra West Medical Center",
+    "lead": "Dr. Sunita Rao",
+    "status": "Active",
+    "severity": "Critical",
+    "metric": "Line Pressure: 38 PSI (Norm: 55 PSI)",
+    "slaCountdown": "3 Mins to Escalation",
+    "time": "5 mins ago",
+    "impact": "6 feline ventilator patients in critical care",
+    "actionTaken": "Switched to backup liquid oxygen cylinder bank B",
+    "action": "Switched to backup liquid oxygen cylinder bank B"
+  },
+  {
+    "id": "CRIT-105",
+    "title": "Whitefield Express Fleet Weather Grounding Hazard",
+    "facility": "Whitefield Micro-Hub",
+    "hub": "Whitefield Micro-Hub",
+    "lead": "Aditya Varma",
+    "status": "Active",
+    "severity": "Critical",
+    "metric": "Waterlogging depth 45cm; 18 orders blocked",
+    "slaCountdown": "10 Mins to Escalation",
+    "time": "14 mins ago",
+    "impact": "18 60-min express medicine deliveries at risk",
+    "actionTaken": "Rerouted dispatches to all-weather 4x4 mobile emergency van",
+    "action": "Rerouted dispatches to all-weather 4x4 mobile emergency van"
+  },
+  {
+    "id": "CRIT-106",
+    "title": "Controlled Drug Safe Electronic Lock Tamper Alert",
+    "facility": "South Ext Trauma Center",
+    "hub": "South Ext Trauma Center",
+    "lead": "Col. K. Sharma",
+    "status": "Active",
+    "severity": "Critical",
+    "metric": "Unauthorized keycard attempt x4 on Narcotic Locker",
+    "slaCountdown": "2 Mins to Escalation",
+    "time": "3 mins ago",
+    "impact": "Schedule X pharmacy regulatory compliance",
+    "actionTaken": "Vault auto-locked; CCTV feed pushed to Hospital Director",
+    "action": "Vault auto-locked; CCTV feed pushed to Hospital Director"
+  },
+  {
+    "id": "CRIT-107",
+    "title": "Trauma Surgical Table Overbooking Conflict",
+    "facility": "Gurgaon Sec-29 Hospital",
+    "hub": "Gurgaon Sec-29 Hospital",
+    "lead": "Dr. Ramesh Kumar",
+    "status": "Active",
+    "severity": "Critical",
+    "metric": "Dual Emergency C-Section + Ortho Fracture at 15:00",
+    "slaCountdown": "7 Mins to Escalation",
+    "time": "11 mins ago",
+    "impact": "Potential delay in life-saving surgical intervention",
+    "actionTaken": "Opened auxiliary Operating Theatre 3; pre-op team mobilized",
+    "action": "Opened auxiliary Operating Theatre 3; pre-op team mobilized"
+  },
+  {
+    "id": "CRIT-108",
+    "title": "High-Titer Feline Parvovirus Inpatient Isolation Alert",
+    "facility": "HSR Layout Polyclinic",
+    "hub": "HSR Layout Polyclinic",
+    "lead": "Dr. Anjali Nair",
+    "status": "Active",
+    "severity": "Critical",
+    "metric": "Positive Parvo ELISA confirmation in shared ward",
+    "slaCountdown": "5 Mins to Escalation",
+    "time": "8 mins ago",
+    "impact": "Cross-infection hazard for 8 vulnerable feline inpatients",
+    "actionTaken": "Quarantine barrier sealed; negative-pressure airflow active",
+    "action": "Quarantine barrier sealed; negative-pressure airflow active"
+  },
+  {
+    "id": "CRIT-109",
+    "title": "MySQL Analytical Cluster Database Lock Contention",
+    "facility": "Cloud Infrastructure (AWS Mumbai)",
+    "hub": "Cloud Infrastructure (AWS Mumbai)",
+    "lead": "Vikas Dubey",
+    "status": "Resolved",
+    "severity": "Critical",
+    "metric": "Write Lock Wait Time: 4,820ms (>500ms limit)",
+    "slaCountdown": "Resolved",
+    "time": "24 mins ago",
+    "impact": "POS billing latency spiking across front desks",
+    "actionTaken": "Purged deadlocks and resized thread pool from 64 to 256",
+    "action": "Purged deadlocks and resized thread pool from 64 to 256"
+  },
+  {
+    "id": "CRIT-110",
+    "title": "Cold-Chain Transport Van #4 GPS & Telemetry Loss",
+    "facility": "Chennai Fleet Transit (Velachery - Anna Nagar)",
+    "hub": "Chennai Fleet Transit (Velachery - Anna Nagar)",
+    "lead": "S. Murugan",
+    "status": "Active",
+    "severity": "Critical",
+    "metric": "Zero ping response for 14 minutes in rain corridor",
+    "slaCountdown": "9 Mins to Escalation",
+    "time": "13 mins ago",
+    "impact": "\u20b92.1L veterinary oncology biologics in transit",
+    "actionTaken": "Cellular beacon pinged; secondary driver reached via radio",
+    "action": "Cellular beacon pinged; secondary driver reached via radio"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -88,34 +239,34 @@ export default function CriticalAlerts() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="Active Sev-1 Incidents"
-          value="0 Active"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 active incidents"
+          value="9 Active"
+          delta="+2"
+          trend="negative"
+          subtext="P1 Command Center Live"
           icon="🚨"
         />
         <KpiCard
           label="Mean Time to Detect (MTTD)"
-          value="0 Mins"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 telemetry feeds"
+          value="1.8 Mins"
+          delta="-0.6m"
+          trend="positive"
+          subtext="Kafka 3-sigma telemetry"
           icon="⏱️"
         />
         <KpiCard
           label="Financial Value at Risk"
-          value="₹0"
-          delta="0.0%"
-          trend="neutral"
-          subtext="₹0 at risk"
+          value="₹18.4L"
+          delta="-12%"
+          trend="positive"
+          subtext="Automated safeguards active"
           icon="🛡️"
         />
         <KpiCard
           label="On-Call ICU Specialists"
-          value="0 Vets Active"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 active specialists"
+          value="14 Vets Active"
+          delta="100%"
+          trend="positive"
+          subtext="Across 14 facilities"
           icon="👨‍⚕️"
         />
       </div>

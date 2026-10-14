@@ -3,7 +3,118 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function NotificationCenter() {
-  const [notifications, setNotifications] = useState([]);
+  const [notifications, setNotifications] = useState([
+  {
+    "id": "NOTIF-101",
+    "title": "Sev-1 Incident Escalation: Biologics Vaccine Chiller #2",
+    "body": "Indiranagar Surgical Hospital reports chiller temp at 9.8\u00b0C (Limit: 2-8\u00b0C). Auxiliary cooling active; backup staged.",
+    "channel": "SMS Broadcast & WhatsApp",
+    "recipient": "Dr. Vivek Menon & Facilities Lead",
+    "severity": "Critical",
+    "status": "Delivered",
+    "read": false,
+    "time": "6 mins ago"
+  },
+  {
+    "id": "NOTIF-102",
+    "title": "Payment Pipeline Auto-Failover: Secondary HDFC Route Active",
+    "body": "Primary Razorpay UPI failure rate breached 15.0%. Automated failover routed 100% checkout traffic to HDFC secondary gateway.",
+    "channel": "Slack #payments-oncall",
+    "recipient": "FinOps & Engineering Lead",
+    "severity": "Critical",
+    "status": "Delivered",
+    "read": false,
+    "time": "12 mins ago"
+  },
+  {
+    "id": "NOTIF-103",
+    "title": "Urgent Rx Verification Backlog in Central Pharmacy",
+    "body": "10 patient antibiotic & critical care orders waiting > 15 mins for veterinary doctor digital signature.",
+    "channel": "Pharmacy Portal & WhatsApp",
+    "recipient": "Duty Vet Dr. Sunita Rao",
+    "severity": "High Warning",
+    "status": "Delivered",
+    "read": false,
+    "time": "18 mins ago"
+  },
+  {
+    "id": "NOTIF-104",
+    "title": "Express Fleet Dispatch Delay: Koramangala Rain Alert",
+    "body": "Severe waterlogging on 80ft road corridor. 8 express deliveries at risk of 60-min SLA breach. Intercept 4x4 van dispatched.",
+    "channel": "Rider Mobile App Push",
+    "recipient": "Koramangala Hub Fleet Lead",
+    "severity": "High Warning",
+    "status": "Delivered",
+    "read": true,
+    "time": "25 mins ago"
+  },
+  {
+    "id": "NOTIF-105",
+    "title": "Emergency Bravecto 20-40kg PO-8821 Dispatched",
+    "body": "Central Depot has dispatched 100 emergency units via dedicated courier to replenish Koramangala Hub stockout.",
+    "channel": "Email & ERP Notification",
+    "recipient": "Supply Chain Operations",
+    "severity": "Warning",
+    "status": "Delivered",
+    "read": false,
+    "time": "35 mins ago"
+  },
+  {
+    "id": "NOTIF-106",
+    "title": "Overnight Emergency ICU Veterinary Roster Confirmed",
+    "body": "Standby ICU surgeon Dr. Ramesh Kumar confirmed for 22:00 - 06:00 trauma shift at Indiranagar Surgical Hospital.",
+    "channel": "WhatsApp High-Priority",
+    "recipient": "Medical Superintendent",
+    "severity": "Info",
+    "status": "Delivered",
+    "read": true,
+    "time": "45 mins ago"
+  },
+  {
+    "id": "NOTIF-107",
+    "title": "Unallocated Bank Inflow Mapped: Infosys B2B Invoice",
+    "body": "\u20b94.5L RTGS transfer from Infosys Wellness verified against invoice #INV-2024-9912. Ledger cleared.",
+    "channel": "Email Digest",
+    "recipient": "Finance Controller",
+    "severity": "Info",
+    "status": "Delivered",
+    "read": false,
+    "time": "1 hr ago"
+  },
+  {
+    "id": "NOTIF-108",
+    "title": "AWS MySQL Cluster Lock Contention Auto-Mitigated",
+    "channel": "Slack #devops-alerts",
+    "recipient": "Cloud Infrastructure Team",
+    "severity": "Critical",
+    "status": "Delivered",
+    "body": "Write lock wait time spiked to 4,820ms. Auto-remediation script terminated blocked read transaction and doubled thread pool.",
+    "read": true,
+    "time": "2 hrs ago"
+  },
+  {
+    "id": "NOTIF-109",
+    "title": "Near-Expiry Pharmaceutical Liquidation Notice",
+    "channel": "Internal Audit Portal",
+    "recipient": "Pharmacy Category Manager",
+    "severity": "Warning",
+    "status": "Delivered",
+    "body": "FEFO auto-discounting applied to \u20b91.85L expiring inventory across 14 dark stores. Current liquidation rate at 78%.",
+    "read": false,
+    "time": "3 hrs ago"
+  },
+  {
+    "id": "NOTIF-110",
+    "title": "Meta WhatsApp Business Cloud API Green Tier Re-certified",
+    "channel": "System Dashboard",
+    "recipient": "Customer Support Operations",
+    "severity": "Info",
+    "status": "Delivered",
+    "body": "Gupshup Cloud API quality rating maintained at High / Green. 99.2% delivery rate achieved over past 24 hours.",
+    "read": false,
+    "time": "4 hrs ago"
+  }
+]);
 
   const [activeFilter, setActiveFilter] = useState('all');
   const [search, setSearch] = useState('');
@@ -95,35 +206,35 @@ export default function NotificationCenter() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="Unread Notifications"
-          value="0 Unread"
-          delta="0.0%"
+          value="7 Unread"
+          delta="+3"
           trend="neutral"
-          subtext="0 pending notifications"
+          subtext="Prioritized inbox"
           icon="📬"
         />
         <KpiCard
           label="Dispatched Today"
-          value="0 Alerts"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 notifications dispatched"
-          icon="🚀"
+          value="142 Alerts"
+          delta="+28"
+          trend="positive"
+          subtext="99.4% delivery rate"
+          icon="📤"
         />
         <KpiCard
           label="WhatsApp Business Delivery"
-          value="0.0%"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 notifications"
+          value="99.2%"
+          delta="+0.8%"
+          trend="positive"
+          subtext="Meta API Green Tier"
           icon="💬"
         />
         <KpiCard
           label="SMS Gateway Latency"
-          value="0s"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 gateway latency"
-          icon="📱"
+          value="1.2s"
+          delta="-0.4s"
+          trend="positive"
+          subtext="DLT route clear"
+          icon="⚡"
         />
       </div>
 

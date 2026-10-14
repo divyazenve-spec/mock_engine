@@ -3,7 +3,154 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function AlertRules() {
-  const [rules, setRules] = useState([]);
+  const [rules, setRules] = useState([
+  {
+    "id": "RULE-1",
+    "name": "Biological Cold-Chain Temperature Excursion",
+    "category": "Cold-Chain / Life Safety",
+    "severity": "Sev-1 Critical",
+    "condition": "chiller_temp > 8.0\u00b0C OR chiller_temp < 2.0\u00b0C for > 3 minutes",
+    "channels": [
+      "SMS Broadcast",
+      "WhatsApp High-Priority",
+      "Automated Voice IVR"
+    ],
+    "escalation": "5 Mins Escalation to Medical Director",
+    "cooldown": "15 mins",
+    "enabled": true
+  },
+  {
+    "id": "RULE-2",
+    "name": "High-Failure Rate Payment Gateway Anomaly",
+    "category": "Payments & Checkout",
+    "severity": "Sev-1 Critical",
+    "condition": "gateway_failure_rate > 15.0% on > 50 transactions in 5 mins",
+    "channels": [
+      "Slack #devops-sev1",
+      "PagerDuty",
+      "WhatsApp"
+    ],
+    "escalation": "3 Mins Auto-Failover to Secondary Gateway",
+    "cooldown": "10 mins",
+    "enabled": true
+  },
+  {
+    "id": "RULE-3",
+    "name": "Life-Critical ICU Ventilator & Oxygen Pressure Drop",
+    "category": "ICU & Clinical Equipment",
+    "severity": "Sev-1 Critical",
+    "condition": "o2_manifold_pressure < 45 PSI OR power_source == 'BATTERY_LOW'",
+    "channels": [
+      "Hospital Klaxon",
+      "SMS Emergency Broadcast",
+      "Doctor Pager"
+    ],
+    "escalation": "2 Mins Escalation to ICU Lead & Facilities Head",
+    "cooldown": "5 mins",
+    "enabled": true
+  },
+  {
+    "id": "RULE-4",
+    "name": "Critical Pharmaceutical SKU Safety Stock Breach",
+    "category": "Inventory Management",
+    "severity": "Sev-2 Warning",
+    "condition": "current_stock <= safety_stock_threshold AND daily_burn > 0",
+    "channels": [
+      "Procurement Portal",
+      "Email Alert",
+      "Slack #supply-chain"
+    ],
+    "escalation": "4 Hours to Inter-Hub Auto Transfer",
+    "cooldown": "60 mins",
+    "enabled": true
+  },
+  {
+    "id": "RULE-5",
+    "name": "Express Rider 60-Minute Delivery SLA Hazard",
+    "category": "Delivery & Logistics",
+    "severity": "Sev-2 Warning",
+    "condition": "elapsed_delivery_time > 45 minutes AND order_status != 'DELIVERED'",
+    "channels": [
+      "Rider Mobile App",
+      "Hub Dispatch Console",
+      "SMS"
+    ],
+    "escalation": "10 Mins to Dispatch Standby Intercept Courier",
+    "cooldown": "20 mins",
+    "enabled": true
+  },
+  {
+    "id": "RULE-6",
+    "name": "Prescription Verification Queue Bottleneck",
+    "category": "Pharmacy Operations",
+    "severity": "Sev-2 Warning",
+    "condition": "pending_rx_signoffs > 10 orders OR oldest_rx_age > 15 minutes",
+    "channels": [
+      "Duty Pharmacist Console",
+      "WhatsApp Lead Alert"
+    ],
+    "escalation": "15 Mins to Re-route Rx to Central Tele-Pharmacy",
+    "cooldown": "30 mins",
+    "enabled": true
+  },
+  {
+    "id": "RULE-7",
+    "name": "Uncollected Inpatient Surgical Consumables Variance",
+    "category": "Revenue Safeguard",
+    "severity": "Sev-2 Warning",
+    "condition": "surgery_completed == true AND unbilled_pins_detected == true",
+    "channels": [
+      "Billing Counter POS Alert",
+      "Finance Email Digest"
+    ],
+    "escalation": "2 Hours to Discharge Freeze Notice",
+    "cooldown": "45 mins",
+    "enabled": true
+  },
+  {
+    "id": "RULE-8",
+    "name": "Veterinary Surgeon Shift Shortage Warning",
+    "category": "HR & Governance",
+    "severity": "Sev-1 Critical",
+    "condition": "scheduled_icu_surgeons < 1 for active hospital overnight shift",
+    "channels": [
+      "Medical Superintendent Mobile",
+      "WhatsApp Emergency Roster"
+    ],
+    "escalation": "30 Mins to Deploy Standby Network Surgeon",
+    "cooldown": "60 mins",
+    "enabled": true
+  },
+  {
+    "id": "RULE-9",
+    "name": "API Gateway P99 Latency & Error Rate Breach",
+    "category": "System Infrastructure",
+    "severity": "Sev-2 Warning",
+    "condition": "api_p99_latency > 200ms OR http_5xx_rate > 2.0% in 3 mins",
+    "channels": [
+      "Slack #eng-alerts",
+      "CloudWatch Alarm",
+      "Datadog"
+    ],
+    "escalation": "10 Mins Auto-Scale Container Replicas x2",
+    "cooldown": "15 mins",
+    "enabled": true
+  },
+  {
+    "id": "RULE-10",
+    "name": "Unallocated Bank Inflow Deposit Matching",
+    "category": "Finance & Accounting",
+    "severity": "Sev-3 Info",
+    "condition": "unmapped_bank_deposit_amount > \u20b91,00,000 for > 2 hours",
+    "channels": [
+      "Treasury Portal",
+      "Finance Lead Email"
+    ],
+    "escalation": "24 Hours to Escalate to Accounting Controller",
+    "cooldown": "120 mins",
+    "enabled": false
+  }
+]);
 
   const [toast, setToast] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
@@ -103,34 +250,34 @@ export default function AlertRules() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="Total Deployed Rules"
-          value="0 Rules"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 active rules"
-          icon="🛡️"
+          value="10 Rules"
+          delta="+2"
+          trend="positive"
+          subtext="9 active rules"
+          icon="⚙️"
         />
         <KpiCard
           label="Critical (Sev-1) Rules"
-          value="0 Rules"
-          delta="0.0%"
+          value="3 Rules"
+          delta="Zero-Tolerance"
           trend="neutral"
-          subtext="0 Sev-1 rules"
+          subtext="Cold-chain & Life-safety"
           icon="🚨"
         />
         <KpiCard
           label="Multi-Channel Routing"
-          value="0 Channels"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 channels configured"
+          value="5 Channels"
+          delta="100%"
+          trend="positive"
+          subtext="SMS, WA, Email, Slack, Voice"
           icon="📱"
         />
         <KpiCard
           label="Avg Alert Resolution SLA"
-          value="0 Mins"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 mins SLA"
+          value="4.2 Mins"
+          delta="-1.8m"
+          trend="positive"
+          subtext="Metro emergency SLA"
           icon="⏱️"
         />
       </div>

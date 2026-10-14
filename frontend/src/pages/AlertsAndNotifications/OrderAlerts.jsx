@@ -3,7 +3,118 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function OrderAlerts() {
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] = useState([
+  {
+    "id": "ORD-501",
+    "title": "Urgent Prescription Verification Queue Stalled",
+    "category": "Pharmacy Rx Verification",
+    "hub": "Indiranagar Surgical Hospital",
+    "severity": "Critical",
+    "status": "Active",
+    "metric": "10 Orders Delayed > 15 Mins",
+    "impact": "Antibiotic & insulin deliveries blocked",
+    "time": "8 mins ago"
+  },
+  {
+    "id": "ORD-502",
+    "title": "Cold-Chain Gel-Pack Packing Station Bottleneck",
+    "category": "Vaccine Packaging",
+    "hub": "Whitefield Dark Store",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "24 Orders in Packing Queue",
+    "impact": "Risk of missing 60-min delivery SLA",
+    "time": "16 mins ago"
+  },
+  {
+    "id": "ORD-503",
+    "title": "VIP High-Spender Order Delivery Delay Hazard",
+    "category": "VIP Concierge",
+    "hub": "Bandra West Medical Center",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "Order #VIP-9942 Elapsed: 42 mins",
+    "impact": "Platinum member lifetime value \u20b91.8L",
+    "time": "22 mins ago"
+  },
+  {
+    "id": "ORD-504",
+    "title": "Unmatched In-Clinic Diagnostic Blood Panel",
+    "category": "Laboratory Diagnostics",
+    "hub": "South Ext Trauma Center",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "Barcode Scan Mismatch on 3 Blood Vials",
+    "impact": "Patient discharge delayed by 40 mins",
+    "time": "35 mins ago"
+  },
+  {
+    "id": "ORD-505",
+    "title": "High Customer Cancellation Spike on Pet Spa Bookings",
+    "category": "Grooming & Wellness",
+    "hub": "Koramangala Express Hub",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "8 Appointments Cancelled in 1 Hr",
+    "impact": "\u20b918K idle grooming groomer labor loss",
+    "time": "45 mins ago"
+  },
+  {
+    "id": "ORD-506",
+    "title": "Surgical Kit Sterilization Queue Conflict",
+    "category": "Operating Theatre Logistics",
+    "hub": "Gurgaon Sec-29 Hospital",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "Autoclave cycle delay of 25 mins",
+    "impact": "Ortho fracture surgery prep at risk",
+    "time": "1 hr ago"
+  },
+  {
+    "id": "ORD-507",
+    "title": "Heavy Kibble Multi-Bag Courier Rejection Alert",
+    "category": "Heavy Bulky Shipping",
+    "hub": "Powai Micro-Hub",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "6 Bags (15kg) rejected by 2-wheeler couriers",
+    "impact": "Requires 3-wheeler cargo rerouting",
+    "time": "2 hrs ago"
+  },
+  {
+    "id": "ORD-508",
+    "title": "Repeat Order Auto-Ship Payment Decline Loop",
+    "category": "Subscription Commerce",
+    "hub": "National Digital Commerce",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "14 recurring auto-ship orders stuck",
+    "impact": "\u20b932K recurring prescription orders paused",
+    "time": "3 hrs ago"
+  },
+  {
+    "id": "ORD-509",
+    "title": "Cross-City Emergency Blood Plasma Transfer",
+    "category": "Emergency Logistics",
+    "hub": "Chennai Transit Hub",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "Canine plasma bag en route via intercity cab",
+    "impact": "Trauma patient transfusion expected in 45m",
+    "time": "4 hrs ago"
+  },
+  {
+    "id": "ORD-510",
+    "title": "POS Barcode Scanner Failure on Front Counter",
+    "category": "Hospital Front Desk",
+    "hub": "HSR Layout Polyclinic",
+    "severity": "Warning",
+    "status": "Resolved",
+    "metric": "Manual entry required for 18 billing items",
+    "impact": "Resolved: Backup Bluetooth scanner deployed",
+    "time": "5 hrs ago"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -78,34 +189,34 @@ export default function OrderAlerts() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="Pending Rx Sign-Offs"
-          value="0 Orders"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 pending orders"
+          value="10 Orders"
+          delta="-8"
+          trend="positive"
+          subtext="Avg sign-off: 4.8m"
           icon="💊"
         />
         <KpiCard
           label="Packing Station SLA"
-          value="0.0%"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 backlogs"
+          value="98.6%"
+          delta="+1.2%"
+          trend="positive"
+          subtext="14 hubs nominal"
           icon="📦"
         />
         <KpiCard
           label="Cancellation Rate"
-          value="0.0%"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0.0% cancellations"
+          value="1.4%"
+          delta="-0.6%"
+          trend="positive"
+          subtext="Below 2.5% threshold"
           icon="🚫"
         />
         <KpiCard
           label="VIP Escalations"
-          value="0 Orders"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 active escalations"
+          value="2 Orders"
+          delta="-3"
+          trend="positive"
+          subtext="Concierge handling"
           icon="⭐"
         />
       </div>

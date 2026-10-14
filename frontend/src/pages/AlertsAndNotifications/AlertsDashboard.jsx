@@ -23,21 +23,102 @@ export default function AlertsDashboard() {
   };
 
   const tabs = [
-    { id: 'overview', label: 'Executive Overview', icon: '📊', badge: '' },
-    { id: 'critical', label: 'Critical Alerts', icon: '🚨', badge: '' },
-    { id: 'revenue', label: 'Revenue Alerts', icon: '💼', badge: '' },
-    { id: 'inventory', label: 'Inventory Alerts', icon: '📦', badge: '' },
-    { id: 'payment', label: 'Payment Alerts', icon: '💳', badge: '' },
-    { id: 'order', label: 'Order Alerts', icon: '🚚', badge: '' },
-    { id: 'delivery', label: 'Delivery Alerts', icon: '⚡', badge: '' },
-    { id: 'finance', label: 'Finance Alerts', icon: '💰', badge: '' },
-    { id: 'hr', label: 'HR Alerts', icon: '🧑‍💼', badge: '' },
-    { id: 'system', label: 'System Alerts', icon: '🖥️', badge: '' },
-    { id: 'rules', label: 'Alert Rules', icon: '⚙️', badge: '' },
-    { id: 'notifs', label: 'Notification Center', icon: '🔔', badge: '' }
+    { id: 'overview', label: 'Executive Overview', icon: '📊', badge: 'Live' },
+    { id: 'critical', label: 'Critical Alerts', icon: '🚨', badge: '9' },
+    { id: 'revenue', label: 'Revenue Alerts', icon: '💼', badge: '9' },
+    { id: 'inventory', label: 'Inventory Alerts', icon: '📦', badge: '9' },
+    { id: 'payment', label: 'Payment Alerts', icon: '💳', badge: '8' },
+    { id: 'order', label: 'Order Alerts', icon: '🚚', badge: '9' },
+    { id: 'delivery', label: 'Delivery Alerts', icon: '⚡', badge: '9' },
+    { id: 'finance', label: 'Finance Alerts', icon: '💰', badge: '9' },
+    { id: 'hr', label: 'HR Alerts', icon: '🧑‍💼', badge: '9' },
+    { id: 'system', label: 'System Alerts', icon: '🖥️', badge: '9' },
+    { id: 'rules', label: 'Alert Rules', icon: '⚙️', badge: '10' },
+    { id: 'notifs', label: 'Notification Center', icon: '🔔', badge: '7' }
   ];
 
-  const recentIncidents = [];
+  const recentIncidents = [
+  {
+    "id": "CRIT-101",
+    "title": "Main Biologics Vaccine Chiller Temp Excursion",
+    "severity": "Critical",
+    "hub": "Indiranagar Surgical Hospital",
+    "cat": "Critical / Cold-Chain",
+    "time": "6 mins ago"
+  },
+  {
+    "id": "PAY-401",
+    "title": "Razorpay Net Banking Gateway Success Rate Drop",
+    "severity": "Critical",
+    "hub": "National Digital Commerce",
+    "cat": "Payments",
+    "time": "12 mins ago"
+  },
+  {
+    "id": "DEL-601",
+    "title": "Express Courier Breakdown in Indiranagar",
+    "severity": "Critical",
+    "hub": "Indiranagar Express Hub",
+    "cat": "Delivery SLA",
+    "time": "8 mins ago"
+  },
+  {
+    "id": "INV-301",
+    "title": "Bravecto 20-40kg Emergency Stockout",
+    "severity": "Critical",
+    "hub": "Koramangala Express Hub",
+    "cat": "Inventory",
+    "time": "14 mins ago"
+  },
+  {
+    "id": "HR-801",
+    "title": "ICU Veterinary Surgeon Overnight Shortage",
+    "severity": "Critical",
+    "hub": "Indiranagar Hospital",
+    "cat": "HR & Governance",
+    "time": "15 mins ago"
+  },
+  {
+    "id": "SYS-901",
+    "title": "REST API Gateway P99 Latency Crossed 240ms",
+    "severity": "Critical",
+    "hub": "AWS Mumbai Cloud",
+    "cat": "System Health",
+    "time": "10 mins ago"
+  },
+  {
+    "id": "FIN-702",
+    "title": "Unallocated Bank Deposit Inflow on ICICI",
+    "severity": "Critical",
+    "hub": "Corporate Treasury",
+    "cat": "Finance",
+    "time": "30 mins ago"
+  },
+  {
+    "id": "ORD-501",
+    "title": "Urgent Prescription Verification Stalled",
+    "severity": "Critical",
+    "hub": "Indiranagar Hospital",
+    "cat": "Order Processing",
+    "time": "8 mins ago"
+  },
+  {
+    "id": "REV-201",
+    "title": "Coupon Stacking on Premium Grooming",
+    "severity": "High Warning",
+    "hub": "Mobile App Checkout",
+    "cat": "Revenue Safeguard",
+    "time": "15 mins ago"
+  },
+  {
+    "id": "NOTIF-101",
+    "title": "Multi-Channel Emergency Broadcast Triggered",
+    "severity": "Critical",
+    "hub": "Unified Broadcast Center",
+    "cat": "Notification",
+    "time": "6 mins ago"
+  }
+];
 
   return (
     <div style={{ width: '100%' }}>
@@ -167,34 +248,34 @@ export default function AlertsDashboard() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
             <KpiCard
               label="Active Critical Alerts (Sev-1)"
-              value="0 Emergencies"
-              delta="0.0%"
-              trend="neutral"
-              subtext="0 active incidents"
+              value="9 Emergencies"
+              delta="+2"
+              trend="negative"
+              subtext="P1 Command Center Live"
               icon="🚨"
             />
             <KpiCard
               label="Active Warning Alerts (Sev-2)"
-              value="0 Warnings"
-              delta="0.0%"
-              trend="neutral"
-              subtext="0 active warnings"
+              value="32 Warnings"
+              delta="-5"
+              trend="positive"
+              subtext="Automated mitigations en route"
               icon="⚠️"
             />
             <KpiCard
               label="Total Resolved Today"
-              value="0 Alerts"
-              delta="0.0%"
-              trend="neutral"
-              subtext="0 resolved"
+              value="58 Alerts"
+              delta="+14%"
+              trend="positive"
+              subtext="Avg MTTD: 1.8 mins"
               icon="✅"
             />
             <KpiCard
               label="Multi-Channel Delivery Health"
-              value="0.0%"
-              delta="0.0%"
-              trend="neutral"
-              subtext="0 notifications"
+              value="99.4%"
+              delta="+0.6%"
+              trend="positive"
+              subtext="142 dispatched today"
               icon="📱"
             />
           </div>
@@ -212,17 +293,17 @@ export default function AlertsDashboard() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '12px' }}>
               {[
-                { title: 'Critical Alerts', icon: '🚨', count: '0 Active', color: '#ef4444', tab: 'critical' },
-                { title: 'Revenue Alerts', icon: '💼', count: '0 Active', color: '#f59e0b', tab: 'revenue' },
-                { title: 'Inventory Alerts', icon: '📦', count: '0 Active', color: '#f59e0b', tab: 'inventory' },
-                { title: 'Payment Alerts', icon: '💳', count: '0 Active', color: '#ef4444', tab: 'payment' },
-                { title: 'Order Alerts', icon: '🚚', count: '0 Active', color: '#3b82f6', tab: 'order' },
-                { title: 'Delivery Alerts', icon: '⚡', count: '0 Active', color: '#ef4444', tab: 'delivery' },
-                { title: 'Finance Alerts', icon: '💰', count: '0 Active', color: '#f59e0b', tab: 'finance' },
-                { title: 'HR Alerts', icon: '🧑‍💼', count: '0 Active', color: '#ef4444', tab: 'hr' },
-                { title: 'System Alerts', icon: '🖥️', count: '0 Active', color: '#3b82f6', tab: 'system' },
-                { title: 'Alert Rules', icon: '⚙️', count: '0 Rules', color: '#10b981', tab: 'rules' },
-                { title: 'Notification Center', icon: '🔔', count: '0 Unread', color: '#8b5cf6', tab: 'notifs' }
+                { title: 'Critical Alerts', icon: '🚨', count: '9 Active', color: '#ef4444', tab: 'critical' },
+                { title: 'Revenue Alerts', icon: '💼', count: '9 Active', color: '#f59e0b', tab: 'revenue' },
+                { title: 'Inventory Alerts', icon: '📦', count: '9 Active', color: '#f59e0b', tab: 'inventory' },
+                { title: 'Payment Alerts', icon: '💳', count: '8 Active', color: '#ef4444', tab: 'payment' },
+                { title: 'Order Alerts', icon: '🚚', count: '9 Active', color: '#3b82f6', tab: 'order' },
+                { title: 'Delivery Alerts', icon: '⚡', count: '9 Active', color: '#ef4444', tab: 'delivery' },
+                { title: 'Finance Alerts', icon: '💰', count: '9 Active', color: '#f59e0b', tab: 'finance' },
+                { title: 'HR Alerts', icon: '🧑‍💼', count: '9 Active', color: '#ef4444', tab: 'hr' },
+                { title: 'System Alerts', icon: '🖥️', count: '9 Active', color: '#3b82f6', tab: 'system' },
+                { title: 'Alert Rules', icon: '⚙️', count: '10 Rules', color: '#10b981', tab: 'rules' },
+                { title: 'Notification Center', icon: '🔔', count: '7 Unread', color: '#8b5cf6', tab: 'notifs' }
               ].map(cat => (
                 <div
                   key={cat.title}

@@ -3,7 +3,158 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function InventoryAlerts() {
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] = useState([
+  {
+    "id": "INV-301",
+    "sku": "SKU-MED-0101",
+    "title": "Bravecto Chewable Dog 20-40kg",
+    "hub": "Koramangala Express Hub",
+    "severity": "Critical",
+    "status": "Active",
+    "currentStock": 14,
+    "stock": "14 Units",
+    "safetyStock": 40,
+    "burnRate": "4.8 units/day",
+    "burn": "4.8 / Day",
+    "estStockout": "2.9 Days (Critical)",
+    "action": "Emergency PO Dispatched"
+  },
+  {
+    "id": "INV-302",
+    "sku": "SKU-VAC-0504",
+    "title": "Nobivac Tricat Trio Feline Vaccine",
+    "hub": "Indiranagar Surgical Hospital",
+    "severity": "High Warning",
+    "status": "Active",
+    "currentStock": 22,
+    "stock": "22 Vials",
+    "safetyStock": 50,
+    "burnRate": "4.2 units/day",
+    "burn": "4.2 / Day",
+    "estStockout": "5.2 Days",
+    "action": "Inter-Hub Transfer En Route"
+  },
+  {
+    "id": "INV-303",
+    "sku": "SKU-NUT-0205",
+    "title": "Royal Canin Gastrointestinal Dog 14kg",
+    "hub": "Whitefield Dark Store",
+    "severity": "Critical",
+    "status": "Active",
+    "currentStock": 8,
+    "stock": "8 Bags",
+    "safetyStock": 30,
+    "burnRate": "2.0 units/day",
+    "burn": "2.0 / Day",
+    "estStockout": "4.0 Days (Critical)",
+    "action": "Supplier Bulk PO Placed"
+  },
+  {
+    "id": "INV-304",
+    "sku": "SKU-CRD-0302",
+    "title": "Vetmedin 5mg Chewable Tablets",
+    "hub": "Bandra West Medical Center",
+    "severity": "High Warning",
+    "status": "Active",
+    "currentStock": 11,
+    "stock": "11 Packs",
+    "safetyStock": 25,
+    "burnRate": "1.8 units/day",
+    "burn": "1.8 / Day",
+    "estStockout": "6.1 Days",
+    "action": "Safety Buffer Reorder Active"
+  },
+  {
+    "id": "INV-305",
+    "sku": "SKU-DERM-0410",
+    "title": "Apoquel 16mg Anti-Itch Tablets",
+    "hub": "Powai Express Hub",
+    "severity": "High Warning",
+    "status": "Active",
+    "currentStock": 16,
+    "stock": "16 Packs",
+    "safetyStock": 35,
+    "burnRate": "3.2 units/day",
+    "burn": "3.2 / Day",
+    "estStockout": "5.0 Days",
+    "action": "Rebalance from Bandra Hub"
+  },
+  {
+    "id": "INV-306",
+    "sku": "SKU-EMG-0714",
+    "title": "Cerenia 10mg/ml Injectable Anti-Emetic",
+    "hub": "South Ext Trauma Center",
+    "severity": "Critical",
+    "status": "Active",
+    "currentStock": 6,
+    "stock": "6 Vials",
+    "safetyStock": 20,
+    "burnRate": "2.5 units/day",
+    "burn": "2.5 / Day",
+    "estStockout": "2.4 Days (Critical)",
+    "action": "Same-Day Courier En Route"
+  },
+  {
+    "id": "INV-307",
+    "sku": "SKU-ORT-0608",
+    "title": "Rimadyl 75mg Chewable NSAID",
+    "hub": "Gurgaon Sec-29 Hospital",
+    "severity": "Warning",
+    "status": "Active",
+    "currentStock": 18,
+    "stock": "18 Bottles",
+    "safetyStock": 30,
+    "burnRate": "2.4 units/day",
+    "burn": "2.4 / Day",
+    "estStockout": "7.5 Days",
+    "action": "Supplier Requisition Queued"
+  },
+  {
+    "id": "INV-308",
+    "sku": "SKU-NUT-0212",
+    "title": "Hill's Prescription Diet c/d Feline 3.8kg",
+    "hub": "HSR Layout Polyclinic",
+    "severity": "High Warning",
+    "status": "Active",
+    "currentStock": 9,
+    "stock": "9 Bags",
+    "safetyStock": 20,
+    "burnRate": "1.7 units/day",
+    "burn": "1.7 / Day",
+    "estStockout": "5.3 Days",
+    "action": "Dark Store Stock Transferred"
+  },
+  {
+    "id": "INV-309",
+    "sku": "SKU-MED-0115",
+    "title": "Simparica Trio 10-20kg Chewable",
+    "hub": "Anna Nagar Facility",
+    "severity": "Warning",
+    "status": "Active",
+    "currentStock": 15,
+    "stock": "15 Packs",
+    "safetyStock": 28,
+    "burnRate": "2.4 units/day",
+    "burn": "2.4 / Day",
+    "estStockout": "6.2 Days",
+    "action": "Automated PO Requisition Active"
+  },
+  {
+    "id": "INV-310",
+    "sku": "SKU-SUR-0820",
+    "title": "Vicryl 3-0 Absorbable Surgical Suture",
+    "hub": "Jayanagar Care Center",
+    "severity": "Critical",
+    "status": "Resolved",
+    "currentStock": 48,
+    "stock": "48 Boxes",
+    "safetyStock": 40,
+    "burnRate": "3.5 units/day",
+    "burn": "3.5 / Day",
+    "estStockout": "13.7 Days (Safe)",
+    "action": "Emergency Batch Received & Audited"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -78,34 +229,34 @@ export default function InventoryAlerts() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="SKUs Below Reorder Point"
-          value="0 SKUs"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 stockout warnings"
+          value="10 SKUs"
+          delta="-4"
+          trend="positive"
+          subtext="Buffer stocks active"
           icon="⚠️"
         />
         <KpiCard
           label="Near-Expiry Valuation (<30d)"
-          value="₹0"
-          delta="0.0%"
-          trend="neutral"
-          subtext="₹0 near-expiry"
+          value="₹1.85L"
+          delta="-64% vs Q2"
+          trend="positive"
+          subtext="FEFO clearance active"
           icon="⏳"
         />
         <KpiCard
           label="Cold-Chain Temperature SLA"
-          value="0.0%"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 active sensors"
+          value="99.8%"
+          delta="+0.4%"
+          trend="positive"
+          subtext="14 hubs in compliance"
           icon="❄️"
         />
         <KpiCard
           label="Capital Trapped in Slow-Moving"
-          value="₹0"
-          delta="0.0%"
-          trend="neutral"
-          subtext="₹0 trapped capital"
+          value="₹3.4L"
+          delta="-18%"
+          trend="positive"
+          subtext="Stock rebalanced"
           icon="🧊"
         />
       </div>

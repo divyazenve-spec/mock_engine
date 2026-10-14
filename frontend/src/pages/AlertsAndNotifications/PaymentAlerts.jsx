@@ -3,7 +3,118 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function PaymentAlerts() {
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] = useState([
+  {
+    "id": "PAY-401",
+    "title": "Razorpay Net Banking Success Rate Dropped to 64%",
+    "gateway": "Razorpay NetBanking",
+    "severity": "Critical",
+    "status": "Active",
+    "cause": "SBI & ICICI net banking server downtime",
+    "rootCause": "SBI & ICICI net banking server downtime",
+    "impact": "\u20b93.4L order checkouts abandoned",
+    "time": "12 mins ago"
+  },
+  {
+    "id": "PAY-402",
+    "title": "Overdue High-Value Corporate Vet Account Receivables",
+    "gateway": "B2B Credit Line",
+    "severity": "High Warning",
+    "status": "Active",
+    "cause": "Overdue balance crossed \u20b94.5L credit ceiling by 28 days",
+    "rootCause": "Overdue balance crossed \u20b94.5L credit ceiling by 28 days",
+    "impact": "\u20b94.5L overdue receivable",
+    "time": "25 mins ago"
+  },
+  {
+    "id": "PAY-403",
+    "title": "Spike in Rapid Card Chargeback Claims",
+    "gateway": "Visa / Mastercard Processing",
+    "severity": "Warning",
+    "status": "Active",
+    "cause": "Unrecognized charge complaints on automatic renewal",
+    "rootCause": "Unrecognized charge complaints on automatic renewal",
+    "impact": "7 claims / \u20b954K dispute hold",
+    "time": "40 mins ago"
+  },
+  {
+    "id": "PAY-404",
+    "title": "Instant Refund Payout Bank Balance Running Low",
+    "gateway": "Razorpay X Payouts",
+    "severity": "High Warning",
+    "status": "Active",
+    "cause": "Disbursement pool balance dropped below \u20b91.0L threshold",
+    "rootCause": "Disbursement pool balance dropped below \u20b91.0L threshold",
+    "impact": "\u20b985K balance remaining",
+    "time": "1 hr ago"
+  },
+  {
+    "id": "PAY-405",
+    "title": "COD Delivery Cash Settlement Delay in Delhi NCR Hub",
+    "gateway": "Cash-on-Delivery (COD)",
+    "severity": "Warning",
+    "status": "Active",
+    "cause": "12 express couriers delayed depositing collected cash",
+    "rootCause": "12 express couriers delayed depositing collected cash",
+    "impact": "\u20b91.85L unremitted cash",
+    "time": "2 hrs ago"
+  },
+  {
+    "id": "PAY-406",
+    "title": "Pet Health Insurance Third-Party Claim Settlement Hold",
+    "gateway": "CarePal Vet Insurance TPA",
+    "severity": "Warning",
+    "status": "Active",
+    "cause": "Pending hospital invoice clarification on ortho surgeries",
+    "rootCause": "Pending hospital invoice clarification on ortho surgeries",
+    "impact": "\u20b92.65L trapped insurance claims",
+    "time": "3 hrs ago"
+  },
+  {
+    "id": "PAY-407",
+    "title": "Paytm Wallet Checkout Disconnection Error",
+    "gateway": "Paytm PG API",
+    "severity": "Warning",
+    "status": "Active",
+    "cause": "API certificate renewal latency on third-party callback",
+    "rootCause": "API certificate renewal latency on third-party callback",
+    "impact": "48 failed transactions",
+    "time": "4 hrs ago"
+  },
+  {
+    "id": "PAY-408",
+    "title": "Doctor Tele-Consultation Payout Batch Variance",
+    "gateway": "Automated NEFT / IMPS",
+    "severity": "Warning",
+    "status": "Active",
+    "cause": "Doctor bank IFSC changes unverified by HR portal",
+    "rootCause": "Doctor bank IFSC changes unverified by HR portal",
+    "impact": "\u20b91.15L payout rejected",
+    "time": "5 hrs ago"
+  },
+  {
+    "id": "PAY-409",
+    "title": "Foreign International Credit Card Processing Failure Spike",
+    "gateway": "Stripe International",
+    "severity": "Warning",
+    "status": "Active",
+    "cause": "3D Secure 2.0 protocol handshake failure for expat cards",
+    "rootCause": "3D Secure 2.0 protocol handshake failure for expat cards",
+    "impact": "\u20b992K international spend at risk",
+    "time": "6 hrs ago"
+  },
+  {
+    "id": "PAY-410",
+    "title": "HDFC Direct Bank Webhook Latency Spike",
+    "gateway": "HDFC SmartHub",
+    "severity": "Critical",
+    "status": "Resolved",
+    "cause": "Callback delay caused orders to remain in Pending state",
+    "rootCause": "Callback delay caused orders to remain in Pending state",
+    "impact": "Resolved via webhook re-synchronization",
+    "time": "8 hrs ago"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -78,35 +189,35 @@ export default function PaymentAlerts() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="Gateway Uptime (Razorpay)"
-          value="0.0%"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 downtime incidents"
+          value="99.82%"
+          delta="+0.12%"
+          trend="positive"
+          subtext="Secondary HDFC active"
           icon="⚡"
         />
         <KpiCard
           label="Overdue B2B Receivables"
-          value="₹0"
-          delta="0.0%"
-          trend="neutral"
-          subtext="₹0 overdue"
-          icon="📑"
+          value="₹4.5L"
+          delta="-15%"
+          trend="positive"
+          subtext="Corporate billing active"
+          icon="🏢"
         />
         <KpiCard
           label="Instant Refund Balance"
-          value="₹0"
-          delta="0.0%"
-          trend="neutral"
-          subtext="₹0 float balance"
-          icon="🏦"
+          value="₹85K"
+          delta="Optimal"
+          trend="positive"
+          subtext="Payout buffer intact"
+          icon="🔄"
         />
         <KpiCard
           label="Pending Vet Commissions"
-          value="₹0"
-          delta="0.0%"
+          value="₹2.4L"
+          delta="Scheduled"
           trend="neutral"
-          subtext="₹0 pending"
-          icon="👨‍⚕️"
+          subtext="Friday batch disbursement"
+          icon="💳"
         />
       </div>
 

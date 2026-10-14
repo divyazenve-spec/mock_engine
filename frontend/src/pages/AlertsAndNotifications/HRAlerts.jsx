@@ -3,7 +3,118 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function HRAlerts() {
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] = useState([
+  {
+    "id": "HR-801",
+    "title": "Critical ICU Veterinary Surgeon Shift Shortage Tonight",
+    "department": "Emergency Inpatient Surgery",
+    "facility": "Indiranagar Surgical Hospital",
+    "severity": "Critical",
+    "status": "Active",
+    "metric": "0 On-Call Trauma Vets for 22:00 - 06:00 Shift",
+    "impact": "Emergency surgical triage diverted to peripheral clinics",
+    "time": "15 mins ago"
+  },
+  {
+    "id": "HR-802",
+    "title": "Veterinary Council State Registration Expiry Warnings",
+    "department": "Clinical Governance & Licensing",
+    "facility": "Karnataka & Maharashtra Network",
+    "severity": "Critical",
+    "status": "Active",
+    "metric": "4 Senior Vets Licenses Expire in < 15 Days",
+    "impact": "Regulatory bar on dispensing Schedule X narcotics",
+    "time": "30 mins ago"
+  },
+  {
+    "id": "HR-803",
+    "title": "Weekend Pet Groomer Absenteeism Spike across Mumbai Hubs",
+    "department": "Spa & Grooming Operations",
+    "facility": "Bandra & Powai Centers",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "5 Groomers on Unplanned Leave on Saturday",
+    "impact": "28 scheduled pet spa appointments at risk of cancellation",
+    "time": "45 mins ago"
+  },
+  {
+    "id": "HR-804",
+    "title": "Overtime Hour Threshold Breach in Central Packing Hub",
+    "department": "Logistics & Fulfillment",
+    "facility": "Whitefield Dark Store",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "14 Warehouse Associates Exceeded 60h Weekly Cap",
+    "impact": "Factory inspector compliance risk & staff fatigue hazard",
+    "time": "1 hr ago"
+  },
+  {
+    "id": "HR-805",
+    "title": "Pharmacy Dispenser Mandatory Continuing Education Overdue",
+    "department": "Pharmacy Quality Assurance",
+    "facility": "National Pharmacy Network",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "8 Registered Pharmacists Overdue on Antibiotic Protocols",
+    "impact": "NABH hospital accreditation compliance audit flag",
+    "time": "2 hrs ago"
+  },
+  {
+    "id": "HR-806",
+    "title": "Radiation Safety Dosimeter Badge Monitoring Non-Compliance",
+    "department": "Veterinary Radiology & CT",
+    "facility": "Gurgaon Sec-29 Hospital",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "3 X-Ray Technicians Failed Quarterly TLD Badge Submission",
+    "impact": "AERB nuclear safety regulatory violation notice risk",
+    "time": "3 hrs ago"
+  },
+  {
+    "id": "HR-807",
+    "title": "Express Rider Attrition Spike in Delhi NCR Cluster",
+    "department": "Last-Mile Field Delivery",
+    "facility": "South Ext & Noida Hubs",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "Monthly Rider Turnover Rose to 18.4% (Threshold: 10%)",
+    "impact": "Sub-hub dispatch delays and rising onboarding costs",
+    "time": "4 hrs ago"
+  },
+  {
+    "id": "HR-808",
+    "title": "Workplace Biohazard Safety Protocol Training Lapsed",
+    "department": "Infection Control",
+    "facility": "HSR Layout Polyclinic",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "6 New Veterinary Nurses Need Sharps Handling Certification",
+    "impact": "Needlestick injury prevention compliance",
+    "time": "5 hrs ago"
+  },
+  {
+    "id": "HR-809",
+    "title": "Front Desk Receptionist High Customer NPS Churn",
+    "department": "Patient Experience",
+    "facility": "Anna Nagar Hospital",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "Front Desk CSAT Dropped from 4.8 to 3.9",
+    "impact": "Patient check-in bottlenecks during peak hours",
+    "time": "6 hrs ago"
+  },
+  {
+    "id": "HR-810",
+    "title": "Anesthesiologist Emergency Mutual Aid Roster Rebalanced",
+    "department": "Surgical Anesthesia",
+    "facility": "Bangalore Metro Network",
+    "severity": "Critical",
+    "status": "Resolved",
+    "metric": "Full Coverage Restored: 14 Vets Active",
+    "impact": "Resolved: Standby anesthesiologist deployed from Jayanagar",
+    "time": "7 hrs ago"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -78,34 +189,34 @@ export default function HRAlerts() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="Shift Coverage Rate"
-          value="0.0%"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 shift alerts"
+          value="98.4%"
+          delta="+2.1%"
+          trend="positive"
+          subtext="14 facilities covered"
           icon="🏥"
         />
         <KpiCard
           label="On-Call Specialist Roster"
-          value="0 Active"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 roster alerts"
+          value="14 Active"
+          delta="100%"
+          trend="positive"
+          subtext="Emergency ICU staffed"
           icon="👨‍⚕️"
         />
         <KpiCard
           label="Quota Lagging Personnel"
-          value="0 Employees"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 quota alerts"
+          value="3 Employees"
+          delta="-5"
+          trend="positive"
+          subtext="Coaching enrolled"
           icon="🎯"
         />
         <KpiCard
           label="Credentialing Expirations"
-          value="0 Licenses"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 license alerts"
+          value="4 Licenses"
+          delta="Filed"
+          trend="positive"
+          subtext="State vet boards live"
           icon="📜"
         />
       </div>

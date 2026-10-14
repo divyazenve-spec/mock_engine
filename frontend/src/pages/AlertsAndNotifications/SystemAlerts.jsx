@@ -3,7 +3,108 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function SystemAlerts() {
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] = useState([
+  {
+    "id": "SYS-901",
+    "title": "REST API Gateway P99 Latency Crossed 240ms SLA",
+    "service": "Kong API Gateway / AWS Mumbai",
+    "severity": "Critical",
+    "status": "Active",
+    "metric": "P99 Latency: 284ms (Baseline: 84ms)",
+    "impact": "Mobile checkout screen lag during evening traffic peak",
+    "time": "10 mins ago"
+  },
+  {
+    "id": "SYS-902",
+    "title": "SQLite WAL Mode Database Lock Contention Warning",
+    "service": "Edge Mock Analytical Engine",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "14 Pending Write Locks Queued > 2,000ms",
+    "impact": "Real-time dashboard KPI metrics refresh delayed",
+    "time": "18 mins ago"
+  },
+  {
+    "id": "SYS-903",
+    "title": "Google Gemini 1.5 Pro AI Token Rate Limit Warning",
+    "service": "AI Veterinary Assistant Engine",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "Quota Consumption: 88.4% of Per-Minute Token Limit",
+    "impact": "Clinical diagnostic copilot prompts experiencing fallback delay",
+    "time": "25 mins ago"
+  },
+  {
+    "id": "SYS-904",
+    "title": "Enterprise SAP ERP Connector CDC Pipeline Lagging",
+    "service": "Apache Kafka / Debezium CDC",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "Replication Lag: 8.4 Mins (Threshold: 2.0 Mins)",
+    "impact": "ERP general ledger synchronization out of sync with POS",
+    "time": "35 mins ago"
+  },
+  {
+    "id": "SYS-905",
+    "title": "Redis In-Memory Session Cache Memory Utilization at 89%",
+    "service": "Redis Cluster (AWS ElastiCache)",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "Used Memory: 7.12 GB / 8.00 GB Max",
+    "impact": "Risk of key eviction on active customer shopping carts",
+    "time": "45 mins ago"
+  },
+  {
+    "id": "SYS-906",
+    "title": "IoT Cold-Chain Telemetry Broker MQTT Connection Drops",
+    "service": "AWS IoT Core / MQTT Broker",
+    "severity": "Critical",
+    "status": "Active",
+    "metric": "18 Vaccine Chiller Sensors Disconnected in BLR",
+    "impact": "Gaps in temperature audit trail for drug regulator",
+    "time": "55 mins ago"
+  },
+  {
+    "id": "SYS-907",
+    "title": "Elasticsearch Clinical Records Index Disk Storage at 84%",
+    "service": "Elasticsearch OpenSearch Cluster",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "Disk Free: 32 GB on Primary Node B",
+    "impact": "Need snapshot archival of 2024 historical medical records",
+    "time": "1 hr ago"
+  },
+  {
+    "id": "SYS-908",
+    "title": "External SendGrid Email Webhook SSL Certificate Expiry Alert",
+    "service": "Transactional Email Gateway",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "TLS Certificate Expires in 7 Days",
+    "impact": "Risk of automated patient receipt email delivery stalling",
+    "time": "2 hrs ago"
+  },
+  {
+    "id": "SYS-909",
+    "title": "S3 Medical Imaging DICOM Bucket Write Latency Anomaly",
+    "service": "AWS S3 Mumbai (ap-south-1)",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "PUT Latency: 1,840ms (>300ms SLA)",
+    "impact": "Veterinary radiologist upload of X-ray studies delayed",
+    "time": "3 hrs ago"
+  },
+  {
+    "id": "SYS-910",
+    "title": "Cloudflare Edge DDoS Scraper Attack Mitigated",
+    "service": "Cloudflare WAF / Bot Management",
+    "severity": "Critical",
+    "status": "Resolved",
+    "metric": "14,200 Scraper Requests Blocked in 5 Mins",
+    "impact": "Resolved: Challenge mode engaged on pricing APIs",
+    "time": "4 hrs ago"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -78,34 +179,34 @@ export default function SystemAlerts() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="API Gateway P99 Latency"
-          value="0 ms"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 ms latency"
+          value="84 ms"
+          delta="-22ms"
+          trend="positive"
+          subtext="Below 120ms SLA"
           icon="⚡"
         />
         <KpiCard
           label="Database WAL Contention"
           value="0 Queued"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 lock contentions"
+          delta="Optimal"
+          trend="positive"
+          subtext="WAL mode clear"
           icon="🗄️"
         />
         <KpiCard
           label="Gemini AI Quota Headroom"
-          value="0.0%"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 quota alerts"
+          value="82.4%"
+          delta="Safe"
+          trend="positive"
+          subtext="Enterprise tier ok"
           icon="🤖"
         />
         <KpiCard
           label="ERP Connector Status"
-          value="0 mins Lag"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 sync lag"
+          value="0.4 mins Lag"
+          delta="-1.8m"
+          trend="positive"
+          subtext="CDC pipeline live"
           icon="🔌"
         />
       </div>
