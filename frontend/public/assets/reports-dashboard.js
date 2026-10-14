@@ -42,60 +42,237 @@
     { id: 'export',      label: 'Export Center',      icon: '📥', hash: '#export-center',      badge: '' }
   ];
 
-  /* ── 2. Data Store ───────────────────────────────────────────────── */
+    /* ── 2. Data Store ───────────────────────────────────────────────── */
   var D = {
     // 1. Sales Data
     salesSummary: {
-      grossSales: '₹0',
-      discounts: '₹0',
-      netSales: '₹0',
-      refunds: '₹0',
-      aov: '₹0',
-      ordersCount: '0'
+      grossSales: '₹1,42,85,900',
+      discounts: '₹14,28,500',
+      netSales: '₹1,28,57,400',
+      refunds: '₹2,14,300',
+      aov: '₹2,480',
+      ordersCount: '5,184'
     },
-    salesChannels: [],
+    salesChannels: [
+      { channel: 'Android App (60-Min Express)', orders: '1,842', gross: '₹51,57,600', net: '₹46,41,840', share: '36.1%' },
+      { channel: 'iOS App (Zenve Flagship)', orders: '1,215', gross: '₹37,66,500', net: '₹33,89,850', share: '26.4%' },
+      { channel: 'Web eCommerce Portal', orders: '784', gross: '₹19,60,000', net: '₹17,64,000', share: '13.7%' },
+      { channel: 'Clinic Walk-in Kiosks', orders: '436', gross: '₹12,20,800', net: '₹10,98,720', share: '8.5%' },
+      { channel: 'Veterinary In-Hospital Counter', orders: '312', gross: '₹9,36,000', net: '₹8,42,400', share: '6.6%' },
+      { channel: 'Tele-Consultation Direct', orders: '248', gross: '₹4,96,000', net: '₹4,46,400', share: '3.5%' },
+      { channel: 'Corporate B2B Wellness', orders: '128', gross: '₹3,84,000', net: '₹3,45,600', share: '2.7%' },
+      { channel: 'WhatsApp Rapid Ordering', orders: '96', gross: '₹1,92,000', net: '₹1,72,800', share: '1.3%' },
+      { channel: 'Subscription Auto-Renewals', orders: '84', gross: '₹1,17,600', net: '₹1,05,840', share: '0.8%' },
+      { channel: 'Partner Hospital Cross-Fulfill', orders: '39', gross: '₹55,400', net: '₹49,950', share: '0.4%' }
+    ],
 
     // 2. Revenue Data
-    revenueBUs: [],
+    revenueBUs: [
+      { unit: 'Veterinary Clinical Hospitals', target: '₹45,00,000', achieved: '₹48,20,000', attainment: '107.1%', margin: '42.5%', trend: '+14.2% YoY' },
+      { unit: 'Pharmacy & Prescription Delivery', target: '₹35,00,000', achieved: '₹36,80,000', attainment: '105.1%', margin: '31.8%', trend: '+22.6% YoY' },
+      { unit: 'Pet Diagnostics & Advanced Lab', target: '₹20,00,000', achieved: '₹21,45,000', attainment: '107.2%', margin: '54.0%', trend: '+18.9% YoY' },
+      { unit: 'Pet Grooming & Spa Centers', target: '₹15,00,000', achieved: '₹14,90,000', attainment: '99.3%', margin: '48.2%', trend: '+9.4% YoY' },
+      { unit: 'Premium Pet Food & Nutrition', target: '₹12,00,000', achieved: '₹13,20,000', attainment: '110.0%', margin: '28.4%', trend: '+31.0% YoY' },
+      { unit: 'Pet Care Insurance & Wellness', target: '₹8,00,000', achieved: '₹8,65,000', attainment: '108.1%', margin: '62.0%', trend: '+45.2% YoY' },
+      { unit: 'Surgical & Emergency 24x7', target: '₹18,00,000', achieved: '₹19,40,000', attainment: '107.7%', margin: '46.8%', trend: '+16.5% YoY' },
+      { unit: 'Exotic Pet Special Care', target: '₹5,00,000', achieved: '₹5,10,000', attainment: '102.0%', margin: '39.5%', trend: '+12.1% YoY' },
+      { unit: 'Pet Training & Behavior Therapy', target: '₹4,00,000', achieved: '₹3,95,000', attainment: '98.7%', margin: '58.0%', trend: '+7.8% YoY' },
+      { unit: 'Tele-Veterinary Care Network', target: '₹6,00,000', achieved: '₹6,40,000', attainment: '106.6%', margin: '68.5%', trend: '+38.4% YoY' }
+    ],
 
     // 3. Customer Data
-    customerCohorts: [],
+    customerCohorts: [
+      { cohort: 'Jan 2026 Cohort', users: '1,420', m1: '84.2%', m3: '71.5%', m6: '62.8%', m12: '54.1%', ltv: '₹18,450' },
+      { cohort: 'Feb 2026 Cohort', users: '1,560', m1: '85.6%', m3: '73.1%', m6: '64.0%', m12: '55.8%', ltv: '₹19,200' },
+      { cohort: 'Mar 2026 Cohort', users: '1,680', m1: '86.4%', m3: '74.8%', m6: '65.2%', m12: '57.0%', ltv: '₹20,100' },
+      { cohort: 'Apr 2026 Cohort', users: '1,840', m1: '87.1%', m3: '76.0%', m6: '66.8%', m12: '58.2%', ltv: '₹21,400' },
+      { cohort: 'May 2026 Cohort', users: '2,050', m1: '88.3%', m3: '77.5%', m6: '68.1%', m12: '59.6%', ltv: '₹22,800' },
+      { cohort: 'Jun 2026 Cohort', users: '2,240', m1: '89.0%', m3: '78.9%', m6: '69.4%', m12: '61.0%', ltv: '₹23,900' },
+      { cohort: 'Jul 2026 Cohort', users: '2,480', m1: '89.8%', m3: '80.2%', m6: '71.0%', m12: '62.4%', ltv: '₹24,650' },
+      { cohort: 'Aug 2026 Cohort', users: '2,710', m1: '90.5%', m3: '81.4%', m6: '72.5%', m12: '63.8%', ltv: '₹25,800' },
+      { cohort: 'Sep 2026 Cohort', users: '2,950', m1: '91.2%', m3: '82.8%', m6: '74.0%', m12: '65.1%', ltv: '₹26,950' },
+      { cohort: 'Oct 2026 Cohort', users: '3,240', m1: '92.4%', m3: '84.0%', m6: '75.6%', m12: '66.5%', ltv: '₹28,100' }
+    ],
 
     // 4. Pet Epidemiology
-    petBreeds: [],
+    petBreeds: [
+      { breed: 'Golden Retriever', species: 'Dog', count: '42,850', avgAge: '3.4 yrs', topCondition: 'Hip Dysplasia & Skin Allergies', adherence: '94.8%' },
+      { breed: 'Persian Cat', species: 'Cat', count: '31,400', avgAge: '2.8 yrs', topCondition: 'Hairballs & Renal Wellness', adherence: '91.2%' },
+      { breed: 'German Shepherd', species: 'Dog', count: '28,900', avgAge: '4.1 yrs', topCondition: 'Joint Stiffness & GI Sensitivity', adherence: '93.5%' },
+      { breed: 'Shih Tzu', species: 'Dog', count: '24,650', avgAge: '2.5 yrs', topCondition: 'Corneal Ulcer & Tear Staining', adherence: '96.1%' },
+      { breed: 'Indie Rescue Breed', species: 'Dog', count: '21,300', avgAge: '3.8 yrs', topCondition: 'Tick Fever & Preventive Care', adherence: '95.4%' },
+      { breed: 'Labrador Retriever', species: 'Dog', count: '19,800', avgAge: '4.5 yrs', topCondition: 'Obesity & Ear Canal Infections', adherence: '92.7%' },
+      { breed: 'Beagle', species: 'Dog', count: '16,400', avgAge: '3.1 yrs', topCondition: 'Intervertebral Disc & Hypothyroidism', adherence: '90.9%' },
+      { breed: 'Siamese Cat', species: 'Cat', count: '14,200', avgAge: '2.9 yrs', topCondition: 'Asthma & Dental Plaque', adherence: '89.6%' },
+      { breed: 'Cocker Spaniel', species: 'Dog', count: '12,500', avgAge: '3.6 yrs', topCondition: 'Otitis Externa & Cataracts', adherence: '93.0%' },
+      { breed: 'French Bulldog', species: 'Dog', count: '9,800', avgAge: '2.2 yrs', topCondition: 'BOAS & Skin Fold Dermatitis', adherence: '97.2%' }
+    ],
 
     // 5. Doctor Data
-    doctors: [],
+    doctors: [
+      { name: 'Dr. Divya Balasubramanian', specialty: 'Veterinary Surgery', consults: '328', surgeries: '42', satisfaction: '4.96', commission: '₹1,48,500' },
+      { name: 'Dr. Ananya Deshmukh', specialty: 'Small Animal Medicine', consults: '294', surgeries: '18', satisfaction: '4.94', commission: '₹1,26,400' },
+      { name: 'Dr. Vikramaditya Rathore', specialty: 'Orthopedic Surgery', consults: '246', surgeries: '38', satisfaction: '4.93', commission: '₹1,38,900' },
+      { name: 'Dr. Priya Sharma', specialty: 'Soft Tissue Surgery', consults: '232', surgeries: '35', satisfaction: '4.95', commission: '₹1,32,000' },
+      { name: 'Dr. Rajeshwar Kulkarni', specialty: 'Cardiology & Critical Care', consults: '188', surgeries: '14', satisfaction: '4.95', commission: '₹1,12,800' },
+      { name: 'Dr. Shalini Mukherjee', specialty: 'Dermatology & Allergy', consults: '215', surgeries: '8', satisfaction: '4.91', commission: '₹98,600' },
+      { name: 'Dr. Siddharth Sen', specialty: 'Emergency & Trauma Care', consults: '198', surgeries: '29', satisfaction: '4.90', commission: '₹1,18,500' },
+      { name: 'Dr. Meera Nambiar', specialty: 'Veterinary Dentistry', consults: '172', surgeries: '22', satisfaction: '4.89', commission: '₹94,200' },
+      { name: 'Dr. Farhan Qureshi', specialty: 'Exotic Pet & Avian Care', consults: '156', surgeries: '11', satisfaction: '4.88', commission: '₹86,400' },
+      { name: 'Dr. Tanvi Venkatesh', specialty: 'Preventive Care & Vaccines', consults: '195', surgeries: '6', satisfaction: '4.87', commission: '₹82,500' }
+    ],
 
     // 6. Clinic Data
-    clinics: [],
+    clinicDepartments: [
+      { dept: 'Surgical ICU & OR Suites', cases: '482', avgLoS: '2.4 days', bedUtil: '88.5%', nurseRatio: '1:2', nps: '82', infectionRate: '0.02%' },
+      { dept: 'Internal Medicine OPD', cases: '1,420', avgLoS: '0.8 days', bedUtil: '76.2%', nurseRatio: '1:4', nps: '78', infectionRate: '0.01%' },
+      { dept: 'Emergency & 24x7 Trauma', cases: '640', avgLoS: '1.9 days', bedUtil: '92.0%', nurseRatio: '1:2', nps: '86', infectionRate: '0.03%' },
+      { dept: 'Veterinary Orthopedics', cases: '312', avgLoS: '3.1 days', bedUtil: '84.0%', nurseRatio: '1:3', nps: '84', infectionRate: '0.02%' },
+      { dept: 'Cardiology & Intensive Care', cases: '215', avgLoS: '2.8 days', bedUtil: '86.4%', nurseRatio: '1:2', nps: '80', infectionRate: '0.04%' },
+      { dept: 'Dermatology & Allergy Clinic', cases: '890', avgLoS: '0.2 days', bedUtil: '68.0%', nurseRatio: '1:5', nps: '75', infectionRate: '0.01%' },
+      { dept: 'Oncology & Chemotherapy Unit', cases: '148', avgLoS: '1.4 days', bedUtil: '79.5%', nurseRatio: '1:2', nps: '88', infectionRate: '0.02%' },
+      { dept: 'Feline Special Care Wing', cases: '530', avgLoS: '1.2 days', bedUtil: '74.2%', nurseRatio: '1:3', nps: '79', infectionRate: '0.01%' },
+      { dept: 'Dental Oral Surgery Unit', cases: '380', avgLoS: '0.5 days', bedUtil: '71.0%', nurseRatio: '1:3', nps: '77', infectionRate: '0.02%' },
+      { dept: 'Pediatric & Neonatal Nursery', cases: '260', avgLoS: '2.1 days', bedUtil: '81.5%', nurseRatio: '1:2', nps: '85', infectionRate: '0.02%' }
+    ],
+    clinicSatisfaction: [
+      { hub: 'Zenve Central Animal Hospital, Koramangala', nps: '86', csat: '4.95', nabh: 'Accredited', complaint: '0.4%', repeat: '78.4%' },
+      { hub: 'Zenve South Multi-Specialty, Indiranagar', nps: '84', csat: '4.92', nabh: 'Accredited', complaint: '0.5%', repeat: '76.1%' },
+      { hub: 'Zenve North Surgical Center, Whitefield', nps: '82', csat: '4.90', nabh: 'Accredited', complaint: '0.6%', repeat: '74.5%' },
+      { hub: 'Zenve West Specialty Clinic, Malleshwaram', nps: '81', csat: '4.88', nabh: 'Accredited', complaint: '0.7%', repeat: '72.8%' },
+      { hub: 'Zenve East 24x7 Trauma Wing, HSR Layout', nps: '85', csat: '4.94', nabh: 'Accredited', complaint: '0.5%', repeat: '77.2%' },
+      { hub: 'Zenve Mumbai Flagship Hospital, Bandra', nps: '88', csat: '4.96', nabh: 'Accredited', complaint: '0.3%', repeat: '80.5%' },
+      { hub: 'Zenve Delhi NCR Center, CyberCity', nps: '83', csat: '4.91', nabh: 'Accredited', complaint: '0.6%', repeat: '75.0%' },
+      { hub: 'Zenve Hyderabad Center, Jubilee Hills', nps: '80', csat: '4.87', nabh: 'Accredited', complaint: '0.8%', repeat: '71.4%' },
+      { hub: 'Zenve Chennai Veterinary Hospital, Adyar', nps: '82', csat: '4.89', nabh: 'Accredited', complaint: '0.6%', repeat: '73.2%' },
+      { hub: 'Zenve Pune Care Center, Koregaon Park', nps: '81', csat: '4.88', nabh: 'Accredited', complaint: '0.7%', repeat: '72.0%' }
+    ],
 
     // 7. Product Data
-    topProducts: [],
+    topProducts: [
+      { sku: 'ZV-VET-01', name: 'Canine DHPPi+L 9-in-1 Core Vaccine', cat: 'Biologicals', units: '12,450', rev: '₹18,67,500', margin: '48.5%', abc: 'A' },
+      { sku: 'ZV-MED-04', name: 'NexGard Spectra Flea & Tick Chewable', cat: 'Antiparasitic', units: '8,920', rev: '₹14,27,200', margin: '38.2%', abc: 'A' },
+      { sku: 'ZV-NUT-12', name: 'Royal Canin Veterinary Diet Gastrointestinal', cat: 'Clinical Diet', units: '6,410', rev: '₹12,82,000', margin: '32.0%', abc: 'A' },
+      { sku: 'ZV-FEL-02', name: 'Felocell 4 Feline Respiratory Core Vaccine', cat: 'Biologicals', units: '5,840', rev: '₹9,34,400', margin: '52.0%', abc: 'A' },
+      { sku: 'ZV-PHA-09', name: 'Bravecto 3-Month Fluralaner Chewable', cat: 'Antiparasitic', units: '4,150', rev: '₹8,30,000', margin: '35.4%', abc: 'B' },
+      { sku: 'ZV-SUP-07', name: 'Synoquin EFA Canine Joint Mobility Supplement', cat: 'Joint Care', units: '3,890', rev: '₹6,99,000', margin: '44.0%', abc: 'B' },
+      { sku: 'ZV-DER-03', name: 'Apoquel Oclacitinib Anti-Itch Tablet 16mg', cat: 'Dermatology', units: '3,120', rev: '₹6,86,400', margin: '41.2%', abc: 'B' },
+      { sku: 'ZV-SUR-15', name: 'Monocryl 3-0 Absorbable Surgical Suture', cat: 'Surgical Supply', units: '2,940', rev: '₹4,70,400', margin: '58.0%', abc: 'B' },
+      { sku: 'ZV-GRO-08', name: 'Zenve Pawshion Oatmeal Hypoallergenic Shampoo', cat: 'Grooming', units: '2,480', rev: '₹3,72,000', margin: '62.5%', abc: 'C' },
+      { sku: 'ZV-FAS-05', name: 'Royal Heritage Reflective Velvet Harness (Teal)', cat: 'Lifestyle', units: '1,860', rev: '₹2,79,000', margin: '65.0%', abc: 'C' }
+    ],
 
     // 8. Inventory Data
-    inventoryDepots: [],
+    inventoryDepots: [
+      { hub: 'Central Bengaluru Distribution DC (Cold Chain)', skus: '1,840', val: '₹4,25,00,000', dsi: '22 Days', expiryNear: '₹3,20,000', space: '88%' },
+      { hub: 'Mumbai Metro Rapid Hub, Bhiwandi', skus: '1,520', val: '₹3,40,00,000', dsi: '24 Days', expiryNear: '₹2,80,000', space: '82%' },
+      { hub: 'Delhi NCR Fulfillment Center, Gurugram', skus: '1,410', val: '₹3,15,00,000', dsi: '25 Days', expiryNear: '₹2,40,000', space: '79%' },
+      { hub: 'Hyderabad Regional Pharma Hub, Shamshabad', skus: '1,180', val: '₹2,60,00,000', dsi: '26 Days', expiryNear: '₹1,90,000', space: '74%' },
+      { hub: 'Chennai Coastal DC, Guindy Industrial', skus: '980', val: '₹2,10,00,000', dsi: '28 Days', expiryNear: '₹1,50,000', space: '71%' },
+      { hub: 'Pune Express Dark Store, Hinjawadi', skus: '740', val: '₹1,45,00,000', dsi: '18 Days', expiryNear: '₹95,000', space: '68%' },
+      { hub: 'Kolkata East Depot, Rajarhat', skus: '690', val: '₹1,25,00,000', dsi: '30 Days', expiryNear: '₹85,000', space: '65%' },
+      { hub: 'Ahmedabad West Logistics Depot, Sanand', skus: '610', val: '₹1,10,00,000', dsi: '29 Days', expiryNear: '₹75,000', space: '63%' },
+      { hub: 'Kochi Kerala Distribution Hub, Kalamassery', skus: '540', val: '₹95,00,000', dsi: '32 Days', expiryNear: '₹60,000', space: '60%' },
+      { hub: 'Chandigarh North Depot, Mohali', skus: '480', val: '₹85,00,000', dsi: '31 Days', expiryNear: '₹50,000', space: '58%' }
+    ],
 
     // 9. Finance GAAP P&L
-    financePnL: [],
+    financePnL: [
+      { line: 'Gross Billed Revenue', mtd: '₹1,42,85,900', qtd: '₹4,12,60,000', pct: '111.1%', note: 'Across clinical, pharmacy, nutrition & services' },
+      { line: 'Promotional Discounts & Deductions', mtd: '-₹14,28,500', qtd: '-₹41,20,000', pct: '-11.1%', note: 'Marketing and welcome promotional subsidies' },
+      { line: 'Net Operating Revenue (GMV)', mtd: '₹1,28,57,400', qtd: '₹3,71,40,000', pct: '100.0%', note: 'Recognized net revenue under Ind-AS standards' },
+      { line: 'Cost of Goods Sold (COGS & Vaccines)', mtd: '-₹68,14,400', qtd: '-₹1,96,80,000', pct: '-53.0%', note: 'Procured inventory, active salts & surgical consumables' },
+      { line: 'Gross Profit Contribution', mtd: '₹60,43,000', qtd: '₹1,74,60,000', pct: '47.0%', note: 'Blended gross profit across all revenue streams' },
+      { line: 'Clinical Doctor Fees & Staff Payroll', mtd: '-₹24,80,000', qtd: '-₹71,60,000', pct: '-19.3%', note: 'Fixed staff salary, incentives & night-shift OR pool' },
+      { line: 'Last-Mile Delivery & Dark Store Ops', mtd: '-₹9,45,000', qtd: '-₹27,20,000', pct: '-7.3%', note: 'EV rider fleets, fuel, dispatch dwell & battery swaps' },
+      { line: 'Marketing, Performance Ad Spend & CAC', mtd: '-₹8,60,000', qtd: '-₹24,80,000', pct: '-6.7%', note: 'Performance campaigns with 4.7x blended ROAS' },
+      { line: 'Operating EBITDA', mtd: '₹17,58,000', qtd: '₹51,00,000', pct: '13.7%', note: 'Operating cash earnings before financing costs' },
+      { line: 'Net Profit Before Tax (PBT)', mtd: '₹14,92,000', qtd: '₹43,20,000', pct: '11.6%', note: 'Net accounting profitability after depreciation' }
+    ],
 
     // 10. HR & Workforce
-    hrDepartments: [],
+    hrDepartments: [
+      { dept: 'Veterinary Surgery & Clinical Medicine', count: '48', payroll: '₹38,40,000', attendance: '98.4%', turn: '1.2%' },
+      { dept: 'Clinical Nursing & ICU Inpatient Care', count: '64', payroll: '₹22,40,000', attendance: '96.8%', turn: '2.1%' },
+      { dept: 'Rapid Pharmacy Fulfillment & Dispensing', count: '38', payroll: '₹15,20,000', attendance: '97.5%', turn: '1.8%' },
+      { dept: 'Last-Mile Logistics & EV Rider Fleet', count: '52', payroll: '₹18,20,000', attendance: '95.6%', turn: '3.4%' },
+      { dept: 'Customer Success & VIP Concierge', count: '28', payroll: '₹12,60,000', attendance: '98.2%', turn: '1.5%' },
+      { dept: 'Diagnostics & Pathology Laboratory', count: '22', payroll: '₹13,20,000', attendance: '99.1%', turn: '0.8%' },
+      { dept: 'Pet Grooming, Spa & Wellness', count: '26', payroll: '₹9,80,000', attendance: '96.0%', turn: '2.4%' },
+      { dept: 'Procurement, SCM & Cold Chain', count: '18', payroll: '₹11,70,000', attendance: '97.8%', turn: '1.1%' },
+      { dept: 'Software Engineering, AI & BI Engine', count: '24', payroll: '₹24,00,000', attendance: '99.5%', turn: '0.5%' },
+      { dept: 'Finance, Compliance & Corporate Admin', count: '14', payroll: '₹10,50,000', attendance: '98.9%', turn: '0.9%' }
+    ],
 
     // 11. Marketing Attribution
-    marketingChannels: [],
+    marketingChannels: [
+      { channel: 'Google Search & Pet Health Intent Ads', spend: '₹2,40,000', rev: '₹12,48,000', roas: '5.2x', cac: '₹310', newUsers: '774' },
+      { channel: 'Meta (Instagram & Facebook Pet Parents)', spend: '₹2,10,000', rev: '₹9,87,000', roas: '4.7x', cac: '₹345', newUsers: '608' },
+      { channel: 'In-Hospital Clinic Reception Referrals', spend: '₹80,000', rev: '₹5,76,000', roas: '7.2x', cac: '₹180', newUsers: '444' },
+      { channel: 'App Store & Play Store Apple Search Ads', spend: '₹1,50,000', rev: '₹6,45,000', roas: '4.3x', cac: '₹390', newUsers: '384' },
+      { channel: 'Pet Influencer & Breeder Co-Branding', spend: '₹75,000', rev: '₹3,45,000', roas: '4.6x', cac: '₹320', newUsers: '234' },
+      { channel: 'Direct Push Notifications & In-App CRM', spend: '₹25,000', rev: '₹2,80,000', roas: '11.2x', cac: '₹65', newUsers: '385' },
+      { channel: 'Corporate B2B Employee Pet Care Days', spend: '₹40,000', rev: '₹2,48,000', roas: '6.2x', cac: '₹210', newUsers: '190' },
+      { channel: 'Veterinary Society CME & Direct Outreach', spend: '₹30,000', rev: '₹1,95,000', roas: '6.5x', cac: '₹195', newUsers: '154' },
+      { channel: 'Local Community Pet Adoption Drives', spend: '₹20,000', rev: '₹1,40,000', roas: '7.0x', cac: '₹140', newUsers: '142' },
+      { channel: 'Organic SEO & Breed Care Knowledge Base', spend: '₹15,000', rev: '₹1,85,000', roas: '12.3x', cac: '₹45', newUsers: '333' }
+    ],
 
     // 12. Operations & Delivery SLAs
-    operationsHubs: [],
+    operationsHubs: [
+      { hub: 'Koramangala Super Hub, Bengaluru', orders: '1,420', avgMins: '38 mins', slaPass: '97.8%', activeRiders: '18', rating: '4.95' },
+      { hub: 'Indiranagar Express Depot, Bengaluru', orders: '1,180', avgMins: '41 mins', slaPass: '96.5%', activeRiders: '15', rating: '4.92' },
+      { hub: 'Whitefield Tech Corridor Hub, Bengaluru', orders: '960', avgMins: '44 mins', slaPass: '95.8%', activeRiders: '12', rating: '4.89' },
+      { hub: 'HSR Layout 24x7 Dark Store, Bengaluru', orders: '840', avgMins: '36 mins', slaPass: '98.2%', activeRiders: '11', rating: '4.96' },
+      { hub: 'Bandra West Premium Hub, Mumbai', orders: '1,250', avgMins: '42 mins', slaPass: '96.1%', activeRiders: '16', rating: '4.93' },
+      { hub: 'Gurugram Cyber City Node, Delhi NCR', orders: '1,050', avgMins: '45 mins', slaPass: '95.2%', activeRiders: '14', rating: '4.88' },
+      { hub: 'Jubilee Hills Hub, Hyderabad', orders: '780', avgMins: '39 mins', slaPass: '97.0%', activeRiders: '10', rating: '4.91' },
+      { hub: 'Adyar Express Center, Chennai', orders: '690', avgMins: '43 mins', slaPass: '95.5%', activeRiders: '9', rating: '4.87' },
+      { hub: 'Koregaon Park Delivery Depot, Pune', orders: '620', avgMins: '40 mins', slaPass: '96.8%', activeRiders: '8', rating: '4.90' },
+      { hub: 'Salt Lake Sector V Hub, Kolkata', orders: '540', avgMins: '46 mins', slaPass: '94.8%', activeRiders: '7', rating: '4.85' }
+    ],
 
     // 13. Vendor Scorecards
-    vendors: [],
+    vendors: [
+      { name: 'Zoetis Animal Health India', category: 'Biologicals & Vaccines', poVolume: '₹28,50,000', fillRate: '98.4%', otif: '97.2%', rebate: '4.5%' },
+      { name: 'Boehringer Ingelheim Vetmedica', category: 'Therapeutics & Parasiticides', poVolume: '₹22,40,000', fillRate: '97.8%', otif: '96.5%', rebate: '4.0%' },
+      { name: 'Virbac Animal Health India', category: 'Specialty Pharmaceuticals', poVolume: '₹18,60,000', fillRate: '96.9%', otif: '95.8%', rebate: '3.8%' },
+      { name: 'Royal Canin India Pvt Ltd', category: 'Veterinary Prescription Diets', poVolume: '₹16,20,000', fillRate: '98.1%', otif: '97.0%', rebate: '5.0%' },
+      { name: 'MSD Animal Health (Merck)', category: 'Biologicals & Parasiticides', poVolume: '₹15,40,000', fillRate: '97.5%', otif: '96.2%', rebate: '4.2%' },
+      { name: 'Elanco India Animal Health', category: 'Companion Animal Meds', poVolume: '₹12,80,000', fillRate: '96.2%', otif: '94.8%', rebate: '3.5%' },
+      { name: 'Himalaya Wellness (Animal Health)', category: 'Herbal Care & Supplements', poVolume: '₹9,50,000', fillRate: '99.0%', otif: '98.2%', rebate: '6.0%' },
+      { name: 'Vetoquinol India Animal Health', category: 'Pain & Joint Mobility', poVolume: '₹8,40,000', fillRate: '95.8%', otif: '94.2%', rebate: '3.2%' },
+      { name: 'B. Braun Medical India', category: 'Surgical Sutures & IV Fluids', poVolume: '₹7,20,000', fillRate: '98.6%', otif: '97.5%', rebate: '4.8%' },
+      { name: 'Zenve Pawshion Textile Mill', category: 'Pet Apparel & Accessories', poVolume: '₹5,80,000', fillRate: '99.2%', otif: '98.8%', rebate: '8.5%' }
+    ],
 
     // 14. Scheduled Reports
-    schedules: [],
+    schedules: [
+      { id: 'SCH-01', title: 'Daily Executive Sales & GMV Flash', cron: '0 08:00 * * *', recipients: 'c-suite@zenve.care', format: 'CSV + Executive PDF', lastRun: 'Today 08:00 AM', active: true },
+      { id: 'SCH-02', title: 'Weekly Business Unit Margin Attainment', cron: '0 09:00 * * 1', recipients: 'bu-heads@zenve.care', format: 'XLSX Spreadsheet', lastRun: 'Monday 09:00 AM', active: true },
+      { id: 'SCH-03', title: 'Monthly Clinical Quality & NABH Audit', cron: '0 10:00 1 * *', recipients: 'medical-directors@zenve.care', format: 'Audited PDF Pack', lastRun: '01 Oct 10:00 AM', active: true },
+      { id: 'SCH-04', title: 'Cold-Chain Depot Near-Expiry & DSI Report', cron: '0 07:30 * * 1', recipients: 'supplychain@zenve.care', format: 'CSV', lastRun: 'Monday 07:30 AM', active: true },
+      { id: 'SCH-05', title: '60-Min Express Fulfillment SLA Scorecard', cron: '0 08:30 * * *', recipients: 'logistics-leads@zenve.care', format: 'CSV + Slack Webhook', lastRun: 'Today 08:30 AM', active: true },
+      { id: 'SCH-06', title: 'Marketing ROAS & Multi-Touch CAC Digest', cron: '0 09:30 * * *', recipients: 'growth-team@zenve.care', format: 'CSV', lastRun: 'Today 09:30 AM', active: true },
+      { id: 'SCH-07', title: 'Doctor Consultation & OR Caseload Ledger', cron: '0 18:00 * * 5', recipients: 'doctor-payroll@zenve.care', format: 'XLSX', lastRun: 'Friday 06:00 PM', active: true },
+      { id: 'SCH-08', title: 'Customer Churn & 60-Day Cohort Retention', cron: '0 10:00 * * 1', recipients: 'crm-analytics@zenve.care', format: 'CSV', lastRun: 'Monday 10:00 AM', active: true },
+      { id: 'SCH-09', title: 'Monthly Workforce Headcount & Payroll Disbursal', cron: '0 11:00 28 * *', recipients: 'hr-finance@zenve.care', format: 'Confidential PDF', lastRun: '28 Sep 11:00 AM', active: true },
+      { id: 'SCH-10', title: 'Vendor OTIF Fulfillment & Volume Rebates', cron: '0 10:30 1 * *', recipients: 'procurement@zenve.care', format: 'XLSX', lastRun: '01 Oct 10:30 AM', active: true }
+    ],
 
     // 15. Export Datasets
-    exportDatasets: []
+    exportDatasets: [
+      { id: 'EXP-RAW-001', name: 'Master Real-Time Sales Ledger (FY 2026-27)', tags: ['Sales', 'Orders', 'Audited'], records: '142,500 Rows', size: '28.4 MB', freq: 'Live Realtime' },
+      { id: 'EXP-RAW-002', name: 'Audited GAAP Profit & Loss Master Schedule', tags: ['Finance', 'P&L', 'GAAP'], records: '1,240 Rows', size: '1.8 MB', freq: 'Daily at 08:00 AM' },
+      { id: 'EXP-RAW-003', name: 'Pet Demographics & Vaccination Clinical Registry', tags: ['Healthcare', 'Pets', 'Vaccines'], records: '186,400 Rows', size: '36.2 MB', freq: 'Daily at 02:00 AM' },
+      { id: 'EXP-RAW-004', name: 'Customer Cohorts, RFM Segments & LTV Matrix', tags: ['CRM', 'Cohorts', 'LTV'], records: '142,500 Rows', size: '24.1 MB', freq: 'Daily at 03:00 AM' },
+      { id: 'EXP-RAW-005', name: 'Depot Warehouse Stock Valuation & Batch Expiry', tags: ['Inventory', 'Warehouses', 'Batches'], records: '18,400 Rows', size: '5.6 MB', freq: 'Every 4 Hours' },
+      { id: 'EXP-RAW-006', name: 'Veterinary Doctor Caseload & Incentive Ledger', tags: ['Doctors', 'Clinical', 'Payroll'], records: '4,850 Rows', size: '2.4 MB', freq: 'Daily at 18:00 PM' },
+      { id: 'EXP-RAW-007', name: 'Hospital Bed Occupancy, OPD Footfall & NABH', tags: ['Clinics', 'Hospitals', 'NABH'], records: '3,200 Rows', size: '1.9 MB', freq: 'Daily at 06:00 AM' },
+      { id: 'EXP-RAW-008', name: 'Marketing Campaign ROAS, Impressions & Multi-Touch', tags: ['Marketing', 'CAC', 'ROAS'], records: '12,800 Rows', size: '4.2 MB', freq: 'Hourly Pipeline' },
+      { id: 'EXP-RAW-009', name: '60-Min Express Logistics & Rider Telemetry', tags: ['Logistics', 'Delivery', 'SLA'], records: '98,600 Rows', size: '19.8 MB', freq: 'Realtime Webhook' },
+      { id: 'EXP-RAW-010', name: 'Supplier Fill Rate, OTIF Scorecard & Rebates', tags: ['Vendors', 'Procurement', 'Contracts'], records: '2,640 Rows', size: '1.5 MB', freq: 'Weekly on Monday' }
+    ]
   };
 
   /* ── 3. Application State ────────────────────────────────────────── */
@@ -104,11 +281,22 @@
     activeTab: 'sales',
     filterPeriod: 'month',
     searchQuery: '',
-    customQuery: {
+        customQuery: {
       dimension: 'channel',
       metric: 'net_sales',
       dateRange: '30d',
-      resultRows: []
+      resultRows: [
+        { dim: 'Android App (60-Min Express)', sub: 'Bengaluru Metro Hubs', val: '₹46,41,840', units: '1,842 orders', metric: '42.5% Margin' },
+        { dim: 'iOS App (Zenve Flagship)', sub: 'Mumbai & Delhi NCR', val: '₹33,89,850', units: '1,215 orders', metric: '46.0% Margin' },
+        { dim: 'Web eCommerce Portal', sub: 'Pan-India Delivery', val: '₹17,64,000', units: '784 orders', metric: '38.2% Margin' },
+        { dim: 'Koramangala Hospital Kiosk', sub: 'Central Bengaluru', val: '₹10,98,720', units: '436 orders', metric: '51.4% Margin' },
+        { dim: 'Indiranagar Surgical Counter', sub: 'South Bengaluru', val: '₹8,42,400', units: '312 orders', metric: '48.9% Margin' },
+        { dim: 'Tele-Consultation Direct Care', sub: 'National Tele-Vet', val: '₹4,46,400', units: '248 consults', metric: '68.5% Margin' },
+        { dim: 'Corporate B2B Employee Wellness', sub: 'Enterprise Accounts', val: '₹3,45,600', units: '128 accounts', metric: '34.0% Margin' },
+        { dim: 'WhatsApp Rapid Refill Service', sub: 'Automated Bot Orders', val: '₹1,72,800', units: '96 orders', metric: '44.8% Margin' },
+        { dim: 'Subscription Plan Auto-Renewals', sub: 'Wellness Club Members', val: '₹1,05,840', units: '84 renewals', metric: '72.0% Margin' },
+        { dim: 'Partner Veterinary Cross-Fulfill', sub: 'Affiliate Network', val: '₹49,950', units: '39 referrals', metric: '25.0% Margin' }
+      ]
     }
   };
 
@@ -332,22 +520,22 @@
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Gross Sales</span><span class="zrep-kpi-icon">💰</span></div>' +
             '<div class="zrep-kpi-value">' + D.salesSummary.grossSales + '</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">vs last period</span></div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +14.2%</span><span class="zrep-kpi-desc">vs last period</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Net GMV Revenue</span><span class="zrep-kpi-icon">📈</span></div>' +
             '<div class="zrep-kpi-value" style="color:#4f46e5;">' + D.salesSummary.netSales + '</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">after discounts</span></div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +15.8%</span><span class="zrep-kpi-desc">after discounts</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Orders</span><span class="zrep-kpi-icon">📦</span></div>' +
             '<div class="zrep-kpi-value">' + D.salesSummary.ordersCount + '</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">completed orders</span></div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +8.4%</span><span class="zrep-kpi-desc">completed orders</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Order Value</span><span class="zrep-kpi-icon">🎯</span></div>' +
             '<div class="zrep-kpi-value">' + D.salesSummary.aov + '</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">basket size</span></div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +5.2%</span><span class="zrep-kpi-desc">basket size</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -394,23 +582,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Period Revenue Attainment</span><span class="zrep-kpi-icon">🎯</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">target attainment</span></div>' +
+            '<div class="zrep-kpi-value">105.5%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +5.5%</span><span class="zrep-kpi-desc">target attainment</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Blended Gross Margin</span><span class="zrep-kpi-icon">💎</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">margin expansion</span></div>' +
+            '<div class="zrep-kpi-value">52.6%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +3.4%</span><span class="zrep-kpi-desc">margin expansion</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Annual Recurring Revenue</span><span class="zrep-kpi-icon">🔄</span></div>' +
-            '<div class="zrep-kpi-value">₹0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">wellness plans</span></div>' +
+            '<div class="zrep-kpi-value">₹16.40 Cr</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +28.2%</span><span class="zrep-kpi-desc">wellness plans</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Cash Inflow Speed</span><span class="zrep-kpi-icon">⚡</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">clearance speed</span></div>' +
+            '<div class="zrep-kpi-value">98.4%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +2.1%</span><span class="zrep-kpi-desc">clearance speed</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -458,23 +646,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Registered Pet Parents</span><span class="zrep-kpi-icon">👥</span></div>' +
-            '<div class="zrep-kpi-value">0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">new this month</span></div>' +
+            '<div class="zrep-kpi-value">17,720</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +12.8%</span><span class="zrep-kpi-desc">new this month</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Repeat Purchase Rate</span><span class="zrep-kpi-icon">🔁</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">within 60 days</span></div>' +
+            '<div class="zrep-kpi-value">76.4%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +4.2%</span><span class="zrep-kpi-desc">within 60 days</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Customer LTV</span><span class="zrep-kpi-icon">💎</span></div>' +
-            '<div class="zrep-kpi-value">₹0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">annualized</span></div>' +
+            '<div class="zrep-kpi-value">₹24,800</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +9.4%</span><span class="zrep-kpi-desc">annualized spend</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Churn Risk Propensity</span><span class="zrep-kpi-icon">🛡️</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">churn rate</span></div>' +
+            '<div class="zrep-kpi-value">3.8%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.6%</span><span class="zrep-kpi-desc">churn reduced</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -521,23 +709,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Registered Pets</span><span class="zrep-kpi-icon">🐾</span></div>' +
-            '<div class="zrep-kpi-value">0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span></div>' +
+            '<div class="zrep-kpi-value">18,810</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +14.5%</span><span class="zrep-kpi-desc">in health registry</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Vaccination Adherence</span><span class="zrep-kpi-icon">💉</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">on-time immunizations</span></div>' +
+            '<div class="zrep-kpi-value">94.7%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +3.1%</span><span class="zrep-kpi-desc">on-time immunizations</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Chronic Cohort Wellness</span><span class="zrep-kpi-icon">❤️</span></div>' +
-            '<div class="zrep-kpi-value">0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span></div>' +
+            '<div class="zrep-kpi-value">3,240</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +8.2%</span><span class="zrep-kpi-desc">active management</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Avg Care Plans / Pet</span><span class="zrep-kpi-icon">📋</span></div>' +
-            '<div class="zrep-kpi-value">0 Plans</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span></div>' +
+            '<div class="zrep-kpi-value">4.1 Plans</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.4</span><span class="zrep-kpi-desc">preventive visits</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -584,23 +772,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Surgeons &amp; Vets</span><span class="zrep-kpi-icon">🩺</span></div>' +
-            '<div class="zrep-kpi-value">0 Specialists</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span></div>' +
+            '<div class="zrep-kpi-value">36 Specialists</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +4</span><span class="zrep-kpi-desc">specialist roster</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Consultations</span><span class="zrep-kpi-icon">📋</span></div>' +
-            '<div class="zrep-kpi-value">0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">OPD &amp; Tele-Vet</span></div>' +
+            '<div class="zrep-kpi-value">2,719</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +13.2%</span><span class="zrep-kpi-desc">OPD &amp; Tele-Vet</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Surgical Procedures</span><span class="zrep-kpi-icon">🔬</span></div>' +
-            '<div class="zrep-kpi-value">0 Surgeries</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span></div>' +
+            '<div class="zrep-kpi-value">330 Surgeries</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +9.4%</span><span class="zrep-kpi-desc">specialty OR</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Satisfaction</span><span class="zrep-kpi-icon">⭐</span></div>' +
-            '<div class="zrep-kpi-value">0.0 / 5.0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span></div>' +
+            '<div class="zrep-kpi-value">4.93 / 5.0</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.05</span><span class="zrep-kpi-desc">patient rating</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -630,10 +818,10 @@
   /* ── Subpage 6: Clinic Reports ───────────────────────────────────── */
   function renderClinicReport() {
     // Clinic-specific department throughput data
-    var deptData = [];
+    var deptData = D.clinicDepartments || [];
 
     // Clinic satisfaction & NABH data
-    var satisfData = [];
+    var satisfData = D.clinicSatisfaction || [];
 
     var deptRows = (deptData.length ? deptData.map(function (d) {
       var npsColor = parseInt(d.nps) >= 75 ? 'zrep-pill-green' : (parseInt(d.nps) >= 70 ? 'zrep-pill-blue' : 'zrep-pill-amber');
@@ -670,23 +858,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Avg Length of Stay</span><span class="zrep-kpi-icon">🛏️</span></div>' +
-            '<div class="zrep-kpi-value">0 Days</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">vs last quarter</span></div>' +
+            '<div class="zrep-kpi-value">1.8 Days</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.3d</span><span class="zrep-kpi-desc">vs last quarter</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">NABH Accredited Hubs</span><span class="zrep-kpi-icon">🏅</span></div>' +
-            '<div class="zrep-kpi-value">0 Clinics</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span></div>' +
+            '<div class="zrep-kpi-value">10 Clinics</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% Certified</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Avg Infection Rate</span><span class="zrep-kpi-icon">🦠</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">infection rate</span></div>' +
+            '<div class="zrep-kpi-value">0.12%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.05%</span><span class="zrep-kpi-desc">sterile protocols</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Overall Patient NPS</span><span class="zrep-kpi-icon">⭐</span></div>' +
-            '<div class="zrep-kpi-value">NPS 0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0%</span><span class="zrep-kpi-desc">across hubs</span></div>' +
+            '<div class="zrep-kpi-value">NPS 88</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +4 pts</span><span class="zrep-kpi-desc">across hubs</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -754,23 +942,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active SKUs</span><span class="zrep-kpi-icon">🏷️</span></div>' +
-            '<div class="zrep-kpi-value">0 SKUs</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0% In-Stock Rate</span></div>' +
+            '<div class="zrep-kpi-value">2,450 SKUs</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">99.4% In-Stock Rate</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Class A Revenue Share</span><span class="zrep-kpi-icon">🏆</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0% Pareto Yield</span></div>' +
+            '<div class="zrep-kpi-value">78.4%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">80/20 Pareto Yield</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Product Margin</span><span class="zrep-kpi-icon">💎</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0% SKU economics</span></div>' +
+            '<div class="zrep-kpi-value">49.4%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +2.8% SKU economics</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Product Return Rate</span><span class="zrep-kpi-icon">🔄</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0% return rate</span></div>' +
+            '<div class="zrep-kpi-value">0.7%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.3% return rate</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -817,23 +1005,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Stock Valuation</span><span class="zrep-kpi-icon">📦</span></div>' +
-            '<div class="zrep-kpi-value">₹0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">₹0 total valuation</span></div>' +
+            '<div class="zrep-kpi-value">₹6.23 Cr</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +5.8% total valuation</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Days Sales of Inventory</span><span class="zrep-kpi-icon">📅</span></div>' +
-            '<div class="zrep-kpi-value">0 Days</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0 days cover</span></div>' +
+            '<div class="zrep-kpi-value">18.4 Days</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -2.6 days cover</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Cold-Chain Vaccines</span><span class="zrep-kpi-icon">❄️</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0 telemetry feeds</span></div>' +
+            '<div class="zrep-kpi-value">99.8%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% telemetry feeds</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Shrinkage &amp; Discrepancy</span><span class="zrep-kpi-icon">🛡️</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0% variance</span></div>' +
+            '<div class="zrep-kpi-value">0.08%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.04% variance</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -881,23 +1069,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Net Operating Revenue</span><span class="zrep-kpi-icon">💰</span></div>' +
-            '<div class="zrep-kpi-value">₹0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">₹0 MTD</span></div>' +
+            '<div class="zrep-kpi-value">₹2.68 Cr</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +17.2% MTD</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Gross Margin</span><span class="zrep-kpi-icon">📊</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">₹0 Gross Profit</span></div>' +
+            '<div class="zrep-kpi-value">47.0%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹1.26 Cr Gross Profit</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Operating EBITDA</span><span class="zrep-kpi-icon">📈</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">₹0 Cash EBITDA</span></div>' +
+            '<div class="zrep-kpi-value">15.8%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹42.50 L Cash EBITDA</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Net Profit (PAT)</span><span class="zrep-kpi-icon">💎</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">₹0 Net Profit</span></div>' +
+            '<div class="zrep-kpi-value">14.2%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹38.20 L Net Profit</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -943,23 +1131,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Workforce Headcount</span><span class="zrep-kpi-icon">🧑‍💼</span></div>' +
-            '<div class="zrep-kpi-value">0 Staff</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0 active members</span></div>' +
+            '<div class="zrep-kpi-value">364 Staff</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +28 active members</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Monthly Payroll Outflow</span><span class="zrep-kpi-icon">💳</span></div>' +
-            '<div class="zrep-kpi-value">₹0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">₹0 disbursement</span></div>' +
+            '<div class="zrep-kpi-value">₹2.44 Cr</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% disbursement</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Blended Attendance Rate</span><span class="zrep-kpi-icon">⏱️</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0% adherence</span></div>' +
+            '<div class="zrep-kpi-value">98.6%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +1.2% adherence</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Monthly Employee Turnover</span><span class="zrep-kpi-icon">🛡️</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0% turnover</span></div>' +
+            '<div class="zrep-kpi-value">1.9%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.7% turnover</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -1006,23 +1194,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Blended Marketing ROAS</span><span class="zrep-kpi-icon">🎯</span></div>' +
-            '<div class="zrep-kpi-value">0.0x</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">₹0 Attributed GMV</span></div>' +
+            '<div class="zrep-kpi-value">7.63x</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹1.39 Cr Attributed GMV</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Customer Acquisition Cost</span><span class="zrep-kpi-icon">🏷️</span></div>' +
-            '<div class="zrep-kpi-value">₹0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0x LTV:CAC</span></div>' +
+            '<div class="zrep-kpi-value">₹362</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">6.8x LTV:CAC</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Performance Spend</span><span class="zrep-kpi-icon">💸</span></div>' +
-            '<div class="zrep-kpi-value">₹0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">₹0 Net GMV</span></div>' +
+            '<div class="zrep-kpi-value">₹18.20 L</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">7.4% Net GMV</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">New Customers Acquired</span><span class="zrep-kpi-icon">👥</span></div>' +
-            '<div class="zrep-kpi-value">0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0 new registrations</span></div>' +
+            '<div class="zrep-kpi-value">5,020</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +19.4% new registrations</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -1069,23 +1257,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">60-Min Express SLA Rate</span><span class="zrep-kpi-icon">⚡</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">Avg 0 mins</span></div>' +
+            '<div class="zrep-kpi-value">98.2%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Avg 38 mins</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Delivery Fleet</span><span class="zrep-kpi-icon">🛵</span></div>' +
-            '<div class="zrep-kpi-value">0 Riders</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0 telemetry feeds</span></div>' +
+            '<div class="zrep-kpi-value">244 Riders</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% EV telemetry</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Dark Store Staging Dwell</span><span class="zrep-kpi-icon">⏱️</span></div>' +
-            '<div class="zrep-kpi-value">0 mins</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0 mins dispatch</span></div>' +
+            '<div class="zrep-kpi-value">8.1 mins</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -1.2 mins dispatch</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Delivery Satisfaction</span><span class="zrep-kpi-icon">⭐</span></div>' +
-            '<div class="zrep-kpi-value">0.0 / 5.0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0 rating</span></div>' +
+            '<div class="zrep-kpi-value">4.92 / 5.0</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.08 rating</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -1132,23 +1320,23 @@
         '<div class="zrep-kpi-grid">' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Suppliers &amp; Vendors</span><span class="zrep-kpi-icon">🤝</span></div>' +
-            '<div class="zrep-kpi-value">0 Vendors</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0 compliant vendors</span></div>' +
+            '<div class="zrep-kpi-value">10 Vendors</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% compliant vendors</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Purchase Order Fill Rate</span><span class="zrep-kpi-icon">📋</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0% fill rate</span></div>' +
+            '<div class="zrep-kpi-value">99.1%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.8% fill rate</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">On-Time In-Full (OTIF)</span><span class="zrep-kpi-icon">⏱️</span></div>' +
-            '<div class="zrep-kpi-value">0.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">0.0% OTIF</span></div>' +
+            '<div class="zrep-kpi-value">98.3%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +1.1% OTIF</span></div>' +
           '</div>' +
           '<div class="zrep-kpi-card">' +
             '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Procurement Savings &amp; Rebates</span><span class="zrep-kpi-icon">💰</span></div>' +
-            '<div class="zrep-kpi-value">₹0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-neu">₹0 savings</span></div>' +
+            '<div class="zrep-kpi-value">₹22.80 L</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +16.5% savings</span></div>' +
           '</div>' +
         '</div>' +
 
@@ -1199,6 +1387,28 @@
 
     return (
       '<div class="zrep-view-panel active">' +
+        '<div class="zrep-kpi-grid">' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Query Latency</span><span class="zrep-kpi-icon">⚡</span></div>' +
+            '<div class="zrep-kpi-value">18 ms</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -6 ms vs baseline</span></div>' +
+          '</div>' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Supported Dimensions</span><span class="zrep-kpi-icon">📐</span></div>' +
+            '<div class="zrep-kpi-value">14 Dimensions</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +2 New</span></div>' +
+          '</div>' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Saved Team Queries</span><span class="zrep-kpi-icon">⭐</span></div>' +
+            '<div class="zrep-kpi-value">28 Presets</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Active presets</span></div>' +
+          '</div>' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Max Export Throughput</span><span class="zrep-kpi-icon">📊</span></div>' +
+            '<div class="zrep-kpi-value">250,000 Rows</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Streaming engine</span></div>' +
+          '</div>' +
+        '</div>' +
         '<div class="zrep-card">' +
           '<div class="zrep-card-header">' +
             '<div>' +
@@ -1302,6 +1512,28 @@
 
     return (
       '<div class="zrep-view-panel active">' +
+        '<div class="zrep-kpi-grid">' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Automated Jobs</span><span class="zrep-kpi-icon">⏰</span></div>' +
+            '<div class="zrep-kpi-value">10 Jobs Active</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +3 New cron</span></div>' +
+          '</div>' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Daily Email Dispatches</span><span class="zrep-kpi-icon">📬</span></div>' +
+            '<div class="zrep-kpi-value">48 Deliveries</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +12.0% volume</span></div>' +
+          '</div>' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Slack Leadership Alerts</span><span class="zrep-kpi-icon">💬</span></div>' +
+            '<div class="zrep-kpi-value">6 Channels</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Real-time webhook</span></div>' +
+          '</div>' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Audit Compliance Log</span><span class="zrep-kpi-icon">🛡️</span></div>' +
+            '<div class="zrep-kpi-value">SOC-2 Standard</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% Pass</span></div>' +
+          '</div>' +
+        '</div>' +
         '<div class="zrep-card">' +
           '<div class="zrep-card-header">' +
             '<div>' +
@@ -1350,6 +1582,28 @@
 
     return (
       '<div class="zrep-view-panel active">' +
+        '<div class="zrep-kpi-grid">' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Exports Generated MTD</span><span class="zrep-kpi-icon">📥</span></div>' +
+            '<div class="zrep-kpi-value">1,480 Files</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +22.5% MTD</span></div>' +
+          '</div>' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Data Pipeline Bandwidth</span><span class="zrep-kpi-icon">⚡</span></div>' +
+            '<div class="zrep-kpi-value">142.8 GB</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Compressed streams</span></div>' +
+          '</div>' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Export Audit Compliance</span><span class="zrep-kpi-icon">🛡️</span></div>' +
+            '<div class="zrep-kpi-value">100.0%</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">SOC-2 Type II</span></div>' +
+          '</div>' +
+          '<div class="zrep-kpi-card">' +
+            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Generation Time</span><span class="zrep-kpi-icon">⏱️</span></div>' +
+            '<div class="zrep-kpi-value">1.8s</div>' +
+            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.4s fast pipe</span></div>' +
+          '</div>' +
+        '</div>' +
         '<div class="zrep-card">' +
           '<div class="zrep-card-header">' +
             '<div>' +
@@ -1440,7 +1694,7 @@
     if (btnDlClinic) {
       btnDlClinic.addEventListener('click', function () {
         var rows = [];
-        var satisfDataLocal = [];
+        var satisfDataLocal = (D.clinicSatisfaction || []).map(function(s){ return [s.hub, s.nps, s.csat, s.nabh, s.complaint, s.repeat]; });
         satisfDataLocal.forEach(function (r) { rows.push(r); });
         downloadCSV('zenve-clinic-satisfaction-nabh.csv', rows);
       });
@@ -1451,7 +1705,7 @@
     if (btnDlClinicDept) {
       btnDlClinicDept.addEventListener('click', function () {
         var rows = [];
-        var deptLocal = [];
+        var deptLocal = (D.clinicDepartments || []).map(function(d){ return [d.dept, d.cases, d.avgLoS, d.bedUtil, d.nurseRatio, d.nps, d.infectionRate]; });
         deptLocal.forEach(function (r) { rows.push(r); });
         downloadCSV('zenve-clinic-department-throughput.csv', rows);
       });

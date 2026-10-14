@@ -10,7 +10,18 @@ export default function RevenueReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const buData = [];
+  const buData = [
+    { bu: 'Veterinary Clinical Network', lead: 'Dr. Arjun Mehta', mtdRev: 4820000, target: 4500000, attainment: 107.1, margin: 52.4, growth: '+24.5%' },
+    { bu: '60-Min Express Pharmacy & Feeds', lead: 'Priya Sundaram', mtdRev: 6240000, target: 5800000, attainment: 107.6, margin: 41.2, growth: '+38.2%' },
+    { bu: 'Premium Pet Nutrition & Diet', lead: 'Vikram Seth', mtdRev: 4150000, target: 4200000, attainment: 98.8, margin: 38.5, growth: '+18.1%' },
+    { bu: 'Grooming Salons & Mobile Vans', lead: 'Ananya Rao', mtdRev: 2180000, target: 2000000, attainment: 109.0, margin: 58.0, growth: '+29.4%' },
+    { bu: 'Diagnostic Laboratory & Imaging', lead: 'Dr. Rajesh Sharma', mtdRev: 2950000, target: 2800000, attainment: 105.4, margin: 64.2, growth: '+21.0%' },
+    { bu: 'Pet Insurance & Wellness Plans', lead: 'Karan Mehra', mtdRev: 1820000, target: 1750000, attainment: 104.0, margin: 72.1, growth: '+45.8%' },
+    { bu: 'Pet Boarding & Daycare Resorts', lead: 'Sneha Patel', mtdRev: 1240000, target: 1200000, attainment: 103.3, margin: 49.0, growth: '+15.2%' },
+    { bu: 'Zenve Pet Club VIP Memberships', lead: 'Rohan Gupta', mtdRev: 1450000, target: 1300000, attainment: 111.5, margin: 82.0, growth: '+52.0%' },
+    { bu: 'Prescription Compounding Lab', lead: 'Dr. Neha Kapoor', mtdRev: 860000, target: 800000, attainment: 107.5, margin: 61.5, growth: '+19.3%' },
+    { bu: 'International Pet Relocation', lead: 'Capt. Sameer Verma', mtdRev: 1140000, target: 1100000, attainment: 103.6, margin: 46.8, growth: '+27.6%' }
+  ];
 
   const inr = (n) => '₹' + Number(n).toLocaleString('en-IN');
 
@@ -74,10 +85,10 @@ export default function RevenueReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Consolidated Revenue MTD" value="₹0" delta="0.0%" trend="neutral" subtext="All 5 business units" icon="💰" />
-        <KpiCard label="Target Attainment" value="0.0%" delta="0.0%" trend="neutral" subtext="Current period" icon="🎯" />
-        <KpiCard label="Blended Gross Margin" value="0.0%" delta="0.0%" trend="neutral" subtext="Gross contribution" icon="📈" />
-        <KpiCard label="Recurring ARR Run-Rate" value="₹0" delta="0.0%" trend="neutral" subtext="Recurring subscriptions" icon="🔄" />
+        <KpiCard label="Consolidated Revenue MTD" value="₹2,68,50,000" delta="+17.3%" trend="up" subtext="All 10 business units" icon="💰" />
+        <KpiCard label="Target Attainment" value="105.5%" delta="+5.5%" trend="up" subtext="Current period" icon="🎯" />
+        <KpiCard label="Blended Gross Margin" value="52.6%" delta="+3.4%" trend="up" subtext="Gross contribution" icon="📈" />
+        <KpiCard label="Recurring ARR Run-Rate" value="₹16,40,00,000" delta="+28.2%" trend="up" subtext="Recurring subscriptions" icon="🔄" />
       </div>
 
       {/* Table Section */}

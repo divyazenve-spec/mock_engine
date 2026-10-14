@@ -10,7 +10,18 @@ export default function VendorReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const vendors = [];
+  const vendors = [
+    { name: 'Royal Canin India Pvt Ltd', category: 'Super-Premium Pet Nutrition', poSpend: 4250000, fillRate: '99.4%', onTimeRate: '98.8%', qualityScore: '99.6%', paymentTerms: 'Net 45 Days', savingsGenerated: 380000 },
+    { name: 'Boehringer Ingelheim Animal Health', category: 'Veterinary Pharmaceuticals & Vaccines', poSpend: 3680000, fillRate: '99.8%', onTimeRate: '99.2%', qualityScore: '100.0%', paymentTerms: 'Net 60 Days', savingsGenerated: 420000 },
+    { name: 'Farmina Pet Foods India', category: 'Grain-Free Canine & Feline Feeds', poSpend: 2840000, fillRate: '98.9%', onTimeRate: '98.1%', qualityScore: '99.2%', paymentTerms: 'Net 45 Days', savingsGenerated: 260000 },
+    { name: 'Zoetis India Animal Health', category: 'Rx Diagnostics & Anti-Infectives', poSpend: 3120000, fillRate: '99.6%', onTimeRate: '99.0%', qualityScore: '99.8%', paymentTerms: 'Net 60 Days', savingsGenerated: 340000 },
+    { name: 'Virbac Animal Health India', category: 'Clinical Dermatology & Hygiene', poSpend: 1980000, fillRate: '99.1%', onTimeRate: '98.4%', qualityScore: '99.4%', paymentTerms: 'Net 30 Days', savingsGenerated: 180000 },
+    { name: 'Hill\'s Pet Nutrition (Colgate)', category: 'Therapeutic Prescription Diets', poSpend: 2450000, fillRate: '98.7%', onTimeRate: '97.9%', qualityScore: '99.5%', paymentTerms: 'Net 45 Days', savingsGenerated: 220000 },
+    { name: 'Savavet (Sava Healthcare Ltd)', category: 'Cardiology & Specialty Formulations', poSpend: 1650000, fillRate: '99.2%', onTimeRate: '98.6%', qualityScore: '99.3%', paymentTerms: 'Net 30 Days', savingsGenerated: 150000 },
+    { name: 'Beaphar India Veterinary Goods', category: 'Dental Care & Behavioral Supplements', poSpend: 1240000, fillRate: '98.5%', onTimeRate: '97.5%', qualityScore: '98.9%', paymentTerms: 'Net 30 Days', savingsGenerated: 110000 },
+    { name: 'PetSafe & Radio Systems Corp', category: 'Smart Collars, Harnesses & Leashes', poSpend: 980000, fillRate: '97.8%', onTimeRate: '96.8%', qualityScore: '98.5%', paymentTerms: 'Net 30 Days', savingsGenerated: 85000 },
+    { name: 'Biomerieux Healthcare Diagnostics', category: 'Hospital Lab Reagents & Cartridges', poSpend: 1420000, fillRate: '99.5%', onTimeRate: '99.1%', qualityScore: '99.9%', paymentTerms: 'Net 60 Days', savingsGenerated: 135000 }
+  ];
 
   const inr = (n) => '₹' + (Number(n) / 100000).toFixed(2) + ' Lakhs';
 
@@ -74,10 +85,10 @@ export default function VendorReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Procurement Spend MTD" value="₹0" delta="0.0%" trend="neutral" subtext="Direct manufacturer" icon="🛒" />
-        <KpiCard label="Average PO Fill Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Stock readiness" icon="📋" />
-        <KpiCard label="On-Time Delivery Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Delivery rate" icon="🚚" />
-        <KpiCard label="Procurement Savings" value="₹0" delta="0.0%" trend="neutral" subtext="Volume negotiated" icon="💎" />
+        <KpiCard label="Procurement Spend MTD" value="₹2.36 Cr" delta="+12.4%" trend="up" subtext="Direct manufacturer spend" icon="🛒" />
+        <KpiCard label="Average PO Fill Rate" value="99.1%" delta="+0.8%" trend="up" subtext="Stock readiness & fill" icon="📋" />
+        <KpiCard label="On-Time Delivery Rate" value="98.3%" delta="+1.1%" trend="up" subtext="Factory to warehouse delivery" icon="🚚" />
+        <KpiCard label="Procurement Savings" value="₹22.80 Lakhs" delta="+16.5%" trend="up" subtext="Volume negotiated savings" icon="💎" />
       </div>
 
       {/* Table Section */}

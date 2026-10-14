@@ -14,6 +14,7 @@ from app.models.all_models import (
     Order,
     Pet,
     Product,
+    Report,
     Sale,
     VeterinaryService,
 )
@@ -260,6 +261,32 @@ def seed_all():
                 last_visit_date=today_date - timedelta(days=random.randint(2, 20))
             )
             db.add(pet_obj)
+
+        print("9. Seeding Reports & Analytics...")
+        db.query(Report).delete()
+        mock_reports_data = [
+            ("RPT-2026-001", "Executive Sales Performance & Channel Gross GMV", "Sales Reports", "CSV", "Daily Financial Audit Cron", "2.4 MB", "/exports/sales_mtd_oct2026.csv"),
+            ("RPT-2026-002", "Business Unit Margins & Recurring Subscription ARR", "Revenue Reports", "XLSX", "Chief Financial Officer", "1.8 MB", "/exports/revenue_bu_q3.xlsx"),
+            ("RPT-2026-003", "Customer Demographics, LTV & Cohort Retention", "Customer Reports", "CSV", "CRM Data Pipeline", "4.1 MB", "/exports/customer_cohorts_2026.csv"),
+            ("RPT-2026-004", "Pet Breed Demographics & Vaccination Registry", "Pet Reports", "CSV", "Clinical Informatics System", "3.2 MB", "/exports/pet_demographics_census.csv"),
+            ("RPT-2026-005", "Veterinary Doctor Caseload & Incentive Ledger", "Doctor Reports", "PDF", "Medical Operations Audit", "1.5 MB", "/exports/doctor_caseload_payouts.pdf"),
+            ("RPT-2026-006", "Clinic Network ICU Utilization & OPD Throughput", "Clinic Reports", "CSV", "Hospital Director Console", "2.1 MB", "/exports/clinic_network_occupancy.csv"),
+            ("RPT-2026-007", "Product Catalog Velocity & Pareto ABC Matrix", "Product Reports", "CSV", "Merchandising Analytics", "5.6 MB", "/exports/product_abc_matrix.csv"),
+            ("RPT-2026-008", "Cold-Chain Depot Stock Valuation & Batch Expiry", "Inventory Reports", "XLSX", "Supply Chain Automated Cron", "3.8 MB", "/exports/depot_inventory_valuation.xlsx"),
+            ("RPT-2026-009", "Audited Corporate GAAP Profit & Loss Statement", "Finance Reports", "PDF", "Ernst & Young Audit Sync", "1.9 MB", "/exports/gaap_pl_audited_statement.pdf"),
+            ("RPT-2026-010", "60-Min Express Fulfillment & Dark Store SLAs", "Operations Reports", "CSV", "Logistics Telemetry Hub", "4.7 MB", "/exports/express_logistics_sla.csv")
+        ]
+        for rcode, rtitle, rcat, rfmt, rgen, rsize, rurl in mock_reports_data:
+            rep = Report(
+                report_code=rcode,
+                title=rtitle,
+                category=rcat,
+                format=rfmt,
+                generated_by=rgen,
+                file_size=rsize,
+                download_url=rurl
+            )
+            db.add(rep)
 
         db.commit()
         print("All domain tables successfully seeded in MySQL!")

@@ -10,7 +10,18 @@ export default function OperationsReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const hubs = [];
+  const hubs = [
+    { hub: 'Indiranagar Express Hub (BLR)', city: 'Bengaluru', orders: '4,280', onTimeRate: '98.8%', avgDispatchMins: '7.8 mins', riderCount: '32 Riders', deliveryCostPerOrder: '₹38.50', returnsPct: '0.6%' },
+    { hub: 'Koramangala Dark Store (BLR)', city: 'Bengaluru', orders: '3,840', onTimeRate: '98.2%', avgDispatchMins: '8.2 mins', riderCount: '28 Riders', deliveryCostPerOrder: '₹39.80', returnsPct: '0.8%' },
+    { hub: 'Whitefield Fulfillment Hub (BLR)', city: 'Bengaluru', orders: '3,190', onTimeRate: '97.6%', avgDispatchMins: '8.9 mins', riderCount: '24 Riders', deliveryCostPerOrder: '₹42.00', returnsPct: '0.7%' },
+    { hub: 'Andheri West Express Hub (BOM)', city: 'Mumbai', orders: '4,120', onTimeRate: '98.4%', avgDispatchMins: '7.9 mins', riderCount: '30 Riders', deliveryCostPerOrder: '₹41.20', returnsPct: '0.9%' },
+    { hub: 'Bandra West Micro-Store (BOM)', city: 'Mumbai', orders: '3,650', onTimeRate: '98.0%', avgDispatchMins: '8.4 mins', riderCount: '26 Riders', deliveryCostPerOrder: '₹43.10', returnsPct: '0.7%' },
+    { hub: 'South Delhi Okhla Hub (DEL)', city: 'New Delhi', orders: '3,780', onTimeRate: '97.9%', avgDispatchMins: '8.5 mins', riderCount: '28 Riders', deliveryCostPerOrder: '₹40.50', returnsPct: '0.8%' },
+    { hub: 'Gurgaon DLF Express Hub (GGN)', city: 'Gurgaon', orders: '2,940', onTimeRate: '98.6%', avgDispatchMins: '7.6 mins', riderCount: '22 Riders', deliveryCostPerOrder: '₹39.00', returnsPct: '0.5%' },
+    { hub: 'Gachibowli Dark Store (HYD)', city: 'Hyderabad', orders: '2,680', onTimeRate: '98.1%', avgDispatchMins: '8.3 mins', riderCount: '20 Riders', deliveryCostPerOrder: '₹38.20', returnsPct: '0.6%' },
+    { hub: 'Koregaon Park Express (PNQ)', city: 'Pune', orders: '2,150', onTimeRate: '98.5%', avgDispatchMins: '7.8 mins', riderCount: '18 Riders', deliveryCostPerOrder: '₹37.90', returnsPct: '0.5%' },
+    { hub: 'Guindy Express Node (MAA)', city: 'Chennai', orders: '1,980', onTimeRate: '98.0%', avgDispatchMins: '8.1 mins', riderCount: '16 Riders', deliveryCostPerOrder: '₹38.60', returnsPct: '0.6%' }
+  ];
 
   const downloadCSV = () => {
     const rows = [
@@ -72,10 +83,10 @@ export default function OperationsReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Consolidated On-Time SLA" value="0.0%" delta="0.0%" trend="neutral" subtext="No delivery records" icon="⚡" />
-        <KpiCard label="Average Dispatch Dwell" value="0 Mins" delta="0.0%" trend="neutral" subtext="No dispatch records" icon="⏱️" />
-        <KpiCard label="Active Dedicated Fleet" value="0 EV Riders" delta="0.0%" trend="neutral" subtext="0 active riders" icon="🛵" />
-        <KpiCard label="Blended Cost / Delivery" value="₹0" delta="0.0%" trend="neutral" subtext="0 delivery cost" icon="📉" />
+        <KpiCard label="Consolidated On-Time SLA" value="98.2%" delta="+1.4%" trend="up" subtext="60-min express deliveries" icon="⚡" />
+        <KpiCard label="Average Dispatch Dwell" value="8.1 Mins" delta="-1.2 Mins" trend="up" subtext="Order pick to dispatch" icon="⏱️" />
+        <KpiCard label="Active Dedicated Fleet" value="244 EV Riders" delta="+36 Riders" trend="up" subtext="Zero-emission express fleet" icon="🛵" />
+        <KpiCard label="Blended Cost / Delivery" value="₹39.80" delta="-₹4.20" trend="up" subtext="Optimized cluster routing" icon="📉" />
       </div>
 
       {/* Table Section */}

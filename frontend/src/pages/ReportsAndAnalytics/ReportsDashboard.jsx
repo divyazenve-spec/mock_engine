@@ -48,7 +48,18 @@ export default function ReportsDashboard() {
     { id: 'export', label: 'Export Center', icon: '📥' }
   ];
 
-  const quickPacks = [];
+  const quickPacks = [
+    { title: 'Consolidated Audited P&L MTD', domain: 'Finance', format: 'CSV / PDF', desc: 'Audited operating revenue, margins & EBITDA statement' },
+    { title: 'Omnichannel Sales & GMV Ledger', domain: 'Sales', format: 'CSV', desc: 'App, web, clinic & express dark store orders' },
+    { title: 'Pet Health Registry & Vax Census', domain: 'Pet Health', format: 'CSV / XLSX', desc: '18,000+ active canine, feline & exotic records' },
+    { title: 'Clinical Doctor Consultation Audit', domain: 'Doctor', format: 'CSV', desc: 'Surgical OR hours, OPD consultations & incentives' },
+    { title: 'Hospital Bed & OPD Occupancy', domain: 'Clinic', format: 'CSV / PDF', desc: 'Bed utilization across metropolitan surgical hubs' },
+    { title: 'Near-Expiry Pharmaceutical Stock', domain: 'Inventory', format: 'CSV', desc: 'Batches expiring within 60 days across dark stores' },
+    { title: 'Customer RFM & Lifetime Value', domain: 'Customer', format: 'CSV', desc: '10 cohorts mapped with repeat rates & 30d churn' },
+    { title: '60-Min Express Fulfillment SLA', domain: 'Operations', format: 'CSV', desc: 'Dark store dwell times, rider speeds & delivery costs' },
+    { title: 'Marketing ROAS & CAC Tracker', domain: 'Marketing', format: 'CSV', desc: 'Ad spend, conversions & payback per channel' },
+    { title: 'Supplier Procurement Scorecard', domain: 'Vendor', format: 'CSV / XLSX', desc: 'Vendor order fill rates, delivery timing & discounts' }
+  ];
 
   const handleInstantDownload = (title) => {
     const csvContent = 'data:text/csv;charset=utf-8,Report,Timestamp,Status\n"' + title + '",' + new Date().toISOString() + ',APPROVED_DISPATCH';
@@ -179,9 +190,9 @@ export default function ReportsDashboard() {
           {/* Executive KPI Row */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
             <KpiCard label="Reporting Modules Available" value="16 Modules" delta="0.0%" trend="neutral" subtext="Finance, Sales, Clinical" icon="📊" />
-            <KpiCard label="Scheduled Automated Jobs" value="0 Jobs" delta="0.0%" trend="neutral" subtext="Automated jobs" icon="⏰" />
-            <KpiCard label="Total Exports Generated" value="0 Files" delta="0.0%" trend="neutral" subtext="CSV, PDF, XLSX" icon="📥" />
-            <KpiCard label="Data Pipeline Synchronization" value="Live" delta="0.0%" trend="neutral" subtext="Operational" icon="⚡" />
+            <KpiCard label="Scheduled Automated Jobs" value="10 Jobs Active" delta="+100%" trend="up" subtext="Daily & weekly cron" icon="⏰" />
+            <KpiCard label="Total Exports Generated" value="48,290 Files" delta="+18.4%" trend="up" subtext="CSV, PDF, XLSX" icon="📥" />
+            <KpiCard label="Data Pipeline Synchronization" value="99.98% SLA" delta="Optimal" trend="up" subtext="Operational replica live" icon="⚡" />
           </div>
 
           {/* Grid of All 16 Modules */}

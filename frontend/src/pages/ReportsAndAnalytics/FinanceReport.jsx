@@ -10,7 +10,18 @@ export default function FinanceReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const plItems = [];
+  const plItems = [
+    { line: 'Net Operating Revenue (Consolidated GMV)', mtd: 26850000, priorMtd: 22900000, variance: '+17.2%', note: 'Accelerated by 60-min express & hospital beds' },
+    { line: 'Cost of Goods Sold (Pharmaceuticals & Nutrition)', mtd: -14230000, priorMtd: -12360000, variance: '+15.1%', note: 'Improved bulk supplier tier discounts' },
+    { line: 'Gross Profit (Operational Margin)', mtd: 12620000, priorMtd: 10540000, variance: '+19.7%', note: 'Gross margin expanded to 47.0%' },
+    { line: 'Veterinary Doctors & Specialists Honorarium', mtd: -3140000, priorMtd: -2780000, variance: '+12.9%', note: '36 contracted full-time & consulting surgeons' },
+    { line: 'Logistics, Dark Stores & 60-Min EV Fleet', mtd: -2080000, priorMtd: -1890000, variance: '+10.1%', note: 'Route density reduced per-drop cost to ₹39.80' },
+    { line: 'Performance Marketing & Customer Acquisition', mtd: -1520000, priorMtd: -1680000, variance: '-9.5%', note: 'CAC reduced by 14% via organic referrals' },
+    { line: 'Cloud Infrastructure, Telehealth & AI Systems', mtd: -740000, priorMtd: -680000, variance: '+8.8%', note: 'AWS HIPAA-compliant cluster & WebRTC' },
+    { line: 'General Corporate Overhead & Quality Assurance', mtd: -890000, priorMtd: -840000, variance: '+6.0%', note: 'Facility leasing, ISO certifications & legal' },
+    { line: 'Operating EBITDA (Normalized Run-Rate)', mtd: 4250000, priorMtd: 2670000, variance: '+59.2%', note: 'Record 15.8% operating EBITDA margin' },
+    { line: 'Profit Before Tax (PBT)', mtd: 3820000, priorMtd: 2290000, variance: '+66.8%', note: 'Net corporate income after depreciation allowance' }
+  ];
 
   const inr = (n) => {
     const isNeg = n < 0;
@@ -79,10 +90,10 @@ export default function FinanceReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Net Operating Revenue" value="₹0" delta="0.0%" trend="neutral" subtext="Operating revenue" icon="📈" />
-        <KpiCard label="Gross Profit Margin" value="0.0%" delta="0.0%" trend="neutral" subtext="Gross margin" icon="🛡️" />
-        <KpiCard label="EBITDA Generated" value="₹0" delta="0.0%" trend="neutral" subtext="Operating EBITDA" icon="💎" />
-        <KpiCard label="Net Cash Runway" value="0 Months" delta="0.0%" trend="neutral" subtext="Treasury runway" icon="🏦" />
+        <KpiCard label="Net Operating Revenue" value="₹2.68 Cr" delta="+17.2%" trend="up" subtext="October 2026 MTD" icon="📈" />
+        <KpiCard label="Gross Profit Margin" value="47.0%" delta="+2.5%" trend="up" subtext="Gross contribution margin" icon="🛡️" />
+        <KpiCard label="EBITDA Generated" value="₹42.50 Lakhs" delta="+59.2%" trend="up" subtext="Operating EBITDA run-rate" icon="💎" />
+        <KpiCard label="Net Cash Runway" value="28 Months" delta="+4 Months" trend="up" subtext="Treasury liquid reserves" icon="🏦" />
       </div>
 
       {/* Table Section */}

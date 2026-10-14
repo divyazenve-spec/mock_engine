@@ -10,7 +10,18 @@ export default function CustomerReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const cohorts = [];
+  const cohorts = [
+    { cohort: 'VIP Titanium Pet Parents (Multi-Pet)', count: 2450, pct: 13.8, avgOrders: 8.4, ltv: 48500, repeatRate: '94.2%', churn: '1.2%' },
+    { cohort: 'Monthly Wellness & Diet Subscribers', count: 3820, pct: 21.6, avgOrders: 6.2, ltv: 32400, repeatRate: '88.5%', churn: '2.8%' },
+    { cohort: 'Active Prescription & Chronic Care', count: 2190, pct: 12.4, avgOrders: 5.7, ltv: 29800, repeatRate: '84.0%', churn: '3.1%' },
+    { cohort: 'Premium Breed Champions', count: 1840, pct: 10.4, avgOrders: 4.8, ltv: 24200, repeatRate: '79.6%', churn: '4.5%' },
+    { cohort: 'Puppy & Kitten Onboarding (0-1 yr)', count: 2980, pct: 16.8, avgOrders: 3.9, ltv: 18600, repeatRate: '72.1%', churn: '5.8%' },
+    { cohort: 'Senior Pet Specialized Care (7+ yrs)', count: 1420, pct: 8.0, avgOrders: 5.1, ltv: 26700, repeatRate: '81.4%', churn: '3.6%' },
+    { cohort: 'Bi-Monthly Grooming & Spa Cohort', count: 1160, pct: 6.5, avgOrders: 3.2, ltv: 14500, repeatRate: '68.0%', churn: '6.2%' },
+    { cohort: 'Occasional Express Delivery Buyers', count: 980, pct: 5.5, avgOrders: 2.1, ltv: 8900, repeatRate: '46.5%', churn: '9.8%' },
+    { cohort: 'Newly Registered Onboarders (<30d)', count: 640, pct: 3.6, avgOrders: 1.4, ltv: 4200, repeatRate: '38.2%', churn: '12.4%' },
+    { cohort: 'At-Risk Dormant Accounts (>90d)', count: 240, pct: 1.4, avgOrders: 1.1, ltv: 3100, repeatRate: '14.0%', churn: '24.5%' }
+  ];
 
   const inr = (n) => '₹' + Number(n).toLocaleString('en-IN');
 
@@ -74,10 +85,10 @@ export default function CustomerReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Registered Pet Parents" value="0 Parents" delta="0.0%" trend="neutral" subtext="Registered base" icon="🐾" />
-        <KpiCard label="Average Blended LTV" value="₹0" delta="0.0%" trend="neutral" subtext="Lifetime value" icon="💎" />
-        <KpiCard label="Repeat Order Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Target: 0.0%" icon="🔄" />
-        <KpiCard label="Monthly Churn Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Current period" icon="🛡️" />
+        <KpiCard label="Total Registered Pet Parents" value="17,720 Parents" delta="+12.8%" trend="up" subtext="Registered base" icon="🐾" />
+        <KpiCard label="Average Blended LTV" value="₹24,800" delta="+9.4%" trend="up" subtext="Lifetime value" icon="💎" />
+        <KpiCard label="Repeat Order Rate" value="76.4%" delta="+4.2%" trend="up" subtext="Target: 70.0%" icon="🔄" />
+        <KpiCard label="Monthly Churn Rate" value="3.8%" delta="-0.6%" trend="up" subtext="Current period" icon="🛡️" />
       </div>
 
       {/* Table Section */}

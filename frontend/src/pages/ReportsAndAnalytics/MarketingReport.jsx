@@ -10,7 +10,18 @@ export default function MarketingReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const campaigns = [];
+  const campaigns = [
+    { name: 'Google Search: Express Pet Pharmacy Near Me', channel: 'Google Search Ads', spend: 385000, impressions: '482,000', clicks: 28900, newCustomers: 890, cac: 432, gmvGenerated: 2492000, roas: '6.47x' },
+    { name: 'Instagram Reels: 60-Min Kibble Unboxing', channel: 'Meta Instagram', spend: 320000, impressions: '1,240,000', clicks: 34100, newCustomers: 740, cac: 432, gmvGenerated: 1850000, roas: '5.78x' },
+    { name: 'YouTube Shorts: Ask A Vet Video Series', channel: 'YouTube Video', spend: 210000, impressions: '860,000', clicks: 18200, newCustomers: 420, cac: 500, gmvGenerated: 1176000, roas: '5.60x' },
+    { name: 'Meta Retargeting: Cart Abandonment Refill', channel: 'Meta Retargeting', spend: 145000, impressions: '210,000', clicks: 14500, newCustomers: 510, cac: 284, gmvGenerated: 1326000, roas: '9.14x' },
+    { name: 'Pet Parents Referral Club 2.0', channel: 'Referral & Organic', spend: 85000, impressions: '140,000', clicks: 19800, newCustomers: 620, cac: 137, gmvGenerated: 1612000, roas: '18.96x' },
+    { name: 'Influencer Vet Ambassador Programme', channel: 'KOL Influencer', spend: 180000, impressions: '620,000', clicks: 16400, newCustomers: 380, cac: 473, gmvGenerated: 1064000, roas: '5.91x' },
+    { name: 'Google Shopping: Premium Grain-Free Feed', channel: 'Google Shopping', spend: 240000, impressions: '390,000', clicks: 22100, newCustomers: 530, cac: 452, gmvGenerated: 1590000, roas: '6.62x' },
+    { name: 'Local Community Park & Dog Fair Popups', channel: 'Field Marketing', spend: 95000, impressions: '45,000', clicks: 6200, newCustomers: 260, cac: 365, gmvGenerated: 676000, roas: '7.11x' },
+    { name: 'Push Notification Flash Hours', channel: 'In-App CRM', spend: 40000, impressions: '520,000', clicks: 48900, newCustomers: 390, cac: 102, gmvGenerated: 1131000, roas: '28.27x' },
+    { name: 'Corporate Pet Insurance HR Partnerships', channel: 'B2B Corporate', spend: 120000, impressions: '95,000', clicks: 8400, newCustomers: 280, cac: 428, gmvGenerated: 980000, roas: '8.16x' }
+  ];
 
   const inr = (n) => '₹' + Number(n).toLocaleString('en-IN');
 
@@ -74,10 +85,10 @@ export default function MarketingReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Ad Spend MTD" value="₹0" delta="0.0%" trend="neutral" subtext="Ad spend" icon="💳" />
-        <KpiCard label="New Pet Parents Acquired" value="0 Parents" delta="0.0%" trend="neutral" subtext="Acquired customers" icon="👶" />
-        <KpiCard label="Blended CAC" value="₹0" delta="0.0%" trend="neutral" subtext="Acquisition cost" icon="🎯" />
-        <KpiCard label="Blended ROAS" value="0.0x" delta="0.0%" trend="neutral" subtext="Return on spend" icon="🚀" />
+        <KpiCard label="Total Ad Spend MTD" value="₹18,20,000" delta="-6.8%" trend="up" subtext="Across 10 campaigns" icon="💳" />
+        <KpiCard label="New Pet Parents Acquired" value="5,020 Parents" delta="+19.4%" trend="up" subtext="Acquired customers" icon="👶" />
+        <KpiCard label="Blended CAC" value="₹362" delta="-14.2%" trend="up" subtext="Blended acquisition cost" icon="🎯" />
+        <KpiCard label="Blended ROAS" value="7.63x" delta="+1.12x" trend="up" subtext="Return on marketing spend" icon="🚀" />
       </div>
 
       {/* Table Section */}

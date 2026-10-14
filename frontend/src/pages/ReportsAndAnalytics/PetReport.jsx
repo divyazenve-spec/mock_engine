@@ -10,7 +10,18 @@ export default function PetReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const breeds = [];
+  const breeds = [
+    { breed: 'Golden Retriever', registered: 3420, share: '18.2%', avgAge: '3.4 yrs', vaxRate: '96.4%', commonIssues: 'Hip Dysplasia, Ear Infections', checkupsPerYr: 4.2 },
+    { breed: 'Shih Tzu', registered: 2840, share: '15.1%', avgAge: '2.8 yrs', vaxRate: '95.1%', commonIssues: 'Brachycephalic Airway, Eye Ulcers', checkupsPerYr: 4.8 },
+    { breed: 'Labrador Retriever', registered: 2650, share: '14.1%', avgAge: '4.1 yrs', vaxRate: '94.8%', commonIssues: 'Obesity, Arthritis, Atopy', checkupsPerYr: 3.9 },
+    { breed: 'Persian Cat', registered: 2190, share: '11.6%', avgAge: '2.5 yrs', vaxRate: '93.2%', commonIssues: 'Hairballs, Polycystic Kidney', checkupsPerYr: 3.6 },
+    { breed: 'German Shepherd', registered: 1780, share: '9.5%', avgAge: '3.8 yrs', vaxRate: '95.8%', commonIssues: 'Degenerative Myelopathy, Skin Allergy', checkupsPerYr: 4.0 },
+    { breed: 'Indie / Indian Pariah Dog', registered: 1640, share: '8.7%', avgAge: '3.1 yrs', vaxRate: '97.2%', commonIssues: 'Tick Fever, Seasonal Dermatitis', checkupsPerYr: 3.2 },
+    { breed: 'French Bulldog', registered: 1280, share: '6.8%', avgAge: '2.2 yrs', vaxRate: '94.0%', commonIssues: 'BOAS, Spinal Hemivertebrae', checkupsPerYr: 5.1 },
+    { breed: 'Beagle', registered: 1120, share: '6.0%', avgAge: '3.6 yrs', vaxRate: '93.6%', commonIssues: 'Intervertebral Disc, Hypothyroidism', checkupsPerYr: 3.8 },
+    { breed: 'Siamese Cat', registered: 980, share: '5.2%', avgAge: '2.9 yrs', vaxRate: '92.5%', commonIssues: 'Asthma, Dental Gingivitis', checkupsPerYr: 3.4 },
+    { breed: 'Pomeranian', registered: 910, share: '4.8%', avgAge: '4.5 yrs', vaxRate: '94.3%', commonIssues: 'Tracheal Collapse, Luxating Patella', checkupsPerYr: 4.1 }
+  ];
 
   const downloadCSV = () => {
     const rows = [
@@ -72,10 +83,10 @@ export default function PetReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Patient Census" value="0 Pets" delta="0.0%" trend="neutral" subtext="In electronic health records" icon="🐕" />
-        <KpiCard label="Vaccination Adherence" value="0.0%" delta="0.0%" trend="neutral" subtext="Automated reminder active" icon="💉" />
-        <KpiCard label="Chronic Care Cohort" value="0 Pets" delta="0.0%" trend="neutral" subtext="Care protocol" icon="🩺" />
-        <KpiCard label="Preventive Care Visits" value="0 / Year" delta="0.0%" trend="neutral" subtext="Includes teleconsults" icon="📋" />
+        <KpiCard label="Total Patient Census" value="18,810 Pets" delta="+14.5%" trend="up" subtext="In electronic health records" icon="🐕" />
+        <KpiCard label="Vaccination Adherence" value="94.7%" delta="+3.1%" trend="up" subtext="Automated reminder active" icon="💉" />
+        <KpiCard label="Chronic Care Cohort" value="3,240 Pets" delta="+8.2%" trend="up" subtext="Care protocol" icon="🩺" />
+        <KpiCard label="Preventive Care Visits" value="4.1 / Year" delta="+0.4" trend="up" subtext="Includes teleconsults" icon="📋" />
       </div>
 
       {/* Table Section */}

@@ -10,7 +10,18 @@ export default function HRReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const departments = [];
+  const departments = [
+    { dept: 'Veterinary Medicine & Surgery', headcount: 48, attendance: '98.5%', targetAttainment: '106.2%', monthlyPayroll: 3840000, avgOvertimeHrs: 12, attrition: '1.8%' },
+    { dept: '60-Min Express Logistics & Dark Stores', headcount: 142, attendance: '96.2%', targetAttainment: '104.5%', monthlyPayroll: 4260000, avgOvertimeHrs: 18, attrition: '4.2%' },
+    { dept: 'Customer Experience & Pet Tele-Triage', headcount: 34, attendance: '97.8%', targetAttainment: '102.8%', monthlyPayroll: 1870000, avgOvertimeHrs: 8, attrition: '2.5%' },
+    { dept: 'Supply Chain, Procurement & Inventory', headcount: 26, attendance: '99.1%', targetAttainment: '105.0%', monthlyPayroll: 1950000, avgOvertimeHrs: 10, attrition: '1.2%' },
+    { dept: 'Software Engineering, Product & AI', headcount: 38, attendance: '99.4%', targetAttainment: '108.4%', monthlyPayroll: 5320000, avgOvertimeHrs: 6, attrition: '1.0%' },
+    { dept: 'Growth Marketing & Brand Communication', headcount: 18, attendance: '98.0%', targetAttainment: '103.5%', monthlyPayroll: 1890000, avgOvertimeHrs: 7, attrition: '2.1%' },
+    { dept: 'Clinical Pathology & Lab Diagnostics', headcount: 22, attendance: '98.8%', targetAttainment: '105.6%', monthlyPayroll: 1760000, avgOvertimeHrs: 11, attrition: '1.5%' },
+    { dept: 'Finance, Billing & Revenue Assurance', headcount: 16, attendance: '99.2%', targetAttainment: '101.8%', monthlyPayroll: 1520000, avgOvertimeHrs: 9, attrition: '0.8%' },
+    { dept: 'People Operations & Clinical Training', headcount: 12, attendance: '99.5%', targetAttainment: '102.0%', monthlyPayroll: 1080000, avgOvertimeHrs: 4, attrition: '0.0%' },
+    { dept: 'Legal, Regulatory Compliance & Pet Welfare', headcount: 8, attendance: '100.0%', targetAttainment: '100.0%', monthlyPayroll: 960000, avgOvertimeHrs: 3, attrition: '0.0%' }
+  ];
 
   const inr = (n) => '₹' + (Number(n) / 100000).toFixed(2) + ' Lakhs';
 
@@ -74,10 +85,10 @@ export default function HRReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Organization Headcount" value="0 Personnel" delta="0.0%" trend="neutral" subtext="Recorded staff" icon="👥" />
-        <KpiCard label="Average Shift Attendance" value="0.0%" delta="0.0%" trend="neutral" subtext="Shift adherence" icon="📅" />
-        <KpiCard label="Monthly Payroll Disbursement" value="₹0" delta="0.0%" trend="neutral" subtext="Disbursed payroll" icon="💳" />
-        <KpiCard label="Annualized Attrition Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Retention metric" icon="🌟" />
+        <KpiCard label="Total Organization Headcount" value="364 Personnel" delta="+28 Joined" trend="up" subtext="Across 10 corporate & medical teams" icon="👥" />
+        <KpiCard label="Average Shift Attendance" value="98.6%" delta="+1.2%" trend="up" subtext="Shift adherence across nodes" icon="📅" />
+        <KpiCard label="Monthly Payroll Disbursement" value="₹2.44 Cr" delta="+6.8%" trend="up" subtext="Disbursed October payroll" icon="💳" />
+        <KpiCard label="Annualized Attrition Rate" value="1.9%" delta="-0.7%" trend="up" subtext="Industry-leading retention" icon="🌟" />
       </div>
 
       {/* Table Section */}

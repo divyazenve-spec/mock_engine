@@ -11,7 +11,18 @@ export default function ExportCenter() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const exportDatasets = [];
+  const exportDatasets = [
+    { id: 'EXP-FIN-01', title: 'Consolidated Audited P&L and Balance Sheet (FY 2026-27)', domain: 'Finance', format: 'CSV', size: '14.8 MB', rows: '142,500 rows', lastGenerated: 'Today, 06:00 AM' },
+    { id: 'EXP-SLS-02', title: 'Detailed Multi-Channel Sales Ledger with SKU Breakdown', domain: 'Sales', format: 'CSV', size: '28.4 MB', rows: '384,120 rows', lastGenerated: 'Today, 07:15 AM' },
+    { id: 'EXP-CLI-03', title: 'Pet Health Records, Electronic Prescriptions & Vaccinations', domain: 'Clinical', format: 'CSV', size: '19.2 MB', rows: '198,400 rows', lastGenerated: 'Yesterday, 11:30 PM' },
+    { id: 'EXP-INV-04', title: 'Warehouse Stock Valuation & Batch Expiry Matrix', domain: 'Inventory', format: 'CSV', size: '11.5 MB', rows: '94,200 rows', lastGenerated: 'Today, 05:45 AM' },
+    { id: 'EXP-OPS-05', title: '60-Minute Express Dispatch & Rider Geolocation Log', domain: 'Operations', format: 'CSV', size: '36.8 MB', rows: '512,000 rows', lastGenerated: 'Today, 08:00 AM' },
+    { id: 'EXP-CUS-06', title: 'Pet Parent Customer Cohorts, RFM Scores & Lifetime Value', domain: 'Customer', format: 'CSV', size: '8.7 MB', rows: '68,900 rows', lastGenerated: 'Today, 04:30 AM' },
+    { id: 'EXP-MKT-07', title: 'Multi-Channel Advertising Attribution & ROAS Analysis', domain: 'Marketing', format: 'CSV', size: '6.2 MB', rows: '45,300 rows', lastGenerated: 'Yesterday, 10:00 PM' },
+    { id: 'EXP-DOC-08', title: 'Veterinary Doctor Consultations, OR Utilization & Payouts', domain: 'Doctor', format: 'CSV', size: '4.8 MB', rows: '32,100 rows', lastGenerated: 'Oct 12, 09:00 AM' },
+    { id: 'EXP-VND-09', title: 'Supplier Procurement Purchase Orders & Quality Audit', domain: 'Vendor', format: 'CSV', size: '7.4 MB', rows: '54,800 rows', lastGenerated: 'Oct 11, 06:00 PM' },
+    { id: 'EXP-HR-10', title: 'Workforce Shift Adherence, Payroll & Overtime Audit', domain: 'HR', format: 'CSV', size: '3.9 MB', rows: '24,600 rows', lastGenerated: 'Oct 10, 08:00 AM' }
+  ];
 
   const handleInstantDownload = (item) => {
     // Generate actual downloadable CSV file in browser

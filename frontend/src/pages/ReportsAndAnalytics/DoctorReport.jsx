@@ -10,7 +10,18 @@ export default function DoctorReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const doctors = [];
+  const doctors = [
+    { name: 'Dr. Vikram Sharma', spec: 'Chief Veterinary Surgeon', hospital: 'Indiranagar Flagship Hospital', consults: 342, surgeries: 64, rating: 4.96, revenue: 1248000, commission: 249600, rxAdherence: '98.2%' },
+    { name: 'Dr. Ananya Iyer', spec: 'Internal Medicine & Oncology', hospital: 'Koramangala Specialty Clinic', consults: 318, surgeries: 28, rating: 4.94, revenue: 984000, commission: 196800, rxAdherence: '97.5%' },
+    { name: 'Dr. Rajesh Kulkarni', spec: 'Orthopedic & Trauma Specialist', hospital: 'Whitefield Animal Medical Center', consults: 286, surgeries: 58, rating: 4.92, revenue: 1152000, commission: 230400, rxAdherence: '96.8%' },
+    { name: 'Dr. Sneha Reddy', spec: 'Dermatology & Allergy Care', hospital: 'Jayanagar Wellness Clinic', consults: 294, surgeries: 12, rating: 4.95, revenue: 786000, commission: 157200, rxAdherence: '98.6%' },
+    { name: 'Dr. Rohan Merchant', spec: 'Feline Medicine Specialist', hospital: 'Bandra West Veterinary Centre', consults: 265, surgeries: 22, rating: 4.91, revenue: 812000, commission: 162400, rxAdherence: '96.4%' },
+    { name: 'Dr. Pooja Deshmukh', spec: 'Ophthalmology & Micro-Surgery', hospital: 'Andheri Super-Specialty Hub', consults: 248, surgeries: 44, rating: 4.93, revenue: 964000, commission: 192800, rxAdherence: '97.9%' },
+    { name: 'Dr. Amitav Ghosh', spec: 'Cardiology & Critical ICU', hospital: 'South Delhi Hospital & ICU', consults: 232, surgeries: 36, rating: 4.89, revenue: 890000, commission: 178000, rxAdherence: '95.8%' },
+    { name: 'Dr. Neha Bansal', spec: 'Avian & Exotic Animal Medicine', hospital: 'Gurgaon DLF Care Pavilion', consults: 198, surgeries: 18, rating: 4.90, revenue: 642000, commission: 128400, rxAdherence: '96.2%' },
+    { name: 'Dr. Karthik Sundaram', spec: 'Dentistry & Maxillofacial Care', hospital: 'HSR Layout Clinic & Daycare', consults: 224, surgeries: 34, rating: 4.88, revenue: 718000, commission: 143600, rxAdherence: '95.5%' },
+    { name: 'Dr. Shalini Menon', spec: 'Preventive Pediatrics & Vaccines', hospital: 'Kondapur Pet Hospital', consults: 312, surgeries: 14, rating: 4.97, revenue: 684000, commission: 136800, rxAdherence: '99.1%' }
+  ];
 
   const inr = (n) => '₹' + Number(n).toLocaleString('en-IN');
 

@@ -11,7 +11,18 @@ export default function SalesReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const salesData = [];
+  const salesData = [
+    { channel: 'Android App (60-Min Express)', orders: 1842, gross: 5157600, discounts: 312000, refunds: 203760, net: 4641840, aov: 2520 },
+    { channel: 'iOS App (Zenve Flagship)', orders: 1215, gross: 3766500, discounts: 226000, refunds: 150650, net: 3389850, aov: 2790 },
+    { channel: 'Web eCommerce Portal', orders: 784, gross: 1960000, discounts: 118000, refunds: 78000, net: 1764000, aov: 2250 },
+    { channel: 'Clinic Pharmacy Desks', orders: 620, gross: 1860000, discounts: 74400, refunds: 37200, net: 1748400, aov: 2820 },
+    { channel: 'Corporate B2B & Breeder Direct', orders: 148, gross: 1628000, discounts: 98000, refunds: 32560, net: 1497440, aov: 10118 },
+    { channel: 'WhatsApp Concierge Orders', orders: 495, gross: 1485000, discounts: 89000, refunds: 44550, net: 1351450, aov: 2730 },
+    { channel: 'Mobile Vet Van Dispatches', orders: 310, gross: 1240000, discounts: 62000, refunds: 24800, net: 1153200, aov: 3720 },
+    { channel: 'Emergency 24x7 Triage Desk', orders: 186, gross: 1116000, discounts: 22300, refunds: 11160, net: 1082540, aov: 5820 },
+    { channel: 'Subscription Auto-Refill Diet', orders: 840, gross: 2100000, discounts: 210000, refunds: 42000, net: 1848000, aov: 2200 },
+    { channel: 'Grooming & Salon Walk-ins', orders: 380, gross: 950000, discounts: 57000, refunds: 19000, net: 874000, aov: 2300 }
+  ];
 
   const inr = (n) => '₹' + Number(n).toLocaleString('en-IN');
 
@@ -95,10 +106,10 @@ export default function SalesReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Gross Sales MTD" value="₹0" delta="0.0%" trend="neutral" subtext="Across channels" icon="📈" />
-        <KpiCard label="Total Deductions" value="₹0" delta="0.0%" trend="neutral" subtext="Discounts + Returns" icon="🧾" />
-        <KpiCard label="Net Sales Realized" value="₹0" delta="0.0%" trend="neutral" subtext="Settled GMV" icon="💰" />
-        <KpiCard label="Blended AOV" value="₹0" delta="0.0%" trend="neutral" subtext="Average order value" icon="🛒" />
+        <KpiCard label="Gross Sales MTD" value="₹2,12,63,100" delta="+14.8%" trend="up" subtext="Across 10 channels" icon="📈" />
+        <KpiCard label="Total Deductions" value="₹17,99,080" delta="-2.4%" trend="up" subtext="Discounts + Returns" icon="🧾" />
+        <KpiCard label="Net Sales Realized" value="₹1,94,64,020" delta="+16.2%" trend="up" subtext="Settled GMV" icon="💰" />
+        <KpiCard label="Blended AOV" value="₹2,854" delta="+5.1%" trend="up" subtext="Average order value" icon="🛒" />
       </div>
 
       {/* Table Section */}

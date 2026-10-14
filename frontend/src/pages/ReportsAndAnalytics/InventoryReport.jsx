@@ -10,7 +10,18 @@ export default function InventoryReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const warehouses = [];
+  const warehouses = [
+    { hub: 'BLR Central Distribution Warehouse (Electronic City)', type: 'Master Regional DC', totalSkus: 2450, stockValue: 14800000, daysCover: 24, nearExpiryValue: 340000, deadStockValue: 120000 },
+    { hub: 'BLR Indiranagar Dark Store (Express 60-Min)', type: 'Urban Micro-Hub', totalSkus: 840, stockValue: 3800000, daysCover: 14, nearExpiryValue: 95000, deadStockValue: 32000 },
+    { hub: 'BLR Koramangala Dark Store', type: 'Urban Micro-Hub', totalSkus: 780, stockValue: 3400000, daysCover: 12, nearExpiryValue: 88000, deadStockValue: 28000 },
+    { hub: 'BOM Bhiwandi Master Distribution Center', type: 'Master Regional DC', totalSkus: 2380, stockValue: 13900000, daysCover: 22, nearExpiryValue: 310000, deadStockValue: 110000 },
+    { hub: 'BOM Andheri West Express Hub', type: 'Urban Micro-Hub', totalSkus: 820, stockValue: 3600000, daysCover: 13, nearExpiryValue: 92000, deadStockValue: 35000 },
+    { hub: 'DEL Okhla Master Logistics Hub', type: 'Master Regional DC', totalSkus: 2150, stockValue: 12400000, daysCover: 25, nearExpiryValue: 280000, deadStockValue: 95000 },
+    { hub: 'GGN Sector 29 Express Micro-Hub', type: 'Urban Micro-Hub', totalSkus: 760, stockValue: 3100000, daysCover: 15, nearExpiryValue: 74000, deadStockValue: 26000 },
+    { hub: 'HYD Gachibowli Dark Store', type: 'Urban Micro-Hub', totalSkus: 710, stockValue: 2900000, daysCover: 16, nearExpiryValue: 68000, deadStockValue: 24000 },
+    { hub: 'PNQ Hadapsar Cold Storage Depot', type: 'Cold Chain Pharma Depot', totalSkus: 640, stockValue: 2650000, daysCover: 18, nearExpiryValue: 55000, deadStockValue: 19000 },
+    { hub: 'MAA Guindy Express Fulfilment Center', type: 'Urban Micro-Hub', totalSkus: 690, stockValue: 2750000, daysCover: 17, nearExpiryValue: 62000, deadStockValue: 21000 }
+  ];
 
   const inr = (n) => '₹' + (Number(n) / 100000).toFixed(2) + ' Lakhs';
 
@@ -74,10 +85,10 @@ export default function InventoryReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Consolidated Inventory Valuation" value="₹0" delta="0.0%" trend="neutral" subtext="Cold hubs" icon="🏭" />
-        <KpiCard label="Days of Inventory Cover" value="0 Days" delta="0.0%" trend="neutral" subtext="Target cover" icon="⏱️" />
-        <KpiCard label="Near-Expiry Valuation (<60d)" value="₹0" delta="0.0%" trend="neutral" subtext="Within threshold" icon="⏳" />
-        <KpiCard label="Stock Fill Rate SLA" value="0.0%" delta="0.0%" trend="neutral" subtext="Dispatched orders" icon="✅" />
+        <KpiCard label="Consolidated Inventory Valuation" value="₹6.23 Cr" delta="+5.8%" trend="up" subtext="10 regional & micro-hubs" icon="🏭" />
+        <KpiCard label="Days of Inventory Cover" value="18.4 Days" delta="-2.6 Days" trend="up" subtext="Target cover: 21 Days" icon="⏱️" />
+        <KpiCard label="Near-Expiry Valuation (<60d)" value="₹14.64 Lakhs" delta="-12.5%" trend="up" subtext="Within strict threshold" icon="⏳" />
+        <KpiCard label="Stock Fill Rate SLA" value="99.4%" delta="+0.9%" trend="up" subtext="Dispatched orders" icon="✅" />
       </div>
 
       {/* Table Section */}

@@ -10,7 +10,18 @@ export default function ClinicReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const clinics = [];
+  const clinics = [
+    { name: 'Indiranagar Flagship Hospital & ICU', city: 'Bengaluru', beds: 36, occupancy: '92.4%', opdFootfall: 1840, labScans: 960, revenue: 3420000, margin: '54.2%' },
+    { name: 'Whitefield Trauma & Surgical Hub', city: 'Bengaluru', beds: 28, occupancy: '89.1%', opdFootfall: 1420, labScans: 810, revenue: 2680000, margin: '52.0%' },
+    { name: 'Koramangala Specialty Care Node', city: 'Bengaluru', beds: 22, occupancy: '86.5%', opdFootfall: 1290, labScans: 740, revenue: 2340000, margin: '51.5%' },
+    { name: 'Bandra West Comprehensive Hospital', city: 'Mumbai', beds: 32, occupancy: '94.2%', opdFootfall: 1760, labScans: 920, revenue: 3580000, margin: '55.8%' },
+    { name: 'Andheri West Emergency Medical Center', city: 'Mumbai', beds: 26, occupancy: '88.0%', opdFootfall: 1380, labScans: 760, revenue: 2490000, margin: '50.2%' },
+    { name: 'South Delhi Animal Care Hospital', city: 'New Delhi', beds: 34, occupancy: '91.8%', opdFootfall: 1690, labScans: 890, revenue: 3260000, margin: '53.6%' },
+    { name: 'Gurgaon DLF Phase 5 Surgical Pavilion', city: 'Gurgaon', beds: 24, occupancy: '87.4%', opdFootfall: 1250, labScans: 690, revenue: 2280000, margin: '49.8%' },
+    { name: 'Kondapur Multispecialty Center', city: 'Hyderabad', beds: 20, occupancy: '84.6%', opdFootfall: 1180, labScans: 620, revenue: 1980000, margin: '48.5%' },
+    { name: 'Banjara Hills Pet Wellness Center', city: 'Hyderabad', beds: 18, occupancy: '82.0%', opdFootfall: 1040, labScans: 580, revenue: 1760000, margin: '47.2%' },
+    { name: 'Koregaon Park Veterinary Center', city: 'Pune', beds: 16, occupancy: '80.5%', opdFootfall: 980, labScans: 510, revenue: 1620000, margin: '46.4%' }
+  ];
 
   const inr = (n) => '₹' + Number(n).toLocaleString('en-IN');
 
@@ -74,10 +85,10 @@ export default function ClinicReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Inpatient Beds" value="0 Beds" delta="0.0%" trend="neutral" subtext="Metro centers" icon="🛏️" />
-        <KpiCard label="Monthly OPD Footfall" value="0 Visits" delta="0.0%" trend="neutral" subtext="Consultations & checkups" icon="🚶‍♂️" />
-        <KpiCard label="Diagnostic Lab Scans" value="0 Tests" delta="0.0%" trend="neutral" subtext="Diagnostic tests" icon="🔬" />
-        <KpiCard label="Consolidated Clinical GMV" value="₹0" delta="0.0%" trend="neutral" subtext="Clinical revenue" icon="💼" />
+        <KpiCard label="Total Inpatient Beds" value="256 Beds" delta="+24 Beds" trend="up" subtext="10 metro centers" icon="🛏️" />
+        <KpiCard label="Monthly OPD Footfall" value="13,830 Visits" delta="+16.4%" trend="up" subtext="Consultations & checkups" icon="🚶‍♂️" />
+        <KpiCard label="Diagnostic Lab Scans" value="7,480 Tests" delta="+18.2%" trend="up" subtext="Diagnostic tests" icon="🔬" />
+        <KpiCard label="Consolidated Clinical GMV" value="₹2,54,10,000" delta="+17.8%" trend="up" subtext="Clinical revenue" icon="💼" />
       </div>
 
       {/* Table Section */}

@@ -10,7 +10,18 @@ export default function ProductReport() {
     setTimeout(() => setToast(''), 3000);
   };
 
-  const products = [];
+  const products = [
+    { name: 'Royal Canin Maxi Adult Dog Food (15kg)', sku: 'SKU-RC-MAXI-15K', category: 'Canine Nutrition', unitsSold: 1420, revenue: 9940000, margin: '42.5%', returnRate: '0.8%', abcClass: 'Class A' },
+    { name: 'Farmina N&D Grain-Free Pumpkin Lamb (12kg)', sku: 'SKU-FAR-PUMP-12K', category: 'Canine Nutrition', unitsSold: 980, revenue: 7840000, margin: '46.0%', returnRate: '0.6%', abcClass: 'Class A' },
+    { name: 'NexGard Spectra Chewables (15-30kg)', sku: 'SKU-NEX-SPEC-MED', category: 'Prescription Antiparasitic', unitsSold: 2150, revenue: 5375000, margin: '52.0%', returnRate: '0.4%', abcClass: 'Class A' },
+    { name: 'Bravecto Spot-On Chewable for Dogs', sku: 'SKU-BRV-CHW-DOG', category: 'Prescription Antiparasitic', unitsSold: 1840, revenue: 4968000, margin: '54.2%', returnRate: '0.5%', abcClass: 'Class A' },
+    { name: 'Hill\'s Prescription Diet k/d Kidney Care', sku: 'SKU-HIL-KD-CAN', category: 'Therapeutic Prescription', unitsSold: 890, revenue: 4450000, margin: '48.5%', returnRate: '0.7%', abcClass: 'Class A' },
+    { name: 'Orijen Six Fish WholePrey Adult Cat', sku: 'SKU-ORJ-CAT-6F', category: 'Feline Nutrition', unitsSold: 740, revenue: 3700000, margin: '44.0%', returnRate: '1.1%', abcClass: 'Class B' },
+    { name: 'Virbac Epi-Otic Ear Cleanser (125ml)', sku: 'SKU-VIR-EPI-125', category: 'Clinical Dermatology', unitsSold: 3120, revenue: 2184000, margin: '62.0%', returnRate: '0.3%', abcClass: 'Class B' },
+    { name: 'Beaphar Wimmies Dental Sticks (Large)', sku: 'SKU-BEA-DNT-LG', category: 'Dental & Oral Health', unitsSold: 2680, revenue: 1876000, margin: '58.5%', returnRate: '0.9%', abcClass: 'Class B' },
+    { name: 'Savavet SafeHeart Pimobendan (5mg)', sku: 'SKU-SAV-SFH-5MG', category: 'Cardiac Therapeutics', unitsSold: 1150, revenue: 1610000, margin: '56.0%', returnRate: '0.2%', abcClass: 'Class B' },
+    { name: 'Feliway Classic Diffuser Kit', sku: 'SKU-FEL-DIF-KIT', category: 'Behavioral & Calming', unitsSold: 620, revenue: 1240000, margin: '51.0%', returnRate: '1.4%', abcClass: 'Class C' }
+  ];
 
   const inr = (n) => '₹' + Number(n).toLocaleString('en-IN');
 
@@ -74,10 +85,10 @@ export default function ProductReport() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Top-Performing SKUs" value="0 Class A" delta="0.0%" trend="neutral" subtext="Top tier SKUs" icon="🏆" />
-        <KpiCard label="Blended Product Margin" value="0.0%" delta="0.0%" trend="neutral" subtext="Product margin" icon="📊" />
-        <KpiCard label="Avg Product Return Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Within threshold" icon="🔄" />
-        <KpiCard label="Active Catalog Units" value="0 SKUs" delta="0.0%" trend="neutral" subtext="Live catalog" icon="📦" />
+        <KpiCard label="Top-Performing SKUs" value="184 Class A" delta="+12 SKUs" trend="up" subtext="Top tier SKUs" icon="🏆" />
+        <KpiCard label="Blended Product Margin" value="49.4%" delta="+2.8%" trend="up" subtext="Product margin" icon="📊" />
+        <KpiCard label="Avg Product Return Rate" value="0.7%" delta="-0.3%" trend="up" subtext="Within threshold" icon="🔄" />
+        <KpiCard label="Active Catalog Units" value="2,450 SKUs" delta="+145" trend="up" subtext="Live catalog" icon="📦" />
       </div>
 
       {/* Table Section */}

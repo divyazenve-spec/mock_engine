@@ -3,7 +3,18 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function ScheduledReports() {
-  const [schedules, setSchedules] = useState([]);
+  const [schedules, setSchedules] = useState([
+    { id: 'SCH-101', name: 'Daily Executive P&L Snapshot', freq: 'Daily at 07:00 AM', format: 'PDF', recipients: 'cfo@zenve.vet, ceo@zenve.vet', channel: 'Email', status: 'Active', lastRun: 'Today at 07:00 AM' },
+    { id: 'SCH-102', name: '60-Min Dark Store SLA & Rider Report', freq: 'Every 4 Hours', format: 'CSV', recipients: 'ops-lead@zenve.vet', channel: 'Slack #ops-sla-alerts', status: 'Active', lastRun: '2 hours ago' },
+    { id: 'SCH-103', name: 'Veterinary Doctor Consultations & Commission', freq: 'Weekly on Monday 09:00 AM', format: 'XLSX', recipients: 'clinical-dir@zenve.vet, payroll@zenve.vet', channel: 'Email', status: 'Active', lastRun: 'Oct 12 at 09:00 AM' },
+    { id: 'SCH-104', name: 'Near-Expiry Pharmaceutical Audit Alert', freq: 'Daily at 06:00 AM', format: 'CSV', recipients: 'inventory@zenve.vet, pharma-head@zenve.vet', channel: 'Slack #pharma-expiry', status: 'Active', lastRun: 'Today at 06:00 AM' },
+    { id: 'SCH-105', name: 'Customer RFM Cohort & Churn Matrix', freq: 'Weekly on Sunday 11:00 PM', format: 'CSV', recipients: 'growth-lead@zenve.vet', channel: 'Email', status: 'Active', lastRun: 'Oct 11 at 11:00 PM' },
+    { id: 'SCH-106', name: 'Daily Consolidated Sales & Channel GMV', freq: 'Daily at 11:59 PM', format: 'CSV', recipients: 'finance-team@zenve.vet', channel: 'Email', status: 'Active', lastRun: 'Yesterday at 11:59 PM' },
+    { id: 'SCH-107', name: 'Hospital Bed Occupancy & Surgery Ledger', freq: 'Daily at 08:30 AM', format: 'PDF', recipients: 'hospital-ops@zenve.vet', channel: 'Email', status: 'Active', lastRun: 'Today at 08:30 AM' },
+    { id: 'SCH-108', name: 'Vendor Procurement & PO Fill Scorecard', freq: 'Bi-Weekly on Friday', format: 'XLSX', recipients: 'vendor-ops@zenve.vet', channel: 'Email', status: 'Active', lastRun: 'Oct 09 at 05:00 PM' },
+    { id: 'SCH-109', name: 'Pet Demographics & Breed Health Index', freq: 'Monthly on 1st', format: 'PDF', recipients: 'research@zenve.vet, ceo@zenve.vet', channel: 'Email', status: 'Active', lastRun: 'Oct 01 at 08:00 AM' },
+    { id: 'SCH-110', name: 'Marketing Campaign ROAS & CAC Tracker', freq: 'Daily at 08:00 AM', format: 'CSV', recipients: 'performance-marketing@zenve.vet', channel: 'Slack #growth-roas', status: 'Active', lastRun: 'Today at 08:00 AM' }
+  ]);
 
   const [toast, setToast] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
@@ -99,10 +110,10 @@ export default function ScheduledReports() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Active Automated Jobs" value={`${schedules.filter(s => s.status === 'Active').length} Jobs`} delta="0.0%" trend="neutral" subtext="Cron scheduler live" icon="⏰" />
-        <KpiCard label="Daily Email Dispatches" value="0 Deliveries" delta="0.0%" trend="neutral" subtext="Corporate domain" icon="📬" />
-        <KpiCard label="Slack Leadership Alerts" value="0 Channels" delta="0.0%" trend="neutral" subtext="Leadership alerts" icon="💬" />
-        <KpiCard label="Audit Compliance Log" value="SOC-2 Standard" delta="0.0%" trend="neutral" subtext="Compliance verified" icon="🛡️" />
+        <KpiCard label="Active Automated Jobs" value={`${schedules.filter(s => s.status === 'Active').length} Jobs`} delta="+3 New" trend="up" subtext="Cron scheduler live" icon="⏰" />
+        <KpiCard label="Daily Email Dispatches" value="48 Deliveries" delta="+12.0%" trend="up" subtext="Corporate domain" icon="📬" />
+        <KpiCard label="Slack Leadership Alerts" value="6 Channels" delta="Real-time" trend="up" subtext="Leadership alerts" icon="💬" />
+        <KpiCard label="Audit Compliance Log" value="SOC-2 Standard" delta="100% Pass" trend="up" subtext="Compliance verified" icon="🛡️" />
       </div>
 
       {/* Schedules Table */}
