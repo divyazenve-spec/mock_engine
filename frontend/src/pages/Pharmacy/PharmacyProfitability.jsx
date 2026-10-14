@@ -1,12 +1,36 @@
 import React, { useState } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_MEDICINES, MOCK_THERAPEUTIC_CATEGORIES } from './mockPharmacyData';
 
 export default function PharmacyProfitability() {
   const [period, setPeriod] = useState('Month to Date');
 
-  const categoryMargins = [];
-  const topProfitableDrugs = [];
+  const categoryMargins = [
+    { cat: 'Antiparasitics & Dewormers', rev: '₹18.4L', cogs: '₹11.3L', grossProfit: '₹7.1L', margin: '38.5%', share: '34.8%', rebate: '₹95,000', color: '#38bdf8' },
+    { cat: 'Antibiotics & Anti-Infectives', rev: '₹12.2L', cogs: '₹8.0L', grossProfit: '₹4.2L', margin: '34.2%', share: '20.5%', rebate: '₹58,000', color: '#10b981' },
+    { cat: 'Chronic Wellness & Cardiac', rev: '₹9.8L', cogs: '₹6.3L', grossProfit: '₹3.5L', margin: '36.0%', share: '17.3%', rebate: '₹44,000', color: '#a855f7' },
+    { cat: 'Vaccines & Cold Chain', rev: '₹7.6L', cogs: '₹5.4L', grossProfit: '₹2.2L', margin: '28.5%', share: '10.7%', rebate: '₹36,000', color: '#06b6d4' },
+    { cat: 'Dermatologicals & Shampoos', rev: '₹6.1L', cogs: '₹3.5L', grossProfit: '₹2.6L', margin: '42.0%', share: '12.6%', rebate: '₹28,000', color: '#f59e0b' },
+    { cat: 'Nutraceuticals & Joint Care', rev: '₹4.3L', cogs: '₹2.4L', grossProfit: '₹1.9L', margin: '45.0%', share: '9.5%', rebate: '₹19,000', color: '#ec4899' }
+  ];
+
+  const topProfitableDrugs = MOCK_MEDICINES.slice(0, 6).map((m, idx) => {
+    const unitProfit = m.mrp - m.ptr;
+    const margin = (((m.mrp - m.ptr) / m.mrp) * 100).toFixed(1) + '%';
+    const units = 110 - idx * 12;
+    const totalProfit = `₹${((unitProfit * units) / 1000).toFixed(1)}K`;
+    return {
+      name: m.name,
+      sku: m.sku,
+      mrp: m.mrp.toLocaleString('en-IN'),
+      ptr: m.ptr.toLocaleString('en-IN'),
+      unitProfit: unitProfit.toLocaleString('en-IN'),
+      margin,
+      units,
+      totalProfit
+    };
+  });
 
   return (
     <DashboardLayout
@@ -15,7 +39,7 @@ export default function PharmacyProfitability() {
       title="Veterinary Pharmacy Margins & Unit Economics"
       subtitle="Therapeutic class margins, manufacturer volume rebates, inventory shrinkage audit, and net pharmacy contribution"
       icon="📈"
-      badge=""
+      badge="34.8% Blended Margin"
       actions={
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <div style={{
@@ -45,7 +69,7 @@ export default function PharmacyProfitability() {
             ))}
           </div>
           <button
-            onClick={() => alert('No active profitability data to export.')}
+            onClick={() => alert('Exporting full pharmaceutical gross margin and COGS reconciliation ledger...')}
             style={{
               padding: '7px 14px',
               borderRadius: '8px',
@@ -67,12 +91,12 @@ export default function PharmacyProfitability() {
     >
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Gross Pharmaceutical Profit" value="₹0" delta="0.0% YoY" trend="neutral" subtext="0.0% gross margin" icon="💰" />
-        <KpiCard label="Net Pharmacy Contribution" value="₹0" delta="0.0% net margin" trend="neutral" subtext="After logistics & dispensary" icon="💎" />
-        <KpiCard label="Vendor Volume Rebates" value="₹0" delta="--" trend="neutral" subtext="No vendor rebates" icon="🤝" />
-        <KpiCard label="Damage & Expiry Shrinkage" value="₹0" delta="0.00% of COGS" trend="neutral" subtext="No shrinkage recorded" icon="📉" />
-        <KpiCard label="Return on Pharmacy Capital" value="0.0%" delta="--" trend="neutral" subtext="ROIC on medicine inventory" icon="⚡" />
-        <KpiCard label="Cold-Chain Loss Rate" value="0.0%" delta="No loss" trend="neutral" subtext="Zero loss" icon="❄️" />
+        <KpiCard label="Gross Pharmaceutical Profit" value="₹20.3L" delta="+21.4% YoY" trend="up" subtext="34.8% gross margin" icon="💰" />
+        <KpiCard label="Net Pharmacy Contribution" value="₹14.5L" delta="24.8% net" trend="up" subtext="After logistics & dispensary" icon="💎" />
+        <KpiCard label="Vendor Volume Rebates" value="+₹2.8L" delta="+15.2%" trend="up" subtext="MSD, Zoetis, Boehringer" icon="🤝" />
+        <KpiCard label="Damage & Expiry Shrinkage" value="-₹32K" delta="0.28% of COGS" trend="up" subtext="Industry benchmark < 0.5%" icon="📉" />
+        <KpiCard label="Return on Pharmacy Capital" value="41.6%" delta="+5.2%" trend="up" subtext="ROIC on medicine inventory" icon="⚡" />
+        <KpiCard label="Cold-Chain Loss Rate" value="0.00%" delta="Zero spoilage" trend="up" subtext="Continuous probe logs" icon="❄️" />
       </div>
 
       {/* Margins by Category Breakdown */}
@@ -87,7 +111,7 @@ export default function PharmacyProfitability() {
             <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 700 }}>Therapeutic Category Margin & COGS Analysis</h3>
             <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#94a3b8' }}>Revenue realization, procurement cost (PTR), gross margin percentage, and vendor volume rebates</p>
           </div>
-          <span style={{ fontSize: '12px', color: '#10b981', fontWeight: 600 }}>Total COGS: ₹0</span>
+          <span style={{ fontSize: '12px', color: '#10b981', fontWeight: 600 }}>Total COGS: ₹36,95,260</span>
         </div>
 
         <div style={{ overflowX: 'auto' }}>
@@ -143,7 +167,7 @@ export default function PharmacyProfitability() {
             <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 700 }}>Top Profit-Generating Pharmaceuticals</h3>
             <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#94a3b8' }}>Individual SKU unit margins and cumulative profit contribution</p>
           </div>
-          <span style={{ fontSize: '12px', color: '#38bdf8', fontWeight: 600 }}>0 pharmaceutical records</span>
+          <span style={{ fontSize: '12px', color: '#38bdf8', fontWeight: 600 }}>6 Core Formulations</span>
         </div>
 
         <div style={{ overflowX: 'auto' }}>

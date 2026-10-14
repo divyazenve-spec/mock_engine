@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_MEDICINES } from './mockPharmacyData';
 
 export default function Medicines() {
   const [categoryFilter, setCategoryFilter] = useState('ALL');
@@ -10,12 +11,15 @@ export default function Medicines() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [toast, setToast] = useState('');
 
-  const medicinesData = [];
+  const medicinesData = MOCK_MEDICINES.map(m => ({
+    ...m,
+    reorder: m.rop
+  }));
 
   const filtered = useMemo(() => {
     return medicinesData.filter(m => {
-      const matchCat = categoryFilter === 'ALL' || m.category === categoryFilter;
-      const matchSch = scheduleFilter === 'ALL' || m.schedule === scheduleFilter;
+      const matchCat = categoryFilter === 'ALL' || m.category.toLowerCase().includes(categoryFilter.toLowerCase());
+      const matchSch = scheduleFilter === 'ALL' || m.schedule.toLowerCase().includes(scheduleFilter.toLowerCase());
       const matchCold = coldFilter === 'ALL' || (coldFilter === 'COLD' ? m.cold : !m.cold);
       const matchSearch = search === '' ||
         m.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -24,7 +28,7 @@ export default function Medicines() {
         m.brand.toLowerCase().includes(search.toLowerCase());
       return matchCat && matchSch && matchCold && matchSearch;
     });
-  }, [categoryFilter, scheduleFilter, coldFilter, search]);
+  }, [medicinesData, categoryFilter, scheduleFilter, coldFilter, search]);
 
   function handleSaveMedicine(e) {
     e.preventDefault();
@@ -40,7 +44,7 @@ export default function Medicines() {
       title="Veterinary Medicines & Formulary Catalog"
       subtitle="Complete drug master, active pharmaceutical ingredients (API), schedule classifications, and pricing matrices"
       icon="💊"
-      badge=""
+      badge="10 Formulary SKUs"
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -80,12 +84,12 @@ export default function Medicines() {
 
       {/* KPI Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Formulated Drugs" value="0 SKUs" delta="0.0%" trend="neutral" subtext="All therapeutic classes" icon="📚" />
-        <KpiCard label="Schedule H Drugs" value="0 SKUs" delta="0 SKUs" trend="neutral" subtext="Strict batch tracking" icon="⚠️" />
-        <KpiCard label="Cold Chain Drugs" value="0 SKUs" delta="0 SKUs" trend="neutral" subtext="Vaccines & biologics" icon="❄️" />
-        <KpiCard label="Average Drug Margin" value="0.0%" delta="0.0%" trend="neutral" subtext="MRP vs PTR spread" icon="📈" />
-        <KpiCard label="Low Stock Drugs" value="0 SKUs" delta="0 SKUs" trend="neutral" subtext="Immediate PO needed" icon="⚡" />
-        <KpiCard label="Total Formulary Value" value="₹0" delta="Stock on hand" trend="up" subtext="12 dispensary units" icon="💎" />
+        <KpiCard label="Formulated Drugs" value="10 SKUs" delta="+2 new" trend="up" subtext="All therapeutic classes" icon="📚" />
+        <KpiCard label="Schedule H Drugs" value="5 SKUs" delta="5 Regulated" trend="neutral" subtext="Strict batch tracking" icon="⚠️" />
+        <KpiCard label="Cold Chain Drugs" value="2 SKUs" delta="2 Biologics" trend="up" subtext="Vaccines & biologics 2-8°C" icon="❄️" />
+        <KpiCard label="Average Drug Margin" value="34.8%" delta="+1.8%" trend="up" subtext="MRP vs PTR spread" icon="📈" />
+        <KpiCard label="Low Stock Drugs" value="3 SKUs" delta="3 alert" trend="warning" subtext="Immediate PO needed" icon="⚡" />
+        <KpiCard label="Total Formulary Value" value="₹11.45L" delta="+8.2%" trend="up" subtext="Perpetual stock on hand" icon="💎" />
       </div>
 
       {/* Filter and Search Bar */}

@@ -1,13 +1,31 @@
 import React, { useState } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_DOCTOR_ATTRIBUTION, MOCK_REGIONAL_REVENUE } from './mockPharmacyData';
 
 export default function PharmacyRevenue() {
   const [period, setPeriod] = useState('Month to Date');
 
-  const doctorAttribution = [];
+  const doctorAttribution = MOCK_DOCTOR_ATTRIBUTION.map(doc => ({
+    vet: doc.name,
+    clinic: 'Zenve Hospital & Trauma Center',
+    rxCount: doc.rxCount,
+    convRate: '94.2%',
+    avgTicket: '₹2,680',
+    topClass: doc.topDrug,
+    rxRevenue: `₹${(doc.rev / 100000).toFixed(1)}L`
+  }));
 
-  const cityRevenue = [];
+  const cityRevenue = MOCK_REGIONAL_REVENUE.map((c, i) => {
+    const colors = ['#38bdf8', '#10b981', '#a855f7', '#f59e0b', '#06b6d4'];
+    return {
+      city: c.name,
+      revenue: `₹${(c.rev / 100000).toFixed(1)}L`,
+      share: c.share,
+      growth: c.mom,
+      color: colors[i % colors.length]
+    };
+  });
 
   return (
     <DashboardLayout
@@ -16,7 +34,7 @@ export default function PharmacyRevenue() {
       title="Veterinary Pharmacy Revenue Intelligence"
       subtitle="Financial realization, doctor prescription monetization, gross-to-net waterfall, and regional sales velocity"
       icon="💎"
-      badge="₹0 MTD"
+      badge="₹58.4L MTD"
       actions={
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <div style={{
@@ -68,12 +86,12 @@ export default function PharmacyRevenue() {
     >
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Gross Pharmacy Sales" value="₹0" delta="0.0%" trend="neutral" subtext="Billed transaction total" icon="💵" />
-        <KpiCard label="Discounts & Promotions" value="-₹0" delta="0.0%" trend="neutral" subtext="Controlled chronic scheme" icon="🏷️" />
-        <KpiCard label="Net Realized Revenue" value="₹0" delta="0.0%" trend="neutral" subtext="0.0% of target" icon="💎" />
-        <KpiCard label="Avg Revenue / Prescription" value="₹0" delta="0.0%" trend="neutral" subtext="Multi-item adherence" icon="📋" />
-        <KpiCard label="Direct Insurance Claims" value="₹0" delta="0.0%" trend="neutral" subtext="Cashless vet coverage" icon="🛡️" />
-        <KpiCard label="Consultation-to-Rx Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Dispensary capture rate" icon="📈" />
+        <KpiCard label="Gross Pharmacy Sales" value="₹62.5L" delta="+19.2%" trend="up" subtext="Billed transaction total" icon="💵" />
+        <KpiCard label="Discounts & Promotions" value="-₹4.1L" delta="6.6% rate" trend="neutral" subtext="Controlled chronic scheme" icon="🏷️" />
+        <KpiCard label="Net Realized Revenue" value="₹58.4L" delta="+18.4%" trend="up" subtext="103.2% of monthly target" icon="💎" />
+        <KpiCard label="Avg Revenue / Prescription" value="₹2,480" delta="+6.8%" trend="up" subtext="Multi-item adherence" icon="📋" />
+        <KpiCard label="Direct Insurance Claims" value="₹6.2L" delta="10.6% share" trend="up" subtext="Cashless vet coverage" icon="🛡️" />
+        <KpiCard label="Consultation-to-Rx Rate" value="92.4%" delta="+3.2%" trend="up" subtext="Dispensary capture rate" icon="📈" />
       </div>
 
       {/* Revenue Waterfall & Geographic Contribution */}
@@ -91,19 +109,19 @@ export default function PharmacyRevenue() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 12px', background: 'rgba(255,255,255,0.02)', borderRadius: '8px' }}>
               <span>Gross Pharmacy Billing (MRP)</span>
-              <strong style={{ fontFamily: '"IBM Plex Mono", monospace' }}>₹0</strong>
+              <strong style={{ fontFamily: '"IBM Plex Mono", monospace' }}>₹62,50,000</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 12px', background: 'rgba(239,68,68,0.06)', borderRadius: '8px', color: '#f87171' }}>
               <span>Patient Loyalty & Chronic Discounts</span>
-              <strong style={{ fontFamily: '"IBM Plex Mono", monospace' }}>- ₹0</strong>
+              <strong style={{ fontFamily: '"IBM Plex Mono", monospace' }}>- ₹3,20,000</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 12px', background: 'rgba(239,68,68,0.06)', borderRadius: '8px', color: '#f87171' }}>
               <span>Customer Returns / Damage Adjustments</span>
-              <strong style={{ fontFamily: '"IBM Plex Mono", monospace' }}>- ₹0</strong>
+              <strong style={{ fontFamily: '"IBM Plex Mono", monospace' }}>- ₹90,000</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', background: 'rgba(16,185,129,0.12)', borderRadius: '8px', border: '1px solid rgba(16,185,129,0.3)', color: '#10b981', fontSize: '14px' }}>
               <span>Net Recognized Pharmaceutical Revenue</span>
-              <strong style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '16px' }}>₹0</strong>
+              <strong style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '16px' }}>₹58,40,000</strong>
             </div>
           </div>
         </div>
@@ -150,7 +168,7 @@ export default function PharmacyRevenue() {
             <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 700 }}>Veterinary Prescription Revenue Attribution</h3>
             <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#94a3b8' }}>Revenue generated per attending clinician & dispensary conversion rate</p>
           </div>
-          <span style={{ fontSize: '12px', color: '#10b981', fontWeight: 600 }}>Average Capture Rate: 0.0%</span>
+          <span style={{ fontSize: '12px', color: '#10b981', fontWeight: 600 }}>Average Capture Rate: 92.4%</span>
         </div>
 
         <div style={{ overflowX: 'auto' }}>

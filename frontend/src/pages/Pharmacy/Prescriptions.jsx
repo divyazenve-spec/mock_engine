@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_PRESCRIPTIONS } from './mockPharmacyData';
 
 export default function Prescriptions() {
   const [statusFilter, setStatusFilter] = useState('ALL');
@@ -8,7 +9,36 @@ export default function Prescriptions() {
   const [selectedRx, setSelectedRx] = useState(null);
   const [toast, setToast] = useState('');
 
-  const prescriptions = [];
+  const prescriptions = MOCK_PRESCRIPTIONS.map((rx, idx) => {
+    const isScheduleH = rx.meds.includes('Vetmedin') || rx.meds.includes('Clavamox') || rx.meds.includes('Apoquel') || rx.meds.includes('Nobivac') || rx.meds.includes('Felocell');
+    const vetMatch = rx.vet.match(/(.*?)\s*\((.*?)\)/);
+    const vetName = vetMatch ? vetMatch[1] : rx.vet;
+    const vciLic = vetMatch ? vetMatch[2] : 'VCI-REG-VALID';
+
+    return {
+      id: rx.id,
+      date: '14 Oct 2026',
+      petName: rx.pet,
+      species: rx.species.includes('(') ? rx.species.split('(')[1].replace(')', '') : rx.species,
+      age: idx % 2 === 0 ? '4.5 Years' : '2.0 Years',
+      weight: rx.species.includes('kg') ? rx.species.split(',').pop().replace(')', '').trim() : '12.4 kg',
+      parent: rx.parent,
+      vet: vetName,
+      vci: vciLic,
+      clinic: 'Zenve Pet Hospital & Trauma Center',
+      diagnosis: rx.notes,
+      drugs: [
+        {
+          name: rx.meds,
+          schedule: isScheduleH ? 'Schedule H (Rx Only)' : 'OTC Pet Health',
+          dose: 'Weight-adjusted dose',
+          freq: 'Twice daily (BID)',
+          duration: '14 Days'
+        }
+      ],
+      status: rx.status
+    };
+  });
 
   const filtered = useMemo(() => {
     return prescriptions.filter(rx => {
@@ -20,7 +50,7 @@ export default function Prescriptions() {
         rx.vet.toLowerCase().includes(search.toLowerCase());
       return matchStatus && matchSearch;
     });
-  }, [statusFilter, search]);
+  }, [prescriptions, statusFilter, search]);
 
   function handleVerifyRx(rxId) {
     setSelectedRx(null);
@@ -35,7 +65,7 @@ export default function Prescriptions() {
       title="Digital Veterinary Prescriptions (e-Rx)"
       subtitle="Doctor verification, VCI licensure audit, drug interaction alerts, and dispensing authorization"
       icon="📋"
-      badge=""
+      badge="842 MTD e-Prescriptions"
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -72,12 +102,12 @@ export default function Prescriptions() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Prescriptions MTD" value="0 Rx" delta="0.0%" trend="neutral" subtext="Digital tamper-proof" icon="📋" />
-        <KpiCard label="Pending Pharmacist Queue" value="0 Rx" delta="--" trend="neutral" subtext="Action required" icon="⏳" />
-        <KpiCard label="Dispensed Today" value="0 Rx" delta="0.0%" trend="neutral" subtext="Zero misdispenses" icon="✅" />
-        <KpiCard label="Chronic Refill Orders" value="0 Rx" delta="0 reminders" trend="neutral" subtext="Heart, renal & endocrine" icon="🔄" />
-        <KpiCard label="Flagged Safety Alerts" value="0 Rx" delta="0 alerts" trend="neutral" subtext="Under doctor review" icon="⚠️" />
-        <KpiCard label="Doctor Licensure" value="0.0%" delta="VCI Verified" trend="up" subtext="48 verified veterinarians" icon="👨‍⚕️" />
+        <KpiCard label="Prescriptions MTD" value="842 Rx" delta="+14.2%" trend="up" subtext="Digital tamper-proof" icon="📋" />
+        <KpiCard label="Pending Pharmacist Queue" value="2 Rx" delta="2 queue" trend="warning" subtext="Action required" icon="⏳" />
+        <KpiCard label="Dispensed Today" value="48 Rx" delta="+8.5%" trend="up" subtext="Zero misdispenses" icon="✅" />
+        <KpiCard label="Chronic Refill Orders" value="248 Rx" delta="+16.4%" trend="up" subtext="Heart, renal & endocrine" icon="🔄" />
+        <KpiCard label="Flagged Safety Alerts" value="0 Rx" delta="0 alerts" trend="up" subtext="Zero interactions" icon="⚠️" />
+        <KpiCard label="Doctor Licensure" value="100.0%" delta="VCI Verified" trend="up" subtext="18 registered veterinarians" icon="👨‍⚕️" />
       </div>
 
       {/* Prescription Queue Container */}

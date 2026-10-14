@@ -1,13 +1,24 @@
 import React, { useState, useMemo } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_ORDERS, MOCK_MEDICINES } from './mockPharmacyData';
 
 export default function PharmacySales() {
   const [period, setPeriod] = useState('30D');
   const [channelFilter, setChannelFilter] = useState('ALL');
   const [search, setSearch] = useState('');
 
-  const salesData = [];
+  const salesData = MOCK_ORDERS.map(o => ({
+    id: o.id,
+    time: 'Today',
+    customer: o.customer,
+    pet: o.customer.includes('(') ? o.customer.split('(')[1].replace(')', '') : 'Canine / Feline',
+    vet: 'Dr. Priya Sharma',
+    items: o.items,
+    channel: o.channel,
+    payment: 'UPI / Card',
+    amount: o.value
+  }));
 
   const filtered = useMemo(() => {
     return salesData.filter(item => {
@@ -19,9 +30,19 @@ export default function PharmacySales() {
         item.id.toLowerCase().includes(search.toLowerCase());
       return matchChannel && matchSearch;
     });
-  }, [channelFilter, search]);
+  }, [salesData, channelFilter, search]);
 
-  const topSellingMeds = [];
+  const topSellingMeds = MOCK_MEDICINES.slice(0, 5).map((m, idx) => {
+    const revVal = m.mrp * (120 - idx * 15);
+    const margin = (((m.mrp - m.ptr) / m.mrp) * 100).toFixed(1) + '%';
+    return {
+      name: m.name,
+      rev: `₹${(revVal / 1000).toFixed(0)}K`,
+      units: 120 - idx * 15,
+      margin: margin,
+      share: `${(18 - idx * 2.5).toFixed(1)}%`
+    };
+  });
 
   return (
     <DashboardLayout
@@ -30,7 +51,7 @@ export default function PharmacySales() {
       title="Veterinary Pharmacy Sales & Dispensary"
       subtitle="Comprehensive sales velocity, counter billing, OTC vs Rx split, and doctor referral margins"
       icon="💰"
-      badge="₹0 MTD"
+      badge="₹58.4L MTD"
       actions={
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <div style={{
@@ -81,12 +102,12 @@ export default function PharmacySales() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Gross Pharmacy Sales" value="₹0" delta="0.0%" trend="up" subtext="MTD billing volume" icon="💵" />
-        <KpiCard label="Rx Prescription Sales" value="₹0" delta="0.0% share" trend="neutral" subtext="Doctor validated" icon="📋" />
-        <KpiCard label="OTC Pet Care Sales" value="₹0" delta="0.0% share" trend="neutral" subtext="Direct dispensary" icon="🛍️" />
-        <KpiCard label="Avg Dispensary Bill" value="₹0" delta="+₹0" trend="up" subtext="2.6 products / order" icon="🧾" />
-        <KpiCard label="Units Dispensed" value="0 Units" delta="0.0%" trend="neutral" subtext="Across 1,840 orders" icon="📦" />
-        <KpiCard label="Repeat Rx Refills" value="0.0%" delta="0.0%" trend="up" subtext="Chronic & deworming" icon="🔄" />
+        <KpiCard label="Gross Pharmacy Sales" value="₹58.4L" delta="+18.4%" trend="up" subtext="MTD billing volume" icon="💵" />
+        <KpiCard label="Rx Prescription Sales" value="₹40.0L" delta="68.5% share" trend="up" subtext="Doctor validated" icon="📋" />
+        <KpiCard label="OTC Pet Care Sales" value="₹18.4L" delta="31.5% share" trend="up" subtext="Direct dispensary" icon="🛍️" />
+        <KpiCard label="Avg Dispensary Bill" value="₹2,480" delta="+₹180" trend="up" subtext="2.6 products / order" icon="🧾" />
+        <KpiCard label="Units Dispensed" value="1,420 Units" delta="+12.5%" trend="up" subtext="Across 842 orders" icon="📦" />
+        <KpiCard label="Repeat Rx Refills" value="74.2%" delta="+5.1%" trend="up" subtext="Chronic & deworming" icon="🔄" />
       </div>
 
       {/* Breakdown Row: Channels & Top Drugs */}
@@ -130,33 +151,33 @@ export default function PharmacySales() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
             <div style={{ padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
               <span style={{ fontSize: '11px', color: '#94a3b8' }}>In-Clinic POS Counter</span>
-              <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#38bdf8' }}>0.0%</div>
-              <div style={{ fontSize: '10px', color: '#64748b' }}>₹0 · Direct consults</div>
+              <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#38bdf8' }}>38.5%</div>
+              <div style={{ fontSize: '10px', color: '#64748b' }}>₹22.5L · Direct consults</div>
             </div>
             <div style={{ padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
               <span style={{ fontSize: '11px', color: '#94a3b8' }}>60-Min Express Delivery</span>
-              <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#10b981' }}>0.0%</div>
-              <div style={{ fontSize: '10px', color: '#64748b' }}>₹0 · Urgent delivery</div>
+              <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#10b981' }}>32.0%</div>
+              <div style={{ fontSize: '10px', color: '#64748b' }}>₹18.7L · Urgent delivery</div>
             </div>
             <div style={{ padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
               <span style={{ fontSize: '11px', color: '#94a3b8' }}>App Scheduled Delivery</span>
-              <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#a855f7' }}>0.0%</div>
-              <div style={{ fontSize: '10px', color: '#64748b' }}>₹0 · Chronic refills</div>
+              <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#a855f7' }}>20.5%</div>
+              <div style={{ fontSize: '10px', color: '#64748b' }}>₹12.0L · Chronic refills</div>
             </div>
             <div style={{ padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
               <span style={{ fontSize: '11px', color: '#94a3b8' }}>Partner Clinic Network</span>
-              <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#f59e0b' }}>0.0%</div>
-              <div style={{ fontSize: '10px', color: '#64748b' }}>₹0 · B2B referral</div>
+              <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#f59e0b' }}>9.0%</div>
+              <div style={{ fontSize: '10px', color: '#64748b' }}>₹5.2L · B2B referral</div>
             </div>
           </div>
 
           <div style={{ padding: '12px', background: 'rgba(255,255,255,0.02)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.04)' }}>
             <span style={{ fontSize: '12px', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Payment Mode Distribution</span>
             <div style={{ display: 'flex', gap: '16px', fontSize: '11px', color: '#94a3b8' }}>
-              <span>UPI: <b style={{ color: '#fff' }}>0%</b></span>
-              <span>Cards: <b style={{ color: '#fff' }}>0%</b></span>
-              <span>Insurance Claim: <b style={{ color: '#fff' }}>0%</b></span>
-              <span>Cash: <b style={{ color: '#fff' }}>0%</b></span>
+              <span>UPI: <b style={{ color: '#fff' }}>58%</b></span>
+              <span>Cards: <b style={{ color: '#fff' }}>26%</b></span>
+              <span>Insurance Claim: <b style={{ color: '#fff' }}>11%</b></span>
+              <span>Cash: <b style={{ color: '#fff' }}>5%</b></span>
             </div>
           </div>
         </div>

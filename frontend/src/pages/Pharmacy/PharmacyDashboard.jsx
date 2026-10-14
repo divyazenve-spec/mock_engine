@@ -1,14 +1,31 @@
 import React, { useState } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_THERAPEUTIC_CATEGORIES, MOCK_PRESCRIPTIONS } from './mockPharmacyData';
 
 export default function PharmacyDashboard() {
   const [selectedPeriod, setSelectedPeriod] = useState('Today');
   const [activeTab, setActiveTab] = useState('overview');
 
-  const categories = [];
+  const categories = MOCK_THERAPEUTIC_CATEGORIES.map(c => ({
+    name: c.name,
+    revenue: `₹${(c.rev / 100000).toFixed(1)}L`,
+    margin: c.margin,
+    share: c.share,
+    trend: '+12.4%',
+    icon: c.icon
+  }));
 
-  const recentDispensed = [];
+  const recentDispensed = MOCK_PRESCRIPTIONS.slice(0, 8).map(rx => ({
+    rxId: rx.id,
+    pet: `${rx.pet} (${rx.species.split(' ')[0]})`,
+    vet: rx.vet.split(' ')[0] + ' ' + (rx.vet.split(' ')[1] || ''),
+    drug: rx.meds,
+    qty: rx.meds.includes('x') ? rx.meds.split('x')[1].trim() : '1 Unit',
+    schedule: rx.meds.includes('Vetmedin') || rx.meds.includes('Clavamox') || rx.meds.includes('Apoquel') ? 'Schedule H' : 'OTC Pet Health',
+    status: rx.status,
+    time: rx.time
+  }));
 
   return (
     <DashboardLayout
@@ -76,12 +93,12 @@ export default function PharmacyDashboard() {
     >
       {/* KPI Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Pharmacy Revenue" value="₹0" delta="0.0%" trend="neutral" subtext="0% of total revenue" icon="💊" />
-        <KpiCard label="Prescriptions Filled" value="0 Rx" delta="0.0%" trend="neutral" subtext="0 Schedule H violations" icon="📋" />
-        <KpiCard label="Average Rx Basket" value="₹0" delta="0.0%" trend="neutral" subtext="0 medicines / ticket" icon="💰" />
-        <KpiCard label="Active Stocked Drugs" value="0 SKUs" delta="0.0%" trend="neutral" subtext="0 clinics" icon="📦" />
-        <KpiCard label="Near-Expiry Batches" value="0 Batches" delta="0 expiring" trend="neutral" subtext="₹0 value" icon="⏳" />
-        <KpiCard label="Cold Chain Integrity" value="0.0%" delta="0 logs" trend="neutral" subtext="IoT telemetry verified" icon="❄️" />
+        <KpiCard label="Pharmacy Revenue" value="₹58.4L" delta="+18.4%" trend="up" subtext="32.5% of total revenue" icon="💊" />
+        <KpiCard label="Prescriptions Filled" value="842 Rx" delta="+14.2%" trend="up" subtext="812 digitally signed" icon="📋" />
+        <KpiCard label="Average Rx Basket" value="₹2,480" delta="+6.8%" trend="up" subtext="2.8 medicines / ticket" icon="💰" />
+        <KpiCard label="Active Stocked Drugs" value="10 SKUs" delta="+2 new" trend="up" subtext="4 dispensaries active" icon="📦" />
+        <KpiCard label="Near-Expiry Batches" value="2 Batches" delta="30–60d" trend="warning" subtext="₹1.11L risk value" icon="⏳" />
+        <KpiCard label="Cold Chain Integrity" value="100.0%" delta="12 IoT probes" trend="up" subtext="2°C–8°C logged continuously" icon="❄️" />
       </div>
 
       {/* Main Grid: Categories & Compliance Radar */}
@@ -98,7 +115,7 @@ export default function PharmacyDashboard() {
               <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 700 }}>Therapeutic Category Contribution</h3>
               <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#94a3b8' }}>Revenue split and realized gross margins</p>
             </div>
-            <span style={{ fontSize: '11px', fontFamily: '"IBM Plex Mono", monospace', color: '#10b981', fontWeight: 600 }}>Avg Margin 0.0%</span>
+            <span style={{ fontSize: '11px', fontFamily: '"IBM Plex Mono", monospace', color: '#10b981', fontWeight: 600 }}>Avg Margin 34.8%</span>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -150,22 +167,22 @@ export default function PharmacyDashboard() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '16px' }}>
               <div style={{ padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
                 <span style={{ fontSize: '11px', color: '#94a3b8' }}>VCI Registered Doctors</span>
-                <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#38bdf8' }}>0 / 0 Active</div>
+                <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#38bdf8' }}>18 / 18 Active</div>
                 <div style={{ fontSize: '10px', color: '#64748b', marginTop: '2px' }}>Licensure authenticated</div>
               </div>
               <div style={{ padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
                 <span style={{ fontSize: '11px', color: '#94a3b8' }}>Digital Rx Archival</span>
-                <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#10b981' }}>0% Stored</div>
+                <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#10b981' }}>100% Stored</div>
                 <div style={{ fontSize: '10px', color: '#64748b', marginTop: '2px' }}>7-Year statutory compliance</div>
               </div>
               <div style={{ padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
                 <span style={{ fontSize: '11px', color: '#94a3b8' }}>Active Cold Chain Probes</span>
-                <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#06b6d4' }}>0 IoT Units</div>
+                <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#06b6d4' }}>12 IoT Units</div>
                 <div style={{ fontSize: '10px', color: '#64748b', marginTop: '2px' }}>2.0°C – 7.8°C range logged</div>
               </div>
               <div style={{ padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
                 <span style={{ fontSize: '11px', color: '#94a3b8' }}>Scheduled Audits</span>
-                <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#f59e0b' }}>Schedule Pending</div>
+                <div style={{ fontSize: '18px', fontWeight: 700, marginTop: '4px', color: '#f59e0b' }}>Passed (Q3 Audit)</div>
                 <div style={{ fontSize: '10px', color: '#64748b', marginTop: '2px' }}>Drug Inspector mock ready</div>
               </div>
             </div>

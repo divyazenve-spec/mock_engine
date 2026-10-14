@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_MEDICINES } from './mockPharmacyData';
 
 export default function PharmacyInventory() {
   const [zoneFilter, setZoneFilter] = useState('ALL');
@@ -8,11 +9,24 @@ export default function PharmacyInventory() {
   const [search, setSearch] = useState('');
   const [toast, setToast] = useState('');
 
-  const inventoryStock = [];
+  const inventoryStock = MOCK_MEDICINES.map(m => {
+    const isCritical = m.stock < m.rop / 2;
+    const isLow = m.stock <= m.rop;
+    const status = isCritical ? 'Critical' : (isLow ? 'Low Stock' : 'Healthy');
+    const dos = `${Math.round(m.stock * 0.75)} Days`;
+    const turnover = `${(6.0 + (m.mrp % 4) * 0.8).toFixed(1)}x`;
+    return {
+      ...m,
+      dos,
+      turnover,
+      costVal: m.stock * m.ptr,
+      status
+    };
+  });
 
   const filtered = useMemo(() => {
     return inventoryStock.filter(item => {
-      const matchZone = zoneFilter === 'ALL' || item.zone.includes(zoneFilter);
+      const matchZone = zoneFilter === 'ALL' || item.zone.toLowerCase().includes(zoneFilter.toLowerCase());
       const matchStatus = stockStatusFilter === 'ALL' || item.status === stockStatusFilter;
       const matchSearch = search === '' ||
         item.sku.toLowerCase().includes(search.toLowerCase()) ||
@@ -20,7 +34,7 @@ export default function PharmacyInventory() {
         item.zone.toLowerCase().includes(search.toLowerCase());
       return matchZone && matchStatus && matchSearch;
     });
-  }, [zoneFilter, stockStatusFilter, search]);
+  }, [inventoryStock, zoneFilter, stockStatusFilter, search]);
 
   function handleReorder(sku, name) {
     setToast(`Emergency Purchase Order (PO) generated for ${name} (${sku}) to vendor!`);
@@ -34,7 +48,7 @@ export default function PharmacyInventory() {
       title="Veterinary Pharmacy Stock & Buffer Optimization"
       subtitle="Perpetual stock valuation, cold-chain temperature telemetry, reorder automation, and safety buffer monitoring"
       icon="📦"
-      badge="₹0 Cost Stock"
+      badge="₹11.45L Cost Stock"
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -71,12 +85,12 @@ export default function PharmacyInventory() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Inventory at Cost" value="₹0" delta="0.0%" trend="neutral" subtext="Current asset valuation" icon="💰" />
-        <KpiCard label="Valuation at Retail (MRP)" value="₹0" delta="0.0%" trend="neutral" subtext="Expected realization" icon="💎" />
-        <KpiCard label="Active Cold Chain Items" value="0 SKUs" delta="0.0%" trend="neutral" subtext="14 IoT refrigeration probes" icon="❄️" />
-        <KpiCard label="Inventory Turnover Ratio" value="0.0x / yr" delta="0.0%" trend="neutral" subtext="High capital velocity" icon="⚡" />
-        <KpiCard label="Critical Stockout Risk" value="0 SKUs" delta="0 SKUs" trend="neutral" subtext="Expedited PO dispatched" icon="⚠️" />
-        <KpiCard label="Average Days of Supply" value="0.0 Days" delta="--" trend="neutral" subtext="Zero capital lock-in" icon="📅" />
+        <KpiCard label="Inventory at Cost" value="₹11.45L" delta="+8.2%" trend="up" subtext="Current asset valuation" icon="💰" />
+        <KpiCard label="Valuation at Retail (MRP)" value="₹16.82L" delta="31.9% margin" trend="up" subtext="Expected realization" icon="💎" />
+        <KpiCard label="Active Cold Chain Items" value="2 SKUs" delta="2°C–8°C" trend="up" subtext="12 IoT refrigeration probes" icon="❄️" />
+        <KpiCard label="Inventory Turnover Ratio" value="7.2x / yr" delta="+0.6x" trend="up" subtext="High capital velocity" icon="⚡" />
+        <KpiCard label="Critical Stockout Risk" value="3 SKUs" delta="3 reorders" trend="warning" subtext="Expedited PO dispatched" icon="⚠️" />
+        <KpiCard label="Average Days of Supply" value="48.2 Days" delta="-4.5d" trend="up" subtext="Zero capital lock-in" icon="📅" />
       </div>
 
       {/* Storage Zones Overview */}
@@ -90,7 +104,7 @@ export default function PharmacyInventory() {
             <span style={{ fontSize: '12px', fontWeight: 700, color: '#38bdf8' }}>Cold Chain Storage (2°C–8°C)</span>
             <span style={{ fontSize: '10px', padding: '2px 6px', borderRadius: '4px', background: 'rgba(6,182,212,0.2)', color: '#38bdf8' }}>Telemetry Normal</span>
           </div>
-          <div style={{ fontSize: '20px', fontWeight: 700, marginTop: '8px', color: '#fff' }}>0 SKUs · ₹0 Value</div>
+          <div style={{ fontSize: '20px', fontWeight: 700, marginTop: '8px', color: '#fff' }}>2 SKUs · ₹77,500 Value</div>
           <p style={{ fontSize: '11px', color: '#94a3b8', margin: '4px 0 0' }}>Core vaccines, rabies biologics, and feline interferons. Continuous probe logging.</p>
         </div>
 
@@ -99,7 +113,7 @@ export default function PharmacyInventory() {
             <span style={{ fontSize: '12px', fontWeight: 700, color: '#c084fc' }}>Schedule H Controlled Vault</span>
             <span style={{ fontSize: '10px', padding: '2px 6px', borderRadius: '4px', background: 'rgba(168,85,247,0.2)', color: '#c084fc' }}>Biometric Access</span>
           </div>
-          <div style={{ fontSize: '20px', fontWeight: 700, marginTop: '8px', color: '#fff' }}>0 SKUs · ₹0 Value</div>
+          <div style={{ fontSize: '20px', fontWeight: 700, marginTop: '8px', color: '#fff' }}>5 SKUs · ₹6,82,400 Value</div>
           <p style={{ fontSize: '11px', color: '#94a3b8', margin: '4px 0 0' }}>Antibiotics, cardiac, chemotherapy, and pain management pharmaceuticals.</p>
         </div>
 
@@ -108,7 +122,7 @@ export default function PharmacyInventory() {
             <span style={{ fontSize: '12px', fontWeight: 700, color: '#34d399' }}>Fast-Dispensary Ambient Bay</span>
             <span style={{ fontSize: '10px', padding: '2px 6px', borderRadius: '4px', background: 'rgba(16,185,129,0.2)', color: '#34d399' }}>High Turnover</span>
           </div>
-          <div style={{ fontSize: '20px', fontWeight: 700, marginTop: '8px', color: '#fff' }}>0 SKUs · ₹0 Value</div>
+          <div style={{ fontSize: '20px', fontWeight: 700, marginTop: '8px', color: '#fff' }}>3 SKUs · ₹3,85,300 Value</div>
           <p style={{ fontSize: '11px', color: '#94a3b8', margin: '4px 0 0' }}>Antiparasitics, topical medicated shampoos, supplements, and dental care.</p>
         </div>
       </div>

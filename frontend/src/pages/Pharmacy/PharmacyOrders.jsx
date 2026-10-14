@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_ORDERS } from './mockPharmacyData';
 
 export default function PharmacyOrders() {
   const [filterChannel, setFilterChannel] = useState('ALL');
@@ -9,12 +10,18 @@ export default function PharmacyOrders() {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [toast, setToast] = useState('');
 
-  const orders = [];
+  const orders = MOCK_ORDERS.map(o => ({
+    ...o,
+    slaRemaining: o.sla,
+    hub: 'Bengaluru Central Hub',
+    deliveryPartner: o.channel.includes('Counter') ? 'In-Clinic Self Pickup' : 'Zenve Hyperlocal Fleet (Rider Assigned)',
+    trackingNo: `ZV-DISP-${o.id}`
+  }));
 
   const filtered = useMemo(() => {
     return orders.filter(o => {
-      const matchChannel = filterChannel === 'ALL' || o.channel === filterChannel;
-      const matchStatus = filterStatus === 'ALL' || o.status === filterStatus;
+      const matchChannel = filterChannel === 'ALL' || o.channel.toLowerCase().includes(filterChannel.toLowerCase());
+      const matchStatus = filterStatus === 'ALL' || o.status.toLowerCase().includes(filterStatus.toLowerCase());
       const matchSearch = search === '' ||
         o.id.toLowerCase().includes(search.toLowerCase()) ||
         o.customer.toLowerCase().includes(search.toLowerCase()) ||
@@ -22,7 +29,7 @@ export default function PharmacyOrders() {
         o.address.toLowerCase().includes(search.toLowerCase());
       return matchChannel && matchStatus && matchSearch;
     });
-  }, [filterChannel, filterStatus, search]);
+  }, [orders, filterChannel, filterStatus, search]);
 
   function handleMarkDispatched(orderId) {
     setSelectedOrder(null);
@@ -37,7 +44,7 @@ export default function PharmacyOrders() {
       title="Dispensary Orders & Rapid Fulfillment"
       subtitle="60-minute express delivery, cold chain packaging verification, and pharmacist sign-off tracking"
       icon="🚚"
-      badge=""
+      badge="10 Active Orders"
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -77,12 +84,12 @@ export default function PharmacyOrders() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Active Pharmacy Orders" value="0 Orders" delta="0 Orders" trend="neutral" subtext="Across all 5 city hubs" icon="📦" />
-        <KpiCard label="60-Min Express Orders" value="0 Orders" delta="--" trend="neutral" subtext="GPS active" icon="⚡" />
-        <KpiCard label="Clinic Counter Pickups" value="0 Orders" delta="--" trend="neutral" subtext="Walk-in dispensary" icon="🏥" />
-        <KpiCard label="Cold Chain Dispatches" value="0 Orders" delta="0 logs" trend="neutral" subtext="Insulated gel packs" icon="❄️" />
-        <KpiCard label="Average Packing Time" value="0.0 Mins" delta="--" trend="neutral" subtext="Pharmacist check to pack" icon="⏱️" />
-        <KpiCard label="Dispatch SLA Compliance" value="0.0%" delta="0.0%" trend="neutral" subtext="On-time delivery" icon="🎯" />
+        <KpiCard label="Active Pharmacy Orders" value="10 Orders" delta="10 active" trend="up" subtext="Across 5 metro hubs" icon="📦" />
+        <KpiCard label="60-Min Express Orders" value="3 Orders" delta="SLA < 45m" trend="up" subtext="GPS active" icon="⚡" />
+        <KpiCard label="Clinic Counter Pickups" value="2 Orders" delta="Ready" trend="up" subtext="Walk-in dispensary" icon="🏥" />
+        <KpiCard label="Cold Chain Dispatches" value="2 Orders" delta="2 active" trend="up" subtext="Insulated gel packs" icon="❄️" />
+        <KpiCard label="Average Packing Time" value="4.2 Mins" delta="-1.1m" trend="up" subtext="Pharmacist check to pack" icon="⏱️" />
+        <KpiCard label="Dispatch SLA Compliance" value="98.6%" delta="+1.4%" trend="up" subtext="On-time delivery" icon="🎯" />
       </div>
 
       {/* Orders Filter & Table */}

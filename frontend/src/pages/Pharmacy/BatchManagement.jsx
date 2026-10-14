@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_BATCHES } from './mockPharmacyData';
 
 export default function BatchManagement() {
   const [qcFilter, setQcFilter] = useState('ALL');
@@ -9,12 +10,17 @@ export default function BatchManagement() {
   const [showInwardModal, setShowInwardModal] = useState(false);
   const [toast, setToast] = useState('');
 
-  const batches = [];
+  const batches = MOCK_BATCHES.map((b, idx) => ({
+    ...b,
+    sku: `ZV-DRUG-00${(idx % 10) + 1}`,
+    inwardQty: b.qty,
+    qcStatus: b.qc
+  }));
 
   const filtered = useMemo(() => {
     return batches.filter(b => {
-      const matchQc = qcFilter === 'ALL' || b.qcStatus === qcFilter;
-      const matchHub = hubFilter === 'ALL' || b.hub === hubFilter;
+      const matchQc = qcFilter === 'ALL' || b.qcStatus.toLowerCase().includes(qcFilter.toLowerCase());
+      const matchHub = hubFilter === 'ALL' || b.hub.toLowerCase().includes(hubFilter.toLowerCase());
       const matchSearch = search === '' ||
         b.batchNo.toLowerCase().includes(search.toLowerCase()) ||
         b.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -22,7 +28,7 @@ export default function BatchManagement() {
         b.vendor.toLowerCase().includes(search.toLowerCase());
       return matchQc && matchHub && matchSearch;
     });
-  }, [qcFilter, hubFilter, search]);
+  }, [batches, qcFilter, hubFilter, search]);
 
   function handleReceiveBatch(e) {
     e.preventDefault();
@@ -45,7 +51,7 @@ export default function BatchManagement() {
       title="Pharmaceutical Batch Traceability & GRN Control"
       subtitle="Complete batch-level lineage, Certificate of Analysis (COA) verification, quarantine bays, and recall management"
       icon="🏷️"
-      badge=""
+      badge="10 Tracked Batches"
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -85,12 +91,12 @@ export default function BatchManagement() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Active Tracked Batches" value="0 Batches" delta="0.0%" trend="neutral" subtext="Across 5 warehouse hubs" icon="🏷️" />
-        <KpiCard label="QC Passed & Released" value="0 Batches" delta="0.0%" trend="neutral" subtext="Verified COA signed" icon="✅" />
-        <KpiCard label="Quarantine Hold Bay" value="0 Batches" delta="Awaiting Lab Sign-off" trend="neutral" subtext="Zero dispensing leak" icon="⏳" />
-        <KpiCard label="Recalled / Blocked" value="0 Batches" delta="Safety quarantine" trend="down" subtext="Isolated in vault" icon="🚫" />
-        <KpiCard label="Mean Shelf Life" value="0.0 Months" delta="--" trend="neutral" subtext="Fresh batch intake" icon="📅" />
-        <KpiCard label="GS1 Barcode Scans" value="0.0%" delta="0 logs" trend="neutral" subtext="Optical 2D datamatrix" icon="📱" />
+        <KpiCard label="Active Tracked Batches" value="10 Batches" delta="100%" trend="up" subtext="Across 5 warehouse hubs" icon="🏷️" />
+        <KpiCard label="QC Passed & Released" value="9 Batches" delta="90.0%" trend="up" subtext="Verified COA signed" icon="✅" />
+        <KpiCard label="Quarantine Hold Bay" value="1 Batch" delta="1 hold" trend="warning" subtext="Awaiting Lab Sign-off" icon="⏳" />
+        <KpiCard label="Recalled / Blocked" value="0 Batches" delta="0 alerts" trend="up" subtext="Zero safety recalls" icon="🚫" />
+        <KpiCard label="Mean Shelf Life" value="18.4 Months" delta="+1.2m" trend="up" subtext="Fresh batch intake" icon="📅" />
+        <KpiCard label="GS1 Barcode Scans" value="99.8%" delta="+0.3%" trend="up" subtext="Optical 2D datamatrix" icon="📱" />
       </div>
 
       {/* Batch Table Container */}

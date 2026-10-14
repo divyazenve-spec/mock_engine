@@ -44,15 +44,70 @@
   ];
 
   /* ── Datasets ─────────────────────────────────────────────────── */
-  var MEDICINES = [];
+  var MEDICINES = [
+    { sku: 'ZV-DRUG-001', name: 'Bravecto Chewable Tablet (20-40kg)', generic: 'Fluralaner 500mg', form: 'Chewable Tablet', brand: 'MSD Animal Health', schedule: 'OTC Pet Health', cold: false, ptr: 1650, mrp: 2450, stock: 145, rop: 30, zone: 'A-01 Dry Ambient' },
+    { sku: 'ZV-DRUG-002', name: 'NexGard Spectra Chewable (7.5-15kg)', generic: 'Afoxolaner 37.5mg + Milbemycin 7.5mg', form: 'Chewable Tablet', brand: 'Boehringer Ingelheim', schedule: 'OTC Pet Health', cold: false, ptr: 1980, mrp: 2980, stock: 24, rop: 40, zone: 'A-02 Dry Ambient' },
+    { sku: 'ZV-DRUG-003', name: 'Nobivac DHPPi Core Vaccine Kit', generic: 'Live Attenuated Viral Antigen', form: 'Lyophilized Vial + Diluent', brand: 'MSD Animal Health', schedule: 'Schedule H', cold: true, ptr: 520, mrp: 850, stock: 85, rop: 50, zone: 'C-01 Cold Reefer (2-8°C)' },
+    { sku: 'ZV-DRUG-004', name: 'Felocell 4 Feline Core Vaccine', generic: 'Feline Rhinotracheitis-Calici-Panleukopenia', form: 'Lyophilized Vial', brand: 'Zoetis', schedule: 'Schedule H', cold: true, ptr: 740, mrp: 1200, stock: 45, rop: 20, zone: 'C-02 Cold Reefer (2-8°C)' },
+    { sku: 'ZV-DRUG-005', name: 'Clavamox Drops 15ml', generic: 'Amoxicillin + Clavulanate 62.5mg/ml', form: 'Oral Suspension', brand: 'Zoetis', schedule: 'Schedule H', cold: false, ptr: 310, mrp: 495, stock: 120, rop: 25, zone: 'B-01 Regulated Vault' },
+    { sku: 'ZV-DRUG-006', name: 'Vetmedin 5mg Chewable Tablets', generic: 'Pimobendan 5mg (Inodilator)', form: 'Flavored Chewable Tablet', brand: 'Boehringer Ingelheim', schedule: 'Schedule H', cold: false, ptr: 2200, mrp: 3250, stock: 68, rop: 20, zone: 'B-02 Regulated Vault' },
+    { sku: 'ZV-DRUG-007', name: 'Apoquel 16mg Tablets', generic: 'Oclacitinib Maleate 16mg', form: 'Film-coated Tablet', brand: 'Zoetis', schedule: 'Schedule H', cold: false, ptr: 2850, mrp: 4100, stock: 92, rop: 25, zone: 'B-03 Regulated Vault' },
+    { sku: 'ZV-DRUG-008', name: 'Douxo S3 PYO Antiseptic Mousse', generic: 'Ophytrium 0.75% + Chlorhexidine 3%', form: 'Leave-on Foam 150ml', brand: 'Ceva Sante Animale', schedule: 'OTC Pet Health', cold: false, ptr: 1100, mrp: 1680, stock: 18, rop: 20, zone: 'A-03 OTC Shelf' },
+    { sku: 'ZV-DRUG-009', name: 'Synoquin EFA Large Breed Tablets', generic: 'Glucosamine + Chondroitin + Dexahan', form: 'Chewable Tablet 120s', brand: 'VetPlus UK', schedule: 'OTC Pet Health', cold: false, ptr: 2450, mrp: 3650, stock: 75, rop: 15, zone: 'A-04 OTC Shelf' },
+    { sku: 'ZV-DRUG-010', name: 'Royal Canin Renal Liquid 200ml', generic: 'Enteral Tube Support Diet', form: 'Liquid Diet 3x200ml', brand: 'Royal Canin', schedule: 'OTC Pet Health', cold: false, ptr: 1350, mrp: 1950, stock: 52, rop: 15, zone: 'A-05 Clinical Diet' }
+  ];
 
-  var PRESCRIPTIONS = [];
+  var PRESCRIPTIONS = [
+    { id: 'RX-2026-9401', pet: 'Bruno', species: 'Canine (Golden, 32kg)', vet: 'Dr. Priya Sharma', meds: 'Vetmedin 5mg #60 + Lasix 40mg', status: 'Dispensed', time: '12 mins ago', notes: 'Dilated Cardiomyopathy (Stage C)' },
+    { id: 'RX-2026-9402', pet: 'Milo', species: 'Feline (Persian, 4.2kg)', vet: 'Dr. Ananya Rao', meds: 'Clavamox Drops 15ml x 2', status: 'Dispensed', time: '28 mins ago', notes: 'Feline Upper Respiratory Infection' },
+    { id: 'RX-2026-9403', pet: 'Simba', species: 'Canine (Shih Tzu, 6.8kg)', vet: 'Dr. Rajesh K', meds: 'Apoquel 16mg #30 + Douxo S3', status: 'Dispensed', time: '45 mins ago', notes: 'Atopic Dermatitis & Malassezia Flare' },
+    { id: 'RX-2026-9404', pet: 'Luna', species: 'Canine (Labrador, 28kg)', vet: 'Dr. Priya Sharma', meds: 'Bravecto Chewable (20-40kg) #1', status: 'Dispensed', time: '1.2 hrs ago', notes: 'Tick-borne Babesiosis Prophylaxis' },
+    { id: 'RX-2026-9405', pet: 'Oreo', species: 'Feline (Domestic, 3.8kg)', vet: 'Dr. Sandeep Verma', meds: 'Felocell 4 Vaccine Kit #1', status: 'Dispensed', time: '2.1 hrs ago', notes: 'Annual Booster Vaccination' },
+    { id: 'RX-2026-9406', pet: 'Rocky', species: 'Canine (GSD, 36kg)', vet: 'Dr. Priya Sharma', meds: 'Synoquin EFA Large Breed #120', status: 'Pending Review', time: '2.8 hrs ago', notes: 'Hip Dysplasia & Osteoarthritis' },
+    { id: 'RX-2026-9407', pet: 'Bella', species: 'Canine (Beagle, 12kg)', vet: 'Dr. Ananya Rao', meds: 'NexGard Spectra (7.5-15kg) #3', status: 'Dispensed', time: '3.5 hrs ago', notes: 'Preventive Flea/Tick & Deworming' },
+    { id: 'RX-2026-9408', pet: 'Leo', species: 'Canine (Rottweiler, 42kg)', vet: 'Dr. Rajesh K', meds: 'Nobivac DHPPi Kit #1 Dose', status: 'Dispensed', time: '4.2 hrs ago', notes: 'Core Vaccine Booster Program' },
+    { id: 'RX-2026-9409', pet: 'Coco', species: 'Feline (Siamese, 3.5kg)', vet: 'Dr. Sandeep Verma', meds: 'Royal Canin Renal Liquid x 3', status: 'Dispensed', time: '5.1 hrs ago', notes: 'Chronic Kidney Disease (IRIS 2)' },
+    { id: 'RX-2026-9410', pet: 'Zoe', species: 'Canine (Indie, 18kg)', vet: 'Dr. Priya Sharma', meds: 'Apoquel 5.4mg #60 + Meloxicam', status: 'Pending Review', time: '5.8 hrs ago', notes: 'Allergic Pruritus & Pododermatitis' }
+  ];
 
-  var ORDERS = [];
+  var ORDERS = [
+    { id: 'PH-ORD-881', customer: 'Rohan Kapoor (Bruno)', address: 'Indiranagar, BLR', items: 'Vetmedin 5mg #60 + Lasix 40mg', channel: 'App Express', cold: false, sla: '24 mins left', status: 'Out for Delivery', value: 4250 },
+    { id: 'PH-ORD-882', customer: 'Sneha Nair (Milo)', address: 'Koramangala, BLR', items: 'Clavamox Drops 15ml x 2', channel: '60-Min Rapid', cold: false, sla: '12 mins left', status: 'Out for Delivery', value: 990 },
+    { id: 'PH-ORD-883', customer: 'Vikram Mehta (Simba)', address: 'Bandra West, BOM', items: 'Apoquel 16mg #30 + Douxo S3 Mousse', channel: 'In-Clinic Counter', cold: false, sla: 'Completed', status: 'Delivered', value: 5780 },
+    { id: 'PH-ORD-884', customer: 'Pooja Hegde (Luna)', address: 'Whitefield, BLR', items: 'Bravecto Chewable (20-40kg) #1', channel: 'Scheduled Courier', cold: false, sla: 'Delivered', status: 'Delivered', value: 2450 },
+    { id: 'PH-ORD-885', customer: 'Karan Johar (Oreo)', address: 'Vasant Kunj, DEL', items: 'Felocell 4 Vaccine Kit (Reefer)', channel: 'Cold Chain Express', cold: true, sla: '38 mins left', status: 'Out for Delivery', value: 1200 },
+    { id: 'PH-ORD-886', customer: 'Aditya Roy (Rocky)', address: 'Jayanagar, BLR', items: 'Synoquin EFA Large Breed #120', channel: 'App Express', cold: false, sla: 'Preparing', status: 'Processing', value: 3650 },
+    { id: 'PH-ORD-887', customer: 'Meera Nambiar (Bella)', address: 'HSR Layout, BLR', items: 'NexGard Spectra (7.5-15kg) #3', channel: 'Subscription Refill', cold: false, sla: 'Delivered', status: 'Delivered', value: 2980 },
+    { id: 'PH-ORD-888', customer: 'Sameer Joshi (Leo)', address: 'Andheri East, BOM', items: 'Nobivac DHPPi Kit (Cold Pack)', channel: 'Cold Chain Express', cold: true, sla: '45 mins left', status: 'Out for Delivery', value: 850 },
+    { id: 'PH-ORD-889', customer: 'Farhan Akhtar (Coco)', address: 'Cyber City, GGN', items: 'Royal Canin Renal Liquid x 3', channel: '60-Min Rapid', cold: false, sla: '18 mins left', status: 'Out for Delivery', value: 1950 },
+    { id: 'PH-ORD-890', customer: 'Divya Swaminathan (Zoe)', address: 'MG Road, BLR', items: 'Apoquel 5.4mg #60 + Meloxicam', channel: 'In-Clinic Counter', cold: false, sla: 'Ready at Counter', status: 'Ready for Pickup', value: 4890 }
+  ];
 
-  var BATCHES = [];
+  var BATCHES = [
+    { batchNo: 'BAT-BRV-8821', name: 'Bravecto Chewable (20-40kg)', vendor: 'MSD Animal Health', mfg: '2025-02-10', exp: '2027-08-15', hub: 'Bengaluru Central Hub', zone: 'A-01 Dry Ambient', qty: 200, balance: 145, qc: 'QC Passed' },
+    { batchNo: 'BAT-NXG-4419', name: 'NexGard Spectra (7.5-15kg)', vendor: 'Boehringer Ingelheim', mfg: '2025-01-15', exp: '2026-11-20', hub: 'Mumbai West Hub', zone: 'A-02 Dry Ambient', qty: 150, balance: 24, qc: 'QC Passed' },
+    { batchNo: 'BAT-NBV-9932', name: 'Nobivac DHPPi Vaccine Kit', vendor: 'MSD Animal Health', mfg: '2024-11-05', exp: '2026-11-12', hub: 'Bengaluru Central Hub', zone: 'C-01 Cold Reefer', qty: 120, balance: 85, qc: 'QC Passed' },
+    { batchNo: 'BAT-FLC-7714', name: 'Felocell 4 Feline Vaccine', vendor: 'Zoetis India', mfg: '2025-03-01', exp: '2027-02-28', hub: 'Delhi NCR Hub', zone: 'C-02 Cold Reefer', qty: 100, balance: 45, qc: 'QC Passed' },
+    { batchNo: 'BAT-CLM-3302', name: 'Clavamox Drops 15ml', vendor: 'Zoetis India', mfg: '2025-04-12', exp: '2027-04-10', hub: 'Bengaluru Central Hub', zone: 'B-01 Vault', qty: 250, balance: 120, qc: 'QC Passed' },
+    { batchNo: 'BAT-VTM-5511', name: 'Vetmedin 5mg Chewable', vendor: 'Boehringer Ingelheim', mfg: '2024-12-01', exp: '2026-12-15', hub: 'Bengaluru Central Hub', zone: 'B-02 Vault', qty: 100, balance: 68, qc: 'QC Passed' },
+    { batchNo: 'BAT-APQ-6629', name: 'Apoquel 16mg Tablets', vendor: 'Zoetis India', mfg: '2025-02-18', exp: '2027-06-30', hub: 'Mumbai West Hub', zone: 'B-03 Vault', qty: 150, balance: 92, qc: 'QC Passed' },
+    { batchNo: 'BAT-DXS-1194', name: 'Douxo S3 PYO Mousse', vendor: 'Ceva Sante Animale', mfg: '2025-01-20', exp: '2026-11-25', hub: 'Pune Micro-Hub', zone: 'A-03 OTC Shelf', qty: 80, balance: 18, qc: 'QC Passed' },
+    { batchNo: 'BAT-SYN-2281', name: 'Synoquin EFA Large Breed', vendor: 'VetPlus UK / Alivira', mfg: '2025-03-10', exp: '2027-09-30', hub: 'Bengaluru Central Hub', zone: 'A-04 OTC Shelf', qty: 120, balance: 75, qc: 'QC Passed' },
+    { batchNo: 'BAT-RC-RNL08', name: 'Royal Canin Renal Liquid', vendor: 'Mars Petcare India', mfg: '2025-04-05', exp: '2026-12-30', hub: 'Delhi NCR Hub', zone: 'A-05 Clinical Diet', qty: 90, balance: 52, qc: 'Quarantine Review' }
+  ];
 
-  var EXPIRY_ITEMS = [];
+  var EXPIRY_ITEMS = [
+    { batchNo: 'BAT-NBV-9932', name: 'Nobivac DHPPi Vaccine Kit', exp: '2026-11-12', daysLeft: 28, horizon: 'Critical (<30d)', hub: 'Bengaluru Central Hub', balance: 85, cost: 44200, action: 'Quarantine / SRA Claim' },
+    { batchNo: 'BAT-NXG-4419', name: 'NexGard Spectra (7.5-15kg)', exp: '2026-11-20', daysLeft: 36, horizon: 'High Alert (30–60d)', hub: 'Mumbai West Hub', balance: 24, cost: 47520, action: 'Refill Discount' },
+    { batchNo: 'BAT-DXS-1194', name: 'Douxo S3 PYO Mousse', exp: '2026-11-25', daysLeft: 41, horizon: 'High Alert (30–60d)', hub: 'Pune Micro-Hub', balance: 18, cost: 19800, action: 'Clinic Bundle Markdown' },
+    { batchNo: 'BAT-VTM-5511', name: 'Vetmedin 5mg Chewable', exp: '2026-12-15', daysLeft: 61, horizon: 'Moderate (60-90d)', hub: 'Bengaluru Central Hub', balance: 68, cost: 149600, action: 'Chronic Refill Queue' },
+    { batchNo: 'BAT-RC-RNL08', name: 'Royal Canin Renal Liquid', exp: '2026-12-30', daysLeft: 76, horizon: 'Moderate (60-90d)', hub: 'Delhi NCR Hub', balance: 52, cost: 70200, action: 'ICU Allocation' },
+    { batchNo: 'BAT-FLC-7714', name: 'Felocell 4 Feline Vaccine', exp: '2027-02-28', daysLeft: 136, horizon: 'Safe (>90d)', hub: 'Delhi NCR Hub', balance: 45, cost: 33300, action: 'Normal FEFO' },
+    { batchNo: 'BAT-CLM-3302', name: 'Clavamox Drops 15ml', exp: '2027-04-10', daysLeft: 177, horizon: 'Safe (>90d)', hub: 'Bengaluru Central Hub', balance: 120, cost: 37200, action: 'Normal FEFO' },
+    { batchNo: 'BAT-APQ-6629', name: 'Apoquel 16mg Tablets', exp: '2027-06-30', daysLeft: 258, horizon: 'Safe (>90d)', hub: 'Mumbai West Hub', balance: 92, cost: 262200, action: 'Normal FEFO' },
+    { batchNo: 'BAT-BRV-8821', name: 'Bravecto Chewable (20-40kg)', exp: '2027-08-15', daysLeft: 304, horizon: 'Safe (>90d)', hub: 'Bengaluru Central Hub', balance: 145, cost: 239250, action: 'Normal FEFO' },
+    { batchNo: 'BAT-SYN-2281', name: 'Synoquin EFA Large Breed', exp: '2027-09-30', daysLeft: 350, horizon: 'Safe (>90d)', hub: 'Bengaluru Central Hub', balance: 75, cost: 183750, action: 'Normal FEFO' }
+  ];
 
   /* ── State ─────────────────────────────────────────────────────── */
   var S = {
@@ -173,26 +228,26 @@
   function renderDashboard() {
     return [
       '<div class="zph-kpi-grid">',
-        kpiHtml('Pharmacy Revenue', '₹0', '0.0%', 'neutral', '0% total revenue', '💊'),
-        kpiHtml('Prescriptions Filled', '0 Rx', '0.0%', 'neutral', '0 digitally signed', '📋'),
-        kpiHtml('Avg Dispensary Ticket', '₹0', '0.0%', 'neutral', '0 meds / ticket', '💰'),
-        kpiHtml('Formulary Active SKUs', '0 SKUs', '0.0%', 'neutral', '0 dispensaries', '📦'),
-        kpiHtml('Near-Expiry Alerts', '0 Batches', '--', 'neutral', '0 alerts', '⏳'),
-        kpiHtml('Cold Chain Integrity', '0.0%', '--', 'neutral', '0 logs', '❄️'),
+        kpiHtml('Pharmacy Revenue', '₹58.4L', '+18.4%', 'up', '32.5% of total revenue', '💊'),
+        kpiHtml('Prescriptions Filled', '842 Rx', '+14.2%', 'up', '812 digitally signed', '📋'),
+        kpiHtml('Avg Dispensary Ticket', '₹2,480', '+6.8%', 'up', '2.8 meds / ticket', '💰'),
+        kpiHtml('Formulary Active SKUs', '10 SKUs', '+2 new', 'up', '4 dispensaries', '📦'),
+        kpiHtml('Near-Expiry Alerts', '2 Batches', '30–60d', 'warning', '2 alerts under FEFO', '⏳'),
+        kpiHtml('Cold Chain Integrity', '100.0%', 'Optimal', 'up', '32 IoT probes verified', '❄️'),
       '</div>',
       '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:18px;">',
         '<div class="zph-card">',
           '<div class="zph-card-head">',
             '<div><h3 class="zph-card-title">Therapeutic Categories & Margins</h3><p class="zph-card-sub">Top volume pharmaceutical classes</p></div>',
-            '<span class="zph-pill success">Blended Margin 0.0%</span>',
+            '<span class="zph-pill success">Blended Margin 34.8%</span>',
           '</div>',
           '<div style="display:flex;flex-direction:column;gap:10px;">',
-            catRow('Antiparasitics & Dewormers', '₹0', '0.0%', '0.0% share', '🪱'),
-            catRow('Antibiotics & Anti-Infectives', '₹0', '0.0%', '0.0% share', '💊'),
-            catRow('Chronic Wellness & Cardiac', '₹0', '0.0%', '0.0% share', '❤️'),
-            catRow('Vaccines & Cold Chain', '₹0', '0.0%', '0.0% share', '❄️'),
-            catRow('Dermatologicals & Shampoos', '₹0', '0.0%', '0.0% share', '🧴'),
-            catRow('Nutraceuticals & Joint Care', '₹0', '0.0%', '0.0% share', '🦴'),
+            catRow('Antiparasitics & Dewormers', '₹18,40,000', '31.5%', '38.5% margin', '🪱'),
+            catRow('Antibiotics & Anti-Infectives', '₹12,20,000', '20.9%', '34.2% margin', '💊'),
+            catRow('Chronic Wellness & Cardiac', '₹9,80,000', '16.8%', '36.0% margin', '❤️'),
+            catRow('Vaccines & Cold Chain', '₹7,60,000', '13.0%', '28.5% margin', '❄️'),
+            catRow('Dermatologicals & Shampoos', '₹6,10,000', '10.4%', '42.0% margin', '🧴'),
+            catRow('Nutraceuticals & Joint Care', '₹4,30,000', '7.4%', '45.0% margin', '🦴'),
           '</div>',
         '</div>',
         '<div class="zph-card">',
@@ -201,10 +256,10 @@
             '<span class="zph-pill success">100% Compliant</span>',
           '</div>',
           '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">',
-            statBox('VCI Registered Vets', '0 / 0 Active', '0 licenses verified', '#38bdf8'),
-            statBox('Digital Rx Archival', '0.0% Retained', '0 records', '#10b981'),
-            statBox('Cold Chain IoT Probes', '0 Sensors', '0 sensors online', '#06b6d4'),
-            statBox('Next Drug Inspection', 'Schedule Pending', '0 pending audits', '#f59e0b'),
+            statBox('VCI Registered Vets', '18 / 18 Active', '100% licenses verified', '#38bdf8'),
+            statBox('Digital Rx Archival', '100% Retained', '842 e-records signed', '#10b981'),
+            statBox('Cold Chain IoT Probes', '12 Sensors', '12 / 12 online 4.1°C avg', '#06b6d4'),
+            statBox('Next Drug Inspection', 'Passed (Q3 Audit)', '0 non-conformities', '#f59e0b'),
           '</div>',
           '<div style="padding:12px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.25);border-radius:8px;font-size:12px;color:#93c5fd;">',
             '<strong>Pharmacist Stewardship Note:</strong> Every veterinary antibiotic dispense requires mandatory weight-adjusted dosage checks to prevent antimicrobial resistance.',
@@ -240,12 +295,12 @@
   function renderSales() {
     return [
       '<div class="zph-kpi-grid">',
-        kpiHtml('Total Pharmacy Sales', '₹0', '0.0%', 'neutral', '0 billing volume', '💵'),
-        kpiHtml('Rx Prescription Sales', '₹0', '0.0% Share', 'neutral', '0 Rx authorized', '📋'),
-        kpiHtml('OTC Health Sales', '₹0', '0.0% Share', 'neutral', '0 OTC sales', '🛍️'),
-        kpiHtml('Avg Dispensary Ticket', '₹0', '0.0%', 'neutral', '0 meds / order', '🧾'),
-        kpiHtml('Total Units Dispensed', '0 Units', '0.0%', 'neutral', '0 orders', '📦'),
-        kpiHtml('Chronic Refill Rate', '0.0%', '--', 'neutral', '0 refill records', '🔄'),
+        kpiHtml('Total Pharmacy Sales', '₹58.4L', '+18.4%', 'up', '842 billing transactions', '💵'),
+        kpiHtml('Rx Prescription Sales', '₹40.0L', '68.5% Share', 'up', '577 Rx authorized', '📋'),
+        kpiHtml('OTC Health Sales', '₹18.4L', '31.5% Share', 'up', '265 OTC checkouts', '🛍️'),
+        kpiHtml('Avg Dispensary Ticket', '₹2,480', '+6.8%', 'up', '2.8 meds / ticket', '🧾'),
+        kpiHtml('Total Units Dispensed', '1,420 Units', '+12.5%', 'up', '842 orders filled', '📦'),
+        kpiHtml('Chronic Refill Rate', '74.2%', '+5.1%', 'up', '248 recurrent patients', '🔄'),
       '</div>',
       '<div class="zph-card">',
         '<div class="zph-card-head">',
@@ -277,10 +332,10 @@
   function renderMedicines() {
     return [
       '<div class="zph-kpi-grid">',
-        kpiHtml('Formulated Medicines', '0 SKUs', '0.0%', 'neutral', '0 active catalog', '📚'),
-        kpiHtml('Schedule H Drugs', '0 SKUs', '0.0%', 'neutral', '0 regulated items', '⚠️'),
-        kpiHtml('Cold Chain Biologics', '0 SKUs', '0.0%', 'neutral', '0 biologics', '❄️'),
-        kpiHtml('Average Gross Margin', '0.0%', '--', 'neutral', '0.0% margin spread', '📈'),
+        kpiHtml('Formulated Medicines', '10 SKUs', '+2 new', 'up', '10 active formulary SKUs', '📚'),
+        kpiHtml('Schedule H Drugs', '5 SKUs', 'Regulated', 'neutral', '5 mandatory Rx records', '⚠️'),
+        kpiHtml('Cold Chain Biologics', '2 SKUs', '2°C–8°C', 'up', '2 temperature sensitive', '❄️'),
+        kpiHtml('Average Gross Margin', '34.8%', '+1.8%', 'up', '34.8% blended formulary margin', '📈'),
       '</div>',
       '<div class="zph-card">',
         '<div class="zph-card-head">',
@@ -316,10 +371,10 @@
   function renderPrescriptions() {
     return [
       '<div class="zph-kpi-grid">',
-        kpiHtml('Prescriptions MTD', '0 Rx', '0.0%', 'neutral', '0 verifiable e-Rx', '📋'),
-        kpiHtml('Pending Pharmacist Review', '0 Rx', '0 pending', 'neutral', '0 in queue', '⏳'),
-        kpiHtml('Dispensed Today', '0 Rx', '0.0%', 'neutral', '0 dispensed', '✅'),
-        kpiHtml('Flagged Safety Alerts', '0 Rx', '0 alerts', 'neutral', '0 alerts', '⚠️'),
+        kpiHtml('Prescriptions MTD', '842 Rx', '+14.2%', 'up', '100% verifiable e-Rx', '📋'),
+        kpiHtml('Pending Pharmacist Review', '2 Rx', '2 in queue', 'warning', 'Est review < 8 mins', '⏳'),
+        kpiHtml('Dispensed Today', '48 Rx', '+8.5%', 'up', '48 cleared today', '✅'),
+        kpiHtml('Flagged Safety Alerts', '0 Rx', '0 alerts', 'up', 'Zero drug interactions', '⚠️'),
       '</div>',
       '<div class="zph-card">',
         '<div class="zph-card-head">',
@@ -351,10 +406,10 @@
   function renderOrders() {
     return [
       '<div class="zph-kpi-grid">',
-        kpiHtml('Active Pharmacy Orders', '0 Orders', '0 active', 'neutral', '0 city hubs', '🚚'),
-        kpiHtml('60-Min Rapid Express', '0 Orders', '--', 'neutral', '0 express orders', '⚡'),
-        kpiHtml('In-Clinic Counter Pickup', '0 Orders', '--', 'neutral', '0 pickups', '🏥'),
-        kpiHtml('Cold Chain Dispatched', '0 Orders', '--', 'neutral', '0 cold dispatches', '❄️'),
+        kpiHtml('Active Pharmacy Orders', '10 Orders', '10 active', 'up', '5 metro hubs active', '🚚'),
+        kpiHtml('60-Min Rapid Express', '3 Orders', 'SLA < 45m', 'up', '3 rapid dispatches', '⚡'),
+        kpiHtml('In-Clinic Counter Pickup', '2 Orders', 'Ready', 'up', '2 counter pickups ready', '🏥'),
+        kpiHtml('Cold Chain Dispatched', '2 Orders', 'Active Ice Pack', 'up', '2 monitored with temp-strip', '❄️'),
       '</div>',
       '<div class="zph-card">',
         '<div class="zph-card-head">',
@@ -387,10 +442,10 @@
   function renderBatches() {
     return [
       '<div class="zph-kpi-grid">',
-        kpiHtml('Active Tracked Batches', '0 Batches', '0.0%', 'neutral', '0 tracked batches', '🏷️'),
-        kpiHtml('QC Passed & Released', '0 Batches', '0.0%', 'neutral', '0 certificates', '✅'),
-        kpiHtml('Quarantine Hold Bay', '0 Batches', '0 hold', 'neutral', '0 quarantine', '⏳'),
-        kpiHtml('Recalled / Frozen', '0 Batches', '0 frozen', 'neutral', '0 recalled', '🚫'),
+        kpiHtml('Active Tracked Batches', '10 Batches', '100%', 'up', '10 verified batches', '🏷️'),
+        kpiHtml('QC Passed & Released', '9 Batches', '90.0%', 'up', '9 COA certificates approved', '✅'),
+        kpiHtml('Quarantine Hold Bay', '1 Batch', '1 hold', 'warning', '1 in re-testing (B7709)', '⏳'),
+        kpiHtml('Recalled / Frozen', '0 Batches', '0 flags', 'up', 'Zero safety recalls', '🚫'),
       '</div>',
       '<div class="zph-card">',
         '<div class="zph-card-head">',
@@ -424,10 +479,10 @@
   function renderExpiry() {
     return [
       '<div class="zph-kpi-grid">',
-        kpiHtml('Near-Expiry Exposure', '₹0', '0.0%', 'neutral', '₹0 at risk', '⏳'),
-        kpiHtml('Critical (<30 Days)', '0 Batches', '0 action needed', 'neutral', '0 critical', '🚨'),
-        kpiHtml('High Alert (30–60 Days)', '0 Batches', '0 high alert', 'neutral', '0 high alert', '⚠️'),
-        kpiHtml('Salvage Recovery Rate', '0.0%', '--', 'neutral', '0 salvage records', '♻️'),
+        kpiHtml('Near-Expiry Exposure', '₹1,11,750', '2.8% of stock', 'warning', '₹1.11L across 10 batches', '⏳'),
+        kpiHtml('Critical (<30 Days)', '1 Batch', 'Immediate action', 'danger', '1 batch under FEFO clear', '🚨'),
+        kpiHtml('High Alert (30–60 Days)', '2 Batches', 'FEFO priority', 'warning', '2 batches in auto-promo', '⚠️'),
+        kpiHtml('Salvage Recovery Rate', '96.4%', '+2.1%', 'up', '96.4% returned or liquidated', '♻️'),
       '</div>',
       '<div class="zph-card">',
         '<div class="zph-card-head">',
@@ -461,10 +516,10 @@
   function renderInventory() {
     return [
       '<div class="zph-kpi-grid">',
-        kpiHtml('Inventory at Cost', '₹0', '0.0%', 'neutral', '₹0 asset valuation', '💰'),
-        kpiHtml('Valuation at Retail (MRP)', '₹0', '0.0% unrealized margin', 'neutral', '₹0 retail realization', '💎'),
-        kpiHtml('Cold Chain Stock', '0 SKUs', '0.0%', 'neutral', '0 probes', '❄️'),
-        kpiHtml('Inventory Turnover', '0.0x / yr', '--', 'neutral', '0.0x speed', '⚡'),
+        kpiHtml('Inventory at Cost', '₹11.45L', '+8.2%', 'up', '₹11.45L active asset valuation', '💰'),
+        kpiHtml('Valuation at Retail (MRP)', '₹16.82L', '31.9% margin', 'up', '₹16.82L retail realization', '💎'),
+        kpiHtml('Cold Chain Stock', '2 SKUs', '2°C–8°C', 'up', '40 total cold units', '❄️'),
+        kpiHtml('Inventory Turnover', '7.2x / yr', '+0.6x', 'up', '48 days inventory on hand', '⚡'),
       '</div>',
       '<div class="zph-card">',
         '<div class="zph-card-head">',
@@ -497,10 +552,10 @@
   function renderRevenue() {
     return [
       '<div class="zph-kpi-grid">',
-        kpiHtml('Gross Pharmacy Sales', '₹0', '0.0%', 'neutral', '0 billed transactions', '💵'),
-        kpiHtml('Discounts & Schemes', '-₹0', '0.0% discount rate', 'neutral', '0 discounts', '🏷️'),
-        kpiHtml('Net Realized Revenue', '₹0', '0.0%', 'neutral', '0.0% of target', '💎'),
-        kpiHtml('Insurance Cashless', '₹0', '0.0% of revenue', 'neutral', '0 insurance claims', '🛡️'),
+        kpiHtml('Gross Pharmacy Sales', '₹62.5L', '+19.2%', 'up', '842 billed transactions', '💵'),
+        kpiHtml('Discounts & Schemes', '-₹4.1L', '6.6% discount rate', 'neutral', 'Loyalty & refill savings', '🏷️'),
+        kpiHtml('Net Realized Revenue', '₹58.4L', '+18.4%', 'up', '103.2% of monthly target', '💎'),
+        kpiHtml('Insurance Cashless', '₹6.2L', '10.6% of revenue', 'up', '42 cashless pet claims', '🛡️'),
       '</div>',
       '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:18px;">',
         '<div class="zph-card">',
@@ -508,11 +563,11 @@
             '<div><h3 class="zph-card-title">Gross-to-Net Revenue Waterfall</h3><p class="zph-card-sub">Realized cash collection and margin retainment</p></div>',
           '</div>',
           '<div style="display:flex;flex-direction:column;gap:10px;">',
-            catRow('Gross Pharmacy Billing (MRP)', '₹0', '', '0% Baseline', '💰'),
-            catRow('Chronic Patient Loyalty Discounts', '- ₹0', '', '0 discounts', '🏷️'),
-            catRow('Returns & Breakage Adjustments', '- ₹0', '', '0.0% of COGS', '📦'),
+            catRow('Gross Pharmacy Billing (MRP)', '₹62,50,000', '', '100% Baseline', '💰'),
+            catRow('Chronic Patient Loyalty Discounts', '- ₹3,20,000', '', '5.1% patient discount', '🏷️'),
+            catRow('Returns & Breakage Adjustments', '- ₹90,000', '', '1.4% return/loss rate', '📦'),
             '<div style="padding:12px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);border-radius:8px;display:flex;justify-content:space-between;color:#10b981;font-weight:700;">' +
-              '<span>Net Recognized Revenue</span><span style="font-family:IBM Plex Mono,monospace;font-size:16px;">₹0</span>' +
+              '<span>Net Recognized Revenue</span><span style="font-family:IBM Plex Mono,monospace;font-size:16px;">₹58,40,000</span>' +
             '</div>',
           '</div>',
         '</div>',
@@ -521,11 +576,11 @@
             '<div><h3 class="zph-card-title">Regional Revenue Distribution</h3><p class="zph-card-sub">City hubs contribution & growth velocity</p></div>',
           '</div>',
           '<div style="display:flex;flex-direction:column;gap:10px;">',
-            catRow('Bengaluru Central (HQ)', '₹0', '0.0%', '--', '🏙️'),
-            catRow('Mumbai MMR Hub', '₹0', '0.0%', '--', '🌊'),
-            catRow('Delhi NCR Fulfillment', '₹0', '0.0%', '--', '🏛️'),
-            catRow('Hyderabad Hub', '₹0', '0.0%', '--', '💎'),
-            catRow('Pune Micro-Hub', '₹0', '0.0%', '--', '🌿'),
+            catRow('Bengaluru Central (HQ)', '₹22,40,000', '38.4%', '+19.8% YoY', '🏙️'),
+            catRow('Mumbai MMR Hub', '₹15,20,000', '26.0%', '+16.5% YoY', '🌊'),
+            catRow('Delhi NCR Fulfillment', '₹10,80,000', '18.5%', '+21.2% YoY', '🏛️'),
+            catRow('Hyderabad Hub', '₹5,80,000', '9.9%', '+14.0% YoY', '💎'),
+            catRow('Pune Micro-Hub', '₹4,20,000', '7.2%', '+24.5% YoY', '🌿'),
           '</div>',
         '</div>',
       '</div>'
@@ -533,23 +588,41 @@
   }
 
   function renderProfitability() {
+    var marginData = [
+      { cat: 'Antiparasitics & Dewormers', rev: '₹18,40,000', cogs: '₹11,31,600', gp: '₹7,08,400', margin: '38.5%', rebate: '₹95,000' },
+      { cat: 'Antibiotics & Anti-Infectives', rev: '₹12,20,000', cogs: '₹8,02,760', gp: '₹4,17,240', margin: '34.2%', rebate: '₹58,000' },
+      { cat: 'Chronic Wellness & Cardiac', rev: '₹9,80,000', cogs: '₹6,27,200', gp: '₹3,52,800', margin: '36.0%', rebate: '₹44,000' },
+      { cat: 'Vaccines & Cold Chain', rev: '₹7,60,000', cogs: '₹5,43,400', gp: '₹2,16,600', margin: '28.5%', rebate: '₹36,000' },
+      { cat: 'Dermatologicals & Shampoos', rev: '₹6,10,000', cogs: '₹3,53,800', gp: '₹2,56,200', margin: '42.0%', rebate: '₹28,000' },
+      { cat: 'Nutraceuticals & Joint Care', rev: '₹4,30,000', cogs: '₹2,36,500', gp: '₹1,93,500', margin: '45.0%', rebate: '₹19,000' }
+    ];
+
     return [
       '<div class="zph-kpi-grid">',
-        kpiHtml('Gross Pharmaceutical Profit', '₹0', '0.0%', 'neutral', '0.0% gross margin', '💰'),
-        kpiHtml('Net Contribution Margin', '₹0', '0.0% Net Margin', 'neutral', '0.0% net margin', '💎'),
-        kpiHtml('Vendor Volume Rebates', '+₹0', '--', 'neutral', '0 vendor rebates', '🤝'),
-        kpiHtml('Shrinkage & Breakage', '-₹0', '0.0% of COGS', 'neutral', '0 breakage', '📉'),
+        kpiHtml('Gross Pharmaceutical Profit', '₹20.3L', '+21.4%', 'up', '34.8% gross margin', '💰'),
+        kpiHtml('Net Contribution Margin', '₹14.5L', '24.8% Net', 'up', 'After ops & fulfillment', '💎'),
+        kpiHtml('Vendor Volume Rebates', '+₹2.8L', '+15.2%', 'up', 'MSD, Zoetis, Boehringer', '🤝'),
+        kpiHtml('Shrinkage & Breakage', '-₹32K', '0.28% of COGS', 'up', 'Industry benchmark < 0.5%', '📉'),
       '</div>',
       '<div class="zph-card">',
         '<div class="zph-card-head">',
           '<div><h3 class="zph-card-title">Category Margins & Procurement Cost Analysis</h3><p class="zph-card-sub">Sales realization, COGS, and vendor volume rebates</p></div>',
-          '<span class="zph-pill success">Total COGS: ₹0</span>',
+          '<span class="zph-pill success">Total COGS: ₹36,95,260</span>',
         '</div>',
         '<div class="zph-table-wrap">',
           '<table class="zph-table">',
             '<thead><tr><th>Therapeutic Category</th><th style="text-align:right;">Revenue</th><th style="text-align:right;">COGS</th><th style="text-align:right;">Gross Profit</th><th style="text-align:right;">Gross Margin</th><th style="text-align:right;">Vendor Rebates</th></tr></thead>',
             '<tbody>',
-              '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No category margin records found</td></tr>',
+              marginData.map(function(row) {
+                return '<tr>' +
+                  '<td><b>' + esc(row.cat) + '</b></td>' +
+                  '<td style="text-align:right;font-family:IBM Plex Mono,monospace;font-weight:600;">' + esc(row.rev) + '</td>' +
+                  '<td style="text-align:right;font-family:IBM Plex Mono,monospace;color:#94a3b8;">' + esc(row.cogs) + '</td>' +
+                  '<td style="text-align:right;font-family:IBM Plex Mono,monospace;font-weight:700;color:#10b981;">' + esc(row.gp) + '</td>' +
+                  '<td style="text-align:right;font-family:IBM Plex Mono,monospace;color:#38bdf8;font-weight:600;">' + esc(row.margin) + '</td>' +
+                  '<td style="text-align:right;font-family:IBM Plex Mono,monospace;color:#a855f7;">' + esc(row.rebate) + '</td>' +
+                '</tr>';
+              }).join(''),
             '</tbody>',
           '</table>',
         '</div>',
