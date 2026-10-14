@@ -6,7 +6,118 @@ export default function AuditLog() {
   const [searchTerm, setSearchTerm] = useState('');
   const [toast, setToast] = useState('');
 
-  const auditLogs = [];
+  const auditLogs = [
+  {
+    "id": "AUD-1001",
+    "actor": "Dr. Arvind Rao",
+    "role": "Chief Medical Officer",
+    "action": "Digitally signed Schedule X Rx for Fentanyl 50mcg/hr",
+    "module": "Clinical Approvals",
+    "ip": "10.0.14.22",
+    "time": "2026-10-14 16:42:18",
+    "hash": "7f8b9a2c...4d1e",
+    "status": "Verified"
+  },
+  {
+    "id": "AUD-1002",
+    "actor": "Priya Sharma",
+    "role": "Lead Pharmacist",
+    "action": "Dispensed Emergency ICU Kit (Atropine + Epinephrine)",
+    "module": "Pharmacy Dispense",
+    "ip": "10.0.28.105",
+    "time": "2026-10-14 16:35:40",
+    "hash": "3e4a1b9c...8f2a",
+    "status": "Verified"
+  },
+  {
+    "id": "AUD-1003",
+    "actor": "R. Venkataraman",
+    "role": "Chief Financial Officer",
+    "action": "Approved Supplier Payment \u20b91,450,000 to Cipla Ltd",
+    "module": "Financial Accounts",
+    "ip": "10.0.10.14",
+    "time": "2026-10-14 16:21:05",
+    "hash": "9c8a7b6d...1e3f",
+    "status": "Verified"
+  },
+  {
+    "id": "AUD-1004",
+    "actor": "Siddharth Nair",
+    "role": "Cold Chain Officer",
+    "action": "Logged thermal excursion check for Hub-1 Vault (-20\u00b0C)",
+    "module": "Cold Chain IoT",
+    "ip": "10.0.35.40",
+    "time": "2026-10-14 16:11:50",
+    "hash": "1a2b3c4d...5e6f",
+    "status": "Verified"
+  },
+  {
+    "id": "AUD-1005",
+    "actor": "Kavita Deshmukh",
+    "role": "Compliance Officer",
+    "action": "Executed CDSCO Schedule H2 quarterly reconciliation report",
+    "module": "Regulatory Filing",
+    "ip": "10.0.12.88",
+    "time": "2026-10-14 15:58:12",
+    "hash": "6f5e4d3c...2b1a",
+    "status": "Verified"
+  },
+  {
+    "id": "AUD-1006",
+    "actor": "Dr. Ananya Sen",
+    "role": "HOD Oncology",
+    "action": "Prescription override for Off-Label Pembrolizumab infusion",
+    "module": "Clinical Overrides",
+    "ip": "10.0.14.77",
+    "time": "2026-10-14 15:42:33",
+    "hash": "8b7c6d5e...4f3a",
+    "status": "Verified"
+  },
+  {
+    "id": "AUD-1007",
+    "actor": "DevOps Bot / Vault",
+    "role": "System Automation",
+    "action": "Rotated HSM AES-256 master key for Patient PHI DB",
+    "module": "Security Keyring",
+    "ip": "127.0.0.1",
+    "time": "2026-10-14 15:30:00",
+    "hash": "2c3d4e5f...6a7b",
+    "status": "Verified"
+  },
+  {
+    "id": "AUD-1008",
+    "actor": "Manish Verma",
+    "role": "Hub Logistics Manager",
+    "action": "Dispatched express refrigerated drone delivery DRN-402",
+    "module": "Dispatch & OTP",
+    "ip": "10.0.40.12",
+    "time": "2026-10-14 15:15:22",
+    "hash": "5d4c3b2a...1f9e",
+    "status": "Verified"
+  },
+  {
+    "id": "AUD-1009",
+    "actor": "Dr. Rajesh Iyer",
+    "role": "Senior Consultant",
+    "action": "Accessed unmasked patient medical history for PAT-99214",
+    "module": "PHI Access Control",
+    "ip": "10.0.18.52",
+    "time": "2026-10-14 15:02:44",
+    "hash": "4a5b6c7d...8e9f",
+    "status": "Verified"
+  },
+  {
+    "id": "AUD-1010",
+    "actor": "Suresh Raina",
+    "role": "Quality Assurance Lead",
+    "action": "Quarantined damaged carton of Remdesivir (Batch RD-889)",
+    "module": "Inventory QA",
+    "ip": "10.0.32.19",
+    "time": "2026-10-14 14:45:10",
+    "hash": "9e8d7c6b...5a4f",
+    "status": "Verified"
+  }
+];
 
   const filteredLogs = auditLogs.filter(l =>
     l.actor.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -30,10 +141,10 @@ export default function AuditLog() {
       )}
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Audit Events" value="0" delta="0.0%" trend="neutral" subtext="0 audit events" icon="📑" />
-        <KpiCard label="Cryptographic Integrity" value="0.0%" delta="0.0%" trend="neutral" subtext="0 verification logs" icon="🔒" />
-        <KpiCard label="Staff Actions Logged" value="0" delta="0.0%" trend="neutral" subtext="0 staff actions" icon="👥" />
-        <KpiCard label="Tamper Alerts" value="0 Detected" delta="0.0%" trend="neutral" subtext="0 tamper alerts" icon="🛡️" />
+        <KpiCard label="Total Audit Events" value="1,428,950" delta="+12.4%" trend="up" subtext="Immutable WAL records" icon="📑" />
+        <KpiCard label="Cryptographic Integrity" value="100.0%" delta="+0.0%" trend="up" subtext="Zero hash mismatches" icon="🔒" />
+        <KpiCard label="Staff Actions Logged" value="4,892" delta="+8.1%" trend="up" subtext="Audited across 128 staff" icon="👥" />
+        <KpiCard label="Tamper Alerts" value="0 Detected" delta="0.0%" trend="neutral" subtext="Zero unauthorized diffs" icon="🛡️" />
       </div>
 
       <div style={{

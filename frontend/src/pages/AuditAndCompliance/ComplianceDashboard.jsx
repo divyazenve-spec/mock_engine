@@ -5,7 +5,88 @@ import KpiCard from '../shared/KpiCard';
 export default function ComplianceDashboard() {
   const [toast, setToast] = useState('');
 
-  const frameworks = [];
+  const frameworks = [
+  {
+    "standard": "SOC-2 Type II (Security & Confidentiality)",
+    "score": "100.0%",
+    "controls": "114 / 114 Passing",
+    "auditor": "Deloitte India Risk Advisory",
+    "renew": "2027-03-31 (168 days)",
+    "status": "Certified"
+  },
+  {
+    "standard": "CDSCO Drugs & Cosmetics Act (Schedule H/X)",
+    "score": "99.8%",
+    "controls": "88 / 88 Passing",
+    "auditor": "Karnataka State Drug Controller",
+    "renew": "2027-01-15 (93 days)",
+    "status": "Compliant"
+  },
+  {
+    "standard": "ISO 27001:2022 (Information Security)",
+    "score": "100.0%",
+    "controls": "93 / 93 Passing",
+    "auditor": "BSI Group Assurance",
+    "renew": "2027-06-30 (259 days)",
+    "status": "Certified"
+  },
+  {
+    "standard": "HIPAA & HITECH (Patient PHI Safeguards)",
+    "score": "99.6%",
+    "controls": "64 / 64 Passing",
+    "auditor": "KPMG Healthcare Cyber",
+    "renew": "2027-04-30 (198 days)",
+    "status": "Compliant"
+  },
+  {
+    "standard": "NABH Digital Health Standards (MIS-2024)",
+    "score": "99.2%",
+    "controls": "52 / 52 Passing",
+    "auditor": "National Accreditation Board (NABH)",
+    "renew": "2026-12-01 (48 days)",
+    "status": "Accredited"
+  },
+  {
+    "standard": "PCI-DSS v4.0 (Cardholder Data Environment)",
+    "score": "100.0%",
+    "controls": "12 / 12 Passing",
+    "auditor": "SISA Information Security",
+    "renew": "2027-05-15 (213 days)",
+    "status": "Certified"
+  },
+  {
+    "standard": "ABDM / ABDM-M3 (Ayushman Bharat Digital Mission)",
+    "score": "98.9%",
+    "controls": "40 / 40 Passing",
+    "auditor": "National Health Authority (NHA)",
+    "renew": "2027-02-28 (137 days)",
+    "status": "Integrated"
+  },
+  {
+    "standard": "Good Distribution Practices (GDP / WHO)",
+    "score": "99.4%",
+    "controls": "76 / 76 Passing",
+    "auditor": "SGS Pharma Inspection Services",
+    "renew": "2027-08-31 (321 days)",
+    "status": "Certified"
+  },
+  {
+    "standard": "GSTIN & E-Way Bill Tax Compliance",
+    "score": "100.0%",
+    "controls": "30 / 30 Passing",
+    "auditor": "Ernst & Young LLP",
+    "renew": "Continuous Automated Check",
+    "status": "Reconciled"
+  },
+  {
+    "standard": "DISHA (Digital Information Security in Healthcare)",
+    "score": "98.5%",
+    "controls": "45 / 45 Passing",
+    "auditor": "Ministry of Health & Family Welfare",
+    "renew": "2027-09-30 (351 days)",
+    "status": "Compliant"
+  }
+];
 
   const runProbe = () => {
     setToast('Executing automated compliance health check across regulatory controls...');
@@ -48,10 +129,10 @@ export default function ComplianceDashboard() {
       )}
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Overall Compliance Score" value="0.0%" delta="0.0%" trend="neutral" subtext="No frameworks audited" icon="🛡️" />
-        <KpiCard label="SOC-2 Controls" value="0 / 0 Passing" delta="0.0%" trend="neutral" subtext="Automated evidence collector" icon="🔒" />
-        <KpiCard label="Schedule H Drug Audit" value="0.0%" delta="0.0%" trend="neutral" subtext="Prescription audit trail" icon="💊" />
-        <KpiCard label="Next Regulatory Audit" value="0 Days" delta="0.0%" trend="neutral" subtext="No scheduled reviews" icon="📅" />
+        <KpiCard label="Overall Compliance Score" value="99.4%" delta="+0.8%" trend="up" subtext="10 frameworks passing" icon="🛡️" />
+        <KpiCard label="SOC-2 Controls" value="114 / 114 Passing" delta="100%" trend="up" subtext="Automated continuous evidence" icon="🔒" />
+        <KpiCard label="Schedule H Drug Audit" value="100.0%" delta="+0.0%" trend="up" subtext="CDSCO Schedule H/X compliant" icon="💊" />
+        <KpiCard label="Next Regulatory Audit" value="48 Days" delta="On Track" trend="neutral" subtext="CDSCO & NABH Bi-Annual Review" icon="📅" />
       </div>
 
       <div style={{ background: 'var(--card, #ffffff)', border: '1px solid var(--border, #e2e8f0)', borderRadius: '12px', padding: '20px' }}>

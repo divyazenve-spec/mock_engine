@@ -5,7 +5,80 @@ import KpiCard from '../shared/KpiCard';
 export default function AuditDashboard() {
   const [toast, setToast] = useState('');
 
-  const auditSummary = [];
+  const auditSummary = [
+  {
+    "icon": "\ud83d\udcd1",
+    "badge": "Active",
+    "module": "Immutable Audit Log",
+    "desc": "SHA-256 block-hashed audit trail capturing all system events and cryptographic proofs",
+    "count": "1,428,950 Events",
+    "health": "100% Integrity"
+  },
+  {
+    "icon": "\ud83d\udc65",
+    "badge": "Active",
+    "module": "Staff Activity & Telemetry",
+    "desc": "Role-based action telemetry across doctors, pharmacists, dispatchers, and finance admins",
+    "count": "128 Active Staff",
+    "health": "Normal Velocity"
+  },
+  {
+    "icon": "\ud83d\udd11",
+    "badge": "Secured",
+    "module": "Authentication & 2FA Gate",
+    "desc": "FIDO2 WebAuthn, hardware tokens, biometric SSO, and automated IP geofencing",
+    "count": "1,842 Logins / 24h",
+    "health": "100% 2FA Enforcement"
+  },
+  {
+    "icon": "\ud83d\udcdd",
+    "badge": "Active",
+    "module": "Field-Level CDC Tracker",
+    "desc": "Change data capture on patient PHI, prescription dosages, pricing, and master data",
+    "count": "14,920 Mutations",
+    "health": "Rollback Ready"
+  },
+  {
+    "icon": "\ud83d\udcb0",
+    "badge": "Reconciled",
+    "module": "Financial Ledger Audit",
+    "desc": "Double-entry integrity check, GST ITC audit, vendor payouts, and escrow reconciliation",
+    "count": "\u20b942.8M Audited",
+    "health": "Zero Variance"
+  },
+  {
+    "icon": "\ud83d\udce6",
+    "badge": "Enforced",
+    "module": "Prescription & Order Audit",
+    "desc": "Pharmacist verification, schedule drug check, cold tote sealing, and OTP handover",
+    "count": "9,420 Orders / Day",
+    "health": "100% Chain-of-Custody"
+  },
+  {
+    "icon": "\u2744\ufe0f",
+    "badge": "Monitored",
+    "module": "Cold-Chain & Batch Audit",
+    "desc": "Continuous IoT temperature log (2-8\u00b0C / -20\u00b0C), FEFO rotation, and narcotics quarantine",
+    "count": "1,240 Batches",
+    "health": "99.98% Cold Integrity"
+  },
+  {
+    "icon": "\u270d\ufe0f",
+    "badge": "Compliant",
+    "module": "Sign-Off & Approval Workflows",
+    "desc": "Dual-doctor approvals for Schedule X drugs, CapEx budgets, and emergency bypass",
+    "count": "348 Approvals Today",
+    "health": "3.4 Min Avg SLA"
+  },
+  {
+    "icon": "\ud83d\udee1\ufe0f",
+    "badge": "Certified",
+    "module": "Regulatory Compliance",
+    "desc": "Continuous compliance against CDSCO, HIPAA, SOC-2 Type II, ISO 27001, and NABH",
+    "count": "10 Regulatory Bodies",
+    "health": "99.4% Compliance Score"
+  }
+];
 
   const runFullVerification = () => {
     setToast('Cryptographic audit in progress: checking block signatures...');
@@ -59,10 +132,10 @@ export default function AuditDashboard() {
 
       {/* KPI Highlights */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Compliance Score" value="0.0%" delta="0.0%" trend="neutral" subtext="No active audits" icon="🛡️" />
-        <KpiCard label="Audit Log Events" value="0" delta="0" trend="neutral" subtext="Stored in SQLite WAL" icon="📑" />
-        <KpiCard label="Prescription Approvals" value="0.0%" delta="0.0%" trend="neutral" subtext="No pending scripts" icon="✍️" />
-        <KpiCard label="Data Access Logs" value="0" delta="0" trend="neutral" subtext="Role-based access" icon="🔒" />
+        <KpiCard label="Compliance Score" value="99.4%" delta="+0.8%" trend="up" subtext="10 active audits passing" icon="🛡️" />
+        <KpiCard label="Audit Log Events" value="1,428,950" delta="+12.4%" trend="up" subtext="Stored in Immutable WAL" icon="📑" />
+        <KpiCard label="Prescription Approvals" value="99.8%" delta="+0.3%" trend="up" subtext="Dual-doctor signoffs cleared" icon="✍️" />
+        <KpiCard label="Data Access Logs" value="84,210" delta="+4.6%" trend="up" subtext="Role-based ABAC verified" icon="🔒" />
       </div>
 
       {/* 9 Modules Governance Matrix */}
@@ -90,7 +163,7 @@ export default function AuditDashboard() {
             fontWeight: 700,
             fontSize: '11px'
           }}>
-            0 Subsystems
+            9 Subsystems Active
           </span>
         </div>
 

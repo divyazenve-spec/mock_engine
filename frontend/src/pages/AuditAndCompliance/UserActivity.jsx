@@ -3,7 +3,98 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function UserActivity() {
-  const users = [];
+  const users = [
+  {
+    "name": "Dr. Arvind Rao",
+    "dept": "Medical Administration",
+    "role": "Chief Medical Officer",
+    "actionsToday": "68 Actions",
+    "activeHours": "8.5 hrs",
+    "lastActive": "2 mins ago",
+    "status": "Active"
+  },
+  {
+    "name": "Priya Sharma",
+    "dept": "Central Dispensing Hub",
+    "role": "Lead Pharmacist",
+    "actionsToday": "142 Actions",
+    "activeHours": "7.2 hrs",
+    "lastActive": "6 mins ago",
+    "status": "Active"
+  },
+  {
+    "name": "R. Venkataraman",
+    "dept": "Finance & Taxation",
+    "role": "Chief Financial Officer",
+    "actionsToday": "45 Actions",
+    "activeHours": "6.8 hrs",
+    "lastActive": "15 mins ago",
+    "status": "Active"
+  },
+  {
+    "name": "Kavita Deshmukh",
+    "dept": "Regulatory Affairs",
+    "role": "Compliance Director",
+    "actionsToday": "54 Actions",
+    "activeHours": "7.5 hrs",
+    "lastActive": "12 mins ago",
+    "status": "Active"
+  },
+  {
+    "name": "Siddharth Nair",
+    "dept": "Warehouse & Cold Chain",
+    "role": "Cold Chain Lead",
+    "actionsToday": "118 Actions",
+    "activeHours": "8.0 hrs",
+    "lastActive": "4 mins ago",
+    "status": "Active"
+  },
+  {
+    "name": "Dr. Ananya Sen",
+    "dept": "Oncology Daycare",
+    "role": "Senior Consultant",
+    "actionsToday": "39 Actions",
+    "activeHours": "5.5 hrs",
+    "lastActive": "28 mins ago",
+    "status": "Active"
+  },
+  {
+    "name": "Manish Verma",
+    "dept": "Last-Mile Logistics",
+    "role": "Fleet Dispatch Head",
+    "actionsToday": "210 Actions",
+    "activeHours": "9.1 hrs",
+    "lastActive": "1 min ago",
+    "status": "Active"
+  },
+  {
+    "name": "Suresh Raina",
+    "dept": "Quality Assurance",
+    "role": "QA / Pharmacovigilance",
+    "actionsToday": "86 Actions",
+    "activeHours": "6.4 hrs",
+    "lastActive": "18 mins ago",
+    "status": "Active"
+  },
+  {
+    "name": "Dr. Rajesh Iyer",
+    "dept": "Cardiology & CCU",
+    "role": "Attending Cardiologist",
+    "actionsToday": "52 Actions",
+    "activeHours": "7.0 hrs",
+    "lastActive": "35 mins ago",
+    "status": "Active"
+  },
+  {
+    "name": "Anita Kurup",
+    "dept": "Patient Services & Billing",
+    "role": "Billing Supervisor",
+    "actionsToday": "174 Actions",
+    "activeHours": "8.2 hrs",
+    "lastActive": "3 mins ago",
+    "status": "Active"
+  }
+];
 
   return (
     <DashboardLayout
@@ -15,10 +106,10 @@ export default function UserActivity() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Active Staff Today" value="0 Staff" delta="0.0%" trend="neutral" subtext="0 active staff" icon="🧑‍💼" />
-        <KpiCard label="Avg Actions / User" value="0 Actions" delta="0.0%" trend="neutral" subtext="0 actions logged" icon="⚡" />
-        <KpiCard label="Peak Activity Window" value="--" delta="0.0%" trend="neutral" subtext="No telemetry activity" icon="⏰" />
-        <KpiCard label="Suspicious Activity" value="0 Flagged" delta="0.0%" trend="neutral" subtext="0 suspicious events" icon="🛡️" />
+        <KpiCard label="Active Staff Today" value="128 Staff" delta="+4.2%" trend="up" subtext="128 of 135 staff active" icon="👥" />
+        <KpiCard label="Avg Actions / User" value="38.2 Actions" delta="+6.5%" trend="up" subtext="Consistent clinical velocity" icon="⚡" />
+        <KpiCard label="Peak Activity Window" value="10:00 - 14:30" delta="Peak" trend="up" subtext="Outpatient & ICU peak rounds" icon="⏱️" />
+        <KpiCard label="Suspicious Activity" value="0 Flagged" delta="0.0%" trend="neutral" subtext="Zero behavioral anomalies" icon="🛡️" />
       </div>
 
       <div style={{ background: 'var(--card, #ffffff)', border: '1px solid var(--border, #e2e8f0)', borderRadius: '12px', padding: '20px' }}>

@@ -3,7 +3,98 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function OrderAuditTrail() {
-  const orders = [];
+  const orders = [
+  {
+    "orderId": "ORD-99401",
+    "customer": "Rajesh Malhotra",
+    "event": "Schedule H Pharmacist Verification",
+    "prevStatus": "Pending Rx Check",
+    "newStatus": "Verified & Approved",
+    "officer": "Pharm. Priya Sharma",
+    "time": "2026-10-14 16:38:12"
+  },
+  {
+    "orderId": "ORD-99402",
+    "customer": "Sunita Kulkarni",
+    "event": "Automated Packing in Cold Tote (2-8\u00b0C)",
+    "prevStatus": "Picking Complete",
+    "newStatus": "Cold Sealed with Sensor",
+    "officer": "Packer P. Mohan",
+    "time": "2026-10-14 16:30:45"
+  },
+  {
+    "orderId": "ORD-99403",
+    "customer": "Arunabh Mukherjee",
+    "event": "Sky-Corridor Drone Airway Bill Assigned",
+    "prevStatus": "Cold Sealed",
+    "newStatus": "In-Flight Express",
+    "officer": "Dispatcher Manish Verma",
+    "time": "2026-10-14 16:22:10"
+  },
+  {
+    "orderId": "ORD-99404",
+    "customer": "Deepika Nambiar",
+    "event": "Doorstep Handover OTP Validated",
+    "prevStatus": "Out for Delivery",
+    "newStatus": "Delivered (OTP 9482)",
+    "officer": "Rider Vinod K.",
+    "time": "2026-10-14 16:15:20"
+  },
+  {
+    "orderId": "ORD-99405",
+    "customer": "Karthik Swaminathan",
+    "event": "Doctor Tele-Consult Digital Signoff",
+    "prevStatus": "Rx Verification Pending",
+    "newStatus": "Consult Passed",
+    "officer": "Dr. Arvind Rao",
+    "time": "2026-10-14 16:04:18"
+  },
+  {
+    "orderId": "ORD-99406",
+    "customer": "Meera Joshi",
+    "event": "Senior Citizen Chronic Care Discount Applied",
+    "prevStatus": "Cart Checkout",
+    "newStatus": "Discount Approved (-15%)",
+    "officer": "Supervisor Anita Kurup",
+    "time": "2026-10-14 15:52:05"
+  },
+  {
+    "orderId": "ORD-99407",
+    "customer": "Tariq Mansoor",
+    "event": "Schedule X Dual-Signature Escort Attached",
+    "prevStatus": "Doctor Approved",
+    "newStatus": "Dual-Signed & Vaulted",
+    "officer": "Dr. Ananya Sen",
+    "time": "2026-10-14 15:39:40"
+  },
+  {
+    "orderId": "ORD-99408",
+    "customer": "Lavanya Reddy",
+    "event": "FEFO Allocation from Vault Batch B-88",
+    "prevStatus": "Order Placed",
+    "newStatus": "Inventory Allocated",
+    "officer": "WMS Automated Engine",
+    "time": "2026-10-14 15:25:12"
+  },
+  {
+    "orderId": "ORD-99409",
+    "customer": "Vikramaditya Bose",
+    "event": "Prescription Validity Re-Check (30 Days)",
+    "prevStatus": "Upload Pending",
+    "newStatus": "Valid Script Logged",
+    "officer": "Pharm. K. Sundaram",
+    "time": "2026-10-14 15:10:35"
+  },
+  {
+    "orderId": "ORD-99410",
+    "customer": "Farah Qureshi",
+    "event": "Post-Delivery Cold Integrity Telemetry Verified",
+    "prevStatus": "Delivered",
+    "newStatus": "Audit Completed (3.4\u00b0C)",
+    "officer": "IoT Cloud Sentry",
+    "time": "2026-10-14 14:55:00"
+  }
+];
 
   return (
     <DashboardLayout
@@ -15,10 +106,10 @@ export default function OrderAuditTrail() {
       badge=""
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Audited Orders Today" value="0 Orders" delta="0.0%" trend="neutral" subtext="0 tracked orders" icon="📦" />
-        <KpiCard label="OTP Delivery Validation" value="0.0%" delta="0.0%" trend="neutral" subtext="0 validations" icon="📱" />
-        <KpiCard label="Price / Discount Overrides" value="0 Logged" delta="0.0%" trend="neutral" subtext="0 overrides" icon="🏷️" />
-        <KpiCard label="Prescription Match SLA" value="0 Mins" delta="0.0%" trend="neutral" subtext="0 prescription checks" icon="🩺" />
+        <KpiCard label="Audited Orders Today" value="9,420 Orders" delta="+15.2%" trend="up" subtext="End-to-end chain of custody" icon="📦" />
+        <KpiCard label="OTP Delivery Validation" value="99.8%" delta="+0.4%" trend="up" subtext="Customer OTP verified at doorstep" icon="📱" />
+        <KpiCard label="Price / Discount Overrides" value="3 Logged" delta="-25.0%" trend="down" subtext="Authorized discount adjustments" icon="🏷️" />
+        <KpiCard label="Prescription Match SLA" value="1.8 Mins" delta="-14.0%" trend="up" subtext="Doctor-pharmacist verification" icon="⏱️" />
       </div>
 
       <div style={{ background: 'var(--card, #ffffff)', border: '1px solid var(--border, #e2e8f0)', borderRadius: '12px', padding: '20px' }}>
