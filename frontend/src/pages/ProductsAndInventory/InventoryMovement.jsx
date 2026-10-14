@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_MOVEMENTS } from './mockInventoryData';
 
 export default function InventoryMovement() {
   const [filterType, setFilterType] = useState('ALL');
@@ -8,7 +9,7 @@ export default function InventoryMovement() {
   const [modalOpen, setModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
 
-  const [movements, setMovements] = useState([]);
+  const [movements, setMovements] = useState(MOCK_MOVEMENTS);
 
   const [formData, setFormData] = useState({
     type: 'Inbound GRN',
@@ -18,7 +19,7 @@ export default function InventoryMovement() {
     source: 'MSD India Pvt Ltd',
     dest: 'BLR Hub (Bay 2)',
     ref: 'GRN-' + Math.floor(1000 + Math.random() * 9000),
-    value: '₹0'
+    value: '₹61,250'
   });
 
   const filtered = movements.filter(m => {
@@ -116,10 +117,10 @@ export default function InventoryMovement() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Inbound Stock Today" value="0 Units" delta="0 GRNs" trend="neutral" subtext="Vendor supplier receipts" icon="📥" />
-        <KpiCard label="Outbound Dispatched" value="0 Units" delta="0 orders" trend="neutral" subtext="Fulfillment shipments" icon="📤" />
-        <KpiCard label="Net Stock Delta" value="0 Units" delta="0.0%" trend="neutral" subtext="Positive net replenishment" icon="⚖️" />
-        <KpiCard label="Adjustment Variance" value="0 Units" delta="0 write-off" trend="neutral" subtext="Shrinkage & audit delta" icon="🔍" />
+        <KpiCard label="Inbound Stock Today" value="140 Units" delta="3 GRNs" trend="up" subtext="Vendor supplier receipts" icon="📥" />
+        <KpiCard label="Outbound Dispatched" value="56 Units" delta="14 orders" trend="neutral" subtext="Fulfillment shipments" icon="📤" />
+        <KpiCard label="Net Stock Delta" value="+84 Units" delta="+12.4% net" trend="up" subtext="Positive net replenishment" icon="⚖️" />
+        <KpiCard label="Adjustment Variance" value="2 Units" delta="₹2,400 write-off" trend="warn" subtext="Shrinkage & audit delta" icon="🔍" />
       </div>
 
       {/* 2-Column Velocity & Flow Balancing Section */}
@@ -156,40 +157,40 @@ export default function InventoryMovement() {
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
                 <span style={{ color: '#10b981', fontWeight: 600 }}>Inbound Supplier GRN</span>
-                <span style={{ color: 'var(--muted-foreground, #94a3b8)' }}>0 units · 0% Volume</span>
+                <span style={{ color: 'var(--muted-foreground, #94a3b8)' }}>140 units · 58% Volume</span>
               </div>
               <div style={{ height: '6px', background: 'rgba(255,255,255,0.06)', borderRadius: '99px', overflow: 'hidden' }}>
-                <div style={{ width: '0%', height: '100%', background: '#10b981', borderRadius: '99px' }}></div>
+                <div style={{ width: '58%', height: '100%', background: '#10b981', borderRadius: '99px' }}></div>
               </div>
             </div>
 
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
                 <span style={{ color: '#ef4444', fontWeight: 600 }}>B2C &amp; Clinic Outbound</span>
-                <span style={{ color: 'var(--muted-foreground, #94a3b8)' }}>0 units · 0% Volume</span>
+                <span style={{ color: 'var(--muted-foreground, #94a3b8)' }}>56 units · 23% Volume</span>
               </div>
               <div style={{ height: '6px', background: 'rgba(255,255,255,0.06)', borderRadius: '99px', overflow: 'hidden' }}>
-                <div style={{ width: '0%', height: '100%', background: '#ef4444', borderRadius: '99px' }}></div>
+                <div style={{ width: '23%', height: '100%', background: '#ef4444', borderRadius: '99px' }}></div>
               </div>
             </div>
 
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
                 <span style={{ color: '#38bdf8', fontWeight: 600 }}>Inter-Hub Transfers</span>
-                <span style={{ color: 'var(--muted-foreground, #94a3b8)' }}>0 units · 0% Volume</span>
+                <span style={{ color: 'var(--muted-foreground, #94a3b8)' }}>40 units · 16% Volume</span>
               </div>
               <div style={{ height: '6px', background: 'rgba(255,255,255,0.06)', borderRadius: '99px', overflow: 'hidden' }}>
-                <div style={{ width: '0%', height: '100%', background: '#38bdf8', borderRadius: '99px' }}></div>
+                <div style={{ width: '16%', height: '100%', background: '#38bdf8', borderRadius: '99px' }}></div>
               </div>
             </div>
 
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
                 <span style={{ color: '#f59e0b', fontWeight: 600 }}>Adjustments &amp; QC Returns</span>
-                <span style={{ color: 'var(--muted-foreground, #94a3b8)' }}>0 units · 0% Volume</span>
+                <span style={{ color: 'var(--muted-foreground, #94a3b8)' }}>6 units · 3% Volume</span>
               </div>
               <div style={{ height: '6px', background: 'rgba(255,255,255,0.06)', borderRadius: '99px', overflow: 'hidden' }}>
-                <div style={{ width: '0%', height: '100%', background: '#f59e0b', borderRadius: '99px' }}></div>
+                <div style={{ width: '3%', height: '100%', background: '#f59e0b', borderRadius: '99px' }}></div>
               </div>
             </div>
           </div>
@@ -222,26 +223,26 @@ export default function InventoryMovement() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
             <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)' }}>
               <div style={{ fontSize: '11px', color: '#10b981', fontWeight: 600 }}>Bengaluru Central Hub</div>
-              <div style={{ fontSize: '18px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>0 units net</div>
-              <div style={{ fontSize: '10px', color: 'var(--muted-foreground, #94a3b8)', marginTop: '2px' }}>In: 0 · Out: 0 · Ret: 0 · Adj: 0</div>
+              <div style={{ fontSize: '18px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>+90 units net</div>
+              <div style={{ fontSize: '10px', color: 'var(--muted-foreground, #94a3b8)', marginTop: '2px' }}>In: 120 · Out: 30 · Ret: 0 · Adj: 0</div>
             </div>
 
             <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(56,189,248,0.06)', border: '1px solid rgba(56,189,248,0.2)' }}>
               <div style={{ fontSize: '11px', color: '#38bdf8', fontWeight: 600 }}>Delhi NCR Hub</div>
-              <div style={{ fontSize: '18px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>0 units net</div>
-              <div style={{ fontSize: '10px', color: 'var(--muted-foreground, #94a3b8)', marginTop: '2px' }}>Inbound supplier GRN receipt</div>
+              <div style={{ fontSize: '18px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>+25 units net</div>
+              <div style={{ fontSize: '10px', color: 'var(--muted-foreground, #94a3b8)', marginTop: '2px' }}>In: 45 · Out: 20 · Ret: 0 · Adj: 0</div>
             </div>
 
             <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.2)' }}>
               <div style={{ fontSize: '11px', color: '#ef4444', fontWeight: 600 }}>Mumbai West Hub</div>
-              <div style={{ fontSize: '18px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>0 units net</div>
-              <div style={{ fontSize: '10px', color: 'var(--muted-foreground, #94a3b8)', marginTop: '2px' }}>Vaccine transfer out to Pune</div>
+              <div style={{ fontSize: '18px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>-10 units net</div>
+              <div style={{ fontSize: '10px', color: 'var(--muted-foreground, #94a3b8)', marginTop: '2px' }}>In: 15 · Out: 25 · Ret: 0 · Adj: 0</div>
             </div>
 
             <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(168,85,247,0.06)', border: '1px solid rgba(168,85,247,0.2)' }}>
               <div style={{ fontSize: '11px', color: '#c084fc', fontWeight: 600 }}>Pune Express Hub</div>
-              <div style={{ fontSize: '18px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>0 units net</div>
-              <div style={{ fontSize: '10px', color: 'var(--muted-foreground, #94a3b8)', marginTop: '2px' }}>Transit inflow arrived safely</div>
+              <div style={{ fontSize: '18px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>+15 units net</div>
+              <div style={{ fontSize: '10px', color: 'var(--muted-foreground, #94a3b8)', marginTop: '2px' }}>In: 20 · Out: 5 · Ret: 0 · Adj: 0</div>
             </div>
           </div>
         </div>

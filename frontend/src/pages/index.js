@@ -39,10 +39,17 @@ export {
 
 // 4. Products & Inventory
 export {
+  ProductCatalog,
+  SkuManagement,
   InventoryDashboard,
-  InventoryMovement,
+  StockManagement,
+  LowStock,
+  OutOfStock,
+  ExpiryManagement,
+  WarehouseManagement,
+  StockTransfers,
   InventoryValuation,
-  StockTransfers
+  InventoryMovement
 } from './ProductsAndInventory';
 
 // 5. Pharmacy

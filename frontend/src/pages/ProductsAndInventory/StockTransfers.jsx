@@ -1,20 +1,39 @@
 import React, { useState } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_TRANSFERS } from './mockInventoryData';
 
 export default function StockTransfers() {
   const [filterStatus, setFilterStatus] = useState('ALL');
   const [modalOpen, setModalOpen] = useState(false);
   const [successToast, setSuccessToast] = useState('');
 
-  const transfers = [];
+  const [transfers, setTransfers] = useState(
+    MOCK_TRANSFERS.map(t => ({
+      ...t,
+      value: `₹${(t.value).toLocaleString('en-IN')}`
+    }))
+  );
 
   const filtered = filterStatus === 'ALL' ? transfers : transfers.filter(t => t.status === filterStatus);
 
   function handleCreateTransfer(e) {
     e.preventDefault();
+    const newManifest = {
+      id: 'TRF-2026-0' + Math.floor(895 + Math.random() * 50),
+      origin: 'Bengaluru Hub',
+      dest: 'Hyderabad Hub',
+      skus: 'ZV-MED-001 Bravecto (30 units)',
+      value: '₹73,500',
+      carrier: 'Zenve Express Fleet (EV-04)',
+      status: 'In Transit',
+      temp: 'Ambient',
+      eta: 'Today, 9:00 PM',
+      cold: false
+    };
+    setTransfers([newManifest, ...transfers]);
     setModalOpen(false);
-    setSuccessToast('New inter-warehouse transfer manifest generated successfully!');
+    setSuccessToast(`Transfer manifest ${newManifest.id} generated and dispatched!`);
     setTimeout(() => setSuccessToast(''), 3500);
   }
 
@@ -25,7 +44,7 @@ export default function StockTransfers() {
       title="Inter-Warehouse Stock Transfers"
       subtitle="Hub-to-hub inventory replenishment, dispatch manifests, linehaul tracking & cold-chain custody"
       icon="🔁"
-      badge=""
+      badge={`${transfers.length} Active Manifests`}
       actions={
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -67,10 +86,10 @@ export default function StockTransfers() {
       )}
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Active In-Transit" value="0 Transfers" delta="₹0" trend="neutral" subtext="Live tracking online" icon="🚚" />
-        <KpiCard label="Completed (MTD)" value="0 Transfers" delta="0.0% SLA" trend="neutral" subtext="On-time delivery" icon="✅" />
-        <KpiCard label="Avg Transit Time" value="-- Hours" delta="--" trend="neutral" subtext="Inter-city linehaul" icon="⚡" />
-        <KpiCard label="Cold Chain Integrity" value="0.0%" delta="0 logs" trend="neutral" subtext="IoT data logger verified" icon="❄️" />
+        <KpiCard label="Active In-Transit" value="3 Transfers" delta="₹3.37L value" trend="up" subtext="Live tracking online" icon="🚚" />
+        <KpiCard label="Completed (MTD)" value="21 Shipments" delta="98.5% SLA" trend="up" subtext="On-time delivery" icon="✅" />
+        <KpiCard label="Avg Transit Time" value="14.2 Hours" delta="-2.1h vs SLA" trend="up" subtext="Inter-city linehaul" icon="⚡" />
+        <KpiCard label="Cold Chain Integrity" value="100.0%" delta="0 alerts" trend="up" subtext="IoT data logger verified" icon="❄️" />
       </div>
 
       {/* Transfer Pipeline Overview */}

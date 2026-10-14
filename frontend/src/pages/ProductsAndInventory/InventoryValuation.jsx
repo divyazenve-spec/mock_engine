@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_VALUATION_CATS, MOCK_WAREHOUSES } from './mockInventoryData';
 
 export default function InventoryValuation() {
   const [method, setMethod] = useState('FIFO');
+  const multiplier = method === 'Weighted Avg' ? 1.02 : method.includes('LIFO') ? 0.96 : 1.0;
 
-  const categories = [];
+  const totalCost = Math.round(11620000 * multiplier);
+  const totalRetail = Math.round(16240000 * multiplier);
+  const marginPct = (((totalRetail - totalCost) / totalRetail) * 100).toFixed(1);
+  const totalWhVal = MOCK_WAREHOUSES.reduce((s, w) => s + w.value, 0);
 
-  const warehouseVal = [];
+  const categories = MOCK_VALUATION_CATS.map(cat => ({
+    ...cat,
+    formattedCost: `₹${((cat.costVal * multiplier) / 100000).toFixed(2)} Lakhs`
+  }));
+
+  const warehouseVal = MOCK_WAREHOUSES.map(w => ({
+    hub: w.name,
+    units: w.skus * 14,
+    costVal: `₹${((w.value * multiplier) / 100000).toFixed(2)} Lakhs`,
+    share: ((w.value / totalWhVal) * 100).toFixed(1),
+    manager: w.manager
+  }));
 
   return (
     <DashboardLayout
@@ -16,7 +32,7 @@ export default function InventoryValuation() {
       title="Inventory Asset Valuation"
       subtitle="Financial cost-of-goods valuation, gross margin projection, holding carrying costs & aging reserves"
       icon="💎"
-      badge="Asset: ₹0"
+      badge={`Asset: ₹${(totalCost / 10000000).toFixed(2)} Cr`}
       actions={
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <span style={{ fontSize: '11px', color: '#94a3b8' }}>Valuation Method:</span>
@@ -42,10 +58,10 @@ export default function InventoryValuation() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Total Stock Cost Value" value="₹0" delta="0.0%" trend="neutral" subtext={`Using ${method} valuation`} icon="💰" />
-        <KpiCard label="Projected Retail Value" value="₹0" delta="0.0%" trend="up" subtext="Current MRP realization" icon="🏷️" />
-        <KpiCard label="Unrealized Gross Margin" value="0.0%" delta="0.0%" trend="neutral" subtext="Embedded profit potential" icon="📈" />
-        <KpiCard label="Annual Carrying Cost" value="0.0%" delta="0.0%" trend="neutral" subtext="Holding & storage rate" icon="🛡️" />
+        <KpiCard label="Total Stock Cost Value" value={`₹${(totalCost / 10000000).toFixed(2)} Cr`} delta={`${method} GAAP`} trend="up" subtext="Balance sheet holding cost" icon="💰" />
+        <KpiCard label="Projected Retail Value" value={`₹${(totalRetail / 10000000).toFixed(2)} Cr`} delta="+14.8% realization" trend="up" subtext="Current MRP realization" icon="🏷️" />
+        <KpiCard label="Unrealized Gross Margin" value={`${marginPct}%`} delta={`₹${((totalRetail - totalCost) / 100000).toFixed(1)}L margin`} trend="up" subtext="Embedded profit potential" icon="📈" />
+        <KpiCard label="Annual Carrying Cost" value="14.2%" delta={`₹${((totalCost * 0.012) / 100000).toFixed(1)}L/mo`} trend="neutral" subtext="Holding & storage rate" icon="🛡️" />
       </div>
 
       {/* Valuation Mix by Category & Aging */}
@@ -62,25 +78,19 @@ export default function InventoryValuation() {
         }}>
           <h3 style={{ margin: '0 0 16px', fontSize: '15px', fontWeight: 700 }}>Category Asset Breakdown</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {categories.length === 0 ? (
-              <div style={{ padding: '16px', textAlign: 'center', color: '#94a3b8', fontSize: '12px' }}>
-                No category asset records found
-              </div>
-            ) : (
-              categories.map(cat => (
-                <div key={cat.name}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
-                    <span style={{ fontWeight: 600, color: '#f8fafc' }}>{cat.name}</span>
-                    <span style={{ fontFamily: '"IBM Plex Mono", monospace', color: '#94a3b8' }}>
-                      {cat.costVal} <span style={{ color: '#10b981' }}>({cat.margin} margin)</span>
-                    </span>
-                  </div>
-                  <div style={{ height: '6px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
-                    <div style={{ width: `${cat.share * 2.5}%`, height: '100%', background: cat.color, borderRadius: '4px' }}></div>
-                  </div>
+            {categories.map(cat => (
+              <div key={cat.name}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
+                  <span style={{ fontWeight: 600, color: '#f8fafc' }}>{cat.name}</span>
+                  <span style={{ fontFamily: '"IBM Plex Mono", monospace', color: '#94a3b8' }}>
+                    {cat.formattedCost} <span style={{ color: '#10b981' }}>({cat.margin})</span>
+                  </span>
                 </div>
-              ))
-            )}
+                <div style={{ height: '6px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{ width: `${cat.share * 2.5}%`, height: '100%', background: cat.color, borderRadius: '4px' }}></div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -97,23 +107,23 @@ export default function InventoryValuation() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
             <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)' }}>
               <div style={{ fontSize: '11px', color: '#10b981', fontWeight: 600 }}>Fresh (0–30 Days)</div>
-              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>₹0 (0%)</div>
+              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>₹72.4L (62%)</div>
               <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>Peak turnover velocity</div>
             </div>
             <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(14,165,233,0.08)', border: '1px solid rgba(14,165,233,0.2)' }}>
               <div style={{ fontSize: '11px', color: '#0ea5e9', fontWeight: 600 }}>Active (31–60 Days)</div>
-              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>₹0 (0%)</div>
+              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>₹29.8L (26%)</div>
               <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>Normal consumption</div>
             </div>
             <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.2)' }}>
               <div style={{ fontSize: '11px', color: '#f59e0b', fontWeight: 600 }}>Slow Moving (61–90d)</div>
-              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>₹0 (0%)</div>
+              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>₹9.7L (8%)</div>
               <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>Review promotional discount</div>
             </div>
             <div style={{ padding: '12px', borderRadius: '8px', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}>
               <div style={{ fontSize: '11px', color: '#ef4444', fontWeight: 600 }}>At Risk (&gt;90 Days)</div>
-              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>₹0 (0%)</div>
-              <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>Reserve covered: ₹0</div>
+              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f8fafc', marginTop: '2px' }}>₹4.3L (4%)</div>
+              <div style={{ fontSize: '10px', color: '#94a3b8', marginTop: '2px' }}>Reserve covered: ₹42,500</div>
             </div>
           </div>
         </div>
@@ -133,42 +143,34 @@ export default function InventoryValuation() {
               <tr style={{ borderBottom: '1px solid var(--border, rgba(255,255,255,0.08))', color: 'var(--muted-foreground, #94a3b8)', fontSize: '11px' }}>
                 <th style={{ padding: '10px 12px' }}>Warehouse Facility</th>
                 <th style={{ padding: '10px 12px', textAlign: 'right' }}>Total Units</th>
-                <th style={{ padding: '10px 12px', textAlign: 'right' }}>Asset Valuation (Cost)</th>
+                <th style={{ padding: '10px 12px', textAlign: 'right' }}>Asset Valuation ({method})</th>
                 <th style={{ padding: '10px 12px', textAlign: 'right' }}>Share of Network</th>
                 <th style={{ padding: '10px 12px' }}>Hub Manager</th>
                 <th style={{ padding: '10px 12px', textAlign: 'right' }}>Audit Status</th>
               </tr>
             </thead>
             <tbody>
-              {warehouseVal.length === 0 ? (
-                <tr>
-                  <td colSpan={6} style={{ padding: '24px', textAlign: 'center', color: '#94a3b8' }}>
-                    No warehouse valuation records found
+              {warehouseVal.map(w => (
+                <tr key={w.hub} style={{ borderBottom: '1px solid var(--border, rgba(255,255,255,0.04))' }}>
+                  <td style={{ padding: '12px', fontWeight: 600 }}>🏭 {w.hub}</td>
+                  <td style={{ padding: '12px', textAlign: 'right', fontFamily: '"IBM Plex Mono", monospace' }}>{w.units.toLocaleString()}</td>
+                  <td style={{ padding: '12px', textAlign: 'right', fontWeight: 700, fontFamily: '"IBM Plex Mono", monospace', color: '#10b981' }}>{w.costVal}</td>
+                  <td style={{ padding: '12px', textAlign: 'right', fontFamily: '"IBM Plex Mono", monospace' }}>{w.share}%</td>
+                  <td style={{ padding: '12px', color: '#94a3b8' }}>{w.manager}</td>
+                  <td style={{ padding: '12px', textAlign: 'right' }}>
+                    <span style={{
+                      padding: '2px 8px',
+                      borderRadius: '6px',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                      background: 'rgba(16,185,129,0.15)',
+                      color: '#10b981'
+                    }}>
+                      ✓ Verified
+                    </span>
                   </td>
                 </tr>
-              ) : (
-                warehouseVal.map(w => (
-                  <tr key={w.hub} style={{ borderBottom: '1px solid var(--border, rgba(255,255,255,0.04))' }}>
-                    <td style={{ padding: '12px', fontWeight: 600 }}>🏭 {w.hub}</td>
-                    <td style={{ padding: '12px', textAlign: 'right', fontFamily: '"IBM Plex Mono", monospace' }}>{w.units.toLocaleString()}</td>
-                    <td style={{ padding: '12px', textAlign: 'right', fontWeight: 700, fontFamily: '"IBM Plex Mono", monospace', color: '#10b981' }}>{w.costVal}</td>
-                    <td style={{ padding: '12px', textAlign: 'right', fontFamily: '"IBM Plex Mono", monospace' }}>{w.share}%</td>
-                    <td style={{ padding: '12px', color: '#94a3b8' }}>{w.manager}</td>
-                    <td style={{ padding: '12px', textAlign: 'right' }}>
-                      <span style={{
-                        padding: '2px 8px',
-                        borderRadius: '6px',
-                        fontSize: '11px',
-                        fontWeight: 600,
-                        background: 'rgba(16,185,129,0.15)',
-                        color: '#10b981'
-                      }}>
-                        ✓ Verified
-                      </span>
-                    </td>
-                  </tr>
-                ))
-              )}
+              ))}
             </tbody>
           </table>
         </div>

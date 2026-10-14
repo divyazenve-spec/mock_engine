@@ -1,4 +1,11 @@
+export { default as ProductCatalog } from './ProductCatalog';
+export { default as SkuManagement } from './SkuManagement';
 export { default as InventoryDashboard } from './InventoryDashboard';
-export { default as InventoryMovement } from './InventoryMovement';
-export { default as InventoryValuation } from './InventoryValuation';
+export { default as StockManagement } from './StockManagement';
+export { default as LowStock } from './LowStock';
+export { default as OutOfStock } from './OutOfStock';
+export { default as ExpiryManagement } from './ExpiryManagement';
+export { default as WarehouseManagement } from './WarehouseManagement';
 export { default as StockTransfers } from './StockTransfers';
+export { default as InventoryValuation } from './InventoryValuation';
+export { default as InventoryMovement } from './InventoryMovement';
