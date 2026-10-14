@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_EXECUTIVE_KPIS, MOCK_DIVISIONAL_CONTRIBUTION } from './mockExecutiveData';
 
 export default function ExecutiveDashboard() {
   const [period, setPeriod] = useState('MTD');
@@ -58,12 +59,12 @@ export default function ExecutiveDashboard() {
     >
       {/* Executive KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Gross Revenue (MTD)" value="₹0" delta="0.0% MoM" trend="neutral" subtext="No records recorded" icon="💰" />
-        <KpiCard label="Net Revenue" value="₹0" delta="0.0% Net" trend="neutral" subtext="No records recorded" icon="📈" />
-        <KpiCard label="EBITDA Margin" value="0.0%" delta="₹0" trend="neutral" subtext="No records recorded" icon="💎" />
-        <KpiCard label="Registered Pet Parents" value="0" delta="0 MTD" trend="neutral" subtext="No records recorded" icon="🐾" />
-        <KpiCard label="Clinical Practitioners" value="0" delta="0 On-Duty" trend="neutral" subtext="No records recorded" icon="👨‍⚕️" />
-        <KpiCard label="60-Min SLA Velocity" value="0.0%" delta="-- mins avg" trend="neutral" subtext="No records recorded" icon="⚡" />
+        <KpiCard label="Gross Revenue (MTD)" value={MOCK_EXECUTIVE_KPIS.grossRevenue} delta={MOCK_EXECUTIVE_KPIS.revenueGrowth} trend="up" subtext="Consolidated across 6 units" icon="💰" />
+        <KpiCard label="Net Revenue" value={MOCK_EXECUTIVE_KPIS.netRevenue} delta={MOCK_EXECUTIVE_KPIS.netMargin} trend="up" subtext="Post discounts & refunds" icon="📈" />
+        <KpiCard label="EBITDA Margin" value={MOCK_EXECUTIVE_KPIS.ebitdaMargin} delta={MOCK_EXECUTIVE_KPIS.ebitda} trend="up" subtext="Operational surplus" icon="💎" />
+        <KpiCard label="Registered Pet Parents" value={MOCK_EXECUTIVE_KPIS.registeredPetParents} delta={MOCK_EXECUTIVE_KPIS.petParentsGrowth} trend="up" subtext="Across 5 active metros" icon="🐾" />
+        <KpiCard label="Clinical Practitioners" value={MOCK_EXECUTIVE_KPIS.clinicalPractitioners} delta={MOCK_EXECUTIVE_KPIS.cliniciansOnDuty} trend="neutral" subtext="Surgeons & specialists" icon="👨‍⚕️" />
+        <KpiCard label="60-Min SLA Velocity" value={MOCK_EXECUTIVE_KPIS.slaVelocity} delta={MOCK_EXECUTIVE_KPIS.slaAverageTime} trend="up" subtext="Express delivery fleet" icon="⚡" />
       </div>
 
       {/* Grid 2: Revenue Mix & Operations */}
@@ -71,17 +72,10 @@ export default function ExecutiveDashboard() {
         <div style={cardStyle}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
             <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>Divisional Revenue Attribution</h3>
-            <span style={{ fontSize: '11px', fontWeight: 600, color: '#64748b' }}>₹0 Total</span>
+            <span style={{ fontSize: '11px', fontWeight: 600, color: '#64748b' }}>₹1.84 Cr Total</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {[
-              { name: 'Pet Products & Nutrition', pct: 0, rev: '₹0', color: '#3b82f6' },
-              { name: 'Veterinary Pharmacy & Rx', pct: 0, rev: '₹0', color: '#10b981' },
-              { name: 'Clinical Care & Surgeries', pct: 0, rev: '₹0', color: '#8b5cf6' },
-              { name: 'B2B Enterprise & Institutional', pct: 0, rev: '₹0', color: '#f59e0b' },
-              { name: 'Pet Fashion & Lifestyle', pct: 0, rev: '₹0', color: '#ec4899' },
-              { name: 'Care Subscriptions & Wellness', pct: 0, rev: '₹0', color: '#06b6d4' }
-            ].map(div => (
+            {MOCK_DIVISIONAL_CONTRIBUTION.map(div => (
               <div key={div.name} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px' }}>
                   <span style={{ fontWeight: 600, color: '#334155' }}>{div.name}</span>
@@ -98,28 +92,28 @@ export default function ExecutiveDashboard() {
         <div style={cardStyle}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
             <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>Executive Health Scorecard</h3>
-            <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '12px', background: '#f1f5f9', color: '#475569', fontWeight: 600 }}>Standard</span>
+            <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '12px', background: '#ecfdf5', color: '#047857', fontWeight: 600 }}>Healthy</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px' }}>
             <div style={{ background: '#f8fafc', padding: '14px', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
               <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Working Capital</div>
-              <div style={{ fontSize: '20px', fontWeight: 800, color: '#0f172a', marginTop: '4px' }}>₹0</div>
-              <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 600, marginTop: '2px' }}>-- Mos Runway</div>
+              <div style={{ fontSize: '20px', fontWeight: 800, color: '#0f172a', marginTop: '4px' }}>₹4.85 Cr</div>
+              <div style={{ fontSize: '11px', color: '#059669', fontWeight: 600, marginTop: '2px' }}>28 Mos Runway</div>
             </div>
             <div style={{ background: '#f8fafc', padding: '14px', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
               <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Customer LTV / CAC</div>
-              <div style={{ fontSize: '20px', fontWeight: 800, color: '#0f172a', marginTop: '4px' }}>-- Ratio</div>
-              <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 600, marginTop: '2px' }}>Payback -- Mos</div>
+              <div style={{ fontSize: '20px', fontWeight: 800, color: '#0f172a', marginTop: '4px' }}>4.8x Ratio</div>
+              <div style={{ fontSize: '11px', color: '#059669', fontWeight: 600, marginTop: '2px' }}>Payback 4.2 Mos</div>
             </div>
             <div style={{ background: '#f8fafc', padding: '14px', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
               <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Doctor NPS</div>
-              <div style={{ fontSize: '20px', fontWeight: 800, color: '#0f172a', marginTop: '4px' }}>-- / 5.0</div>
-              <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 600, marginTop: '2px' }}>-- Diagnostic Acc</div>
+              <div style={{ fontSize: '20px', fontWeight: 800, color: '#0f172a', marginTop: '4px' }}>4.9 / 5.0</div>
+              <div style={{ fontSize: '11px', color: '#059669', fontWeight: 600, marginTop: '2px' }}>99.4% Diagnostic Acc</div>
             </div>
             <div style={{ background: '#f8fafc', padding: '14px', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
               <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Inventory Turns</div>
-              <div style={{ fontSize: '20px', fontWeight: 800, color: '#0f172a', marginTop: '4px' }}>-- / Year</div>
-              <div style={{ fontSize: '11px', color: '#64748b', fontWeight: 600, marginTop: '2px' }}>-- Stockout Rate</div>
+              <div style={{ fontSize: '20px', fontWeight: 800, color: '#0f172a', marginTop: '4px' }}>7.2x / Year</div>
+              <div style={{ fontSize: '11px', color: '#059669', fontWeight: 600, marginTop: '2px' }}>1.4% Stockout Rate</div>
             </div>
           </div>
         </div>

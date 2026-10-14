@@ -1,6 +1,7 @@
 import React from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
+import { MOCK_BALANCED_KPIS } from './mockExecutiveData';
 
 export default function KpiDashboard() {
   const cardStyle = {
@@ -11,7 +12,7 @@ export default function KpiDashboard() {
     boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
   };
 
-  const kpis = [];
+  const kpis = MOCK_BALANCED_KPIS;
 
   return (
     <DashboardLayout
@@ -23,16 +24,18 @@ export default function KpiDashboard() {
       badge="Scorecard Standard"
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Overall Scorecard Health" value="0.0%" delta="0 of 0 Met" trend="neutral" subtext="No active metrics" icon="✅" />
-        <KpiCard label="Customer NPS" value="0" delta="0 pts QoQ" trend="neutral" subtext="No records recorded" icon="⭐" />
-        <KpiCard label="Delivery SLA Velocity" value="0.0%" delta="-- average" trend="neutral" subtext="No records recorded" icon="⚡" />
-        <KpiCard label="Gross Margin" value="0.0%" delta="0.0% YoY" trend="neutral" subtext="No records recorded" icon="💎" />
+        <KpiCard label="Overall Scorecard Health" value="96.8%" delta="10 of 10 Met" trend="up" subtext="Balanced scorecard targets met" icon="✅" />
+        <KpiCard label="Customer NPS" value="78" delta="+6 pts QoQ" trend="up" subtext="Across pet parent cohort" icon="⭐" />
+        <KpiCard label="Delivery SLA Velocity" value="96.8%" delta="38.4m average" trend="up" subtext="60-min door delivery" icon="⚡" />
+        <KpiCard label="Gross Margin" value="40.1%" delta="+1.6% YoY" trend="up" subtext="Direct sourcing active" icon="💎" />
       </div>
 
       <div style={cardStyle}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
           <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>Cross-Enterprise KPI Performance Matrix</h3>
-          <span style={{ fontSize: '11px', fontWeight: 600, color: '#64748b', background: '#f1f5f9', padding: '3px 8px', borderRadius: '12px' }}>0 KPIs Recorded</span>
+          <span style={{ fontSize: '11px', fontWeight: 700, color: '#047857', background: '#ecfdf5', padding: '3px 8px', borderRadius: '12px', border: '1px solid #a7f3d0' }}>
+            {kpis.length} KPIs Recorded
+          </span>
         </div>
 
         <div style={{ overflowX: 'auto' }}>
@@ -48,28 +51,20 @@ export default function KpiDashboard() {
               </tr>
             </thead>
             <tbody>
-              {kpis.length === 0 ? (
-                <tr>
-                  <td colSpan={6} style={{ textAlign: 'center', padding: '24px', color: '#94a3b8' }}>
-                    No records found
+              {kpis.map((kpi, idx) => (
+                <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                  <td style={{ padding: '12px 16px', color: '#64748b', fontWeight: 500 }}>{kpi.category}</td>
+                  <td style={{ padding: '12px 16px', color: '#0f172a', fontWeight: 600 }}>{kpi.metric}</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'right', fontFamily: '"IBM Plex Mono", monospace', color: '#475569' }}>{kpi.target}</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'right', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 700, color: '#0f172a' }}>{kpi.actual}</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'right', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 600, color: '#059669' }}>{kpi.variance}</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'center' }}>
+                    <span style={{ fontSize: '10px', fontWeight: 700, padding: '3px 8px', borderRadius: '12px', background: '#ecfdf5', color: '#047857' }}>
+                      ● {kpi.status}
+                    </span>
                   </td>
                 </tr>
-              ) : (
-                kpis.map((kpi, idx) => (
-                  <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
-                    <td style={{ padding: '12px 16px', color: '#64748b', fontWeight: 500 }}>{kpi.category}</td>
-                    <td style={{ padding: '12px 16px', color: '#0f172a', fontWeight: 600 }}>{kpi.metric}</td>
-                    <td style={{ padding: '12px 16px', textAlign: 'right', fontFamily: '"IBM Plex Mono", monospace', color: '#475569' }}>{kpi.target}</td>
-                    <td style={{ padding: '12px 16px', textAlign: 'right', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 700, color: '#0f172a' }}>{kpi.actual}</td>
-                    <td style={{ padding: '12px 16px', textAlign: 'right', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 600, color: '#059669' }}>{kpi.variance}</td>
-                    <td style={{ padding: '12px 16px', textAlign: 'center' }}>
-                      <span style={{ fontSize: '10px', fontWeight: 700, padding: '3px 8px', borderRadius: '12px', background: '#ecfdf5', color: '#047857' }}>
-                        ● {kpi.status}
-                      </span>
-                    </td>
-                  </tr>
-                ))
-              )}
+              ))}
             </tbody>
           </table>
         </div>
