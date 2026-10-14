@@ -10,23 +10,24 @@
 
 /* Full Dashboard Overlay — Light Luxury Theme Matching Destination Domain */
 #zenve-dragon-loader {
-  --zdl-primary: #10b981;
-  --zdl-secondary: #059669;
-  --zdl-accent: #34d399;
-  --zdl-light: #a7f3d0;
-  --zdl-dark: #047857;
-  --zdl-glow: rgba(16, 185, 129, 0.22);
-  --zdl-glow-border: rgba(16, 185, 129, 0.38);
-  --zdl-core-border: rgba(16, 185, 129, 0.68);
-  --zdl-core-inner: #ecfdf5;
-  --zdl-bg-tint: rgba(240, 253, 250, 0.96);
-  --zdl-badge-bg: #d1fae5;
-  --zdl-badge-border: #a7f3d0;
-  --zdl-badge-color: #065f46;
-  --zdl-star-glow1: rgba(16, 185, 129, 0.95);
-  --zdl-star-glow2: rgba(52, 211, 153, 0.70);
-  --zdl-runner-grad: linear-gradient(90deg, transparent, #34d399, #10b981, #059669, transparent);
-  --zdl-title-grad: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #059669 70%, #10b981 100%);
+  --zdl-primary: #38bdf8;
+  --zdl-secondary: #38bdf8;
+  --zdl-accent: #7dd3fc;
+  --zdl-light: #bae6fd;
+  --zdl-dark: #0284c7;
+  --zdl-glow: rgba(56, 189, 248, 0.22);
+  --zdl-glow-border: rgba(56, 189, 248, 0.38);
+  --zdl-core-border: rgba(56, 189, 248, 0.68);
+  --zdl-core-inner: #f0f9ff;
+  --zdl-bg-tint: rgba(255, 255, 255, 0.96);
+  --zdl-badge-bg: rgba(56, 189, 248, 0.12);
+  --zdl-badge-border: rgba(56, 189, 248, 0.35);
+  --zdl-badge-color: #0284c7;
+  --zdl-star-color: #38bdf8;
+  --zdl-star-glow1: rgba(56, 189, 248, 0.95);
+  --zdl-star-glow2: rgba(56, 189, 248, 0.70);
+  --zdl-runner-grad: linear-gradient(90deg, transparent, #7dd3fc, #38bdf8, #0284c7, transparent);
+  --zdl-title-grad: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #0284c7 70%, #38bdf8 100%);
 
   position: fixed !important;
   top: 0 !important;
@@ -237,9 +238,9 @@
 /* Star Visual Styling */
 .zdl-star {
   display: block;
-  filter: drop-shadow(0 0 6px var(--zdl-star-glow1, rgba(16, 185, 129, 0.95))) drop-shadow(0 0 14px var(--zdl-star-glow2, rgba(52, 211, 153, 0.7)));
+  filter: drop-shadow(0 0 6px var(--zdl-star-glow1, rgba(56, 189, 248, 0.95))) drop-shadow(0 0 14px var(--zdl-star-glow2, rgba(56, 189, 248, 0.70)));
   animation: zdlStarTwinkle 2.4s ease-in-out infinite alternate;
-  transition: filter 0.3s ease;
+  transition: filter 0.25s ease;
 }
 
 .zdl-star-lg { width: 28px; height: 28px; }
@@ -257,17 +258,17 @@
 @keyframes zdlStarTwinkle {
   0% {
     transform: scale(0.85) rotate(0deg);
-    filter: drop-shadow(0 0 4px var(--zdl-star-glow1, rgba(16, 185, 129, 0.75))) drop-shadow(0 0 8px var(--zdl-star-glow2, rgba(52, 211, 153, 0.45)));
+    filter: drop-shadow(0 0 4px var(--zdl-star-glow1, rgba(56, 189, 248, 0.75))) drop-shadow(0 0 8px var(--zdl-star-glow2, rgba(56, 189, 248, 0.45)));
     opacity: 0.8;
   }
   50% {
     transform: scale(1.22) rotate(20deg);
-    filter: drop-shadow(0 0 10px var(--zdl-star-glow1, rgba(16, 185, 129, 1))) drop-shadow(0 0 22px var(--zdl-star-glow2, rgba(52, 211, 153, 0.9)));
+    filter: drop-shadow(0 0 10px var(--zdl-star-glow1, rgba(56, 189, 248, 1))) drop-shadow(0 0 22px var(--zdl-star-glow2, rgba(56, 189, 248, 0.9)));
     opacity: 1;
   }
   100% {
     transform: scale(0.92) rotate(0deg);
-    filter: drop-shadow(0 0 5px var(--zdl-star-glow1, rgba(16, 185, 129, 0.8))) drop-shadow(0 0 10px var(--zdl-star-glow2, rgba(52, 211, 153, 0.55)));
+    filter: drop-shadow(0 0 5px var(--zdl-star-glow1, rgba(56, 189, 248, 0.8))) drop-shadow(0 0 10px var(--zdl-star-glow2, rgba(56, 189, 248, 0.55)));
     opacity: 0.85;
   }
 }
@@ -276,11 +277,11 @@
 .zdl-stardust {
   position: absolute;
   border-radius: 50%;
-  background: var(--zdl-accent, #34d399);
-  box-shadow: 0 0 6px var(--zdl-primary, #10b981), 0 0 12px var(--zdl-star-glow2, rgba(52, 211, 153, 0.7));
+  background: var(--zdl-accent, #7dd3fc);
+  box-shadow: 0 0 6px var(--zdl-primary, #38bdf8), 0 0 12px var(--zdl-star-glow2, rgba(56, 189, 248, 0.7));
   pointer-events: none;
   animation: zdlStardustFloat 2.6s ease-in-out infinite alternate;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .zdl-dust-1 { width: 4px; height: 4px; top: 18%; left: 24%; animation-delay: 0.2s; }
@@ -388,3 +389,85 @@
   0% { left: -50%; }
   100% { left: 110%; }
 }
+
+/* =====================================================================
+   Authoritative Sidebar Domain Font Colors
+   Each domain title matches its exact design token and loading-star color
+   ===================================================================== */
+.sidebar-scope nav button[data-domain="Executive Dashboard"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Executive Dashboard"] .sidebar-icon-wrap { color: #38bdf8 !important; }
+
+.sidebar-scope nav button[data-domain="Revenue & Sales"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Revenue & Sales"] .sidebar-icon-wrap { color: #00f2fe !important; }
+
+.sidebar-scope nav button[data-domain="Orders & Operations"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Orders & Operations"] .sidebar-icon-wrap { color: #38bdf8 !important; }
+
+.sidebar-scope nav button[data-domain="Products & Inventory"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Products & Inventory"] .sidebar-icon-wrap { color: #a855f7 !important; }
+
+.sidebar-scope nav button[data-domain="Pharmacy"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Pharmacy"] .sidebar-icon-wrap { color: #f97316 !important; }
+
+.sidebar-scope nav button[data-domain="Veterinary Services"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Veterinary Services"] .sidebar-icon-wrap { color: #ec4899 !important; }
+
+.sidebar-scope nav button[data-domain="Doctors"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Doctors"] .sidebar-icon-wrap { color: #06b6d4 !important; }
+
+.sidebar-scope nav button[data-domain="Clinics & Hospitals"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Clinics & Hospitals"] .sidebar-icon-wrap { color: #8b5cf6 !important; }
+
+.sidebar-scope nav button[data-domain="Customers 360°"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Customers 360°"] .sidebar-icon-wrap { color: #10b981 !important; }
+
+.sidebar-scope nav button[data-domain="Pets 360°"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Pets 360°"] .sidebar-icon-wrap { color: #f59e0b !important; }
+
+.sidebar-scope nav button[data-domain="Employees & HR"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Employees & HR"] .sidebar-icon-wrap { color: #6366f1 !important; }
+
+.sidebar-scope nav button[data-domain="Finance & Accounting"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Finance & Accounting"] .sidebar-icon-wrap { color: #eab308 !important; }
+
+.sidebar-scope nav button[data-domain="Marketing"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Marketing"] .sidebar-icon-wrap { color: #f43f5e !important; }
+
+.sidebar-scope nav button[data-domain="Vendors & Procurement"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Vendors & Procurement"] .sidebar-icon-wrap { color: #14b8a6 !important; }
+
+.sidebar-scope nav button[data-domain="Logistics & Delivery"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Logistics & Delivery"] .sidebar-icon-wrap { color: #3b82f6 !important; }
+
+.sidebar-scope nav button[data-domain="Zenve Fashion"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Zenve Fashion"] .sidebar-icon-wrap { color: #d946ef !important; }
+
+.sidebar-scope nav button[data-domain="B2B / Enterprise"] .sidebar-label,
+.sidebar-scope nav button[data-domain="B2B & Enterprise"] .sidebar-label,
+.sidebar-scope nav button[data-domain="B2B / Enterprise"] .sidebar-icon-wrap,
+.sidebar-scope nav button[data-domain="B2B & Enterprise"] .sidebar-icon-wrap { color: #2563eb !important; }
+
+.sidebar-scope nav button[data-domain="Import & Export"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Import & Export"] .sidebar-icon-wrap { color: #0284c7 !important; }
+
+.sidebar-scope nav button[data-domain="Subscriptions"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Subscriptions"] .sidebar-icon-wrap { color: #8b5cf6 !important; }
+
+.sidebar-scope nav button[data-domain="Reports & Analytics"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Reports & Analytics"] .sidebar-icon-wrap { color: #38bdf8 !important; }
+
+.sidebar-scope nav button[data-domain="AI Assistant"] .sidebar-label,
+.sidebar-scope nav button[data-domain="AI Assistant"] .sidebar-icon-wrap { color: #a855f7 !important; }
+
+.sidebar-scope nav button[data-domain="Alerts & Notifications"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Alerts & Notifications"] .sidebar-icon-wrap { color: #ef4444 !important; }
+
+.sidebar-scope nav button[data-domain="Audit & Compliance"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Audit & Compliance"] .sidebar-icon-wrap { color: #64748b !important; }
+
+.sidebar-scope nav button[data-domain="System Health"] .sidebar-label,
+.sidebar-scope nav button[data-domain="System Health"] .sidebar-icon-wrap { color: #10b981 !important; }
+
+.sidebar-scope nav button[data-domain="Settings"] .sidebar-label,
+.sidebar-scope nav button[data-domain="Settings"] .sidebar-icon-wrap { color: #94a3b8 !important; }
+

@@ -153,7 +153,7 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#eab308',
       bg: 'rgba(234, 179, 8, 0.15)',
-      items: ['Finance Dashboard', 'Profit & Loss', 'Balance Sheet', 'Cash Flow', 'Receivables', 'Payables']
+      items: ['Finance Dashboard', 'Profit & Loss', 'Balance Sheet', 'Cash Flow', 'Revenue', 'Expenses', 'COGS', 'Gross Profit', 'EBITDA', 'Net Profit', 'Accounts Receivable', 'Accounts Payable', 'Invoices', 'Payments', 'Refunds', 'Taxes', 'Financial Forecast', 'Cost Analysis']
     },
     {
       title: 'Marketing',
@@ -164,7 +164,18 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#f43f5e',
       bg: 'rgba(244, 63, 94, 0.15)',
-      items: ['Marketing Dashboard', 'Campaigns', 'Leads', 'Lead Sources', 'Website Analytics', 'CAC', 'ROAS']
+      items: ['Marketing Dashboard', 'Campaigns', 'Leads', 'Lead Sources', 'Website Analytics', 'App Analytics', 'Social Media', 'Advertising', 'Marketing Spend', 'Customer Acquisition', 'CAC', 'ROAS', 'Marketing ROI', 'Conversion Funnel']
+    },
+    {
+      title: 'Vendors & Procurement',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+      ),
+      color: '#14b8a6',
+      bg: 'rgba(20, 184, 166, 0.15)',
+      items: ['Vendor Dashboard', 'All Vendors', 'Vendor Performance', 'Vendor Payments', 'Purchase Orders', 'Procurement', 'Purchase History', 'Supplier Pricing', 'Supplier Performance', 'Procurement Savings']
     },
     {
       title: 'Logistics & Delivery',
@@ -177,7 +188,40 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#3b82f6',
       bg: 'rgba(59, 130, 246, 0.15)',
-      items: ['Logistics Dashboard', 'Delivery Orders', 'Delivery Partners', 'Delivery Tracking', '60-Minute Delivery']
+      items: ['Logistics Dashboard', 'Delivery Orders', 'Delivery Partners', 'Delivery Tracking', '60-Minute Delivery', 'Delivery SLA', 'Delivery Cost', 'Failed Deliveries', 'Delivery Performance']
+    },
+    {
+      title: 'Zenve Fashion',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
+        </svg>
+      ),
+      color: '#d946ef',
+      bg: 'rgba(217, 70, 239, 0.15)',
+      items: ['Fashion Dashboard', 'Fashion Products', 'Fashion Orders', 'Fashion Customers', 'Fashion Inventory', 'Fashion Showrooms', 'Online Fashion Sales', 'Fashion Revenue', 'Fashion Profitability']
+    },
+    {
+      title: 'B2B & Enterprise',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="20" height="14" x="2" y="7" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        </svg>
+      ),
+      color: '#2563eb',
+      bg: 'rgba(37, 99, 235, 0.15)',
+      items: ['B2B Dashboard', 'Enterprise Customers', 'Corporate Accounts', 'B2B Orders', 'B2B Sales', 'B2B Revenue', 'Contracts', 'Enterprise Pricing', 'B2B Receivables']
+    },
+    {
+      title: 'Import & Export',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m7.5 4.27 9 5.15" /><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+        </svg>
+      ),
+      color: '#0284c7',
+      bg: 'rgba(2, 132, 199, 0.15)',
+      items: ['Import Dashboard', 'Export Dashboard', 'Import Orders', 'Export Orders', 'Suppliers', 'Buyers', 'Customs & Documentation', 'Logistics', 'Import/Export Profitability']
     },
     {
       title: 'Subscriptions',
@@ -189,7 +233,7 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#8b5cf6',
       bg: 'rgba(139, 92, 246, 0.15)',
-      items: ['Subscription Dashboard', 'Active Subscriptions', 'New Subscriptions', 'Renewals', 'Churn']
+      items: ['Subscription Dashboard', 'Active Subscriptions', 'New Subscriptions', 'Renewals', 'Expiring Subscriptions', 'Churn', 'Subscription Revenue', 'Subscription Analytics']
     },
     {
       title: 'Reports & Analytics',
@@ -200,7 +244,7 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#38bdf8',
       bg: 'rgba(56, 189, 248, 0.15)',
-      items: ['Sales Reports', 'Revenue Reports', 'Export Center', 'Scheduled Reports']
+      items: ['Sales Reports', 'Revenue Reports', 'Customer Reports', 'Pet Reports', 'Doctor Reports', 'Clinic Reports', 'Product Reports', 'Inventory Reports', 'Finance Reports', 'HR Reports', 'Marketing Reports', 'Operations Reports', 'Vendor Reports', 'Custom Reports', 'Scheduled Reports', 'Export Center']
     },
     {
       title: 'AI Assistant',
@@ -212,7 +256,7 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#a855f7',
       bg: 'rgba(168, 85, 247, 0.15)',
-      items: ['Ask Zenve AI', 'Business Insights', 'Revenue Intelligence', 'Sales Forecast', 'Anomaly Detection']
+      items: ['Ask Zenve AI', 'Business Insights', 'Revenue Intelligence', 'Sales Forecast', 'Demand Forecast', 'Inventory Prediction', 'Customer Prediction', 'Churn Prediction', 'Profit Prediction', 'Anomaly Detection', 'AI Recommendations']
     },
     {
       title: 'Alerts & Notifications',
@@ -223,7 +267,29 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#ef4444',
       bg: 'rgba(239, 68, 68, 0.15)',
-      items: ['Critical Alerts', 'Revenue Alerts', 'Inventory Alerts', 'System Alerts', 'Alert Rules']
+      items: ['Critical Alerts', 'Revenue Alerts', 'Inventory Alerts', 'Payment Alerts', 'Order Alerts', 'Delivery Alerts', 'Finance Alerts', 'HR Alerts', 'System Alerts', 'Alert Rules', 'Notification Center']
+    },
+    {
+      title: 'Audit & Compliance',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+        </svg>
+      ),
+      color: '#64748b',
+      bg: 'rgba(100, 116, 139, 0.15)',
+      items: ['Audit Log', 'User Activity', 'Login History', 'Data Changes', 'Financial Audit Trail', 'Order Audit Trail', 'Inventory Audit Trail', 'Approval History', 'Compliance Dashboard']
+    },
+    {
+      title: 'System Health',
+      icon: (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" />
+        </svg>
+      ),
+      color: '#10b981',
+      bg: 'rgba(16, 185, 129, 0.15)',
+      items: ['Application Health', 'API Health', 'Database Health', 'Payment Gateway', 'CRM Status', 'Inventory System', 'Accounting System', 'Marketing Integrations', 'Notification Services', 'Integration Logs']
     },
     {
       title: 'Settings',
@@ -235,7 +301,7 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#94a3b8',
       bg: 'rgba(148, 163, 184, 0.15)',
-      items: ['Company Settings', 'Locations', 'Users', 'Roles & Permissions', 'API & Integrations']
+      items: ['Company Settings', 'Business Units', 'Locations', 'Users', 'Roles & Permissions', 'Approval Workflows', 'Notification Settings', 'Dashboard Settings', 'Tax Settings', 'Payment Settings', 'Delivery Settings', 'API & Integrations', 'Security', 'Backup & Recovery']
     }
   ];
 
@@ -459,7 +525,9 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     whiteSpace: 'nowrap',
-                    fontSize: '11.5px'
+                    fontSize: '11.5px',
+                    color: sec.color,
+                    fontWeight: 700
                   }}
                 >
                   {sec.title}
