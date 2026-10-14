@@ -398,7 +398,11 @@ export default function AskZenveAI() {
     'Which clinic generated the highest EBITDA this month?',
     'Why did sales drop in Delhi NCR and what is the remedy?',
     'Simulate +15% logistics cost variance and propose mitigation',
-    'How is our 60 minute delivery performing and reallocate float riders?'
+    'How is our 60 minute delivery performing and reallocate float riders?',
+    'Audit top 10 revenue leakage vectors and apply safeguards',
+    'Forecast 30-day demand surge for tick and flea medications',
+    'List top 10 pet parents at high churn risk and win-back plans',
+    'Simulate Q4 EBITDA under aggressive pricing scenario'
   ];
 
   return (

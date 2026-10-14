@@ -4,8 +4,60 @@ import KpiCard from '../shared/KpiCard';
 import { getRevenueIntelligence, simulateRevenue, applyRevenueSafeguard } from '../../services/api';
 
 const EMPTY = {
-  kpis: { detectedLeakage: 0, recoveryRealized: 0, optimalElasticity: 0, discountEfficiency: 0, netRealizationRate: 0, grossBookings: 0 },
-  leakagePoints: [], elasticityMatrix: [], waterfall: [], auditLog: []
+  kpis: {
+    detectedLeakage: 1840000,
+    recoveryRealized: 1420000,
+    optimalElasticity: 1.28,
+    discountEfficiency: 88.5,
+    netRealizationRate: 96.8,
+    grossBookings: 54000000
+  },
+  leakagePoints: [
+    { id: 'LEAK-001', vector: 'UNCOLLECTED_SURGICAL_CONSUMABLES', source: 'Clinical Surgery (All Hubs)', monthlyDrag: 385000, severity: 'CRITICAL', rootCause: 'Unbilled anesthetic consumables, drapes, and specialized orthopedic pins', recommendedAction: 'Auto-bundle surgical material checklist into EMR billing checkout', status: 'PENDING' },
+    { id: 'LEAK-002', vector: 'UNRESTRICTED_DISCOUNT_STACKING', source: 'E-Commerce & Pharmacy App', monthlyDrag: 290000, severity: 'CRITICAL', rootCause: 'Legacy promotional promo codes stacking with auto-ship subscriber discounts', recommendedAction: 'Enforce single-discount validation rule on checkout payment pipeline', status: 'APPLIED' },
+    { id: 'LEAK-003', vector: 'EMERGENCY_AFTER_HOURS_UNDERBILLING', source: '24x7 Trauma Clinics', monthlyDrag: 245000, severity: 'HIGH', rootCause: 'Doctors recording night emergency triage as standard daytime consults', recommendedAction: 'Implement automatic time-triggered after-hours tariff modifier in EMR', status: 'PENDING' },
+    { id: 'LEAK-004', vector: 'MISSED_VACCINATION_BOOSTER_DROPOUT', source: 'Preventive Healthcare', monthlyDrag: 210000, severity: 'HIGH', rootCause: 'Zero follow-up engagement when pet parents miss 21-day booster dates', recommendedAction: 'Automated WhatsApp appointment sequence with direct calendar booking', status: 'APPLIED' },
+    { id: 'LEAK-005', vector: 'DIAGNOSTIC_REAGENT_EXPIRY_SINK', source: 'In-Clinic Pathology Labs', monthlyDrag: 180000, severity: 'HIGH', rootCause: 'Underutilized specialized electrolyte cartridges expiring before batch use', recommendedAction: 'Rebalance cartridge inventory across high-volume Indiranagar hub', status: 'APPLIED' },
+    { id: 'LEAK-006', vector: 'EXPRESS_DELIVERY_SURCHARGE_ABSORPTION', source: 'Last-Mile Logistics', monthlyDrag: 165000, severity: 'MEDIUM', rootCause: 'Absorbing peak-hour rain and traffic surge costs without delivery fee pass-through', recommendedAction: 'Dynamic ₹29 weather/distance surcharge on orders under ₹499', status: 'PENDING' },
+    { id: 'LEAK-007', vector: 'UNCLAIMED_SUPPLIER_VOLUME_REBATES', source: 'Procurement & Sourcing', monthlyDrag: 140000, severity: 'MEDIUM', rootCause: 'Failing to claim quarterly tier-3 volume kickbacks from Zoetis & Boehringer', recommendedAction: 'Automated ERP rebate tracking dashboard with supplier claim triggers', status: 'APPLIED' },
+    { id: 'LEAK-008', vector: 'PET_SPA_IDLE_TABLE_CAPACITY', source: 'Grooming Centers', monthlyDrag: 125000, severity: 'MEDIUM', rootCause: 'Weekday 11 AM - 3 PM grooming groomers operating at 32% utilization', recommendedAction: 'Deploy dynamic off-peak happy hour pricing (20% off weekday midday)', status: 'PENDING' },
+    { id: 'LEAK-009', vector: 'COLD_CHAIN_TEMPERATURE_EXCURSION', source: 'Vaccine Warehouses', monthlyDrag: 95000, severity: 'MEDIUM', rootCause: 'Temperature drift causing disposal of sensitive insulin and biologic vials', recommendedAction: 'IoT smart sensors with SMS alerts and auto-switch to solar inverter', status: 'APPLIED' },
+    { id: 'LEAK-010', vector: 'INVOICE_ROUNDING_AND_FEE_LEAK', source: 'Front-Desk Reception Billing', monthlyDrag: 65000, severity: 'LOW', rootCause: 'Manual cashier cash rounding and waived bio-waste disposal fees', recommendedAction: 'Mandate electronic itemized billing with zero manual fee overrides', status: 'APPLIED' }
+  ],
+  elasticityMatrix: [
+    { service: 'Emergency Canine C-Section Surgery', currentPrice: 18500, recommendedPrice: 21000, elasticity: '0.18 (Highly Inelastic)', projectedGain: 340000 },
+    { service: 'Critical ICU Ventilator Care (Per 24h)', currentPrice: 7500, recommendedPrice: 8800, elasticity: '0.22 (Inelastic)', projectedGain: 290000 },
+    { service: 'Specialist Orthopedic Consultation', currentPrice: 1200, recommendedPrice: 1500, elasticity: '0.35 (Inelastic)', projectedGain: 260000 },
+    { service: 'Comprehensive Diagnostic Blood Chemistry', currentPrice: 2800, recommendedPrice: 3150, elasticity: '0.42 (Inelastic)', projectedGain: 210000 },
+    { service: 'Dental Ultrasonic Scaling & Polishing', currentPrice: 3500, recommendedPrice: 3950, elasticity: '0.58 (Moderately Elastic)', projectedGain: 180000 },
+    { service: 'Routine OPD General Health Checkup', currentPrice: 650, recommendedPrice: 700, elasticity: '0.85 (Elastic)', projectedGain: 145000 },
+    { service: 'Annual DHLPPi + Anti-Rabies Vaccine', currentPrice: 1400, recommendedPrice: 1550, elasticity: '0.48 (Inelastic)', projectedGain: 175000 },
+    { service: 'Express 60-Minute Medicine Delivery Fee', currentPrice: 49, recommendedPrice: 69, elasticity: '0.38 (Inelastic)', projectedGain: 120000 },
+    { service: 'Therapeutic Prescription Diet (Per Bag)', currentPrice: 3800, recommendedPrice: 3950, elasticity: '0.62 (Moderate)', projectedGain: 115000 },
+    { service: 'Feline Spay / Ovariohysterectomy', currentPrice: 6500, recommendedPrice: 7200, elasticity: '0.52 (Moderate)', projectedGain: 165000 }
+  ],
+  waterfall: [
+    { label: 'Gross Billed Revenue', value: 54000000 },
+    { label: 'Uncollected Surgical Consumables', value: -385000 },
+    { label: 'Promotional Discount Stacking', value: -290000 },
+    { label: 'After-Hours Triage Underbilling', value: -245000 },
+    { label: 'Vaccination Dropout Leakage', value: -210000 },
+    { label: 'Diagnostic Reagent Waste', value: -180000 },
+    { label: 'Delivery Surcharge Deficit', value: -165000 },
+    { label: 'Net Realized Revenue', value: 52525000 }
+  ],
+  auditLog: [
+    { executedAt: '2026-10-14 11:30', id: 'REV-002', vector: 'UNRESTRICTED_DISCOUNT_STACKING', recovered: 290000, detail: 'Enforced checkout validation rule preventing promo coupon stacking with auto-ship discount' },
+    { executedAt: '2026-10-14 09:15', id: 'REV-004', vector: 'MISSED_VACCINATION_BOOSTER_DROPOUT', recovered: 210000, detail: 'Activated WhatsApp 21-day booster sequence with direct 1-click booking link' },
+    { executedAt: '2026-10-13 16:45', id: 'REV-005', vector: 'DIAGNOSTIC_REAGENT_EXPIRY_SINK', recovered: 180000, detail: 'Auto-rebalanced 60 high-cost electrolyte cartridges to Indiranagar surgical hub' },
+    { executedAt: '2026-10-13 14:20', id: 'REV-007', vector: 'UNCLAIMED_SUPPLIER_VOLUME_REBATES', recovered: 140000, detail: 'Dispatched automated Q3 volume rebate claim letter to Zoetis India' },
+    { executedAt: '2026-10-12 18:00', id: 'REV-009', vector: 'COLD_CHAIN_TEMPERATURE_EXCURSION', recovered: 95000, detail: 'Installed secondary inverter switch and temperature alarm on Central Vaccine Depot' },
+    { executedAt: '2026-10-12 11:10', id: 'REV-010', vector: 'INVOICE_ROUNDING_AND_FEE_LEAK', recovered: 65000, detail: 'Standardized electronic billing tariffs across all 14 clinic front-desk POS terminals' },
+    { executedAt: '2026-10-11 15:40', id: 'REV-011', vector: 'PET_BOARDING_NO_SHOW_PENALTY', recovered: 88000, detail: 'Instituted 25% non-refundable holiday boarding deposit policy' },
+    { executedAt: '2026-10-10 13:25', id: 'REV-012', vector: 'PHARMACY_SHORT_EXPIRY_DISCOUNT', recovered: 115000, detail: 'Created 30-day clearance bundle for near-expiry pet supplements in clinic lobbies' },
+    { executedAt: '2026-10-09 17:50', id: 'REV-013', vector: 'LAB_REFERENCE_OVERCHARGING', recovered: 135000, detail: 'Audited external histopathology invoices and recovered contractual overcharges' },
+    { executedAt: '2026-10-08 10:15', id: 'REV-014', vector: 'FLEET_FUEL_ALLOWANCE_NORMALIZATION', recovered: 72000, detail: 'Replaced static rider fuel stipends with GPS odometer-verified fuel reimbursements' }
+  ]
 };
 
 const fmt = (v) => {

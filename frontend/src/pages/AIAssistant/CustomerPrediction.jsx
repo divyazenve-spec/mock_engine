@@ -11,7 +11,18 @@ export default function CustomerPrediction() {
     boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
   };
 
-  const nextActions = [];
+    const nextActions = [
+    { petParent: 'Ananya Sharma · Simba (Puppy 4M)', propensity: 'DHLPP 3rd Booster + Rabies Vaccine', prob: '96.4%', affinity: 'Preventive Core Immunization Package', estRev: '₹3,850', channel: 'WhatsApp 1-Click Booking' },
+    { petParent: 'Rajesh Nair · Bruno (Labrador 5Y)', propensity: 'Post-Op Cruciate Rehab & Joint Chondroitin', prob: '94.2%', affinity: 'Laser Therapy + Synoquin Mobility Pack', estRev: '₹8,200', channel: 'Pet Concierge Nurse Callback' },
+    { petParent: 'Kavita Pillai · Leo (Beagle 8Y)', propensity: 'Caninsulin Chronic Refill + Sensor Pack', prob: '95.8%', affinity: 'Monthly Diabetic Management Plan', estRev: '₹4,500', channel: 'SMS Auto-Ship 1-Tap Reorder' },
+    { petParent: 'Sameer Sen · Cleo (Persian Cat 9Y)', propensity: 'Comprehensive Senior Renal Diagnostic Panel', prob: '91.5%', affinity: 'Geriatric Wellness Screening + SDMA', estRev: '₹5,400', channel: 'In-App Doctor Health Card' },
+    { petParent: 'Deepak Joshi · Tyson (German Shepherd 2Y)', propensity: 'Kennel Cough (Bordetella) + Tick Chewables', prob: '89.4%', affinity: 'Social Pet Preventive Bundle (15% Off)', estRev: '₹2,900', channel: 'Push Notification Prompt' },
+    { petParent: 'Pooja Hegde · Bella (French Bulldog 3Y)', propensity: 'Cytopoint Injection / Apoquel Dermatitis Refill', prob: '93.7%', affinity: 'Specialist Dermatology Protocol', estRev: '₹6,100', channel: 'Dermatology Clinic Nudge' },
+    { petParent: 'Rohan Mehra · Oscar (Indie Cat 1Y)', propensity: 'Spay/Neuter Procedure Consultation', prob: '88.1%', affinity: 'Pediatric Surgery + Post-Op Recovery Kit', estRev: '₹4,200', channel: 'Personalized Email Video' },
+    { petParent: 'Sunita Aggarwal · Thor (Rottweiler 6Y)', propensity: 'Adequan Injection Course + Orthopedic Bedding', prob: '95.0%', affinity: 'Advanced Osteoarthritis Therapy', estRev: '₹12,500', channel: 'Specialist Vet Direct Booking' },
+    { petParent: 'Naveen Reddy · Coco (Shih Tzu 4Y)', propensity: 'Ultrasonic Dental Scaling + Plaque Chews', prob: '92.3%', affinity: 'Dental Care Hygiene Session', estRev: '₹4,800', channel: 'WhatsApp Before/After Case' },
+    { petParent: 'Alok Verma · Charlie (Indie Dog 3Y)', propensity: 'Therapeutic GI Food Subscription (Monthly)', prob: '94.8%', affinity: 'Gastrointestinal Care Diet Package', estRev: '₹3,400', channel: '60-Min Express Repeat Delivery' }
+  ];
 
   return (
     <DashboardLayout

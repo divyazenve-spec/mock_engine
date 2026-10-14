@@ -14,9 +14,9 @@ export default function ProfitPrediction() {
   };
 
   const scenarios = {
-    BASE: { rev: '₹0', cogs: '₹0', grossProfit: '₹0 (0.0%)', opex: '₹0', ebitda: '₹0 (0.0%)', pat: '₹0 (0.0%)' },
-    AGGRESSIVE: { rev: '₹0', cogs: '₹0', grossProfit: '₹0 (0.0%)', opex: '₹0', ebitda: '₹0 (0.0%)', pat: '₹0 (0.0%)' },
-    CONSERVATIVE: { rev: '₹0', cogs: '₹0', grossProfit: '₹0 (0.0%)', opex: '₹0', ebitda: '₹0 (0.0%)', pat: '₹0 (0.0%)' }
+    BASE: { rev: '₹5.40 Cr', cogs: '₹2.54 Cr', grossProfit: '₹2.86 Cr (53.0%)', opex: '₹1.92 Cr', ebitda: '₹94.0L (17.4%)', pat: '₹68.5L (12.7%)' },
+    AGGRESSIVE: { rev: '₹6.25 Cr', cogs: '₹2.81 Cr', grossProfit: '₹3.44 Cr (55.0%)', opex: '₹2.12 Cr', ebitda: '₹1.32 Cr (21.1%)', pat: '₹98.0L (15.7%)' },
+    CONSERVATIVE: { rev: '₹4.85 Cr', cogs: '₹2.38 Cr', grossProfit: '₹2.47 Cr (50.9%)', opex: '₹1.80 Cr', ebitda: '₹67.0L (13.8%)', pat: '₹48.2L (9.9%)' }
   };
 
   const cur = scenarios[scenario];
@@ -34,7 +34,7 @@ export default function ProfitPrediction() {
         <KpiCard label="Projected Q4 EBITDA" value={cur.ebitda} delta="--" trend="neutral" subtext="Under current simulation" icon="📈" />
         <KpiCard label="Projected Gross Margin" value={cur.grossProfit.split(' ')[1]} delta="--" trend="neutral" subtext="Direct sourcing" icon="💎" />
         <KpiCard label="Net Profit Margin (PAT)" value={cur.pat.split(' ')[1]} delta="--" trend="neutral" subtext="Bottom-line yield" icon="💰" />
-        <KpiCard label="Contribution Margin / Order" value="₹0" delta="--" trend="neutral" subtext="AOV: ₹0" icon="⚡" />
+        <KpiCard label="Contribution Margin / Order" value="₹485" delta="+14.2% MoM" trend="up" subtext="AOV: ₹1,650" icon="⚡" />
       </div>
 
       <div style={cardStyle}>

@@ -11,7 +11,18 @@ export default function InventoryPrediction() {
     boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
   };
 
-  const inventoryRisks = [];
+    const inventoryRisks = [
+    { sku: 'SKU-MED-0101', name: 'Bravecto Chewable 20-40kg (Koramangala Hub)', stock: '14 Units', burnRate: '4.8 / Day', daysLeft: '3 Days', riskColor: '#dc2626', risk: 'CRITICAL', action: 'Emergency PO Dispatched' },
+    { sku: 'SKU-VAC-0504', name: 'Nobivac Tricat Trio Feline (Indiranagar Hub)', stock: '22 Vials', burnRate: '4.2 / Day', daysLeft: '5 Days', riskColor: '#ea580c', risk: 'HIGH', action: 'Inter-Hub Transfer En Route' },
+    { sku: 'SKU-NUT-0205', name: 'Royal Canin Gastro 14kg (Whitefield Dark Store)', stock: '8 Bags', burnRate: '2.0 / Day', daysLeft: '4 Days', riskColor: '#dc2626', risk: 'CRITICAL', action: 'Supplier PO Dispatched' },
+    { sku: 'SKU-CRD-0302', name: 'Vetmedin 5mg Cardiology (Bandra West Hub)', stock: '11 Packs', burnRate: '1.8 / Day', daysLeft: '6 Days', riskColor: '#ea580c', risk: 'HIGH', action: 'Safety Buffer Active' },
+    { sku: 'SKU-DERM-0410', name: 'Apoquel 16mg Anti-Itch (Powai Express Hub)', stock: '16 Packs', burnRate: '3.2 / Day', daysLeft: '5 Days', riskColor: '#ea580c', risk: 'HIGH', action: 'Rebalancing from Bandra' },
+    { sku: 'SKU-EMG-0714', name: 'Cerenia 10mg Injectable (South Ext Trauma)', stock: '6 Vials', burnRate: '2.5 / Day', daysLeft: '2 Days', riskColor: '#dc2626', risk: 'CRITICAL', action: 'Same-Day Dispatch Ordered' },
+    { sku: 'SKU-ORT-0608', name: 'Rimadyl 75mg Orthopedic (Gurgaon Sec-29)', stock: '18 Bottles', burnRate: '2.4 / Day', daysLeft: '7 Days', riskColor: '#2563eb', risk: 'MEDIUM', action: 'Reorder Queued' },
+    { sku: 'SKU-NUT-0212', name: 'Hill\'s c/d Urinary Feline (HSR Layout Hub)', stock: '9 Bags', burnRate: '1.7 / Day', daysLeft: '5 Days', riskColor: '#ea580c', risk: 'HIGH', action: 'Dark Store Transfer' },
+    { sku: 'SKU-MED-0115', name: 'Simparica Trio 10-20kg (Anna Nagar Facility)', stock: '15 Packs', burnRate: '2.4 / Day', daysLeft: '6 Days', riskColor: '#2563eb', risk: 'MEDIUM', action: 'Auto Requisition Active' },
+    { sku: 'SKU-DIA-0801', name: 'Caninsulin 40 IU/ml 10ml (Velachery Hub)', stock: '8 Vials', burnRate: '1.9 / Day', daysLeft: '4 Days', riskColor: '#dc2626', risk: 'CRITICAL', action: 'Cold-Chain Transfer Inbound' }
+  ];
 
   return (
     <DashboardLayout

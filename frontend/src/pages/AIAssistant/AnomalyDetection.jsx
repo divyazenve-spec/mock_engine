@@ -11,7 +11,18 @@ export default function AnomalyDetection() {
     boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
   };
 
-  const anomalies = [];
+    const anomalies = [
+    { id: 'ALRT-901', metric: 'Bravecto Pharmacy Margin Floor', type: '-4.2σ Negative Margin Spike', rootCause: 'Unrestricted promo coupon PETFEST50 stacking below MSRP', sev: 'CRITICAL', status: 'Safeguard Enforced', action: 'Price Floor Locked' },
+    { id: 'ALRT-902', metric: 'Vaccine Chiller B Temperature (Indiranagar)', type: '+3.6σ Heat Drift (9.4°C)', rootCause: 'Condenser compressor electrical circuit trip during storm', sev: 'CRITICAL', status: 'Remediated', action: 'Backup Unit Active' },
+    { id: 'ALRT-903', metric: 'Express 60-Min Rider SLA (Whitefield)', type: '+3.2σ Delivery Latency (68m)', rootCause: 'Waterlogging on Outer Ring Road causing route diversion', sev: 'HIGH', status: 'Rerouted', action: 'Float Riders Deployed' },
+    { id: 'ALRT-904', metric: 'HDFC UPI Payment Gateway Failover', type: '+3.8σ Failure Spike (8.4%)', rootCause: 'Bank webhook timeout on UPI 2.0 collect requests', sev: 'HIGH', status: 'Switched', action: 'Razorpay Primary Active' },
+    { id: 'ALRT-905', metric: 'Bandra ICU Surgery Overbooking', type: '+2.8σ Ortho Slot Conflict', rootCause: 'Simultaneous emergency cruciate rupture and elective surgery booking', sev: 'HIGH', status: 'Rescheduled', action: 'Slot 4 Assigned' },
+    { id: 'ALRT-906', metric: 'Rimadyl 75mg Inventory Count (HSR)', type: '+3.1σ Stockout Discrepancy', rootCause: '14 units dispensed for post-op ward without barcode scan', sev: 'MEDIUM', status: 'Reconciled', action: 'Audit Log Updated' },
+    { id: 'ALRT-907', metric: 'Blood Chemistry Turnaround Time (South Ext)', type: '+2.9σ Diagnostic Delay (95m)', rootCause: 'Reagent cartridge calibration cycle initiated during peak OPD', sev: 'MEDIUM', status: 'Calibrated', action: 'Normal Flow Resumed' },
+    { id: 'ALRT-908', metric: 'Grooming Promotional Coupon Drainage', type: '+4.4σ Outlier Volume', rootCause: 'Expired influencer discount code leaked on social forum', sev: 'CRITICAL', status: 'Deactivated', action: 'Promo Code Revoked' },
+    { id: 'ALRT-909', metric: 'Client CSAT Wait-Time Rating Drop', type: '+3.4σ Negative Sentiment', rootCause: 'Doctor emergency surgery delay impacted 3 afternoon consults', sev: 'HIGH', status: 'Followed Up', action: 'Client Recovery Credit' },
+    { id: 'ALRT-910', metric: 'Reports Database Replication Lag', type: '+2.7σ Replica Delay (480ms)', rootCause: 'Heavy analytical batch report execution on secondary read node', sev: 'MEDIUM', status: 'Auto-Scaled', action: 'Query Cache Cleared' }
+  ];
 
   return (
     <DashboardLayout

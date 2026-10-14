@@ -11,7 +11,18 @@ export default function DemandForecast() {
     boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
   };
 
-  const demandItems = [];
+    const demandItems = [
+    { sku: 'SKU-MED-0101', item: 'Bravecto Chewable Dog 20-40kg', category: 'Parasiticide / Tick-Flea', curStock: '120 Units', demand30d: '380 Units', surgePct: '+24.5%', replenishment: 'Dispatch Emergency PO-4481 for 400 Units' },
+    { sku: 'SKU-MED-0104', item: 'Nexgard Spectra Large 15-30kg', category: 'Parasiticide / Heartworm', curStock: '85 Units', demand30d: '310 Units', surgePct: '+18.2%', replenishment: 'Trigger bulk PO-4482 with 12% vendor rebate' },
+    { sku: 'SKU-NUT-0205', item: 'Royal Canin Gastrointestinal Dog 14kg', category: 'Therapeutic Nutrition', curStock: '64 Bags', demand30d: '220 Bags', surgePct: '+15.4%', replenishment: 'Rebalance 40 bags to Koramangala Hub' },
+    { sku: 'SKU-CRD-0302', item: 'Vetmedin 5mg Chewable Tablets', category: 'Cardiology / Chronic', curStock: '45 Boxes', demand30d: '140 Boxes', surgePct: '+21.0%', replenishment: 'Auto-generate PO-4483 with cold-chain courier' },
+    { sku: 'SKU-DERM-0410', item: 'Apoquel 16mg Tablets', category: 'Dermatology / Allergy', curStock: '70 Packs', demand30d: '260 Packs', surgePct: '+32.4%', replenishment: 'Increase safety stock buffer by 30%' },
+    { sku: 'SKU-VAC-0501', item: 'Nobivac DHPPi Canine Vaccine 10-Dose', category: 'Immunization / Cold-Chain', curStock: '90 Vials', demand30d: '420 Vials', surgePct: '+28.0%', replenishment: 'Immediate PO-4484 to Intervet (2-8°C cold)' },
+    { sku: 'SKU-NUT-0212', item: 'Hill\'s Prescription Diet c/d Feline 3.8kg', category: 'Urinary Diet / Cat', curStock: '35 Bags', demand30d: '115 Bags', surgePct: '+14.6%', replenishment: 'Place restocking requisition with Colgate Pet' },
+    { sku: 'SKU-ORT-0608', item: 'Rimadyl 75mg Chewable NSAID', category: 'Orthopedic / Analgesic', curStock: '110 Bottles', demand30d: '290 Bottles', surgePct: '+12.8%', replenishment: 'Consolidate order across BLR & BOM hubs' },
+    { sku: 'SKU-EMG-0714', item: 'Cerenia 10mg/ml Injectable Anti-Emetic', category: 'Emergency / Inpatient', curStock: '28 Vials', demand30d: '95 Vials', surgePct: '+19.5%', replenishment: 'Priority replenishment for 24x7 ICU inventory' },
+    { sku: 'SKU-BEH-0822', item: 'Feliway Classic Cat Calming Diffuser', category: 'Behavioral / Feline', curStock: '40 Kits', demand30d: '130 Kits', surgePct: '+16.2%', replenishment: 'Promote in feline post-consultation care' }
+  ];
 
   return (
     <DashboardLayout

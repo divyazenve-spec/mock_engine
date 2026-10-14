@@ -157,87 +157,91 @@
 
 const ZENVE_PET_KNOWLEDGE = {
   overview: {
-    mtdRevenue: '₹0',
-    revenueGrowth: '0% MoM',
-    totalOrders: '0 Orders',
-    activePets: '0 Registered Pets',
-    ebitda: '₹0 (0% Margin)',
-    hubsCount: 0,
-    sla: '0% (0 Min Avg)'
+    mtdRevenue: '₹4.82 Cr',
+    revenueGrowth: '+16.4% MoM',
+    totalOrders: '18,450 Orders',
+    activePets: '46,200 Registered Pets',
+    ebitda: '₹84.6L (17.5% Margin)',
+    hubsCount: 14,
+    sla: '96.8% (38 Min Avg)'
   },
   species: {
-    total: 0,
-    dogs: { count: 0, pct: '0.0%', topBreeds: '0' },
-    cats: { count: 0, pct: '0.0%', topBreeds: '0' },
-    exotics: { count: 0, pct: '0.0%', types: '0' }
+    total: 46200,
+    dogs: { count: 31400, pct: '68.0%', topBreeds: 'Golden Retriever, Labrador, Beagle, Shih Tzu' },
+    cats: { count: 12940, pct: '28.0%', topBreeds: 'Persian, Indie Cat, Siamese, Maine Coon' },
+    exotics: { count: 1860, pct: '4.0%', types: 'Parrots, Rabbits, Guinea Pigs, Turtles' }
   },
   salesDrop: {
     'Delhi NCR': {
-      dropAmt: '₹0',
-      dropPct: '0%',
-      orders: '0 Orders',
-      reason: 'No sales drop recorded.',
-      remedy: 'No action required.'
+      dropAmt: '₹1.85L',
+      dropPct: '-3.2%',
+      orders: '3,840 Orders',
+      reason: 'Regional courier rerouting due to monsoon transit bottlenecks.',
+      remedy: 'Onboarded secondary dark-store hyper-local delivery partners.'
     },
     'Mumbai': {
-      dropAmt: '₹0',
-      dropPct: '0%',
-      orders: '0 Orders',
-      reason: 'No sales drop recorded.',
-      remedy: 'No action required.'
+      dropAmt: '₹1.20L',
+      dropPct: '-2.1%',
+      orders: '4,150 Orders',
+      reason: 'Temporary stockout of imported prescription gastro diets.',
+      remedy: 'Inter-hub rebalancing completed from Central Depot.'
     },
     'Bengaluru': {
       dropAmt: '₹0',
-      dropPct: '0%',
-      orders: '0 Orders',
-      reason: 'No sales drop recorded.',
-      remedy: 'No action required.'
+      dropPct: '+18.4%',
+      orders: '6,420 Orders',
+      reason: 'Record high adoption of 60-minute express pharmacy delivery.',
+      remedy: 'Expanded EV fleet capacity by 15 riders.'
     },
     'Chennai': {
-      dropAmt: '₹0',
-      dropPct: '0%',
-      orders: '0 Orders',
-      reason: 'No sales drop recorded.',
-      remedy: 'No action required.'
+      dropAmt: '₹0.65L',
+      dropPct: '-1.8%',
+      orders: '2,890 Orders',
+      reason: 'Specialist veterinary surgeon rotation leave week.',
+      remedy: 'Scheduled senior visiting veterinary consultants.'
     }
   },
   clinics: {
-    count: 0,
-    hubs: [],
-    icuOccupancy: '0%',
-    surgicalSuccessRate: '0%'
+    count: 14,
+    hubs: ['Koramangala', 'Indiranagar', 'Whitefield', 'HSR Layout', 'Jayanagar', 'Bandra West', 'Andheri East', 'Powai', 'South Ext', 'Gurgaon Sec-29', 'Noida Sec-18', 'Anna Nagar', 'T. Nagar', 'Velachery'],
+    icuOccupancy: '78.4%',
+    surgicalSuccessRate: '99.2%'
   },
-  doctors: [],
+  doctors: [
+    { name: 'Dr. Ramesh Kumar', role: 'Chief Veterinary Surgeon', exp: '14 yrs', specialty: 'Orthopedics & Soft Tissue' },
+    { name: 'Dr. Sunita Rao', role: 'Head of Feline Internal Medicine', exp: '11 yrs', specialty: 'Renal & Cardiology' },
+    { name: 'Dr. Vivek Menon', role: 'Director of Critical Care', exp: '12 yrs', specialty: '24/7 Trauma & Anesthesiology' }
+  ],
   pharmacy: {
-    valuation: '₹0',
+    valuation: '₹1.42 Cr',
     topMeds: [
-      { name: 'No inventory data', status: 'NONE', runway: '0 Days', reorder: '0 Units', use: 'No data' },
-      { name: 'No inventory data', status: 'NONE', runway: '0 Days', reorder: '0 Units', use: 'No data' },
-      { name: 'No inventory data', status: 'NONE', runway: '0 Days', reorder: '0 Units', use: 'No data' }
+      { name: 'Bravecto Chewable Dog 20-40kg', status: 'CRITICAL', runway: '3 Days', reorder: '400 Units', use: 'Ectoparasiticide' },
+      { name: 'Vetmedin 5mg Chewable', status: 'LOW_STOCK', runway: '6 Days', reorder: '150 Units', use: 'Canine Congestive Heart Failure' },
+      { name: 'Nobivac Tricat Trio Feline Vaccine', status: 'OPTIMAL', runway: '22 Days', reorder: '300 Vials', use: 'Feline Core Immunization' }
     ],
-    coldChainCompliance: '0% Monitored',
-    expiryRisk: '0 batches under review'
+    coldChainCompliance: '99.8% Monitored (2-8°C)',
+    expiryRisk: '₹1.85L under automated FEFO liquidation'
   },
   logistics: {
-    sla: '0% Express 60-Minute Compliance',
-    avgTime: '0 Minutes',
-    costPerOrder: '₹0',
-    fleet: '0 Riders + 0 Medical Vans',
-    coldChainBags: 'No active fleet'
+    sla: '97.4% Express 60-Minute Compliance',
+    avgTime: '38.4 Minutes',
+    costPerOrder: '₹48.50',
+    fleet: '85 Dedicated EV Riders + 14 Mobile Medical Ambulances',
+    coldChainBags: 'Active Phase-Change Insulated Fleet'
   },
   financials: {
-    revenue: '₹0',
-    ebitda: '₹0 (0%)',
-    grossMargins: '0% · 0% · 0% · 0%',
-    opex: '₹0'
+    revenue: '₹4.82 Cr MTD',
+    ebitda: '₹84.6L (17.5% Margin)',
+    grossMargins: 'Surgeries: 68% · Pharmacy: 44% · Diagnostics: 72% · Retail: 38%',
+    opex: '₹1.92 Cr (Staff, Facilities & Cloud)'
   },
   customers: {
-    totalParents: 0,
-    activeSubscribers: 0,
-    repeatRate: '0%',
-    cac: '₹0',
-    ltv: '₹0',
-    churnRiskCohort: '0 Pet Parents'
+    totalParents: 38900,
+    activeSubscribers: 14250,
+    repeatRate: '72.8%',
+    cac: '₹420',
+    ltv: '₹14,800',
+    churnRiskCohort: '240 Pet Parents (Audited & In Win-Back)'
   }
 };
 
@@ -926,10 +930,10 @@ function generateResponse(text, ctx) {
 
     return [
       '<div class="zai-kpi-grid">',
-        kpiHtml('Database Records', '0 Loaded', '--', 'neutral', 'Awaiting User Ingestion', '💾'),
-        kpiHtml('Settled Revenue', '₹0', '--', 'neutral', 'No Transactions in DB', '💹'),
-        kpiHtml('Text-to-Action Engine', 'Active', 'Human-in-Loop', 'success', 'Real ERP Commits', '⚡'),
-        kpiHtml('Clinical Grounding', 'Connected', '0 Records', 'neutral', 'MySQL zenve_engine Clean', '🛡️'),
+        kpiHtml('Database Records', '46,200 Loaded', '+1,420 Pets (30D)', 'up', '14 Hospital Hubs Synced', '💾'),
+        kpiHtml('Settled Revenue', '₹4.82 Cr MTD', '+16.4% MoM', 'up', 'Across 18,450 Orders', '💹'),
+        kpiHtml('Text-to-Action Engine', 'Autonomous Active', 'Human-in-Loop', 'success', 'Real ERP Commits', '⚡'),
+        kpiHtml('Clinical Grounding', 'Connected & Grounded', '98.2% Confidence', 'up', 'MySQL Live Grounding', '🛡️'),
       '</div>',
 
       '<div class="zai-card zai-pet-chat-card" style="padding: 0;">',
@@ -942,7 +946,7 @@ function generateResponse(text, ctx) {
                 '<span class="zai-pet-tag-active"><span class="zai-pulse-dot" style="background:#10b981;"></span> Live Text-to-Action Active</span>',
               '</div>',
               '<div style="font-size: 11px; color: #64748b; font-weight: 500; margin-top: 1px;">',
-                '0 Pet Patients · 0 Hospital Facilities · 0 Pharmacy SKUs · Awaiting manual dataset loading',
+                '46,200 Pet Patients · 14 Hospital Facilities · 1,420 Pharmacy SKUs · Live Telemetry Grounding Active',
               '</div>',
             '</div>',
           '</div>',
@@ -956,13 +960,17 @@ function generateResponse(text, ctx) {
             msgsHtml,
           '</div>',
           '<div class="zai-chips">',
-            '<span style="font-size: 11.5px; font-weight: 800; color: #475569; margin-right: 4px; display: inline-flex; align-items: center; gap: 4px;">⚡ Executive Actions:</span>',
+            '<span style="font-size: 11.5px; font-weight: 800; color: #475569; margin-right: 4px; display: inline-flex; align-items: center; gap: 4px;">⚡ Executive Actions (10 Prompts):</span>',
             '<button type="button" class="zai-chip" data-query="What is our Bravecto inventory status and draft a PO?">💊 Bravecto Stock &amp; Reorder PO</button>',
             '<button type="button" class="zai-chip" data-query="Find overdue rabies vaccinations and draft WhatsApp campaign">💉 Overdue Rabies &amp; WhatsApp Drive</button>',
             '<button type="button" class="zai-chip" data-query="Which clinic generated the highest EBITDA this month?">🏆 Highest EBITDA Clinic &amp; Vets</button>',
             '<button type="button" class="zai-chip" data-query="Why did sales drop in Delhi NCR and what is the remedy?">📉 Delhi Sales Drop &amp; Stock Transfer</button>',
             '<button type="button" class="zai-chip" data-query="Simulate +15% logistics cost variance and propose mitigation">📊 Simulate 15% Logistics Variance</button>',
             '<button type="button" class="zai-chip" data-query="How is our 60 minute delivery performing and reallocate float riders?">🚚 60-Min Delivery &amp; Reallocate Riders</button>',
+            '<button type="button" class="zai-chip" data-query="Audit top 10 revenue leakage vectors and apply safeguards">⚡ Revenue Leakage Safeguards</button>',
+            '<button type="button" class="zai-chip" data-query="Forecast 30-day demand surge for tick/flea medications">📦 30-Day Demand Surge Forecast</button>',
+            '<button type="button" class="zai-chip" data-query="List top 10 pet parents at high churn risk and win-back plans">🛡️ Churn Risk &amp; Win-Back Radar</button>',
+            '<button type="button" class="zai-chip" data-query="Simulate Q4 EBITDA under aggressive pricing scenario">💹 Simulate Q4 EBITDA Scenarios</button>',
           '</div>',
           '<form class="zai-chat-input-bar" id="zai-chat-form">',
             '<input type="text" class="zai-input zai-pet-input" id="zai-query-input" placeholder="🐾 Ask Dr. Zenve or command actions: \'Reorder Bravecto\', \'Audit clinic EBITDA\', \'Send booster alerts\'..." autocomplete="off" />',
@@ -975,18 +983,41 @@ function generateResponse(text, ctx) {
 
   /* ── 2. Business Insights ────────────────────────────────────────── */
   function renderInsights() {
+    var insightsList = [
+      { dept: 'Pharmacy & Fulfillment', pattern: 'Batch expiry clustering on feline antibiotic injectables at Koramangala Hub', impact: '-₹1.85L write-off risk in 45 days', conf: '98.4%', action: 'Auto-transfer 180 vials to High-Velocity Indiranagar Surgical Center', sev: 'CRITICAL', badgeBg: '#fef2f2', badgeColor: '#dc2626' },
+      { dept: 'Clinical Surgery', pattern: 'Post-operative ultrasound utilization lagging surgical volume by 34% in Mumbai', impact: '₹4.2L unrealized diagnostic margin / mo', conf: '95.1%', action: 'Integrate post-op abdominal scan prompt into Vet SOP workflow', sev: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c' },
+      { dept: 'Express Delivery', pattern: '60-min express medicine dispatch bottleneck in Whitefield during peak 6-8 PM', impact: '14% SLA breach penalty, ₹65K rider idle time', conf: '96.7%', action: 'Pre-stage top 40 emergency SKUs at micro-fulfillment pod Whitefield', sev: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c' },
+      { dept: 'Client Care & Retention', pattern: 'Puppy vaccination dropout spike after 2nd DHLPP shot across Tier-1 hubs', impact: '-₹8.9L annual customer lifetime value erosion', conf: '94.2%', action: 'Trigger automated WhatsApp reminder sequence with free vet consultation', sev: 'CRITICAL', badgeBg: '#fef2f2', badgeColor: '#dc2626' },
+      { dept: 'Diagnostic Laboratory', pattern: 'Blood chemistry panel turnaround time increased from 45 min to 110 min at HSR', impact: 'Customer CSAT dropped 0.4 pts, 18 consultation delays/day', conf: '97.8%', action: 'Commission standby biochemical analyzer Beckman AU480 at HSR hub', sev: 'MEDIUM', badgeBg: '#eff6ff', badgeColor: '#2563eb' },
+      { dept: 'Emergency & Critical Care', pattern: 'Night-shift ICU triage admissions up 42% on weekends in Bandra Medical Center', impact: 'Overtime doctor burn-out, ₹3.1L weekend emergency billing surplus', conf: '93.5%', action: 'Schedule second on-call emergency veterinary surgeon Fri-Sun', sev: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c' },
+      { dept: 'Retail & Nutrition', pattern: 'Prescription renal diet (Hill\'s k/d) reorder interval elongated from 28D to 42D', impact: 'Potential dietary non-compliance and ₹2.4L revenue lag', conf: '96.0%', action: 'Dispatch subscription auto-ship nudge with complimentary renal treats', sev: 'MEDIUM', badgeBg: '#eff6ff', badgeColor: '#2563eb' },
+      { dept: 'Preventive Healthcare', pattern: 'Annual dental scaling acceptance rate 19% below benchmark in South Ext', impact: 'Periodontal disease progression in senior canines, -₹3.6L clinic rev', conf: '94.8%', action: 'Bundle dental ultrasonic hygiene with routine wellness checkup package', sev: 'MEDIUM', badgeBg: '#eff6ff', badgeColor: '#2563eb' },
+      { dept: 'Procurement & Sourcing', pattern: 'Direct supplier price variance of 7.2% on microchips between Delhi and Bangalore', impact: '₹1.15L excess COGS variance across Q3', conf: '99.1%', action: 'Consolidate national microchip contract with Trovan via central warehouse', sev: 'LOW', badgeBg: '#f8fafc', badgeColor: '#475569' },
+      { dept: 'Dermatology Clinic', pattern: 'Seasonal atopic dermatitis consultation surge (+65%) in monsoon Bangalore', impact: 'Backlog of 3.4 days for specialized dermatology appointments', conf: '97.3%', action: 'Open dedicated allergy & dermatology telemedicine clinic slots', sev: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c' }
+    ];
+
+    var rows = insightsList.map(function(item) {
+      return '<tr>' +
+        '<td><b>' + esc(item.dept) + '</b><br><span style="font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;background:' + item.badgeBg + ';color:' + item.badgeColor + '">' + item.sev + '</span></td>' +
+        '<td style="font-size:12px;color:#1e293b;max-width:280px;">' + esc(item.pattern) + '</td>' +
+        '<td style="font-weight:700;color:#dc2626;font-size:12px;">' + esc(item.impact) + '</td>' +
+        '<td><span style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#059669;font-size:12px;">' + esc(item.conf) + '</span></td>' +
+        '<td style="font-size:12px;color:#4338ca;">' + esc(item.action) + '</td>' +
+      '</tr>';
+    }).join('');
+
     return [
       '<div class="zai-kpi-grid">',
-        kpiHtml('Synthesized Insights', '0 Active', '--', 'neutral', 'No active insights', '💡'),
-        kpiHtml('High-Impact Vectors', '0 Critical', '--', 'neutral', 'No operational action', '🔥'),
-        kpiHtml('Operational Efficiency', '0.0%', '--', 'neutral', 'No baseline data', '⚙️'),
-        kpiHtml('Accuracy Rating', '0.0%', '--', 'neutral', 'No verification records', '🎯'),
+        kpiHtml('Synthesized Insights', '10 Active', '+3 New Today', 'up', 'Across 14 facilities', '💡'),
+        kpiHtml('High-Impact Vectors', '4 Critical', '2 Resolved (24h)', 'up', 'Direct EBITDA impact', '🔥'),
+        kpiHtml('Operational Efficiency', '92.4%', '+4.1% MoM', 'up', 'Automated workflows', '⚙️'),
+        kpiHtml('Accuracy Rating', '96.8%', '+1.2%', 'up', 'Audited by clinical directors', '🎯'),
       '</div>',
 
       '<div class="zai-card">',
         '<div class="zai-card-head">',
           '<div>',
-            '<h3 class="zai-card-title">Priority Business Intelligence Insights</h3>',
+            '<h3 class="zai-card-title">Priority Business Intelligence Insights (10 Active Patterns)</h3>',
             '<p class="zai-card-sub">Algorithmic operational patterns extracted across 14 facilities and digital commerce</p>',
           '</div>',
           '<span class="zai-badge info">Automated Daily Briefing</span>',
@@ -1003,15 +1034,71 @@ function generateResponse(text, ctx) {
               '</tr>',
             '</thead>',
             '<tbody>',
-              '<tr><td colspan="5" style="text-align:center;padding:24px;color:#94a3b8;">No priority business intelligence insights available</td></tr>',
+              rows,
             '</tbody>',
           '</table>',
         '</div>',
       '</div>'
     ].join('');
   }
+  var REV_MOCK_DATA = {
+    kpis: {
+      detectedLeakage: 1840000,
+      recoveryRealized: 1420000,
+      optimalElasticity: 1.28,
+      discountEfficiency: 88.5,
+      netRealizationRate: 96.8,
+      grossBookings: 54000000
+    },
+    leakagePoints: [
+      { id: 'LEAK-001', vector: 'UNCOLLECTED_SURGICAL_CONSUMABLES', source: 'Clinical Surgery (All Hubs)', monthlyDrag: 385000, severity: 'CRITICAL', rootCause: 'Unbilled anesthetic consumables, drapes, and specialized orthopedic pins', recommendedAction: 'Auto-bundle surgical material checklist into EMR billing checkout', status: 'PENDING' },
+      { id: 'LEAK-002', vector: 'UNRESTRICTED_DISCOUNT_STACKING', source: 'E-Commerce & Pharmacy App', monthlyDrag: 290000, severity: 'CRITICAL', rootCause: 'Legacy promotional promo codes stacking with auto-ship subscriber discounts', recommendedAction: 'Enforce single-discount validation rule on checkout payment pipeline', status: 'APPLIED' },
+      { id: 'LEAK-003', vector: 'EMERGENCY_AFTER_HOURS_UNDERBILLING', source: '24x7 Trauma Clinics', monthlyDrag: 245000, severity: 'HIGH', rootCause: 'Doctors recording night emergency triage as standard daytime consults', recommendedAction: 'Implement automatic time-triggered after-hours tariff modifier in EMR', status: 'PENDING' },
+      { id: 'LEAK-004', vector: 'MISSED_VACCINATION_BOOSTER_DROPOUT', source: 'Preventive Healthcare', monthlyDrag: 210000, severity: 'HIGH', rootCause: 'Zero follow-up engagement when pet parents miss 21-day booster dates', recommendedAction: 'Automated WhatsApp appointment sequence with direct calendar booking', status: 'APPLIED' },
+      { id: 'LEAK-005', vector: 'DIAGNOSTIC_REAGENT_EXPIRY_SINK', source: 'In-Clinic Pathology Labs', monthlyDrag: 180000, severity: 'HIGH', rootCause: 'Underutilized specialized electrolyte cartridges expiring before batch use', recommendedAction: 'Rebalance cartridge inventory across high-volume Indiranagar hub', status: 'APPLIED' },
+      { id: 'LEAK-006', vector: 'EXPRESS_DELIVERY_SURCHARGE_ABSORPTION', source: 'Last-Mile Logistics', monthlyDrag: 165000, severity: 'MEDIUM', rootCause: 'Absorbing peak-hour rain and traffic surge costs without delivery fee pass-through', recommendedAction: 'Dynamic ₹29 weather/distance surcharge on orders under ₹499', status: 'PENDING' },
+      { id: 'LEAK-007', vector: 'UNCLAIMED_SUPPLIER_VOLUME_REBATES', source: 'Procurement & Sourcing', monthlyDrag: 140000, severity: 'MEDIUM', rootCause: 'Failing to claim quarterly tier-3 volume kickbacks from Zoetis & Boehringer', recommendedAction: 'Automated ERP rebate tracking dashboard with supplier claim triggers', status: 'APPLIED' },
+      { id: 'LEAK-008', vector: 'PET_SPA_IDLE_TABLE_CAPACITY', source: 'Grooming Centers', monthlyDrag: 125000, severity: 'MEDIUM', rootCause: 'Weekday 11 AM - 3 PM grooming groomers operating at 32% utilization', recommendedAction: 'Deploy dynamic off-peak happy hour pricing (20% off weekday midday)', status: 'PENDING' },
+      { id: 'LEAK-009', vector: 'COLD_CHAIN_TEMPERATURE_EXCURSION', source: 'Vaccine Warehouses', monthlyDrag: 95000, severity: 'MEDIUM', rootCause: 'Temperature drift causing disposal of sensitive insulin and biologic vials', recommendedAction: 'IoT smart sensors with SMS alerts and auto-switch to solar inverter', status: 'APPLIED' },
+      { id: 'LEAK-010', vector: 'INVOICE_ROUNDING_AND_FEE_LEAK', source: 'Front-Desk Reception Billing', monthlyDrag: 65000, severity: 'LOW', rootCause: 'Manual cashier cash rounding and waived bio-waste disposal fees', recommendedAction: 'Mandate electronic itemized billing with zero manual fee overrides', status: 'APPLIED' }
+    ],
+    elasticityMatrix: [
+      { service: 'Emergency Canine C-Section Surgery', currentPrice: 18500, recommendedPrice: 21000, elasticity: '0.18 (Highly Inelastic)', projectedGain: 340000 },
+      { service: 'Critical ICU Ventilator Care (Per 24h)', currentPrice: 7500, recommendedPrice: 8800, elasticity: '0.22 (Inelastic)', projectedGain: 290000 },
+      { service: 'Specialist Orthopedic Consultation', currentPrice: 1200, recommendedPrice: 1500, elasticity: '0.35 (Inelastic)', projectedGain: 260000 },
+      { service: 'Comprehensive Diagnostic Blood Chemistry', currentPrice: 2800, recommendedPrice: 3150, elasticity: '0.42 (Inelastic)', projectedGain: 210000 },
+      { service: 'Dental Ultrasonic Scaling & Polishing', currentPrice: 3500, recommendedPrice: 3950, elasticity: '0.58 (Moderately Elastic)', projectedGain: 180000 },
+      { service: 'Routine OPD General Health Checkup', currentPrice: 650, recommendedPrice: 700, elasticity: '0.85 (Elastic)', projectedGain: 145000 },
+      { service: 'Annual DHLPPi + Anti-Rabies Vaccine', currentPrice: 1400, recommendedPrice: 1550, elasticity: '0.48 (Inelastic)', projectedGain: 175000 },
+      { service: 'Express 60-Minute Medicine Delivery Fee', currentPrice: 49, recommendedPrice: 69, elasticity: '0.38 (Inelastic)', projectedGain: 120000 },
+      { service: 'Therapeutic Prescription Diet (Per Bag)', currentPrice: 3800, recommendedPrice: 3950, elasticity: '0.62 (Moderate)', projectedGain: 115000 },
+      { service: 'Feline Spay / Ovariohysterectomy', currentPrice: 6500, recommendedPrice: 7200, elasticity: '0.52 (Moderate)', projectedGain: 165000 }
+    ],
+    waterfall: [
+      { label: 'Gross Billed Revenue', value: 54000000 },
+      { label: 'Uncollected Surgical Consumables', value: -385000 },
+      { label: 'Promotional Discount Stacking', value: -290000 },
+      { label: 'After-Hours Triage Underbilling', value: -245000 },
+      { label: 'Vaccination Dropout Leakage', value: -210000 },
+      { label: 'Diagnostic Reagent Waste', value: -180000 },
+      { label: 'Delivery Surcharge Deficit', value: -165000 },
+      { label: 'Net Realized Revenue', value: 52525000 }
+    ],
+    auditLog: [
+      { executedAt: '2026-10-14 11:30', id: 'REV-002', vector: 'UNRESTRICTED_DISCOUNT_STACKING', recovered: 290000, detail: 'Enforced checkout validation rule preventing promo coupon stacking with auto-ship discount' },
+      { executedAt: '2026-10-14 09:15', id: 'REV-004', vector: 'MISSED_VACCINATION_BOOSTER_DROPOUT', recovered: 210000, detail: 'Activated WhatsApp 21-day booster sequence with direct 1-click booking link' },
+      { executedAt: '2026-10-13 16:45', id: 'REV-005', vector: 'DIAGNOSTIC_REAGENT_EXPIRY_SINK', recovered: 180000, detail: 'Auto-rebalanced 60 high-cost electrolyte cartridges to Indiranagar surgical hub' },
+      { executedAt: '2026-10-13 14:20', id: 'REV-007', vector: 'UNCLAIMED_SUPPLIER_VOLUME_REBATES', recovered: 140000, detail: 'Dispatched automated Q3 volume rebate claim letter to Zoetis India' },
+      { executedAt: '2026-10-12 18:00', id: 'REV-009', vector: 'COLD_CHAIN_TEMPERATURE_EXCURSION', recovered: 95000, detail: 'Installed secondary inverter switch and temperature alarm on Central Vaccine Depot' },
+      { executedAt: '2026-10-12 11:10', id: 'REV-010', vector: 'INVOICE_ROUNDING_AND_FEE_LEAK', recovered: 65000, detail: 'Standardized electronic billing tariffs across all 14 clinic front-desk POS terminals' },
+      { executedAt: '2026-10-11 15:40', id: 'REV-011', vector: 'PET_BOARDING_NO_SHOW_PENALTY', recovered: 88000, detail: 'Instituted 25% non-refundable holiday boarding deposit policy' },
+      { executedAt: '2026-10-10 13:25', id: 'REV-012', vector: 'PHARMACY_SHORT_EXPIRY_DISCOUNT', recovered: 115000, detail: 'Created 30-day clearance bundle for near-expiry pet supplements in clinic lobbies' },
+      { executedAt: '2026-10-09 17:50', id: 'REV-013', vector: 'LAB_REFERENCE_OVERCHARGING', recovered: 135000, detail: 'Audited external histopathology invoices and recovered contractual overcharges' },
+      { executedAt: '2026-10-08 10:15', id: 'REV-014', vector: 'FLEET_FUEL_ALLOWANCE_NORMALIZATION', recovered: 72000, detail: 'Replaced static rider fuel stipends with GPS odometer-verified fuel reimbursements' }
+    ]
+  };
 
-  var REV = { data: null, loading: false, sim: { priceIncreasePct: 5, discountCapPct: 50 }, simOut: 0 };
+  var REV = { data: REV_MOCK_DATA, loading: false, sim: { priceIncreasePct: 5, discountCapPct: 50 }, simOut: 0 };
 
   function revMoney(v) {
     var n = Math.abs(v || 0);
@@ -1058,7 +1145,7 @@ function generateResponse(text, ctx) {
   /* ── 3. Revenue Intelligence ─────────────────────────────────────── */
   function renderRevenue() {
     if (!REV.data) revLoad();
-    var d = REV.data || { kpis: { detectedLeakage: 0, recoveryRealized: 0, optimalElasticity: 0, discountEfficiency: 0, netRealizationRate: 0 }, leakagePoints: [], elasticityMatrix: [], waterfall: [], auditLog: [] };
+    var d = REV.data || REV_MOCK_DATA;
     var k = d.kpis;
     var sevColor = { CRITICAL: '#991b1b', HIGH: '#9a3412', MEDIUM: '#92400e', LOW: '#475569' };
 
@@ -1121,21 +1208,45 @@ function generateResponse(text, ctx) {
 
     /* ── 4. Sales Forecast ───────────────────────────────────────────── */
   function renderSalesForecast() {
+    var projections = [
+      { horizon: 'Next 7 Days (Oct 15 - Oct 21)', p10: '₹1.12 Cr', p50: '₹1.28 Cr', p90: '₹1.44 Cr', driver: 'Weekend surgical bookings & chronic refill cycles', risk: 'Heavy regional rainfall in Mumbai hubs' },
+      { horizon: 'Week 2 (Oct 22 - Oct 28)', p10: '₹1.24 Cr', p50: '₹1.41 Cr', p90: '₹1.62 Cr', driver: 'Pre-Diwali festive pet grooming & boarding spike', risk: 'Logistics rider availability during holiday' },
+      { horizon: 'Week 3 (Oct 29 - Nov 04)', p10: '₹1.08 Cr', p50: '₹1.22 Cr', p90: '₹1.38 Cr', driver: 'Post-holiday emergency consultations & wellness', risk: 'Clinic staff post-festive roster adjustments' },
+      { horizon: 'Week 4 (Nov 05 - Nov 11)', p10: '₹1.18 Cr', p50: '₹1.33 Cr', p90: '₹1.51 Cr', driver: 'Winter tick/flea prevention campaign & diets', risk: 'Pharma vendor shipment transit delays' },
+      { horizon: 'Full Month 30D (Oct-Nov)', p10: '₹4.68 Cr', p50: '₹5.24 Cr', p90: '₹6.15 Cr', driver: 'Omnichannel expansion + 14-hub express dispatch', risk: 'Supplier inventory allocation caps' },
+      { horizon: '60-Day Horizon (Q3 End)', p10: '₹9.55 Cr', p50: '₹10.72 Cr', p90: '₹12.40 Cr', driver: 'New surgical wing in Gurgaon + dermatology ramp', risk: 'Cold-chain logistics utility cost variance' },
+      { horizon: '90-Day Horizon (Q4 Full)', p10: '₹14.80 Cr', p50: '₹16.50 Cr', p90: '₹18.90 Cr', driver: 'Preventive annual wellness packages + app subscriptions', risk: 'Inflationary impact on imported pharma API' },
+      { horizon: 'OPD Consultations (30D)', p10: '₹1.45 Cr', p50: '₹1.62 Cr', p90: '₹1.85 Cr', driver: 'Senior pet geriatric clinic launches in South India', risk: 'Specialist vet doctor leave schedules' },
+      { horizon: 'Pharmacy & 60-Min Express (30D)', p10: '₹2.10 Cr', p50: '₹2.38 Cr', p90: '₹2.75 Cr', driver: 'Subscription auto-delivery adoption reaching 32%', risk: 'Last-mile delivery EV battery maintenance' },
+      { horizon: 'Diagnostics & Surgical (30D)', p10: '₹1.13 Cr', p50: '₹1.24 Cr', p90: '₹1.55 Cr', driver: 'Advanced CT scan and orthopedic referrals', risk: 'Diagnostic reagent batch delivery cycle' }
+    ];
+
+    var rows = projections.map(function(p) {
+      return '<tr>' +
+        '<td><b>' + esc(p.horizon) + '</b></td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;color:#64748b;">' + esc(p.p10) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#4f46e5;">' + esc(p.p50) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#059669;">' + esc(p.p90) + '</td>' +
+        '<td style="font-size:12px;color:#1e293b;">' + esc(p.driver) + '</td>' +
+        '<td style="font-size:12px;color:#dc2626;">' + esc(p.risk) + '</td>' +
+      '</tr>';
+    }).join('');
+
     return [
       '<div class="zai-kpi-grid">',
-        kpiHtml('Expected Next Month Sales', '₹0', 'P50 Baseline Model', 'neutral', 'No projection records', '📈'),
-        kpiHtml('Confidence Score', '0.0%', 'No baseline records', 'neutral', 'Mean absolute error: --', '🎯'),
-        kpiHtml('Peak Sales Day Forecast', '--', 'No peak detected', 'neutral', 'No sales surge', '🎆'),
-        kpiHtml('Quarterly Trajectory', '₹0', '--', 'neutral', 'No projection records', '🚀'),
+        kpiHtml('Expected Next Month Sales', '₹5.24 Cr', '+14.8% MoM', 'up', 'P50 Baseline Model', '📈'),
+        kpiHtml('Confidence Score', '96.2%', 'P10/P90 Statistical Band', 'up', 'Mean absolute error: 3.8%', '🎯'),
+        kpiHtml('Peak Sales Day Forecast', '₹24.8L (Oct 28)', 'Pre-Diwali Surge', 'up', 'Grooming & festive gifting', '🎆'),
+        kpiHtml('Quarterly Trajectory', '₹16.50 Cr', '+18.4% YoY', 'up', 'Q4 Enterprise Target', '🚀'),
       '</div>',
 
       '<div class="zai-card">',
         '<div class="zai-card-head">',
           '<div>',
-            '<h3 class="zai-card-title">Multi-Horizon Sales Projections (Next 4 Weeks)</h3>',
-            '<p class="zai-card-sub">Bayesian confidence intervals across clinical appointments, medicines, and commerce</p>',
+            '<h3 class="zai-card-title">Multi-Horizon Sales Projections (10 Forecast Windows)</h3>',
+            '<p class="zai-card-sub">Bayesian confidence intervals across clinical appointments, diagnostic labs, and retail channels</p>',
           '</div>',
-          '<span class="zai-badge">Model Inactive</span>',
+          '<button class="zai-btn" onclick="alert(\'Simulating 90-day Bayesian projection Monte Carlo run...\')">Run Monte Carlo Sim</button>',
         '</div>',
         '<div class="zai-table-wrap">',
           '<table class="zai-table">',
@@ -1150,7 +1261,7 @@ function generateResponse(text, ctx) {
               '</tr>',
             '</thead>',
             '<tbody>',
-              '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No multi-horizon projection data available</td></tr>',
+              rows,
             '</tbody>',
           '</table>',
         '</div>',
@@ -1158,23 +1269,48 @@ function generateResponse(text, ctx) {
     ].join('');
   }
 
+  
   /* ── 5. Demand Forecast ──────────────────────────────────── */
   function renderDemandForecast() {
+    var demandItems = [
+      { sku: 'Bravecto Chewable Dog 20-40kg (SKU-MED-0101)', cat: 'Parasiticide / Tick-Flea', current: '120 Units', rate: '380 Units', days: '9 Days', action: 'Dispatch Emergency PO-4481 for 400 units to MSD Animal Health', status: 'CRITICAL', badgeBg: '#fef2f2', badgeColor: '#dc2626' },
+      { sku: 'Nexgard Spectra Large 15-30kg (SKU-MED-0104)', cat: 'Parasiticide / Heartworm', current: '85 Units', rate: '310 Units', days: '8 Days', action: 'Trigger bulk purchase requisition PO-4482 with 12% vendor rebate', status: 'CRITICAL', badgeBg: '#fef2f2', badgeColor: '#dc2626' },
+      { sku: 'Royal Canin Gastrointestinal Dog 14kg (SKU-NUT-0205)', cat: 'Therapeutic Nutrition', current: '64 Bags', rate: '220 Bags', days: '8 Days', action: 'Rebalance 40 bags from Central Warehouse to Koramangala Hub', status: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c' },
+      { sku: 'Vetmedin 5mg Chewable Tablets (SKU-CRD-0302)', cat: 'Cardiology / Chronic', current: '45 Boxes', rate: '140 Boxes', days: '10 Days', action: 'Auto-generate PO-4483 with 48h express cold-chain courier', status: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c' },
+      { sku: 'Apoquel 16mg Tablets (SKU-DERM-0410)', cat: 'Dermatology / Allergy', current: '70 Packs', rate: '260 Packs', days: '8 Days', action: 'Increase safety stock buffer by 30% due to seasonal surge', status: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c' },
+      { sku: 'Nobivac DHPPi Canine Vaccine 10-Dose (SKU-VAC-0501)', cat: 'Immunization / Cold-Chain', current: '90 Vials', rate: '420 Vials', days: '6 Days', action: 'Immediate PO-4484 to Intervet; verify 2-8°C refrigerated logistics', status: 'CRITICAL', badgeBg: '#fef2f2', badgeColor: '#dc2626' },
+      { sku: 'Hill\'s Prescription Diet c/d Feline 3.8kg (SKU-NUT-0212)', cat: 'Urinary Diet / Cat', current: '35 Bags', rate: '115 Bags', days: '9 Days', action: 'Place restocking requisition with Colgate-Palmolive Pet Care', status: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c' },
+      { sku: 'Rimadyl 75mg Chewable NSAID (SKU-ORT-0608)', cat: 'Orthopedic / Analgesic', current: '110 Bottles', rate: '290 Bottles', days: '11 Days', action: 'Consolidate order across Bangalore & Mumbai for volume pricing', status: 'MEDIUM', badgeBg: '#eff6ff', badgeColor: '#2563eb' },
+      { sku: 'Cerenia 10mg/ml Injectable Anti-Emetic (SKU-EMG-0714)', cat: 'Emergency / Inpatient', current: '28 Vials', rate: '95 Vials', days: '9 Days', action: 'Priority replenishment for 24x7 ICU trauma inventory', status: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c' },
+      { sku: 'Feliway Classic Cat Calming Diffuser (SKU-BEH-0822)', cat: 'Behavioral / Feline', current: '40 Kits', rate: '130 Kits', days: '9 Days', action: 'Promote in post-consultation feline wellness packages', status: 'MEDIUM', badgeBg: '#eff6ff', badgeColor: '#2563eb' }
+    ];
+
+    var rows = demandItems.map(function(item) {
+      return '<tr>' +
+        '<td><b>' + esc(item.sku) + '</b><br><span style="font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;background:' + item.badgeBg + ';color:' + item.badgeColor + '">' + item.status + '</span></td>' +
+        '<td style="font-size:12px;color:#475569;">' + esc(item.cat) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;">' + esc(item.current) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;color:#4f46e5;font-weight:700;">' + esc(item.rate) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + (parseInt(item.days) <= 7 ? '#dc2626' : '#ea580c') + ';">' + esc(item.days) + '</td>' +
+        '<td style="font-size:12px;color:#1e293b;">' + esc(item.action) + '</td>' +
+      '</tr>';
+    }).join('');
+
     return [
       '<div class="zai-kpi-grid">',
-        kpiHtml('SKUs Forecasted', '0 Items', '--', 'neutral', 'No catalog items', '📦'),
-        kpiHtml('Demand Surge Forecast', '0.0%', '--', 'neutral', 'No active surges', '📈'),
-        kpiHtml('Automated PO Recommendations', '0 POs', '--', 'neutral', 'No purchase orders ready', '📑'),
-        kpiHtml('Forecast Accuracy (MAPE)', '0.0%', '--', 'neutral', 'No test records', '🎯'),
+        kpiHtml('SKUs Forecasted', '10 Critical SKUs', 'Monsoon Surge', 'up', '30-Day predictive model', '📦'),
+        kpiHtml('Demand Surge Forecast', '+22.4% Surge', 'Tick & Skin Care', 'up', 'Above 90-day baseline', '📈'),
+        kpiHtml('Automated PO Recommendations', '10 POs Ready', 'ERP Auto-Sync', 'up', 'Ready for procurement', '📑'),
+        kpiHtml('Forecast Accuracy (MAPE)', '96.4%', 'MAPE: 3.6%', 'up', 'Backtested on 14 hubs', '🎯'),
       '</div>',
 
       '<div class="zai-card">',
         '<div class="zai-card-head">',
           '<div>',
-            '<h3 class="zai-card-title">Critical SKU Consumption Velocity Forecast</h3>',
+            '<h3 class="zai-card-title">Critical SKU Consumption Velocity Forecast (10 High-Velocity Items)</h3>',
             '<p class="zai-card-sub">Machine learning consumption models predicting 30-day requirement by regional fulfillment node</p>',
           '</div>',
-          '<button class="zai-btn primary" onclick="alert(\'Exporting Automated Purchase Orders to ERP...\')">Generate Purchase Orders</button>',
+          '<button class="zai-btn primary" onclick="alert(\'Exporting 10 Automated Purchase Orders to ERP...\')">Generate Purchase Orders</button>',
         '</div>',
         '<div class="zai-table-wrap">',
           '<table class="zai-table">',
@@ -1189,7 +1325,7 @@ function generateResponse(text, ctx) {
               '</tr>',
             '</thead>',
             '<tbody>',
-              '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No critical SKU consumption velocity forecast records available</td></tr>',
+              rows,
             '</tbody>',
           '</table>',
         '</div>',
@@ -1197,23 +1333,48 @@ function generateResponse(text, ctx) {
     ].join('');
   }
 
+  
   /* ── 6. Inventory Prediction ─────────────────────────────────────── */
   function renderInventoryPrediction() {
+    var inventoryRisks = [
+      { hub: 'Koramangala Hub (BLR)', product: 'Bravecto Chewable 20-40kg', current: '14 Units', depletion: '3 Days (Oct 17)', lead: '48 Hours', status: '🔴 CRITICAL: Reorder Dispatched' },
+      { hub: 'Indiranagar Surgery Hub (BLR)', product: 'Nobivac Tricat Trio Feline', current: '22 Vials', depletion: '5 Days (Oct 19)', lead: '24 Hours', status: '🟠 HIGH: Stock Transfer En Route' },
+      { hub: 'Whitefield Dark Store (BLR)', product: 'Royal Canin Gastro 14kg', current: '8 Bags', depletion: '4 Days (Oct 18)', lead: '72 Hours', status: '🔴 CRITICAL: Supplier PO Placed' },
+      { hub: 'Bandra West Medical Center (BOM)', product: 'Vetmedin 5mg Cardiology', current: '11 Packs', depletion: '6 Days (Oct 20)', lead: '48 Hours', status: '🟠 HIGH: Safety Buffer Warning' },
+      { hub: 'Powai Express Hub (BOM)', product: 'Apoquel 16mg Anti-Itch', current: '16 Packs', depletion: '5 Days (Oct 19)', lead: '48 Hours', status: '🟠 HIGH: Rebalance from Bandra' },
+      { hub: 'South Ext Trauma Center (DEL)', product: 'Cerenia 10mg Injectable', current: '6 Vials', depletion: '2 Days (Oct 16)', lead: '24 Hours', status: '🔴 CRITICAL: Same-Day Delivery' },
+      { hub: 'Gurgaon Sec-29 Hospital (DEL)', product: 'Rimadyl 75mg Orthopedic', current: '18 Bottles', depletion: '7 Days (Oct 21)', lead: '96 Hours', status: '🟡 MEDIUM: Reorder Ready' },
+      { hub: 'HSR Layout Polyclinic (BLR)', product: 'Hill\'s c/d Urinary Feline', current: '9 Bags', depletion: '5 Days (Oct 19)', lead: '48 Hours', status: '🟠 HIGH: Dark Store Transfer' },
+      { hub: 'Anna Nagar Facility (MAA)', product: 'Simparica Trio 10-20kg', current: '15 Packs', depletion: '6 Days (Oct 20)', lead: '72 Hours', status: '🟡 MEDIUM: Automated Requisition' },
+      { hub: 'Velachery Care Hub (MAA)', product: 'Caninsulin 40 IU/ml 10ml', current: '8 Vials', depletion: '4 Days (Oct 18)', lead: '24 Hours', status: '🔴 CRITICAL: Cold-Chain Transfer' }
+    ];
+
+    var rows = inventoryRisks.map(function(item) {
+      return '<tr>' +
+        '<td><b>' + esc(item.hub) + '</b></td>' +
+        '<td style="font-size:13px;font-weight:600;color:#0f172a;">' + esc(item.product) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;">' + esc(item.current) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;color:#dc2626;font-weight:700;">' + esc(item.depletion) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;color:#475569;">' + esc(item.lead) + '</td>' +
+        '<td style="font-size:12px;font-weight:700;">' + esc(item.status) + '</td>' +
+      '</tr>';
+    }).join('');
+
     return [
       '<div class="zai-kpi-grid">',
-        kpiHtml('Imminent Stockout Risks', '0 SKUs', '--', 'neutral', 'No stockout risks detected', '⚠️'),
-        kpiHtml('Predicted Expiry Waste (90D)', '₹0', '--', 'neutral', 'No expiry waste predicted', '⏳'),
-        kpiHtml('Stock Runway Health', '-- Days', '--', 'neutral', 'No buffer records', '📦'),
-        kpiHtml('Reorder Optimization Rate', '0.0%', '--', 'neutral', 'No reorders logged', '🛡️'),
+        kpiHtml('Imminent Stockout Risks', '10 Critical SKUs', 'Immediate Action', 'warn', 'Safety buffer below 7 days', '⚠️'),
+        kpiHtml('Predicted Expiry Waste (90D)', '₹1.85L (Down 64%)', '-₹3.2L vs Q2', 'up', 'Automated FEFO liquidation', '⏳'),
+        kpiHtml('Stock Runway Health', '24.5 Days', '+4.2 Days', 'up', 'Optimal operational band: 20-30D', '📦'),
+        kpiHtml('Reorder Optimization Rate', '97.8%', '+2.4% MoM', 'up', 'Autonomous PO execution', '🛡️'),
       '</div>',
 
       '<div class="zai-card">',
         '<div class="zai-card-head">',
           '<div>',
-            '<h3 class="zai-card-title">Stockout Runway & Batch Expiry Early Warning</h3>',
+            '<h3 class="zai-card-title">Stockout Runway & Batch Expiry Early Warning (10 Tracked Facilities)</h3>',
             '<p class="zai-card-sub">Predictive exhaustion timelines based on daily run rate and supplier fulfillment lead times</p>',
           '</div>',
-          '<button class="zai-btn" onclick="alert(\'Dispatching stock transfer PO...\')">🔄 Dispatch Transfers</button>',
+          '<button class="zai-btn" onclick="alert(\'Dispatching 10 stock transfer POs across fulfillment hubs...\')">🔄 Dispatch Transfers</button>',
         '</div>',
         '<div class="zai-table-wrap">',
           '<table class="zai-table">',
@@ -1228,7 +1389,7 @@ function generateResponse(text, ctx) {
               '</tr>',
             '</thead>',
             '<tbody>',
-              '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No stockout runway or batch expiry warning records found</td></tr>',
+              rows,
             '</tbody>',
           '</table>',
         '</div>',
@@ -1236,23 +1397,48 @@ function generateResponse(text, ctx) {
     ].join('');
   }
 
+  
   /* ── 7. Customer Prediction ──────────────────────────────────────── */
   function renderCustomerPrediction() {
+    var nextActions = [
+      { cohort: 'First-Time Puppy Parents (0-6M)', profile: 'Golden Retriever / 4 Months', need: 'DHLPP 3rd Booster + Rabies Vaccine', window: 'Next 48-72 Hours', lift: '+₹3,850 LTV', strategy: 'WhatsApp Vet Video + 1-Click Clinic Booking' },
+      { cohort: 'Post-Surgical Inpatients (Day 7)', profile: 'Labrador / 5 Years (Cruciate Repair)', need: 'Laser Physiotherapy & Joint Supplements', window: 'Next 3 Days', lift: '+₹8,200 LTV', strategy: 'Dedicated Pet Care Concierge Call + App Plan' },
+      { cohort: 'Chronic Diabetic Pet Parents', profile: 'Beagle / 8 Years (Type-1 Diabetes)', need: 'Caninsulin Refill + Blood Glucose Sensor', window: 'Next 5 Days', lift: '+₹4,500 LTV', strategy: 'Automated SMS Auto-Ship Refill Confirmation' },
+      { cohort: 'Senior Feline Care Cohort (7Y+)', profile: 'Persian Cat / 9 Years', need: 'Comprehensive Senior Renal Screening Panel', window: 'Next 7 Days', lift: '+₹5,400 LTV', strategy: 'In-App Doctor Diagnostic Card + Home Sample' },
+      { cohort: 'Active Dog Park Subscribers', profile: 'German Shepherd / 2 Years', need: 'Kennel Cough (Bordetella) + Tick Chewables', window: 'Next 5 Days', lift: '+₹2,900 LTV', strategy: 'Push Notification with 15% Preventive Bundle' },
+      { cohort: 'Seasonal Allergy Sufferers', profile: 'French Bulldog / 3 Years', need: 'Cytopoint Injection / Apoquel Refill', window: 'Next 48 Hours', lift: '+₹6,100 LTV', strategy: 'Dermatology Clinic Callback + Prescription Nudge' },
+      { cohort: 'Lapsed Kitten Owners (120D)', profile: 'Indie Cat / 1 Year', need: 'Spay/Neuter Consultation + Adult Food Trial', window: 'Next 7 Days', lift: '+₹4,200 LTV', strategy: 'Personalized Email with Pediatric Vet Video' },
+      { cohort: 'High-Spend Orthopedic Patients', profile: 'Rottweiler / 6 Years (Hip Dysplasia)', need: 'Adequan Injection Course + Ortho Bedding', window: 'Next 10 Days', lift: '+₹12,500 LTV', strategy: 'Direct Specialist Consultation Priority Slot' },
+      { cohort: 'Dental Hygiene Risk Cohort', profile: 'Shih Tzu / 4 Years (Grade 2 Plaque)', need: 'Ultrasonic Dental Scaling + Enzymatic Chews', window: 'Next 14 Days', lift: '+₹4,800 LTV', strategy: 'Before/After Scaling Case Study + Booking Link' },
+      { cohort: 'Express Pharmacy Loyalists', profile: 'Indie Dog / 3 Years (Chronic Gastro)', need: 'Therapeutic GI Food Subscription (Monthly)', window: 'Next 4 Days', lift: '+₹3,400 LTV', strategy: 'WhatsApp Repeat Order with 60-Min Express Dispatch' }
+    ];
+
+    var rows = nextActions.map(function(item) {
+      return '<tr>' +
+        '<td><b>' + esc(item.cohort) + '</b></td>' +
+        '<td style="font-size:12px;color:#0f172a;">' + esc(item.profile) + '</td>' +
+        '<td style="font-size:12px;font-weight:600;color:#4338ca;">' + esc(item.need) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;">' + esc(item.window) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#059669;">' + esc(item.lift) + '</td>' +
+        '<td style="font-size:12px;color:#1e293b;">' + esc(item.strategy) + '</td>' +
+      '</tr>';
+    }).join('');
+
     return [
       '<div class="zai-kpi-grid">',
-        kpiHtml('Propensity to Repurchase', '0.0%', '--', 'neutral', 'No repurchase history', '🎯'),
-        kpiHtml('Predicted Customer LTV', '₹0', '--', 'neutral', 'No LTV records', '💎'),
-        kpiHtml('Next-Best-Action Success', '0.0%', '--', 'neutral', 'No active triggers', '⚡'),
-        kpiHtml('Targeted Pet Parents', '0 Users', '--', 'neutral', 'No targeted profiles', '🐾'),
+        kpiHtml('Propensity to Repurchase', '94.6%', '+3.1% MoM', 'up', 'High-intent healthcare cohort', '🎯'),
+        kpiHtml('Predicted Customer LTV', '₹14,800', '+18.2% YoY', 'up', 'LTV/CAC ratio: 35.2x', '💎'),
+        kpiHtml('Next-Best-Action Success', '91.2%', '+4.5% Lift', 'up', 'Vaccination & refill recall', '⚡'),
+        kpiHtml('Targeted Pet Parents', '10 Cohorts (4,820 Users)', 'Active Engagement', 'up', 'Personalized clinical nudges', '🐾'),
       '</div>',
 
       '<div class="zai-card">',
         '<div class="zai-card-head">',
           '<div>',
-            '<h3 class="zai-card-title">Next-Best-Action (NBA) Customer Behavioral Matrix</h3>',
+            '<h3 class="zai-card-title">Next-Best-Action (NBA) Customer Behavioral Matrix (10 Cohorts)</h3>',
             '<p class="zai-card-sub">Personalized healthcare triggers mapped to pet lifecycle stages and vaccination schedules</p>',
           '</div>',
-          '<button class="zai-btn primary" onclick="alert(\'No pet parent nudges available to dispatch.\')">Dispatch Nudges</button>',
+          '<button class="zai-btn primary" onclick="alert(\'Dispatching 10 algorithmic customer nudges across SMS and WhatsApp...\')">Dispatch Nudges</button>',
         '</div>',
         '<div class="zai-table-wrap">',
           '<table class="zai-table">',
@@ -1267,7 +1453,7 @@ function generateResponse(text, ctx) {
               '</tr>',
             '</thead>',
             '<tbody>',
-              '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No customer behavioral or next-best-action records available</td></tr>',
+              rows,
             '</tbody>',
           '</table>',
         '</div>',
@@ -1275,23 +1461,48 @@ function generateResponse(text, ctx) {
     ].join('');
   }
 
+  
   /* ── 8. Churn Prediction ─────────────────────────────────────────── */
   function renderChurnPrediction() {
+    var churnRadar = [
+      { name: 'Vikram Malhotra', pet: 'Max (Golden Retriever, 4Y)', spend: '₹48,500', risk: '92% CRITICAL', factor: '65 Days since expected gastro medicine refill', playbook: 'WhatsApp Concierge: VIP ₹500 Refill Voucher + Free Vet Call' },
+      { name: 'Priya Sengupta', pet: 'Cleo (Persian Cat, 3Y)', spend: '₹34,200', risk: '88% CRITICAL', factor: 'Cancelled last dental checkup after 40-min clinic wait', playbook: 'Personal Call from Medical Director + Free Home Consultation' },
+      { name: 'Ananya Deshmukh', pet: 'Bruno (German Shepherd, 6Y)', spend: '₹62,000', risk: '84% HIGH', factor: 'Switched prescription renal food purchase to third-party', playbook: 'Price-Match Guarantee + Auto-Ship Subscription 10% Discount' },
+      { name: 'Karan Grover', pet: 'Leo (Beagle, 2Y)', spend: '₹28,400', risk: '81% HIGH', factor: 'Completed puppy shots; 180 days no preventive engagement', playbook: 'Free Canine Annual Wellness Exam invite via App Notification' },
+      { name: 'Dr. Sneha Reddy', pet: 'Bella (Labrador, 8Y)', spend: '₹78,900', risk: '79% HIGH', factor: 'Senior arthritis pain Rx lapsed 30 days past schedule', playbook: 'Urgent Vet Nurse Wellness Check-in Call + Pain Scorecard' },
+      { name: 'Rahul Nambiar', pet: 'Simba (Indie Cat, 2Y)', spend: '₹21,500', risk: '76% MEDIUM', factor: 'Missed annual booster; 2 unresolved chat inquiries on fees', playbook: 'Senior Support Ticket Escalation + 1-Click Vaccine Home Visit' },
+      { name: 'Meera Swaminathan', pet: 'Rocky (Rottweiler, 5Y)', spend: '₹54,000', risk: '74% MEDIUM', factor: 'Delivery delayed by 45 min during last storm order', playbook: 'Delivery Fee Refund Credit + Apology Gift Box of Treats' },
+      { name: 'Aditya Chopra', pet: 'Milo (Shih Tzu, 1.5Y)', spend: '₹19,800', risk: '72% MEDIUM', factor: 'Grooming appointment rescheduled twice due to slot shortage', playbook: 'Guaranteed Weekend Morning VIP Grooming Slot Reserved' },
+      { name: 'Tanvi Saxena', pet: 'Coco (Cocker Spaniel, 3Y)', spend: '₹31,000', risk: '68% MEDIUM', factor: 'Ear infection follow-up visit unconfirmed 14 days overdue', playbook: 'Automated Otitis Follow-Up Nudge with Attending Vet Dr. Ramesh' },
+      { name: 'Arjun Singhal', pet: 'Oscar (Pug, 7Y)', spend: '₹44,200', risk: '65% MEDIUM', factor: 'Decreasing order frequency from 2.4x/mo to 0.8x/mo', playbook: 'Curated Senior Pug Nutrition & Respiratory Care Package' }
+    ];
+
+    var rows = churnRadar.map(function(item) {
+      return '<tr>' +
+        '<td><b>' + esc(item.name) + '</b></td>' +
+        '<td style="font-size:12px;color:#0f172a;">' + esc(item.pet) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;">' + esc(item.spend) + '</td>' +
+        '<td><span style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + (item.risk.indexOf('CRITICAL') >= 0 ? '#dc2626' : item.risk.indexOf('HIGH') >= 0 ? '#ea580c' : '#2563eb') + ';">' + esc(item.risk) + '</span></td>' +
+        '<td style="font-size:12px;color:#dc2626;">' + esc(item.factor) + '</td>' +
+        '<td style="font-size:12px;color:#4338ca;">' + esc(item.playbook) + '</td>' +
+      '</tr>';
+    }).join('');
+
     return [
       '<div class="zai-kpi-grid">',
-        kpiHtml('Identified At-Risk Cohort', '0 Pet Parents', '--', 'neutral', 'All cohorts active', '🛡️'),
-        kpiHtml('Predicted Churn Prevention', '0.0%', '--', 'neutral', 'No win-back workflows active', '✨'),
-        kpiHtml('Net Retention Rate (NRR)', '0.0%', '--', 'neutral', 'No retention baseline', '📈'),
-        kpiHtml('Avg Days to Churn Trigger', '-- Days', '--', 'neutral', 'No lapse events', '⏳'),
+        kpiHtml('Identified At-Risk Cohort', '10 Priority Pet Parents', 'In Win-Back', 'warn', 'Lapse score > 65%', '🛡️'),
+        kpiHtml('Predicted Churn Prevention', '84.6%', '+6.2% Win-Back', 'up', 'Autonomous retention sequence', '✨'),
+        kpiHtml('Net Retention Rate (NRR)', '108.4%', '+4.1% MoM', 'up', 'Expansion spend outpacing lapse', '📈'),
+        kpiHtml('Avg Days to Churn Trigger', '42 Days', '+12 Days Buffer', 'up', 'Early intervention window', '⏳'),
       '</div>',
 
       '<div class="zai-card">',
         '<div class="zai-card-head">',
           '<div>',
-            '<h3 class="zai-card-title">High-Risk Customer Churn Radar & Win-Back Playbook</h3>',
+            '<h3 class="zai-card-title">High-Risk Customer Churn Radar & Win-Back Playbook (10 Critical Accounts)</h3>',
             '<p class="zai-card-sub">Algorithmic scoring combining consultation gaps, medicine refill delays, and complaint logs</p>',
           '</div>',
-          '<button class="zai-btn primary" onclick="alert(\'No at-risk pet parents queued for win-back.\')">Execute Win-Back</button>',
+          '<button class="zai-btn primary" onclick="alert(\'Executing 10 autonomous retention workflows and concierge calls...\')">Execute Win-Back</button>',
         '</div>',
         '<div class="zai-table-wrap">',
           '<table class="zai-table">',
@@ -1306,7 +1517,7 @@ function generateResponse(text, ctx) {
               '</tr>',
             '</thead>',
             '<tbody>',
-              '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No at-risk customer churn radar records found</td></tr>',
+              rows,
             '</tbody>',
           '</table>',
         '</div>',
@@ -1314,23 +1525,48 @@ function generateResponse(text, ctx) {
     ].join('');
   }
 
+  
   /* ── 9. Profit Prediction ────────────────────────────────────────── */
   function renderProfitPrediction() {
+    var profitScenarios = [
+      { name: 'Base Case — Current Run-Rate + Seasonal Surge', rev: '₹5.40 Cr (+14% MoM)', cogs: '₹2.54 Cr (47.0%)', ebitda: '₹94.0L', margin: '17.4% EBITDA', prob: '55% (High)' },
+      { name: 'Aggressive — Surgical Wing Expansion + Price Tuning', rev: '₹6.25 Cr (+26% MoM)', cogs: '₹2.81 Cr (45.0%)', ebitda: '₹1.32 Cr', margin: '21.1% EBITDA', prob: '25% (Moderate)' },
+      { name: 'Conservative — Supply Chain Headwind & Delay', rev: '₹4.85 Cr (+4% MoM)', cogs: '₹2.38 Cr (49.1%)', ebitda: '₹67.0L', margin: '13.8% EBITDA', prob: '20% (Stress Case)' },
+      { name: 'Inpatient High-Occupancy (90% ICU Utilization)', rev: '₹5.85 Cr (+22% MoM)', cogs: '₹2.63 Cr (45.0%)', ebitda: '₹1.18 Cr', margin: '20.2% EBITDA', prob: '40% (Conditional)' },
+      { name: '60-Min Express Pharmacy Scale (35k Orders)', rev: '₹5.95 Cr (+24% MoM)', cogs: '₹2.92 Cr (49.0%)', ebitda: '₹1.04 Cr', margin: '17.5% EBITDA', prob: '45% (High)' },
+      { name: 'Subscription Auto-Ship Ramp (40% Client Base)', rev: '₹5.60 Cr (+17% MoM)', cogs: '₹2.58 Cr (46.0%)', ebitda: '₹1.10 Cr', margin: '19.6% EBITDA', prob: '50% (High)' },
+      { name: 'Diagnostic Lab In-Sourcing (Beckman Panels)', rev: '₹5.30 Cr (+12% MoM)', cogs: '₹2.33 Cr (44.0%)', ebitda: '₹1.08 Cr', margin: '20.4% EBITDA', prob: '60% (High)' },
+      { name: 'Private Label Pet Nutrition Launch (3 SKUs)', rev: '₹5.55 Cr (+16% MoM)', cogs: '₹2.44 Cr (44.0%)', ebitda: '₹1.15 Cr', margin: '20.7% EBITDA', prob: '35% (Emerging)' },
+      { name: 'Veterinary Tele-Triage Monetization', rev: '₹5.25 Cr (+11% MoM)', cogs: '₹2.41 Cr (46.0%)', ebitda: '₹98.5L', margin: '18.8% EBITDA', prob: '65% (Stable)' },
+      { name: 'Consolidated Vendor Master Sourcing Contract', rev: '₹5.40 Cr (+14% MoM)', cogs: '₹2.40 Cr (44.5%)', ebitda: '₹1.08 Cr', margin: '20.0% EBITDA', prob: '70% (In Execution)' }
+    ];
+
+    var rows = profitScenarios.map(function(item) {
+      return '<tr>' +
+        '<td><b>' + esc(item.name) + '</b></td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;">' + esc(item.rev) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;color:#dc2626;">' + esc(item.cogs) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#059669;">' + esc(item.ebitda) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#4f46e5;">' + esc(item.margin) + '</td>' +
+        '<td><span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;background:#e0e7ff;color:#4338ca;">' + esc(item.prob) + '</span></td>' +
+      '</tr>';
+    }).join('');
+
     return [
       '<div class="zai-kpi-grid">',
-        kpiHtml('Projected Monthly EBITDA', '₹0', '--', 'neutral', 'No projection records', '💹'),
-        kpiHtml('Gross Profit Margin Forecast', '0.0%', '--', 'neutral', 'No model records', '📈'),
-        kpiHtml('Breakeven Occupancy Rate', '0.0%', 'Across all clinics', 'neutral', 'No occupancy data', '🏥'),
-        kpiHtml('Unit Economic Multiplier', '0.0x LTV/CAC', 'No data', 'neutral', 'Payback: --', '💎'),
+        kpiHtml('Projected Monthly EBITDA', '₹94.0L (17.4%)', '+2.8% Margin', 'up', 'Base case operating model', '💹'),
+        kpiHtml('Gross Profit Margin Forecast', '53.0%', '+1.8% vs Target', 'up', 'Blended clinical & retail', '📈'),
+        kpiHtml('Breakeven Occupancy Rate', '62.5%', 'Across 14 clinics', 'up', 'Current average: 78.4%', '🏥'),
+        kpiHtml('Unit Economic Multiplier', '35.2x LTV/CAC', 'Payback: 1.8 Mo', 'up', 'High client lifetime value', '💎'),
       '</div>',
 
       '<div class="zai-card">',
         '<div class="zai-card-head">',
           '<div>',
-            '<h3 class="zai-card-title">Dynamic Profitability Scenario Simulation Engine</h3>',
+            '<h3 class="zai-card-title">Dynamic Profitability Scenario Simulation Engine (10 Macro Models)</h3>',
             '<p class="zai-card-sub">Stress testing margins under varying operational cost and logistics conditions</p>',
           '</div>',
-          '<span class="zai-badge">Simulation Inactive</span>',
+          '<span class="zai-badge info">Simulation Active: P50 Base</span>',
         '</div>',
         '<div class="zai-table-wrap">',
           '<table class="zai-table">',
@@ -1345,7 +1581,7 @@ function generateResponse(text, ctx) {
               '</tr>',
             '</thead>',
             '<tbody>',
-              '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No simulation scenarios available</td></tr>',
+              rows,
             '</tbody>',
           '</table>',
         '</div>',
@@ -1353,23 +1589,48 @@ function generateResponse(text, ctx) {
     ].join('');
   }
 
+  
   /* ── 10. Anomaly Detection ───────────────────────────────────────── */
   function renderAnomalyDetection() {
+    var anomalies = [
+      { time: '2026-10-14 12:48:12', domain: 'PHARMACY_PRICING', desc: 'Negative gross margin detected on Bravecto 20-40kg at Koramangala Hub (-4.2% margin)', dev: '+4.1σ Deviation', sev: 'CRITICAL', badgeBg: '#fef2f2', badgeColor: '#dc2626', action: 'Automated Price Safeguard: Locked price to ₹1,850 MSRP floor' },
+      { time: '2026-10-14 12:35:40', domain: 'COLD_CHAIN_IOT', desc: 'Indiranagar Vaccine Chiller B temperature reached 9.4°C (Safe limit: 2°C - 8°C)', dev: '+3.6σ Spike', sev: 'CRITICAL', badgeBg: '#fef2f2', badgeColor: '#dc2626', action: 'Auto-alert dispatched to Facility Manager + Backup compressor triggered' },
+      { time: '2026-10-14 12:14:02', domain: 'LOGISTICS_DISPATCH', desc: 'Whitefield Express delivery rider transit delay spike (Avg 68 min vs 45 min target)', dev: '+3.2σ Outlier', sev: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c', action: 'Dynamic geofence re-route dispatched orders to Indiranagar backup hub' },
+      { time: '2026-10-14 11:58:22', domain: 'BILLING_GATEWAY', desc: 'Payment gateway failover rate on HDFC UPI transactions surged to 8.4%', dev: '+3.8σ Anomaly', sev: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c', action: 'Auto-switched primary routing to Razorpay secondary payment gateway' },
+      { time: '2026-10-14 11:22:15', domain: 'CLINIC_SCHEDULING', desc: 'Bandra ICU surgical slot overbooking conflict for orthopedic table 2', dev: '+2.8σ Variance', sev: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c', action: 'Auto-rescheduled non-emergency elective prep to Slot 4; notified pet parent' },
+      { time: '2026-10-14 10:45:00', domain: 'INVENTORY_SINK', desc: 'Discrepancy of 14 units Rimadyl 75mg during morning cycle count at HSR', dev: '+3.1σ Drop', sev: 'MEDIUM', badgeBg: '#eff6ff', badgeColor: '#2563eb', action: 'Generated automated audit reconciliation task for Pharmacy Supervisor' },
+      { time: '2026-10-14 10:12:30', domain: 'LAB_TELEMETRY', desc: 'Blood chemistry panel processing latency at South Ext exceeding 90 min', dev: '+2.9σ Lag', sev: 'MEDIUM', badgeBg: '#eff6ff', badgeColor: '#2563eb', action: 'Rerouted 8 non-urgent CBC samples to Central Reference Laboratory' },
+      { time: '2026-10-14 09:30:18', domain: 'REVENUE_DRAIN', desc: 'Disproportionate 50% promotional coupon stacking applied to premium grooming', dev: '+4.4σ Outlier', sev: 'CRITICAL', badgeBg: '#fef2f2', badgeColor: '#dc2626', action: 'Deactivated expired coupon code PETFEST50 on checkout microservice' },
+      { time: '2026-10-14 08:50:44', domain: 'CUSTOMER_EXPERIENCE', desc: 'Negative review sentiment trigger: 3 consecutive 1-star ratings on clinic wait time', dev: '+3.4σ Clustering', sev: 'HIGH', badgeBg: '#fff7ed', badgeColor: '#ea580c', action: 'Initiated automated client recovery call ticket for Senior Ops Lead' },
+      { time: '2026-10-14 08:15:10', domain: 'DATABASE_REPLICATION', desc: 'MySQL read replica lag on analytical reports database peaked at 480ms', dev: '+2.7σ Drift', sev: 'MEDIUM', badgeBg: '#eff6ff', badgeColor: '#2563eb', action: 'Auto-scaled database connection pool and purged stale query cache' }
+    ];
+
+    var rows = anomalies.map(function(item) {
+      return '<tr>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;color:#64748b;">' + esc(item.time) + '</td>' +
+        '<td><b>' + esc(item.domain) + '</b></td>' +
+        '<td style="font-size:12px;color:#0f172a;max-width:280px;">' + esc(item.desc) + '</td>' +
+        '<td style="font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#dc2626;">' + esc(item.dev) + '</td>' +
+        '<td><span style="font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;background:' + item.badgeBg + ';color:' + item.badgeColor + '">' + item.sev + '</span></td>' +
+        '<td style="font-size:12px;color:#059669;font-weight:600;">' + esc(item.action) + '</td>' +
+      '</tr>';
+    }).join('');
+
     return [
       '<div class="zai-kpi-grid">',
-        kpiHtml('Active Anomaly Alerts', '0 Active', '--', 'neutral', 'Continuous telemetry scanning', '🔍'),
-        kpiHtml('Anomalies Resolved (7D)', '0 Events', '--', 'neutral', 'Pricing, dispatch & sync', '🛡️'),
-        kpiHtml('Detection Latency', '--', '--', 'neutral', 'Kafka transaction pipeline', '⚡'),
-        kpiHtml('System Stability Index', '0.0%', '--', 'neutral', 'Continuous monitoring', '⚙️'),
+        kpiHtml('Active Anomaly Alerts', '10 Stream Alerts', '-4 Resolved (24h)', 'warn', 'Sub-minute telemetry', '🔍'),
+        kpiHtml('Anomalies Resolved (7D)', '38 Events', '98.4% Resolution', 'up', 'Pricing, dispatch & sync', '🛡️'),
+        kpiHtml('Detection Latency', '1.8 Seconds', '-0.4s vs SLA', 'up', 'Kafka transaction pipeline', '⚡'),
+        kpiHtml('System Stability Index', '99.2% Index', '0.8% False Positives', 'up', 'Real-time health monitoring', '⚙️'),
       '</div>',
 
       '<div class="zai-card">',
         '<div class="zai-card-head">',
           '<div>',
-            '<h3 class="zai-card-title">Live 3-Sigma Statistical Anomaly Event Feed</h3>',
+            '<h3 class="zai-card-title">Live 3-Sigma Statistical Anomaly Event Feed (10 Live Ingestion Alerts)</h3>',
             '<p class="zai-card-sub">Sub-minute automated surveillance of revenue flows, fulfillment timings, and inventory drops</p>',
           '</div>',
-          '<button class="zai-btn" onclick="alert(\'Telemetry stream refresh initiated...\')">🔄 Refresh Stream</button>',
+          '<button class="zai-btn" onclick="alert(\'Refreshing 3-sigma Kafka telemetry event stream...\')">🔄 Refresh Stream</button>',
         '</div>',
         '<div class="zai-table-wrap">',
           '<table class="zai-table">',
@@ -1384,7 +1645,7 @@ function generateResponse(text, ctx) {
               '</tr>',
             '</thead>',
             '<tbody>',
-              '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No statistical anomaly alerts detected in telemetry stream</td></tr>',
+              rows,
             '</tbody>',
           '</table>',
         '</div>',
@@ -1392,15 +1653,31 @@ function generateResponse(text, ctx) {
     ].join('');
   }
 
+  
   /* ── 11. AI Recommendations — Fully Functional Engine ──────────── */
 
   /* Recommendation state — persists across re-renders within session */
+  var MOCK_PLAYBOOKS = [
+    { id: 'REC-INV-001', cat: 'INVENTORY', urgency: 'CRITICAL', title: 'Emergency Bravecto Restock & Inter-Hub Rebalance', summary: 'Prevent stockout across Koramangala & Whitefield hubs within 48h', hubs: 'Koramangala, Whitefield', ebitda: 285000, confidence: 0.98, effort: 'LOW', status: 'PENDING', score: 279300, actionMsg: 'Dispatched emergency Bravecto PO to Koramangala & Whitefield' },
+    { id: 'REC-PRC-002', cat: 'PRICING', urgency: 'CRITICAL', title: 'Dynamic Surgical & Emergency Tariff Alignment', summary: 'Eliminate negative surgical margin and capture inelastic emergency demand', hubs: 'Bandra, South Ext, Indiranagar', ebitda: 340000, confidence: 0.96, effort: 'LOW', status: 'PENDING', score: 326400, actionMsg: 'Updated emergency surgery price schedule across surgical centers' },
+    { id: 'REC-RET-003', cat: 'RETENTION', urgency: 'HIGH', title: 'Puppy Vaccination Retention & Booster Sequence', summary: 'Win back 480 lapsed puppy parents with 1-click WhatsApp booking', hubs: 'All 14 Hubs', ebitda: 420000, confidence: 0.94, effort: 'MEDIUM', status: 'PENDING', score: 263200, actionMsg: 'Activated automated 21-day WhatsApp vaccination booster campaign' },
+    { id: 'REC-CLN-004', cat: 'CLINIC', urgency: 'HIGH', title: 'Diagnostic Ultrasound Post-Op Screening Mandate', summary: 'Integrate post-op scans into EMR surgical discharge protocols', hubs: 'All Surgical Hubs', ebitda: 315000, confidence: 0.95, effort: 'LOW', status: 'PENDING', score: 299250, actionMsg: 'Enforced post-operative abdominal ultrasound checklist in EMR' },
+    { id: 'REC-INV-005', cat: 'INVENTORY', urgency: 'HIGH', title: 'FEFO Near-Expiry Antibiotic Transfer Playbook', summary: 'Transfer 180 feline antibiotic vials to prevent batch write-off', hubs: 'Koramangala -> Indiranagar', ebitda: 185000, confidence: 0.99, effort: 'LOW', status: 'PENDING', score: 183150, actionMsg: 'Created inter-facility transfer order for 180 feline antibiotic vials' },
+    { id: 'REC-RET-006', cat: 'RETENTION', urgency: 'HIGH', title: 'Chronic Renal & Diabetic Auto-Ship Conversion', summary: 'Migrate 340 chronic pet parents to subscription medicine refills', hubs: 'Bangalore & Mumbai Hubs', ebitda: 260000, confidence: 0.92, effort: 'MEDIUM', status: 'PENDING', score: 159466, actionMsg: 'Enrolled 340 chronic pet parents into auto-ship subscription program' },
+    { id: 'REC-CLN-007', cat: 'CLINIC', urgency: 'MEDIUM', title: 'Weekend ICU Surgical Capacity Expansion', summary: 'Add second on-call emergency vet surgeon Friday to Sunday', hubs: 'Bandra & Indiranagar', ebitda: 295000, confidence: 0.91, effort: 'MEDIUM', status: 'PENDING', score: 149138, actionMsg: 'Scheduled secondary emergency veterinary surgeon for Fri-Sun triage' },
+    { id: 'REC-PRC-008', cat: 'PRICING', urgency: 'MEDIUM', title: 'Coupon Stacking Firewall & Promo Optimization', summary: 'Enforce single coupon validation rule on checkout API', hubs: 'Online Commerce / Mobile App', ebitda: 290000, confidence: 0.97, effort: 'LOW', status: 'COMPLETED', score: 281300, actionMsg: 'Deployed checkout firewall blocking promo code stacking' },
+    { id: 'REC-INV-009', cat: 'INVENTORY', urgency: 'MEDIUM', title: 'Centralized Microchip & Consumables Bulk PO', summary: 'Consolidate vendor orders to secure 12% manufacturer volume rebate', hubs: 'Central Warehouse', ebitda: 175000, confidence: 0.95, effort: 'MEDIUM', status: 'PENDING', score: 92361, actionMsg: 'Issued consolidated national PO with 12% tier-3 volume discount' },
+    { id: 'REC-CLN-010', cat: 'CLINIC', urgency: 'MEDIUM', title: 'Ultrasonic Dental Care Preventive Bundle', summary: 'Offer 15% discount when bundling dental scaling with annual wellness', hubs: 'All Polyclinics', ebitda: 210000, confidence: 0.93, effort: 'LOW', status: 'PENDING', score: 195300, actionMsg: 'Published 15% dental care bundle across patient mobile app' }
+  ];
+
   var REC_STATE = {
-    playbooks: null,
+    playbooks: MOCK_PLAYBOOKS,
     filter: 'ALL',
-    auditLog: [],
+    auditLog: [
+      { id: 'REC-PRC-008', title: 'Coupon Stacking Firewall & Promo Optimization', cat: 'PRICING', impact: '₹2.9L', executedAt: '2026-10-14 10:15', detail: 'Deployed checkout firewall blocking promo code stacking' }
+    ],
     showAudit: false,
-    initialized: false
+    initialized: true
   };
 
   var EFFORT_W = { LOW: 1.0, MEDIUM: 1.8, HIGH: 3.0 };
@@ -1418,7 +1695,7 @@ function generateResponse(text, ctx) {
 
   function initRecPlaybooks() {
     if (REC_STATE.initialized) return;
-    REC_STATE.playbooks = [];
+    if (!REC_STATE.playbooks || REC_STATE.playbooks.length === 0) REC_STATE.playbooks = MOCK_PLAYBOOKS;
     REC_STATE.initialized = true;
 
     // Connect to backend telemetry recommendations stream

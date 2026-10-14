@@ -257,6 +257,30 @@ function generatePlaybooks() {
       winWindow: '30 Days',
       status: 'PENDING',
       createdAt: dateStr
+    },
+    {
+      id: 'REC-CLI-003',
+      category: 'CLINIC',
+      urgency: 'MEDIUM',
+      title: 'Ultrasonic Dental Prophylaxis & Annual Preventive Care Bundle',
+      impactSummary: 'Generate ₹2.1L/month EBITDA lift by bundling ultrasonic scaling with routine wellness exams',
+      rationale: 'Over 64% of canines above 5 years exhibit periodontal plaque. Offering an integrated dental hygiene bundle at a 15% incentive drives clinical procedure adoption and prevents progressive tooth decay.',
+      projectedEbitdaLift: 210000,
+      confidenceScore: 0.93,
+      effort: 'LOW',
+      targetHubs: ['All 14 Polyclinics'],
+      targetDepartment: 'Clinical Operations',
+      actionType: 'PREVENTIVE_BUNDLE_LAUNCH',
+      actionPayload: {
+        bundleName: 'Dental Prophylaxis & Wellness Package',
+        discountPct: 15,
+        targetAge: '5Y+',
+        hubs: 'All 14 Polyclinics'
+      },
+      actionText: 'Activate Dental Bundle in EMR',
+      winWindow: '14 Days',
+      status: 'PENDING',
+      createdAt: dateStr
     }
   ];
 

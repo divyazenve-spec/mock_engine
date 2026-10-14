@@ -13,7 +13,18 @@ export default function SalesForecast() {
     boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
   };
 
-  const projections = [];
+    const projections = [
+    { period: 'Next 7 Days (Oct 15 - Oct 21)', p10: '₹1.12 Cr', p50: '₹1.28 Cr', p90: '₹1.44 Cr', growth: '+14.2%', confidence: '98.2%' },
+    { period: 'Week 2 (Oct 22 - Oct 28)', p10: '₹1.24 Cr', p50: '₹1.41 Cr', p90: '₹1.62 Cr', growth: '+18.5%', confidence: '96.8%' },
+    { period: 'Week 3 (Oct 29 - Nov 04)', p10: '₹1.08 Cr', p50: '₹1.22 Cr', p90: '₹1.38 Cr', growth: '+11.8%', confidence: '95.4%' },
+    { period: 'Week 4 (Nov 05 - Nov 11)', p10: '₹1.18 Cr', p50: '₹1.33 Cr', p90: '₹1.51 Cr', growth: '+15.6%', confidence: '94.8%' },
+    { period: 'Full Month 30D (Oct-Nov)', p10: '₹4.68 Cr', p50: '₹5.24 Cr', p90: '₹6.15 Cr', growth: '+14.8%', confidence: '96.2%' },
+    { period: '60-Day Horizon (Q3 End)', p10: '₹9.55 Cr', p50: '₹10.72 Cr', p90: '₹12.40 Cr', growth: '+16.2%', confidence: '93.5%' },
+    { period: '90-Day Horizon (Q4 Full)', p10: '₹14.80 Cr', p50: '₹16.50 Cr', p90: '₹18.90 Cr', growth: '+18.4%', confidence: '92.0%' },
+    { period: 'OPD Consultations (30D)', p10: '₹1.45 Cr', p50: '₹1.62 Cr', p90: '₹1.85 Cr', growth: '+12.5%', confidence: '97.4%' },
+    { period: 'Pharmacy & 60-Min Express (30D)', p10: '₹2.10 Cr', p50: '₹2.38 Cr', p90: '₹2.75 Cr', growth: '+22.0%', confidence: '98.0%' },
+    { period: 'Diagnostics & Surgical (30D)', p10: '₹1.13 Cr', p50: '₹1.24 Cr', p90: '₹1.55 Cr', growth: '+15.2%', confidence: '95.8%' }
+  ];
 
   return (
     <DashboardLayout

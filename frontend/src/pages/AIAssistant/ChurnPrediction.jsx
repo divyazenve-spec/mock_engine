@@ -11,7 +11,18 @@ export default function ChurnPrediction() {
     boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
   };
 
-  const churnCohorts = [];
+    const churnCohorts = [
+    { cohort: 'Vikram Malhotra · Max (Golden Retriever, 4Y)', users: '₹48,500 LTV', riskScore: '92%', decayFactor: '65 Days overdue since expected gastro prescription refill', playbook: 'WhatsApp Concierge: VIP ₹500 Refill Voucher + Free Vet Call', winbackRate: '88.5%' },
+    { cohort: 'Priya Sengupta · Cleo (Persian Cat, 3Y)', users: '₹34,200 LTV', riskScore: '88%', decayFactor: 'Cancelled dental checkup after 40-minute clinic reception wait', playbook: 'Personal Call from Medical Director + Free Home Consultation', winbackRate: '84.0%' },
+    { cohort: 'Ananya Deshmukh · Bruno (German Shepherd, 6Y)', users: '₹62,000 LTV', riskScore: '84%', decayFactor: 'Switched prescription renal food purchase to third-party website', playbook: 'Price-Match Guarantee + Auto-Ship Subscription 10% Discount', winbackRate: '81.2%' },
+    { cohort: 'Karan Grover · Leo (Beagle, 2Y)', users: '₹28,400 LTV', riskScore: '81%', decayFactor: 'Completed puppy shots; 180 days with zero preventive engagement', playbook: 'Free Canine Annual Wellness Exam invite via App Notification', winbackRate: '79.5%' },
+    { cohort: 'Dr. Sneha Reddy · Bella (Labrador, 8Y)', users: '₹78,900 LTV', riskScore: '79%', decayFactor: 'Senior arthritis pain medication lapsed 30 days past schedule', playbook: 'Urgent Vet Nurse Wellness Check-in Call + Pain Scorecard', winbackRate: '86.4%' },
+    { cohort: 'Rahul Nambiar · Simba (Indie Cat, 2Y)', users: '₹21,500 LTV', riskScore: '76%', decayFactor: 'Missed annual booster; 2 unresolved chat inquiries on fees', playbook: 'Senior Support Ticket Escalation + 1-Click Vaccine Home Visit', winbackRate: '74.8%' },
+    { cohort: 'Meera Swaminathan · Rocky (Rottweiler, 5Y)', users: '₹54,000 LTV', riskScore: '74%', decayFactor: 'Express delivery delayed by 45 min during last storm order', playbook: 'Delivery Fee Refund Credit + Apology Gift Box of Treats', winbackRate: '82.0%' },
+    { cohort: 'Aditya Chopra · Milo (Shih Tzu, 1.5Y)', users: '₹19,800 LTV', riskScore: '72%', decayFactor: 'Grooming appointment rescheduled twice due to slot shortage', playbook: 'Guaranteed Weekend Morning VIP Grooming Slot Reserved', winbackRate: '85.2%' },
+    { cohort: 'Tanvi Saxena · Coco (Cocker Spaniel, 3Y)', users: '₹31,000 LTV', riskScore: '68%', decayFactor: 'Ear infection follow-up visit unconfirmed 14 days overdue', playbook: 'Automated Otitis Follow-Up Nudge with Attending Vet Dr. Ramesh', winbackRate: '77.5%' },
+    { cohort: 'Arjun Singhal · Oscar (Pug, 7Y)', users: '₹44,200 LTV', riskScore: '65%', decayFactor: 'Decreasing order frequency from 2.4x/mo down to 0.8x/mo', playbook: 'Curated Senior Pug Nutrition & Respiratory Care Package', winbackRate: '79.0%' }
+  ];
 
   return (
     <DashboardLayout
