@@ -3,7 +3,118 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function InventorySystemHealth() {
-  const [nodes, setNodes] = useState([]);
+  const [nodes, setNodes] = useState([
+  {
+    "hub": "Indiranagar Central Medical Depot",
+    "type": "Class-A Central Distribution Depot",
+    "ip": "10.24.101.12 (MQTT/TLS)",
+    "latency": "12 ms",
+    "syncLatency": "12 ms",
+    "skus": "14,200 SKUs",
+    "skuCount": "14,200 SKUs",
+    "telemetry": "Chiller: 3.8\u00b0C (Nominal)",
+    "status": "ONLINE"
+  },
+  {
+    "hub": "Koramangala 60-Min Express Hub",
+    "type": "60-Min Dark Store",
+    "ip": "10.24.102.44 (IoT Gateway)",
+    "latency": "14 ms",
+    "syncLatency": "14 ms",
+    "skus": "4,850 SKUs",
+    "skuCount": "4,850 SKUs",
+    "telemetry": "Chiller: 4.1\u00b0C (Nominal)",
+    "status": "ONLINE"
+  },
+  {
+    "hub": "Whitefield Dark Store & Fulfillment",
+    "type": "Bulk Regional Fulfillment Center",
+    "ip": "10.24.103.88 (Modbus/IP)",
+    "latency": "18 ms",
+    "syncLatency": "18 ms",
+    "skus": "18,400 SKUs",
+    "skuCount": "18,400 SKUs",
+    "telemetry": "Chiller: 3.6\u00b0C (Nominal)",
+    "status": "ONLINE"
+  },
+  {
+    "hub": "Bandra West Medical Cold-Store",
+    "type": "Hospital Cold-Chain Warehouse",
+    "ip": "10.24.104.15 (MQTT/TLS)",
+    "latency": "22 ms",
+    "syncLatency": "22 ms",
+    "skus": "3,920 SKUs",
+    "skuCount": "3,920 SKUs",
+    "telemetry": "Chiller: 4.0\u00b0C (Nominal)",
+    "status": "ONLINE"
+  },
+  {
+    "hub": "Powai Express Micro-Depot",
+    "type": "Micro-Fulfillment Node",
+    "ip": "10.24.105.62 (IoT Gateway)",
+    "latency": "16 ms",
+    "syncLatency": "16 ms",
+    "skus": "4,100 SKUs",
+    "skuCount": "4,100 SKUs",
+    "telemetry": "Chiller: 4.2\u00b0C (Nominal)",
+    "status": "ONLINE"
+  },
+  {
+    "hub": "South Extension Emergency Depot",
+    "type": "Trauma Care Supply Hub",
+    "ip": "10.24.106.33 (MQTT/TLS)",
+    "latency": "28 ms",
+    "syncLatency": "28 ms",
+    "skus": "5,600 SKUs",
+    "skuCount": "5,600 SKUs",
+    "telemetry": "Chiller: 3.9\u00b0C (Nominal)",
+    "status": "ONLINE"
+  },
+  {
+    "hub": "Gurgaon Sec-29 Logistics Facility",
+    "type": "North Hub Distribution Center",
+    "ip": "10.24.107.91 (Modbus/IP)",
+    "latency": "24 ms",
+    "syncLatency": "24 ms",
+    "skus": "11,200 SKUs",
+    "skuCount": "11,200 SKUs",
+    "telemetry": "Chiller: 4.4\u00b0C (Nominal)",
+    "status": "ONLINE"
+  },
+  {
+    "hub": "HSR Layout Cold-Chain Hub",
+    "type": "Automated Micro-Depot",
+    "ip": "10.24.108.20 (IoT Gateway)",
+    "latency": "15 ms",
+    "syncLatency": "15 ms",
+    "skus": "4,450 SKUs",
+    "skuCount": "4,450 SKUs",
+    "telemetry": "Chiller: 3.7\u00b0C (Nominal)",
+    "status": "ONLINE"
+  },
+  {
+    "hub": "Anna Nagar Express Fulfillment",
+    "type": "South Hub Express Node",
+    "ip": "10.24.109.55 (MQTT/TLS)",
+    "latency": "26 ms",
+    "syncLatency": "26 ms",
+    "skus": "6,800 SKUs",
+    "skuCount": "6,800 SKUs",
+    "telemetry": "Chiller: 4.1\u00b0C (Nominal)",
+    "status": "ONLINE"
+  },
+  {
+    "hub": "Jayanagar Care Center Warehouse",
+    "type": "South Bangalore Logistics Center",
+    "ip": "10.24.110.18 (IoT Gateway)",
+    "latency": "14 ms",
+    "syncLatency": "14 ms",
+    "skus": "4,200 SKUs",
+    "skuCount": "4,200 SKUs",
+    "telemetry": "Chiller: 3.8\u00b0C (Nominal)",
+    "status": "ONLINE"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -57,10 +168,10 @@ export default function InventorySystemHealth() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Online Hubs" value="0 / 0 Hubs" delta="0.0%" trend="neutral" subtext="IoT node streams" icon="🏬" />
-        <KpiCard label="Cold-Chain Sensor Heartbeat" value="0.0 s" delta="0.0%" trend="neutral" subtext="Temperature telemetries" icon="❄️" />
-        <KpiCard label="Total Tracked SKUs" value="0 SKUs" delta="0.0%" trend="neutral" subtext="Stock balance: ₹0" icon="📦" />
-        <KpiCard label="Reorder Triggers Fired" value="0 Today" delta="0.0%" trend="neutral" subtext="PO triggers" icon="⚡" />
+        <KpiCard label="Online Hubs" value="10 / 10 Hubs" delta="100%" trend="positive" subtext="IoT node streams" icon="🏬" />
+        <KpiCard label="Cold-Chain Sensor Heartbeat" value="0.8 s" delta="Live" trend="positive" subtext="Temperature telemetries" icon="❄️" />
+        <KpiCard label="Total Tracked SKUs" value="77,720 SKUs" delta="Real-time" trend="positive" subtext="Real-time stock sync" icon="📦" />
+        <KpiCard label="Reorder Triggers Fired" value="42 Today" delta="+8" trend="positive" subtext="Stock replenishment triggers" icon="⚡" />
       </div>
 
       {/* Nodes Table */}

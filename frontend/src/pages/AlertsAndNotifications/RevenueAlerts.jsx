@@ -3,7 +3,118 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function RevenueAlerts() {
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] = useState([
+  {
+    "id": "REV-201",
+    "title": "Uncontrolled Promotional Coupon Stacking on Premium Grooming",
+    "channel": "Mobile App / Checkout",
+    "severity": "High Warning",
+    "status": "Active",
+    "trigger": "50% discount stacked on top of subscriber pricing",
+    "cause": "Checkout API failed single-coupon validator rule",
+    "impact": "\u20b92.9L revenue leak",
+    "time": "15 mins ago"
+  },
+  {
+    "id": "REV-202",
+    "title": "Uncollected Surgical Consumable Billings across BLR Surgical Hubs",
+    "channel": "Hospital Inpatient Billing",
+    "severity": "High Warning",
+    "status": "Active",
+    "trigger": "Discharge bills omitting specialized titanium ortho pins",
+    "cause": "Manual checkbox missed on front-desk discharge POS",
+    "impact": "\u20b93.85L monthly leakage",
+    "time": "28 mins ago"
+  },
+  {
+    "id": "REV-203",
+    "title": "Delhi NCR Regional Gross Margin Compression",
+    "channel": "Delhi Logistics / Dark Store",
+    "severity": "Warning",
+    "status": "Active",
+    "trigger": "Gross margin dropped to 38.2% (Benchmark: 46%)",
+    "cause": "Couriers absorbing surge rain delivery fees",
+    "impact": "\u20b91.85L delivery deficit",
+    "time": "45 mins ago"
+  },
+  {
+    "id": "REV-204",
+    "title": "After-Hours Emergency Triage Underbilling",
+    "channel": "24x7 Emergency OPD",
+    "severity": "High Warning",
+    "status": "Active",
+    "trigger": "Night consultations logged under standard daytime tariff",
+    "cause": "Doctors defaulting to \u20b9650 standard fee instead of \u20b91,200",
+    "impact": "\u20b92.45L margin gap",
+    "time": "1 hr ago"
+  },
+  {
+    "id": "REV-205",
+    "title": "Therapeutic Renal Food Subscription Pause Spike",
+    "channel": "Auto-Ship Subscriptions",
+    "severity": "Warning",
+    "status": "Active",
+    "trigger": "42 subscribers paused Hill's k/d deliveries this week",
+    "cause": "Customer feedback citing bag size availability issues",
+    "impact": "\u20b91.65L MRR at risk",
+    "time": "2 hrs ago"
+  },
+  {
+    "id": "REV-206",
+    "title": "Diagnostic Blood Chemistry Reagent Cost Escalation",
+    "channel": "In-Clinic Laboratory",
+    "severity": "Warning",
+    "status": "Active",
+    "trigger": "Reagent cost per panel rose from \u20b9380 to \u20b9490",
+    "cause": "Unclaimed manufacturer volume discount rebate",
+    "impact": "\u20b91.40L cost variance",
+    "time": "3 hrs ago"
+  },
+  {
+    "id": "REV-207",
+    "title": "Corporate Pet Wellness B2B Account Payment Delay",
+    "channel": "B2B Enterprise Portal",
+    "severity": "Warning",
+    "status": "Active",
+    "trigger": "Infosys Pet Wellness account overdue by 45 days",
+    "cause": "Billing address discrepancy in enterprise purchase order",
+    "impact": "\u20b94.5L receivable aging",
+    "time": "4 hrs ago"
+  },
+  {
+    "id": "REV-208",
+    "title": "Grooming Appointment High No-Show Rate on Weekends",
+    "channel": "Pet Spa & Grooming",
+    "severity": "Warning",
+    "status": "Active",
+    "trigger": "24% no-show rate recorded across Bandra and Indiranagar",
+    "cause": "Lack of mandatory 20% advance booking deposit",
+    "impact": "\u20b91.25L idle table loss",
+    "time": "5 hrs ago"
+  },
+  {
+    "id": "REV-209",
+    "title": "Vaccination Booster Drop-off Revenue Attrition",
+    "channel": "Preventive Healthcare",
+    "severity": "High Warning",
+    "status": "Active",
+    "trigger": "28% puppy parents missed 21-day booster sequence",
+    "cause": "Manual calling nurse roster overwhelmed",
+    "impact": "\u20b92.10L follow-up revenue",
+    "time": "6 hrs ago"
+  },
+  {
+    "id": "REV-210",
+    "title": "Pet Pharmacy Return Rate Spike on Prescription Diets",
+    "channel": "Express Pharmacy Delivery",
+    "severity": "Warning",
+    "status": "Resolved",
+    "trigger": "Kibble bag packaging puncture claims increased by 3.2%",
+    "cause": "Transit packaging tearing during monsoon bike delivery",
+    "impact": "\u20b985K credit note drain",
+    "time": "7 hrs ago"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -78,35 +189,35 @@ export default function RevenueAlerts() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="Total Revenue at Risk"
-          value="₹0"
-          delta="0.0%"
-          trend="neutral"
-          subtext="₹0 at risk"
+          value="₹18.4L"
+          delta="-24% MoM"
+          trend="positive"
+          subtext="10 automated triggers"
           icon="📉"
         />
         <KpiCard
           label="Target Attainment Gap"
-          value="0.0% MTD"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0.0% variance"
+          value="+4.8% MTD"
+          delta="+4.8%"
+          trend="positive"
+          subtext="Oct pacing: 104.8%"
           icon="🎯"
         />
         <KpiCard
           label="Average Return Rate"
-          value="0.0%"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0.0% return rate"
+          value="1.8%"
+          delta="-0.7%"
+          trend="positive"
+          subtext="Below 2.5% threshold"
           icon="🔄"
         />
         <KpiCard
           label="High-Value Accounts Alert"
-          value="0 Accounts"
-          delta="0.0%"
+          value="10 Accounts"
+          delta="+3"
           trend="neutral"
-          subtext="0 accounts flagged"
-          icon="🏢"
+          subtext="VIP retention active"
+          icon="💎"
         />
       </div>
 

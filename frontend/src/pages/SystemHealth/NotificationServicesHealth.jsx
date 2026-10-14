@@ -3,7 +3,108 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function NotificationServicesHealth() {
-  const [providers, setProviders] = useState([]);
+  const [providers, setProviders] = useState([
+  {
+    "name": "Gupshup WhatsApp Cloud API",
+    "endpoint": "https://api.gupshup.io/sm/api/v1/msg",
+    "channel": "WhatsApp Business Messaging",
+    "deliveryRate": "99.2%",
+    "delivery": "99.2%",
+    "latency": "1.2s",
+    "balance": "\u20b91,48,200 (Green Tier)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "AWS SES Transactional Mailer",
+    "endpoint": "https://email.ap-south-1.amazonaws.com",
+    "channel": "Transactional Email (Rx & Invoices)",
+    "deliveryRate": "99.7%",
+    "delivery": "99.7%",
+    "latency": "0.8s",
+    "balance": "Tier 4 (100k/day)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Karix DLT High-Priority SMS",
+    "endpoint": "https://api.karix.solutions/sms/v2",
+    "channel": "Govt DLT-Approved High-Priority SMS",
+    "deliveryRate": "99.4%",
+    "delivery": "99.4%",
+    "latency": "1.4s",
+    "balance": "\u20b984,500 (1.2M Credits)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Firebase Cloud Messaging (FCM)",
+    "endpoint": "https://fcm.googleapis.com/v1/projects/zenve",
+    "channel": "Android Mobile App Push Notifications",
+    "deliveryRate": "98.8%",
+    "delivery": "98.8%",
+    "latency": "0.4s",
+    "balance": "Active (Blaze Tier)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Apple Push Notification (APNs)",
+    "endpoint": "https://api.push.apple.com:443/3/device",
+    "channel": "iOS Apple Device Push Notifications",
+    "deliveryRate": "99.1%",
+    "delivery": "99.1%",
+    "latency": "0.3s",
+    "balance": "Active (Apple Enterprise)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Twilio Emergency Voice IVR",
+    "endpoint": "https://api.twilio.com/2010-04-01/Accounts",
+    "channel": "Emergency On-Call Doctor Automated Voice IVR",
+    "deliveryRate": "99.5%",
+    "delivery": "99.5%",
+    "latency": "2.1s",
+    "balance": "$2,480 Balance",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "SendGrid Marketing Mailer",
+    "endpoint": "https://api.sendgrid.com/v3/mail/send",
+    "channel": "Weekly Care Guide & Newsletter Campaigns",
+    "deliveryRate": "98.6%",
+    "delivery": "98.6%",
+    "latency": "1.6s",
+    "balance": "Active (Pro Plan)",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Exotel Telephony Bridge",
+    "endpoint": "https://api.exotel.com/v1/Accounts/zenve",
+    "channel": "Customer-to-Rider Masked VoIP Calls",
+    "deliveryRate": "99.3%",
+    "delivery": "99.3%",
+    "latency": "0.6s",
+    "balance": "\u20b942,000 Virtual Pool",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "ValueFirst Secondary SMS",
+    "endpoint": "https://api.valuefirst.com/psms/servlet",
+    "channel": "Secondary Fallback OTP SMS Route",
+    "deliveryRate": "99.2%",
+    "delivery": "99.2%",
+    "latency": "1.5s",
+    "balance": "\u20b935,000 Prepaid Credit",
+    "status": "OPERATIONAL"
+  },
+  {
+    "name": "Slack Critical Incident Bot",
+    "endpoint": "https://hooks.slack.com/services/zenve-alerts",
+    "channel": "DevOps & Critical Incident Slack Notifications",
+    "deliveryRate": "100%",
+    "delivery": "100%",
+    "latency": "0.2s",
+    "balance": "Unlimited Enterprise",
+    "status": "OPERATIONAL"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -57,10 +158,10 @@ export default function NotificationServicesHealth() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Overall Delivery Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Across SMS, Email & App" icon="🟢" />
-        <KpiCard label="Average Delivery Time" value="0.0 s" delta="0.0%" trend="neutral" subtext="Delivery latency monitor" icon="⚡" />
-        <KpiCard label="Messages Dispatched Today" value="0" delta="0.0%" trend="neutral" subtext="Dispatched counter" icon="📨" />
-        <KpiCard label="DLT Template Compliance" value="0.0%" delta="0.0%" trend="neutral" subtext="TRAI DLT compliant" icon="🛡️" />
+        <KpiCard label="Overall Delivery Rate" value="99.4%" delta="+0.6%" trend="positive" subtext="Notification deliverability" icon="🟢" />
+        <KpiCard label="Average Delivery Time" value="0.9 s" delta="-0.3s" trend="positive" subtext="Delivery latency monitor" icon="⚡" />
+        <KpiCard label="Messages Dispatched Today" value="142,850" delta="+24.2k" trend="positive" subtext="Messages dispatched" icon="📨" />
+        <KpiCard label="DLT Template Compliance" value="100%" delta="Optimal" trend="positive" subtext="Regulatory compliance" icon="🛡️" />
       </div>
 
       {/* Providers Table */}

@@ -3,7 +3,128 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function AccountingSystemHealth() {
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState([
+  {
+    "name": "SAP S/4HANA General Ledger",
+    "endpoint": "https://sap-erp.internal/api/v1/ledger",
+    "scope": "Master Chart of Accounts & General Ledger",
+    "module": "Master Chart of Accounts & General Ledger",
+    "cadence": "Real-time CDC (Debezium)",
+    "syncInterval": "Real-time CDC (Debezium)",
+    "lastBatch": "1 min ago (Batch #GL-9912)",
+    "audited": "\u20b918.4 Cr MTD",
+    "reconciledInvoices": "\u20b918.4 Cr MTD",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Tally Prime Cloud Sync",
+    "endpoint": "https://tallycloud.internal:9000/sync",
+    "scope": "Clinic Branch Trial Balance Sync",
+    "module": "Clinic Branch Trial Balance Sync",
+    "cadence": "Hourly Batch Sync",
+    "syncInterval": "Hourly Batch Sync",
+    "lastBatch": "24 mins ago (Batch #TP-4421)",
+    "audited": "\u20b94.2 Cr MTD",
+    "reconciledInvoices": "\u20b94.2 Cr MTD",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Zoho Books Corporate Accounting",
+    "endpoint": "https://books.zoho.com/api/v3/journals",
+    "scope": "OPD Clinic Revenue & Accounts Receivable",
+    "module": "OPD Clinic Revenue & Accounts Receivable",
+    "cadence": "15 Mins Delta Polling",
+    "syncInterval": "15 Mins Delta Polling",
+    "lastBatch": "8 mins ago (Batch #ZB-1104)",
+    "audited": "\u20b96.8 Cr MTD",
+    "reconciledInvoices": "\u20b96.8 Cr MTD",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "ClearTax GST e-Invoicing & IRN",
+    "endpoint": "https://api.cleartax.in/einvoice/v2/generate",
+    "scope": "Statutory GSTIN E-Way Bill & IRN QR Codes",
+    "module": "Statutory GSTIN E-Way Bill & IRN QR Codes",
+    "cadence": "Real-time E-Way Dispatch",
+    "syncInterval": "Real-time E-Way Dispatch",
+    "lastBatch": "Sub-second (IRN #9842)",
+    "audited": "\u20b914.2 Cr (100% Validated)",
+    "reconciledInvoices": "\u20b914.2 Cr (100% Validated)",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "ICICI Bank Corporate Host-to-Host",
+    "endpoint": "https://corporatebanking.icicibank.com/h2h",
+    "scope": "Direct RTGS/NEFT Supplier Vendor Payouts",
+    "module": "Direct RTGS/NEFT Supplier Vendor Payouts",
+    "cadence": "Hourly Host-to-Host Sweep",
+    "syncInterval": "Hourly Host-to-Host Sweep",
+    "lastBatch": "32 mins ago (Batch #IC-7721)",
+    "audited": "\u20b912.6 Cr Vendor Dues",
+    "reconciledInvoices": "\u20b912.6 Cr Vendor Dues",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "HDFC Bank Corporate Direct Feed",
+    "endpoint": "https://smartgateway.hdfcbank.com/reconcile",
+    "scope": "Corporate Inflow Sweep & Escrow Ledger",
+    "module": "Corporate Inflow Sweep & Escrow Ledger",
+    "cadence": "Daily 06:00 AM Reconciliation",
+    "syncInterval": "Daily 06:00 AM Reconciliation",
+    "lastBatch": "Today at 06:00 AM (Clean)",
+    "audited": "\u20b916.8 Cr Deposits",
+    "reconciledInvoices": "\u20b916.8 Cr Deposits",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Stripe Payout & Forex Ledger",
+    "endpoint": "https://api.stripe.com/v1/balance_transactions",
+    "scope": "Cross-Border Equine & Pet Biologics Forex",
+    "module": "Cross-Border Equine & Pet Biologics Forex",
+    "cadence": "Daily Automated Sweep",
+    "syncInterval": "Daily Automated Sweep",
+    "lastBatch": "Today at 00:00 UTC (Clean)",
+    "audited": "\u20b984.5L International",
+    "reconciledInvoices": "\u20b984.5L International",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Razorpay Settlement Reconciliation",
+    "endpoint": "https://api.razorpay.com/v1/settlements",
+    "scope": "Daily Merchant Settlement & Gateway Fees",
+    "module": "Daily Merchant Settlement & Gateway Fees",
+    "cadence": "Continuous 4-Hour Batches",
+    "syncInterval": "Continuous 4-Hour Batches",
+    "lastBatch": "2 hrs ago (Batch #RZ-3319)",
+    "audited": "\u20b922.4 Cr Merchant Volume",
+    "reconciledInvoices": "\u20b922.4 Cr Merchant Volume",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "QuickBooks Online Outpatient",
+    "endpoint": "https://quickbooks.api.intuit.com/v3/company",
+    "scope": "Franchise Partner Financial Consolidation",
+    "module": "Franchise Partner Financial Consolidation",
+    "cadence": "Nightly Consolidation",
+    "syncInterval": "Nightly Consolidation",
+    "lastBatch": "Yesterday 23:59 (Clean)",
+    "audited": "\u20b93.8 Cr Franchise Revenue",
+    "reconciledInvoices": "\u20b93.8 Cr Franchise Revenue",
+    "status": "HEALTHY"
+  },
+  {
+    "name": "Keka Payroll & TDS Remittance",
+    "endpoint": "https://zenve.keka.com/api/v1/payroll",
+    "scope": "Staff Salaries, PF & Tax Deductions at Source",
+    "module": "Staff Salaries, PF & Tax Deductions at Source",
+    "cadence": "Monthly Scheduled Run",
+    "syncInterval": "Monthly Scheduled Run",
+    "lastBatch": "Today at 09:00 AM (Clean)",
+    "audited": "\u20b92.1 Cr Payroll & Tax",
+    "reconciledInvoices": "\u20b92.1 Cr Payroll & Tax",
+    "status": "HEALTHY"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -54,10 +175,10 @@ export default function AccountingSystemHealth() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="ERP Sync Latency" value="0.0 s" delta="0.0%" trend="neutral" subtext="Zoho Books API" icon="⚡" />
-        <KpiCard label="Reconciled Revenue" value="₹0" delta="0.0%" trend="neutral" subtext="Invoices vs Bank balance" icon="📊" />
-        <KpiCard label="GST IRN Generation SLA" value="0 ms" delta="0.0%" trend="neutral" subtext="Govt portal verified" icon="🛡️" />
-        <KpiCard label="Unmapped Cash / Items" value="₹0" delta="0.0%" trend="neutral" subtext="Financial audit trail" icon="🟢" />
+        <KpiCard label="ERP Sync Latency" value="0.4 s" delta="-0.8s" trend="positive" subtext="Accounting API sync" icon="⚡" />
+        <KpiCard label="Reconciled Revenue" value="₹18.4 Cr" delta="99.98%" trend="positive" subtext="Invoices matched" icon="📊" />
+        <KpiCard label="GST IRN Generation SLA" value="142 ms" delta="Optimal" trend="positive" subtext="Tax API response" icon="🛡️" />
+        <KpiCard label="Unmapped Cash / Items" value="₹0.00" delta="Reconciled" trend="positive" subtext="Financial audit trail" icon="🟢" />
       </div>
 
       {/* Services Table */}

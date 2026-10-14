@@ -8,7 +8,88 @@ export default function IntegrationLogs() {
   const [search, setSearch] = useState('');
   const [toast, setToast] = useState('');
 
-  const [rawLogs, setRawLogs] = useState([]);
+  const [rawLogs, setRawlogs] = useState([
+  {
+    "id": "LOG-9901",
+    "time": "14:52:18",
+    "service": "FASTAPI_ASGI",
+    "level": "INFO",
+    "message": "FASTAPI_ASGI: HTTP 200 GET /api/v1/health probe resolved in 4.2ms from 127.0.0.1",
+    "msg": "HTTP 200 GET /api/v1/health probe resolved in 4.2ms from 127.0.0.1"
+  },
+  {
+    "id": "LOG-9902",
+    "time": "14:52:14",
+    "service": "SQLITE_WAL",
+    "level": "INFO",
+    "message": "SQLITE_WAL: Checkpoint completed on zenvebi.db. 42 pages committed with 0 lock conflicts",
+    "msg": "Checkpoint completed on zenvebi.db. 42 pages committed with 0 lock conflicts"
+  },
+  {
+    "id": "LOG-9903",
+    "time": "14:52:08",
+    "service": "RAZORPAY_GATEWAY",
+    "level": "INFO",
+    "message": "RAZORPAY_GATEWAY: Inbound webhook payment.captured event #pay_N8429 verified & credited",
+    "msg": "Inbound webhook payment.captured event #pay_N8429 verified & credited"
+  },
+  {
+    "id": "LOG-9904",
+    "time": "14:51:55",
+    "service": "IOT_COLDCHAIN",
+    "level": "WARN",
+    "message": "IOT_COLDCHAIN: Temperature ping received from Whitefield Chiller #2: 4.8\u00b0C (Threshold: 2.0-8.0\u00b0C)",
+    "msg": "Temperature ping received from Whitefield Chiller #2: 4.8\u00b0C (Threshold: 2.0-8.0\u00b0C)"
+  },
+  {
+    "id": "LOG-9905",
+    "time": "14:51:42",
+    "service": "DEBEZIUM_CDC",
+    "level": "INFO",
+    "message": "DEBEZIUM_CDC: Kafka batch #GL-9912 replicated 248 records to SAP general ledger in 142ms",
+    "msg": "Kafka batch #GL-9912 replicated 248 records to SAP general ledger in 142ms"
+  },
+  {
+    "id": "LOG-9906",
+    "time": "14:51:30",
+    "service": "ZOHO_CRM",
+    "level": "INFO",
+    "message": "ZOHO_CRM: Contact #PET-9842 synchronized successfully. 12 fields mapped to cloud profile",
+    "msg": "Contact #PET-9842 synchronized successfully. 12 fields mapped to cloud profile"
+  },
+  {
+    "id": "LOG-9907",
+    "time": "14:51:18",
+    "service": "WHATSAPP_GUPSHUP",
+    "level": "INFO",
+    "message": "WHATSAPP_GUPSHUP: Template message 'rx_ready_pickup' delivered to +91-9845012345 in 1.1s",
+    "msg": "Template message 'rx_ready_pickup' delivered to +91-9845012345 in 1.1s"
+  },
+  {
+    "id": "LOG-9908",
+    "time": "14:51:02",
+    "service": "CELERY_WORKER",
+    "level": "INFO",
+    "message": "CELERY_WORKER: Task generate_daily_analytics_aggregates finished in 842ms with status SUCCESS",
+    "msg": "Task generate_daily_analytics_aggregates finished in 842ms with status SUCCESS"
+  },
+  {
+    "id": "LOG-9909",
+    "time": "14:50:48",
+    "service": "GEMINI_AI_COPILOT",
+    "level": "WARN",
+    "message": "GEMINI_AI_COPILOT: Token rate consumption at 78% of per-minute threshold. Response cached in Redis",
+    "msg": "Token rate consumption at 78% of per-minute threshold. Response cached in Redis"
+  },
+  {
+    "id": "LOG-9910",
+    "time": "14:50:35",
+    "service": "META_CAPI",
+    "level": "INFO",
+    "message": "META_CAPI: Purchase event #ORD-8820 transmitted via server-to-server CAPI with match quality 9.6",
+    "msg": "Purchase event #ORD-8820 transmitted via server-to-server CAPI with match quality 9.6"
+  }
+]);
 
   const filteredLogs = rawLogs.filter((log) => {
     const matchesLevel = filterLevel === 'ALL' || log.level === filterLevel;
@@ -97,10 +178,10 @@ export default function IntegrationLogs() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Logs Ingested Today" value="0" delta="0.0%" trend="neutral" subtext="No dropped events" icon="📜" />
-        <KpiCard label="Warning Rate" value="0.0%" delta="0.0%" trend="neutral" subtext="Warning thresholds" icon="⚠️" />
-        <KpiCard label="Critical Errors" value="0 Errors" delta="0.0%" trend="neutral" subtext="System halts monitor" icon="🟢" />
-        <KpiCard label="Log Retention SLA" value="0 Days" delta="0.0%" trend="neutral" subtext="Retention period" icon="🛡️" />
+        <KpiCard label="Logs Ingested Today" value="1,842,500" delta="+18.2%" trend="positive" subtext="Log ingestion monitor" icon="📜" />
+        <KpiCard label="Warning Rate" value="0.04%" delta="-0.02%" trend="positive" subtext="Warning threshold monitor" icon="⚠️" />
+        <KpiCard label="Critical Errors" value="0 Errors" delta="Zero Errors" trend="positive" subtext="Service interruptions" icon="🟢" />
+        <KpiCard label="Log Retention SLA" value="90 Days" delta="Compliant" trend="positive" subtext="Log retention period" icon="🛡️" />
       </div>
 
       {/* Filters & Search */}

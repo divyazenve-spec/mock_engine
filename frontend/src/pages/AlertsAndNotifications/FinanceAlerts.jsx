@@ -3,7 +3,128 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function FinanceAlerts() {
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] = useState([
+  {
+    "id": "FIN-701",
+    "title": "EBITDA Margin Slippage in Delhi Logistics Sub-Hub",
+    "category": "Operating Margin Analysis",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "EBITDA: 11.2% (Target: 18.0%)",
+    "impact": "\u20b93.2L regional EBITDA deficit",
+    "rootCause": "Rider surge incentives paid during heavy rain week",
+    "cause": "Rider surge incentives paid during heavy rain week",
+    "time": "15 mins ago"
+  },
+  {
+    "id": "FIN-702",
+    "title": "Unallocated Bank Deposit Inflow on ICICI Current Account",
+    "category": "Cash Flow Reconciliation",
+    "severity": "Critical",
+    "status": "Active",
+    "metric": "\u20b94.2L Unmapped Wire Transfer",
+    "impact": "B2B client invoices remain in Unpaid status",
+    "rootCause": "Missing customer PAN / narration in bank RTGS remark",
+    "cause": "Missing customer PAN / narration in bank RTGS remark",
+    "time": "30 mins ago"
+  },
+  {
+    "id": "FIN-703",
+    "title": "High-Value Pharmaceutical Vendor Payables Due in < 24 Hours",
+    "category": "Accounts Payable / Treasury",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "\u20b96.8L Due Today (Zoetis & Boehringer)",
+    "impact": "Risk of losing 2% early settlement cash discount",
+    "rootCause": "Cheque signatory dual authorization pending from CFO",
+    "cause": "Cheque signatory dual authorization pending from CFO",
+    "time": "45 mins ago"
+  },
+  {
+    "id": "FIN-704",
+    "title": "GST GSTR-3B Input Tax Credit (ITC) Reconciliation Gap",
+    "category": "Tax & Regulatory Compliance",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "6 Days to Filing Deadline (ITC Gap: \u20b91.45L)",
+    "impact": "Potential interest penalty on delayed GSTR-2B matching",
+    "rootCause": "3 tier-2 packaging vendors failed to file GSTR-1 returns",
+    "cause": "3 tier-2 packaging vendors failed to file GSTR-1 returns",
+    "time": "1 hr ago"
+  },
+  {
+    "id": "FIN-705",
+    "title": "Hospital Surgical Consumables Unbilled Inventory Variance",
+    "category": "Cost of Goods Sold (COGS)",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "COGS Variance: +4.8% in BLR Surgical Hub",
+    "impact": "\u20b91.85L margin leakage in Q3 books",
+    "rootCause": "Titanium bone plates logged on purchase but unbilled on discharge",
+    "cause": "Titanium bone plates logged on purchase but unbilled on discharge",
+    "time": "2 hrs ago"
+  },
+  {
+    "id": "FIN-706",
+    "title": "Doctor Tele-Consultation Commission Payout Ledger Discrepancy",
+    "category": "Payroll & Provider Disbursements",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "\u20b978K Discrepancy Across 22 Vets",
+    "impact": "Delay in monthly provider pay disbursements",
+    "rootCause": "Platform fee discount omitted during calculation script",
+    "cause": "Platform fee discount omitted during calculation script",
+    "time": "3 hrs ago"
+  },
+  {
+    "id": "FIN-707",
+    "title": "Commercial Dark Store Lease Escalation Due for Koramangala",
+    "category": "Real Estate & Facility Lease",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "5% Escalation Effective 1st Nov (\u20b935K/mo)",
+    "impact": "Requires renewed lease addendum registration",
+    "rootCause": "Annual contractual rent review cycle triggered",
+    "cause": "Annual contractual rent review cycle triggered",
+    "time": "4 hrs ago"
+  },
+  {
+    "id": "FIN-708",
+    "title": "Pet Insurance Reimbursement Aging Exceeding 60 Days",
+    "category": "Receivables Management",
+    "severity": "High Warning",
+    "status": "Active",
+    "metric": "\u20b92.8L in Overdue TPA Claims",
+    "impact": "Negative working capital drag on outpatient clinic",
+    "rootCause": "Bajaj Allianz TPA portal requiring itemized treatment notes",
+    "cause": "Bajaj Allianz TPA portal requiring itemized treatment notes",
+    "time": "5 hrs ago"
+  },
+  {
+    "id": "FIN-709",
+    "title": "Foreign Exchange Loss on Imported Veterinary Anesthesia Equipment",
+    "category": "Forex Exposure",
+    "severity": "Warning",
+    "status": "Active",
+    "metric": "USD/INR Depreciation Impact: \u20b91.12L",
+    "impact": "CapEx equipment purchase budget overrun",
+    "rootCause": "Unhedged USD letter of credit for Mindray ultrasound units",
+    "cause": "Unhedged USD letter of credit for Mindray ultrasound units",
+    "time": "6 hrs ago"
+  },
+  {
+    "id": "FIN-710",
+    "title": "Petty Cash Imprest Exhaustion in Powai Medical Center",
+    "category": "Branch Cash Operations",
+    "severity": "Warning",
+    "status": "Resolved",
+    "metric": "Balance Restored: \u20b925,000",
+    "impact": "Resolved: Wire top-up completed via corporate net banking",
+    "rootCause": "Unplanned emergency facility plumbing repairs",
+    "cause": "Unplanned emergency facility plumbing repairs",
+    "time": "7 hrs ago"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -78,34 +199,34 @@ export default function FinanceAlerts() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="October EBITDA Margin"
-          value="0.0%"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0.0% variance"
+          value="18.6%"
+          delta="+2.4%"
+          trend="positive"
+          subtext="Budget: 16.2%"
           icon="📉"
         />
         <KpiCard
           label="Unallocated Bank Inflow"
-          value="₹0"
-          delta="0.0%"
-          trend="neutral"
-          subtext="₹0 unallocated"
+          value="₹4.2L"
+          delta="-48%"
+          trend="positive"
+          subtext="10 deposits matched"
           icon="🏦"
         />
         <KpiCard
           label="Vendor Payables Due (<24h)"
-          value="₹0"
-          delta="0.0%"
-          trend="neutral"
-          subtext="₹0 due"
+          value="₹6.8L"
+          delta="2% Rebate"
+          trend="positive"
+          subtext="Early settlement live"
           icon="🧾"
         />
         <KpiCard
           label="Days to GST GSTR-3B"
-          value="0 Days"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 pending items"
+          value="6 Days"
+          delta="On Time"
+          trend="positive"
+          subtext="100% ITC matched"
           icon="📅"
         />
       </div>

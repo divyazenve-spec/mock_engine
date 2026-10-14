@@ -3,7 +3,118 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function MarketingIntegrations() {
-  const [integrations, setIntegrations] = useState([]);
+  const [integrations, setIntegrations] = useState([
+  {
+    "platform": "Meta Conversions API (CAPI)",
+    "endpoint": "https://graph.facebook.com/v19.0/events",
+    "purpose": "Server-Side Purchase & Add-to-Cart Tracking",
+    "eventMatchQuality": "9.4 / 10 (Great)",
+    "match": "9.4 / 10",
+    "latency": "34 ms",
+    "dailyEvents": "142,500 Events",
+    "events": "142,500",
+    "status": "HEALTHY"
+  },
+  {
+    "platform": "Google Ads Enhanced Conversions",
+    "endpoint": "https://googleads.googleapis.com/v16/conversions",
+    "purpose": "Google Search & PMax Conversion Feedback",
+    "eventMatchQuality": "9.6 / 10 (Excellent)",
+    "match": "9.6 / 10",
+    "latency": "42 ms",
+    "dailyEvents": "88,400 Events",
+    "events": "88,400",
+    "status": "HEALTHY"
+  },
+  {
+    "platform": "GA4 Measurement Protocol",
+    "endpoint": "https://www.google-analytics.com/mp/collect",
+    "purpose": "Omnichannel Traffic & Cross-Device Journeys",
+    "eventMatchQuality": "9.8 / 10 (Optimal)",
+    "match": "9.8 / 10",
+    "latency": "28 ms",
+    "dailyEvents": "420,000 Events",
+    "events": "420,000",
+    "status": "HEALTHY"
+  },
+  {
+    "platform": "AppsFlyer Attribution SDK",
+    "endpoint": "https://api2.appsflyer.com/inappevent",
+    "purpose": "Rider App & Pet Parent Install Attribution",
+    "eventMatchQuality": "9.9 / 10 (Accurate)",
+    "match": "9.9 / 10",
+    "latency": "18 ms",
+    "dailyEvents": "64,200 Events",
+    "events": "64,200",
+    "status": "HEALTHY"
+  },
+  {
+    "platform": "Klaviyo E-Commerce Event Bus",
+    "endpoint": "https://a.klaviyo.com/api/events",
+    "purpose": "Abandoned Cart & Prescription Refill Nudges",
+    "eventMatchQuality": "9.5 / 10 (High)",
+    "match": "9.5 / 10",
+    "latency": "36 ms",
+    "dailyEvents": "52,800 Events",
+    "events": "52,800",
+    "status": "HEALTHY"
+  },
+  {
+    "platform": "MoEngage Real-Time Webhooks",
+    "endpoint": "https://api.moengage.com/v1/event",
+    "purpose": "Push Notification Engagement Telemetry",
+    "eventMatchQuality": "9.2 / 10 (Good)",
+    "match": "9.2 / 10",
+    "latency": "44 ms",
+    "dailyEvents": "98,000 Events",
+    "events": "98,000",
+    "status": "HEALTHY"
+  },
+  {
+    "platform": "Branch.io Deep-Linking",
+    "endpoint": "https://api2.branch.io/v2/event/standard",
+    "purpose": "Universal App Link Redirection & Attribution",
+    "eventMatchQuality": "9.7 / 10 (Accurate)",
+    "match": "9.7 / 10",
+    "latency": "24 ms",
+    "dailyEvents": "42,600 Events",
+    "events": "42,600",
+    "status": "HEALTHY"
+  },
+  {
+    "platform": "CleverTap Predictive Retargeting",
+    "endpoint": "https://api.clevertap.com/1/upload",
+    "purpose": "High-LTV Churn Prediction & Win-Back Triggers",
+    "eventMatchQuality": "9.1 / 10 (Good)",
+    "match": "9.1 / 10",
+    "latency": "52 ms",
+    "dailyEvents": "76,500 Events",
+    "events": "76,500",
+    "status": "HEALTHY"
+  },
+  {
+    "platform": "TikTok Events API Server",
+    "endpoint": "https://business-api.tiktok.com/open_api/v1.3/event/track",
+    "purpose": "Gen-Z Pet Adoption Social Campaign Tracking",
+    "eventMatchQuality": "8.8 / 10 (Optimal)",
+    "match": "8.8 / 10",
+    "latency": "48 ms",
+    "dailyEvents": "38,200 Events",
+    "events": "38,200",
+    "status": "HEALTHY"
+  },
+  {
+    "platform": "LinkedIn Insight B2B Tag",
+    "endpoint": "https://api.linkedin.com/v2/conversionEvents",
+    "purpose": "Corporate Pet Wellness Benefit Inquiries",
+    "eventMatchQuality": "9.0 / 10 (Good)",
+    "match": "9.0 / 10",
+    "latency": "64 ms",
+    "dailyEvents": "12,400 Events",
+    "events": "12,400",
+    "status": "HEALTHY"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -57,10 +168,10 @@ export default function MarketingIntegrations() {
 
       {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Server Event Delivery" value="0.0%" delta="0.0%" trend="neutral" subtext="Marketing delivery" icon="🟢" />
-        <KpiCard label="Event Match Quality" value="0.0 / 10" delta="0.0%" trend="neutral" subtext="Attribution scoring" icon="🎯" />
-        <KpiCard label="Daily Stream Volume" value="0" delta="0.0%" trend="neutral" subtext="Conversion streams" icon="📊" />
-        <KpiCard label="Avg Stream Latency" value="0 ms" delta="0.0%" trend="neutral" subtext="Queue latency" icon="⚡" />
+        <KpiCard label="Server Event Delivery" value="99.8%" delta="+0.4%" trend="positive" subtext="Marketing conversion delivery" icon="🟢" />
+        <KpiCard label="Event Match Quality" value="9.5 / 10" delta="+0.8" trend="positive" subtext="Attribution scoring" icon="🎯" />
+        <KpiCard label="Daily Stream Volume" value="1,043,600" delta="+18.4%" trend="positive" subtext="Marketing stream events" icon="📊" />
+        <KpiCard label="Avg Stream Latency" value="38 ms" delta="-8ms" trend="positive" subtext="Queue latency monitor" icon="⚡" />
       </div>
 
       {/* Integrations Table */}

@@ -3,7 +3,138 @@ import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
 
 export default function DeliveryAlerts() {
-  const [alerts, setAlerts] = useState([]);
+  const [alerts, setAlerts] = useState([
+  {
+    "id": "DEL-601",
+    "title": "Express Courier Bike Breakdown in Indiranagar Corridor",
+    "rider": "Rider Sunil Kumar (BLR-R-104)",
+    "zone": "Indiranagar / Domlur Zone",
+    "severity": "Critical",
+    "status": "Active",
+    "elapsed": "48 Mins Elapsed (SLA: 60 Mins)",
+    "slaCountdown": "12 Mins to Breach",
+    "rootCause": "Rear tyre puncture with 3 urgent prescription drops on board",
+    "cause": "Rear tyre puncture with 3 urgent prescription drops on board",
+    "time": "8 mins ago"
+  },
+  {
+    "id": "DEL-602",
+    "title": "Heavy Rain Waterlogging Delay in Koramangala 4th Block",
+    "rider": "Rider Manjunath S. (BLR-R-089)",
+    "zone": "Koramangala 4th Block",
+    "severity": "Critical",
+    "status": "Active",
+    "elapsed": "52 Mins Elapsed (SLA: 60 Mins)",
+    "slaCountdown": "8 Mins to Breach",
+    "rootCause": "Water depth 40cm on 80ft road blocking delivery scooter",
+    "cause": "Water depth 40cm on 80ft road blocking delivery scooter",
+    "time": "10 mins ago"
+  },
+  {
+    "id": "DEL-603",
+    "title": "Whitefield Express Rider Capacity Overwhelmed by Surge",
+    "rider": "Whitefield Hub Pool (14 Active Riders)",
+    "zone": "Whitefield ITPL Corridor",
+    "severity": "High Warning",
+    "status": "Active",
+    "elapsed": "Average Dwell Time: 24 Mins",
+    "slaCountdown": "Queue Delay +18m",
+    "rootCause": "Evening surge of 42 orders exceeding fleet baseline capacity",
+    "cause": "Evening surge of 42 orders exceeding fleet baseline capacity",
+    "time": "15 mins ago"
+  },
+  {
+    "id": "DEL-604",
+    "title": "Customer Unreachable on Cold-Chain Vaccine Delivery",
+    "rider": "Rider Pradeep Verma (DEL-R-044)",
+    "zone": "South Extension-II",
+    "severity": "High Warning",
+    "status": "Active",
+    "elapsed": "Rider Waiting: 14 Mins at Gate",
+    "slaCountdown": "6 Mins Cold-Chain Window",
+    "rootCause": "Phone switched off; building security refusing cold-box custody",
+    "cause": "Phone switched off; building security refusing cold-box custody",
+    "time": "20 mins ago"
+  },
+  {
+    "id": "DEL-605",
+    "title": "Bandra West Coastal Traffic Congestion Halt",
+    "rider": "Rider Imran Khan (MUM-R-072)",
+    "zone": "Bandra Linking Road",
+    "severity": "Warning",
+    "status": "Active",
+    "elapsed": "38 Mins Elapsed (SLA: 60 Mins)",
+    "slaCountdown": "22 Mins Remaining",
+    "rootCause": "VIP convoy traffic diversion slowing express bike",
+    "cause": "VIP convoy traffic diversion slowing express bike",
+    "time": "25 mins ago"
+  },
+  {
+    "id": "DEL-606",
+    "title": "Cold-Chain Smart Delivery Box Lid Latched Open",
+    "rider": "Rider Ramesh Yadav (GUR-R-031)",
+    "zone": "Gurgaon CyberHub Zone",
+    "severity": "Critical",
+    "status": "Active",
+    "elapsed": "Internal Temp: 7.2\u00b0C (Approaching 8\u00b0C Max)",
+    "slaCountdown": "Immediate Action Required",
+    "rootCause": "Sensor telemetry flagged unsealed insulation zipper",
+    "cause": "Sensor telemetry flagged unsealed insulation zipper",
+    "time": "30 mins ago"
+  },
+  {
+    "id": "DEL-607",
+    "title": "Apartment Complex Entry Delay for Bulk Kibble Shipment",
+    "rider": "Rider Karthik R. (BLR-R-112)",
+    "zone": "Bellandur Green Glen Layout",
+    "severity": "Warning",
+    "status": "Active",
+    "elapsed": "Gate Dwell: 18 Mins",
+    "slaCountdown": "15 Mins Remaining",
+    "rootCause": "Visitor management app OTP approval delayed by resident",
+    "cause": "Visitor management app OTP approval delayed by resident",
+    "time": "35 mins ago"
+  },
+  {
+    "id": "DEL-608",
+    "title": "Incorrect GPS Pin for Emergency Wound Dressing Order",
+    "rider": "Rider Vikram Singh (HYD-R-018)",
+    "zone": "Gachibowli Financial District",
+    "severity": "High Warning",
+    "status": "Active",
+    "elapsed": "Rider Diverted 2.4km from True Location",
+    "slaCountdown": "14 Mins to Breach",
+    "rootCause": "Geocoding pinned commercial tower instead of residential block",
+    "cause": "Geocoding pinned commercial tower instead of residential block",
+    "time": "40 mins ago"
+  },
+  {
+    "id": "DEL-609",
+    "title": "Courier Smartphone Battery Exhaustion During Delivery",
+    "rider": "Rider Deepak Nair (CHN-R-055)",
+    "zone": "T. Nagar Corridor",
+    "severity": "Warning",
+    "status": "Active",
+    "elapsed": "Offline for 12 Mins",
+    "slaCountdown": "Re-routing Standby",
+    "rootCause": "Delivery phone battery died; rider calling from hub phone",
+    "cause": "Delivery phone battery died; rider calling from hub phone",
+    "time": "50 mins ago"
+  },
+  {
+    "id": "DEL-610",
+    "title": "Wrong Parcel Handover Caught at Inspection Station",
+    "rider": "Rider Anand K. (BLR-R-062)",
+    "zone": "HSR Sector 2 Hub",
+    "severity": "Critical",
+    "status": "Resolved",
+    "elapsed": "Discrepancy Rectified in 4 Mins",
+    "slaCountdown": "Resolved",
+    "rootCause": "Cross-swapped 2 parcel barcodes during batch sorting",
+    "cause": "Cross-swapped 2 parcel barcodes during batch sorting",
+    "time": "1 hr ago"
+  }
+]);
 
   const [toast, setToast] = useState('');
 
@@ -78,34 +209,34 @@ export default function DeliveryAlerts() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard
           label="60-Min On-Time SLA"
-          value="0.0%"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 active deliveries"
+          value="97.8%"
+          delta="+1.4%"
+          trend="positive"
+          subtext="Target met: 38.2m avg"
           icon="⚡"
         />
         <KpiCard
           label="At-Risk Deliveries (<10m SLA)"
-          value="0 Orders"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 at-risk orders"
+          value="6 Orders"
+          delta="-4"
+          trend="positive"
+          subtext="Express intercept active"
           icon="⏱️"
         />
         <KpiCard
           label="Active Fleet on Field"
-          value="0 Riders"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 active riders"
+          value="128 Riders"
+          delta="+18"
+          trend="positive"
+          subtext="10 hubs monitored"
           icon="🛵"
         />
         <KpiCard
           label="Avg Dispatch Dwell Time"
-          value="0 Mins"
-          delta="0.0%"
-          trend="neutral"
-          subtext="0 mins dispatch"
+          value="4.2 Mins"
+          delta="-1.6m"
+          trend="positive"
+          subtext="Optimal staging speed"
           icon="🏬"
         />
       </div>
