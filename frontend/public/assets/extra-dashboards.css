@@ -7,8 +7,8 @@
 .zpanel-root {
   position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: 224px !important;
   width: calc(100vw - 224px) !important; max-width: calc(100vw - 224px) !important;
-  z-index: 50 !important; overflow-y: auto !important; overflow-x: hidden !important;
-  background: var(--background); color: var(--foreground);
+  z-index: 70 !important; overflow-y: auto !important; overflow-x: hidden !important;
+  background: var(--background, #f8fafc) !important; color: var(--foreground, #0f172a) !important;
   font-family: var(--font-sans, "Manrope", sans-serif);
   display: none; animation: zpFadeIn .18s ease-out;
   box-sizing: border-box !important;

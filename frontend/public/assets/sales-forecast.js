@@ -448,23 +448,13 @@
       else open();
     },
     close: function () {
-      if (window.ZenveSalesDashboard) window.ZenveSalesDashboard.close();
-      else close();
+      close();
     }
   };
 
   document.addEventListener('DOMContentLoaded', function () {
     document.body.addEventListener('click', function (e) {
       var btn = e.target.closest('[data-panel="forecast"]');
-      if (!btn) {
-        var it = e.target.closest('button, a, li');
-        if (it && it.textContent) {
-          var txt = it.textContent.toLowerCase().trim();
-          if ((txt === 'sales forecast' || txt === 'revenue forecast' || txt.indexOf('sales forecast') >= 0) && txt.indexOf('demand') < 0) {
-            btn = it;
-          }
-        }
-      }
       if (btn) {
         var bTxt = (btn.textContent || '').toLowerCase();
         if (bTxt.indexOf('demand') >= 0) return;

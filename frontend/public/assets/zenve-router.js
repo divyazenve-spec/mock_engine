@@ -118,9 +118,29 @@
     'revenue by doctor': { controller: 'ZenveSalesDashboard', tab: 'doctor', hash: '#revenue-by-doctor', rootId: 'zsd-root', module: 'Revenue & Sales' },
     'revenue by customer': { controller: 'ZenveSalesDashboard', tab: 'customer', hash: '#revenue-by-customer', rootId: 'zsd-root', module: 'Revenue & Sales' },
     'sales funnel': { controller: 'ZenveSalesDashboard', tab: 'funnel', hash: '#sales-funnel', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'sales funnel dashboard': { controller: 'ZenveSalesDashboard', tab: 'funnel', hash: '#sales-funnel', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'funnel': { controller: 'ZenveSalesDashboard', tab: 'funnel', hash: '#sales-funnel', rootId: 'zsd-root', module: 'Revenue & Sales' },
     'targets & achievement': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
     'targets & achievements': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'targets and achievement': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'targets and achievements': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'targets': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'achievement': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
     'sales forecast': { controller: 'ZenveSalesDashboard', tab: 'forecast', hash: '#sales-forecast', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'sales forecast dashboard': { controller: 'ZenveSalesDashboard', tab: 'forecast', hash: '#sales-forecast', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue forecast': { controller: 'ZenveSalesDashboard', tab: 'forecast', hash: '#sales-forecast', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue & sales > sales funnel': { controller: 'ZenveSalesDashboard', tab: 'funnel', hash: '#sales-funnel', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue & sales > targets & achievement': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue & sales > targets and achievement': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue & sales > targets & achievements': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue & sales > targets and achievements': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue & sales > sales forecast': { controller: 'ZenveSalesDashboard', tab: 'forecast', hash: '#sales-forecast', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue and sales > sales funnel': { controller: 'ZenveSalesDashboard', tab: 'funnel', hash: '#sales-funnel', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue and sales > targets & achievement': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue and sales > targets and achievement': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue and sales > targets & achievements': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue and sales > targets and achievements': { controller: 'ZenveSalesDashboard', tab: 'targets', hash: '#targets-achievement', rootId: 'zsd-root', module: 'Revenue & Sales' },
+    'revenue and sales > sales forecast': { controller: 'ZenveSalesDashboard', tab: 'forecast', hash: '#sales-forecast', rootId: 'zsd-root', module: 'Revenue & Sales' },
 
     // Orders & Operations
     'orders & operations': { controller: 'ZenveOperationsDashboard', tab: 'overview', hash: '#operations-dashboard', rootId: 'zod-root', module: 'Orders & Operations' },
@@ -544,6 +564,9 @@
         var c = window[name];
         if (c && typeof c.close === 'function') {
           var rId = CONTROLLER_ROOT_MAP[name];
+          if (exceptRootId === 'zsd-root' && (name === 'ZenveSalesDashboard' || name === 'ZenveSalesFunnel' || name === 'ZenveTargets' || name === 'ZenveForecast')) {
+            return;
+          }
           if (!exceptRootId || rId !== exceptRootId) {
             c.close();
           }
@@ -780,8 +803,12 @@
     closeAllDashboards(rootId);
 
     // Ensure the target element is unhidden
-    if (existingRoot) {
-      existingRoot.style.removeProperty('display');
+    if (existingRoot && existingRoot.style) {
+      if (typeof existingRoot.style.removeProperty === 'function') {
+        existingRoot.style.removeProperty('display');
+      } else {
+        existingRoot.style.display = '';
+      }
       existingRoot.style.display = 'block';
     }
 
@@ -798,8 +825,12 @@
 
           // Ensure root display visibility and classes post-open
           var targetEl = rootId ? document.getElementById(rootId) : null;
-          if (targetEl) {
-            targetEl.style.removeProperty('display');
+          if (targetEl && targetEl.style) {
+            if (typeof targetEl.style.removeProperty === 'function') {
+              targetEl.style.removeProperty('display');
+            } else {
+              targetEl.style.display = '';
+            }
             targetEl.style.display = 'block';
             targetEl.classList.add('zpanel-open');
             if (CONTROLLER_OPEN_CLASS_MAP[ctrlName]) {
