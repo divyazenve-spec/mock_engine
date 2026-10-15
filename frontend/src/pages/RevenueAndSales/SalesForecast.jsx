@@ -31,7 +31,9 @@ export default function SalesForecast() {
     { month: 'May 2027', baseRev: 17800000, baseOrders: 5440, growth: '+6.6%', ci: '±6.5%', driver: 'Summer Hydration & Heat Stress Protocols' },
     { month: 'Jun 2027', baseRev: 18900000, baseOrders: 5750, growth: '+6.2%', ci: '±6.8%', driver: 'Monsoon Waterborne Illness Surge' },
     { month: 'Jul 2027', baseRev: 20100000, baseOrders: 6090, growth: '+6.3%', ci: '±7.2%', driver: 'Deworming & Parasite Eradication Drive' },
-    { month: 'Aug 2027', baseRev: 21400000, baseOrders: 6450, growth: '+6.5%', ci: '±7.5%', driver: 'Independence Day Pet Health Festival' }
+    { month: 'Aug 2027', baseRev: 21400000, baseOrders: 6450, growth: '+6.5%', ci: '±7.5%', driver: 'Independence Day Pet Health Festival' },
+    { month: 'Sep 2027', baseRev: 22800000, baseOrders: 6810, growth: '+6.5%', ci: '±7.8%', driver: 'Senior Pet Diagnostics & Preventive Screenings' },
+    { month: 'Oct 2027', baseRev: 24300000, baseOrders: 7190, growth: '+6.6%', ci: '±8.1%', driver: 'Pre-Festive Health Checkups & Grooming Rush' }
   ];
 
   const scenarioMultiplier = scenario === 'bull' ? 1.18 : scenario === 'bear' ? 0.82 : 1.0;
@@ -92,14 +94,14 @@ export default function SalesForecast() {
       title="Predictive Sales Forecast & Revenue Trajectory"
       subtitle="Machine learning projections with sales seasonality cycles, 90% confidence bands, and scenario modeling"
       icon="📈"
-      badge="10-Month Predictive Engine"
+      badge="12-Month Predictive Engine"
       actions={
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <span style={{ fontSize: '11px', color: 'var(--muted-foreground, #94a3b8)', fontWeight: 600 }}>Horizon:</span>
           {[
             { val: 3, label: '3M (Quarter)' },
             { val: 6, label: '6M (Half-Year)' },
-            { val: 10, label: '10M (Full-Cycle)' }
+            { val: 12, label: '12M (Full-Cycle)' }
           ].map(h => (
             <button
               key={h.val}

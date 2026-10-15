@@ -690,7 +690,7 @@
       doctor: salesCount ? DOCTOR_LIST.length : 0,
       funnel: '5 Stages',
       targets: '10 Depts',
-      forecast: '10 Months'
+      forecast: '12 Months'
     };
 
     tabsEl.innerHTML = TABS.map(function (t) {
@@ -2257,7 +2257,9 @@
     { month: 'May 2027', rev: 2240000, orders: 710, mom: '+6.2%', ci: '₹20.0L – ₹24.8L', score: '92.6%' },
     { month: 'June 2027', rev: 2390000, orders: 755, mom: '+6.7%', ci: '₹21.2L – ₹26.6L', score: '91.9%' },
     { month: 'July 2027', rev: 2540000, orders: 800, mom: '+6.3%', ci: '₹22.5L – ₹28.3L', score: '91.2%' },
-    { month: 'August 2027', rev: 2710000, orders: 850, mom: '+6.7%', ci: '₹23.9L – ₹30.3L', score: '90.5%' }
+    { month: 'August 2027', rev: 2710000, orders: 850, mom: '+6.7%', ci: '₹23.9L – ₹30.3L', score: '90.5%' },
+    { month: 'September 2027', rev: 2880000, orders: 900, mom: '+6.3%', ci: '₹25.4L – ₹32.2L', score: '89.9%' },
+    { month: 'October 2027', rev: 3050000, orders: 950, mom: '+5.9%', ci: '₹26.9L – ₹34.1L', score: '89.4%' }
   ];
 
   function renderForecastDashboard() {
@@ -2269,7 +2271,7 @@
     var scenario = S.forecastScenario || 'base';
     var scenarioMult = scenario === 'bull' ? 1.18 : scenario === 'bear' ? 0.82 : 1.0;
 
-    var schedule = FORECAST_SCHEDULE_BASE.slice(0, 10).map(function (row) {
+    var schedule = FORECAST_SCHEDULE_BASE.slice(0, 12).map(function (row) {
       var adjRev = Math.round(row.rev * scenarioMult);
       var adjOrders = Math.round(row.orders * scenarioMult);
       return {
@@ -2296,7 +2298,7 @@
       '<div style="display:flex;gap:4px;">' +
       '<button class="zsd-scenario-btn ' + (horizon === 3 ? 'active' : '') + '" data-horizon="3" type="button">3M (Quarter)</button>' +
       '<button class="zsd-scenario-btn ' + (horizon === 6 ? 'active' : '') + '" data-horizon="6" type="button">6M (Half-Year)</button>' +
-      '<button class="zsd-scenario-btn ' + (horizon === 12 ? 'active' : '') + '" data-horizon="12" type="button">10M (Full-Cycle)</button>' +
+      '<button class="zsd-scenario-btn ' + (horizon === 12 ? 'active' : '') + '" data-horizon="12" type="button">12M (Full-Cycle)</button>' +
       '</div></div></div>';
 
     var forecastMetrics =
@@ -2414,7 +2416,7 @@
       '<span style="font-size:12px;font-weight:700;">Forecast Horizon:</span>' +
       '<button class="zsd-scenario-btn ' + (horizon === 3 ? 'active' : '') + '" data-horizon="3" type="button">3 Months (Quarter)</button>' +
       '<button class="zsd-scenario-btn ' + (horizon === 6 ? 'active' : '') + '" data-horizon="6" type="button">6 Months (Half-Year)</button>' +
-      '<button class="zsd-scenario-btn ' + (horizon === 12 ? 'active' : '') + '" data-horizon="12" type="button">10 Months (Full-Cycle)</button>' +
+      '<button class="zsd-scenario-btn ' + (horizon === 12 ? 'active' : '') + '" data-horizon="12" type="button">12 Months (Full-Cycle)</button>' +
       '</div>' +
       '<div style="display:flex;align-items:center;gap:8px;">' +
       '<span style="font-size:12px;font-weight:700;">Scenario Model:</span>' +
@@ -2432,7 +2434,7 @@
       panelHead('Strategic Predictive Drivers & Market Factors', 'Machine learning and domain indicators driving the future forecast (10 Drivers)') +
       '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">' + strategicDrivers + '</div></div>' +
       '<div class="zsd-card zsd-panel">' +
-      panelHead('Monthly Predictive Revenue Schedule', 'Detailed forward-looking projections with confidence intervals (10 Forward Months)') +
+      panelHead('Monthly Predictive Revenue Schedule', 'Detailed forward-looking projections with confidence intervals (12 Forward Months)') +
       '<div class="zsd-tbl-wrap"><table class="zsd-tbl"><thead><tr>' +
       '<th>Projected Month</th><th class="r">Predicted Revenue</th><th class="r">Expected Orders</th><th class="r">MoM Growth</th><th class="r">90% Confidence Interval</th><th class="r">Confidence Score</th>' +
       '</tr></thead><tbody>' + tableRows + '</tbody></table></div></div>';

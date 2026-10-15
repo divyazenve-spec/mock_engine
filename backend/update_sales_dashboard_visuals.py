@@ -576,7 +576,7 @@ new_code = '''/* ---------- Sales Funnel Dashboard ---------- */
       '<div style="display:flex;gap:4px;">' +
       '<button class="zsd-scenario-btn ' + (horizon === 3 ? 'active' : '') + '" data-horizon="3" type="button">3M (Quarter)</button>' +
       '<button class="zsd-scenario-btn ' + (horizon === 6 ? 'active' : '') + '" data-horizon="6" type="button">6M (Half-Year)</button>' +
-      '<button class="zsd-scenario-btn ' + (horizon === 12 ? 'active' : '') + '" data-horizon="12" type="button">10M (Full-Cycle)</button>' +
+      '<button class="zsd-scenario-btn ' + (horizon === 12 ? 'active' : '') + '" data-horizon="12" type="button">12M (Full-Cycle)</button>' +
       '</div></div></div>';
 
     var forecastMetrics =
@@ -694,7 +694,7 @@ new_code = '''/* ---------- Sales Funnel Dashboard ---------- */
       '<span style="font-size:12px;font-weight:700;">Forecast Horizon:</span>' +
       '<button class="zsd-scenario-btn ' + (horizon === 3 ? 'active' : '') + '" data-horizon="3" type="button">3 Months (Quarter)</button>' +
       '<button class="zsd-scenario-btn ' + (horizon === 6 ? 'active' : '') + '" data-horizon="6" type="button">6 Months (Half-Year)</button>' +
-      '<button class="zsd-scenario-btn ' + (horizon === 12 ? 'active' : '') + '" data-horizon="12" type="button">10 Months (Full-Cycle)</button>' +
+      '<button class="zsd-scenario-btn ' + (horizon === 12 ? 'active' : '') + '" data-horizon="12" type="button">12 Months (Full-Cycle)</button>' +
       '</div>' +
       '<div style="display:flex;align-items:center;gap:8px;">' +
       '<span style="font-size:12px;font-weight:700;">Scenario Model:</span>' +
