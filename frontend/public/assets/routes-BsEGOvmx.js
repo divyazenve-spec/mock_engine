@@ -119,16 +119,8 @@ var Yd = [
 ];
 
 var MOCK_RECEIVABLES_PAYABLES = [
-  ['Trade Receivables (Clinics & B2B)', 428000, '+3.2% MoM', [280000, 95000, 38000, 15000]],
-  ['Institutional Insurance Claims', 215000, '+1.8% MoM', [145000, 52000, 14000, 4000]],
-  ['Franchise & Affiliate Settlements', 142000, '-2.4% MoM', [98000, 32000, 9000, 3000]],
-  ['Corporate Breeder Contracts', 118000, '+4.0% MoM', [84000, 24000, 7000, 3000]],
-  ['Diagnostics Pathology Billed', 95000, '+2.1% MoM', [68000, 19000, 6000, 2000]],
-  ['Trade Payables (Zoetis & Phizer)', 385000, '+1.5% MoM', [265000, 85000, 25000, 10000]],
-  ['Cold-Chain Fleet Logistics Due', 168000, '-0.8% MoM', [120000, 36000, 9000, 3000]],
-  ['Medical Diagnostic Lab Vendors', 124000, '+2.3% MoM', [88000, 26000, 7000, 3000]],
-  ['Facility Leases & Power Utilities', 110000, '0.0% MoM', [110000, 0, 0, 0]],
-  ['Cloud & Telehealth SaaS Payouts', 76000, '+1.1% MoM', [64000, 10000, 2000, 0]]
+  ['Accounts Receivable (Clinics & B2B)', 998000, '+2.8% MoM', [675000, 222000, 74000, 27000]],
+  ['Accounts Payable (Vendors & Fleet)', 863000, '+1.4% MoM', [647000, 157000, 41000, 18000]]
 ];
 
 var MOCK_FINANCIAL_SUMMARY = [
