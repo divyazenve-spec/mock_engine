@@ -1,9 +1,12 @@
 """API v1 router — aggregates all endpoint routers."""
 from fastapi import APIRouter
 
-from app.api.v1.endpoints import chat, copilot, dashboard, domains, health, inventory, pipeline, predict, sales
+from app.api.v1.endpoints import chat, copilot, custom_ai, dashboard, domains, health, inventory, pipeline, predict, sales
 
 router = APIRouter()
+
+# Custom API Integration & Enterprise RAG & Agentic Architecture
+router.include_router(custom_ai.router, prefix="/custom-ai", tags=["custom-ai"])
 
 # Autonomous Multi-Agent Executive Co-Pilot (Text-to-Action)
 router.include_router(copilot.router, prefix="/copilot", tags=["copilot"])

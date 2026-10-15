@@ -24,8 +24,13 @@ class Settings(BaseSettings):
     # SQLite fallback path if needed
     db_path: str = str(_BACKEND_DIR / "zenvebi.db")
 
-    # Gemini / AI (optional)
+    # Gemini / Custom AI API Integration (Enterprise RAG & Agentic Architecture)
     gemini_api_key: str = ""
+    custom_ai_api_url: str = ""
+    custom_ai_api_key: str = ""
+    custom_ai_model: str = "gpt-4o-mini"
+    custom_ai_provider: str = "openai_compatible"
+    custom_ai_temperature: float = 0.2
 
     @property
     def database_url(self) -> str:

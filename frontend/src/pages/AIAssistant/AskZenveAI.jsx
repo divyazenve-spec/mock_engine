@@ -61,6 +61,8 @@ export default function AskZenveAI() {
         role: 'ai',
         text: data.text,
         intent: data.intent,
+        model_used: data.model_used,
+        rag_citations: data.rag_citations,
         agent_steps: data.agent_steps,
         kpis: data.kpis,
         chart: data.chart,
@@ -553,15 +555,25 @@ export default function AskZenveAI() {
                   : '0 1px 6px rgba(15, 23, 42, 0.06)',
                 border: msg.role === 'user' ? 'none' : '1px solid #f1f5f9'
               }}>
-                {/* Agent Steps Pipeline */}
-                {msg.agent_steps && (
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '10px', padding: '6px 10px', borderRadius: '8px', background: '#f8fafc', border: '1px solid #e2e8f0' }}>
-                    <span style={{ fontSize: '10px', fontWeight: 800, color: '#64748b' }}>🤖 MULTI-AGENT:</span>
-                    {msg.agent_steps.map((st, si) => (
-                      <span key={si} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '2px 7px', borderRadius: '10px', background: '#ecfdf5', border: '1px solid #6ee7b7', color: '#047857', fontSize: '10.5px', fontWeight: 700, fontFamily: 'monospace' }}>
+                {/* Agent Steps & Model Engine Pipeline */}
+                {(msg.agent_steps || msg.model_used) && (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px', marginBottom: '10px', padding: '6px 10px', borderRadius: '8px', background: '#f8fafc', border: '1px solid #e2e8f0' }}>
+                    <span style={{ fontSize: '10px', fontWeight: 800, color: '#64748b' }}>🤖 MULTI-AGENT RAG:</span>
+                    {msg.model_used && (
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '2px 8px', borderRadius: '10px', background: '#eff6ff', border: '1px solid #93c5fd', color: '#1d4ed8', fontSize: '10.5px', fontWeight: 700, fontFamily: 'monospace' }}>
+                        ⚡ {msg.model_used}
+                      </span>
+                    )}
+                    {msg.agent_steps && msg.agent_steps.map((st, si) => (
+                      <span key={si} title={st.note} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '2px 7px', borderRadius: '10px', background: '#ecfdf5', border: '1px solid #6ee7b7', color: '#047857', fontSize: '10.5px', fontWeight: 700, fontFamily: 'monospace' }}>
                         ✓ {st.agent}
                       </span>
                     ))}
+                    {msg.rag_citations && msg.rag_citations.length > 0 && (
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '2px 7px', borderRadius: '10px', background: '#fdf4ff', border: '1px solid #f0abfc', color: '#86198f', fontSize: '10px', fontWeight: 600 }}>
+                        📚 {msg.rag_citations.length} RAG Sources
+                      </span>
+                    )}
                   </div>
                 )}
 

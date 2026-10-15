@@ -310,22 +310,26 @@
     }
   }
 
-  function handleQuerySubmit(qText) {
-    var query = (qText || (inputEl ? inputEl.value : '')).trim();
-    if (!query) return;
-
-    if (inputEl) inputEl.value = query;
-
-    var suggestionsWrap = document.getElementById('zcp-suggestions-wrap');
-    if (suggestionsWrap) suggestionsWrap.style.display = 'none';
-
-    var res = answerQuery(query);
-
+  function renderCopilotResult(query, res, suggestionsWrap) {
     var metricsHtml = '';
-    if (res.metrics && res.metrics.length) {
+    var kpis = res.kpis || res.metrics || [];
+    if (kpis && kpis.length) {
       metricsHtml = '<div class="zcp-metrics-row">' +
-        res.metrics.map(function (m) {
-          return '<div class="zcp-metric-card"><div class="label">' + esc(m.label) + '</div><div class="val">' + esc(m.val) + '</div></div>';
+        kpis.map(function (m) {
+          var label = m.label || '';
+          var val = m.val || m.value || '';
+          return '<div class="zcp-metric-card"><div class="label">' + esc(label) + '</div><div class="val">' + esc(val) + '</div></div>';
+        }).join('') +
+      '</div>';
+    }
+
+    var agentPillHtml = '';
+    if (res.agent_steps && res.agent_steps.length) {
+      agentPillHtml = '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0;padding:6px 10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;font-size:11px;">' +
+        '<strong style="color:#64748b;font-size:10px;">🤖 MULTI-AGENT RAG:</strong>' +
+        (res.model_used ? '<span style="background:#eff6ff;color:#1d4ed8;padding:2px 7px;border-radius:6px;border:1px solid #93c5fd;font-weight:700;font-size:10px;">⚡ ' + esc(res.model_used) + '</span>' : '') +
+        res.agent_steps.map(function (st) {
+          return '<span style="background:#ecfdf5;color:#047857;padding:2px 6px;border-radius:6px;border:1px solid #6ee7b7;font-size:10px;font-weight:600;">✓ ' + esc(st.agent) + '</span>';
         }).join('') +
       '</div>';
     }
@@ -337,18 +341,37 @@
       '</button>';
     }
 
+    var actionsHtml = '';
+    if (res.actions && res.actions.length) {
+      actionsHtml = '<div style="margin:12px 0;display:flex;flex-direction:column;gap:8px;">' +
+        res.actions.map(function (act) {
+          return '<div style="padding:12px 14px;border:1px solid #bfdbfe;background:#eff6ff;border-radius:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">' +
+            '<div>' +
+              '<div style="font-weight:700;font-size:12.5px;color:#1e3a8a;">⚡ ' + esc(act.title) + '</div>' +
+              '<div style="font-size:11.5px;color:#3b82f6;margin-top:2px;">' + esc(act.description) + '</div>' +
+            '</div>' +
+            '<button type="button" class="zcp-btn-jump" style="background:#2563eb;color:#fff;padding:6px 12px;font-size:11.5px;font-weight:700;border:none;border-radius:6px;cursor:pointer;" onclick="alert(\'Action ' + esc(act.action_id) + ' submitted for Human-in-the-Loop ERP authorization.\')">Approve Action</button>' +
+          '</div>';
+        }).join('') +
+      '</div>';
+    }
+
     // Format markdown bold and linebreaks
-    var formattedText = esc(res.text)
+    var rawText = res.text || '';
+    var formattedText = esc(rawText)
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/`(.*?)`/g, '<code style="background:#f1f5f9;padding:2px 4px;border-radius:4px;font-family:monospace;color:#0f172a;">$1</code>')
       .replace(/\n\n/g, '<br><br>')
       .replace(/\n•/g, '<br>•');
 
     resultsEl.innerHTML = [
       '<div class="zcp-response-box">',
         '<div class="zcp-query-echo"><span>Query:</span> <strong>' + esc(query) + '</strong></div>',
+        agentPillHtml,
         metricsHtml,
         '<div class="zcp-response-text">' + formattedText + '</div>',
+        actionsHtml,
         '<div class="zcp-action-strip">',
           jumpBtnHtml,
           '<button type="button" class="zcp-btn-copy" id="zcp-copy-ans">📋 Copy Answer</button>',
@@ -373,18 +396,55 @@
         }
       };
     }
+  }
 
-    // Hook copy button
+  function handleQuerySubmit(qText) {
+    var query = (qText || (inputEl ? inputEl.value : '')).trim();
+    if (!query) return;
+
+    if (inputEl) inputEl.value = query;
+
+    var suggestionsWrap = document.getElementById('zcp-suggestions-wrap');
+    if (suggestionsWrap) suggestionsWrap.style.display = 'none';
+
+    // Show temporary typing state
+    resultsEl.innerHTML = '<div style="padding:24px;text-align:center;color:#64748b;font-size:13px;font-weight:600;">' +
+      '🧠 Orchestrating Enterprise RAG &amp; 5-Agent Collaborative Pipeline...' +
+    '</div>';
+    resultsEl.style.display = 'block';
+
+    // Call live backend copilot query
+    fetch('/api/v1/copilot/query', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: query })
+    })
+    .then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function (data) {
+      renderCopilotResult(query, data, suggestionsWrap);
+      wireResultActionButtons(suggestionsWrap, data.text);
+    })
+    .catch(function (err) {
+      console.warn('[Global Copilot] Falling back to client-side neural model:', err);
+      var fallbackRes = answerQuery(query);
+      renderCopilotResult(query, fallbackRes, suggestionsWrap);
+      wireResultActionButtons(suggestionsWrap, fallbackRes.text);
+    });
+  }
+
+  function wireResultActionButtons(suggestionsWrap, ansText) {
     var copyEl = document.getElementById('zcp-copy-ans');
     if (copyEl) {
       copyEl.onclick = function () {
-        navigator.clipboard?.writeText(res.text);
+        navigator.clipboard?.writeText(ansText);
         this.textContent = '✓ Copied!';
         setTimeout(function () { copyEl.textContent = '📋 Copy Answer'; }, 2000);
       };
     }
 
-    // Hook new question button
     var newQEl = document.getElementById('zcp-new-q');
     if (newQEl) {
       newQEl.onclick = function () {
@@ -395,7 +455,6 @@
           inputEl.focus();
         }
       };
-    }
   }
 
   function wireEvents() {
