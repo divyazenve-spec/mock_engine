@@ -105,12 +105,16 @@
 
   function renderExecutiveDashboard() {
     var segments = [
-      { name: 'Pet Products & Nutrition', rev: '₹68.4L', pacing: '102.4%', margin: '28.6%', volume: '18,450 Orders', health: 'Healthy' },
+      { name: 'Pet Products & Nutrition', rev: '₹68.4L', pacing: '102.4%', margin: '28.6%', volume: '18,450 Orders', health: 'Outperforming' },
       { name: 'Veterinary Pharmacy & Rx', rev: '₹58.4L', pacing: '108.4%', margin: '34.8%', volume: '842 e-Rx Filled', health: 'Outperforming' },
       { name: 'Clinical Care & Surgeries', rev: '₹28.2L', pacing: '104.2%', margin: '62.4%', volume: '3,420 Consults', health: 'Healthy' },
+      { name: 'Veterinary Diagnostics & Pathology', rev: '₹21.6L', pacing: '106.5%', margin: '58.2%', volume: '2,180 Lab Panels', health: 'Outperforming' },
+      { name: 'Emergency & 24/7 ICU Trauma', rev: '₹16.5L', pacing: '112.0%', margin: '65.0%', volume: '480 Trauma Cases', health: 'High Growth' },
       { name: 'B2B Enterprise & Institutional', rev: '₹14.8L', pacing: '94.0%', margin: '22.4%', volume: '42 Accounts', health: 'Stable' },
-      { name: 'Pet Fashion & Lifestyle', rev: '₹8.4L', pacing: '98.5%', margin: '48.2%', volume: '1,840 Items', health: 'On Track' },
-      { name: 'Care Subscriptions & Wellness', rev: '₹5.8L', pacing: '112.0%', margin: '78.5%', volume: '8,420 Members', health: 'High Growth' }
+      { name: 'Preventive Care Subscriptions & Wellness', rev: '₹12.8L', pacing: '118.5%', margin: '78.5%', volume: '8,420 Members', health: 'High Growth' },
+      { name: 'Pet Grooming & Spa Services', rev: '₹9.4L', pacing: '97.2%', margin: '44.0%', volume: '1,260 Sessions', health: 'On Track' },
+      { name: 'Pet Fashion, Travel & Lifestyle', rev: '₹8.4L', pacing: '98.5%', margin: '48.2%', volume: '1,840 Items', health: 'On Track' },
+      { name: 'Digital Telehealth & Remote Monitoring', rev: '₹5.5L', pacing: '105.0%', margin: '82.0%', volume: '920 Tele-consults', health: 'High Growth' }
     ];
 
     return [
@@ -178,12 +182,16 @@
     ];
 
     var businessUnits = [
-      { name: 'Pet Products & Nutrition', lead: 'Rahul Mehta', revenue: '₹68.4L', pacing: '102.4%', margin: '28.6%', growth: '+22.1% YoY', status: 'On Track' },
+      { name: 'Pet Products & Nutrition', lead: 'Rahul Mehta', revenue: '₹68.4L', pacing: '102.4%', margin: '28.6%', growth: '+22.1% YoY', status: 'Outperforming' },
       { name: 'Veterinary Pharmacy & Rx', lead: 'Karthik S.', revenue: '₹58.4L', pacing: '108.4%', margin: '34.8%', growth: '+32.4% YoY', status: 'Outperforming' },
       { name: 'Clinical Care & Surgeries', lead: 'Dr. Priya Sharma', revenue: '₹28.2L', pacing: '104.2%', margin: '62.4%', growth: '+28.5% YoY', status: 'Healthy' },
+      { name: 'Veterinary Diagnostics & Pathology', lead: 'Dr. Rajesh K', revenue: '₹21.6L', pacing: '106.5%', margin: '58.2%', growth: '+29.4% YoY', status: 'Outperforming' },
+      { name: 'Emergency & 24/7 ICU Trauma', lead: 'Dr. Vikramaditya Rathore', revenue: '₹16.5L', pacing: '112.0%', margin: '65.0%', growth: '+35.2% YoY', status: 'High Growth' },
       { name: 'B2B Enterprise & Breeders', lead: 'Vikram Sethi', revenue: '₹14.8L', pacing: '94.0%', margin: '22.4%', growth: '+18.2% YoY', status: 'Stable' },
-      { name: 'Pet Fashion & Lifestyle', lead: 'Neha Kapur', revenue: '₹8.4L', pacing: '98.5%', margin: '48.2%', growth: '+16.8% YoY', status: 'On Track' },
-      { name: 'Care Subscriptions & Wellness', lead: 'Deepa Nair', revenue: '₹5.8L', pacing: '112.0%', margin: '78.5%', growth: '+54.0% YoY', status: 'High Growth' }
+      { name: 'Preventive Care Subscriptions & Wellness', lead: 'Deepa Nair', revenue: '₹12.8L', pacing: '118.5%', margin: '78.5%', growth: '+54.0% YoY', status: 'High Growth' },
+      { name: 'Pet Grooming & Spa Services', lead: 'Sneha Kapoor', revenue: '₹9.4L', pacing: '97.2%', margin: '44.0%', growth: '+14.5% YoY', status: 'On Track' },
+      { name: 'Pet Fashion, Travel & Lifestyle', lead: 'Neha Kapur', revenue: '₹8.4L', pacing: '98.5%', margin: '48.2%', growth: '+16.8% YoY', status: 'On Track' },
+      { name: 'Digital Telehealth & Remote Monitoring', lead: 'Dr. Divya Reddy', revenue: '₹5.5L', pacing: '105.0%', margin: '82.0%', growth: '+42.0% YoY', status: 'High Growth' }
     ];
 
     var decisions = [
@@ -194,7 +202,9 @@
       { id: 'DEC-2026-085', action: 'Master SRA Contract: Direct Pharmaceutical Margin Terms with Zoetis India', owner: 'Vikram Sethi (Procurement)', capital: '₹45.0L Quarterly PO', priority: 'Completed' },
       { id: 'DEC-2026-086', action: 'Clinical ESOP Pool Allocation: Retention Incentives for Chief Surgeons', owner: 'Ananya Mehra (HR)', capital: '2.5% Equity Pool', priority: 'Approved' },
       { id: 'DEC-2026-087', action: 'Hyperlocal Fleet Underwriting: Group Accident Insurance for 120 Delivery Riders', owner: 'Anand Kumar (Logistics)', capital: '₹6.4L Annual Premium', priority: 'Completed' },
-      { id: 'DEC-2026-088', action: 'Laboratory Equipment Lease: Advanced Hematology & PCR Thermal Cycler', owner: 'Dr. Rajesh K (Diagnostics)', capital: '₹14.2L Equipment', priority: 'Medium' }
+      { id: 'DEC-2026-088', action: 'Laboratory Equipment Lease: Advanced Hematology & PCR Thermal Cycler', owner: 'Dr. Rajesh K (Diagnostics)', capital: '₹14.2L Equipment', priority: 'Medium' },
+      { id: 'DEC-2026-089', action: 'Enterprise Fulfillment Depot: 25,000 sq ft Logistics Hub in Bhiwandi Corridor', owner: 'Anand Kumar (Logistics)', capital: '₹32.0L Capex', priority: 'High' },
+      { id: 'DEC-2026-090', action: 'Board Dividend & Retained Earnings: Q3 Operating Solvency Reinvestment Plan', owner: 'Siddharth Roy (CFO)', capital: '₹50.0L Retained', priority: 'Approved' }
     ];
 
     var capitalPillars = [
@@ -305,7 +315,7 @@
             '<span class="zexec-badge info">' + decisions.length + ' Items Logged</span>',
           '</div>',
           '<div style="display:flex;flex-direction:column;gap:12px;">',
-            decisions.slice(0, 5).map(function(dec) {
+            decisions.map(function(dec) {
               return '<div style="padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">' +
                 '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">' +
                   '<span style="font-family:IBM Plex Mono,monospace;font-size:11px;font-weight:700;color:#2563eb;">' + esc(dec.id) + '</span>' +
@@ -418,11 +428,16 @@
 
   function renderBusinessOverview() {
     var regions = [
-      { name: 'Bengaluru Central & South (HQ)', rev: '₹74.8L', hubs: '18 Centers', pets: '18,420 Pets', mom: '+18.4%', pos: '#1 Dominant' },
-      { name: 'Mumbai MMR & Thane Corridor', rev: '₹46.2L', hubs: '10 Centers', pets: '11,280 Pets', mom: '+22.1%', pos: '#1 Co-Leader' },
-      { name: 'Delhi NCR (Gurgaon & Noida)', rev: '₹34.5L', hubs: '6 Centers', pets: '8,420 Pets', mom: '+26.5%', pos: '#2 Fast Scaling' },
-      { name: 'Hyderabad Cyberabad Hub', rev: '₹17.4L', hubs: '2 Centers', pets: '4,680 Pets', mom: '+31.0%', pos: '#2 Challenger' },
-      { name: 'Pune Urban & PCMC Cluster', rev: '₹11.1L', hubs: '2 Centers', pets: '3,120 Pets', mom: '+34.2%', pos: '#1 Rapid Entry' }
+      { name: 'Bengaluru Central & South (HQ)', rev: '₹74.8L', hubs: '18 Centers', pets: '18,420 Pets', mom: '+18.4%', pos: 'Dominant' },
+      { name: 'Mumbai MMR & Western Suburban', rev: '₹46.2L', hubs: '10 Centers', pets: '11,280 Pets', mom: '+22.1%', pos: 'Co-Leader' },
+      { name: 'Delhi NCR (Gurgaon & South Delhi)', rev: '₹34.5L', hubs: '6 Centers', pets: '8,420 Pets', mom: '+26.5%', pos: 'Rapid Expansion' },
+      { name: 'Hyderabad Cyberabad & Gachibowli', rev: '₹17.4L', hubs: '4 Centers', pets: '4,680 Pets', mom: '+31.0%', pos: 'Fast Scaling' },
+      { name: 'Pune Urban (Koregaon & Baner)', rev: '₹11.1L', hubs: '3 Centers', pets: '3,120 Pets', mom: '+34.2%', pos: 'High Growth' },
+      { name: 'Chennai OMR & Adyar Hub', rev: '₹9.8L', hubs: '2 Centers', pets: '2,840 Pets', mom: '+28.0%', pos: 'Scaling' },
+      { name: 'Kolkata Salt Lake & New Town', rev: '₹7.2L', hubs: '2 Centers', pets: '1,950 Pets', mom: '+24.5%', pos: 'New Launch' },
+      { name: 'Ahmedabad SG Highway Center', rev: '₹6.5L', hubs: '2 Centers', pets: '1,820 Pets', mom: '+32.1%', pos: 'New Launch' },
+      { name: 'Chandigarh Tri-City Corridor', rev: '₹5.2L', hubs: '1 Center', pets: '1,410 Pets', mom: '+29.0%', pos: 'Emerging' },
+      { name: 'Kochi Coastal Marine Drive Center', rev: '₹4.3L', hubs: '1 Center', pets: '1,180 Pets', mom: '+38.5%', pos: 'Emerging' }
     ];
 
     return [

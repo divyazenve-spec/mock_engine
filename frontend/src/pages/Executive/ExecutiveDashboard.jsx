@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
 import KpiCard from '../shared/KpiCard';
-import { MOCK_EXECUTIVE_KPIS, MOCK_DIVISIONAL_CONTRIBUTION } from './mockExecutiveData';
+import {
+  MOCK_EXECUTIVE_KPIS,
+  MOCK_DIVISIONAL_CONTRIBUTION,
+  MOCK_BUSINESS_UNITS
+} from './mockExecutiveData';
 
 export default function ExecutiveDashboard() {
-  const [period, setPeriod] = useState('MTD');
+  const [filter, setFilter] = useState('ALL');
+  const [search, setSearch] = useState('');
 
   const cardStyle = {
     background: '#ffffff',
@@ -14,10 +19,25 @@ export default function ExecutiveDashboard() {
     boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
   };
 
+  const segments = MOCK_BUSINESS_UNITS;
+
+  const filteredSegments = segments.filter(s => {
+    if (filter !== 'ALL' && s.status !== filter) return false;
+    if (search) {
+      const q = search.toLowerCase();
+      return (
+        s.name.toLowerCase().includes(q) ||
+        s.lead.toLowerCase().includes(q) ||
+        s.volume.toLowerCase().includes(q)
+      );
+    }
+    return true;
+  });
+
   return (
     <DashboardLayout
       category="Executive Dashboard"
-      subcategory="CEO Control Center"
+      subcategory="Executive Dashboard"
       title="Zenve Executive Control Center"
       subtitle="Complete private business intelligence for healthier, happier pets across all healthcare and commerce operations"
       icon="🏛️"
@@ -59,15 +79,15 @@ export default function ExecutiveDashboard() {
     >
       {/* Executive KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Gross Revenue (MTD)" value={MOCK_EXECUTIVE_KPIS.grossRevenue} delta={MOCK_EXECUTIVE_KPIS.revenueGrowth} trend="up" subtext="Consolidated across 6 units" icon="💰" />
+        <KpiCard label="Gross Revenue (MTD)" value={MOCK_EXECUTIVE_KPIS.grossRevenue} delta={MOCK_EXECUTIVE_KPIS.revenueGrowth} trend="up" subtext="Consolidated across 10 units" icon="💰" />
         <KpiCard label="Net Revenue" value={MOCK_EXECUTIVE_KPIS.netRevenue} delta={MOCK_EXECUTIVE_KPIS.netMargin} trend="up" subtext="Post discounts & refunds" icon="📈" />
         <KpiCard label="EBITDA Margin" value={MOCK_EXECUTIVE_KPIS.ebitdaMargin} delta={MOCK_EXECUTIVE_KPIS.ebitda} trend="up" subtext="Operational surplus" icon="💎" />
-        <KpiCard label="Registered Pet Parents" value={MOCK_EXECUTIVE_KPIS.registeredPetParents} delta={MOCK_EXECUTIVE_KPIS.petParentsGrowth} trend="up" subtext="Across 5 active metros" icon="🐾" />
+        <KpiCard label="Registered Pet Parents" value={MOCK_EXECUTIVE_KPIS.registeredPetParents} delta={MOCK_EXECUTIVE_KPIS.petParentsGrowth} trend="up" subtext="Across 10 active metros" icon="🐾" />
         <KpiCard label="Clinical Practitioners" value={MOCK_EXECUTIVE_KPIS.clinicalPractitioners} delta={MOCK_EXECUTIVE_KPIS.cliniciansOnDuty} trend="neutral" subtext="Surgeons & specialists" icon="👨‍⚕️" />
         <KpiCard label="60-Min SLA Velocity" value={MOCK_EXECUTIVE_KPIS.slaVelocity} delta={MOCK_EXECUTIVE_KPIS.slaAverageTime} trend="up" subtext="Express delivery fleet" icon="⚡" />
       </div>
 
-      {/* Grid 2: Revenue Mix & Operations */}
+      {/* Grid 2: Revenue Mix & Health Scorecard */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(460px, 1fr))', gap: '18px' }}>
         <div style={cardStyle}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
@@ -116,6 +136,93 @@ export default function ExecutiveDashboard() {
               <div style={{ fontSize: '11px', color: '#059669', fontWeight: 600, marginTop: '2px' }}>1.4% Stockout Rate</div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Master 10-Record Business Segment Performance Ledger */}
+      <div style={cardStyle}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
+          <div>
+            <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>🏛️ Master Business Segment Performance Ledger</h3>
+            <p style={{ margin: '3px 0 0', fontSize: '12px', color: '#64748b' }}>Consolidated revenue pacing, unit margins, and operational volumes across all 10 operating divisions</p>
+          </div>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            <input
+              type="text"
+              placeholder="Search segment or executive lead..."
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              style={{
+                padding: '6px 12px',
+                borderRadius: '8px',
+                border: '1px solid #cbd5e1',
+                fontSize: '12px',
+                background: '#f8fafc',
+                color: '#0f172a',
+                width: '230px'
+              }}
+            />
+            {['ALL', 'Outperforming', 'Healthy', 'High Growth', 'On Track', 'Stable'].map(st => (
+              <button
+                key={st}
+                onClick={() => setFilter(st)}
+                style={{
+                  padding: '6px 12px',
+                  borderRadius: '8px',
+                  border: filter === st ? '1px solid #2563eb' : '1px solid #cbd5e1',
+                  background: filter === st ? '#2563eb' : '#ffffff',
+                  color: filter === st ? '#ffffff' : '#334155',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  cursor: 'pointer'
+                }}
+              >
+                {st}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', textAlign: 'left' }}>
+            <thead>
+              <tr style={{ background: '#f8fafc', borderBottom: '2px solid #e2e8f0', color: '#475569', fontSize: '12px' }}>
+                <th style={{ padding: '10px 14px' }}>Business Segment</th>
+                <th style={{ padding: '10px 14px' }}>Executive Lead</th>
+                <th style={{ padding: '10px 14px' }}>MTD Revenue</th>
+                <th style={{ padding: '10px 14px' }}>Target Pacing</th>
+                <th style={{ padding: '10px 14px' }}>Gross Margin</th>
+                <th style={{ padding: '10px 14px' }}>Active Volume</th>
+                <th style={{ padding: '10px 14px' }}>YoY Growth</th>
+                <th style={{ padding: '10px 14px' }}>Health Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredSegments.map((s, idx) => (
+                <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0f172a' }}>{s.name}</td>
+                  <td style={{ padding: '12px 14px', color: '#64748b' }}>{s.lead}</td>
+                  <td style={{ padding: '12px 14px', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 700, color: '#0f172a' }}>{s.revenue}</td>
+                  <td style={{ padding: '12px 14px', fontFamily: '"IBM Plex Mono", monospace', color: '#059669', fontWeight: 600 }}>{s.pacing}</td>
+                  <td style={{ padding: '12px 14px', fontFamily: '"IBM Plex Mono", monospace', color: '#2563eb', fontWeight: 600 }}>{s.margin}</td>
+                  <td style={{ padding: '12px 14px', color: '#475569' }}>{s.volume}</td>
+                  <td style={{ padding: '12px 14px', color: '#059669', fontWeight: 700 }}>{s.growth}</td>
+                  <td style={{ padding: '12px 14px' }}>
+                    <span style={{
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      padding: '3px 8px',
+                      borderRadius: '4px',
+                      background: s.status === 'Outperforming' || s.status === 'High Growth' ? '#ecfdf5' : s.status === 'Healthy' ? '#eff6ff' : '#f1f5f9',
+                      color: s.status === 'Outperforming' || s.status === 'High Growth' ? '#047857' : s.status === 'Healthy' ? '#1d4ed8' : '#475569'
+                    }}>
+                      ● {s.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </DashboardLayout>

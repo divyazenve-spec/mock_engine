@@ -23,9 +23,13 @@ export const MOCK_DIVISIONAL_CONTRIBUTION = [
   { name: 'Pet Products & Nutrition', pct: 37.2, rev: '₹68.4L', color: '#3b82f6' },
   { name: 'Veterinary Pharmacy & Rx', pct: 31.7, rev: '₹58.4L', color: '#10b981' },
   { name: 'Clinical Care & Surgeries', pct: 15.3, rev: '₹28.2L', color: '#8b5cf6' },
+  { name: 'Veterinary Diagnostics & Pathology', pct: 11.7, rev: '₹21.6L', color: '#06b6d4' },
+  { name: 'Emergency & 24/7 ICU Trauma', pct: 9.0, rev: '₹16.5L', color: '#f43f5e' },
   { name: 'B2B Enterprise & Institutional', pct: 8.0, rev: '₹14.8L', color: '#f59e0b' },
+  { name: 'Preventive Care Subscriptions', pct: 7.0, rev: '₹12.8L', color: '#6366f1' },
+  { name: 'Pet Grooming & Spa Services', pct: 5.1, rev: '₹9.4L', color: '#a855f7' },
   { name: 'Pet Fashion & Lifestyle', pct: 4.6, rev: '₹8.4L', color: '#ec4899' },
-  { name: 'Care Subscriptions & Wellness', pct: 3.2, rev: '₹5.8L', color: '#06b6d4' }
+  { name: 'Digital Telehealth & Remote Monitoring', pct: 3.0, rev: '₹5.5L', color: '#14b8a6' }
 ];
 
 export const MOCK_BOARD_OKRS = [
@@ -128,8 +132,9 @@ export const MOCK_BUSINESS_UNITS = [
     revenue: '₹68.4L',
     pacing: '102.4%',
     margin: '28.6%',
+    volume: '18,450 Orders',
     growth: '+22.1% YoY',
-    status: 'On Track'
+    status: 'Outperforming'
   },
   {
     name: 'Veterinary Pharmacy & Rx',
@@ -137,6 +142,7 @@ export const MOCK_BUSINESS_UNITS = [
     revenue: '₹58.4L',
     pacing: '108.4%',
     margin: '34.8%',
+    volume: '842 e-Rx Filled',
     growth: '+32.4% YoY',
     status: 'Outperforming'
   },
@@ -146,8 +152,29 @@ export const MOCK_BUSINESS_UNITS = [
     revenue: '₹28.2L',
     pacing: '104.2%',
     margin: '62.4%',
+    volume: '3,420 Consults',
     growth: '+28.5% YoY',
     status: 'Healthy'
+  },
+  {
+    name: 'Veterinary Diagnostics & Pathology',
+    lead: 'Dr. Rajesh K',
+    revenue: '₹21.6L',
+    pacing: '106.5%',
+    margin: '58.2%',
+    volume: '2,180 Lab Panels',
+    growth: '+29.4% YoY',
+    status: 'Outperforming'
+  },
+  {
+    name: 'Emergency & 24/7 ICU Trauma',
+    lead: 'Dr. Vikramaditya Rathore',
+    revenue: '₹16.5L',
+    pacing: '112.0%',
+    margin: '65.0%',
+    volume: '480 Trauma Cases',
+    growth: '+35.2% YoY',
+    status: 'High Growth'
   },
   {
     name: 'B2B Enterprise & Breeders',
@@ -155,25 +182,48 @@ export const MOCK_BUSINESS_UNITS = [
     revenue: '₹14.8L',
     pacing: '94.0%',
     margin: '22.4%',
+    volume: '42 Accounts',
     growth: '+18.2% YoY',
     status: 'Stable'
   },
   {
-    name: 'Pet Fashion & Lifestyle',
+    name: 'Preventive Care Subscriptions & Wellness',
+    lead: 'Deepa Nair',
+    revenue: '₹12.8L',
+    pacing: '118.5%',
+    margin: '78.5%',
+    volume: '8,420 Pets Active',
+    growth: '+54.0% YoY',
+    status: 'High Growth'
+  },
+  {
+    name: 'Pet Grooming & Spa Services',
+    lead: 'Sneha Kapoor',
+    revenue: '₹9.4L',
+    pacing: '97.2%',
+    margin: '44.0%',
+    volume: '1,260 Sessions',
+    growth: '+14.5% YoY',
+    status: 'On Track'
+  },
+  {
+    name: 'Pet Fashion, Travel & Lifestyle',
     lead: 'Neha Kapur',
     revenue: '₹8.4L',
     pacing: '98.5%',
     margin: '48.2%',
+    volume: '1,840 Items',
     growth: '+16.8% YoY',
     status: 'On Track'
   },
   {
-    name: 'Care Subscriptions & Wellness',
-    lead: 'Deepa Nair',
-    revenue: '₹5.8L',
-    pacing: '112.0%',
-    margin: '78.5%',
-    growth: '+54.0% YoY',
+    name: 'Digital Telehealth & Remote Monitoring',
+    lead: 'Dr. Divya Reddy',
+    revenue: '₹5.5L',
+    pacing: '105.0%',
+    margin: '82.0%',
+    volume: '920 Tele-consults',
+    growth: '+42.0% YoY',
     status: 'High Growth'
   }
 ];
@@ -234,6 +284,20 @@ export const MOCK_EXECUTIVE_DECISIONS = [
     owner: 'Dr. Rajesh K (Diagnostics)',
     capital: '₹14.2L Equipment',
     priority: 'Medium'
+  },
+  {
+    id: 'DEC-2026-089',
+    action: 'Enterprise Fulfillment Depot: 25,000 sq ft Logistics Hub in Bhiwandi Corridor',
+    owner: 'Anand Kumar (Logistics)',
+    capital: '₹32.0L Capex',
+    priority: 'High'
+  },
+  {
+    id: 'DEC-2026-090',
+    action: 'Board Dividend & Retained Earnings: Q3 Operating Solvency Reinvestment Plan',
+    owner: 'Siddharth Roy (CFO)',
+    capital: '₹50.0L Retained',
+    priority: 'Approved'
   }
 ];
 
@@ -278,11 +342,16 @@ export const MOCK_PL_STATEMENT = [
 ];
 
 export const MOCK_GEOGRAPHIC_CLUSTERS = [
-  { name: 'Bengaluru Central & South (HQ)', rev: '₹74.8L', pct: 40.7, footfall: '18,420 Visits' },
-  { name: 'Mumbai MMR & Thane Corridor', rev: '₹46.2L', pct: 25.1, footfall: '11,280 Visits' },
-  { name: 'Delhi NCR (Gurgaon & Noida)', rev: '₹34.5L', pct: 18.8, footfall: '8,420 Visits' },
-  { name: 'Hyderabad Cyberabad Hub', rev: '₹17.4L', pct: 9.5, footfall: '4,680 Visits' },
-  { name: 'Pune Urban & PCMC Cluster', rev: '₹11.1L', pct: 6.0, footfall: '3,120 Visits' }
+  { name: 'Bengaluru Central & South (HQ)', rev: '₹74.8L', pct: 40.7, hubs: '18 Centers', footfall: '18,420 Visits', mom: '+18.4%', pos: 'Dominant' },
+  { name: 'Mumbai MMR & Western Suburban', rev: '₹46.2L', pct: 25.1, hubs: '10 Centers', footfall: '11,280 Visits', mom: '+22.1%', pos: 'Co-Leader' },
+  { name: 'Delhi NCR (Gurgaon & South Delhi)', rev: '₹34.5L', pct: 18.8, hubs: '6 Centers', footfall: '8,420 Visits', mom: '+26.5%', pos: 'Rapid Expansion' },
+  { name: 'Hyderabad Cyberabad & Gachibowli', rev: '₹17.4L', pct: 9.5, hubs: '4 Centers', footfall: '4,680 Visits', mom: '+31.0%', pos: 'Fast Scaling' },
+  { name: 'Pune Urban (Koregaon & Baner)', rev: '₹11.1L', pct: 6.0, hubs: '3 Centers', footfall: '3,120 Visits', mom: '+34.2%', pos: 'High Growth' },
+  { name: 'Chennai OMR & Adyar Hub', rev: '₹9.8L', pct: 5.3, hubs: '2 Centers', footfall: '2,840 Visits', mom: '+28.0%', pos: 'Scaling' },
+  { name: 'Kolkata Salt Lake & New Town', rev: '₹7.2L', pct: 3.9, hubs: '2 Centers', footfall: '1,950 Visits', mom: '+24.5%', pos: 'New Launch' },
+  { name: 'Ahmedabad SG Highway Center', rev: '₹6.5L', pct: 3.5, hubs: '2 Centers', footfall: '1,820 Visits', mom: '+32.1%', pos: 'New Launch' },
+  { name: 'Chandigarh Tri-City Corridor', rev: '₹5.2L', pct: 2.8, hubs: '1 Center', footfall: '1,410 Visits', mom: '+29.0%', pos: 'Emerging' },
+  { name: 'Kochi Coastal Marine Drive Center', rev: '₹4.3L', pct: 2.3, hubs: '1 Center', footfall: '1,180 Visits', mom: '+38.5%', pos: 'Emerging' }
 ];
 
 export const MOCK_BALANCED_KPIS = [

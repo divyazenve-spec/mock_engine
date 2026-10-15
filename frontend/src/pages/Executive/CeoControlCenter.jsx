@@ -10,6 +10,8 @@ import {
 
 export default function CeoControlCenter() {
   const [approvedDecisions, setApprovedDecisions] = useState({});
+  const [okrSearch, setOkrSearch] = useState('');
+  const [okrFilter, setOkrFilter] = useState('ALL');
 
   const cardStyle = {
     background: '#ffffff',
@@ -27,6 +29,15 @@ export default function CeoControlCenter() {
     setApprovedDecisions(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
+  const filteredOkrs = okrs.filter(okr => {
+    if (okrFilter !== 'ALL' && okr.status !== okrFilter) return false;
+    if (okrSearch) {
+      const q = okrSearch.toLowerCase();
+      return okr.title.toLowerCase().includes(q) || okr.lead.toLowerCase().includes(q);
+    }
+    return true;
+  });
+
   return (
     <DashboardLayout
       category="Executive Dashboard"
@@ -35,6 +46,40 @@ export default function CeoControlCenter() {
       subtitle="Strategic enterprise OKRs, multi-entity performance pacing, capital allocation decisions, and risk governance sentinel"
       icon="👔"
       badge="Strategic Command"
+      actions={
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <button
+            onClick={() => alert('Downloading CEO Executive Briefing & Board Packet (PDF)...')}
+            style={{
+              padding: '7px 14px',
+              borderRadius: '8px',
+              border: '1px solid #cbd5e1',
+              background: '#ffffff',
+              color: '#334155',
+              fontSize: '12px',
+              fontWeight: 600,
+              cursor: 'pointer'
+            }}
+          >
+            📑 Export CEO Brief
+          </button>
+          <button
+            onClick={() => alert('Broadcasting quarterly OKR targets to Divisional Executive Leads...')}
+            style={{
+              padding: '7px 14px',
+              borderRadius: '8px',
+              border: '1px solid #2563eb',
+              background: '#2563eb',
+              color: '#ffffff',
+              fontSize: '12px',
+              fontWeight: 600,
+              cursor: 'pointer'
+            }}
+          >
+            🎯 Broadcast OKR Directives
+          </button>
+        </div>
+      }
     >
       {/* Top Executive Cockpit Vitals */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px' }}>
@@ -42,26 +87,55 @@ export default function CeoControlCenter() {
         <KpiCard label="Operating EBITDA Run Rate" value="11.0%" delta="+1.2% QoQ" trend="up" subtext="₹2.26 Cr EBITDA run-rate" icon="📈" />
         <KpiCard label="Liquid Treasury & Runway" value="28 Months" delta="₹4.85 Cr Reserves" trend="up" subtext="Zero debt liabilities" icon="🏦" />
         <KpiCard label="Board OKR Execution" value="96.8%" delta="10/10 On Track" trend="up" subtext="Active FY25-26 cycle" icon="🎯" />
-        <KpiCard label="Enterprise Headcount" value="148 Staff" delta="112 On-Duty" trend="neutral" subtext="Across 5 central hubs" icon="👥" />
+        <KpiCard label="Enterprise Headcount" value="148 Staff" delta="112 On-Duty" trend="neutral" subtext="Across 10 central hubs" icon="👥" />
         <KpiCard label="Blended Gross Margin" value="40.1%" delta="+1.6% vs benchmark" trend="up" subtext="Direct sourcing active" icon="💎" />
       </div>
 
-      {/* Strategic OKRs Tracker */}
+      {/* Strategic OKRs Tracker (10 Board OKRs) */}
       <div style={cardStyle}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
           <div>
             <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>Master Board OKR Execution Matrix (FY25-26)</h3>
-            <p style={{ margin: '4px 0 0', fontSize: '12px', color: '#64748b' }}>Key strategic objectives and quarterly milestones monitored directly by the Office of the CEO</p>
+            <p style={{ margin: '4px 0 0', fontSize: '12px', color: '#64748b' }}>Key strategic objectives and quarterly milestones monitored directly by the Office of the CEO (10 Objectives)</p>
           </div>
-          <button
-            onClick={() => alert('Downloading OKR Executive Packet (PDF)...')}
-            style={{ padding: '6px 14px', borderRadius: '6px', border: '1px solid #cbd5e1', background: '#f8fafc', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}
-          >
-            📑 Export OKR Brief
-          </button>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+            <input
+              type="text"
+              placeholder="Search OKR or lead..."
+              value={okrSearch}
+              onChange={e => setOkrSearch(e.target.value)}
+              style={{
+                padding: '6px 12px',
+                borderRadius: '8px',
+                border: '1px solid #cbd5e1',
+                fontSize: '12px',
+                background: '#f8fafc',
+                color: '#0f172a',
+                width: '180px'
+              }}
+            />
+            {['ALL', 'Completed', 'Exceeded', 'On Track'].map(st => (
+              <button
+                key={st}
+                onClick={() => setOkrFilter(st)}
+                style={{
+                  padding: '6px 10px',
+                  borderRadius: '6px',
+                  border: okrFilter === st ? '1px solid #2563eb' : '1px solid #cbd5e1',
+                  background: okrFilter === st ? '#2563eb' : '#ffffff',
+                  color: okrFilter === st ? '#ffffff' : '#334155',
+                  fontSize: '11px',
+                  fontWeight: 600,
+                  cursor: 'pointer'
+                }}
+              >
+                {st}
+              </button>
+            ))}
+          </div>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '14px' }}>
-          {okrs.map(okr => (
+          {filteredOkrs.map(okr => (
             <div key={okr.title} style={{ padding: '14px 16px', borderRadius: '10px', border: '1px solid #e2e8f0', background: '#f8fafc', display: 'flex', flexDirection: 'column', gap: '6px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div>
@@ -91,15 +165,15 @@ export default function CeoControlCenter() {
         </div>
       </div>
 
-      {/* Business Unit Contribution Table */}
+      {/* Business Unit Contribution Table (10 Divisions) */}
       <div style={cardStyle}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
           <div>
             <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>Business Unit Contribution & Strategic Pacing</h3>
-            <p style={{ margin: '4px 0 0', fontSize: '12px', color: '#64748b' }}>Consolidated operational pacing and gross margins across operating entities</p>
+            <p style={{ margin: '4px 0 0', fontSize: '12px', color: '#64748b' }}>Consolidated operational pacing and gross margins across 10 Zenve operating entities</p>
           </div>
           <span style={{ fontSize: '11px', fontWeight: 700, padding: '3px 8px', borderRadius: '6px', background: '#ecfdf5', color: '#047857', border: '1px solid #a7f3d0' }}>
-            6 Divisions Operating
+            10 Divisions Operating
           </span>
         </div>
         <div style={{ overflowX: 'auto' }}>
@@ -111,6 +185,7 @@ export default function CeoControlCenter() {
                 <th style={{ padding: '10px 14px' }}>MTD Revenue</th>
                 <th style={{ padding: '10px 14px' }}>Target Pacing</th>
                 <th style={{ padding: '10px 14px' }}>Gross Margin</th>
+                <th style={{ padding: '10px 14px' }}>Active Volume</th>
                 <th style={{ padding: '10px 14px' }}>YoY Growth</th>
                 <th style={{ padding: '10px 14px' }}>Strategic Status</th>
               </tr>
@@ -120,9 +195,10 @@ export default function CeoControlCenter() {
                 <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0f172a' }}>{bu.name}</td>
                   <td style={{ padding: '12px 14px', color: '#64748b' }}>{bu.lead}</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>{bu.revenue}</td>
-                  <td style={{ padding: '12px 14px' }}>{bu.pacing}</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>{bu.margin}</td>
+                  <td style={{ padding: '12px 14px', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 600 }}>{bu.revenue}</td>
+                  <td style={{ padding: '12px 14px', fontFamily: '"IBM Plex Mono", monospace' }}>{bu.pacing}</td>
+                  <td style={{ padding: '12px 14px', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 600, color: '#2563eb' }}>{bu.margin}</td>
+                  <td style={{ padding: '12px 14px', color: '#475569' }}>{bu.volume}</td>
                   <td style={{ padding: '12px 14px', color: '#059669', fontWeight: 700 }}>{bu.growth}</td>
                   <td style={{ padding: '12px 14px' }}>
                     <span style={{
@@ -130,8 +206,8 @@ export default function CeoControlCenter() {
                       fontWeight: 700,
                       padding: '2px 8px',
                       borderRadius: '4px',
-                      background: bu.status === 'Outperforming' || bu.status === 'High Growth' ? '#ecfdf5' : '#f1f5f9',
-                      color: bu.status === 'Outperforming' || bu.status === 'High Growth' ? '#047857' : '#475569'
+                      background: bu.status === 'Outperforming' || bu.status === 'High Growth' ? '#ecfdf5' : bu.status === 'Healthy' ? '#eff6ff' : '#f1f5f9',
+                      color: bu.status === 'Outperforming' || bu.status === 'High Growth' ? '#047857' : bu.status === 'Healthy' ? '#1d4ed8' : '#475569'
                     }}>
                       {bu.status}
                     </span>
@@ -143,14 +219,14 @@ export default function CeoControlCenter() {
         </div>
       </div>
 
-      {/* 2-Column: Decision Governance Log & Capital Runway Waterfall */}
+      {/* 2-Column: Decision Governance Log (10 Decisions) & Capital Runway Waterfall */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(460px, 1fr))', gap: '18px' }}>
         {/* Executive Decisions */}
         <div style={cardStyle}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
             <div>
               <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>Executive Decision & Capital Governance Log</h3>
-              <p style={{ margin: '4px 0 0', fontSize: '12px', color: '#64748b' }}>Action items requiring Chief Executive Officer or Board authorization</p>
+              <p style={{ margin: '4px 0 0', fontSize: '12px', color: '#64748b' }}>Action items requiring Chief Executive Officer or Board authorization (10 Items)</p>
             </div>
             <span style={{ fontSize: '11px', fontWeight: 700, padding: '3px 8px', borderRadius: '6px', background: '#ecfdf5', color: '#047857' }}>
               {decisions.length} Actionable
@@ -158,7 +234,7 @@ export default function CeoControlCenter() {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {decisions.map(dec => {
-              const isApproved = approvedDecisions[dec.id] || dec.priority === 'Completed';
+              const isApproved = approvedDecisions[dec.id] || dec.priority === 'Completed' || dec.priority === 'Approved';
               return (
                 <div key={dec.id} style={{ padding: '14px 16px', borderRadius: '10px', border: '1px solid #e2e8f0', background: '#f8fafc', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -236,7 +312,7 @@ export default function CeoControlCenter() {
               </tbody>
             </table>
             <div style={{ padding: '12px 14px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px', fontSize: '12px', color: '#475569', lineHeight: 1.4 }}>
-              <strong>💡 Executive Capital Note:</strong> Liquid balance sheet maintains a 28-month runway at current operational burn rates with positive unit economics across all 5 operating metro hospital hubs.
+              <strong>💡 Executive Capital Note:</strong> Liquid balance sheet maintains a 28-month runway at current operational burn rates with positive unit economics across all 10 operating metro hospital hubs.
             </div>
           </div>
         </div>
@@ -260,7 +336,7 @@ export default function CeoControlCenter() {
               <span style={{ fontSize: '10px', padding: '2px 6px', borderRadius: '4px', background: '#ecfdf5', color: '#047857' }}>Nominal</span>
             </div>
             <div style={{ fontSize: '16px', fontWeight: 800, color: '#059669' }}>0 Open Audits</div>
-            <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: 1.4 }}>All 5 hospital clusters operating at 100% NABH & VCI compliance.</p>
+            <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: 1.4 }}>All 10 hospital clusters operating at 100% NABH & VCI compliance.</p>
           </div>
           <div style={{ padding: '14px 16px', borderRadius: '10px', border: '1px solid #e2e8f0', background: '#ffffff', display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px', fontWeight: 700, color: '#0f172a' }}>
