@@ -670,6 +670,7 @@ export const CATEGORIES_NAVIGATOR = [
     icon: '🤖',
     items: [
       'Ask Zenve AI',
+      'Custom API Integration (Enterprise RAG & Agentic Architecture)',
       'Business Insights',
       'Revenue Intelligence',
       'Sales Forecast',
@@ -737,7 +738,7 @@ export const CATEGORIES_NAVIGATOR = [
   {
     category: 'Settings',
     icon: '⚙️',
-    items: ['Company Settings', 'Business Units', 'Locations', 'Users', 'Roles & Permissions', 'API & Integrations', 'Security'],
+    items: ['Company Settings', 'Business Units', 'Locations', 'Users', 'Roles & Permissions', 'Custom API Integration (Enterprise RAG & Agentic Architecture)', 'Security'],
     defaultPath: '/settings'
   }
 ];

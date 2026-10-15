@@ -468,6 +468,32 @@ export default function AskZenveAI() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <button
               type="button"
+              onClick={() => {
+                if (window.ZenveSettingsDashboard) {
+                  window.ZenveSettingsDashboard.open('integrations');
+                } else {
+                  window.location.hash = '#api-integrations';
+                }
+              }}
+              title="Configure Custom API Integration, Enterprise RAG, and Agentic Architecture"
+              style={{
+                padding: '7px 14px',
+                borderRadius: '8px',
+                border: '1px solid #6366f1',
+                background: '#eef2ff',
+                color: '#4338ca',
+                fontSize: '12px',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}
+            >
+              🔌 Custom API &amp; Enterprise RAG
+            </button>
+            <button
+              type="button"
               onClick={fetchAuditLogs}
               style={{
                 padding: '7px 14px',
@@ -499,6 +525,47 @@ export default function AskZenveAI() {
               Clear Chat
             </button>
           </div>
+        </div>
+
+        {/* ─── Enterprise RAG & Agentic Architecture Live Bar ─── */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '12px',
+          padding: '8px 22px',
+          background: '#f8fafc',
+          borderBottom: '1px solid #e2e8f0',
+          fontSize: '11.5px',
+          color: '#334155'
+        }}>
+          <span style={{ fontWeight: 800, color: '#4338ca', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+            ⚡ Enterprise Architecture:
+          </span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', background: '#ecfdf5', color: '#047857', padding: '2px 8px', borderRadius: '6px', fontWeight: 600 }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981' }}></span>
+            Custom Multi-LLM API Gateway
+          </span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', background: '#eef2ff', color: '#4338ca', padding: '2px 8px', borderRadius: '6px', fontWeight: 600 }}>
+            🛡️ 4-Layer RAG Active (MySQL, Cold-chain, EBITDA, SLAs)
+          </span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', background: '#fdf4ff', color: '#86198f', padding: '2px 8px', borderRadius: '6px', fontWeight: 600 }}>
+            🤖 5-Agent Pipeline
+          </span>
+          <a
+            href="#api-integrations"
+            onClick={(e) => {
+              e.preventDefault();
+              if (window.ZenveSettingsDashboard) {
+                window.ZenveSettingsDashboard.open('integrations');
+              } else {
+                window.location.hash = '#api-integrations';
+              }
+            }}
+            style={{ marginLeft: 'auto', color: '#2563eb', fontWeight: 700, textDecoration: 'none', fontSize: '11px' }}
+          >
+            Configure Gateway &amp; RAG Toggles →
+          </a>
         </div>
 
         {/* ─── Chat Messages Area ─── */}

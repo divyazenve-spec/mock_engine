@@ -256,7 +256,7 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#a855f7',
       bg: 'rgba(168, 85, 247, 0.15)',
-      items: ['Ask Zenve AI', 'Business Insights', 'Revenue Intelligence', 'Sales Forecast', 'Demand Forecast', 'Inventory Prediction', 'Customer Prediction', 'Churn Prediction', 'Profit Prediction', 'Anomaly Detection', 'AI Recommendations']
+      items: ['Ask Zenve AI', 'Custom API Integration (Enterprise RAG & Agentic Architecture)', 'Business Insights', 'Revenue Intelligence', 'Sales Forecast', 'Demand Forecast', 'Inventory Prediction', 'Customer Prediction', 'Churn Prediction', 'Profit Prediction', 'Anomaly Detection', 'AI Recommendations']
     },
     {
       title: 'Alerts & Notifications',
@@ -301,7 +301,7 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#94a3b8',
       bg: 'rgba(148, 163, 184, 0.15)',
-      items: ['Company Settings', 'Business Units', 'Locations', 'Users', 'Roles & Permissions', 'Approval Workflows', 'Notification Settings', 'Dashboard Settings', 'Tax Settings', 'Payment Settings', 'Delivery Settings', 'API & Integrations', 'Security', 'Backup & Recovery']
+      items: ['Company Settings', 'Business Units', 'Locations', 'Users', 'Roles & Permissions', 'Approval Workflows', 'Notification Settings', 'Dashboard Settings', 'Tax Settings', 'Payment Settings', 'Delivery Settings', 'Custom API Integration (Enterprise RAG & Agentic Architecture)', 'Security', 'Backup & Recovery']
     }
   ];
 

@@ -421,6 +421,10 @@
     // AI Assistant
     'ai assistant': { controller: 'ZenveAIAssistant', tab: 'ask-ai', hash: '#ask-ai', rootId: 'zai-root', module: 'AI Assistant' },
     'ask zenve ai': { controller: 'ZenveAIAssistant', tab: 'ask-ai', hash: '#ask-ai', rootId: 'zai-root', module: 'AI Assistant' },
+    'custom api integration (enterprise rag & agentic architecture)': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
+    'custom api integration': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
+    'enterprise rag & agentic architecture': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
+    'enterprise rag': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
     'business insights': { controller: 'ZenveAIAssistant', tab: 'insights', hash: '#business-insights', rootId: 'zai-root', module: 'AI Assistant' },
     'revenue intelligence': { controller: 'ZenveAIAssistant', tab: 'revenue', hash: '#revenue-intelligence', rootId: 'zai-root', module: 'AI Assistant' },
     'ai sales forecast': { controller: 'ZenveAIAssistant', tab: 'sales-fc', hash: '#ai-sales-forecast', rootId: 'zai-root', module: 'AI Assistant' },
@@ -489,6 +493,8 @@
     'payment settings': { controller: 'ZenveSettingsDashboard', tab: 'payments', hash: '#payment-settings', rootId: 'zset-root', module: 'Settings' },
     'delivery settings': { controller: 'ZenveSettingsDashboard', tab: 'delivery', hash: '#delivery-settings', rootId: 'zset-root', module: 'Settings' },
     'api & integrations': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
+    'custom api & api integrations': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
+    'custom api integration': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
     'security': { controller: 'ZenveSettingsDashboard', tab: 'security', hash: '#security-settings', rootId: 'zset-root', module: 'Settings' },
     'backup & recovery': { controller: 'ZenveSettingsDashboard', tab: 'backup', hash: '#backup-recovery', rootId: 'zset-root', module: 'Settings' }
   };
