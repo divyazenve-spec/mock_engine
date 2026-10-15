@@ -105,7 +105,7 @@ header .sm\:inline {
 }
 
 /* 7. Charts row: always 8 cols + 4 cols */
-#daily article.xl\:col-span-8 {
+#daily article.xl\:col-span-8:not(#ledger) {
   grid-column: span 8 / span 8 !important;
 }
 #daily article.xl\:col-span-4 {
@@ -120,12 +120,14 @@ header .sm\:inline {
   grid-column: span 7 / span 7 !important;
 }
 
-/* 9. AI Live Decision Brief (4 cols) & Sales Ledger (8 cols) */
+/* 9. AI Live Decision Brief (12 cols) & Sales Ledger (Full 12 cols, seamless alignment) */
 #ai {
-  grid-column: span 4 / span 4 !important;
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
 }
 #ledger {
-  grid-column: span 8 / span 8 !important;
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
 }
 
 /* 10. Ledger search bar & filters: 4 columns */
