@@ -87,11 +87,41 @@ export default function DashboardLayout({
           )}
         </div>
 
-        {actions && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-            {actions}
-          </div>
-        )}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          <button
+            type="button"
+            onClick={() => window.ZenveCopilot?.open()}
+            title="Open Global AI Co-Pilot (Cmd+K / Ctrl+K)"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '6px 12px',
+              borderRadius: '8px',
+              border: '1px solid rgba(56, 189, 248, 0.4)',
+              background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(99, 102, 241, 0.08))',
+              color: '#0284c7',
+              fontSize: '12px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              transition: 'all 0.15s ease'
+            }}
+          >
+            <span>✨ AI Co-Pilot</span>
+            <span style={{
+              fontSize: '10px',
+              fontFamily: '"IBM Plex Mono", monospace',
+              opacity: 0.85,
+              padding: '1px 5px',
+              borderRadius: '4px',
+              background: '#e0f2fe',
+              color: '#0369a1'
+            }}>
+              Ctrl+K
+            </span>
+          </button>
+          {actions}
+        </div>
       </div>
       )}
 
