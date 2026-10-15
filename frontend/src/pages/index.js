@@ -351,7 +351,16 @@ export {
 } from './SystemHealth';
 
 // 24. Settings
-export { default as SettingsDashboard } from './Settings/SettingsDashboard';
+export {
+  SettingsDashboard,
+  CompanySettings,
+  BusinessUnits,
+  Locations,
+  Users,
+  RolesAndPermissions,
+  ApiAndIntegrations,
+  SecuritySettings
+} from './Settings';
 
 // Category Registry Metadata
 export const CATEGORIES_NAVIGATOR = [
