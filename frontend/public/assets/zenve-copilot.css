@@ -6,7 +6,7 @@
 /* Floating Launch Icon (Only the icon is displayed across all dashboards) */
 .zcp-launcher-pill {
   position: fixed;
-  bottom: 24px;
+  bottom: 52px;
   right: 24px;
   z-index: 99998;
   display: flex;
