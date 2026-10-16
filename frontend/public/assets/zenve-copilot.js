@@ -429,10 +429,15 @@
       wireResultActionButtons(suggestionsWrap, data.text);
     })
     .catch(function (err) {
-      console.warn('[Global Copilot] Falling back to client-side neural model:', err);
-      var fallbackRes = answerQuery(query);
-      renderCopilotResult(query, fallbackRes, suggestionsWrap);
-      wireResultActionButtons(suggestionsWrap, fallbackRes.text);
+      console.error('[Global Copilot] API error:', err);
+      var errorRes = {
+        role: 'ai',
+        text: '⚠️ **Connection Error:** Unable to reach FastAPI Co-Pilot endpoint (`/api/v1/copilot/query`). Please verify backend server is running.\n\n*Details:* ' + (err.message || 'Request failed'),
+        kpis: [],
+        actions: []
+      };
+      renderCopilotResult(query, errorRes, suggestionsWrap);
+      wireResultActionButtons(suggestionsWrap, errorRes.text);
     });
   }
 

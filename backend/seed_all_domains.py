@@ -11,11 +11,15 @@ from app.models.all_models import (
     DailyMetric,
     Doctor,
     Employee,
+    LogisticsDelivery,
+    MarketingCampaign,
     Order,
     Pet,
+    PharmacyMedicine,
     Product,
     Report,
     Sale,
+    Vendor,
     VeterinaryService,
 )
 
@@ -116,6 +120,53 @@ MOCK_SERVICES = [
     ("SRV-09", "Exotic Pet & Avian Specialized Consultation", "Exotics", 30, 2500.0, "Dr. Farhan Qureshi"),
     ("SRV-10", "Tele-Health Instant Video Triage Consultation", "Telehealth", 20, 1200.0, "Dr. Siddharth Sen")
 ]
+
+# 10 Medicines
+MOCK_MEDICINES = [
+    ("MED-BRV-01", "Bravecto Chewables (Fluralaner 250mg)", "MSD Animal Health", "Fluralaner", "Antiparasitic", 2450.0, 8, "BATCH-BRV-2026A", date(2027, 6, 30), 1, "Low Stock Warning"),
+    ("MED-NXG-02", "NexGard Spectra Chewable Tablets (Medium Dog)", "Boehringer Ingelheim", "Afoxolaner + Milbemycin Oxime", "Antiparasitic", 2980.0, 12, "BATCH-NXG-882", date(2027, 8, 15), 1, "Low Stock Warning"),
+    ("MED-APQ-03", "Apoquel 16mg Allergy Tablets", "Zoetis", "Oclacitinib Maleate", "Dermatology", 3850.0, 45, "BATCH-APQ-104", date(2027, 4, 30), 1, "In Stock"),
+    ("MED-VTM-04", "Vetmedin 5mg Heart Chewable Tablets", "Boehringer Ingelheim", "Pimobendan", "Cardiology", 4200.0, 34, "BATCH-VTM-502", date(2027, 12, 31), 1, "In Stock"),
+    ("MED-CLV-05", "Clavam Pet 250mg Antibiotic Suspension", "Intas Pharmaceuticals", "Amoxicillin + Clavulanic Acid", "Anti-Infective", 480.0, 85, "BATCH-CLV-773", date(2026, 11, 30), 1, "In Stock"),
+    ("MED-MLX-06", "Meloxicam Oral Anti-Inflammatory 100ml", "Virbac", "Meloxicam 1.5mg/ml", "Analgesic & NSAID", 650.0, 60, "BATCH-MLX-901", date(2027, 3, 31), 1, "In Stock"),
+    ("MED-CYT-07", "Cytopoint 30mg Monoclonal Antibody Injection", "Zoetis", "Lokivetmab", "Dermatology", 5200.0, 14, "BATCH-CYT-330", date(2026, 12, 15), 1, "Low Stock Warning"),
+    ("MED-PRO-08", "Pro-Kolin Advanced Digestive Paste 30ml", "Protexin Veterinary", "Enterococcus faecium + Kaolin", "Gastrointestinal", 1450.0, 52, "BATCH-PRO-662", date(2027, 9, 30), 0, "In Stock"),
+    ("MED-DEX-09", "Dextrose Normal Saline IV Infusion 500ml", "Baxter Healthcare", "Dextrose 5% + NaCl 0.9%", "Critical Care & Fluids", 180.0, 120, "BATCH-DNS-118", date(2028, 1, 1), 1, "In Stock"),
+    ("MED-CAN-10", "Caninsulin 40 IU/ml Intermediate Insulin 10ml", "MSD Animal Health", "Purified Porcine Insulin", "Endocrinology", 1680.0, 22, "BATCH-INS-445", date(2026, 10, 31), 1, "In Stock"),
+]
+
+# 5 Vendors
+MOCK_VENDORS = [
+    ("VEN-01", "MSD Animal Health India Pvt Ltd", "Pharmaceuticals", "Dr. Alok Verma", "+91 22 6789 0001", "supply.msd@zenve.in", "Mumbai", 4.9, "Net 30", "Approved"),
+    ("VEN-02", "Boehringer Ingelheim Vetmedica", "Pharmaceuticals", "Sangeeta Rao", "+91 22 6789 0002", "supply.boehringer@zenve.in", "Mumbai", 4.8, "Net 45", "Approved"),
+    ("VEN-03", "Zoetis India Limited", "Immunization & Oncology", "Karan Malhotra", "+91 80 4455 0001", "supply.zoetis@zenve.in", "Bengaluru", 4.95, "Net 30", "Approved"),
+    ("VEN-04", "Intas Animal Health Division", "Generics & Anti-Infectives", "Nitin Patel", "+91 79 3344 0001", "supply.intas@zenve.in", "Ahmedabad", 4.75, "Net 60", "Approved"),
+    ("VEN-05", "Virbac Animal Health India", "Dermatology & Nutrition", "Sunita Nair", "+91 22 5566 0001", "supply.virbac@zenve.in", "Mumbai", 4.85, "Net 30", "Approved"),
+]
+
+# 10 Logistics Deliveries
+MOCK_DELIVERIES = [
+    ("DEL-60-001", "ORD-9021", "Zenve Express 60-Min", "Mahesh Kumar", "+91 98450 77001", "Indiranagar Hub, Bengaluru", "Koramangala 4th Block, Bengaluru", "Delivered", 0, "Express 60-Min"),
+    ("DEL-60-002", "ORD-9019", "Zenve Express 60-Min", "Suraj Yadav", "+91 98110 77002", "Cyber Hub Dark Store, Gurgaon", "DLF Phase 5, Gurgaon", "Delivered", 0, "Express 60-Min"),
+    ("DEL-60-003", "ORD-9017", "Zenve Express 60-Min", "Selvam R", "+91 98400 77003", "Alwarpet Clinic Depot, Chennai", "Boat Club Road, Chennai", "Delivered", 0, "Express 60-Min"),
+    ("DEL-60-004", "ORD-9015", "Zenve Express 60-Min", "Subhash Bose", "+91 98300 77004", "Salt Lake Fulfillment Hub, Kolkata", "New Town Action Area 1, Kolkata", "Delivered", 0, "Express 60-Min"),
+    ("DEL-60-005", "ORD-9013", "Zenve Express 60-Min", "Anil Varma", "+91 98470 77005", "Panampilly Nagar Depot, Kochi", "Marine Drive, Kochi", "Delivered", 0, "Express 60-Min"),
+    ("DEL-60-006", "ORD-9022", "Zenve Express 60-Min", "Ramesh Gowda", "+91 98450 77006", "HSR Dark Store, Bengaluru", "Bellandur Green Glen, Bengaluru", "In Transit", 18, "Express 60-Min"),
+    ("DEL-60-007", "ORD-9023", "Zenve Express 60-Min", "Vikram Shinde", "+91 98201 77007", "Bandra Flagship Hub, Mumbai", "Juhu Scheme, Mumbai", "In Transit", 24, "Express 60-Min"),
+    ("DEL-60-008", "ORD-9024", "Zenve Express 60-Min", "Deepak Sharma", "+91 98110 77008", "South Extension Hub, Delhi", "Greater Kailash 1, Delhi", "In Transit", 32, "Express 60-Min"),
+    ("DEL-60-009", "ORD-9025", "Zenve Express 60-Min", "Ganesh Reddy", "+91 98490 77009", "Jubilee Hills Depot, Hyderabad", "Banjara Hills Road 12, Hyderabad", "Dispatched", 42, "Express 60-Min"),
+    ("DEL-60-010", "ORD-9026", "Zenve Express 60-Min", "Pravin Kulkarni", "+91 98220 77010", "Koregaon Park Depot, Pune", "Kalyani Nagar, Pune", "Dispatched", 48, "Express 60-Min"),
+]
+
+# 5 Marketing Campaigns
+MOCK_CAMPAIGNS = [
+    ("CMP-01", "Automated WhatsApp Rabies Booster Reminder Drive", "WhatsApp Business", 75000.0, 42000.0, 318000.0, 184, 7.57, "Active", date(2026, 9, 1)),
+    ("CMP-02", "Puppy & Kitten First-Year Wellness Shield", "Meta & Instagram Ads", 150000.0, 118000.0, 542000.0, 290, 4.59, "Active", date(2026, 9, 15)),
+    ("CMP-03", "Senior Canine Mobility & Arthritis Care Month", "Google Search & Display", 120000.0, 94000.0, 415000.0, 165, 4.41, "Active", date(2026, 10, 1)),
+    ("CMP-04", "Monsoon Tick & Flea Prevention Drive (Bravecto/NexGard)", "In-App Push & SMS", 50000.0, 31000.0, 280000.0, 210, 9.03, "Active", date(2026, 8, 1)),
+    ("CMP-05", "Veterinary Dental Health Checkup Drive", "Clinic Kiosk & Email", 40000.0, 28000.0, 168000.0, 95, 6.00, "Completed", date(2026, 8, 15)),
+]
+
 
 
 def seed_all():
@@ -257,7 +308,7 @@ def seed_all():
                 weight_kg=float(random.randint(5, 32)),
                 parent_name=cname,
                 parent_phone=cphone,
-                vaccination_status="Up to date",
+                vaccination_status="Overdue (Rabies)" if idx in (3, 7) else ("Overdue (DHPPi Booster)" if idx == 5 else "Up to date"),
                 last_visit_date=today_date - timedelta(days=random.randint(2, 20))
             )
             db.add(pet_obj)
@@ -288,8 +339,78 @@ def seed_all():
             )
             db.add(rep)
 
+        print("10. Seeding Pharmacy Medicines...")
+        db.query(PharmacyMedicine).delete()
+        for mcode, mname, mbrand, msalt, mcat, mprice, mstock, mbatch, mexp, mpresc, mstat in MOCK_MEDICINES:
+            med = PharmacyMedicine(
+                med_code=mcode,
+                name=mname,
+                brand=mbrand,
+                salt_name=msalt,
+                category=mcat,
+                price=mprice,
+                stock=mstock,
+                batch_no=mbatch,
+                expiry_date=mexp,
+                requires_prescription=mpresc,
+                status=mstat
+            )
+            db.add(med)
+
+        print("11. Seeding Vendors...")
+        db.query(Vendor).delete()
+        for vcode, vname, vcat, vcontact, vphone, vemail, vcity, vrate, vterms, vstat in MOCK_VENDORS:
+            ven = Vendor(
+                vendor_code=vcode,
+                name=vname,
+                category=vcat,
+                contact_person=vcontact,
+                phone=vphone,
+                email=vemail,
+                city=vcity,
+                rating=vrate,
+                payment_terms=vterms,
+                status=vstat
+            )
+            db.add(ven)
+
+        print("12. Seeding Logistics Deliveries...")
+        db.query(LogisticsDelivery).delete()
+        for did, dorder, dpartner, drider, dphone, dpickup, ddrop, dstat, deta, dtype in MOCK_DELIVERIES:
+            delivery = LogisticsDelivery(
+                delivery_id=did,
+                order_ref=dorder,
+                partner_name=dpartner,
+                rider_name=drider,
+                rider_phone=dphone,
+                pickup_location=dpickup,
+                drop_location=ddrop,
+                status=dstat,
+                eta_mins=deta,
+                delivery_type=dtype,
+                dispatched_at=datetime.utcnow() - timedelta(minutes=random.randint(10, 50))
+            )
+            db.add(delivery)
+
+        print("13. Seeding Marketing Campaigns...")
+        db.query(MarketingCampaign).delete()
+        for ccode, cname, cchannel, cbud, cspd, crev, cleads, croas, cstat, cstart in MOCK_CAMPAIGNS:
+            camp = MarketingCampaign(
+                campaign_code=ccode,
+                name=cname,
+                channel=cchannel,
+                budget=cbud,
+                spent=cspd,
+                revenue_generated=crev,
+                leads_count=cleads,
+                roas=croas,
+                status=cstat,
+                start_date=cstart
+            )
+            db.add(camp)
+
         db.commit()
-        print("All domain tables successfully seeded in MySQL!")
+        print("All domain tables successfully seeded in MySQL / SQLite!")
 
     finally:
         db.close()

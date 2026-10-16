@@ -13,7 +13,7 @@ export default function AIAssistantDashboard() {
     boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
   };
 
-    const aiModules = [
+  const aiModules = [
     { id: 'ask-zenve-ai', title: 'Ask Zenve AI', icon: '💬', badge: 'Multi-Agent Active', desc: 'Natural Language Intelligence grounded in live clinical, telemetry, and transactional databases with human-in-the-loop Text-to-Action execution.' },
     { id: 'business-insights', title: 'Business Insights', icon: '💡', badge: '10 Synthesized Patterns', desc: 'Algorithmic synthesis of multi-clinic operational bottlenecks, gross margin variations, and specialist doctor schedule balancing.' },
     { id: 'revenue-intelligence', title: 'Revenue Intelligence', icon: '⚡', badge: '₹14.2L Recovered', desc: 'Autonomous price elasticity modeling, leakage point detection, discount stacking firewall, and automated safeguard activation.' },

@@ -912,6 +912,36 @@ function generateResponse(text, ctx) {
         ].join('');
       }
 
+      var missingDataHtml = '';
+      if (m.intent === 'MISSING_DATA_EXPLANATION') {
+        missingDataHtml = [
+          '<div style="display:flex;align-items:flex-start;gap:8px;padding:10px 14px;margin-bottom:10px;border-radius:8px;background:#fffbeb;border:1.5px solid #fde68a;color:#92400e;font-size:12px;line-height:1.5;">',
+            '<span style="font-size:15px;">ℹ️</span>',
+            '<div>',
+              '<div style="font-weight:800;">Data Availability &amp; Audit Notice:</div>',
+              '<div>The requested metric or dimension cannot be calculated because underlying records are not present in current operational datasets.</div>',
+            '</div>',
+          '</div>'
+        ].join('');
+      } else if (m.intent === 'UNSUPPORTED_GEOGRAPHY') {
+        missingDataHtml = [
+          '<div style="display:flex;align-items:flex-start;gap:8px;padding:10px 14px;margin-bottom:10px;border-radius:8px;background:#fef2f2;border:1.5px solid #fecaca;color:#991b1b;font-size:12px;line-height:1.5;">',
+            '<span style="font-size:15px;">📍</span>',
+            '<div>',
+              '<div style="font-weight:800;">Geographic Coverage Notice:</div>',
+              '<div>Zenve Pets operational records currently cover 14 hospital hubs in India. No operational records exist for this location.</div>',
+            '</div>',
+          '</div>'
+        ].join('');
+      } else if (m.isError) {
+        missingDataHtml = [
+          '<div style="display:flex;align-items:center;gap:8px;padding:8px 12px;margin-bottom:10px;border-radius:8px;background:#fef2f2;border:1.5px solid #f87171;color:#991b1b;font-size:12px;font-weight:700;">',
+            '<span>⚠️</span>',
+            '<span>Backend Communication Error</span>',
+          '</div>'
+        ].join('');
+      }
+
       var avatarBadge = m.role === 'ai' ? '🐾' : '👤';
 
       return [
@@ -919,6 +949,7 @@ function generateResponse(text, ctx) {
           '<div class="zai-avatar ' + m.role + '" title="' + (m.role === 'ai' ? 'Dr. Zenve Veterinary AI' : 'Executive Pet Parent') + '">' + avatarBadge + '</div>',
           '<div class="zai-bubble">',
             agentStepsHtml,
+            missingDataHtml,
             '<div class="zai-formatted-body">' + formatLlmText(m.text) + '</div>',
             kpisHtml,
             chartHtml,
@@ -2203,13 +2234,16 @@ function generateResponse(text, ctx) {
       if (mEl) mEl.scrollTop = mEl.scrollHeight;
     })
     .catch(function (err) {
-      console.warn('[Zenve Copilot] API fallback triggered:', err);
+      console.error('[Zenve Copilot] API error:', err);
       var pIdx = S.chatHistory.indexOf(pendingMsg);
       if (pIdx >= 0) S.chatHistory.splice(pIdx, 1);
 
-      var localResp = ZenveNLP_LLM.generateResponse(q, S.lastContext);
-      S.lastContext = localResp.context;
-      S.chatHistory.push(localResp);
+      var errorResp = {
+        role: 'ai',
+        isError: true,
+        text: "⚠️ **Connection Error:** Unable to reach Dr. Zenve Copilot service (`/api/v1/copilot/query`).\n\nPlease ensure the FastAPI server is running on port 8000 and accessible.\n\n*Details:* " + (err.message || 'Network request failed')
+      };
+      S.chatHistory.push(errorResp);
       render();
       var mEl = document.getElementById('zai-chat-msgs');
       if (mEl) mEl.scrollTop = mEl.scrollHeight;

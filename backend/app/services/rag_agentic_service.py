@@ -656,38 +656,34 @@ class EnterpriseAgenticOrchestrator:
         if any(w in q_lower for w in ["bravecto", "reorder", "po", "inventory", "stock", "medicine"]):
             return (
                 "**Executive Pharmacy & Inventory Intelligence (Enterprise RAG Grounded):**\n\n"
-                "• **Current Stock Runway**: *Bravecto Chewables (Fluralaner 250mg)* is critically low across Central Gurgaon and Indiranagar hubs, with runway under 18 days.\n"
                 f"• **Live Database State**: Table `pharmacy_medicines` currently indexes **{stats['meds_count']} active SKUs**.\n"
-                "• **Cold-Chain Sentinel**: IoT telemetry reports 4.1°C average temperature, 100% compliant with Schedule H/X biological storage rules (2°C – 8°C).\n"
-                "• **Prescriptive Operational Action**: Dr. Zenve has drafted **Emergency Purchase Order PO-8821** (60 units @ ₹1,850/unit = ₹1,11,000) with MSD Animal Health. Click 'Approve & Execute PO' below to commit directly to ERP."
+                "• **Not Available**: Stock-runway days, cold-chain temperature telemetry and vendor pricing are not stored in the current mock records, so they are not reported here.\n"
+                "• **Prescriptive Operational Action**: Any drafted Purchase Order below is a **proposal only** and requires explicit human approval; nothing has been executed."
             )
 
         if any(w in q_lower for w in ["vaccin", "rabies", "pet", "puppy", "booster", "campaign", "whatsapp"]):
             return (
                 "**Clinical Preventive Health & Vaccination Briefing (Enterprise RAG Grounded):**\n\n"
-                f"• **Patient Census**: Grounded on **{stats['pets_count']} registered patients** in MySQL `pets`.\n"
-                "• **Overdue Immunization Cohort**: Identified pet patients overdue for mandatory Rabies biological boosters.\n"
-                "• **Clinical Protocol Alert**: Rabies serum requires 12-month interval boosters for high canine titer protection.\n"
-                "• **Autonomous Text-to-Action**: Dr. Zenve has prepared an automated WhatsApp booster recall campaign card below. Approving it will initiate targeted outreach and recover clinic appointments."
+                f"• **Patient Census**: Grounded on **{stats['pets_count']} registered patients** in `pets`.\n"
+                "• **Not Available**: Per-patient overdue counts are not computed in this fallback view; ask 'How many pets have overdue vaccinations?' for the exact record-based count.\n"
+                "• **Autonomous Text-to-Action**: Any recall campaign card below is a **proposal only** and requires explicit human approval."
             )
 
         if any(w in q_lower for w in ["delhi", "drop", "mumbai", "sales", "revenue", "loss", "turnover", "variance"]):
             return (
-                "**Regional Sales Diagnostics & Variance Audit (Enterprise RAG Grounded):**\n\n"
-                "• **Delhi NCR Impact**: ₹18.4 Lakh drop (-14.2% MoM) with 1,420 orders impacted.\n"
-                "• **Root-Cause Analysis**:\n"
-                "  1. *Supply Bottleneck*: Temporary out-of-stock condition on Bravecto chewables and Royal Canin Renal Diet at Central Gurgaon Hub.\n"
-                "  2. *Weather Sensitivity*: Severe afternoon heatwave reduced walk-in clinic footfalls by 28%.\n"
-                "• **Prescriptive Resolution Executed**:\n"
-                "  - Dispatched emergency inter-hub stock transfer PO-8821 from Central warehouse.\n"
-                "  - Extended evening OPD clinic consulting hours (5:00 PM – 10:00 PM) with complimentary pet hydration triage."
+                "**Regional Sales Diagnostics (Enterprise RAG Grounded):**\n\n"
+                f"• **Recorded Sales**: **₹{format_indian(int(stats['net_revenue']))}** settled revenue across **{stats['sales_count']} transactions** in the `sales` table.\n"
+                "• **Not Available**: Month-over-month history, order-level root-cause data and footfall/weather drivers are not stored in the current mock records, so no drop percentage or cause can be calculated.\n"
+                "• **Suggestion**: Ask for sales in a specific city (e.g. 'What are sales in Mumbai?') for an exact record-based figure."
             )
 
         # General Executive Briefing
         return (
             f"**Executive Intelligence Briefing — Zenve Pets Healthcare (Enterprise RAG Grounded):**\n\n"
-            f"• **Enterprise Database State**: Connected to live MySQL (`zenve_engine`). Operating with **₹{format_indian(int(stats['net_revenue']))}** settled net revenue across **{stats['sales_count']} transactions**.\n"
+            "• **Scope Note**: I could not match this question to a specific business dataset. I answer business questions from the available mock records only and do not guess figures.\n"
+            f"• **Enterprise Database State**: Operating with **₹{format_indian(int(stats['net_revenue']))}** settled net revenue across **{stats['sales_count']} transactions**.\n"
             f"• **Clinical Infrastructure**: **{stats['clinics_count']} hospital facilities** and **{stats['doctors_count']} veterinary surgeons** indexed.\n"
-            f"• **Formulary & Logistics**: **{stats['meds_count']} active pharmaceutical SKUs** under active cold-chain IoT supervision.\n"
-            "• **Custom API & Agentic Engine**: 5-layer autonomous agent pipeline is active. You can ask deep cross-domain questions or trigger Text-to-Action workflows."
+            f"• **Formulary**: **{stats['meds_count']} active pharmaceutical SKUs** indexed.\n"
+            "• **Try asking**: sales by city, low-stock medicines, overdue vaccinations, clinic footfall, or a definition such as 'What is AOV?'."
         )
+

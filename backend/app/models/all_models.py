@@ -6,11 +6,15 @@ from sqlalchemy.orm import Mapped, mapped_column
 from app.core.database import Base
 
 
+# Shared primary key type: BigInteger on MySQL, Integer on SQLite for native autoincrement
+PK_ID = BigInteger().with_variant(Integer, "sqlite")
+
+
 # 1. Daily Metrics
 class DailyMetric(Base):
     __tablename__ = "daily_metrics"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     business_date: Mapped[date] = mapped_column(Date, nullable=False, unique=True)
     sales_total: Mapped[float] = mapped_column(Float, nullable=False, default=0.0)
     android_downloads: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
@@ -22,7 +26,7 @@ class DailyMetric(Base):
 class Sale(Base):
     __tablename__ = "sales"
 
-    seq: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    seq: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     sale_id: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     transaction_ref: Mapped[str] = mapped_column(String(64), nullable=False)
     sold_at: Mapped[str] = mapped_column(String(40), nullable=False)
@@ -40,7 +44,7 @@ class Sale(Base):
 class Order(Base):
     __tablename__ = "orders"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     order_id: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     customer_name: Mapped[str] = mapped_column(String(160), nullable=False)
     customer_phone: Mapped[str] = mapped_column(String(32), nullable=False)
@@ -58,7 +62,7 @@ class Order(Base):
 class Product(Base):
     __tablename__ = "products"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     sku: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     category: Mapped[str] = mapped_column(String(80), nullable=False)
@@ -75,7 +79,7 @@ class Product(Base):
 class PharmacyMedicine(Base):
     __tablename__ = "pharmacy_medicines"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     med_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     brand: Mapped[str] = mapped_column(String(120), nullable=False)
@@ -94,7 +98,7 @@ class PharmacyMedicine(Base):
 class VeterinaryService(Base):
     __tablename__ = "veterinary_services"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     service_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     category: Mapped[str] = mapped_column(String(80), nullable=False)
@@ -109,7 +113,7 @@ class VeterinaryService(Base):
 class Appointment(Base):
     __tablename__ = "appointments"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     appointment_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     pet_name: Mapped[str] = mapped_column(String(120), nullable=False)
     pet_type: Mapped[str] = mapped_column(String(64), nullable=False, default="Dog")
@@ -128,7 +132,7 @@ class Appointment(Base):
 class Doctor(Base):
     __tablename__ = "doctors"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     doctor_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(160), nullable=False)
     specialty: Mapped[str] = mapped_column(String(120), nullable=False)
@@ -147,7 +151,7 @@ class Doctor(Base):
 class ClinicHospital(Base):
     __tablename__ = "clinics_hospitals"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     clinic_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     address: Mapped[str] = mapped_column(String(255), nullable=False)
@@ -165,7 +169,7 @@ class ClinicHospital(Base):
 class Customer(Base):
     __tablename__ = "customers"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     customer_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(160), nullable=False)
     email: Mapped[str] = mapped_column(String(160), nullable=False)
@@ -184,7 +188,7 @@ class Customer(Base):
 class Pet(Base):
     __tablename__ = "pets"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     pet_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(120), nullable=False)
     species: Mapped[str] = mapped_column(String(64), nullable=False, default="Dog")
@@ -204,7 +208,7 @@ class Pet(Base):
 class Employee(Base):
     __tablename__ = "employees"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     employee_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(160), nullable=False)
     email: Mapped[str] = mapped_column(String(160), nullable=False)
@@ -221,7 +225,7 @@ class Employee(Base):
 class MarketingCampaign(Base):
     __tablename__ = "marketing_campaigns"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     campaign_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     channel: Mapped[str] = mapped_column(String(80), nullable=False)
@@ -239,7 +243,7 @@ class MarketingCampaign(Base):
 class Vendor(Base):
     __tablename__ = "vendors"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     vendor_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     category: Mapped[str] = mapped_column(String(80), nullable=False)
@@ -256,7 +260,7 @@ class Vendor(Base):
 class LogisticsDelivery(Base):
     __tablename__ = "logistics_deliveries"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     delivery_id: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     order_ref: Mapped[str] = mapped_column(String(64), nullable=False)
     partner_name: Mapped[str] = mapped_column(String(80), nullable=False, default="Zenve Express 60-Min")
@@ -274,7 +278,7 @@ class LogisticsDelivery(Base):
 class FashionProduct(Base):
     __tablename__ = "fashion_products"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     item_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     category: Mapped[str] = mapped_column(String(80), nullable=False)
@@ -290,7 +294,7 @@ class FashionProduct(Base):
 class B2BAccount(Base):
     __tablename__ = "b2b_accounts"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     account_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     company_name: Mapped[str] = mapped_column(String(255), nullable=False)
     contact_name: Mapped[str] = mapped_column(String(160), nullable=False)
@@ -307,7 +311,7 @@ class B2BAccount(Base):
 class ImportExportShipment(Base):
     __tablename__ = "import_export_shipments"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     shipment_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     origin_country: Mapped[str] = mapped_column(String(80), nullable=False)
     destination_country: Mapped[str] = mapped_column(String(80), nullable=False, default="India")
@@ -323,7 +327,7 @@ class ImportExportShipment(Base):
 class SubscriptionPlan(Base):
     __tablename__ = "subscription_plans"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     plan_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     price: Mapped[float] = mapped_column(Float, nullable=False, default=0.0)
@@ -340,7 +344,7 @@ class SubscriptionPlan(Base):
 class Subscription(Base):
     __tablename__ = "subscriptions"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     subscription_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     plan_id: Mapped[Optional[int]] = mapped_column(BigInteger, nullable=True)
     plan_name: Mapped[str] = mapped_column(String(255), nullable=False)
@@ -358,7 +362,7 @@ class Subscription(Base):
 class Report(Base):
     __tablename__ = "reports"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     report_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     category: Mapped[str] = mapped_column(String(80), nullable=False)
@@ -373,7 +377,7 @@ class Report(Base):
 class Alert(Base):
     __tablename__ = "alerts"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     alert_code: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     message: Mapped[str] = mapped_column(Text, nullable=False)
@@ -387,7 +391,7 @@ class Alert(Base):
 class SystemHealth(Base):
     __tablename__ = "system_health"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     service_name: Mapped[str] = mapped_column(String(120), nullable=False, unique=True)
     service_type: Mapped[str] = mapped_column(String(64), nullable=False, default="API Microservice")
     status: Mapped[str] = mapped_column(String(32), nullable=False, default="Healthy")
@@ -400,7 +404,7 @@ class SystemHealth(Base):
 class CompanySetting(Base):
     __tablename__ = "company_settings"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(PK_ID, primary_key=True, autoincrement=True)
     setting_key: Mapped[str] = mapped_column(String(120), nullable=False, unique=True)
     setting_value: Mapped[str] = mapped_column(Text, nullable=False)
     category: Mapped[str] = mapped_column(String(80), nullable=False, default="General")

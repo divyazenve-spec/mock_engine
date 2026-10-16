@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import DashboardLayout from '../shared/DashboardLayout';
-import { generateResponse } from '../../utils/zenveNlpLlm';
 
 export default function AskZenveAI() {
   const [query, setQuery] = useState('');
@@ -11,13 +10,13 @@ export default function AskZenveAI() {
   const [history, setHistory] = useState([
     {
       role: 'ai',
-      text: "Hello! 🐾 I'm **Dr. Zenve**, your dedicated **Autonomous Multi-Agent Executive Co-Pilot** for Zenve Pets Healthcare.\n\nI can analyze live clinic EBITDA, pharmacy stockouts, 60-minute delivery SLAs, patient demographics, and **autonomously draft and execute operational actions** (Purchase Orders, WhatsApp booster campaigns, rider reallocations).\n\nFeel free to ask a question or command an executive action!",
+      text: "Hello! 🐾 I'm **Dr. Zenve**, your dedicated **Autonomous Multi-Agent Executive Co-Pilot** for Zenve Pets Healthcare.\n\nI can analyze live clinic EBITDA, pharmacy stockouts, 60-minute delivery SLAs, patient demographics, and **autonomously draft and execute operational actions** (Purchase Orders, WhatsApp booster campaigns, rider reallocations).\n\nFeel free to ask a business question or command an executive action!",
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       kpis: [
-        { label: "Database Records", val: "0 Loaded", trend: "neutral" },
-        { label: "Settled Revenue", val: "₹0", trend: "neutral" },
-        { label: "Text-to-Action", val: "Online", trend: "success" },
-        { label: "MySQL zenve_engine", val: "Connected (Clean)", trend: "success" }
+        { label: "Database Records", val: "46,200 Loaded", trend: "up" },
+        { label: "Hospital Network", val: "14 Facilities", trend: "up" },
+        { label: "Co-Pilot Backend", val: "FastAPI Online", trend: "success" },
+        { label: "MySQL zenve_engine", val: "Connected & Grounded", trend: "success" }
       ]
     }
   ]);
@@ -29,15 +28,13 @@ export default function AskZenveAI() {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [history, isTyping]);
 
-  async function handleAsk(e) {
-    if (e && e.preventDefault) e.preventDefault();
-    if (!query.trim()) return;
-    const userQuery = query.trim();
-    setQuery('');
+  async function sendQueryToBackend(userQuery) {
+    if (!userQuery || !userQuery.trim()) return;
+    const cleanQuery = userQuery.trim();
 
     const userMsg = {
       role: 'user',
-      text: userQuery,
+      text: cleanQuery,
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     };
 
@@ -49,10 +46,13 @@ export default function AskZenveAI() {
       const res = await fetch('/api/v1/copilot/query', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: userQuery, context })
+        body: JSON.stringify({ query: cleanQuery, context })
       });
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(`HTTP ${res.status}: ${errorText || 'Server error'}`);
+      }
       const data = await res.json();
 
       if (data.context) setContext(data.context);
@@ -74,21 +74,30 @@ export default function AskZenveAI() {
 
       setHistory(prev => [...prev, aiMsg]);
     } catch (err) {
-      console.warn('[Zenve Copilot React] API fallback:', err);
-      // Fallback to client-side neural model
-      const aiResp = generateResponse(userQuery, context);
-      setContext(aiResp.context);
-
-      const aiMsg = {
+      console.error('[Zenve Copilot React] API error:', err);
+      const errorMsg = {
         role: 'ai',
-        text: aiResp.text,
+        isError: true,
+        text: `⚠️ **Connection Error:** Unable to reach Dr. Zenve Copilot service (\`/api/v1/copilot/query\`).\n\nPlease ensure the FastAPI backend is running on port 8000 and the Vite proxy is active.\n\n*Details:* ${err.message || 'Network request failed'}`,
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
-
-      setHistory(prev => [...prev, aiMsg]);
+      setHistory(prev => [...prev, errorMsg]);
     } finally {
       setIsTyping(false);
     }
+  }
+
+  async function handleAsk(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (!query.trim() || isTyping) return;
+    const q = query;
+    setQuery('');
+    await sendQueryToBackend(q);
+  }
+
+  function handleSendFollowup(followupText) {
+    if (isTyping) return;
+    sendQueryToBackend(followupText);
   }
 
   async function handleExecuteAction(actionId, msgIndex) {
@@ -123,16 +132,9 @@ export default function AskZenveAI() {
       const res = await fetch('/api/v1/copilot/audit-trail');
       const data = await res.json();
       setAuditLogs(data.audit_trail || []);
-    } catch {
-      setAuditLogs([
-        {
-          executed_at: new Date().toLocaleString(),
-          action_id: 'ACT-PO-8821',
-          executed_by: 'Executive Admin',
-          transaction_ref: 'TXN-EXEC-DEMO',
-          summary: 'Purchase Order PO-8821 for 60 Bravecto units dispatched to Indiranagar Hub.'
-        }
-      ]);
+    } catch (err) {
+      console.error('[Zenve Copilot] Failed to fetch audit trail:', err);
+      setAuditLogs([]);
     }
     setShowAuditModal(true);
   }
@@ -289,6 +291,49 @@ export default function AskZenveAI() {
     );
   }
 
+  /* ── Interactive In-Chat Table Renderer ── */
+  function renderTable(table) {
+    if (!table || !table.rows || !table.rows.length) return null;
+    const cols = table.columns || Object.keys(table.rows[0]);
+    return (
+      <div style={{
+        margin: '14px 0',
+        borderRadius: '10px',
+        border: '1px solid #e2e8f0',
+        overflow: 'hidden',
+        boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)'
+      }}>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '12px' }}>
+            <thead>
+              <tr style={{ background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
+                {cols.map((c, ci) => (
+                  <th key={ci} style={{ padding: '8px 12px', textAlign: 'left', fontWeight: 700, color: '#475569', fontSize: '11px', textTransform: 'uppercase' }}>
+                    {c}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {table.rows.map((r, ri) => (
+                <tr key={ri} style={{ borderBottom: ri < table.rows.length - 1 ? '1px solid #f1f5f9' : 'none', background: ri % 2 === 0 ? '#ffffff' : '#fafbfc' }}>
+                  {cols.map((c, ci) => {
+                    const val = r[c] != null ? r[c] : Object.values(r)[ci];
+                    return (
+                      <td key={ci} style={{ padding: '8px 12px', color: '#1e293b' }}>
+                        {String(val)}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    );
+  }
+
   /* ── Interactive Text-to-Action Proposal Card ── */
   function renderActionProposal(act, msgIdx) {
     if (!act) return null;
@@ -395,16 +440,16 @@ export default function AskZenveAI() {
   }
 
   const quickPrompts = [
-    'What is our Bravecto inventory status and draft a PO?',
-    'Find overdue rabies vaccinations and draft WhatsApp campaign',
-    'Which clinic generated the highest EBITDA this month?',
-    'Why did sales drop in Delhi NCR and what is the remedy?',
-    'Simulate +15% logistics cost variance and propose mitigation',
-    'How is our 60 minute delivery performing and reallocate float riders?',
-    'Audit top 10 revenue leakage vectors and apply safeguards',
-    'Forecast 30-day demand surge for tick and flea medications',
-    'List top 10 pet parents at high churn risk and win-back plans',
-    'Simulate Q4 EBITDA under aggressive pricing scenario'
+    'Hello Dr. Zenve, who are you and what can you do?',
+    'What is AOV and how is it calculated?',
+    'What is EBITDA and why is it important for hospital operations?',
+    'What is our net profit on sales this quarter?',
+    'What were our total sales in London / New York?',
+    'What is our consolidated gross revenue and average order value across all cities?',
+    'Which city generated the highest sales revenue?',
+    'What is the current inventory status of Bravecto?',
+    'How many pets are overdue for core vaccinations across our network?',
+    'Which clinic has the highest patient footfall, and what is our total hospital bed capacity?'
   ];
 
   return (
@@ -644,6 +689,72 @@ export default function AskZenveAI() {
                   </div>
                 )}
 
+                {/* Error Banner */}
+                {msg.isError && (
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '8px 12px',
+                    marginBottom: '10px',
+                    borderRadius: '8px',
+                    background: '#fef2f2',
+                    border: '1.5px solid #f87171',
+                    color: '#991b1b',
+                    fontSize: '12px',
+                    fontWeight: 700
+                  }}>
+                    <span>⚠️</span>
+                    <span>Backend Communication Error</span>
+                  </div>
+                )}
+
+                {/* Missing Data Explanation Notice */}
+                {msg.intent === 'MISSING_DATA_EXPLANATION' && (
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '8px',
+                    padding: '10px 14px',
+                    marginBottom: '10px',
+                    borderRadius: '8px',
+                    background: '#fffbeb',
+                    border: '1.5px solid #fde68a',
+                    color: '#92400e',
+                    fontSize: '12px',
+                    lineHeight: '1.5'
+                  }}>
+                    <span style={{ fontSize: '15px' }}>ℹ️</span>
+                    <div>
+                      <div style={{ fontWeight: 800 }}>Data Availability &amp; Audit Notice:</div>
+                      <div>The requested metric or dimension cannot be calculated because underlying records are not present in current operational datasets.</div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Unsupported Geography Notice */}
+                {msg.intent === 'UNSUPPORTED_GEOGRAPHY' && (
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '8px',
+                    padding: '10px 14px',
+                    marginBottom: '10px',
+                    borderRadius: '8px',
+                    background: '#fef2f2',
+                    border: '1.5px solid #fecaca',
+                    color: '#991b1b',
+                    fontSize: '12px',
+                    lineHeight: '1.5'
+                  }}>
+                    <span style={{ fontSize: '15px' }}>📍</span>
+                    <div>
+                      <div style={{ fontWeight: 800 }}>Geographic Coverage Notice:</div>
+                      <div>Zenve Pets operational records currently cover 14 hospital hubs in India. No operational records exist for this location.</div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Message Body */}
                 {msg.role === 'ai' ? renderFormattedText(msg.text) : msg.text}
 
@@ -662,8 +773,44 @@ export default function AskZenveAI() {
                 {/* Dynamic Visualizations */}
                 {msg.chart && renderChart(msg.chart)}
 
+                {/* In-Chat Tables */}
+                {msg.table && renderTable(msg.table)}
+
                 {/* Action Proposals */}
                 {msg.actions && msg.actions.map((act) => renderActionProposal(act, i))}
+
+                {/* Contextual Follow-up Chips */}
+                {msg.followups && msg.followups.length > 0 && (
+                  <div style={{ marginTop: '14px', paddingTop: '10px', borderTop: '1px dashed #e2e8f0' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#047857', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      🐾 Dr. Zenve Recommends Exploring:
+                    </div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                      {msg.followups.map((f, fi) => (
+                        <button
+                          key={fi}
+                          type="button"
+                          onClick={() => handleSendFollowup(f)}
+                          style={{
+                            padding: '5px 12px',
+                            borderRadius: '16px',
+                            border: '1px solid #a7f3d0',
+                            background: '#ecfdf5',
+                            color: '#065f46',
+                            fontSize: '11.5px',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            transition: 'all 0.15s ease'
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.background = '#d1fae5'; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = '#ecfdf5'; }}
+                        >
+                          {f} →
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <div style={{
                   fontSize: '10px',
@@ -730,7 +877,8 @@ export default function AskZenveAI() {
             <button
               key={i}
               type="button"
-              onClick={() => handleQuickPrompt(p)}
+              onClick={() => sendQueryToBackend(p)}
+              title="Click to execute prompt directly"
               style={{
                 padding: '5px 12px',
                 borderRadius: '16px',
@@ -739,8 +887,11 @@ export default function AskZenveAI() {
                 color: '#475569',
                 fontSize: '11.5px',
                 fontWeight: 500,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                transition: 'all 0.15s ease'
               }}
+              onMouseEnter={e => { e.currentTarget.style.background = '#f1f5f9'; e.currentTarget.style.borderColor = '#cbd5e1'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.borderColor = '#e2e8f0'; }}
             >
               {p}
             </button>

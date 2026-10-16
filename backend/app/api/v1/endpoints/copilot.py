@@ -29,9 +29,25 @@ async def copilot_query(req: CopilotQueryRequest, db: Session = Depends(get_db))
     if not req.query or not req.query.strip():
         raise HTTPException(status_code=400, detail="Query cannot be empty")
     
-    engine = ExecutiveCopilotEngine(db)
-    response = engine.process_query(req.query, req.context)
-    return response
+    try:
+        engine = ExecutiveCopilotEngine(db)
+        response = engine.process_query(req.query, req.context)
+        return response
+    except Exception as e:
+        import logging
+        logging.getLogger("zenve.copilot").exception("Error processing copilot query")
+        return {
+            "role": "ai",
+            "text": "An internal operational error occurred while querying the database. Please verify your query or try again.",
+            "intent": "ERROR",
+            "agent_steps": [{"agent": "SupervisorAgent", "status": "failed", "note": "Database query error"}],
+            "kpis": [],
+            "chart": None,
+            "table": None,
+            "actions": [],
+            "followups": ["Consolidated sales summary", "Show low stock medicines", "Hospital network overview"],
+            "context": req.context or {}
+        }
 
 
 @router.post("/execute-action")
