@@ -185,7 +185,7 @@ export default function PharmacyInventory() {
                 fontSize: '12px'
               }}
             >
-              <option value="ALL">All Stock Statuses</option>
+              <option value="ALL">All Stock Status</option>
               <option value="Healthy">Healthy</option>
               <option value="Low Stock">Low Stock</option>
               <option value="Critical">Critical</option>

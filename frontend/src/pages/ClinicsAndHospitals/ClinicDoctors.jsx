@@ -158,7 +158,7 @@ export default function ClinicDoctors() {
                 cursor: 'pointer'
               }}
             >
-              <option value="ALL">All Duty Statuses</option>
+              <option value="ALL">All Duty Status</option>
               <option value="On Duty">On Duty</option>
               <option value="In Surgery">In Surgery</option>
               <option value="Off Duty">Off Duty</option>

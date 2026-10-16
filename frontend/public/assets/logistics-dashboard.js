@@ -422,7 +422,7 @@
       '    <div style="display:flex;gap:10px;align-items:center;">',
       '      <input type="text" class="zlog-input" id="zlog-order-search" placeholder="Search order, pet parent, rider, hub..." value="' + S.searchQuery + '" style="min-width:240px;"/>',
       '      <select class="zlog-select" id="zlog-order-status" style="min-width:140px;">',
-      '        <option value="ALL"' + (S.statusFilter === 'ALL' ? ' selected' : '') + '>All Statuses</option>',
+      '        <option value="ALL"' + (S.statusFilter === 'ALL' ? ' selected' : '') + '>All status</option>',
       '        <option value="In Transit"' + (S.statusFilter === 'In Transit' ? ' selected' : '') + '>In Transit</option>',
       '        <option value="Out for Delivery"' + (S.statusFilter === 'Out for Delivery' ? ' selected' : '') + '>Out for Delivery</option>',
       '        <option value="Dispatched"' + (S.statusFilter === 'Dispatched' ? ' selected' : '') + '>Dispatched</option>',

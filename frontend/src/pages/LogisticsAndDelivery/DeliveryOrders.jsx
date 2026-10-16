@@ -83,7 +83,7 @@ export default function DeliveryOrders() {
                 outline: 'none'
               }}
             >
-              <option value="ALL">All Statuses</option>
+              <option value="ALL">All status</option>
               <option value="In Transit">In Transit</option>
               <option value="Out for Delivery">Out for Delivery</option>
               <option value="Dispatched">Dispatched</option>

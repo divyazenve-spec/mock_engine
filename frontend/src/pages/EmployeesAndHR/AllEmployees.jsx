@@ -131,7 +131,7 @@ export default function AllEmployees() {
               fontSize: '12px'
             }}
           >
-            <option value="ALL">All Statuses</option>
+            <option value="ALL">All status</option>
             <option value="Active">Active</option>
             <option value="On Leave">On Leave</option>
             <option value="Probation">Probation</option>

@@ -455,6 +455,7 @@
           inputEl.focus();
         }
       };
+    }
   }
 
   function wireEvents() {

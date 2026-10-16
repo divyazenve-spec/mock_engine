@@ -620,7 +620,7 @@
             '<option value="Ophthalmology"' + (specialty === 'Ophthalmology' ? ' selected' : '') + '>Ophthalmology</option>',
           '</select>',
           '<select class="zch-select" onchange="ZenveClinicsDashboard.filterDoctors(null, null, this.value)">',
-            '<option value="ALL"' + (duty === 'ALL' ? ' selected' : '') + '>All Duty Statuses</option>',
+            '<option value="ALL"' + (duty === 'ALL' ? ' selected' : '') + '>All Duty Status</option>',
             '<option value="On Duty"' + (duty === 'On Duty' ? ' selected' : '') + '>On Duty</option>',
             '<option value="In Surgery"' + (duty === 'In Surgery' ? ' selected' : '') + '>In Surgery</option>',
             '<option value="On Call"' + (duty === 'On Call' ? ' selected' : '') + '>On Call Emergency</option>',

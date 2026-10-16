@@ -86,7 +86,7 @@ export default function FashionOrders() {
               onChange={e => setFilterStatus(e.target.value)}
               style={{ background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(0,0,0,0.15))', borderRadius: '6px', padding: '6px 10px', color: 'var(--foreground, #0f172a)', fontSize: '12px' }}
             >
-              <option value="ALL">All Order Statuses</option>
+              <option value="ALL">All Order Status</option>
               <option value="Delivered">Delivered</option>
               <option value="Dispatched">Dispatched</option>
               <option value="In Tailoring">In Tailoring</option>

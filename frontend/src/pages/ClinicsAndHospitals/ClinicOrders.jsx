@@ -161,7 +161,7 @@ export default function ClinicOrders() {
                 fontSize: '12px'
               }}
             >
-              <option value="ALL">All Statuses</option>
+              <option value="ALL">All status</option>
               <option value="Dispatched">Dispatched</option>
               <option value="Approved">Approved</option>
               <option value="Pending Review">Pending Review</option>

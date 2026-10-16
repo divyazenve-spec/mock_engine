@@ -121,7 +121,7 @@ export default function AllOrdersDashboard() {
                 background: '#fff'
               }}
             >
-              <option value="ALL">All Statuses</option>
+              <option value="ALL">All status</option>
               <option value="Delivered">Delivered</option>
               <option value="Out for Delivery">Out for Delivery</option>
               <option value="Dispatched">Dispatched</option>

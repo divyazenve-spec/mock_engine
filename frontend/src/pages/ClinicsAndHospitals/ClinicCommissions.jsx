@@ -130,7 +130,7 @@ export default function ClinicCommissions() {
                 fontSize: '12px'
               }}
             >
-              <option value="ALL">All Settlement Statuses</option>
+              <option value="ALL">All Settlement Status</option>
               <option value="Settled">Settled</option>
               <option value="Scheduled">Scheduled (Friday)</option>
               <option value="In Audit">In Audit</option>

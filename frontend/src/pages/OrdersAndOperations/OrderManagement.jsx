@@ -67,7 +67,7 @@ export default function OrderManagement() {
               onChange={(e) => setSelectedStatus(e.target.value)}
               style={{ padding: '6px 10px', border: '1px solid #cbd5e1', borderRadius: '6px', fontSize: '12px', background: '#fff' }}
             >
-              <option value="ALL">All Statuses</option>
+              <option value="ALL">All status</option>
               <option value="Delivered">Delivered</option>
               <option value="Out for Delivery">Out for Delivery</option>
               <option value="Dispatched">Dispatched</option>

@@ -1559,7 +1559,7 @@
       '    </div>',
       '    <div style="display:flex;gap:8px;">',
       '      <select class="zmkt-select" id="zmkt-camp-status">',
-      '        <option value="ALL"' + (S.statusFilter === 'ALL' ? ' selected' : '') + '>All Statuses</option>',
+      '        <option value="ALL"' + (S.statusFilter === 'ALL' ? ' selected' : '') + '>All status</option>',
       '        <option value="Active"' + (S.statusFilter === 'Active' ? ' selected' : '') + '>Active</option>',
       '        <option value="Scheduled"' + (S.statusFilter === 'Scheduled' ? ' selected' : '') + '>Scheduled</option>',
       '        <option value="Completed"' + (S.statusFilter === 'Completed' ? ' selected' : '') + '>Completed</option>',

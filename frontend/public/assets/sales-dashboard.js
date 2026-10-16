@@ -624,7 +624,7 @@
       s.value = values.indexOf(cur) >= 0 ? cur : 'All';
     }
     var sl = S.data.sales || [];
-    fill('status', 'All statuses', uniq(sl.map(function (s) { return s.status; })), S.status);
+    fill('status', 'All status', uniq(sl.map(function (s) { return s.status; })), S.status);
     fill('app', 'All channels', uniq(sl.map(function (s) { return s.app_source; })), S.app);
     fill('category', 'All services', uniq(sl.map(function (s) { return s.source; })), S.category);
     fill('city', 'All cities', uniq(sl.map(function (s) { return s.city; })), S.city);

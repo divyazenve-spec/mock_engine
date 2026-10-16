@@ -139,7 +139,7 @@ export default function BatchManagement() {
                 fontSize: '12px'
               }}
             >
-              <option value="ALL">All QC Statuses</option>
+              <option value="ALL">All QC Status</option>
               <option value="QC Passed">QC Passed</option>
               <option value="Under Quarantine">Under Quarantine</option>
               <option value="Recalled">Recalled</option>

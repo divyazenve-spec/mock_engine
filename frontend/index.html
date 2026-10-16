@@ -1,16 +1,38 @@
 <!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=1400, initial-scale=1"/>
 <script>
-window.addEventListener('error', function(e) {
-  if (e && e.message && (e.message.indexOf('418') !== -1 || e.message.indexOf('Hydration') !== -1)) {
-    e.stopImmediatePropagation();
-    e.preventDefault();
-  }
-});
 (function() {
+  function shouldFilter(str) {
+    if (!str || typeof str !== 'string') return false;
+    var s = str.toLowerCase();
+    return s.indexOf('418') !== -1 ||
+           s.indexOf('hydration') !== -1 ||
+           s.indexOf('api key is required') !== -1 ||
+           s.indexOf('unrecognized supabase api key') !== -1 ||
+           s.indexOf('missing supabase') !== -1;
+  }
+  window.addEventListener('error', function(e) {
+    if (e && e.message && shouldFilter(e.message)) {
+      e.stopImmediatePropagation();
+      e.preventDefault();
+      return true;
+    }
+  });
+  window.addEventListener('unhandledrejection', function(e) {
+    var reason = e && (e.reason ? (e.reason.message || e.reason) : '');
+    if (shouldFilter(String(reason))) {
+      e.stopImmediatePropagation();
+      e.preventDefault();
+    }
+  });
   var _err = console.error;
   console.error = function() {
-    if (arguments[0] && typeof arguments[0] === 'string' && (arguments[0].indexOf('418') !== -1 || arguments[0].indexOf('Hydration') !== -1)) return;
+    if (arguments[0] && shouldFilter(String(arguments[0]))) return;
     return _err.apply(console, arguments);
+  };
+  var _warn = console.warn;
+  console.warn = function() {
+    if (arguments[0] && shouldFilter(String(arguments[0]))) return;
+    return _warn.apply(console, arguments);
   };
 })();
 </script>

@@ -72,7 +72,7 @@
   }
 
   // Generic API Helper
-  async function apiCall(endpoint, method, body) {
+  async function apiCall(endpoint, method, body, silent) {
     try {
       var opts = {
         method: method || 'GET',
@@ -83,16 +83,18 @@
       if (!res.ok) throw new Error('API returned ' + res.status);
       return await res.json();
     } catch (err) {
-      console.error('[Zenve DB Error]', endpoint, err);
-      showToast('Database Error: ' + err.message, true);
+      console.warn('[Zenve DB Error]', endpoint, err.message || err);
+      if (!silent) {
+        showToast('Database Error: ' + err.message, true);
+      }
       return null;
     }
   }
 
   // 1. Subscriptions Sync
   async function syncSubscriptions() {
-    var plans = await apiCall('/subscriptions/plans');
-    var subs = await apiCall('/subscriptions/subscribers');
+    var plans = await apiCall('/subscriptions/plans', 'GET', null, true);
+    var subs = await apiCall('/subscriptions/subscribers', 'GET', null, true);
     if (plans) DB_STATE.plans = plans;
     if (subs) DB_STATE.subscribers = subs;
 
@@ -121,38 +123,38 @@
 
   // 2. Orders Sync
   async function syncOrders() {
-    var orders = await apiCall('/orders');
+    var orders = await apiCall('/orders', 'GET', null, true);
     if (orders) DB_STATE.orders = orders;
   }
 
   // 3. Products & Stock Sync
   async function syncProducts() {
-    var products = await apiCall('/products');
+    var products = await apiCall('/products', 'GET', null, true);
     if (products) DB_STATE.products = products;
   }
 
   // 4. Pharmacy Sync
   async function syncPharmacy() {
-    var meds = await apiCall('/pharmacy/medicines');
+    var meds = await apiCall('/pharmacy/medicines', 'GET', null, true);
     if (meds) DB_STATE.medicines = meds;
   }
 
   // 5. Veterinary & Appointments Sync
   async function syncVeterinary() {
-    var apps = await apiCall('/veterinary/appointments');
-    var srvs = await apiCall('/veterinary/services');
+    var apps = await apiCall('/veterinary/appointments', 'GET', null, true);
+    var srvs = await apiCall('/veterinary/services', 'GET', null, true);
     if (apps) DB_STATE.appointments = apps;
   }
 
   // 6. Customers Sync
   async function syncCustomers() {
-    var custs = await apiCall('/customers');
+    var custs = await apiCall('/customers', 'GET', null, true);
     if (custs) DB_STATE.customers = custs;
   }
 
   // 7. Pets Sync
   async function syncPets() {
-    var pets = await apiCall('/pets');
+    var pets = await apiCall('/pets', 'GET', null, true);
     if (pets) DB_STATE.pets = pets;
   }
 
