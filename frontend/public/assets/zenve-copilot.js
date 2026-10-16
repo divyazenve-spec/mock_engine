@@ -226,14 +226,15 @@
   function buildUI() {
     if (document.getElementById(COPILOT_ID)) return;
 
-    // 1. Floating Launch Pill
+    // 1. Floating Launch Icon Button (Keeps only icon, removes Ask Dr. Zenve text)
     var pill = document.createElement('div');
     pill.className = 'zcp-launcher-pill';
     pill.id = 'zcp-pill-btn';
+    pill.setAttribute('title', 'AI Chatbot (Ctrl+K)');
+    pill.setAttribute('aria-label', 'Open AI Chatbot (Ctrl+K)');
     pill.innerHTML = [
       '<span class="zcp-sparkle-dot"></span>',
-      '<span>✨ Ask Dr. Zenve</span>',
-      '<span class="zcp-kbd-chip">Ctrl+K</span>'
+      '<span class="zcp-launcher-icon">🤖</span>'
     ].join('');
     document.body.appendChild(pill);
 
@@ -533,28 +534,46 @@
     }
   }
 
+  function toggleModal() {
+    if (backdropEl && backdropEl.classList.contains('zcp-open')) {
+      closeModal();
+    } else {
+      openModal();
+    }
+  }
+
   /* ── Keyboard Shortcuts (Cmd + K / Ctrl + K / ESC) ──────────────── */
-  document.addEventListener('keydown', function (e) {
+  function handleGlobalKeyDown(e) {
+    if (e.__zcpHandled) return;
     // Cmd + K or Ctrl + K
-    if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+    var isCtrlOrCmd = e.metaKey || e.ctrlKey;
+    var isKeyK = e.key === 'k' || e.key === 'K' || e.code === 'KeyK' || e.keyCode === 75;
+
+    if (isCtrlOrCmd && isKeyK) {
+      e.__zcpHandled = true;
       e.preventDefault();
-      if (backdropEl && backdropEl.classList.contains('zcp-open')) {
-        closeModal();
-      } else {
-        openModal();
-      }
+      e.stopPropagation();
+      toggleModal();
+      return false;
     }
 
     // ESC to close
-    if (e.key === 'Escape' && backdropEl && backdropEl.classList.contains('zcp-open')) {
+    if ((e.key === 'Escape' || e.code === 'Escape' || e.keyCode === 27) && backdropEl && backdropEl.classList.contains('zcp-open')) {
+      e.__zcpHandled = true;
+      e.preventDefault();
       closeModal();
     }
-  });
+  }
+
+  // Intercept in capture phase so no child component can swallow Ctrl+K
+  window.addEventListener('keydown', handleGlobalKeyDown, true);
+  document.addEventListener('keydown', handleGlobalKeyDown, true);
 
   // Public Interface
   window.ZenveCopilot = {
     open: openModal,
     close: closeModal,
+    toggle: toggleModal,
     ask: handleQuerySubmit
   };
 

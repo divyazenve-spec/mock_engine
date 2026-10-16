@@ -976,7 +976,7 @@ function generateResponse(text, ctx) {
             '<button type="button" class="zai-chip" data-query="Simulate Q4 EBITDA under aggressive pricing scenario">💹 Simulate Q4 EBITDA Scenarios</button>',
           '</div>',
           '<form class="zai-chat-input-bar" id="zai-chat-form">',
-            '<input type="text" class="zai-input zai-pet-input" id="zai-query-input" placeholder="🐾 Ask Dr. Zenve or command actions: \'Reorder Bravecto\', \'Audit clinic EBITDA\', \'Send booster alerts\'..." autocomplete="off" />',
+            '<input type="text" class="zai-input zai-pet-input" id="zai-query-input" placeholder="🐾 Ask AI Chatbot or command actions: \'Reorder Bravecto\', \'Audit clinic EBITDA\', \'Send booster alerts\'..." autocomplete="off" />',
             '<button type="submit" class="zai-btn primary zai-pet-send-btn">🐾 Ask / Execute →</button>',
           '</form>',
         '</div>',

@@ -765,7 +765,7 @@ export default function AskZenveAI() {
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
-            placeholder="Ask Dr. Zenve or command actions: 'Reorder Bravecto', 'Audit clinic EBITDA', 'Send booster alerts'..."
+            placeholder="Ask AI Chatbot or command actions: 'Reorder Bravecto', 'Audit clinic EBITDA', 'Send booster alerts'..."
             disabled={isTyping}
             style={{
               flex: 1,
