@@ -34,8 +34,10 @@ from app.models.all_models import (
     Alert,
     Appointment,
     ClinicHospital,
+    Customer,
     DailyMetric,
     Doctor,
+    Employee,
     LogisticsDelivery,
     MarketingCampaign,
     Order,
@@ -44,9 +46,11 @@ from app.models.all_models import (
     Product,
     Report,
     Sale,
+    Subscription,
     SubscriptionPlan,
     SystemHealth,
     Vendor,
+    VeterinaryService,
 )
 
 logger = logging.getLogger("zenve.rag_agentic")

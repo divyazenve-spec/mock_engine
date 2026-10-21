@@ -1,0 +1,1485 @@
+{
+  "general_telemetry": {
+    "table_name": "general_telemetry",
+    "api_endpoint": "/api/v1/data",
+    "dashboards_count": 35,
+    "dashboards": [
+      {
+        "title": "Prioritized AI Executive Recommendations Queue",
+        "route_hash": "#ai-assistant-ai-recommendations",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Autonomous Statistical Anomaly & Outlier Radar",
+        "route_hash": "#ai-assistant-anomaly-detection",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Ask Zenve AI \u2014 Executive Co-Pilot",
+        "route_hash": "#ai-assistant-ask-zenve-ai",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Automated Business Insights & Executive Synthesis",
+        "route_hash": "#ai-assistant-business-insights",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Predictive Customer Intelligence & Next-Best-Action",
+        "route_hash": "#ai-assistant-customer-prediction",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Zenve Executive AI Assistant Suite",
+        "route_hash": "#ai-assistant-executive-intelligence-portal",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Predictive Profitability & Scenario Simulation Engine",
+        "route_hash": "#ai-assistant-profit-prediction",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Login History & Access Security",
+        "route_hash": "#audit-compliance-authentication-access-control",
+        "category": "Audit & Compliance"
+      },
+      {
+        "title": "Audit Trail & Regulatory Compliance",
+        "route_hash": "#audit-compliance-command-governance-suite",
+        "category": "Audit & Compliance"
+      },
+      {
+        "title": "Field-Level Data Mutation Log",
+        "route_hash": "#audit-compliance-data-mutations-diff-engine",
+        "category": "Audit & Compliance"
+      },
+      {
+        "title": "Financial Ledger & Journal Audit Trail",
+        "route_hash": "#audit-compliance-financial-ledger-journal-audits",
+        "category": "Audit & Compliance"
+      },
+      {
+        "title": "Master Immutable Audit Log",
+        "route_hash": "#audit-compliance-master-audit-log",
+        "category": "Audit & Compliance"
+      },
+      {
+        "title": "Approval Workflows & Digital Signatures",
+        "route_hash": "#audit-compliance-multi-level-approvals-digital-signs",
+        "category": "Audit & Compliance"
+      },
+      {
+        "title": "Order State & Fulfillment Audit Trail",
+        "route_hash": "#audit-compliance-order-state-transitions-overrides",
+        "category": "Audit & Compliance"
+      },
+      {
+        "title": "Regulatory Compliance Dashboard",
+        "route_hash": "#audit-compliance-regulatory-governance-standards",
+        "category": "Audit & Compliance"
+      },
+      {
+        "title": "User Activity & Staff Telemetry",
+        "route_hash": "#audit-compliance-user-activity-telemetry",
+        "category": "Audit & Compliance"
+      },
+      {
+        "title": "Macro Business Overview & Divisional P&L",
+        "route_hash": "#executive-dashboard-business-overview",
+        "category": "Executive Dashboard"
+      },
+      {
+        "title": "CEO Control Center & Strategic Governance",
+        "route_hash": "#executive-dashboard-ceo-control-center",
+        "category": "Executive Dashboard"
+      },
+      {
+        "title": "Zenve Executive Control Center",
+        "route_hash": "#executive-dashboard-executive-dashboard",
+        "category": "Executive Dashboard"
+      },
+      {
+        "title": "Accounts Payable (AP) & Vendor Settlements",
+        "route_hash": "#finance-accounting-accounts-payable",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Accounts Receivable (AR) & Credit Ledger",
+        "route_hash": "#finance-accounting-accounts-receivable",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Statement of Financial Position (Balance Sheet)",
+        "route_hash": "#finance-accounting-balance-sheet",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Cost of Goods Sold (COGS) & Direct Material Analytics",
+        "route_hash": "#finance-accounting-cogs",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Statement of Cash Flows (Cash Flow Statement)",
+        "route_hash": "#finance-accounting-cash-flow",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Cost Structure, Activity-Based Costing & Breakeven",
+        "route_hash": "#finance-accounting-cost-analysis",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "EBITDA & Operating Cash Flow Velocity",
+        "route_hash": "#finance-accounting-ebitda",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Operating Expenses (OPEX) Control & Ledger",
+        "route_hash": "#finance-accounting-expenses",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Financial Intelligence & Executive Control Center",
+        "route_hash": "#finance-accounting-finance-dashboard",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Gross Profit & Contribution Margin Intelligence",
+        "route_hash": "#finance-accounting-gross-profit",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "GST Tax Invoices & Digital Billing Hub",
+        "route_hash": "#finance-accounting-invoices",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Net Profit (PAT) & Bottom-Line Intelligence",
+        "route_hash": "#finance-accounting-net-profit",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Inbound Payments, Gateways & Collections",
+        "route_hash": "#finance-accounting-payments",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Profit & Loss Statement (P&L / Income Statement)",
+        "route_hash": "#finance-accounting-profit-loss",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Refunds, Reversals & Dispute Resolution",
+        "route_hash": "#finance-accounting-refunds",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Statutory Tax Compliance, GST & TDS Ledger",
+        "route_hash": "#finance-accounting-taxes",
+        "category": "Finance & Accounting"
+      }
+    ]
+  },
+  "customers": {
+    "table_name": "customers",
+    "api_endpoint": "/api/v1/predict/churn",
+    "dashboards_count": 13,
+    "dashboards": [
+      {
+        "title": "Predictive Churn Radar & Proactive Retention Playbooks",
+        "route_hash": "#ai-assistant-churn-prediction",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Enterprise Key Decision Makers & Stakeholders",
+        "route_hash": "#b2b-enterprise-enterprise-customers",
+        "category": "B2B / Enterprise"
+      },
+      {
+        "title": "New Customer Acquisition & First-Order Velocity",
+        "route_hash": "#customers-360-acquisition-onboarding",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "Active Customers & Omni-Channel Frequency",
+        "route_hash": "#customers-360-active-engagement-telemetry",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "Customer Segmentation & Behavioral Clusters",
+        "route_hash": "#customers-360-behavioral-persona-clusters",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "Customer Retention & Cohort Decay Curves",
+        "route_hash": "#customers-360-cohort-health-churn",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "Unified Customer 360\u00b0 Command Center",
+        "route_hash": "#customers-360-customer-intelligence-command",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "Customer Complaints & Grievance Resolution",
+        "route_hash": "#customers-360-customer-service-resolution",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "Customer Revenue & Monetization Streams",
+        "route_hash": "#customers-360-financial-intelligence",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "All Registered Customers & Pet Parents",
+        "route_hash": "#customers-360-master-customer-directory",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "Repeat Customers & Order Frequency Progression",
+        "route_hash": "#customers-360-repurchase-dynamics",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "Customer Lifetime Value (LTV) & CAC Multiples",
+        "route_hash": "#customers-360-unit-economics-value",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "Haute Couture Clientele & Pet Sizing Profiles",
+        "route_hash": "#zenve-fashion-vip-customers-360",
+        "category": "Zenve Fashion"
+      }
+    ]
+  },
+  "daily_metrics": {
+    "table_name": "daily_metrics",
+    "api_endpoint": "/api/v1/predict/sales",
+    "dashboards_count": 2,
+    "dashboards": [
+      {
+        "title": "Predictive Demand & Category Velocity Forecasting",
+        "route_hash": "#ai-assistant-demand-forecast",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Financial Forecasting & Predictive Runway",
+        "route_hash": "#finance-accounting-financial-forecast",
+        "category": "Finance & Accounting"
+      }
+    ]
+  },
+  "products": {
+    "table_name": "products",
+    "api_endpoint": "/api/v1/products",
+    "dashboards_count": 18,
+    "dashboards": [
+      {
+        "title": "Predictive Inventory & Stockout Early-Warning Radar",
+        "route_hash": "#ai-assistant-inventory-prediction",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Inventory Movements & Cold-Chain Audits",
+        "route_hash": "#audit-compliance-inventory-movements-cold-chain-audits",
+        "category": "Audit & Compliance"
+      },
+      {
+        "title": "Veterinary Pharmacy Stock & Buffer Optimization",
+        "route_hash": "#pharmacy-pharmacy-inventory",
+        "category": "Pharmacy"
+      },
+      {
+        "title": "FEFO & Expiry Life-Cycle Management",
+        "route_hash": "#products-inventory-expiry-management",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "Warehouse & SKU Valuation Control",
+        "route_hash": "#products-inventory-inventory-dashboard",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "Inventory Movement & Stock Ledger",
+        "route_hash": "#products-inventory-inventory-movement",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "Inventory Asset Valuation",
+        "route_hash": "#products-inventory-inventory-valuation",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "Low Stock Early Warning Center",
+        "route_hash": "#products-inventory-low-stock",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "Out of Stock & Lost Revenue Analytics",
+        "route_hash": "#products-inventory-out-of-stock",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "Master Product Catalog",
+        "route_hash": "#products-inventory-product-catalog",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "SKU Master & Specifications",
+        "route_hash": "#products-inventory-sku-management",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "Stock Levels & Safety Stock Control",
+        "route_hash": "#products-inventory-stock-management",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "Inter-Warehouse Stock Transfers",
+        "route_hash": "#products-inventory-stock-transfers",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "Regional Fulfillment Hubs & Facilities",
+        "route_hash": "#products-inventory-warehouse-management",
+        "category": "Products & Inventory"
+      },
+      {
+        "title": "Warehouse Inventory & Batch Valuation Audit Report",
+        "route_hash": "#reports-analytics-inventory-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Warehouse WMS & Cold-Chain IoT Health",
+        "route_hash": "#system-health-inventory-system",
+        "category": "System Health"
+      },
+      {
+        "title": "Fashion Stock Allocation & Sizing Matrix",
+        "route_hash": "#zenve-fashion-inventory-sizing-matrix",
+        "category": "Zenve Fashion"
+      },
+      {
+        "title": "Haute Couture Product Line & Sizing Master",
+        "route_hash": "#zenve-fashion-product-catalog",
+        "category": "Zenve Fashion"
+      }
+    ]
+  },
+  "sales": {
+    "table_name": "sales",
+    "api_endpoint": "/api/v1/data",
+    "dashboards_count": 12,
+    "dashboards": [
+      {
+        "title": "Revenue Intelligence & Margin Optimization",
+        "route_hash": "#ai-assistant-revenue-intelligence",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Predictive AI Sales & Revenue Forecasting",
+        "route_hash": "#ai-assistant-sales-forecast",
+        "category": "AI Assistant"
+      },
+      {
+        "title": "Revenue Intelligence & Commercial Inflow",
+        "route_hash": "#finance-accounting-revenue",
+        "category": "Finance & Accounting"
+      },
+      {
+        "title": "Channel Attribution & Performance",
+        "route_hash": "#revenue-sales-revenue-by-channel",
+        "category": "Revenue & Sales"
+      },
+      {
+        "title": "High-Value Client Lifetime Value & Loyalty",
+        "route_hash": "#revenue-sales-revenue-by-customer",
+        "category": "Revenue & Sales"
+      },
+      {
+        "title": "Staff Performance & Quota Attainment",
+        "route_hash": "#revenue-sales-revenue-by-employee",
+        "category": "Revenue & Sales"
+      },
+      {
+        "title": "Geographic Sales & Territory Intelligence",
+        "route_hash": "#revenue-sales-revenue-by-location",
+        "category": "Revenue & Sales"
+      },
+      {
+        "title": "Product Catalog & Service Margins",
+        "route_hash": "#revenue-sales-revenue-by-product",
+        "category": "Revenue & Sales"
+      },
+      {
+        "title": "Executive Sales Overview",
+        "route_hash": "#revenue-sales-sales-dashboard",
+        "category": "Revenue & Sales"
+      },
+      {
+        "title": "Predictive Sales Forecast & Revenue Trajectory",
+        "route_hash": "#revenue-sales-sales-forecast",
+        "category": "Revenue & Sales"
+      },
+      {
+        "title": "Conversion Geometry & Attrition Pipeline",
+        "route_hash": "#revenue-sales-sales-funnel",
+        "category": "Revenue & Sales"
+      },
+      {
+        "title": "Sales Targets & Quota Realization",
+        "route_hash": "#revenue-sales-targets-achievement",
+        "category": "Revenue & Sales"
+      }
+    ]
+  },
+  "alerts": {
+    "table_name": "alerts",
+    "api_endpoint": "/api/v1/alerts",
+    "dashboards_count": 13,
+    "dashboards": [
+      {
+        "title": "Alert Rules Engine & Escalation Matrices",
+        "route_hash": "#alerts-notifications-alert-rules",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "Sev-1 Critical Emergency Alerts",
+        "route_hash": "#alerts-notifications-critical-alerts",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "60-Minute Express & Fleet Logistics Alerts",
+        "route_hash": "#alerts-notifications-delivery-alerts",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "Alerts & Notifications Control Center",
+        "route_hash": "#alerts-notifications-executive-overview",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "Financial Health & Statutory Compliance Alerts",
+        "route_hash": "#alerts-notifications-finance-alerts",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "People, Clinical Roster & Credentialing Alerts",
+        "route_hash": "#alerts-notifications-hr-alerts",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "Inventory & Cold-Chain Stock Alerts",
+        "route_hash": "#alerts-notifications-inventory-alerts",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "Omni-Channel Notification Center",
+        "route_hash": "#alerts-notifications-notification-center",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "Order Fulfillment & Exception Alerts",
+        "route_hash": "#alerts-notifications-order-alerts",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "Payment Gateways & Collections Alerts",
+        "route_hash": "#alerts-notifications-payment-alerts",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "Revenue Pacing & Margin Risk Alerts",
+        "route_hash": "#alerts-notifications-revenue-alerts",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "System Health, API & Infrastructure Alerts",
+        "route_hash": "#alerts-notifications-system-alerts",
+        "category": "Alerts & Notifications"
+      },
+      {
+        "title": "Upcoming Expiries & Proactive Retention Alerts",
+        "route_hash": "#subscriptions-expiring-subscriptions",
+        "category": "Subscriptions"
+      }
+    ]
+  },
+  "orders": {
+    "table_name": "orders",
+    "api_endpoint": "/api/v1/orders",
+    "dashboards_count": 18,
+    "dashboards": [
+      {
+        "title": "B2B Purchase Orders & Bulk Fulfillment",
+        "route_hash": "#b2b-enterprise-b2b-orders",
+        "category": "B2B / Enterprise"
+      },
+      {
+        "title": "Hospital Supplies & Clinical Procurement",
+        "route_hash": "#clinics-hospitals-clinic-orders",
+        "category": "Clinics & Hospitals"
+      },
+      {
+        "title": "Customer Orders & Transaction History",
+        "route_hash": "#customers-360-omni-channel-purchases",
+        "category": "Customers 360\u00b0"
+      },
+      {
+        "title": "Doctor Prescriptions & Pharmacy Order Tracking",
+        "route_hash": "#doctors-clinical-prescriptions",
+        "category": "Doctors"
+      },
+      {
+        "title": "International Export Sales Orders & Invoicing",
+        "route_hash": "#import-export-export-orders",
+        "category": "Import & Export"
+      },
+      {
+        "title": "International Purchase Orders (IPO) & LC Pipeline",
+        "route_hash": "#import-export-import-orders",
+        "category": "Import & Export"
+      },
+      {
+        "title": "Live Delivery Orders Dispatch Stream",
+        "route_hash": "#logistics-delivery-delivery-orders",
+        "category": "Logistics & Delivery"
+      },
+      {
+        "title": "60-Minute Rapid Delivery Command Center",
+        "route_hash": "#orders-operations-60-minute-delivery",
+        "category": "Orders & Operations"
+      },
+      {
+        "title": "All Orders Master Ledger",
+        "route_hash": "#orders-operations-all-orders",
+        "category": "Orders & Operations"
+      },
+      {
+        "title": "Order Cancellations & Root Cause Analytics",
+        "route_hash": "#orders-operations-cancellations",
+        "category": "Orders & Operations"
+      },
+      {
+        "title": "Fleet & Carrier Delivery Performance",
+        "route_hash": "#orders-operations-delivery-performance",
+        "category": "Orders & Operations"
+      },
+      {
+        "title": "Fulfillment & Operations Control",
+        "route_hash": "#orders-operations-operations-dashboard",
+        "category": "Orders & Operations"
+      },
+      {
+        "title": "Order Management Console",
+        "route_hash": "#orders-operations-order-management",
+        "category": "Orders & Operations"
+      },
+      {
+        "title": "Live Order Status & Telematics",
+        "route_hash": "#orders-operations-order-status",
+        "category": "Orders & Operations"
+      },
+      {
+        "title": "Returns & Reverse Logistics Management",
+        "route_hash": "#orders-operations-returns-refunds",
+        "category": "Orders & Operations"
+      },
+      {
+        "title": "Dispensary Orders & Rapid Fulfillment",
+        "route_hash": "#pharmacy-pharmacy-orders",
+        "category": "Pharmacy"
+      },
+      {
+        "title": "Purchase Order Management & Delivery Tracker",
+        "route_hash": "#vendors-procurement-purchase-orders",
+        "category": "Vendors & Procurement"
+      },
+      {
+        "title": "Fashion Orders & Tailoring Pipeline",
+        "route_hash": "#zenve-fashion-order-management",
+        "category": "Zenve Fashion"
+      }
+    ]
+  },
+  "b2b_accounts": {
+    "table_name": "b2b_accounts",
+    "api_endpoint": "/api/v1/b2b/accounts",
+    "dashboards_count": 8,
+    "dashboards": [
+      {
+        "title": "B2B Accounts Receivable & Aging Ledger",
+        "route_hash": "#b2b-enterprise-b2b-receivables",
+        "category": "B2B / Enterprise"
+      },
+      {
+        "title": "B2B Revenue Trajectory & Unit Economics",
+        "route_hash": "#b2b-enterprise-b2b-revenue",
+        "category": "B2B / Enterprise"
+      },
+      {
+        "title": "Enterprise Sales Pipeline & Performance",
+        "route_hash": "#b2b-enterprise-b2b-sales",
+        "category": "B2B / Enterprise"
+      },
+      {
+        "title": "Corporate Account Master & Credit Limits",
+        "route_hash": "#b2b-enterprise-corporate-accounts",
+        "category": "B2B / Enterprise"
+      },
+      {
+        "title": "Enterprise Tiered Pricing & Rate Cards",
+        "route_hash": "#b2b-enterprise-enterprise-pricing",
+        "category": "B2B / Enterprise"
+      },
+      {
+        "title": "B2B Enterprise & Institutional Accounts",
+        "route_hash": "#b2b-enterprise-executive-command",
+        "category": "B2B / Enterprise"
+      },
+      {
+        "title": "Enterprise Master KPI Scorecard",
+        "route_hash": "#executive-dashboard-kpi-dashboard",
+        "category": "Executive Dashboard"
+      },
+      {
+        "title": "Platform Settings & Enterprise Governance",
+        "route_hash": "#settings-platform-overview",
+        "category": "Settings"
+      }
+    ]
+  },
+  "veterinary_services": {
+    "table_name": "veterinary_services",
+    "api_endpoint": "/api/v1/veterinary/services",
+    "dashboards_count": 18,
+    "dashboards": [
+      {
+        "title": "Master Services Agreements (MSA) & Contracts",
+        "route_hash": "#b2b-enterprise-contracts",
+        "category": "B2B / Enterprise"
+      },
+      {
+        "title": "Veterinary Hospitals & Clinics Command Center",
+        "route_hash": "#clinics-hospitals-clinics-dashboard",
+        "category": "Clinics & Hospitals"
+      },
+      {
+        "title": "24x7 Multi-Specialty Veterinary Hospitals",
+        "route_hash": "#clinics-hospitals-hospitals",
+        "category": "Clinics & Hospitals"
+      },
+      {
+        "title": "Veterinary Medical Board & Practitioners",
+        "route_hash": "#doctors-executive-medical-command",
+        "category": "Doctors"
+      },
+      {
+        "title": "All Registered Veterinary Practitioners",
+        "route_hash": "#doctors-physician-directory",
+        "category": "Doctors"
+      },
+      {
+        "title": "Global Veterinary & Raw Material Suppliers",
+        "route_hash": "#import-export-suppliers",
+        "category": "Import & Export"
+      },
+      {
+        "title": "Veterinary Rx & Medication Dispensation History",
+        "route_hash": "#pets-360-prescription-history",
+        "category": "Pets 360\u00b0"
+      },
+      {
+        "title": "Veterinary Doctor Clinical & Revenue Performance Report",
+        "route_hash": "#reports-analytics-doctor-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Veterinary Practitioners & Clinical Billings",
+        "route_hash": "#revenue-sales-revenue-by-doctor",
+        "category": "Revenue & Sales"
+      },
+      {
+        "title": "SMS, Email & Push Notification Gateways",
+        "route_hash": "#system-health-notification-services",
+        "category": "System Health"
+      },
+      {
+        "title": "Clinical Consultations & Patient Triage",
+        "route_hash": "#veterinary-services-consultations",
+        "category": "Veterinary Services"
+      },
+      {
+        "title": "Clinical Pathology, In-House Lab & Advanced Imaging",
+        "route_hash": "#veterinary-services-diagnostics",
+        "category": "Veterinary Services"
+      },
+      {
+        "title": "Surgical Operations & Sterile Theater Suite",
+        "route_hash": "#veterinary-services-procedures",
+        "category": "Veterinary Services"
+      },
+      {
+        "title": "Veterinary Clinical Unit Economics & Margin Diagnostics",
+        "route_hash": "#veterinary-services-service-profitability",
+        "category": "Veterinary Services"
+      },
+      {
+        "title": "Veterinary Services Clinical Revenue & Billings",
+        "route_hash": "#veterinary-services-service-revenue",
+        "category": "Veterinary Services"
+      },
+      {
+        "title": "Veterinary Clinical Operations & Healthcare Control Center",
+        "route_hash": "#veterinary-services-services-dashboard",
+        "category": "Veterinary Services"
+      },
+      {
+        "title": "Inpatient Care, ICU & Chronic Treatment Regimens",
+        "route_hash": "#veterinary-services-treatments",
+        "category": "Veterinary Services"
+      },
+      {
+        "title": "Immunization Schedules & Biological Lot Tracking",
+        "route_hash": "#veterinary-services-vaccinations",
+        "category": "Veterinary Services"
+      }
+    ]
+  },
+  "clinics_hospitals": {
+    "table_name": "clinics_hospitals",
+    "api_endpoint": "/api/v1/clinics",
+    "dashboards_count": 6,
+    "dashboards": [
+      {
+        "title": "Outpatient Clinics Directory & Operations",
+        "route_hash": "#clinics-hospitals-all-clinics",
+        "category": "Clinics & Hospitals"
+      },
+      {
+        "title": "Partner Clinic Commissions & Surgeon Honorariums",
+        "route_hash": "#clinics-hospitals-clinic-commissions",
+        "category": "Clinics & Hospitals"
+      },
+      {
+        "title": "Regional Healthcare Network & Hub-and-Spoke Infrastructure",
+        "route_hash": "#clinics-hospitals-clinic-network",
+        "category": "Clinics & Hospitals"
+      },
+      {
+        "title": "Inpatient Ward Census & Patient Tracking",
+        "route_hash": "#clinics-hospitals-clinic-patients",
+        "category": "Clinics & Hospitals"
+      },
+      {
+        "title": "Clinical Performance & Operational Efficiency",
+        "route_hash": "#clinics-hospitals-clinic-performance",
+        "category": "Clinics & Hospitals"
+      },
+      {
+        "title": "Hospital & Clinic Revenue Intelligence",
+        "route_hash": "#clinics-hospitals-clinic-revenue",
+        "category": "Clinics & Hospitals"
+      }
+    ]
+  },
+  "doctors": {
+    "table_name": "doctors",
+    "api_endpoint": "/api/v1/doctors",
+    "dashboards_count": 7,
+    "dashboards": [
+      {
+        "title": "Clinic Doctors",
+        "route_hash": "#clinics-hospitals-clinic-doctors",
+        "category": "Clinics & Hospitals"
+      },
+      {
+        "title": "Doctor Network & Hospital Affiliations",
+        "route_hash": "#doctors-clinical-infrastructure",
+        "category": "Doctors"
+      },
+      {
+        "title": "Doctor Clinical Performance & Quota Attainment",
+        "route_hash": "#doctors-clinical-performance",
+        "category": "Doctors"
+      },
+      {
+        "title": "Doctor Real-Time Activity & Shift Telemetry",
+        "route_hash": "#doctors-clinical-telemetry",
+        "category": "Doctors"
+      },
+      {
+        "title": "Doctor Revenue & Financial Attribution",
+        "route_hash": "#doctors-financial-attribution",
+        "category": "Doctors"
+      },
+      {
+        "title": "Doctor Commissions & Compensation Settlement",
+        "route_hash": "#doctors-incentive-settlements",
+        "category": "Doctors"
+      },
+      {
+        "title": "Doctor Patients & Treatment Logs",
+        "route_hash": "#doctors-patient-log",
+        "category": "Doctors"
+      }
+    ]
+  },
+  "employees": {
+    "table_name": "employees",
+    "api_endpoint": "/api/v1/employees",
+    "dashboards_count": 14,
+    "dashboards": [
+      {
+        "title": "Employee Directory & Workforce Master",
+        "route_hash": "#employees-hr-all-employees",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Biometric Punch Telemetry & Shift Roster",
+        "route_hash": "#employees-hr-attendance",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Departmental Hierarchy & Resource Stratification",
+        "route_hash": "#employees-hr-departments",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Expense Reimbursements & Financial Disbursals",
+        "route_hash": "#employees-hr-employee-expenses",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Performance Governance & Appraisal Scorecards",
+        "route_hash": "#employees-hr-employee-performance",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Productivity Telemetry & Operational Velocity",
+        "route_hash": "#employees-hr-employee-productivity",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Quota Attainment & Target Leaderboard",
+        "route_hash": "#employees-hr-employee-targets",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Human Resources & Workforce Executive Command Center",
+        "route_hash": "#employees-hr-hr-dashboard",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Time-Off Governance & Leave Requests",
+        "route_hash": "#employees-hr-leave-management",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "New Hire Onboarding & Day-1 Readiness",
+        "route_hash": "#employees-hr-onboarding",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Payroll Ledger, Disbursals & Statutory Compliance",
+        "route_hash": "#employees-hr-payroll",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Talent Acquisition & Pipeline Governance",
+        "route_hash": "#employees-hr-recruitment",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Workforce CTC & Departmental Compensation Analytics",
+        "route_hash": "#employees-hr-salary-cost",
+        "category": "Employees & HR"
+      },
+      {
+        "title": "Workforce, Clinical Roster & Payroll Analytics Report",
+        "route_hash": "#reports-analytics-hr-reports",
+        "category": "Reports & Analytics"
+      }
+    ]
+  },
+  "import_export_shipments": {
+    "table_name": "import_export_shipments",
+    "api_endpoint": "/api/v1/import-export/shipments",
+    "dashboards_count": 5,
+    "dashboards": [
+      {
+        "title": "International Buyers & Distribution Partners",
+        "route_hash": "#import-export-buyers",
+        "category": "Import & Export"
+      },
+      {
+        "title": "Customs Compliance, Bill of Entry & Shipping Bills",
+        "route_hash": "#import-export-customs-documentation",
+        "category": "Import & Export"
+      },
+      {
+        "title": "International Export Sales & Global Trade",
+        "route_hash": "#import-export-export-dashboard",
+        "category": "Import & Export"
+      },
+      {
+        "title": "Landed Cost Economics & Cross-Border Margins",
+        "route_hash": "#import-export-profitability",
+        "category": "Import & Export"
+      },
+      {
+        "title": "Intelligence Data Export & Bulk Download Center",
+        "route_hash": "#reports-analytics-export-center",
+        "category": "Reports & Analytics"
+      }
+    ]
+  },
+  "logistics_deliveries": {
+    "table_name": "logistics_deliveries",
+    "api_endpoint": "/api/v1/logistics/deliveries",
+    "dashboards_count": 11,
+    "dashboards": [
+      {
+        "title": "Global Import Logistics & Cross-Border Supply",
+        "route_hash": "#import-export-import-dashboard",
+        "category": "Import & Export"
+      },
+      {
+        "title": "International Ocean, Air & Reefer Multimodal Corridors",
+        "route_hash": "#import-export-logistics",
+        "category": "Import & Export"
+      },
+      {
+        "title": "Hyperlocal 60-Minute Rapid Delivery SLA",
+        "route_hash": "#logistics-delivery-60-minute-delivery",
+        "category": "Logistics & Delivery"
+      },
+      {
+        "title": "Delivery Cost Economics & Per-Drop Efficiency",
+        "route_hash": "#logistics-delivery-delivery-cost",
+        "category": "Logistics & Delivery"
+      },
+      {
+        "title": "Fleet & 3PL Logistics Delivery Partners",
+        "route_hash": "#logistics-delivery-delivery-partners",
+        "category": "Logistics & Delivery"
+      },
+      {
+        "title": "Rider & Fleet Delivery Performance Scorecards",
+        "route_hash": "#logistics-delivery-delivery-performance",
+        "category": "Logistics & Delivery"
+      },
+      {
+        "title": "Delivery Service Level Agreements (SLA) & Compliance",
+        "route_hash": "#logistics-delivery-delivery-sla",
+        "category": "Logistics & Delivery"
+      },
+      {
+        "title": "Live GPS Fleet Telematics & Cold-Chain Tracking",
+        "route_hash": "#logistics-delivery-delivery-tracking",
+        "category": "Logistics & Delivery"
+      },
+      {
+        "title": "Non-Delivery Reports (NDR) & Failed Delivery Analytics",
+        "route_hash": "#logistics-delivery-failed-deliveries",
+        "category": "Logistics & Delivery"
+      },
+      {
+        "title": "Rapid Logistics & Cold-Chain Dispatch Control Center",
+        "route_hash": "#logistics-delivery-logistics-dashboard",
+        "category": "Logistics & Delivery"
+      },
+      {
+        "title": "Fulfillment Logistics & 60-Minute SLA Report",
+        "route_hash": "#reports-analytics-operations-reports",
+        "category": "Reports & Analytics"
+      }
+    ]
+  },
+  "marketing_campaigns": {
+    "table_name": "marketing_campaigns",
+    "api_endpoint": "/api/v1/marketing/campaigns",
+    "dashboards_count": 16,
+    "dashboards": [
+      {
+        "title": "Digital Advertising & Paid Media Control",
+        "route_hash": "#marketing-advertising",
+        "category": "Marketing"
+      },
+      {
+        "title": "Mobile App Acquisition & Product Analytics",
+        "route_hash": "#marketing-app-analytics",
+        "category": "Marketing"
+      },
+      {
+        "title": "Customer Acquisition Cost (CAC) Intelligence",
+        "route_hash": "#marketing-cac",
+        "category": "Marketing"
+      },
+      {
+        "title": "Omni-Channel Marketing Campaigns",
+        "route_hash": "#marketing-campaigns",
+        "category": "Marketing"
+      },
+      {
+        "title": "Full Omni-Channel Conversion Funnel",
+        "route_hash": "#marketing-conversion-funnel",
+        "category": "Marketing"
+      },
+      {
+        "title": "Customer Acquisition & Cohort Retention",
+        "route_hash": "#marketing-customer-acquisition",
+        "category": "Marketing"
+      },
+      {
+        "title": "Acquisition Lead Sources & Channel Attribution",
+        "route_hash": "#marketing-lead-sources",
+        "category": "Marketing"
+      },
+      {
+        "title": "Inbound Pet Parent Leads & Pipeline",
+        "route_hash": "#marketing-leads",
+        "category": "Marketing"
+      },
+      {
+        "title": "Marketing & Growth Command Center",
+        "route_hash": "#marketing-marketing-dashboard",
+        "category": "Marketing"
+      },
+      {
+        "title": "Marketing Return on Investment (ROI)",
+        "route_hash": "#marketing-marketing-roi",
+        "category": "Marketing"
+      },
+      {
+        "title": "Marketing Budget Allocation & OPEX Burn",
+        "route_hash": "#marketing-marketing-spend",
+        "category": "Marketing"
+      },
+      {
+        "title": "Return on Ad Spend (ROAS) Intelligence",
+        "route_hash": "#marketing-roas",
+        "category": "Marketing"
+      },
+      {
+        "title": "Social Community & Viral Brand Channels",
+        "route_hash": "#marketing-social-media",
+        "category": "Marketing"
+      },
+      {
+        "title": "Digital Web Traffic & Behavioral Analytics",
+        "route_hash": "#marketing-website-analytics",
+        "category": "Marketing"
+      },
+      {
+        "title": "Marketing Spend, ROAS & CAC Attribution Report",
+        "route_hash": "#reports-analytics-marketing-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Marketing Ad Platforms & Attribution Health",
+        "route_hash": "#system-health-marketing-integrations",
+        "category": "System Health"
+      }
+    ]
+  },
+  "pets": {
+    "table_name": "pets",
+    "api_endpoint": "/api/v1/pets",
+    "dashboards_count": 8,
+    "dashboards": [
+      {
+        "title": "Master Pet Registry & Census",
+        "route_hash": "#pets-360-all-pets",
+        "category": "Pets 360\u00b0"
+      },
+      {
+        "title": "Pet Health Intelligence & Census Control Center",
+        "route_hash": "#pets-360-overview",
+        "category": "Pets 360\u00b0"
+      },
+      {
+        "title": "Pet Population Demographics & Statistical Analytics",
+        "route_hash": "#pets-360-pet-analytics",
+        "category": "Pets 360\u00b0"
+      },
+      {
+        "title": "Zenve AI Pet Health Intelligence & Epidemiological Surveillance",
+        "route_hash": "#pets-360-pet-health-insights",
+        "category": "Pets 360\u00b0"
+      },
+      {
+        "title": "Electronic Health Records (EHR) & Clinical Timeline",
+        "route_hash": "#pets-360-pet-health-records",
+        "category": "Pets 360\u00b0"
+      },
+      {
+        "title": "Comprehensive Longitudinal Pet Profiles",
+        "route_hash": "#pets-360-pet-profiles",
+        "category": "Pets 360\u00b0"
+      },
+      {
+        "title": "Inpatient Protocols, ICU & Surgical Recovery Logs",
+        "route_hash": "#pets-360-treatment-history",
+        "category": "Pets 360\u00b0"
+      },
+      {
+        "title": "Digital Vaccination Passports & Biological Records",
+        "route_hash": "#pets-360-vaccination-records",
+        "category": "Pets 360\u00b0"
+      }
+    ]
+  },
+  "pharmacy_medicines": {
+    "table_name": "pharmacy_medicines",
+    "api_endpoint": "/api/v1/pharmacy/medicines",
+    "dashboards_count": 9,
+    "dashboards": [
+      {
+        "title": "Pet Nutrition, Pharmacy & Merchandise Purchases",
+        "route_hash": "#pets-360-purchase-history",
+        "category": "Pets 360\u00b0"
+      },
+      {
+        "title": "Pharmaceutical Batch Traceability & GRN Control",
+        "route_hash": "#pharmacy-batch-management",
+        "category": "Pharmacy"
+      },
+      {
+        "title": "Pharmaceutical Expiry Radar & FEFO Engine",
+        "route_hash": "#pharmacy-expiry-tracking",
+        "category": "Pharmacy"
+      },
+      {
+        "title": "Veterinary Medicines & Formulary Catalog",
+        "route_hash": "#pharmacy-medicines",
+        "category": "Pharmacy"
+      },
+      {
+        "title": "Veterinary Pharmacy Command Center",
+        "route_hash": "#pharmacy-pharmacy-dashboard",
+        "category": "Pharmacy"
+      },
+      {
+        "title": "Veterinary Pharmacy Margins & Unit Economics",
+        "route_hash": "#pharmacy-pharmacy-profitability",
+        "category": "Pharmacy"
+      },
+      {
+        "title": "Veterinary Pharmacy Revenue Intelligence",
+        "route_hash": "#pharmacy-pharmacy-revenue",
+        "category": "Pharmacy"
+      },
+      {
+        "title": "Veterinary Pharmacy Sales & Dispensary",
+        "route_hash": "#pharmacy-pharmacy-sales",
+        "category": "Pharmacy"
+      },
+      {
+        "title": "Digital Veterinary Prescriptions (e-Rx)",
+        "route_hash": "#pharmacy-prescriptions",
+        "category": "Pharmacy"
+      }
+    ]
+  },
+  "reports": {
+    "table_name": "reports",
+    "api_endpoint": "/api/v1/reports",
+    "dashboards_count": 10,
+    "dashboards": [
+      {
+        "title": "Clinic Network & Hospital Facility Utilization Report",
+        "route_hash": "#reports-analytics-clinic-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Ad-Hoc Custom Report & SQL Query Builder",
+        "route_hash": "#reports-analytics-custom-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Customer Demographics, LTV & Retention Report",
+        "route_hash": "#reports-analytics-customer-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Reports & Analytics Command Center",
+        "route_hash": "#reports-analytics-executive-overview",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Financial P&L & EBITDA Statement Report",
+        "route_hash": "#reports-analytics-finance-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Pet Demographics & Health Profile Report",
+        "route_hash": "#reports-analytics-pet-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Product Catalog Sales & Margin Matrix",
+        "route_hash": "#reports-analytics-product-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Business Unit & Margin Revenue Report",
+        "route_hash": "#reports-analytics-revenue-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Executive Sales Performance Report",
+        "route_hash": "#reports-analytics-sales-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Automated Intelligence Reports & Cron Dispatcher",
+        "route_hash": "#reports-analytics-scheduled-reports",
+        "category": "Reports & Analytics"
+      }
+    ]
+  },
+  "vendors": {
+    "table_name": "vendors",
+    "api_endpoint": "/api/v1/vendors",
+    "dashboards_count": 11,
+    "dashboards": [
+      {
+        "title": "Vendor Procurement & Supplier Scorecard Report",
+        "route_hash": "#reports-analytics-vendor-reports",
+        "category": "Reports & Analytics"
+      },
+      {
+        "title": "Complete Vendor Directory & Supplier Registry",
+        "route_hash": "#vendors-procurement-all-vendors",
+        "category": "Vendors & Procurement"
+      },
+      {
+        "title": "Procurement Workflow & Requisition Pipeline",
+        "route_hash": "#vendors-procurement-procurement",
+        "category": "Vendors & Procurement"
+      },
+      {
+        "title": "Procurement Cost Savings & Value Realization",
+        "route_hash": "#vendors-procurement-procurement-savings",
+        "category": "Vendors & Procurement"
+      },
+      {
+        "title": "Purchase History & Fulfilled Order Archive",
+        "route_hash": "#vendors-procurement-purchase-history",
+        "category": "Vendors & Procurement"
+      },
+      {
+        "title": "Supplier Quality Engineering & SLA Scorecards",
+        "route_hash": "#vendors-procurement-supplier-performance",
+        "category": "Vendors & Procurement"
+      },
+      {
+        "title": "Contracted Supplier Pricing & Rate Benchmarking",
+        "route_hash": "#vendors-procurement-supplier-pricing",
+        "category": "Vendors & Procurement"
+      },
+      {
+        "title": "Vendor Intelligence & Procurement Command Center",
+        "route_hash": "#vendors-procurement-vendor-dashboard",
+        "category": "Vendors & Procurement"
+      },
+      {
+        "title": "Vendor Payments & AP Settlement Ledger",
+        "route_hash": "#vendors-procurement-vendor-payments",
+        "category": "Vendors & Procurement"
+      },
+      {
+        "title": "Vendor Performance Scorecards & SLA Analytics",
+        "route_hash": "#vendors-procurement-vendor-performance",
+        "category": "Vendors & Procurement"
+      },
+      {
+        "title": "Vendor Relations & Procurement",
+        "route_hash": "#vendors-procurement-vendor-performance-pos",
+        "category": "Vendors & Procurement"
+      }
+    ]
+  },
+  "company_settings": {
+    "table_name": "company_settings",
+    "api_endpoint": "/api/v1/settings",
+    "dashboards_count": 7,
+    "dashboards": [
+      {
+        "title": "API Keys, Custom AI & External Integrations",
+        "route_hash": "#settings-api-integrations",
+        "category": "Settings"
+      },
+      {
+        "title": "Business Units & Operating Divisions",
+        "route_hash": "#settings-business-units",
+        "category": "Settings"
+      },
+      {
+        "title": "Company Settings & Statutory Profile",
+        "route_hash": "#settings-company-settings",
+        "category": "Settings"
+      },
+      {
+        "title": "Locations & Facility Nodes",
+        "route_hash": "#settings-locations",
+        "category": "Settings"
+      },
+      {
+        "title": "Roles & Access Permissions (RBAC)",
+        "route_hash": "#settings-roles-permissions",
+        "category": "Settings"
+      },
+      {
+        "title": "Security & Zero-Trust Governance",
+        "route_hash": "#settings-security",
+        "category": "Settings"
+      },
+      {
+        "title": "Users & Administrative Personnel",
+        "route_hash": "#settings-users",
+        "category": "Settings"
+      }
+    ]
+  },
+  "subscriptions": {
+    "table_name": "subscriptions",
+    "api_endpoint": "/api/v1/subscriptions/subscribers",
+    "dashboards_count": 7,
+    "dashboards": [
+      {
+        "title": "Active Member Roster & Auto-Debit Mandates",
+        "route_hash": "#subscriptions-active-subscriptions",
+        "category": "Subscriptions"
+      },
+      {
+        "title": "Cohort Retention & Lifetime Value (LTV) Deep-Dive",
+        "route_hash": "#subscriptions-analytics",
+        "category": "Subscriptions"
+      },
+      {
+        "title": "Subscriber Churn Analytics & Root Cause Mitigation",
+        "route_hash": "#subscriptions-churn",
+        "category": "Subscriptions"
+      },
+      {
+        "title": "Recurring Subscriptions & Pet Wellness Memberships",
+        "route_hash": "#subscriptions-command-center",
+        "category": "Subscriptions"
+      },
+      {
+        "title": "New Subscriber Acquisition & Channel Velocity",
+        "route_hash": "#subscriptions-new-subscriptions",
+        "category": "Subscriptions"
+      },
+      {
+        "title": "Automated Billing Cycles & Renewal Rates",
+        "route_hash": "#subscriptions-renewals",
+        "category": "Subscriptions"
+      },
+      {
+        "title": "Recurring Revenue (MRR / ARR) Trajectory",
+        "route_hash": "#subscriptions-subscription-revenue",
+        "category": "Subscriptions"
+      }
+    ]
+  },
+  "system_health": {
+    "table_name": "system_health",
+    "api_endpoint": "/api/v1/system-health",
+    "dashboards_count": 8,
+    "dashboards": [
+      {
+        "title": "REST API & Endpoint Latency Health",
+        "route_hash": "#system-health-api-health",
+        "category": "System Health"
+      },
+      {
+        "title": "Accounting ERP & Banking Integrations",
+        "route_hash": "#system-health-accounting-system",
+        "category": "System Health"
+      },
+      {
+        "title": "Application & Microservice Health",
+        "route_hash": "#system-health-application-health",
+        "category": "System Health"
+      },
+      {
+        "title": "CRM Integrations & Contact Sync Health",
+        "route_hash": "#system-health-crm-status",
+        "category": "System Health"
+      },
+      {
+        "title": "SQLite Core Database Health",
+        "route_hash": "#system-health-database-health",
+        "category": "System Health"
+      },
+      {
+        "title": "System Architecture & Global Infrastructure Health",
+        "route_hash": "#system-health-infrastructure-command-center",
+        "category": "System Health"
+      },
+      {
+        "title": "Integration Logs & Telemetry Stream",
+        "route_hash": "#system-health-integration-logs",
+        "category": "System Health"
+      },
+      {
+        "title": "Payment Gateways & Webhook Health",
+        "route_hash": "#system-health-payment-gateway",
+        "category": "System Health"
+      }
+    ]
+  },
+  "appointments": {
+    "table_name": "appointments",
+    "api_endpoint": "/api/v1/veterinary/appointments",
+    "dashboards_count": 1,
+    "dashboards": [
+      {
+        "title": "Appointment Dispatch & Clinic Scheduling",
+        "route_hash": "#veterinary-services-appointments",
+        "category": "Veterinary Services"
+      }
+    ]
+  },
+  "fashion_products": {
+    "table_name": "fashion_products",
+    "api_endpoint": "/api/v1/fashion/products",
+    "dashboards_count": 6,
+    "dashboards": [
+      {
+        "title": "Zenve Pet Haute Couture & Lifestyle Command Center",
+        "route_hash": "#zenve-fashion-executive-dashboard",
+        "category": "Zenve Fashion"
+      },
+      {
+        "title": "Flagship Pet Couture Showrooms & Experience Centers",
+        "route_hash": "#zenve-fashion-flagship-showrooms",
+        "category": "Zenve Fashion"
+      },
+      {
+        "title": "Online Fashion E-Commerce & Digital Drops",
+        "route_hash": "#zenve-fashion-online-e-commerce",
+        "category": "Zenve Fashion"
+      },
+      {
+        "title": "Fashion Revenue Streams & Financial Trajectory",
+        "route_hash": "#zenve-fashion-revenue-intelligence",
+        "category": "Zenve Fashion"
+      },
+      {
+        "title": "Haute Couture Collections & Designer Runway Drops",
+        "route_hash": "#zenve-fashion-seasonal-collections",
+        "category": "Zenve Fashion"
+      },
+      {
+        "title": "Fashion Margins, COGS & Contribution Profitability",
+        "route_hash": "#zenve-fashion-unit-economics-margins",
+        "category": "Zenve Fashion"
+      }
+    ]
+  }
+}

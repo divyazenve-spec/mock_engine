@@ -161,7 +161,7 @@
     ];
 
     var pnlHtml = pnlRows.map(function(r) {
-      return '<tr><td style="font-weight:600;color:#fff;">' + esc(r.metric) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + r.color + ';">' + esc(r.actual) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(r.budget) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:' + (r.variance.indexOf('+') >= 0 ? '#34d399' : '#f87171') + ';">' + esc(r.variance) + '</td></tr>';
+      return '<tr><td style="font-weight:600;color:#000;">' + esc(r.metric) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + r.color + ';">' + esc(r.actual) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(r.budget) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:' + (r.variance.indexOf('+') >= 0 ? '#34d399' : '#f87171') + ';">' + esc(r.variance) + '</td></tr>';
     }).join('');
 
     return [
@@ -218,7 +218,7 @@
     ];
 
     var pnlRowsHtml = pnlItems.map(function(item) {
-      return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(item.code) + '</td><td style="color:#fff;font-weight:600;">' + esc(item.desc) + '</td><td style="color:#94a3b8;">' + esc(item.class) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + (item.actual.indexOf('-') >= 0 ? '#f87171' : '#10b981') + ';">' + esc(item.actual) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(item.budget) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:' + (item.variance.indexOf('+') >= 0 ? '#34d399' : '#f87171') + ';">' + esc(item.variance) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(item.pct) + '</td></tr>';
+      return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(item.code) + '</td><td style="color:#000;font-weight:600;">' + esc(item.desc) + '</td><td style="color:#94a3b8;">' + esc(item.class) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + (item.actual.indexOf('-') >= 0 ? '#f87171' : '#10b981') + ';">' + esc(item.actual) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(item.budget) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:' + (item.variance.indexOf('+') >= 0 ? '#34d399' : '#f87171') + ';">' + esc(item.variance) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(item.pct) + '</td></tr>';
     }).join('');
 
     return [
@@ -274,11 +274,11 @@
     ];
 
     var assetsHtml = assets.map(function(a) {
-      return '<tr><td style="color:#fff;font-weight:600;">' + esc(a.name) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(a.bal) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(a.share) + '</td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;">' + esc(a.name) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(a.bal) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(a.share) + '</td></tr>';
     }).join('');
 
     var liabHtml = liabilities.map(function(l) {
-      return '<tr><td style="color:#fff;font-weight:600;">' + esc(l.name) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#f87171;">' + esc(l.bal) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(l.share) + '</td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;">' + esc(l.name) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#f87171;">' + esc(l.bal) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(l.share) + '</td></tr>';
     }).join('');
 
     return [
@@ -329,7 +329,7 @@
     ];
 
     var cashHtml = cashItems.map(function(c) {
-      return '<tr><td style="color:#fff;font-weight:600;">' + esc(c.name) + '</td><td style="color:#94a3b8;">' + esc(c.sec) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + c.color + ';">' + esc(c.flow) + '</td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;">' + esc(c.name) + '</td><td style="color:#94a3b8;">' + esc(c.sec) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + c.color + ';">' + esc(c.flow) + '</td></tr>';
     }).join('');
 
     return [
@@ -369,7 +369,7 @@
     ];
 
     var revHtml = revStreams.map(function(s) {
-      return '<tr><td style="color:#fff;font-weight:600;">' + esc(s.name) + '</td><td style="color:#38bdf8;">' + esc(s.channel) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(s.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#cbd5e1;">' + esc(s.vol) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(s.avg) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(s.share) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;font-weight:600;">' + esc(s.growth) + '</td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;">' + esc(s.name) + '</td><td style="color:#38bdf8;">' + esc(s.channel) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(s.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#cbd5e1;">' + esc(s.vol) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(s.avg) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(s.share) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;font-weight:600;">' + esc(s.growth) + '</td></tr>';
     }).join('');
 
     return [
@@ -409,7 +409,7 @@
     ];
 
     var opexHtml = opexLines.map(function(o) {
-      return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(o.code) + '</td><td style="color:#fff;font-weight:600;">' + esc(o.name) + '</td><td style="color:#94a3b8;">' + esc(o.center) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(o.budget) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(o.actual) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;">' + esc(o.var) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(o.pct) + '</td></tr>';
+      return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(o.code) + '</td><td style="color:#000;font-weight:600;">' + esc(o.name) + '</td><td style="color:#94a3b8;">' + esc(o.center) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(o.budget) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(o.actual) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;">' + esc(o.var) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(o.pct) + '</td></tr>';
     }).join('');
 
     return [
@@ -449,7 +449,7 @@
     ];
 
     var cogsHtml = cogsLines.map(function(c) {
-      return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(c.code) + '</td><td style="color:#fff;font-weight:600;">' + esc(c.cat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;font-weight:700;">' + esc(c.spend) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;">' + esc(c.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:600;">' + esc(c.margin) + '</td><td style="color:#94a3b8;">' + esc(c.suppliers) + '</td></tr>';
+      return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(c.code) + '</td><td style="color:#000;font-weight:600;">' + esc(c.cat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;font-weight:700;">' + esc(c.spend) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;">' + esc(c.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:600;">' + esc(c.margin) + '</td><td style="color:#94a3b8;">' + esc(c.suppliers) + '</td></tr>';
     }).join('');
 
     return [
@@ -489,7 +489,7 @@
     ];
 
     var deptHtml = depts.map(function(d) {
-      return '<tr><td style="color:#fff;font-weight:600;">' + esc(d.unit) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(d.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;">' + esc(d.cogs) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(d.gp) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:700;">' + esc(d.margin) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(d.target) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(d.status) + '</span></td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;">' + esc(d.unit) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(d.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;">' + esc(d.cogs) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(d.gp) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:700;">' + esc(d.margin) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(d.target) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(d.status) + '</span></td></tr>';
     }).join('');
 
     return [
@@ -529,7 +529,7 @@
     ];
 
     var facHtml = facs.map(function(f) {
-      return '<tr><td style="color:#fff;font-weight:600;"><span style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;margin-right:6px;">' + esc(f.code) + '</span>' + esc(f.name) + '</td><td style="color:#94a3b8;">' + esc(f.city) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(f.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(f.ebitda) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:700;">' + esc(f.margin) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(f.status) + '</span></td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;"><span style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;margin-right:6px;">' + esc(f.code) + '</span>' + esc(f.name) + '</td><td style="color:#94a3b8;">' + esc(f.city) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(f.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(f.ebitda) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:700;">' + esc(f.margin) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(f.status) + '</span></td></tr>';
     }).join('');
 
     return [
@@ -569,7 +569,7 @@
     ];
 
     var qHtml = quarters.map(function(q) {
-      return '<tr><td style="color:#fff;font-weight:600;">' + esc(q.quarter) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(q.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(q.ebitda) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(q.pat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:600;">' + esc(q.margin) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#fff;">' + esc(q.eps) + '</td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;">' + esc(q.quarter) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(q.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(q.ebitda) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(q.pat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:600;">' + esc(q.margin) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#000;">' + esc(q.eps) + '</td></tr>';
     }).join('');
 
     return [
@@ -609,7 +609,7 @@
     ];
 
     var dHtml = debtors.map(function(d) {
-      return '<tr><td style="color:#fff;font-weight:600;"><span style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;margin-right:6px;">' + esc(d.id) + '</span>' + esc(d.client) + '</td><td style="color:#94a3b8;">' + esc(d.type) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(d.totalDue) + '</td><td><span class="zfa-badge ' + (d.bucket.indexOf('0–30') >= 0 ? 'green' : d.bucket.indexOf('31–60') >= 0 ? 'blue' : 'amber') + '">' + esc(d.bucket) + '</span></td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#cbd5e1;">' + esc(d.dso) + '</td><td style="text-align:right;"><span class="zfa-badge ' + (d.status === 'Current' || d.status === 'Scheduled' ? 'green' : 'red') + '">' + esc(d.status) + '</span></td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;"><span style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;margin-right:6px;">' + esc(d.id) + '</span>' + esc(d.client) + '</td><td style="color:#94a3b8;">' + esc(d.type) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(d.totalDue) + '</td><td><span class="zfa-badge ' + (d.bucket.indexOf('0–30') >= 0 ? 'green' : d.bucket.indexOf('31–60') >= 0 ? 'blue' : 'amber') + '">' + esc(d.bucket) + '</span></td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#cbd5e1;">' + esc(d.dso) + '</td><td style="text-align:right;"><span class="zfa-badge ' + (d.status === 'Current' || d.status === 'Scheduled' ? 'green' : 'red') + '">' + esc(d.status) + '</span></td></tr>';
     }).join('');
 
     return [
@@ -649,7 +649,7 @@
     ];
 
     var pHtml = payables.map(function(p) {
-      return '<tr><td style="color:#fff;font-weight:600;"><span style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;margin-right:6px;">' + esc(p.id) + '</span>' + esc(p.vendor) + '</td><td style="color:#94a3b8;">' + esc(p.cat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#f87171;">' + esc(p.bal) + '</td><td style="text-align:center;color:#cbd5e1;">' + esc(p.terms) + '</td><td style="text-align:center;font-family:\'IBM Plex Mono\',monospace;color:' + (p.due === 'Overdue' ? '#f87171' : '#38bdf8') + ';">' + esc(p.due) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;">' + esc(p.disc) + '</td><td style="text-align:right;"><span class="zfa-badge ' + (p.status.indexOf('Approved') >= 0 || p.status.indexOf('Scheduled') >= 0 ? 'green' : 'amber') + '">' + esc(p.status) + '</span></td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;"><span style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;margin-right:6px;">' + esc(p.id) + '</span>' + esc(p.vendor) + '</td><td style="color:#94a3b8;">' + esc(p.cat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#f87171;">' + esc(p.bal) + '</td><td style="text-align:center;color:#cbd5e1;">' + esc(p.terms) + '</td><td style="text-align:center;font-family:\'IBM Plex Mono\',monospace;color:' + (p.due === 'Overdue' ? '#f87171' : '#38bdf8') + ';">' + esc(p.due) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;">' + esc(p.disc) + '</td><td style="text-align:right;"><span class="zfa-badge ' + (p.status.indexOf('Approved') >= 0 || p.status.indexOf('Scheduled') >= 0 ? 'green' : 'amber') + '">' + esc(p.status) + '</span></td></tr>';
     }).join('');
 
     return [
@@ -689,7 +689,7 @@
     ];
 
     var invHtml = invList.map(function(inv) {
-      return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;font-weight:600;">' + esc(inv.id) + '</td><td style="color:#cbd5e1;">' + esc(inv.date) + '</td><td style="color:#fff;font-weight:600;">' + esc(inv.client) + '</td><td style="color:#94a3b8;">' + esc(inv.fac) + '</td><td style="color:#cbd5e1;">' + esc(inv.desc) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;">' + esc(inv.taxable) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#fbbf24;">' + esc(inv.gst) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(inv.total) + '</td><td><span class="zfa-badge ' + (inv.st === 'Paid' ? 'green' : inv.st === 'Pending' ? 'blue' : 'red') + '">' + esc(inv.st) + '</span></td><td style="text-align:center;"><button class="zfa-btn ghost" style="padding:2px 8px;font-size:11px;" onclick="alert(\'Printing tax invoice PDF for ' + esc(inv.id) + '...\')">📄 PDF</button></td></tr>';
+      return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;font-weight:600;">' + esc(inv.id) + '</td><td style="color:#cbd5e1;">' + esc(inv.date) + '</td><td style="color:#000;font-weight:600;">' + esc(inv.client) + '</td><td style="color:#94a3b8;">' + esc(inv.fac) + '</td><td style="color:#cbd5e1;">' + esc(inv.desc) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;">' + esc(inv.taxable) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#fbbf24;">' + esc(inv.gst) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(inv.total) + '</td><td><span class="zfa-badge ' + (inv.st === 'Paid' ? 'green' : inv.st === 'Pending' ? 'blue' : 'red') + '">' + esc(inv.st) + '</span></td><td style="text-align:center;"><button class="zfa-btn ghost" style="padding:2px 8px;font-size:11px;" onclick="alert(\'Printing tax invoice PDF for ' + esc(inv.id) + '...\')">📄 PDF</button></td></tr>';
     }).join('');
 
     return [
@@ -727,7 +727,7 @@
     ];
 
     var railHtml = rails.map(function(r) {
-      return '<tr><td style="color:#fff;font-weight:600;">' + esc(r.name) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(r.vol) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#cbd5e1;">' + esc(r.txns) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(r.mdr) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;">' + esc(r.fee) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(r.net) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(r.st) + '</span></td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;">' + esc(r.name) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(r.vol) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#cbd5e1;">' + esc(r.txns) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(r.mdr) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;">' + esc(r.fee) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(r.net) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(r.st) + '</span></td></tr>';
     }).join('');
 
     return [
@@ -767,7 +767,7 @@
     ];
 
     var refHtml = refList.map(function(r) {
-      return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#f87171;font-weight:600;">' + esc(r.id) + '</td><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(r.inv) + '</td><td style="color:#fff;font-weight:600;">' + esc(r.client) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#f87171;">' + esc(r.amt) + '</td><td style="color:#cbd5e1;">' + esc(r.reason) + '</td><td style="color:#94a3b8;">' + esc(r.rail) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(r.st) + '</span></td></tr>';
+      return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#f87171;font-weight:600;">' + esc(r.id) + '</td><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(r.inv) + '</td><td style="color:#000;font-weight:600;">' + esc(r.client) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#f87171;">' + esc(r.amt) + '</td><td style="color:#cbd5e1;">' + esc(r.reason) + '</td><td style="color:#94a3b8;">' + esc(r.rail) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(r.st) + '</span></td></tr>';
     }).join('');
 
     return [
@@ -807,7 +807,7 @@
     ];
 
     var gstHtml = gstForms.map(function(g) {
-      return '<tr><td style="color:#fff;font-weight:600;">' + esc(g.form) + '</td><td style="color:#38bdf8;">' + esc(g.period) + '</td><td style="color:#cbd5e1;">' + esc(g.due) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;">' + esc(g.taxable) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#fbbf24;">' + esc(g.taxAmt) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;">' + esc(g.itc) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(g.net) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(g.st) + '</span></td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;">' + esc(g.form) + '</td><td style="color:#38bdf8;">' + esc(g.period) + '</td><td style="color:#cbd5e1;">' + esc(g.due) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;">' + esc(g.taxable) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#fbbf24;">' + esc(g.taxAmt) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;">' + esc(g.itc) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(g.net) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(g.st) + '</span></td></tr>';
     }).join('');
 
     return [
@@ -847,7 +847,7 @@
     ];
 
     var fHtml = quarters.map(function(q) {
-      return '<tr><td style="color:#fff;font-weight:600;">' + esc(q.q) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(q.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;">' + esc(q.cogs) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(q.opex) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(q.ebitda) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#34d399;">' + esc(q.pat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#fff;">' + esc(q.cash) + '</td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;">' + esc(q.q) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(q.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;">' + esc(q.cogs) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(q.opex) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(q.ebitda) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#34d399;">' + esc(q.pat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#000;">' + esc(q.cash) + '</td></tr>';
     }).join('');
 
     return [
@@ -887,7 +887,7 @@
     ];
 
     var actHtml = actCosts.map(function(a) {
-      return '<tr><td style="color:#fff;font-weight:600;">' + esc(a.act) + '</td><td style="color:#38bdf8;">' + esc(a.type) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#34d399;">' + esc(a.cost) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(a.bm) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;font-weight:600;">' + esc(a.var) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(a.eff) + '</span></td></tr>';
+      return '<tr><td style="color:#000;font-weight:600;">' + esc(a.act) + '</td><td style="color:#38bdf8;">' + esc(a.type) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#34d399;">' + esc(a.cost) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(a.bm) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;font-weight:600;">' + esc(a.var) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(a.eff) + '</span></td></tr>';
     }).join('');
 
     return [

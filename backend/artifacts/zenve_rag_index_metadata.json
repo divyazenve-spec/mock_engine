@@ -1,0 +1,8 @@
+{
+  "status": "ready",
+  "total_documents_indexed": 263,
+  "vocabulary_size": 12000,
+  "embedding_dimensions": 12000,
+  "index_artifact": "zenve_rag_vectors.joblib",
+  "framework": "Scikit-Learn VectorSpace / Hybrid TF-IDF N-Gram Engine"
+}

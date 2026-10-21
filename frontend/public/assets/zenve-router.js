@@ -421,10 +421,6 @@
     // AI Assistant
     'ai assistant': { controller: 'ZenveAIAssistant', tab: 'ask-ai', hash: '#ask-ai', rootId: 'zai-root', module: 'AI Assistant' },
     'ask zenve ai': { controller: 'ZenveAIAssistant', tab: 'ask-ai', hash: '#ask-ai', rootId: 'zai-root', module: 'AI Assistant' },
-    'custom api integration (enterprise rag & agentic architecture)': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
-    'custom api integration': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
-    'enterprise rag & agentic architecture': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
-    'enterprise rag': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
     'business insights': { controller: 'ZenveAIAssistant', tab: 'insights', hash: '#business-insights', rootId: 'zai-root', module: 'AI Assistant' },
     'revenue intelligence': { controller: 'ZenveAIAssistant', tab: 'revenue', hash: '#revenue-intelligence', rootId: 'zai-root', module: 'AI Assistant' },
     'ai sales forecast': { controller: 'ZenveAIAssistant', tab: 'sales-fc', hash: '#ai-sales-forecast', rootId: 'zai-root', module: 'AI Assistant' },
@@ -495,6 +491,7 @@
     'api & integrations': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
     'custom api & api integrations': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
     'custom api integration': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
+    'custom api integration (enterprise rag & agentic architecture)': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
     'security': { controller: 'ZenveSettingsDashboard', tab: 'security', hash: '#security-settings', rootId: 'zset-root', module: 'Settings' },
     'backup & recovery': { controller: 'ZenveSettingsDashboard', tab: 'backup', hash: '#backup-recovery', rootId: 'zset-root', module: 'Settings' }
   };
@@ -925,28 +922,191 @@
     return invoke(4);
   }
 
+  var KNOWN_CAT_PREFIXES = [
+    'alerts-and-notifications-', 'alerts-notifications-', 'alerts-',
+    'audit-and-compliance-', 'audit-compliance-', 'audit-',
+    'b2b-enterprise-', 'b2b-',
+    'clinics-and-hospitals-', 'clinics-hospitals-', 'clinics-', 'hospitals-',
+    'customers-360-', 'customers-',
+    'doctors-',
+    'employees-and-hr-', 'employees-hr-', 'employees-', 'hr-',
+    'executive-dashboard-', 'executive-',
+    'finance-and-accounting-', 'finance-accounting-', 'finance-',
+    'import-and-export-', 'import-export-',
+    'logistics-and-delivery-', 'logistics-delivery-', 'logistics-',
+    'marketing-',
+    'orders-and-operations-', 'orders-operations-', 'orders-', 'operations-',
+    'pets-360-', 'pets-',
+    'pharmacy-',
+    'products-and-inventory-', 'products-inventory-', 'products-', 'inventory-',
+    'reports-and-analytics-', 'reports-analytics-', 'reports-',
+    'revenue-and-sales-', 'revenue-sales-', 'sales-', 'revenue-',
+    'settings-',
+    'subscriptions-',
+    'system-health-', 'system-',
+    'vendors-and-procurement-', 'vendors-procurement-', 'vendors-',
+    'veterinary-services-', 'veterinary-',
+    'zenve-fashion-', 'fashion-',
+    'ai-assistant-', 'ai-'
+  ];
+
+  function resolveRoute(routeOrHash, moduleHint, subcategoryHint) {
+    if (!routeOrHash && !moduleHint && !subcategoryHint) return null;
+
+    var raw = String(routeOrHash || '').trim();
+    var clean = raw.replace(/^#+/, '').replace(/^\/+/, '').trim().toLowerCase();
+    var modHint = String(moduleHint || '').trim().toLowerCase();
+    var subHint = String(subcategoryHint || '').trim().toLowerCase();
+
+    // 1. Overview / Executive Home
+    if ((!clean || clean === 'overview' || clean === 'executive-dashboard' || clean === 'executive') && (!subHint || subHint === 'executive dashboard' || subHint === 'overview')) {
+      return { module: 'Executive Dashboard', key: 'executive dashboard', item: 'Executive Dashboard', hash: '#overview', isHomeOverview: true };
+    }
+
+    // 2. Direct exact match in ROUTE_MAP (by key)
+    if (subHint && ROUTE_MAP[subHint]) {
+      return { module: ROUTE_MAP[subHint].module, key: subHint, item: subHint, hash: ROUTE_MAP[subHint].hash, tab: ROUTE_MAP[subHint].tab };
+    }
+    if (modHint && subHint && ROUTE_MAP[modHint + ' > ' + subHint]) {
+      var rCombo = ROUTE_MAP[modHint + ' > ' + subHint];
+      return { module: rCombo.module, key: modHint + ' > ' + subHint, item: subHint, hash: rCombo.hash, tab: rCombo.tab };
+    }
+
+    var keys = Object.keys(ROUTE_MAP);
+
+    // 3. Exact match against ROUTE_MAP entry's hash or tab or key
+    if (clean) {
+      for (var i = 0; i < keys.length; i++) {
+        var r = ROUTE_MAP[keys[i]];
+        var rHash = (r.hash || '').replace(/^#+/, '').toLowerCase();
+        if (rHash && rHash === clean) {
+          return { module: r.module, key: keys[i], item: keys[i], hash: r.hash, tab: r.tab };
+        }
+        if (r.tab && r.tab.toLowerCase() === clean) {
+          return { module: r.module, key: keys[i], item: keys[i], hash: r.hash, tab: r.tab };
+        }
+        if (keys[i].toLowerCase() === clean) {
+          return { module: r.module, key: keys[i], item: keys[i], hash: r.hash, tab: r.tab };
+        }
+      }
+
+      // 4. Test stripping known category prefixes (e.g. alerts-notifications-critical-alerts -> critical-alerts)
+      for (var p = 0; p < KNOWN_CAT_PREFIXES.length; p++) {
+        var prefix = KNOWN_CAT_PREFIXES[p];
+        if (clean.indexOf(prefix) === 0) {
+          var subSlug = clean.slice(prefix.length);
+          var subSlugSpaced = subSlug.replace(/-/g, ' ');
+
+          // Match subSlug against ROUTE_MAP hash or tab or key
+          for (var j = 0; j < keys.length; j++) {
+            var r2 = ROUTE_MAP[keys[j]];
+            var r2Hash = (r2.hash || '').replace(/^#+/, '').toLowerCase();
+            if (r2Hash && (r2Hash === subSlug || r2Hash === '#' + subSlug)) {
+              return { module: r2.module, key: keys[j], item: keys[j], hash: r2.hash, tab: r2.tab };
+            }
+            if (r2.tab && r2.tab.toLowerCase() === subSlug) {
+              return { module: r2.module, key: keys[j], item: keys[j], hash: r2.hash, tab: r2.tab };
+            }
+            if (keys[j].toLowerCase() === subSlugSpaced) {
+              return { module: r2.module, key: keys[j], item: keys[j], hash: r2.hash, tab: r2.tab };
+            }
+          }
+        }
+      }
+
+      // 5. Check if clean contains any key in ROUTE_MAP
+      var cleanSpaced = clean.replace(/-/g, ' ');
+      for (var k = 0; k < keys.length; k++) {
+        var keyLower = keys[k].toLowerCase();
+        if (cleanSpaced === keyLower || cleanSpaced.indexOf(keyLower) !== -1 || keyLower.indexOf(cleanSpaced) !== -1) {
+          var r3 = ROUTE_MAP[keys[k]];
+          return { module: r3.module, key: keys[k], item: keys[k], hash: r3.hash, tab: r3.tab };
+        }
+      }
+    }
+
+    // 6. Match subHint or subcategory title
+    if (subHint) {
+      for (var m = 0; m < keys.length; m++) {
+        var kName = keys[m].toLowerCase();
+        if (subHint.indexOf(kName) !== -1 || kName.indexOf(subHint) !== -1) {
+          var r4 = ROUTE_MAP[keys[m]];
+          return { module: r4.module, key: keys[m], item: keys[m], hash: r4.hash, tab: r4.tab };
+        }
+      }
+    }
+
+    // 7. Check MODULE_MAP by moduleHint or clean
+    if (modHint && MODULE_MAP[modHint]) {
+      var modEntry = MODULE_MAP[modHint];
+      return { module: modEntry.label || moduleHint, key: modEntry.label, item: modEntry.label, hash: modEntry.hash, tab: modEntry.tab };
+    }
+    if (clean && MODULE_MAP[clean]) {
+      var modEntry2 = MODULE_MAP[clean];
+      return { module: modEntry2.label, key: modEntry2.label, item: modEntry2.label, hash: modEntry2.hash, tab: modEntry2.tab };
+    }
+
+    return null;
+  }
+
+  function navigateToRoute(routeOrHash, moduleHint, subcategoryHint) {
+    // 1. If Global AI Copilot is open, close its overlay
+    if (window.ZenveCopilot && typeof window.ZenveCopilot.close === 'function') {
+      try { window.ZenveCopilot.close(); } catch (e) {}
+    }
+
+    // 2. Resolve route target
+    var resolved = resolveRoute(routeOrHash, moduleHint, subcategoryHint);
+    if (!resolved) {
+      console.warn('[ZenveRouter] Unable to resolve route:', routeOrHash, moduleHint, subcategoryHint);
+      if (moduleHint || subcategoryHint) {
+        return openDashboard(moduleHint, subcategoryHint);
+      }
+      return false;
+    }
+
+    // 3. Close AI Assistant if navigating to another module
+    if (resolved.module && resolved.module.toLowerCase() !== 'ai assistant') {
+      if (window.ZenveAIAssistant && typeof window.ZenveAIAssistant.close === 'function') {
+        try { window.ZenveAIAssistant.close(); } catch (e) {}
+      }
+    }
+
+    // 4. Update browser URL hash cleanly
+    if (resolved.hash) {
+      try {
+        if (window.location.hash !== resolved.hash) {
+          history.pushState(null, '', resolved.hash);
+        }
+      } catch (e) {
+        window.location.hash = resolved.hash;
+      }
+    }
+
+    // 5. Open the target dashboard controller
+    return openDashboard(resolved.module, resolved.key || resolved.item);
+  }
+
   function handleHash() {
     var hash = window.location.hash;
-    if (!hash || hash === '#' || hash === '#overview' || hash === '#executive-dashboard' || hash === '#executive' || hash === '#daily' || hash === '#ledger' || hash === '#ai' || hash === '#apps') {
+    if (!hash || hash === '#' || hash === '#overview' || hash === '#executive-dashboard' || hash === '#executive' || hash === '#daily' || hash === '#ledger' || hash === '#apps') {
       if (hash === '#' || hash === '#overview' || hash === '#executive-dashboard' || hash === '#executive' || !hash) {
         closeAllDashboards();
       }
       return;
     }
 
-    var cleanHash = hash.replace(/^#/, '').toLowerCase();
-    var keys = Object.keys(ROUTE_MAP);
-    for (var i = 0; i < keys.length; i++) {
-      var r = ROUTE_MAP[keys[i]];
-      if (r.hash && r.hash.replace(/^#/, '').toLowerCase() === cleanHash) {
-        openDashboard(r.module, keys[i]);
+    var resolved = resolveRoute(hash);
+    if (resolved) {
+      if (resolved.isHomeOverview) {
+        closeAllDashboards();
         return;
       }
-      if (r.tab && r.tab.toLowerCase() === cleanHash) {
-        openDashboard(r.module, keys[i]);
-        return;
-      }
+      openDashboard(resolved.module, resolved.key || resolved.item);
+      return;
     }
+
+    console.warn('[ZenveRouter] No dashboard mapped for hash:', hash);
   }
 
   // Intercept global clicks on sidebar and overview cards to guarantee immediate opening
@@ -1064,6 +1224,8 @@
   window.ZenveRouter = {
     openDashboard: openDashboard,
     closeAllDashboards: closeAllDashboards,
+    navigateToRoute: navigateToRoute,
+    resolveRoute: resolveRoute,
     syncSidebar: syncSidebar,
     ROUTE_MAP: ROUTE_MAP,
     MODULE_MAP: MODULE_MAP,

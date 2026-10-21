@@ -64,7 +64,6 @@
     if (s.startsWith('#')) s = s.slice(1);
     var clean = s.replace(/[_\s]+/g, '-');
     if (clean === 'ask-ai' || clean === 'ask-zenve-ai' || clean === 'ai' || clean === 'copilot') return 'ask-ai';
-    if (clean === 'custom-rag' || clean === 'custom-api' || clean === 'custom-api-rag' || clean === 'custom-ai' || clean === 'rag' || clean.indexOf('custom-api') >= 0 || clean.indexOf('enterprise-rag') >= 0) return 'custom-rag';
     if (clean === 'insights' || clean === 'business-insights') return 'insights';
     if (clean === 'revenue' || clean === 'revenue-intelligence') return 'revenue';
     if (clean === 'sales-fc' || clean === 'sales' || clean === 'sales-forecast' || clean === 'ai-sales-forecast') return 'sales-fc';
@@ -93,7 +92,6 @@
     if (!hash) return null;
     var h = (hash.startsWith('#') ? hash.slice(1) : hash).toLowerCase();
     if (h === 'ask-zenve-ai' || h === 'ask-ai' || h === 'ai') return 'ask-ai';
-    if (h === 'custom-api-rag' || h === 'custom-rag' || h === 'custom-ai' || h === 'enterprise-rag') return 'custom-rag';
     if (h === 'business-insights' || h === 'insights') return 'insights';
     if (h === 'revenue-intelligence' || h === 'revenue') return 'revenue';
     if (h === 'ai-sales-forecast' || h === 'sales-forecast' || h === 'sales-fc') return 'sales-fc';
@@ -111,7 +109,6 @@
     if (!txt) return null;
     var raw = txt.replace(/\s+/g, ' ').trim().toLowerCase();
     if (raw === 'ask zenve ai' || raw === 'zenve ai' || raw === 'ask ai') return 'ask-ai';
-    if (raw.indexOf('custom api') >= 0 || raw.indexOf('enterprise rag') >= 0 || raw.indexOf('agentic architecture') >= 0 || raw === 'custom api (rag & agents)') return 'custom-rag';
     if (raw === 'business insights' || raw === 'insights') return 'insights';
     if (raw === 'revenue intelligence' || raw === 'revenue') return 'revenue';
     if (raw === 'sales forecast' || raw === 'ai sales forecast' || raw === 'sales-fc') return 'sales-fc';
@@ -669,6 +666,10 @@ function generateResponse(text, ctx) {
   function formatLlmText(text) {
     if (!text) return '';
     var s = esc(text);
+    // Convert markdown links [Label](#hash)
+    s = s.replace(/\[([^\]]+)\]\((#[^)]+)\)/g, '<a href="$2" class="zai-chat-hash-link" data-route="$2" style="color:#0284c7;font-weight:700;text-decoration:underline;cursor:pointer;">🔗 $1</a>');
+    // Convert bare route hashes like `#sales-forecast` or `(#sales-forecast)`
+    s = s.replace(/(^|\s)\`(#([a-zA-Z0-9_\-]+))\`/g, '$1<button type="button" class="zai-chat-hash-btn" data-route="#$3" style="background:#e0f2fe;color:#0369a1;padding:2px 7px;border-radius:4px;border:1px solid #bae6fd;font-family:monospace;font-size:11px;font-weight:700;cursor:pointer;">🔗 #$3</button>');
     s = s.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     s = s.replace(/\*(.*?)\*/g, '<em>$1</em>');
     s = s.replace(/\n\n/g, '<div style="height:8px;"></div>');
@@ -768,8 +769,8 @@ function generateResponse(text, ctx) {
 
   function renderActionProposalHtml(act, msgIdx) {
     if (!act) return '';
-    var isExecuted = act.status === 'EXECUTED';
-    var badgeLabel = (act.action_type || 'ACTION PROPOSAL').replace(/_/g, ' ');
+    var isNav = act.action_type === 'NAVIGATE_DASHBOARD' || act.type === 'NAVIGATE' || (act.parameters && act.parameters.route) || act.route;
+    var badgeLabel = isNav ? 'DASHBOARD NAVIGATION' : (act.action_type || 'ACTION PROPOSAL').replace(/_/g, ' ');
 
     var paramsHtml = '';
     if (act.parameters && Object.keys(act.parameters).length) {
@@ -790,7 +791,20 @@ function generateResponse(text, ctx) {
     }
 
     var footerControls = '';
-    if (isExecuted) {
+    if (isNav) {
+      var navRoute = (act.parameters && act.parameters.route) || act.route || '#';
+      var navCat = (act.parameters && act.parameters.category) || act.category || '';
+      var navSubcat = (act.parameters && act.parameters.subcategory) || act.subcategory || '';
+      var navTitle = (act.parameters && act.parameters.title) || act.title || navSubcat || 'Dashboard';
+      footerControls = [
+        '<div class="zai-action-controls">',
+          '<button type="button" class="zai-btn zai-nav-dashboard-btn" data-route="' + esc(navRoute) + '" data-cat="' + esc(navCat) + '" data-subcat="' + esc(navSubcat) + '" data-title="' + esc(navTitle) + '" style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:8px;border:none;background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%);color:#ffffff;font-size:12.5px;font-weight:800;cursor:pointer;box-shadow:0 3px 10px rgba(2, 132, 199, 0.35);">',
+            '🚀 Open Dashboard (' + esc(navTitle) + ') →',
+          '</button>',
+          '<span style="font-size: 11px; color: #64748b; font-weight: 600; margin-left: auto;">⚡ 1-Click Interactive Navigation</span>',
+        '</div>'
+      ].join('');
+    } else if (isExecuted) {
       var receipt = act.receipt || {};
       footerControls = [
         '<div class="zai-exec-receipt">',
@@ -2007,161 +2021,6 @@ function generateResponse(text, ctx) {
     }
   }
 
-  
-  /* ── 0. Custom API Integration & Enterprise RAG Suite ──────────────── */
-  function renderCustomRag() {
-    return [
-      '<div class="zai-kpi-grid">',
-        kpiHtml('Gateway Provider', 'Custom Multi-LLM', 'Zero Vendor Lock', 'up', 'OpenAI · Gemini · Air-Gapped', '🔌'),
-        kpiHtml('Enterprise RAG', '4 Layers Live', 'Live Grounding', 'up', 'MySQL · Cold-chain · EBITDA', '🛡️'),
-        kpiHtml('Agentic Pipeline', '5 Autonomous', 'Human-in-the-Loop', 'success', 'Supervisor · Query · Action', '🤖'),
-        kpiHtml('Live Latency', '< 35ms Avg', 'P99 Validated', 'up', 'Sub-50ms Ultra-Fast Gateway', '⚡'),
-      '</div>',
-
-      '<div class="zai-card" style="margin-bottom: 20px; background: linear-gradient(135deg, #f0fdf4 0%, #eef2ff 50%, #ffffff 100%); border: 1.5px solid #c7d2fe;">',
-        '<div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">',
-          '<div>',
-            '<div style="display: flex; align-items: center; gap: 8px;">',
-              '<span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></span>',
-              '<h3 style="margin: 0; font-size: 17px; font-weight: 800; color: #1e1b4b;">Custom API Integration (Enterprise RAG &amp; Agentic Architecture)</h3>',
-              '<span class="zai-badge" style="background: #e0e7ff; color: #3730a3; font-weight: 700;">Active Gateway</span>',
-            '</div>',
-            '<p style="margin: 6px 0 0; font-size: 13px; color: #475569; max-width: 820px; line-height: 1.5;">',
-              'Enterprise-grade multi-model API integration connecting OpenAI-compatible gateways, Google Gemini, and Built-in Air-Gapped Neural models with zero vendor lock-in. Grounded across live MySQL databases, cold-chain pharmacopoeia, and hospital EBITDA telemetry.',
-            '</p>',
-          '</div>',
-          '<div style="display: flex; align-items: center; gap: 10px;">',
-            '<button type="button" class="zai-btn primary" id="zai-open-settings-integrations" style="font-size: 12px; padding: 8px 16px; background: #4f46e5;">',
-              '⚙️ Open Full Settings Suite →',
-            '</button>',
-            '<button type="button" class="zai-btn" id="zai-rag-ping-btn" style="font-size: 12px; padding: 8px 14px;">',
-              '🔌 Test Connection &amp; Ping',
-            '</button>',
-          '</div>',
-        '</div>',
-        '<div id="zai-ping-result-box" style="margin-top: 12px; display: none;"></div>',
-      '</div>',
-
-      '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 20px;">',
-        '<div class="zai-card">',
-          '<div class="zai-card-head">',
-            '<div>',
-              '<h4 style="margin:0; font-size: 14px; font-weight: 700;">📡 Multi-LLM Provider Gateway</h4>',
-              '<p style="margin:2px 0 0; font-size: 11px; color:#64748b;">Plug-and-play inference endpoints</p>',
-            '</div>',
-          '</div>',
-          '<div style="display: flex; flex-direction: column; gap: 10px; margin-top: 12px;">',
-            '<div style="padding: 10px 12px; border-radius: 8px; border: 1.5px solid #10b981; background: #ecfdf5; display: flex; align-items: center; justify-content: space-between;">',
-              '<div>',
-                '<div style="font-weight: 700; font-size: 12px; color: #065f46;">Custom OpenAI-Compatible</div>',
-                '<div style="font-size: 10.5px; color: #047857;">Ollama · Groq · DeepSeek · vLLM · Self-Hosted</div>',
-              '</div>',
-              '<span style="font-size: 10.5px; font-weight: 700; color: #10b981; background: #d1fae5; padding: 2px 8px; borderRadius: 4px;">Active</span>',
-            '</div>',
-            '<div style="padding: 10px 12px; border-radius: 8px; border: 1px solid #e2e8f0; background: #f8fafc; display: flex; align-items: center; justify-content: space-between;">',
-              '<div>',
-                '<div style="font-weight: 700; font-size: 12px; color: #1e293b;">Google Gemini 1.5 Pro / Flash</div>',
-                '<div style="font-size: 10.5px; color: #64748b;">Direct Vertex / Generative AI SDK</div>',
-              '</div>',
-              '<span style="font-size: 10.5px; font-weight: 600; color: #64748b;">Ready</span>',
-            '</div>',
-            '<div style="padding: 10px 12px; border-radius: 8px; border: 1px solid #e2e8f0; background: #f8fafc; display: flex; align-items: center; justify-content: space-between;">',
-              '<div>',
-                '<div style="font-weight: 700; font-size: 12px; color: #1e293b;">Air-Gapped Neural RAG Core</div>',
-                '<div style="font-size: 10.5px; color: #64748b;">In-memory deterministic fallback · Zero egress</div>',
-              '</div>',
-              '<span style="font-size: 10.5px; font-weight: 600; color: #64748b;">Zero-Cost</span>',
-            '</div>',
-          '</div>',
-        '</div>',
-
-        '<div class="zai-card">',
-          '<div class="zai-card-head">',
-            '<div>',
-              '<h4 style="margin:0; font-size: 14px; font-weight: 700;">🛡️ Enterprise RAG Grounding Layers</h4>',
-              '<p style="margin:2px 0 0; font-size: 11px; color:#64748b;">4-layer real-time domain knowledge retrieval</p>',
-            '</div>',
-          '</div>',
-          '<div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">',
-            '<div style="padding: 8px 10px; border-radius: 6px; background: #f1f5f9; display: flex; align-items: center; justify-content: space-between; font-size: 11.5px;">',
-              '<span>💾 <strong>Layer 1:</strong> MySQL zenve_engine Telemetry</span>',
-              '<span style="color: #059669; font-weight: 700;">✓ Synced</span>',
-            '</div>',
-            '<div style="padding: 8px 10px; border-radius: 6px; background: #f1f5f9; display: flex; align-items: center; justify-content: space-between; font-size: 11.5px;">',
-              '<span>❄️ <strong>Layer 2:</strong> Cold-Chain Pharmacopoeia (2°C–8°C)</span>',
-              '<span style="color: #059669; font-weight: 700;">✓ Synced</span>',
-            '</div>',
-            '<div style="padding: 8px 10px; border-radius: 6px; background: #f1f5f9; display: flex; align-items: center; justify-content: space-between; font-size: 11.5px;">',
-              '<span>💹 <strong>Layer 3:</strong> 14 Hospital Unit Economics &amp; EBITDA</span>',
-              '<span style="color: #059669; font-weight: 700;">✓ Synced</span>',
-            '</div>',
-            '<div style="padding: 8px 10px; border-radius: 6px; background: #f1f5f9; display: flex; align-items: center; justify-content: space-between; font-size: 11.5px;">',
-              '<span>🚚 <strong>Layer 4:</strong> 60-Minute Logistics SLAs &amp; Dispatch</span>',
-              '<span style="color: #059669; font-weight: 700;">✓ Synced</span>',
-            '</div>',
-          '</div>',
-        '</div>',
-      '</div>',
-
-      '<div class="zai-card" style="margin-bottom: 20px;">',
-        '<div class="zai-card-head">',
-          '<div>',
-            '<h4 style="margin:0; font-size: 14px; font-weight: 700;">🤖 5-Agent Autonomous Orchestrator</h4>',
-            '<p style="margin:2px 0 0; font-size: 11px; color:#64748b;">Hierarchical agent execution flow with human authorization gate</p>',
-          '</div>',
-        '</div>',
-        '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 14px;">',
-          '<div style="padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fafbfc; text-align: center;">',
-            '<div style="font-size: 20px;">👑</div>',
-            '<div style="font-weight: 700; font-size: 12px; margin-top: 4px; color: #1e293b;">Supervisor</div>',
-            '<div style="font-size: 10px; color: #64748b; margin-top: 2px;">Intent Classification</div>',
-          '</div>',
-          '<div style="padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fafbfc; text-align: center;">',
-            '<div style="font-size: 20px;">🔍</div>',
-            '<div style="font-weight: 700; font-size: 12px; margin-top: 4px; color: #1e293b;">Live Query</div>',
-            '<div style="font-size: 10px; color: #64748b; margin-top: 2px;">SQL Vector Extraction</div>',
-          '</div>',
-          '<div style="padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fafbfc; text-align: center;">',
-            '<div style="font-size: 20px;">💊</div>',
-            '<div style="font-weight: 700; font-size: 12px; margin-top: 4px; color: #1e293b;">Formulary</div>',
-            '<div style="font-size: 10px; color: #64748b; margin-top: 2px;">Cold Chain &amp; Dosages</div>',
-          '</div>',
-          '<div style="padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fafbfc; text-align: center;">',
-            '<div style="font-size: 20px;">💹</div>',
-            '<div style="font-weight: 700; font-size: 12px; margin-top: 4px; color: #1e293b;">Financial</div>',
-            '<div style="font-size: 10px; color: #64748b; margin-top: 2px;">EBITDA &amp; Unit Economics</div>',
-          '</div>',
-          '<div style="padding: 12px; border-radius: 8px; border: 1.5px solid #8b5cf6; background: #fdf4ff; text-align: center;">',
-            '<div style="font-size: 20px;">⚡</div>',
-            '<div style="font-weight: 700; font-size: 12px; margin-top: 4px; color: #7c3aed;">Action Drafter</div>',
-            '<div style="font-size: 10px; color: #a855f7; margin-top: 2px;">Human-in-Loop Commits</div>',
-          '</div>',
-        '</div>',
-      '</div>',
-
-      '<div class="zai-card">',
-        '<div class="zai-card-head">',
-          '<div>',
-            '<h4 style="margin:0; font-size: 14px; font-weight: 700;">🧪 Interactive Gateway Sandbox</h4>',
-            '<p style="margin:2px 0 0; font-size: 11px; color:#64748b;">Test multi-agent inference and RAG grounding in real-time</p>',
-          '</div>',
-        '</div>',
-        '<div style="margin-top: 14px;">',
-          '<div style="display: flex; gap: 8px; margin-bottom: 10px;">',
-            '<button type="button" class="zai-chip" onclick="document.getElementById(\'zai-sandbox-prompt\').value=\'Audit Bravecto stockout risk and draft a PO\'">💊 Test Bravecto Stockout</button>',
-            '<button type="button" class="zai-chip" onclick="document.getElementById(\'zai-sandbox-prompt\').value=\'Which hospital hub generated the highest EBITDA this month?\'">🏆 Test Hospital EBITDA</button>',
-            '<button type="button" class="zai-chip" onclick="document.getElementById(\'zai-sandbox-prompt\').value=\'Simulate +15% logistics cost variance and propose mitigation\'">📊 Test Logistics Sim</button>',
-          '</div>',
-          '<div style="display: flex; gap: 8px;">',
-            '<input type="text" id="zai-sandbox-prompt" class="zai-input" placeholder="Type prompt to test through Custom API &amp; RAG orchestrator..." value="Audit Bravecto stockout risk and draft a PO" style="flex: 1;" />',
-            '<button type="button" id="zai-sandbox-run-btn" class="zai-btn primary" style="padding: 0 20px; background: #10b981;">⚡ Execute Query</button>',
-          '</div>',
-          '<div id="zai-sandbox-output" style="margin-top: 14px; display: none;"></div>',
-        '</div>',
-      '</div>'
-    ].join('');
-  }
-
   function render() {
     if (!root) return;
     var current = getActiveTabConfig();
@@ -2342,8 +2201,59 @@ function generateResponse(text, ctx) {
       });
     }
 
+    // Dashboard Navigation Action Buttons
+    var navBtns = root.querySelectorAll('.zai-nav-dashboard-btn');
+    for (var nb = 0; nb < navBtns.length; nb++) {
+      navBtns[nb].addEventListener('click', function (e) {
+        e.preventDefault();
+        var route = this.getAttribute('data-route');
+        var cat = this.getAttribute('data-cat');
+        var subcat = this.getAttribute('data-subcat');
+        var title = this.getAttribute('data-title');
+
+        var isAiSubtab = false;
+        if (route && (route.indexOf('ai-assistant') >= 0 || route === '#ask-zenve-ai' || route === '#ask-ai' || route === '#ai-recommendations' || route === '#business-insights' || route === '#revenue-intelligence' || route === '#ai-sales-forecast' || route === '#demand-forecast' || route === '#inventory-prediction' || route === '#customer-prediction' || route === '#churn-prediction' || route === '#profit-prediction' || route === '#anomaly-detection')) {
+          isAiSubtab = true;
+        }
+        if (!isAiSubtab) {
+          close();
+        }
+
+        if (window.ZenveRouter && typeof window.ZenveRouter.navigateToRoute === 'function') {
+          window.ZenveRouter.navigateToRoute(route, cat, subcat || title);
+        } else {
+          window.location.hash = route;
+        }
+      });
+    }
+
+    // In-Chat Link & Hash Button Clicks
+    var chatMsgsEl = root.querySelector('#zai-chat-msgs');
+    if (chatMsgsEl) {
+      chatMsgsEl.addEventListener('click', function (e) {
+        var link = e.target.closest('a[href^="#"], .zai-chat-hash-link, .zai-chat-hash-btn');
+        if (link) {
+          var targetRoute = link.getAttribute('data-route') || link.getAttribute('href');
+          if (targetRoute && targetRoute !== '#') {
+            e.preventDefault();
+            e.stopPropagation();
+            var isAiSubtab = false;
+            if (targetRoute.indexOf('ai-assistant') >= 0 || targetRoute === '#ask-zenve-ai' || targetRoute === '#ask-ai' || targetRoute === '#ai-recommendations' || targetRoute === '#business-insights' || targetRoute === '#revenue-intelligence' || targetRoute === '#ai-sales-forecast' || targetRoute === '#demand-forecast' || targetRoute === '#inventory-prediction' || targetRoute === '#customer-prediction' || targetRoute === '#churn-prediction' || targetRoute === '#profit-prediction' || targetRoute === '#anomaly-detection') {
+              isAiSubtab = true;
+            }
+            if (!isAiSubtab) close();
+            if (window.ZenveRouter && typeof window.ZenveRouter.navigateToRoute === 'function') {
+              window.ZenveRouter.navigateToRoute(targetRoute);
+            } else {
+              window.location.hash = targetRoute;
+            }
+          }
+        }
+      });
+    }
+
     // Text-to-Action Execution Buttons
-    var execBtns = root.querySelectorAll('.zai-exec-btn');
+    var execBtns = root.querySelectorAll('.zai-exec-btn:not(.zai-nav-dashboard-btn)');
     for (var eb = 0; eb < execBtns.length; eb++) {
       execBtns[eb].addEventListener('click', function () {
         var actionId = this.getAttribute('data-action-id');
@@ -2387,8 +2297,12 @@ function generateResponse(text, ctx) {
         var msgIdx = parseInt(this.getAttribute('data-msg-idx'), 10);
 
         if (actType === 'nav' && hash) {
-          window.location.hash = hash;
           close();
+          if (window.ZenveRouter && typeof window.ZenveRouter.navigateToRoute === 'function') {
+            window.ZenveRouter.navigateToRoute(hash);
+          } else {
+            window.location.hash = hash;
+          }
           if (scrollTarget) {
             setTimeout(function () {
               var el = document.getElementById(scrollTarget) || document.querySelector('.' + scrollTarget);

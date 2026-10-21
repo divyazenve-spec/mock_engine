@@ -22,7 +22,7 @@
   overflow-y: auto !important;
   overflow-x: hidden !important;
   background: var(--background, #090d16);
-  color: var(--foreground, #f8fafc);
+  color: var(--foreground, #000);
   font-family: var(--font-sans, "Manrope", sans-serif);
   display: none;
   animation: zodFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -89,7 +89,7 @@
   line-height: 1.2;
   margin: 0;
   letter-spacing: -0.015em;
-  color: var(--foreground, #fff);
+  color: var(--foreground, #000);
   white-space: nowrap;
 }
 
@@ -247,7 +247,7 @@
 }
 
 .zod-tab:hover {
-  color: var(--foreground, #f8fafc);
+  color: var(--foreground, #000);
   background: rgba(255, 255, 255, 0.04);
 }
 
@@ -494,7 +494,7 @@
   font-size: 20px;
   font-weight: 700;
   font-family: "IBM Plex Mono", monospace;
-  color: var(--foreground, #fff);
+  color: var(--foreground, #000);
 }
 
 .zod-pipe-sub {
@@ -740,7 +740,7 @@
 .zod-timeline-title {
   font-size: 13px;
   font-weight: 700;
-  color: var(--foreground, #f8fafc);
+  color: var(--foreground, #000);
 }
 
 .zod-timeline-time {
@@ -916,7 +916,7 @@
 .zod-rider-name {
   font-size: 13px;
   font-weight: 700;
-  color: var(--foreground, #fff);
+  color: var(--foreground, #000);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -983,7 +983,7 @@
   font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: var(--foreground, #fff);
+  color: var(--foreground, #000);
 }
 
 .zod-card-sub {

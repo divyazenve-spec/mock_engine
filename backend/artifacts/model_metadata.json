@@ -1,0 +1,69 @@
+{
+  "status": "ready",
+  "last_trained_at": "2026-10-17T06:54:27.407197Z",
+  "artifacts_directory": "C:\\zenve-aiml team\\ai-ml\\zenve final1\\zenve-bi\\backend\\artifacts",
+  "models": {
+    "sales_forecast": {
+      "algorithm": "RandomForestRegressor + StandardScaler",
+      "framework": "scikit-learn",
+      "artifact": "sales_forecast_model.joblib",
+      "metrics": {
+        "mae": 19027.36,
+        "rmse": 19377.0,
+        "r2_score": 0.0,
+        "sample_count": 30
+      },
+      "features": [
+        "day_of_week",
+        "day_of_month",
+        "is_weekend",
+        "month",
+        "total_downloads",
+        "sales_rolling_3d",
+        "sales_rolling_7d",
+        "sales_lag_1",
+        "sales_lag_7",
+        "downloads_lag_1"
+      ]
+    },
+    "customer_churn": {
+      "algorithm": "RandomForestClassifier (Balanced) + StandardScaler",
+      "framework": "scikit-learn",
+      "artifact": "churn_prediction_model.joblib",
+      "metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "roc_auc": 1.0,
+        "sample_count": 10
+      },
+      "features": [
+        "total_orders",
+        "total_spent",
+        "recency_days",
+        "tenure_days",
+        "aov",
+        "orders_per_month",
+        "tier_code"
+      ]
+    },
+    "inventory_demand": {
+      "algorithm": "RandomForestRegressor + Multi-Tier Calibration",
+      "framework": "scikit-learn",
+      "artifact": "inventory_demand_model.joblib",
+      "metrics": {
+        "mae_burn_rate": 0.4495,
+        "r2_score": 0.9902,
+        "sample_count": 20
+      },
+      "features": [
+        "current_stock",
+        "min_stock",
+        "price",
+        "cost_price",
+        "margin_pct"
+      ]
+    }
+  }
+}

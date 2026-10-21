@@ -535,7 +535,7 @@
                 return '<tr>' +
                   '<td><b>' + esc(m.name) + '</b><br><span style="font-family:IBM Plex Mono,monospace;font-size:10px;color:#38bdf8;">' + esc(m.sku) + '</span></td>' +
                   '<td>' + esc(m.zone) + '</td>' +
-                  '<td style="text-align:right;font-family:IBM Plex Mono,monospace;font-weight:700;color:' + (isLow ? '#f87171' : '#fff') + ';">' + m.stock + '</td>' +
+                  '<td style="text-align:right;font-family:IBM Plex Mono,monospace;font-weight:700;color:' + (isLow ? '#f87171' : '#000') + ';">' + m.stock + '</td>' +
                   '<td style="text-align:right;font-family:IBM Plex Mono,monospace;color:#94a3b8;">' + m.rop + '</td>' +
                   '<td style="text-align:right;font-family:IBM Plex Mono,monospace;">₹' + (m.stock * m.ptr).toLocaleString('en-IN') + '</td>' +
                   '<td style="text-align:right;font-family:IBM Plex Mono,monospace;font-weight:600;color:#10b981;">₹' + (m.stock * m.mrp).toLocaleString('en-IN') + '</td>' +

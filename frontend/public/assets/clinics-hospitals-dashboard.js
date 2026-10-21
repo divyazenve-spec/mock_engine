@@ -229,7 +229,7 @@
                 LIVE_ADMISSIONS.map(function (a) {
                   return '<tr>' +
                     '<td><b>' + esc(a.pet) + '</b><br><span style="font-family:IBM Plex Mono,monospace;font-size:10px;color:#38bdf8;">' + esc(a.id) + '</span></td>' +
-                    '<td style="color:#f8fafc;">' + esc(a.reason) + '</td>' +
+                    '<td style="color:#000;">' + esc(a.reason) + '</td>' +
                     '<td style="color:#94a3b8;">' + esc(a.facility) + '</td>' +
                     '<td><span style="color:#cbd5e1;font-weight:600;">' + esc(a.doctor) + '</span><br><span style="font-size:10px;color:#64748b;">' + esc(a.bed) + '</span></td>' +
                     '<td><span class="zch-badge ' + (a.status === 'In Surgery' ? 'red' : a.status === 'Admitted' ? 'blue' : 'green') + '">' + esc(a.status) + '</span></td>' +
@@ -292,7 +292,7 @@
                 return '<tr>' +
                   '<td><b>' + esc(f.name) + '</b><br><span style="font-family:IBM Plex Mono,monospace;font-size:10px;color:#38bdf8;">' + esc(f.id) + '</span></td>' +
                   '<td><span class="zch-badge blue">' + esc(f.city) + '</span></td>' +
-                  '<td><div style="font-weight:600;color:#f8fafc;">' + esc(f.type) + '</div><div style="font-size:10px;color:#94a3b8;">Preventive & Daycare</div></td>' +
+                  '<td><div style="font-weight:600;color:#000;">' + esc(f.type) + '</div><div style="font-size:10px;color:#94a3b8;">Preventive & Daycare</div></td>' +
                   '<td><div style="font-weight:600;color:#cbd5e1;">' + esc(f.lead) + '</div></td>' +
                   '<td style="font-family:IBM Plex Mono,monospace;font-weight:600;">' + esc(f.beds) + '</td>' +
                   '<td><span style="color:#38bdf8;">' + esc(f.ot) + '</span></td>' +
@@ -330,13 +330,13 @@
                   '<div style="display:flex;justify-content:space-between;align-items:flex-start;">' +
                     '<div>' +
                       '<span style="font-size:10px;color:#38bdf8;font-weight:700;text-transform:uppercase;">' + esc(h.city) + ' REGIONAL HUB</span>' +
-                      '<h4 style="margin:2px 0 4px;font-size:15px;color:#fff;">' + esc(h.name) + '</h4>' +
+                      '<h4 style="margin:2px 0 4px;font-size:15px;color:#000;">' + esc(h.name) + '</h4>' +
                       '<div style="font-size:12px;color:#94a3b8;">Medical Director: <strong style="color:#cbd5e1;">' + esc(h.lead) + '</strong></div>' +
                     '</div>' +
                     '<span class="zch-badge green">24x7 Active</span>' +
                   '</div>' +
                   '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;">' +
-                    '<div><span style="color:#64748b;">Bed Census:</span><div style="font-weight:700;color:#fff;font-family:IBM Plex Mono,monospace;">' + esc(h.beds) + '</div></div>' +
+                    '<div><span style="color:#64748b;">Bed Census:</span><div style="font-weight:700;color:#000;font-family:IBM Plex Mono,monospace;">' + esc(h.beds) + '</div></div>' +
                     '<div><span style="color:#64748b;">Surgical OT:</span><div style="font-weight:700;color:#38bdf8;font-family:IBM Plex Mono,monospace;">' + esc(h.ot) + '</div></div>' +
                     '<div><span style="color:#64748b;">Daily Revenue:</span><div style="font-weight:700;color:#10b981;font-family:IBM Plex Mono,monospace;">' + esc(h.rev) + '</div></div>' +
                   '</div>' +
@@ -357,35 +357,35 @@
                                 '<tr>' +
                   '<td><b>Bruno</b> (Golden Retriever)<br><span style="font-size:10px;color:#38bdf8;">TPLO Cruciate Ligament Repair</span></td>' +
                   '<td><span class="zch-badge blue">OT Suite 1 (Laminar Flow)</span></td>' +
-                  '<td><b style="color:#fff;">Dr. Rajeshwari Swaminathan</b></td>' +
+                  '<td><b style="color:#000;">Dr. Rajeshwari Swaminathan</b></td>' +
                   '<td><span style="color:#94a3b8;">Dr. Anirudh Sen</span></td>' +
                   '<td><span class="zch-badge red">In Progress (10:30–12:30)</span></td>' +
                 '</tr>' +
                 '<tr>' +
-                  '<td><b>Simba</b> (German Shepherd)<br><span style="font-size:10px;color:#38bdf8;">Emergency GDV Gastropexy</span></td>' +
+                  '<td><b>Bruno</b> (German Shepherd)<br><span style="font-size:10px;color:#38bdf8;">Emergency GDV Gastropexy</span></td>' +
                   '<td><span class="zch-badge red">OT Suite 2 (Emergency)</span></td>' +
-                  '<td><b style="color:#fff;">Dr. Vikramaditya Rathore</b></td>' +
+                  '<td><b style="color:#000;">Dr. Vikramaditya Rathore</b></td>' +
                   '<td><span style="color:#94a3b8;">Dr. Rohan Kulkarni</span></td>' +
                   '<td><span class="zch-badge red">In Progress (11:15–13:45)</span></td>' +
                 '</tr>' +
                 '<tr>' +
                   '<td><b>Coco</b> (Labrador Retriever)<br><span style="font-size:10px;color:#38bdf8;">Splenectomy & Biopsy</span></td>' +
                   '<td><span class="zch-badge blue">OT Suite 1</span></td>' +
-                  '<td><b style="color:#fff;">Dr. Rohan Kulkarni</b></td>' +
+                  '<td><b style="color:#000;">Dr. Rohan Kulkarni</b></td>' +
                   '<td><span style="color:#94a3b8;">Dr. Sneha Nair</span></td>' +
                   '<td><span class="zch-badge amber">Next Up (13:30–15:00)</span></td>' +
                 '</tr>' +
                 '<tr>' +
                   '<td><b>Bella</b> (Shih Tzu)<br><span style="font-size:10px;color:#38bdf8;">Pyometra Ovariohysterectomy</span></td>' +
                   '<td><span class="zch-badge blue">OT Suite 3</span></td>' +
-                  '<td><b style="color:#fff;">Dr. Maya Chandran</b></td>' +
+                  '<td><b style="color:#000;">Dr. Maya Chandran</b></td>' +
                   '<td><span style="color:#94a3b8;">Dr. Pooja Mehta</span></td>' +
                   '<td><span class="zch-badge green">Scheduled (14:00–15:30)</span></td>' +
                 '</tr>' +
                 '<tr>' +
                   '<td><b>Luna</b> (British Shorthair)<br><span style="font-size:10px;color:#38bdf8;">Corneal Conjunctival Graft</span></td>' +
                   '<td><span class="zch-badge purple">Minor OT 1</span></td>' +
-                  '<td><b style="color:#fff;">Dr. Karthik Sundaram</b></td>' +
+                  '<td><b style="color:#000;">Dr. Karthik Sundaram</b></td>' +
                   '<td><span style="color:#94a3b8;">Dr. Gaurav Sharma</span></td>' +
                   '<td><span class="zch-badge green">Scheduled (15:00–16:00)</span></td>' +
                 '</tr>' ,
@@ -457,11 +457,11 @@
             '<div><h3 class="zch-card-title">Departmental Revenue Contribution</h3><p class="zch-card-sub">Clinical billing distribution across major practice streams</p></div>',
           '</div>',
                     '<div style="display:flex;flex-direction:column;gap:14px;padding:8px 0;">' +
-            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#fff;font-weight:600;">Surgeries & Specialized Procedures</span><strong style="color:#10b981;font-family:IBM Plex Mono,monospace;">₹58,40,000 (38.1%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:38.1%;background:#10b981;"></div></div></div>' +
-            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#fff;font-weight:600;">Outpatient Consultations & Vaccinations</span><strong style="color:#38bdf8;font-family:IBM Plex Mono,monospace;">₹39,80,000 (25.9%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:25.9%;background:#38bdf8;"></div></div></div>' +
-            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#fff;font-weight:600;">Inpatient ICU, Wards & Daycare Stays</span><strong style="color:#a855f7;font-family:IBM Plex Mono,monospace;">₹27,60,000 (18.0%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:18.0%;background:#a855f7;"></div></div></div>' +
-            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#fff;font-weight:600;">Diagnostic Imaging (CT/X-Ray) & Pathology Lab</span><strong style="color:#f59e0b;font-family:IBM Plex Mono,monospace;">₹19,90,000 (13.0%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:13.0%;background:#f59e0b;"></div></div></div>' +
-            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#fff;font-weight:600;">Emergency Mobile ICU & Hospital Pharmacy</span><strong style="color:#ec4899;font-family:IBM Plex Mono,monospace;">₹7,65,000 (5.0%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:5.0%;background:#ec4899;"></div></div></div>' +
+            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#000;font-weight:600;">Surgeries & Specialized Procedures</span><strong style="color:#10b981;font-family:IBM Plex Mono,monospace;">₹58,40,000 (38.1%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:38.1%;background:#10b981;"></div></div></div>' +
+            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#000;font-weight:600;">Outpatient Consultations & Vaccinations</span><strong style="color:#38bdf8;font-family:IBM Plex Mono,monospace;">₹39,80,000 (25.9%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:25.9%;background:#38bdf8;"></div></div></div>' +
+            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#000;font-weight:600;">Inpatient ICU, Wards & Daycare Stays</span><strong style="color:#a855f7;font-family:IBM Plex Mono,monospace;">₹27,60,000 (18.0%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:18.0%;background:#a855f7;"></div></div></div>' +
+            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#000;font-weight:600;">Diagnostic Imaging (CT/X-Ray) & Pathology Lab</span><strong style="color:#f59e0b;font-family:IBM Plex Mono,monospace;">₹19,90,000 (13.0%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:13.0%;background:#f59e0b;"></div></div></div>' +
+            '<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span style="color:#000;font-weight:600;">Emergency Mobile ICU & Hospital Pharmacy</span><strong style="color:#ec4899;font-family:IBM Plex Mono,monospace;">₹7,65,000 (5.0%)</strong></div><div class="zch-progress-bar"><div class="zch-progress-fill" style="width:5.0%;background:#ec4899;"></div></div></div>' +
           '</div>' ,
         '</div>',
 
@@ -517,7 +517,7 @@
                   '<td>' + esc(o.item) + '</td>' +
                   '<td style="color:#94a3b8;">' + esc(o.vendor) + '</td>' +
                   '<td style="font-family:IBM Plex Mono,monospace;">' + esc(o.qty) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;font-weight:600;color:#f8fafc;">' + esc(o.cost) + '</td>' +
+                  '<td style="font-family:IBM Plex Mono,monospace;font-weight:600;color:#000;">' + esc(o.cost) + '</td>' +
                   '<td><span class="zch-badge ' + (o.priority === 'Critical' ? 'red' : o.priority === 'High' ? 'amber' : 'blue') + '">' + esc(o.priority) + '</span></td>' +
                   '<td><span class="zch-badge ' + (o.status.includes('Approved') ? 'green' : o.status.includes('Delivered') ? 'blue' : 'amber') + '">' + esc(o.status) + '</span></td>' +
                   '<td><button class="zch-btn" onclick="alert(\'Viewing invoice and tracking for ' + esc(o.po) + '\')">Inspect</button></td>' +
@@ -555,7 +555,7 @@
                   '<td style="color:#cbd5e1;">' + esc(p.owner) + '</td>' +
                   '<td style="font-family:IBM Plex Mono,monospace;">' + esc(p.admitDate) + '</td>' +
                   '<td><b>' + esc(p.facility) + '</b><br><span style="color:#38bdf8;font-size:11px;">' + esc(p.bed) + '</span></td>' +
-                  '<td style="color:#f8fafc;">' + esc(p.dx) + '</td>' +
+                  '<td style="color:#000;">' + esc(p.dx) + '</td>' +
                   '<td style="color:#cbd5e1;font-weight:600;">' + esc(p.doc) + '</td>' +
                   '<td><span style="font-family:IBM Plex Mono,monospace;font-size:11px;color:#34d399;">' + esc(p.vitals) + '</span></td>' +
                   '<td><span class="zch-badge ' + (p.status.includes('Critical') ? 'red' : p.status.includes('High') ? 'amber' : 'green') + '">' + esc(p.status) + '</span></td>' +
@@ -655,7 +655,7 @@
                         '<div style="display:flex;align-items:center;gap:10px;">' +
                           '<div style="width:32px;height:32px;border-radius:50%;background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#60a5fa;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;">' + esc(d.name.split(' ').map(function(n){ return n[0]; }).join('').replace('D', '')) + '</div>' +
                           '<div>' +
-                            '<b style="color:#fff;">' + esc(d.name) + '</b>' +
+                            '<b style="color:#000;">' + esc(d.name) + '</b>' +
                             '<div style="font-family:IBM Plex Mono,monospace;font-size:10px;color:#38bdf8;">' + esc(d.id) + '</div>' +
                           '</div>' +
                         '</div>' +
@@ -691,15 +691,15 @@
           '<div style="display:flex;flex-direction:column;gap:10px;">',
                       '<div style="display:flex;flex-direction:column;gap:10px;">' +
             '<div style="background:#090e17;border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:center;">' +
-              '<div><b style="color:#fff;font-size:13px;">Dr. Vikramaditya Rathore</b> <span class="zch-badge red">Primary Trauma On-Call</span><div style="font-size:11px;color:#94a3b8;margin-top:2px;">Bandra Trauma Centre • Cell: +91 98201 44102</div></div>' +
+              '<div><b style="color:#000;font-size:13px;">Dr. Vikramaditya Rathore</b> <span class="zch-badge red">Primary Trauma On-Call</span><div style="font-size:11px;color:#94a3b8;margin-top:2px;">Bandra Trauma Centre • Cell: +91 98201 44102</div></div>' +
               '<span style="font-family:IBM Plex Mono,monospace;font-size:11px;color:#38bdf8;font-weight:600;">Active 24x7</span>' +
             '</div>' +
             '<div style="background:#090e17;border:1px solid rgba(59,130,246,0.2);border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:center;">' +
-              '<div><b style="color:#fff;font-size:13px;">Dr. Rohan Kulkarni</b> <span class="zch-badge blue">Critical Care & Vent</span><div style="font-size:11px;color:#94a3b8;margin-top:2px;">Koregaon Park Hospital • Cell: +91 98450 88219</div></div>' +
+              '<div><b style="color:#000;font-size:13px;">Dr. Rohan Kulkarni</b> <span class="zch-badge blue">Critical Care & Vent</span><div style="font-size:11px;color:#94a3b8;margin-top:2px;">Koregaon Park Hospital • Cell: +91 98450 88219</div></div>' +
               '<span style="font-family:IBM Plex Mono,monospace;font-size:11px;color:#38bdf8;font-weight:600;">Active 24x7</span>' +
             '</div>' +
             '<div style="background:#090e17;border:1px solid rgba(168,85,247,0.2);border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:center;">' +
-              '<div><b style="color:#fff;font-size:13px;">Dr. Anirudh Sen</b> <span class="zch-badge purple">Emergency Spine Decompression</span><div style="font-size:11px;color:#94a3b8;margin-top:2px;">Jubilee Hills Center • Cell: +91 99890 12055</div></div>' +
+              '<div><b style="color:#000;font-size:13px;">Dr. Anirudh Sen</b> <span class="zch-badge purple">Emergency Spine Decompression</span><div style="font-size:11px;color:#94a3b8;margin-top:2px;">Jubilee Hills Center • Cell: +91 99890 12055</div></div>' +
               '<span style="font-family:IBM Plex Mono,monospace;font-size:11px;color:#38bdf8;font-weight:600;">On-Call</span>' +
             '</div>' +
           '</div>' ,
@@ -792,7 +792,7 @@
                       '<div style="display:flex;flex-direction:column;gap:12px;">' +
             '<div style="background:#090e17;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">' +
               '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
-                '<b style="color:#fff;font-size:13px;">South Corridor (Bengaluru Metro Hub)</b>' +
+                '<b style="color:#000;font-size:13px;">South Corridor (Bengaluru Metro Hub)</b>' +
                 '<span class="zch-badge green">99.8% Sync</span>' +
               '</div>' +
               '<div style="font-size:12px;color:#94a3b8;">Indiranagar Central (Hub) ↔ Koramangala Care ↔ Whitefield Diagnostics</div>' +
@@ -800,7 +800,7 @@
             '</div>' +
             '<div style="background:#090e17;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">' +
               '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
-                '<b style="color:#fff;font-size:13px;">West Corridor (Mumbai MMR Hub)</b>' +
+                '<b style="color:#000;font-size:13px;">West Corridor (Mumbai MMR Hub)</b>' +
                 '<span class="zch-badge green">99.5% Sync</span>' +
               '</div>' +
               '<div style="font-size:12px;color:#94a3b8;">Bandra Trauma Centre (Hub) ↔ Andheri Link Rd ↔ Powai Satellite</div>' +
@@ -808,7 +808,7 @@
             '</div>' +
             '<div style="background:#090e17;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">' +
               '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
-                '<b style="color:#fff;font-size:13px;">North Corridor (Delhi NCR Hub)</b>' +
+                '<b style="color:#000;font-size:13px;">North Corridor (Delhi NCR Hub)</b>' +
                 '<span class="zch-badge green">99.9% Sync</span>' +
               '</div>' +
               '<div style="font-size:12px;color:#94a3b8;">DLF CyberCity (Hub) ↔ Saket Diagnostics ↔ Noida Care Unit</div>' +
@@ -816,7 +816,7 @@
             '</div>' +
             '<div style="background:#090e17;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">' +
               '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
-                '<b style="color:#fff;font-size:13px;">Deccan Corridor (Hyderabad Hub)</b>' +
+                '<b style="color:#000;font-size:13px;">Deccan Corridor (Hyderabad Hub)</b>' +
                 '<span class="zch-badge green">99.2% Sync</span>' +
               '</div>' +
               '<div style="font-size:12px;color:#94a3b8;">Jubilee Hills Center (Hub) ↔ Gachibowli Daycare & Dental</div>' +
@@ -835,7 +835,7 @@
             (AMBULANCE_FLEET.length ? AMBULANCE_FLEET.map(function (amb) {
               return '<div style="background:#090e17;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;">' +
                 '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
-                  '<div><b style="color:#fff;font-size:13px;">🚑 ' + esc(amb.vehicle) + '</b> <span style="font-family:IBM Plex Mono,monospace;font-size:10px;color:#64748b;">(' + esc(amb.id) + ')</span></div>' +
+                  '<div><b style="color:#000;font-size:13px;">🚑 ' + esc(amb.vehicle) + '</b> <span style="font-family:IBM Plex Mono,monospace;font-size:10px;color:#64748b;">(' + esc(amb.id) + ')</span></div>' +
                   '<span class="zch-badge ' + (amb.status.includes('Transit') || amb.status.includes('Emergency') || amb.status.includes('Dispatched') ? 'red' : 'green') + '">' + esc(amb.status) + '</span>' +
                 '</div>' +
                 '<div style="display:flex;justify-content:space-between;font-size:11px;color:#94a3b8;margin-bottom:4px;">' +
@@ -1058,14 +1058,14 @@
           '<div class="zch-modal-body">',
             '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:rgba(255,255,255,0.02);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);font-size:12px;">',
               '<div><span style="color:#64748b;">Clinical Specialization:</span><div style="font-weight:600;color:#38bdf8;">' + esc(d.spec) + '</div></div>',
-              '<div><span style="color:#64748b;">Primary Facility Base:</span><div style="font-weight:600;color:#fff;">' + esc(d.base) + '</div></div>',
+              '<div><span style="color:#64748b;">Primary Facility Base:</span><div style="font-weight:600;color:#000;">' + esc(d.base) + '</div></div>',
               '<div><span style="color:#64748b;">Degrees & Credentials:</span><div style="color:#cbd5e1;">' + esc(d.qual) + '</div></div>',
               '<div><span style="color:#64748b;">Current Active Shift:</span><div style="color:#10b981;font-weight:600;">' + esc(d.shift) + '</div></div>',
               '<div><span style="color:#64748b;">Lifetime Consultations:</span><div style="font-weight:700;font-family:IBM Plex Mono,monospace;">' + esc(d.consults) + ' Patients</div></div>',
               '<div><span style="color:#64748b;">Surgical Procedures:</span><div style="font-weight:700;font-family:IBM Plex Mono,monospace;color:#10b981;">' + esc(d.surgeries) + ' OTs</div></div>',
             '</div>',
             '<div>',
-              '<h4 style="margin:0 0 6px;font-size:13px;color:#f8fafc;">Clinical Bio & Expertise</h4>',
+              '<h4 style="margin:0 0 6px;font-size:13px;color:#000;">Clinical Bio & Expertise</h4>',
               '<p style="margin:0;font-size:12px;color:#94a3b8;line-height:1.5;">' + esc(d.bio) + '</p>',
             '</div>',
             '<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(251,191,36,0.1);padding:10px 14px;border-radius:8px;border:1px solid rgba(251,191,36,0.25);">',

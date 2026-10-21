@@ -111,7 +111,7 @@ export default function SalesForecast() {
                 borderRadius: '6px',
                 border: '1px solid var(--border, rgba(255,255,255,0.1))',
                 background: horizon === h.val ? 'var(--primary, #3b82f6)' : 'var(--card, #1e293b)',
-                color: '#fff',
+                color: horizon === h.val ? '#fff' : '#000',
                 fontSize: '11px',
                 fontWeight: 600,
                 cursor: 'pointer'
@@ -133,7 +133,7 @@ export default function SalesForecast() {
                 borderRadius: '6px',
                 border: '1px solid var(--border, rgba(255,255,255,0.1))',
                 background: scenario === s.id ? 'var(--primary, #3b82f6)' : 'var(--card, #1e293b)',
-                color: '#fff',
+                color: scenario === s.id ? '#fff' : '#000',
                 fontSize: '11px',
                 fontWeight: 600,
                 cursor: 'pointer'

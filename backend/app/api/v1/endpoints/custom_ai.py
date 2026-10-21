@@ -83,5 +83,51 @@ def execute_rag_agentic_query(req: AIQueryRequest, db: Session = Depends(get_db)
     if not req.query or not req.query.strip():
         raise HTTPException(status_code=400, detail="Query cannot be empty")
     
+    # 1. Run semantic dashboard search
+    from app.rag.vector_store import VectorStore
+    store = VectorStore.load()
+    matched_dashboards = store.search(req.query, top_k=3)
+
+    # 2. Run orchestrator
     orchestrator = EnterpriseAgenticOrchestrator(db)
-    return orchestrator.process_query(req.query, req.context)
+    res = orchestrator.process_query(req.query, req.context)
+    res["relevant_dashboards"] = matched_dashboards
+    return res
+
+
+class DashboardSearchRequest(BaseModel):
+    query: str
+    top_k: int = 5
+    category: Optional[str] = None
+
+
+@router.post("/search-dashboards")
+def search_dashboards(req: DashboardSearchRequest):
+    """Semantic vector search across all 263 Zenve BI dashboards (Phase 2 RAG)."""
+    if not req.query or not req.query.strip():
+        raise HTTPException(status_code=400, detail="Search query cannot be empty")
+    from app.rag.vector_store import VectorStore
+    store = VectorStore.load()
+    return store.search(req.query, top_k=req.top_k, category=req.category)
+
+
+@router.get("/dashboards/catalog")
+def get_dashboard_catalog():
+    """Retrieve structured metadata catalog for all 263 dashboards (Phase 1 Inventory)."""
+    import json
+    from pathlib import Path
+    cat_file = Path(__file__).resolve().parent.parent.parent.parent / "artifacts" / "zenve_dashboard_catalog.json"
+    if cat_file.exists():
+        with open(cat_file, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+
+@router.post("/ask")
+def ask_ai_brain(req: AIQueryRequest, db: Session = Depends(get_db)):
+    """Phase 3 AI Brain: Multi-tool reasoning with RAG search, live database telemetry, and ML forecasts."""
+    if not req.query or not req.query.strip():
+        raise HTTPException(status_code=400, detail="Query cannot be empty")
+    from app.rag.ai_brain import AIBrain
+    brain = AIBrain()
+    return brain.process_query(req.query, db)

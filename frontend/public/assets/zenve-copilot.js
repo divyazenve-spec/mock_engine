@@ -335,6 +335,21 @@
       '</div>';
     }
 
+    var citationsHtml = '';
+    if (res.rag_citations && res.rag_citations.length) {
+      citationsHtml = '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0;padding:6px 10px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:11px;">' +
+        '<strong style="color:#166534;font-size:10px;">📚 RAG DASHBOARDS:</strong>' +
+        res.rag_citations.map(function (c) {
+          var match = c.match(/\((#[^)]+)\)/);
+          var hash = match ? match[1] : '';
+          if (hash) {
+            return '<button type="button" class="zcp-nav-action-btn" data-route="' + esc(hash) + '" style="background:#dcfce7;color:#15803d;padding:3px 9px;border-radius:6px;border:1px solid #86efac;font-size:11px;font-weight:700;cursor:pointer;">🔗 ' + esc(c) + '</button>';
+          }
+          return '<span style="background:#dcfce7;color:#15803d;padding:2px 6px;border-radius:6px;border:1px solid #86efac;font-size:10.5px;font-weight:600;">' + esc(c) + '</span>';
+        }).join('') +
+      '</div>';
+    }
+
     var jumpBtnHtml = '';
     if (res.jump) {
       jumpBtnHtml = '<button type="button" class="zcp-btn-jump" id="zcp-jump-btn" data-mod="' + esc(res.jump.module) + '" data-item="' + esc(res.jump.item) + '">' +
@@ -346,20 +361,40 @@
     if (res.actions && res.actions.length) {
       actionsHtml = '<div style="margin:12px 0;display:flex;flex-direction:column;gap:8px;">' +
         res.actions.map(function (act) {
+          var isNav = act.action_type === 'NAVIGATE_DASHBOARD' || act.type === 'NAVIGATE' || (act.parameters && act.parameters.route) || act.route;
+          var route = (act.parameters && act.parameters.route) || act.route || '#';
+          var cat = (act.parameters && act.parameters.category) || act.category || '';
+          var subcat = (act.parameters && act.parameters.subcategory) || act.subcategory || (act.parameters && act.parameters.title) || act.title || '';
+          var title = (act.parameters && act.parameters.title) || act.title || subcat || 'Dashboard';
+
+          if (isNav) {
+            return '<div style="padding:12px 14px;border:1px solid #bae6fd;background:#f0f9ff;border-radius:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">' +
+              '<div>' +
+                '<div style="font-weight:800;font-size:13px;color:#0369a1;">🚀 ' + esc(act.title || ('Open ' + title)) + '</div>' +
+                '<div style="font-size:11.5px;color:#0284c7;margin-top:2px;">' + esc(act.description || ('Direct deep link to ' + route)) + '</div>' +
+              '</div>' +
+              '<button type="button" class="zcp-btn-jump zcp-nav-action-btn" data-route="' + esc(route) + '" data-cat="' + esc(cat) + '" data-subcat="' + esc(subcat) + '" data-title="' + esc(title) + '" style="background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%);color:#fff;padding:8px 16px;font-size:12px;font-weight:800;border:none;border-radius:6px;cursor:pointer;box-shadow:0 2px 8px rgba(2,132,199,0.3);">' +
+                '🚀 Open Dashboard →' +
+              '</button>' +
+            '</div>';
+          }
+
           return '<div style="padding:12px 14px;border:1px solid #bfdbfe;background:#eff6ff;border-radius:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">' +
             '<div>' +
               '<div style="font-weight:700;font-size:12.5px;color:#1e3a8a;">⚡ ' + esc(act.title) + '</div>' +
               '<div style="font-size:11.5px;color:#3b82f6;margin-top:2px;">' + esc(act.description) + '</div>' +
             '</div>' +
-            '<button type="button" class="zcp-btn-jump" style="background:#2563eb;color:#fff;padding:6px 12px;font-size:11.5px;font-weight:700;border:none;border-radius:6px;cursor:pointer;" onclick="alert(\'Action ' + esc(act.action_id) + ' submitted for Human-in-the-Loop ERP authorization.\')">Approve Action</button>' +
+            '<button type="button" class="zcp-btn-jump" style="background:#2563eb;color:#fff;padding:6px 12px;font-size:11.5px;font-weight:700;border:none;border-radius:6px;cursor:pointer;" onclick="alert(\'Action ' + esc(act.action_id) + ' submitted for Human-in-the-Loop ERP authorization.\')">⚡ Approve Action</button>' +
           '</div>';
         }).join('') +
       '</div>';
     }
 
-    // Format markdown bold and linebreaks
+    // Format markdown bold, linebreaks, and links
     var rawText = res.text || '';
     var formattedText = esc(rawText)
+      .replace(/\[([^\]]+)\]\((#[^)]+)\)/g, '<a href="$2" class="zcp-chat-link" data-route="$2" style="color:#0284c7;font-weight:700;text-decoration:underline;cursor:pointer;">$1</a>')
+      .replace(/(^|\s)\`(#([a-zA-Z0-9_\-]+))\`/g, '$1<button type="button" class="zcp-nav-action-btn" data-route="#$3" style="background:#e0f2fe;color:#0369a1;padding:2px 6px;border-radius:4px;font-family:monospace;font-size:11px;font-weight:700;border:1px solid #bae6fd;cursor:pointer;">🔗 #$3</button>')
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.*?)\*/g, '<em>$1</em>')
       .replace(/`(.*?)`/g, '<code style="background:#f1f5f9;padding:2px 4px;border-radius:4px;font-family:monospace;color:#0f172a;">$1</code>')
@@ -370,6 +405,7 @@
       '<div class="zcp-response-box">',
         '<div class="zcp-query-echo"><span>Query:</span> <strong>' + esc(query) + '</strong></div>',
         agentPillHtml,
+        citationsHtml,
         metricsHtml,
         '<div class="zcp-response-text">' + formattedText + '</div>',
         actionsHtml,
@@ -390,7 +426,9 @@
         var mod = this.getAttribute('data-mod');
         var item = this.getAttribute('data-item');
         closeModal();
-        if (window.ZenveRouter && typeof window.ZenveRouter.openDashboard === 'function') {
+        if (window.ZenveRouter && typeof window.ZenveRouter.navigateToRoute === 'function') {
+          window.ZenveRouter.navigateToRoute(null, mod, item);
+        } else if (window.ZenveRouter && typeof window.ZenveRouter.openDashboard === 'function') {
           window.ZenveRouter.openDashboard(mod, item);
         } else {
           location.hash = '#' + item.toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -462,6 +500,39 @@
         }
       };
     }
+
+    // Wire deep navigation buttons
+    var navBtns = resultsEl.querySelectorAll('.zcp-nav-action-btn');
+    navBtns.forEach(function (btn) {
+      btn.onclick = function (e) {
+        e.preventDefault();
+        var route = this.getAttribute('data-route');
+        var cat = this.getAttribute('data-cat');
+        var subcat = this.getAttribute('data-subcat');
+        var title = this.getAttribute('data-title');
+        closeModal();
+        if (window.ZenveRouter && typeof window.ZenveRouter.navigateToRoute === 'function') {
+          window.ZenveRouter.navigateToRoute(route, cat, subcat || title);
+        } else {
+          window.location.hash = route;
+        }
+      };
+    });
+
+    // Wire in-chat links
+    var chatLinks = resultsEl.querySelectorAll('.zcp-chat-link');
+    chatLinks.forEach(function (link) {
+      link.onclick = function (e) {
+        e.preventDefault();
+        var route = this.getAttribute('data-route') || this.getAttribute('href');
+        closeModal();
+        if (window.ZenveRouter && typeof window.ZenveRouter.navigateToRoute === 'function') {
+          window.ZenveRouter.navigateToRoute(route);
+        } else {
+          window.location.hash = route;
+        }
+      };
+    });
   }
 
   function wireEvents() {

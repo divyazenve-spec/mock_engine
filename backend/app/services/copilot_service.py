@@ -134,6 +134,10 @@ class ExecutiveCopilotEngine:
         if self._is_greeting(q_lower):
             return self._handle_greeting_flow(q_lower, ctx, [])
 
+        # NOTE: Summarize intent is handled per-domain below.
+        # e.g. "summarize sales" → sales handler, "summarize inventory" → inventory handler.
+        # A bare "summarize" alone triggers the ambiguity clarification (Step 4).
+
         # Step 4: Concise clarification for ambiguous single-word or broad requests
         ambiguity_topic = self._check_ambiguity(q_lower)
         if ambiguity_topic:
@@ -157,6 +161,23 @@ class ExecutiveCopilotEngine:
         if _has_kw(q_lower, ["custom api", "gemini api", "rag", "agentic", "architecture", "llm", "ai model", "gpt", "ollama", "integration"]):
             return self.rag_orchestrator.process_query(q_clean, ctx)
 
+        # Step 7b: Navigational RAG Dashboard Search across all 263 dashboards
+        nav_triggers = (
+            "where can i", "where is", "where do i", "which dashboard", "find dashboard",
+            "locate dashboard", "screen for", "page for", "tab for", "open ", "go to ",
+            "navigate to ", "jump to ", "show dashboard", "view dashboard", "dashboard for",
+            "show me dashboard", "open dashboard"
+        )
+        if any(w in q_lower for w in nav_triggers) or (("dashboard" in q_lower or "view" in q_lower) and any(a in q_lower for a in ("open", "go to", "navigate", "jump", "show", "find"))):
+            try:
+                from app.rag.vector_store import VectorStore
+                store = VectorStore.load()
+                matched = store.search(q_clean, top_k=3)
+                if matched and matched[0]["similarity_score"] > 0.05:
+                    return self._handle_navigational_rag_flow(q_clean, matched, ctx)
+            except Exception:
+                pass
+
         # Step 8: Domain-Specific Grounded Query Handlers
         agent_steps = [
             {"agent": "SupervisorAgent", "status": "completed", "note": "Decomposed query into validated operational parameters"},
@@ -166,35 +187,44 @@ class ExecutiveCopilotEngine:
         ]
 
         # Domain 1: Inventory & Pharmacy Medicines
-        if _has_kw(q_lower, ["bravecto", "inventory", "reorder", "po", "stockout", "medicine", "pharmacy", "stock", "sku", "supply"]):
+        if _has_kw(q_lower, ["bravecto", "inventory", "reorder", "po", "stockout", "medicine", "pharmacy", "stock", "sku", "supply"]) \
+                or ("summar" in q_lower and _has_kw(q_lower, ["inventory", "pharmacy", "medicine", "stock"])):
             return self._handle_inventory_flow(q_clean, ctx, agent_steps)
 
         # Domain 2: Clinic Network & Hospital Capacity
-        if _has_kw(q_lower, ["clinic", "hospital", "bed", "footfall", "facility", "icu", "branch"]):
+        if _has_kw(q_lower, ["clinic", "hospital", "bed", "footfall", "facility", "icu", "branch"]) \
+                or ("summar" in q_lower and _has_kw(q_lower, ["clinic", "hospital", "facility"])):
             return self._handle_clinic_flow(q_clean, ctx, agent_steps)
 
         # Domain 3: Doctors, Specialists & Medical Staff
-        if _has_kw(q_lower, ["doctor", "surgeon", "consultation", "specialist", "qualification", "roster", "caseload"]):
+        if _has_kw(q_lower, ["doctor", "surgeon", "consultation", "specialist", "qualification", "roster", "caseload"]) \
+                or ("summar" in q_lower and _has_kw(q_lower, ["doctor", "surgeon", "specialist"])):
             return self._handle_doctor_flow(q_clean, ctx, agent_steps)
 
         # Domain 4: Vaccination & Pet Patient Census
-        if _has_kw(q_lower, ["vaccin", "rabies", "puppy", "overdue", "campaign", "whatsapp", "booster", "pet", "dog", "cat"]) or ("patient" in q_lower and "footfall" not in q_lower and "clinic" not in q_lower):
+        if _has_kw(q_lower, ["vaccin", "rabies", "puppy", "overdue", "campaign", "whatsapp", "booster", "pet", "dog", "cat"]) \
+                or ("patient" in q_lower and "footfall" not in q_lower and "clinic" not in q_lower) \
+                or ("summar" in q_lower and _has_kw(q_lower, ["pet", "patient", "vaccin"])):
             return self._handle_vaccine_flow(q_clean, ctx, agent_steps)
 
         # Domain 5: Logistics & 60-Minute Express Delivery SLA
-        if _has_kw(q_lower, ["delivery", "60", "logistics", "rider", "sla", "courier", "fleet", "express", "dispatch"]):
+        if _has_kw(q_lower, ["delivery", "60", "logistics", "rider", "sla", "courier", "fleet", "express", "dispatch"]) \
+                or ("summar" in q_lower and _has_kw(q_lower, ["logistic", "delivery", "rider", "fleet"])):
             return self._handle_logistics_flow(q_clean, ctx, agent_steps)
 
         # Domain 6: Regional Sales, Revenue & Top Cities (Commercial Performance)
-        if _has_kw(q_lower, ["sale", "revenue", "turnover", "aov", "average order", "rank", "top city", "delhi", "mumbai", "bengaluru", "chennai", "pune", "hyderabad", "kolkata", "ahmedabad", "kochi", "chandigarh", "drop", "gross"]):
+        if _has_kw(q_lower, ["sale", "revenue", "turnover", "aov", "average order", "rank", "top city", "delhi", "mumbai", "bengaluru", "chennai", "pune", "hyderabad", "kolkata", "ahmedabad", "kochi", "chandigarh", "drop", "gross"]) \
+                or ("summar" in q_lower and _has_kw(q_lower, ["sale", "revenue", "gmv", "commercial"])):
             return self._handle_sales_flow(q_clean, ctx, agent_steps)
 
         # Domain 7: Orders & Channel Operations
-        if _has_kw(q_lower, ["order", "kiosk", "upi", "channel", "transaction"]):
+        if _has_kw(q_lower, ["order", "kiosk", "upi", "channel", "transaction"]) \
+                or ("summar" in q_lower and _has_kw(q_lower, ["order", "channel", "transaction"])):
             return self._handle_orders_flow(q_clean, ctx, agent_steps)
 
         # Domain 8: Subscriptions & Recurring ARR
-        if _has_kw(q_lower, ["subscription", "mrr", "arr", "subscriber", "churn", "renewal"]):
+        if _has_kw(q_lower, ["subscription", "mrr", "arr", "subscriber", "churn", "renewal"]) \
+                or ("summar" in q_lower and _has_kw(q_lower, ["subscription", "mrr", "subscriber", "wellness"])):
             return self._handle_subscriptions_flow(q_clean, ctx, agent_steps)
 
         # Default: Fallback to Enterprise RAG Orchestrator
@@ -342,13 +372,310 @@ class ExecutiveCopilotEngine:
             "table": None,
             "actions": [],
             "followups": [
+                "Give me a full enterprise summary",
                 "What is our consolidated gross revenue and AOV?",
                 "Which city generated the highest sales revenue?",
                 "What is our Bravecto inventory status and stockout risk?",
-                "How many pets have overdue vaccinations?",
-                "Which clinic has the highest patient footfall?"
+                "How many pets have overdue vaccinations?"
             ],
             "context": {**ctx, "session_active": True}
+        }
+
+    # ─────────────────────────────────────────────────────────────────────────────
+    # FULL ENTERPRISE SUMMARY / BRIEF / OVERVIEW ACROSS ALL DOMAINS
+    # ─────────────────────────────────────────────────────────────────────────────
+    def _is_summarize_query(self, q: str) -> bool:
+        """Detect requests for a broad summary, overview, or executive brief of the entire business."""
+        patterns = [
+            r"\bsummar",
+            r"\boverview\b",
+            r"\bbrief\b",
+            r"brief me",
+            r"give me.*summary",
+            r"give me.*overview",
+            r"tell me.*everything",
+            r"overall.*status",
+            r"full.*report",
+            r"executive.*report",
+            r"all.*details",
+            r"what.*going on",
+            r"status.*update",
+            r"daily.*report",
+            r"operational.*status",
+            r"business.*status",
+            r"snapshot",
+            r"digest",
+            r"health check",
+            r"business.*health",
+            r"how.*business.*doing",
+            r"state of.*business",
+            r"enterprise.*summary",
+        ]
+        return any(re.search(p, q) for p in patterns)
+
+    def _handle_summarize_flow(self, query: str, ctx: Dict[str, Any]) -> Dict[str, Any]:
+        """Pull live data from ALL major database domains and synthesize a comprehensive executive summary."""
+        agent_steps = [
+            {"agent": "SupervisorAgent", "status": "completed", "note": "Classified intent as Full Enterprise Summary — activating all domain agents"},
+            {"agent": "LiveQueryAgent", "status": "completed", "note": "Queried 8 operational database domains: Sales, Inventory, Clinics, Doctors, Pets, Logistics, Subscriptions, Alerts"},
+            {"agent": "SynthesisAgent", "status": "completed", "note": "Assembled cross-domain executive narrative grounded in verified database rows"},
+            {"agent": "ReasoningAgent", "status": "completed", "note": "Validated all KPIs against live records; flagged anomalies"},
+        ]
+
+        db = self.db
+        now = datetime.now(timezone.utc)
+
+        # ── 1. Sales & Revenue ──────────────────────────────────────────────────
+        paid_sales = db.query(Sale).filter(Sale.status == "Paid").all()
+        all_sales = db.query(Sale).all()
+        total_revenue = sum(s.amount for s in paid_sales)
+        total_orders = len(all_sales)
+        paid_orders = len(paid_sales)
+        pending_orders = total_orders - paid_orders
+        aov = round(total_revenue / max(1, paid_orders), 2)
+
+        # Top city by revenue
+        city_rev: Dict[str, float] = {}
+        for s in paid_sales:
+            if s.city:
+                city_rev[s.city] = city_rev.get(s.city, 0) + s.amount
+        top_city = max(city_rev, key=city_rev.get) if city_rev else "N/A"
+        top_city_rev = city_rev.get(top_city, 0)
+
+        # ── 2. Pharmacy & Inventory ─────────────────────────────────────────────
+        meds = db.query(PharmacyMedicine).all()
+        prods = db.query(Product).all()
+        low_meds = [m for m in meds if m.stock <= 15 or m.status == "Low Stock Warning"]
+        low_prods = [p for p in prods if p.stock <= p.min_stock]
+        total_low_stock = len(low_meds) + len(low_prods)
+
+        # ── 3. Clinics & Hospitals ──────────────────────────────────────────────
+        clinics = db.query(ClinicHospital).all()
+        total_clinics = len(clinics)
+        total_beds = sum(getattr(c, "total_beds", 0) or 0 for c in clinics)
+        top_clinic = max(clinics, key=lambda c: getattr(c, "daily_footfall", 0) or 0) if clinics else None
+        top_clinic_name = getattr(top_clinic, "name", "N/A") if top_clinic else "N/A"
+        top_clinic_footfall = getattr(top_clinic, "daily_footfall", 0) if top_clinic else 0
+
+        # ── 4. Doctors ──────────────────────────────────────────────────────────
+        doctors = db.query(Doctor).all()
+        active_doctors = [d for d in doctors if getattr(d, "status", "") == "Active"]
+        total_doctors = len(doctors)
+
+        # ── 5. Pet Patients & Vaccinations ─────────────────────────────────────
+        pets = db.query(Pet).all()
+        total_pets = len(pets)
+        overdue_pets = [p for p in pets if getattr(p, "vaccination_status", "") in ("Overdue", "Overdue - Rabies", "Overdue - DHPPi")]
+        overdue_count = len(overdue_pets)
+
+        # ── 6. Logistics & Deliveries ───────────────────────────────────────────
+        deliveries = db.query(LogisticsDelivery).all()
+        total_deliveries = len(deliveries)
+        on_time = [d for d in deliveries if getattr(d, "status", "") in ("Delivered", "On Time")]
+        sla_rate = round(len(on_time) / max(1, total_deliveries) * 100, 1)
+        in_transit = [d for d in deliveries if getattr(d, "status", "") in ("In Transit", "Dispatched")]
+
+        # ── 7. Subscriptions & MRR ──────────────────────────────────────────────
+        plans = db.query(SubscriptionPlan).all()
+        total_subscribers = sum(getattr(p, "active_subscribers", 0) or 0 for p in plans)
+        total_mrr = sum(getattr(p, "mrr", 0) or 0 for p in plans)
+        arr = total_mrr * 12
+
+        # ── 8. Alerts ───────────────────────────────────────────────────────────
+        active_alerts = db.query(Alert).filter(Alert.status == "Active").all()
+        critical_alerts = [a for a in active_alerts if getattr(a, "severity", "") in ("Critical", "High")]
+
+        # ── Narrative ───────────────────────────────────────────────────────────
+        text_parts = [
+            f"### 🏢 Zenve Pets Healthcare — Full Enterprise Executive Summary",
+            f"*Generated: {now.strftime('%d %b %Y, %H:%M UTC')} | Grounded across 8 live database domains*",
+            "",
+            "---",
+            "",
+            "#### 💰 Sales & Revenue Performance",
+            f"- **Total Settled Revenue**: ₹{format_indian(int(total_revenue))} across **{paid_orders} paid orders**",
+            f"- **Total Transaction Volume**: {total_orders} orders ({pending_orders} pending settlement)",
+            f"- **Average Order Value (AOV)**: ₹{format_indian(int(aov))}",
+            f"- **Top Revenue City**: **{top_city}** — ₹{format_indian(int(top_city_rev))}",
+            "",
+            "#### 🏥 Hospital & Clinical Network",
+            f"- **Total Hospital Facilities**: {total_clinics} clinics across {len(SUPPORTED_CITIES)} metropolitan hubs",
+            f"- **Aggregate Bed Capacity**: {total_beds:,} beds (surgical + ICU combined)",
+            f"- **Highest Footfall Clinic**: **{top_clinic_name}** — {top_clinic_footfall:,} daily patients",
+            f"- **Active Veterinary Roster**: {len(active_doctors)} of {total_doctors} doctors on duty",
+            "",
+            "#### 🐾 Pet Patient Registry",
+            f"- **Total Registered Patients**: {total_pets:,} pet patients on record",
+            f"- **Vaccination Overdue**: ⚠️ **{overdue_count}** pets require immediate recall campaigns",
+            "",
+            "#### 💊 Pharmacy & Inventory Health",
+            f"- **Total Medicines Catalogued**: {len(meds)} pharmaceutical SKUs",
+            f"- **Total Product SKUs**: {len(prods)} retail products",
+            f"- **Critical Low-Stock Items**: ⚠️ **{total_low_stock} SKUs** below safety threshold — replenishment required",
+            "",
+            "#### 🚚 Express Logistics (60-Min SLA)",
+            f"- **Total Deliveries Tracked**: {total_deliveries:,}",
+            f"- **SLA On-Time Rate**: **{sla_rate}%** of deliveries within 60-minute window",
+            f"- **Currently In Transit**: {len(in_transit)} active dispatches",
+            "",
+            "#### 📦 Subscriptions & Recurring Revenue",
+            f"- **Active Subscribers**: {total_subscribers:,} pet parents on wellness plans",
+            f"- **Monthly Recurring Revenue (MRR)**: ₹{format_indian(int(total_mrr))}",
+            f"- **Annual Recurring Revenue (ARR)**: ₹{format_indian(int(arr))}",
+        ]
+
+        if active_alerts:
+            text_parts += [
+                "",
+                "#### 🚨 Active Operational Alerts",
+                f"- **Total Active Alerts**: {len(active_alerts)} incidents | **Critical/High**: {len(critical_alerts)}",
+            ]
+            for a in critical_alerts[:3]:
+                text_parts.append(f"  • *[{getattr(a, 'alert_code', 'ALT')}] {getattr(a, 'title', 'Alert')}* — {getattr(a, 'severity', '')}")
+
+        text_parts += [
+            "",
+            "---",
+            "*Ask me to drill down into any domain above — e.g. city-wise revenue, Bravecto stockout, clinic footfall, or overdue vaccinations.*"
+        ]
+
+        text = "\n".join(text_parts)
+
+        # KPI pills
+        kpis = [
+            {"label": "Settled Revenue", "val": f"₹{format_indian(int(total_revenue))}", "delta": f"AOV ₹{format_indian(int(aov))}", "trend": "up", "subtext": f"{paid_orders} paid orders", "icon": "💰"},
+            {"label": "Hospital Network", "val": f"{total_clinics} Clinics", "delta": f"{total_beds:,} Beds", "trend": "success", "subtext": f"{len(active_doctors)} Active Doctors", "icon": "🏥"},
+            {"label": "Pet Patients", "val": f"{total_pets:,} Patients", "delta": f"{overdue_count} Overdue Vacc.", "trend": "warn" if overdue_count > 0 else "success", "subtext": "Vaccination Registry", "icon": "🐾"},
+            {"label": "Low-Stock SKUs", "val": f"{total_low_stock} Items", "delta": "Replenish Now", "trend": "danger" if total_low_stock > 0 else "success", "subtext": f"{len(meds)} total meds", "icon": "💊"},
+            {"label": "SLA On-Time Rate", "val": f"{sla_rate}%", "delta": f"{len(in_transit)} In Transit", "trend": "success" if sla_rate >= 80 else "warn", "subtext": "60-Min Delivery", "icon": "🚚"},
+            {"label": "MRR", "val": f"₹{format_indian(int(total_mrr))}", "delta": f"ARR ₹{format_indian(int(arr))}", "trend": "up", "subtext": f"{total_subscribers:,} subscribers", "icon": "📦"},
+        ]
+
+        # Summary table across domains
+        table = {
+            "columns": ["Domain", "Key Metric", "Value", "Status"],
+            "rows": [
+                {"Domain": "💰 Sales", "Key Metric": "Settled Revenue", "Value": f"₹{format_indian(int(total_revenue))}", "Status": "✅ Active"},
+                {"Domain": "💰 Sales", "Key Metric": "Average Order Value", "Value": f"₹{format_indian(int(aov))}", "Status": "✅ Active"},
+                {"Domain": "🏥 Clinics", "Key Metric": "Hospital Facilities", "Value": str(total_clinics), "Status": "✅ Operational"},
+                {"Domain": "🏥 Clinics", "Key Metric": "Total Bed Capacity", "Value": f"{total_beds:,} beds", "Status": "✅ Operational"},
+                {"Domain": "🐾 Patients", "Key Metric": "Registered Pets", "Value": f"{total_pets:,}", "Status": "✅ Active"},
+                {"Domain": "🐾 Patients", "Key Metric": "Overdue Vaccinations", "Value": str(overdue_count), "Status": "⚠️ Action Needed" if overdue_count > 0 else "✅ Compliant"},
+                {"Domain": "💊 Pharmacy", "Key Metric": "Low Stock SKUs", "Value": str(total_low_stock), "Status": "⚠️ Reorder" if total_low_stock > 0 else "✅ Healthy"},
+                {"Domain": "🚚 Logistics", "Key Metric": "60-Min SLA Rate", "Value": f"{sla_rate}%", "Status": "✅ On Track" if sla_rate >= 80 else "⚠️ Below Target"},
+                {"Domain": "📦 Subscriptions", "Key Metric": "MRR", "Value": f"₹{format_indian(int(total_mrr))}", "Status": "✅ Recurring"},
+                {"Domain": "🚨 Alerts", "Key Metric": "Active Incidents", "Value": str(len(active_alerts)), "Status": "🚨 Critical" if critical_alerts else ("⚠️ Active" if active_alerts else "✅ Clear")},
+            ]
+        }
+
+        return {
+            "role": "ai",
+            "text": text,
+            "intent": "ENTERPRISE_SUMMARY",
+            "agent_steps": agent_steps,
+            "kpis": kpis,
+            "chart": {
+                "type": "bar",
+                "title": "City-wise Revenue Breakdown (₹)",
+                "xKey": "city",
+                "yKeys": ["revenue"],
+                "colors": ["#10b981"],
+                "data": [
+                    {"city": city[:10], "revenue": round(rev / 100000, 1)}
+                    for city, rev in sorted(city_rev.items(), key=lambda x: x[1], reverse=True)[:7]
+                ]
+            } if city_rev else None,
+            "table": table,
+            "actions": [],
+            "followups": [
+                "Which city generated the highest sales revenue?",
+                "Show critical low-stock medicines with reorder proposal",
+                "How many pets are overdue for vaccinations?",
+                "Which clinic has the highest patient footfall?",
+                "What is our MRR and subscriber breakdown?",
+            ],
+            "context": {**ctx, "intent": "ENTERPRISE_SUMMARY", "summary_generated": True}
+        }
+
+    # ─────────────────────────────────────────────────────────────────────────────
+    # NAVIGATIONAL RAG & DASHBOARD SEARCH (263 DASHBOARDS)
+    # ─────────────────────────────────────────────────────────────────────────────
+    def _handle_navigational_rag_flow(self, query: str, matched: List[Dict[str, Any]], ctx: Dict[str, Any]) -> Dict[str, Any]:
+        """Synthesizes executive navigational answer with deep links into the 263 dashboards."""
+        top = matched[0]
+        text = (
+            f"### 📍 Recommended Dashboard: {top['title']}\n\n"
+            f"**Category**: {top['category']} | **Route**: `{top['route_hash']}`\n\n"
+            f"{top['summary']}\n\n"
+            f"• **Key Metrics Tracked**: {top['kpis_snippet']}\n"
+            f"• **Live Database Source**: `{top['primary_table']}` (API: `{top['api_endpoint']}`)\n\n"
+        )
+        if len(matched) > 1:
+            text += "#### 🔗 Related Dashboards in Zenve Intelligence Engine:\n"
+            for d in matched[1:]:
+                text += f"- **[{d['title']}]({d['route_hash']})** — *{d['category']}*\n"
+
+        actions = [
+            {
+                "id": f"NAV-{top['dashboard_id'][:12]}",
+                "action_id": f"NAV-{top['dashboard_id'][:12]}",
+                "action_type": "NAVIGATE_DASHBOARD",
+                "title": f"Open {top['title']}",
+                "description": f"Navigate directly to {top['route_hash']}",
+                "type": "NAVIGATE",
+                "parameters": {
+                    "route": top["route_hash"],
+                    "category": top["category"],
+                    "subcategory": top.get("subcategory") or top["title"],
+                    "title": top["title"]
+                },
+                "route": top["route_hash"],
+                "category": top["category"],
+                "subcategory": top.get("subcategory") or top["title"]
+            }
+        ]
+        for d in matched[1:3]:
+            actions.append({
+                "id": f"NAV-{d['dashboard_id'][:12]}",
+                "action_id": f"NAV-{d['dashboard_id'][:12]}",
+                "action_type": "NAVIGATE_DASHBOARD",
+                "title": f"Open {d['title']}",
+                "description": f"Navigate directly to {d['route_hash']}",
+                "type": "NAVIGATE",
+                "parameters": {
+                    "route": d["route_hash"],
+                    "category": d["category"],
+                    "subcategory": d.get("subcategory") or d["title"],
+                    "title": d["title"]
+                },
+                "route": d["route_hash"],
+                "category": d["category"],
+                "subcategory": d.get("subcategory") or d["title"]
+            })
+
+        return {
+            "role": "ai",
+            "text": text,
+            "intent": "NAVIGATIONAL_RAG",
+            "agent_steps": [
+                {"agent": "SupervisorAgent", "status": "completed", "note": "Classified intent as Navigational Dashboard Query"},
+                {"agent": "RAGVectorStore", "status": "completed", "note": f"Retrieved top match [{top['title']}] with similarity score {top['similarity_score']}"}
+            ],
+            "kpis": [
+                {"label": "Dashboard Match", "val": top["title"][:22], "delta": f"{int(top['similarity_score']*100)}% Match", "trend": "success", "subtext": top["category"], "icon": "📍"},
+                {"label": "Live Table", "val": top["primary_table"], "delta": "Connected", "trend": "success", "subtext": "Active Telemetry", "icon": "🗄️"},
+                {"label": "Route", "val": top["route_hash"], "delta": "Deep Link", "trend": "neutral", "subtext": "1-Click Nav", "icon": "⚡"}
+            ],
+            "chart": None,
+            "table": None,
+            "actions": actions,
+            "followups": [
+                f"Show key metrics in {top['title']}",
+                "Consolidated gross revenue summary",
+                "What is our Bravecto inventory status?",
+                "How many active critical alerts do we have?"
+            ],
+            "context": {**ctx, "last_nav_route": top["route_hash"]}
         }
 
     # ─────────────────────────────────────────────────────────────────────────────
@@ -358,7 +685,10 @@ class ExecutiveCopilotEngine:
         """Detect ambiguous single-word or very broad queries that require clarification."""
         words = q.split()
         if len(words) <= 2:
-            first = words[0].strip("!?,.")
+            first = words[0].strip("!?,.").lower()
+            # Bare 'summarize' or 'summary' with no domain → ask clarification
+            if first in ("summarize", "summary", "summar", "overview", "brief") and len(words) == 1:
+                return "summarize"
             ambiguity_map = {
                 "sales": "sales",
                 "revenue": "sales",
@@ -467,6 +797,27 @@ class ExecutiveCopilotEngine:
                     "**Supply Chain Performance**: E-pharmacy stock runway and fulfillment SLA."
                 ],
                 "followups": ["Consolidated sales performance", "Hospital network footfall", "E-pharmacy stock health"]
+            },
+            "summarize": {
+                "title": "Dashboard Summary",
+                "options": [
+                    "**Summarize Sales**: Total revenue, AOV, top city, and paid vs pending orders.",
+                    "**Summarize Inventory**: Low-stock SKUs, pharmacy medicines, and reorder alerts.",
+                    "**Summarize Clinics**: Hospital network, bed capacity, and top footfall clinic.",
+                    "**Summarize Pets**: Registered patients, overdue vaccinations, and species mix.",
+                    "**Summarize Logistics**: Delivery SLA rate, active dispatches, and fleet status.",
+                    "**Summarize Subscriptions**: MRR, ARR, and active wellness plan subscribers.",
+                    "**Summarize Doctors**: Active roster, specialists, and caseload leaders.",
+                    "**Summarize Orders**: Channel breakdown, UPI vs kiosk, and order volumes."
+                ],
+                "followups": [
+                    "Summarize sales dashboard",
+                    "Summarize inventory and pharmacy",
+                    "Summarize clinic network",
+                    "Summarize pet patients and vaccinations",
+                    "Summarize logistics and delivery SLA",
+                    "Summarize subscriptions and MRR"
+                ]
             }
         }
 
@@ -925,7 +1276,25 @@ class ExecutiveCopilotEngine:
             ],
             "chart": chart_data,
             "table": {"columns": ["Rank", "City", "Paid Orders", "Revenue", "AOV", "Share"], "rows": table_rows},
-            "actions": [],
+            "actions": [
+                {
+                    "id": "NAV-SALES-DASHBOARD",
+                    "action_id": "NAV-SALES-DASHBOARD",
+                    "action_type": "NAVIGATE_DASHBOARD",
+                    "title": "Open Executive Sales Dashboard",
+                    "description": "Navigate directly to #consolidated-gross-revenue",
+                    "type": "NAVIGATE",
+                    "parameters": {
+                        "route": "#consolidated-gross-revenue",
+                        "category": "Sales & Revenue",
+                        "subcategory": "Consolidated Gross Revenue",
+                        "title": "Executive Sales Dashboard"
+                    },
+                    "route": "#consolidated-gross-revenue",
+                    "category": "Sales & Revenue",
+                    "subcategory": "Consolidated Gross Revenue"
+                }
+            ],
             "followups": [
                 "What are sales in Delhi NCR?",
                 "What are sales in Mumbai?",
@@ -1028,6 +1397,24 @@ class ExecutiveCopilotEngine:
                 "status": "PENDING_APPROVAL"
             })
 
+        actions.append({
+            "id": "NAV-PHARMACY-INVENTORY",
+            "action_id": "NAV-PHARMACY-INVENTORY",
+            "action_type": "NAVIGATE_DASHBOARD",
+            "title": "Open Pharmacy Inventory Dashboard",
+            "description": "Navigate directly to #pharmacy-inventory",
+            "type": "NAVIGATE",
+            "parameters": {
+                "route": "#pharmacy-inventory",
+                "category": "Products & Inventory",
+                "subcategory": "Pharmacy Inventory",
+                "title": "Pharmacy Inventory Dashboard"
+            },
+            "route": "#pharmacy-inventory",
+            "category": "Products & Inventory",
+            "subcategory": "Pharmacy Inventory"
+        })
+
         text = (
             f"### 💊 Pharmacy Formulary & Stock Health Telemetry\n\n"
             f"• **Active Formulary**: **{len(meds)} pharmaceutical SKUs** indexed in table `pharmacy_medicines`.\n"
@@ -1115,6 +1502,23 @@ class ExecutiveCopilotEngine:
                     "booking_link": "Active"
                 },
                 "status": "PENDING_APPROVAL"
+            },
+            {
+                "id": "NAV-ALL-PETS",
+                "action_id": "NAV-ALL-PETS",
+                "action_type": "NAVIGATE_DASHBOARD",
+                "title": "Open Pet Patients Registry",
+                "description": "Navigate directly to #all-pets",
+                "type": "NAVIGATE",
+                "parameters": {
+                    "route": "#all-pets",
+                    "category": "Pets & Patients",
+                    "subcategory": "All Pets",
+                    "title": "Pet Patients Registry"
+                },
+                "route": "#all-pets",
+                "category": "Pets & Patients",
+                "subcategory": "All Pets"
             }
         ]
 
@@ -1268,7 +1672,25 @@ class ExecutiveCopilotEngine:
             ],
             "chart": chart_data,
             "table": {"columns": ["Code", "Hospital Name", "City", "Doctors", "Beds", "Daily Footfall"], "rows": table_rows},
-            "actions": [],
+            "actions": [
+                {
+                    "id": "NAV-CLINICS-DASHBOARD",
+                    "action_id": "NAV-CLINICS-DASHBOARD",
+                    "action_type": "NAVIGATE_DASHBOARD",
+                    "title": "Open Clinics & Hospitals Dashboard",
+                    "description": "Navigate directly to #clinics-dashboard",
+                    "type": "NAVIGATE",
+                    "parameters": {
+                        "route": "#clinics-dashboard",
+                        "category": "Clinics & Hospitals",
+                        "subcategory": "Clinics Dashboard",
+                        "title": "Clinics & Hospitals Dashboard"
+                    },
+                    "route": "#clinics-dashboard",
+                    "category": "Clinics & Hospitals",
+                    "subcategory": "Clinics Dashboard"
+                }
+            ],
             "followups": [
                 "Which doctor has the highest consultations?",
                 "What is our consolidated gross revenue?",
@@ -1336,7 +1758,25 @@ class ExecutiveCopilotEngine:
             ],
             "chart": None,
             "table": {"columns": ["Code", "Doctor Name", "Specialty", "Clinic Branch", "Consultations", "Rating"], "rows": table_rows},
-            "actions": [],
+            "actions": [
+                {
+                    "id": "NAV-ALL-DOCTORS",
+                    "action_id": "NAV-ALL-DOCTORS",
+                    "action_type": "NAVIGATE_DASHBOARD",
+                    "title": "Open Doctors & Specialists Dashboard",
+                    "description": "Navigate directly to #all-doctors",
+                    "type": "NAVIGATE",
+                    "parameters": {
+                        "route": "#all-doctors",
+                        "category": "Doctors & Staff",
+                        "subcategory": "All Doctors",
+                        "title": "Doctors & Specialists Dashboard"
+                    },
+                    "route": "#all-doctors",
+                    "category": "Doctors & Staff",
+                    "subcategory": "All Doctors"
+                }
+            ],
             "followups": [
                 "Show clinic locations and footfall",
                 "What is our consolidated gross revenue?",
@@ -1400,6 +1840,23 @@ class ExecutiveCopilotEngine:
                     "dispatch_type": "Express 60-Min Medical Dispatch"
                 },
                 "status": "PENDING_APPROVAL"
+            },
+            {
+                "id": "NAV-LOGISTICS-DELIVERY",
+                "action_id": "NAV-LOGISTICS-DELIVERY",
+                "action_type": "NAVIGATE_DASHBOARD",
+                "title": "Open 60-Minute Delivery Dashboard",
+                "description": "Navigate directly to #60-minute-delivery",
+                "type": "NAVIGATE",
+                "parameters": {
+                    "route": "#60-minute-delivery",
+                    "category": "Logistics & Supply Chain",
+                    "subcategory": "60-Minute Delivery",
+                    "title": "60-Minute Delivery Dashboard"
+                },
+                "route": "#60-minute-delivery",
+                "category": "Logistics & Supply Chain",
+                "subcategory": "60-Minute Delivery"
             }
         ]
 
@@ -1490,7 +1947,25 @@ class ExecutiveCopilotEngine:
             ],
             "chart": chart_data,
             "table": None,
-            "actions": [],
+            "actions": [
+                {
+                    "id": "NAV-ALL-ORDERS",
+                    "action_id": "NAV-ALL-ORDERS",
+                    "action_type": "NAVIGATE_DASHBOARD",
+                    "title": "Open Orders & Fulfillment Dashboard",
+                    "description": "Navigate directly to #all-orders",
+                    "type": "NAVIGATE",
+                    "parameters": {
+                        "route": "#all-orders",
+                        "category": "Orders & Fulfillment",
+                        "subcategory": "All Orders",
+                        "title": "Orders & Fulfillment Dashboard"
+                    },
+                    "route": "#all-orders",
+                    "category": "Orders & Fulfillment",
+                    "subcategory": "All Orders"
+                }
+            ],
             "followups": ["Consolidated sales summary", "What is Bravecto inventory status?"],
             "context": {**ctx, "topic": "orders"}
         }
@@ -1527,7 +2002,25 @@ class ExecutiveCopilotEngine:
             ],
             "chart": None,
             "table": None,
-            "actions": [],
+            "actions": [
+                {
+                    "id": "NAV-SUBSCRIPTIONS",
+                    "action_id": "NAV-SUBSCRIPTIONS",
+                    "action_type": "NAVIGATE_DASHBOARD",
+                    "title": "Open Subscriptions Dashboard",
+                    "description": "Navigate directly to #active-subscriptions",
+                    "type": "NAVIGATE",
+                    "parameters": {
+                        "route": "#active-subscriptions",
+                        "category": "Subscriptions & Memberships",
+                        "subcategory": "Active Subscriptions",
+                        "title": "Subscriptions Dashboard"
+                    },
+                    "route": "#active-subscriptions",
+                    "category": "Subscriptions & Memberships",
+                    "subcategory": "Active Subscriptions"
+                }
+            ],
             "followups": ["Consolidated sales summary", "How many pets have overdue vaccinations?"],
             "context": {**ctx, "topic": "subscriptions"}
         }

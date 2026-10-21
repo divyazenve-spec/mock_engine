@@ -18,7 +18,7 @@ echo  ====================================================
 echo.
 
 :: Start backend in a new window
-start "Zenve Backend (FastAPI :8000)" cmd /k "cd /d "%~dp0backend" && python -m uvicorn app.main:app --reload --port 8000 --host 127.0.0.1"
+start "Zenve Backend (FastAPI :8000)" cmd /k "cd /d "%~dp0backend" && (if exist .venv\Scripts\python.exe (.venv\Scripts\python.exe -m uvicorn app.main:app --reload --port 8000 --host 127.0.0.1) else (python -m uvicorn app.main:app --reload --port 8000 --host 127.0.0.1))"
 
 :: Wait 2 seconds for backend to start
 timeout /t 2 /nobreak >nul

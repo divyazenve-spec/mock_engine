@@ -87,7 +87,7 @@ export default function TargetsAndAchievement() {
               borderRadius: '8px',
               border: '1px solid var(--border, rgba(255,255,255,0.1))',
               background: targetAdjust === 0 ? 'var(--primary, #3b82f6)' : 'var(--card, #1e293b)',
-              color: '#fff',
+              color: targetAdjust === 0 ? '#fff' : '#000',
               fontSize: '11px',
               fontWeight: 700,
               cursor: 'pointer'
@@ -100,7 +100,7 @@ export default function TargetsAndAchievement() {
               borderRadius: '8px',
               border: '1px solid var(--border, rgba(255,255,255,0.1))',
               background: targetAdjust === 10 ? 'var(--primary, #3b82f6)' : 'var(--card, #1e293b)',
-              color: '#fff',
+              color: targetAdjust === 10 ? '#fff' : '#000',
               fontSize: '11px',
               fontWeight: 700,
               cursor: 'pointer'
@@ -113,7 +113,7 @@ export default function TargetsAndAchievement() {
               borderRadius: '8px',
               border: '1px solid var(--border, rgba(255,255,255,0.1))',
               background: targetAdjust === 20 ? 'var(--primary, #3b82f6)' : 'var(--card, #1e293b)',
-              color: '#fff',
+              color: targetAdjust === 20 ? '#fff' : '#000',
               fontSize: '11px',
               fontWeight: 700,
               cursor: 'pointer'
@@ -126,7 +126,7 @@ export default function TargetsAndAchievement() {
               borderRadius: '8px',
               border: '1px solid var(--border, rgba(255,255,255,0.1))',
               background: targetAdjust === -10 ? 'var(--primary, #3b82f6)' : 'var(--card, #1e293b)',
-              color: '#fff',
+              color: targetAdjust === -10 ? '#fff' : '#000',
               fontSize: '11px',
               fontWeight: 700,
               cursor: 'pointer'
@@ -366,7 +366,7 @@ export default function TargetsAndAchievement() {
                   borderRadius: '6px',
                   border: '1px solid var(--border, rgba(255,255,255,0.1))',
                   background: selectedDept === deptKey ? 'var(--primary, #3b82f6)' : 'transparent',
-                  color: '#fff',
+                  color: selectedDept === deptKey ? '#fff' : '#000',
                   fontSize: '11px',
                   cursor: 'pointer',
                   textTransform: 'capitalize'

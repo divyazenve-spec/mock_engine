@@ -10,13 +10,13 @@ export default function AskZenveAI() {
   const [history, setHistory] = useState([
     {
       role: 'ai',
-      text: "Hello! 🐾 I'm **Dr. Zenve**, your dedicated **Autonomous Multi-Agent Executive Co-Pilot** for Zenve Pets Healthcare.\n\nI can analyze live clinic EBITDA, pharmacy stockouts, 60-minute delivery SLAs, patient demographics, and **autonomously draft and execute operational actions** (Purchase Orders, WhatsApp booster campaigns, rider reallocations).\n\nFeel free to ask a business question or command an executive action!",
+      text: "Hello! 🐾 I'm **Dr. Zenve**, your dedicated **Autonomous Multi-Agent Executive Co-Pilot** for Zenve Pets Healthcare.\n\nI can:\n- **Summarize** all business operations in one shot (Sales, Inventory, Clinics, Pets, Logistics, Subscriptions, Alerts)\n- Analyze live clinic EBITDA, pharmacy stockouts, and 60-minute delivery SLAs\n- **Draft and execute operational actions** (Purchase Orders, WhatsApp booster campaigns, rider reallocations)\n\n💡 Try **📋 Full Enterprise Summary** below, or ask me any specific question!",
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       kpis: [
-        { label: "Database Records", val: "46,200 Loaded", trend: "up" },
-        { label: "Hospital Network", val: "14 Facilities", trend: "up" },
-        { label: "Co-Pilot Backend", val: "FastAPI Online", trend: "success" },
-        { label: "MySQL zenve_engine", val: "Connected & Grounded", trend: "success" }
+        { label: "Database Records", val: "46,200 Loaded", delta: "8 Domains Active", trend: "up", icon: "🗄️" },
+        { label: "Hospital Network", val: "14 Facilities", delta: "10 Cities", trend: "success", icon: "🏥" },
+        { label: "Co-Pilot Backend", val: "FastAPI Online", delta: "4-Agent Pipeline", trend: "success", icon: "⚡" },
+        { label: "Summarize Ready", val: "One Click", delta: "All Domains", trend: "up", icon: "📋" }
       ]
     }
   ]);
@@ -394,26 +394,58 @@ export default function AskZenveAI() {
           </div>
         ) : (
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-            <button
-              type="button"
-              onClick={() => handleExecuteAction(act.action_id, msgIdx)}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '9px 18px',
-                borderRadius: '8px',
-                border: 'none',
-                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                color: '#ffffff',
-                fontSize: '12.5px',
-                fontWeight: 800,
-                cursor: 'pointer',
-                boxShadow: '0 3px 10px rgba(16, 185, 129, 0.3)'
-              }}
-            >
-              ⚡ Approve &amp; Execute Action
-            </button>
+            {act.action_type === 'NAVIGATE_DASHBOARD' || act.type === 'NAVIGATE' || act.parameters?.route || act.route ? (
+              <button
+                type="button"
+                onClick={() => {
+                  const targetRoute = act.parameters?.route || act.route || '#';
+                  const cat = act.parameters?.category || act.category;
+                  const subcat = act.parameters?.subcategory || act.subcategory || act.title;
+                  if (window.ZenveRouter && typeof window.ZenveRouter.navigateToRoute === 'function') {
+                    window.ZenveRouter.navigateToRoute(targetRoute, cat, subcat);
+                  } else {
+                    window.location.hash = targetRoute;
+                  }
+                }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '9px 18px',
+                  borderRadius: '8px',
+                  border: 'none',
+                  background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
+                  color: '#ffffff',
+                  fontSize: '12.5px',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  boxShadow: '0 3px 10px rgba(2, 132, 199, 0.3)'
+                }}
+              >
+                🚀 Open Dashboard ({act.parameters?.title || act.title || act.parameters?.route || 'View'}) →
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => handleExecuteAction(act.action_id, msgIdx)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '9px 18px',
+                  borderRadius: '8px',
+                  border: 'none',
+                  background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                  color: '#ffffff',
+                  fontSize: '12.5px',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  boxShadow: '0 3px 10px rgba(16, 185, 129, 0.3)'
+                }}
+              >
+                ⚡ Approve &amp; Execute Action
+              </button>
+            )}
             <button
               type="button"
               onClick={() => alert(`Action parameters configured: ${act.title}`)}
@@ -440,16 +472,14 @@ export default function AskZenveAI() {
   }
 
   const quickPrompts = [
-    'Hello Dr. Zenve, who are you and what can you do?',
-    'What is AOV and how is it calculated?',
-    'What is EBITDA and why is it important for hospital operations?',
-    'What is our net profit on sales this quarter?',
-    'What were our total sales in London / New York?',
-    'What is our consolidated gross revenue and average order value across all cities?',
-    'Which city generated the highest sales revenue?',
-    'What is the current inventory status of Bravecto?',
-    'How many pets are overdue for core vaccinations across our network?',
-    'Which clinic has the highest patient footfall, and what is our total hospital bed capacity?'
+    { label: '📋 Full Enterprise Summary', prompt: 'Give me a full enterprise summary of all business operations', featured: true },
+    { label: 'Who are you?', prompt: 'Hello Dr. Zenve, who are you and what can you do?', featured: false },
+    { label: 'AOV Definition', prompt: 'What is AOV and how is it calculated?', featured: false },
+    { label: 'Gross Revenue', prompt: 'What is our consolidated gross revenue and average order value across all cities?', featured: false },
+    { label: 'Top Revenue City', prompt: 'Which city generated the highest sales revenue?', featured: false },
+    { label: 'Bravecto Stock', prompt: 'What is the current inventory status of Bravecto?', featured: false },
+    { label: 'Overdue Vaccines', prompt: 'How many pets are overdue for core vaccinations across our network?', featured: false },
+    { label: 'Clinic Footfall', prompt: 'Which clinic has the highest patient footfall, and what is our total hospital bed capacity?', featured: false },
   ];
 
   return (
@@ -761,12 +791,37 @@ export default function AskZenveAI() {
                 {/* KPI Pills */}
                 {msg.kpis && msg.kpis.length > 0 && (
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '10px 0' }}>
-                    {msg.kpis.map((k, ki) => (
-                      <div key={ki} style={{ padding: '6px 12px', borderRadius: '8px', background: '#f8fafc', border: '1px solid #e2e8f0', fontSize: '11.5px' }}>
-                        <span style={{ fontSize: '10px', color: '#64748b', fontWeight: 700, textTransform: 'uppercase' }}>{k.label}: </span>
-                        <strong style={{ color: '#0f172a', fontFamily: 'monospace' }}>{k.val}</strong>
-                      </div>
-                    ))}
+                    {msg.kpis.map((k, ki) => {
+                      const trendStyles = {
+                        success: { bg: '#dcfce7', border: '#86efac', color: '#15803d', dot: '#16a34a' },
+                        up:      { bg: '#eff6ff', border: '#93c5fd', color: '#1d4ed8', dot: '#2563eb' },
+                        warn:    { bg: '#fffbeb', border: '#fde68a', color: '#92400e', dot: '#d97706' },
+                        danger:  { bg: '#fef2f2', border: '#fecaca', color: '#b91c1c', dot: '#dc2626' },
+                        neutral: { bg: '#f8fafc', border: '#e2e8f0', color: '#475569', dot: '#94a3b8' },
+                      };
+                      const ts = trendStyles[k.trend] || trendStyles.neutral;
+                      return (
+                        <div key={ki} style={{
+                          padding: '7px 13px',
+                          borderRadius: '10px',
+                          background: ts.bg,
+                          border: `1px solid ${ts.border}`,
+                          fontSize: '11.5px',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          gap: '2px',
+                          minWidth: '110px'
+                        }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                            {k.icon && <span style={{ fontSize: '13px' }}>{k.icon}</span>}
+                            <span style={{ fontSize: '10px', color: ts.color, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.03em' }}>{k.label}</span>
+                          </div>
+                          <strong style={{ color: '#0f172a', fontFamily: 'monospace', fontSize: '13px' }}>{k.val}</strong>
+                          {k.delta && <span style={{ fontSize: '10px', color: ts.dot, fontWeight: 600 }}>{k.delta}</span>}
+                          {k.subtext && <span style={{ fontSize: '10px', color: '#94a3b8', fontWeight: 500 }}>{k.subtext}</span>}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
 
@@ -871,29 +926,36 @@ export default function AskZenveAI() {
           flexShrink: 0
         }}>
           <span style={{ fontSize: '11px', color: '#64748b', fontWeight: 700, display: 'flex', alignItems: 'center', marginRight: '4px' }}>
-            ⚡ Executive Prompts:
+            ⚡ Quick Prompts:
           </span>
           {quickPrompts.map((p, i) => (
             <button
               key={i}
               type="button"
-              onClick={() => sendQueryToBackend(p)}
-              title="Click to execute prompt directly"
+              onClick={() => sendQueryToBackend(p.prompt)}
+              title={p.prompt}
               style={{
-                padding: '5px 12px',
+                padding: p.featured ? '6px 14px' : '5px 12px',
                 borderRadius: '16px',
-                border: '1px solid #e2e8f0',
-                background: '#f8fafc',
-                color: '#475569',
+                border: p.featured ? '1.5px solid #10b981' : '1px solid #e2e8f0',
+                background: p.featured ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : '#f8fafc',
+                color: p.featured ? '#ffffff' : '#475569',
                 fontSize: '11.5px',
-                fontWeight: 500,
+                fontWeight: p.featured ? 700 : 500,
                 cursor: 'pointer',
-                transition: 'all 0.15s ease'
+                transition: 'all 0.15s ease',
+                boxShadow: p.featured ? '0 2px 8px rgba(16, 185, 129, 0.25)' : 'none'
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#f1f5f9'; e.currentTarget.style.borderColor = '#cbd5e1'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.borderColor = '#e2e8f0'; }}
+              onMouseEnter={e => {
+                if (p.featured) { e.currentTarget.style.boxShadow = '0 4px 14px rgba(16,185,129,0.4)'; }
+                else { e.currentTarget.style.background = '#f1f5f9'; e.currentTarget.style.borderColor = '#cbd5e1'; }
+              }}
+              onMouseLeave={e => {
+                if (p.featured) { e.currentTarget.style.boxShadow = '0 2px 8px rgba(16,185,129,0.25)'; }
+                else { e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.borderColor = '#e2e8f0'; }
+              }}
             >
-              {p}
+              {p.label}
             </button>
           ))}
         </div>
@@ -916,7 +978,7 @@ export default function AskZenveAI() {
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
-            placeholder="Ask AI Chatbot or command actions: 'Reorder Bravecto', 'Audit clinic EBITDA', 'Send booster alerts'..."
+            placeholder="Summarize everything, ask about sales, clinics, inventory, pets, logistics, or command actions..."
             disabled={isTyping}
             style={{
               flex: 1,

@@ -21,7 +21,7 @@
   overflow-y: auto !important;
   overflow-x: hidden !important;
   background: var(--background, #090d16) !important;
-  color: var(--foreground, #f8fafc) !important;
+  color: var(--foreground, #000) !important;
   font-family: var(--font-sans, "Manrope", sans-serif) !important;
   display: none;
   animation: zpidFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
@@ -60,7 +60,7 @@
 
 .zpid-head-left { display: flex; flex-direction: column; min-width: 0; }
 .zpid-title-row { display: flex; align-items: center; gap: 10px; }
-.zpid-title { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: -0.015em; color: var(--foreground,#fff); white-space: nowrap; }
+.zpid-title { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: -0.015em; color: var(--foreground,#000); white-space: nowrap; }
 .zpid-sub { font-size: 12px; margin: 2px 0 0; color: var(--muted-foreground,#94a3b8); }
 
 .zpid-live-badge {
@@ -115,7 +115,7 @@
   border-radius: 8px 8px 0 0; font-size: 12px; font-weight: 600; white-space: nowrap;
   color: var(--muted-foreground,#94a3b8); transition: all 0.15s;
 }
-.zpid-tab:hover { color: var(--foreground,#f8fafc); background: rgba(255,255,255,0.04); }
+.zpid-tab:hover { color: var(--foreground,#000); background: rgba(255,255,255,0.04); }
 .zpid-tab.on { color: #c4b5fd; background: rgba(139,92,246,0.1); border-bottom: 2px solid #8b5cf6; }
 
 .zpid-tab-badge { font-size: 10px; padding: 1px 6px; border-radius: 999px; background: rgba(139,92,246,0.18); color: #a78bfa; font-family: "IBM Plex Mono", monospace; font-weight: 700; }
@@ -135,7 +135,7 @@
 .zpid-kpi-top { display: flex; align-items: center; justify-content: space-between; }
 .zpid-kpi-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted-foreground,#94a3b8); font-family: "IBM Plex Mono", monospace; }
 .zpid-kpi-icon { font-size: 16px; }
-.zpid-kpi-value { font-size: 24px; font-weight: 700; font-family: "IBM Plex Mono", monospace; color: var(--foreground,#f8fafc); line-height: 1; }
+.zpid-kpi-value { font-size: 24px; font-weight: 700; font-family: "IBM Plex Mono", monospace; color: var(--foreground,#000); line-height: 1; }
 .zpid-kpi-delta { font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 99px; }
 .zpid-kpi-delta.up   { background: rgba(16,185,129,0.15); color: #10b981; }
 .zpid-kpi-delta.down { background: rgba(239,68,68,0.15);  color: #ef4444; }

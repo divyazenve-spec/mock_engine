@@ -25,7 +25,7 @@
   overflow-y: auto !important;
   overflow-x: hidden !important;
   background: var(--background, #090e17) !important;
-  color: var(--foreground, #f8fafc) !important;
+  color: var(--foreground, #000) !important;
   font-family: var(--font-sans, "Manrope", sans-serif);
   display: none;
   animation: zchFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
@@ -65,7 +65,7 @@
 
 .zch-head-left { display: flex; flex-direction: column; min-width: 0; gap: 3px; }
 .zch-title-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.zch-title { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: -0.015em; color: var(--foreground, #fff); white-space: nowrap; }
+.zch-title { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: -0.015em; color: var(--foreground, #000); white-space: nowrap; }
 .zch-sub { font-size: 12px; margin: 0; color: var(--muted-foreground, #94a3b8); line-height: 1.4; }
 
 .zch-live-badge {
@@ -121,7 +121,7 @@
   cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap;
   transition: all 0.15s ease; margin-bottom: -1px;
 }
-.zch-tab:hover { color: var(--foreground, #f8fafc); background: rgba(255,255,255,0.04); border-radius: 6px 6px 0 0; }
+.zch-tab:hover { color: var(--foreground, #000); background: rgba(255,255,255,0.04); border-radius: 6px 6px 0 0; }
 .zch-tab.active {
   color: #38bdf8; border-bottom-color: #38bdf8;
   background: rgba(56,189,248,0.08); border-radius: 6px 6px 0 0;
@@ -167,7 +167,7 @@
 .zch-kpi-top { display: flex; justify-content: space-between; align-items: center; }
 .zch-kpi-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--muted-foreground, #94a3b8); letter-spacing: 0.05em; font-family: "IBM Plex Mono", monospace; }
 .zch-kpi-icon { font-size: 18px; }
-.zch-kpi-val { font-size: 24px; font-weight: 700; font-family: "IBM Plex Mono", monospace; color: var(--foreground, #f8fafc); }
+.zch-kpi-val { font-size: 24px; font-weight: 700; font-family: "IBM Plex Mono", monospace; color: var(--foreground, #000); }
 .zch-kpi-bottom { display: flex; align-items: center; gap: 8px; font-size: 11px; }
 .zch-delta { padding: 2px 7px; border-radius: 99px; font-weight: 600; }
 .zch-delta.up { color: #10b981; background: rgba(16,185,129,0.15); }
@@ -186,7 +186,7 @@
   display: flex; justify-content: space-between; align-items: center;
   margin-bottom: 18px; flex-wrap: wrap; gap: 12px;
 }
-.zch-card-title { margin: 0; font-size: 16px; font-weight: 700; color: #fff; }
+.zch-card-title { margin: 0; font-size: 16px; font-weight: 700; color: #000; }
 .zch-card-sub { font-size: 12px; color: var(--muted-foreground, #94a3b8); margin-top: 3px; line-height: 1.4; }
 
 /* Grid splits */
@@ -213,7 +213,7 @@
 .zch-table td {
   padding: 14px 24px;
   border-bottom: 1px solid rgba(255,255,255,0.04);
-  color: var(--foreground, #f8fafc); vertical-align: middle;
+  color: var(--foreground, #000); vertical-align: middle;
 }
 .zch-table tr:last-child td { border-bottom: none; }
 .zch-table tr:hover td { background: rgba(255,255,255,0.025); }
@@ -239,7 +239,7 @@
 }
 .zch-input {
   background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
-  padding: 7px 12px; border-radius: 8px; font-size: 12px; color: #fff;
+  padding: 7px 12px; border-radius: 8px; font-size: 12px; color: #000;
   height: 34px; outline: none; transition: border-color 0.15s;
 }
 .zch-input:focus { border-color: #38bdf8; box-shadow: 0 0 0 2px rgba(56,189,248,0.2); }
@@ -275,7 +275,7 @@
   padding: 16px 22px; border-bottom: 1px solid rgba(255,255,255,0.08);
   display: flex; justify-content: space-between; align-items: center;
 }
-.zch-modal-title { font-size: 16px; font-weight: 700; color: #fff; margin: 0; }
+.zch-modal-title { font-size: 16px; font-weight: 700; color: #000; margin: 0; }
 .zch-modal-body { padding: 22px; display: flex; flex-direction: column; gap: 14px; max-height: 70vh; overflow-y: auto; }
 .zch-modal-foot {
   padding: 14px 22px; border-top: 1px solid rgba(255,255,255,0.08);

@@ -670,7 +670,6 @@ export const CATEGORIES_NAVIGATOR = [
     icon: '🤖',
     items: [
       'Ask Zenve AI',
-      'Custom API Integration (Enterprise RAG & Agentic Architecture)',
       'Business Insights',
       'Revenue Intelligence',
       'Sales Forecast',

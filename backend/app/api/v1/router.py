@@ -43,5 +43,5 @@ router.add_api_route("/pipeline/upload", pipeline.upload_dataset, methods=["POST
 router.add_api_route("/pipeline/template", pipeline.download_template, methods=["GET"], tags=["pipeline"])
 router.add_api_route("/pipeline/reset", pipeline.reset_to_sample, methods=["POST"], tags=["pipeline"])
 
-# Predict (future ML)
-router.add_api_route("/predict", predict.predict, methods=["POST"], tags=["predict"])
+# Predict ML Suite (Sales Forecasting, Customer Churn, Inventory Demand, Retraining)
+router.include_router(predict.router, prefix="/predict", tags=["predict"])

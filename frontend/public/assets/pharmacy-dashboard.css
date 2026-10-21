@@ -22,7 +22,7 @@
   z-index: 60 !important;
   overflow-y: auto !important;
   background: var(--background, #090d16) !important;
-  color: var(--foreground, #f8fafc) !important;
+  color: var(--foreground, #000) !important;
   font-family: var(--font-sans, "Manrope", sans-serif);
   display: none;
   animation: zphFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
@@ -62,7 +62,7 @@
 
 .zph-head-left { display: flex; flex-direction: column; min-width: 0; }
 .zph-title-row { display: flex; align-items: center; gap: 10px; }
-.zph-title { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: -0.015em; color: var(--foreground,#fff); white-space: nowrap; }
+.zph-title { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: -0.015em; color: var(--foreground,#000); white-space: nowrap; }
 .zph-sub { font-size: 12px; margin: 2px 0 0; color: var(--muted-foreground,#94a3b8); }
 
 .zph-live-badge {
@@ -120,7 +120,7 @@
   cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap;
   transition: all 0.15s; margin-bottom: -1px;
 }
-.zph-tab:hover { color: var(--foreground, #f8fafc); background: rgba(255,255,255,0.03); border-radius: 6px 6px 0 0; }
+.zph-tab:hover { color: var(--foreground, #000); background: rgba(255,255,255,0.03); border-radius: 6px 6px 0 0; }
 .zph-tab.active {
   color: #34d399; border-bottom-color: #10b981;
   background: rgba(16,185,129,0.08); border-radius: 6px 6px 0 0;
@@ -151,7 +151,7 @@
 .zph-kpi-top { display: flex; justify-content: space-between; align-items: center; }
 .zph-kpi-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--muted-foreground,#94a3b8); letter-spacing: 0.05em; font-family: "IBM Plex Mono", monospace; }
 .zph-kpi-icon { font-size: 18px; }
-.zph-kpi-val { font-size: 24px; font-weight: 700; font-family: "IBM Plex Mono", monospace; color: var(--foreground,#f8fafc); }
+.zph-kpi-val { font-size: 24px; font-weight: 700; font-family: "IBM Plex Mono", monospace; color: var(--foreground,#000); }
 .zph-kpi-bottom { display: flex; align-items: center; gap: 8px; font-size: 11px; }
 .zph-delta { padding: 2px 7px; border-radius: 99px; font-weight: 600; }
 .zph-delta.up { color: #10b981; background: rgba(16,185,129,0.15); }
@@ -169,7 +169,7 @@
   display: flex; justify-content: space-between; align-items: center;
   margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
 }
-.zph-card-title { margin: 0; font-size: 16px; font-weight: 700; color: #fff; }
+.zph-card-title { margin: 0; font-size: 16px; font-weight: 700; color: #000; }
 .zph-card-sub { margin: 2px 0 0; font-size: 12px; color: var(--muted-foreground,#94a3b8); }
 
 /* Tables with Edge Alignment matching card header text */
@@ -189,7 +189,7 @@
 }
 .zph-table td {
   padding: 14px 24px; border-bottom: 1px solid var(--border, rgba(255,255,255,0.04));
-  color: var(--foreground, #f8fafc); vertical-align: middle;
+  color: var(--foreground, #000); vertical-align: middle;
 }
 .zph-table tr:last-child td { border-bottom: none; }
 .zph-table tr:hover td { background: rgba(255,255,255,0.02); }
@@ -210,13 +210,13 @@
 .zph-filter-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .zph-input {
   padding: 6px 12px; border-radius: 8px; background: rgba(0,0,0,0.25);
-  border: 1px solid var(--border, rgba(255,255,255,0.1)); color: #fff; font-size: 12px;
+  border: 1px solid var(--border, rgba(255,255,255,0.1)); color: #000; font-size: 12px;
   outline: none;
 }
 .zph-input:focus { border-color: #10b981; }
 .zph-select {
   padding: 6px 10px; border-radius: 8px; background: rgba(0,0,0,0.25);
-  border: 1px solid var(--border, rgba(255,255,255,0.1)); color: #fff; font-size: 12px;
+  border: 1px solid var(--border, rgba(255,255,255,0.1)); color: #000; font-size: 12px;
   outline: none; cursor: pointer;
 }
 
