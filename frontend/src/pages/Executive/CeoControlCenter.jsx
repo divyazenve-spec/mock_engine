@@ -83,12 +83,12 @@ export default function CeoControlCenter() {
     >
       {/* Top Executive Cockpit Vitals */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Consolidated Run Rate (ARR)" value="₹22.08 Cr" delta="+24.2% YoY" trend="up" subtext="Based on ₹1.84 Cr MTD" icon="🚀" />
-        <KpiCard label="Operating EBITDA Run Rate" value="11.0%" delta="+1.2% QoQ" trend="up" subtext="₹2.26 Cr EBITDA run-rate" icon="📈" />
-        <KpiCard label="Liquid Treasury & Runway" value="28 Months" delta="₹4.85 Cr Reserves" trend="up" subtext="Zero debt liabilities" icon="🏦" />
+        <KpiCard label="Consolidated Run Rate (ARR)" value="₹17.14 Cr" delta="+18.4% YoY" trend="up" subtext="Based on ₹1,42,85,000 MTD" icon="🚀" />
+        <KpiCard label="Operating EBITDA Run Rate" value="24.0%" delta="+24.0%" trend="up" subtext="₹4.11 Cr EBITDA run-rate" icon="📈" />
+        <KpiCard label="Liquid Treasury & Runway" value="14.2 Months" delta="₹8.84 Cr Reserves" trend="up" subtext="Zero debt liabilities" icon="🏦" />
         <KpiCard label="Board OKR Execution" value="96.8%" delta="10/10 On Track" trend="up" subtext="Active FY25-26 cycle" icon="🎯" />
-        <KpiCard label="Enterprise Headcount" value="148 Staff" delta="112 On-Duty" trend="neutral" subtext="Across 10 central hubs" icon="👥" />
-        <KpiCard label="Blended Gross Margin" value="40.1%" delta="+1.6% vs benchmark" trend="up" subtext="Direct sourcing active" icon="💎" />
+        <KpiCard label="Enterprise Headcount" value="208 Staff" delta="14 net additions" trend="neutral" subtext="Across 10 core divisions" icon="👥" />
+        <KpiCard label="Blended Gross Margin" value="56.0%" delta="+6.7% vs budget" trend="up" subtext="Direct sourcing active" icon="💎" />
       </div>
 
       {/* Strategic OKRs Tracker (10 Board OKRs) */}
@@ -281,14 +281,14 @@ export default function CeoControlCenter() {
             <div style={{ padding: '16px', background: '#f8fafc', borderRadius: '10px', border: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <span style={{ fontSize: '12px', color: '#64748b', fontWeight: 600 }}>Liquid Treasury Reserves</span>
-                <h2 style={{ margin: '4px 0 0', fontSize: '24px', fontWeight: 800, color: '#0f172a' }}>₹4.85 Cr</h2>
-                <span style={{ fontSize: '11px', color: '#059669', fontWeight: 700 }}>+₹18.9L Monthly Operational Surplus</span>
+                <h2 style={{ margin: '4px 0 0', fontSize: '24px', fontWeight: 800, color: '#0f172a' }}>₹8.84 Cr</h2>
+                <span style={{ fontSize: '11px', color: '#059669', fontWeight: 700 }}>+₹34.28L Monthly Operating Surplus</span>
               </div>
               <div style={{ textAlign: 'right' }}>
                 <span style={{ fontSize: '13px', fontWeight: 700, padding: '6px 12px', borderRadius: '6px', background: '#ecfdf5', color: '#047857' }}>
-                  28 Months Runway
+                  14.2 Months Runway
                 </span>
-                <p style={{ margin: '6px 0 0', fontSize: '11px', color: '#64748b' }}>No Long-Term Debt</p>
+                <p style={{ margin: '6px 0 0', fontSize: '11px', color: '#64748b' }}>Zero Long-Term Debt</p>
               </div>
             </div>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>

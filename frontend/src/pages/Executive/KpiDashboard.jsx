@@ -78,10 +78,10 @@ export default function KpiDashboard() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Overall Scorecard Health" value="96.8%" delta="10 of 10 Met" trend="up" subtext="Balanced scorecard targets met" icon="✅" />
-        <KpiCard label="Customer NPS" value="78" delta="+6 pts QoQ" trend="up" subtext="Across pet parent cohort" icon="⭐" />
-        <KpiCard label="Delivery SLA Velocity" value="96.8%" delta="38.4m average" trend="up" subtext="60-min door delivery" icon="⚡" />
-        <KpiCard label="Gross Margin" value="40.1%" delta="+1.6% YoY" trend="up" subtext="Direct sourcing active" icon="💎" />
+        <KpiCard label="Overall Scorecard Health" value="98.8%" delta="10 of 10 Met" trend="up" subtext="Balanced scorecard targets met" icon="✅" />
+        <KpiCard label="Customer CSAT" value="96.4%" delta="+2.1% MoM" trend="up" subtext="4.8/5 across 4,200 reviews" icon="⭐" />
+        <KpiCard label="Delivery SLA Velocity" value="98.8%" delta="28.4m average" trend="up" subtext="60-min door delivery" icon="⚡" />
+        <KpiCard label="Gross Margin" value="56.0%" delta="+6.7% YoY" trend="up" subtext="Direct sourcing active" icon="💎" />
       </div>
 
       {/* Balanced Scorecard Pillar Summary */}

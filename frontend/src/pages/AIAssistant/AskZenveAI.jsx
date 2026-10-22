@@ -479,6 +479,7 @@ export default function AskZenveAI() {
     { label: 'Top Revenue City', prompt: 'Which city generated the highest sales revenue?', featured: false },
     { label: 'Bravecto Stock', prompt: 'What is the current inventory status of Bravecto?', featured: false },
     { label: 'Overdue Vaccines', prompt: 'How many pets are overdue for core vaccinations across our network?', featured: false },
+    { label: '🌐 Operational Scope', prompt: 'What is the operational scope and scope note for Ask Zenve AI?', featured: false },
     { label: 'Clinic Footfall', prompt: 'Which clinic has the highest patient footfall, and what is our total hospital bed capacity?', featured: false },
   ];
 
@@ -550,7 +551,7 @@ export default function AskZenveAI() {
                   window.location.hash = '#api-integrations';
                 }
               }}
-              title="Configure Custom API Integration, Enterprise RAG, and Agentic Architecture"
+              title="Open API&Integrations Settings"
               style={{
                 padding: '7px 14px',
                 borderRadius: '8px',
@@ -565,7 +566,7 @@ export default function AskZenveAI() {
                 gap: '6px'
               }}
             >
-              🔌 Custom API &amp; Enterprise RAG
+              🔌 API&amp;Integrations
             </button>
             <button
               type="button"

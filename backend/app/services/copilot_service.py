@@ -923,6 +923,7 @@ class ExecutiveCopilotEngine:
 
         text = (
             "### ⚠️ Data Availability Notice: Profit Metric Calculation\n\n"
+            "• **Scope Note**: Calculation of transaction-level net profit is outside current database scope due to missing per-transaction COGS in table `sales`.\n\n"
             "**1. What Information is Missing:**\n"
             "• Transaction-level **Cost of Goods Sold (COGS)** is not recorded in the transactional table `sales`.\n"
             "• Operational expenditure line-items (clinic lease rent, surgeon clinical fee splits, logistics delivery fleet fuel, and utility overheads) are maintained in corporate GAAP audit journals rather than per-transaction records.\n\n"
@@ -986,6 +987,7 @@ class ExecutiveCopilotEngine:
         """Explain transparently that the requested geography is outside coverage."""
         text = (
             f"### 📍 Operational Territory Notice: {unsupported_city}\n\n"
+            f"• **Scope Note**: {unsupported_city} is outside Zenve's active operational network (India Tier-1/2 metropolitan hubs).\n\n"
             f"**1. What Information is Missing:**\n"
             f"Zenve Pets Healthcare currently has **zero operational facilities, telemetry streams, or sales records** for **{unsupported_city}**.\n\n"
             "**2. Why a Reliable Answer Cannot Be Produced:**\n"
@@ -1033,13 +1035,49 @@ class ExecutiveCopilotEngine:
             r"what is aov", r"how is aov calculated", r"what is average order value",
             r"what is churn", r"how is churn rate calculated",
             r"what is ebitda", r"how is ebitda calculated",
-            r"what is inventory turnover", r"how does cold-chain work"
+            r"what is inventory turnover", r"how does cold-chain work",
+            r"scope note", r"what is (?:the )?scope", r"what is in scope",
+            r"what is out of scope", r"operational scope", r"coverage scope",
+            r"^scope\??$"
         ]
         return any(re.search(p, q) for p in patterns)
 
     def _handle_general_analytical_flow(self, q: str, ctx: Dict[str, Any]) -> Dict[str, Any]:
         """Explain general business concepts with exact formulas and Zenve's live application."""
-        if "aov" in q or "average order" in q:
+        if "scope" in q or "boundary" in q or "coverage" in q:
+            sales_count = self.db.query(Sale).count()
+            paid_sales = self.db.query(Sale).filter(Sale.status == "Paid").all()
+            total_rev = sum(s.amount for s in paid_sales) if paid_sales else 0.0
+            meds_count = self.db.query(PharmacyMedicine).count()
+            clinics_count = self.db.query(ClinicHospital).count()
+            pets_count = self.db.query(Pet).count()
+            doctors_count = self.db.query(Doctor).count()
+
+            text = (
+                "### 🌐 Executive Operational Scope & Grounding Note\n\n"
+                "• **Scope Note**: Ask Zenve AI operates in multi-agent enterprise mode, strictly grounded in live operational databases (`zenve_engine`) across 10 Indian metropolitan hubs, 14 hospital facilities, and express last-mile corridors.\n\n"
+                "**1. In-Scope Operational Domains:**\n"
+                f"• **Pharmacy & Formulary**: {meds_count} active SKUs under IoT cold-chain (2°C–8°C) monitoring with automated buffer thresholds (e.g. Bravecto Chewables reorder POs).\n"
+                f"• **Hospital Network & Clinical Care**: {clinics_count} facilities and {doctors_count} veterinary surgeons across 10 hubs with 24/7 emergency & ICU capacity tracking.\n"
+                f"• **Preventive Pet Healthcare**: {pets_count} registered pet patients with automated recall tracking for Rabies, DHPPi, and booster schedules.\n"
+                f"• **Commercial Performance & Sales**: ₹{format_indian(int(total_rev))} settled net revenue across {sales_count} transactions with city-level diagnostics.\n\n"
+                "**2. Out-of-Scope Disclosures (Zero-Hallucination Policy):**\n"
+                "• **Geographic Footprint**: Inquiries for regions outside India Tier-1/2 operational hubs (e.g., London, Dubai, New York) return transparent 'Out of Scope' notices rather than misleading zero metrics.\n"
+                "• **Unrecorded Metrics**: Granular per-transaction COGS or unrecorded corporate line-items are clearly explained as missing data rather than estimated.\n\n"
+                "**3. Try Asking Grounded Questions:**\n"
+                "• *'What is our Bravecto inventory status and draft a PO?'*\n"
+                "• *'Which clinic has the highest patient footfall?'*\n"
+                "• *'Find overdue rabies vaccinations and draft WhatsApp campaign'*\n"
+                "• *'What is our consolidated gross revenue across all cities?'*"
+            )
+            followups = [
+                "What is our consolidated gross revenue and AOV?",
+                "What is our Bravecto inventory status and draft a PO?",
+                "Which clinic has the highest patient footfall?",
+                "How many pets are overdue for core vaccinations?"
+            ]
+
+        elif "aov" in q or "average order" in q:
             paid_sales = self.db.query(Sale).filter(Sale.status == "Paid").all()
             total_rev = sum(s.amount for s in paid_sales)
             aov = total_rev / len(paid_sales) if paid_sales else 0.0

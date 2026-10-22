@@ -70,13 +70,13 @@ def run_seed():
         db.query(DailyMetric).delete()
         db.commit()
 
-        now = datetime(2026, 10, 13, 16, 30, 0)
+        now = datetime(2026, 10, 21, 16, 30, 0)
         sales_records = []
         metrics_by_date = {}
 
-        # Generate 150 sales spread across the last 30 days
-        for i in range(150):
-            days_ago = random.randint(0, 29)
+        # Generate 300 sales spread across the last 60 days
+        for i in range(300):
+            days_ago = random.randint(0, 59)
             sale_dt = now - timedelta(days=days_ago, hours=random.randint(0, 23), minutes=random.randint(0, 59))
             cust_name, cust_city = random.choice(CUSTOMERS)
             svc_name, base_amount = random.choice(SERVICES)
@@ -117,10 +117,10 @@ def run_seed():
                 "is_demo": bool(sale.is_demo)
             })
 
-        # Generate DailyMetrics for each of the last 30 days
+        # Generate DailyMetrics for each of the last 60 days
         metrics_records = []
-        for d in range(30):
-            b_date = (now - timedelta(days=29 - d)).date()
+        for d in range(60):
+            b_date = (now - timedelta(days=59 - d)).date()
             dt_key = b_date.strftime("%Y-%m-%d")
             existing_sales = metrics_by_date.get(dt_key, {}).get("sales_total", 0.0)
             sales_total = existing_sales if existing_sales > 0 else round(random.uniform(95000, 185000), 2)

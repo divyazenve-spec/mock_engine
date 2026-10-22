@@ -5,18 +5,18 @@
  */
 
 export const MOCK_EXECUTIVE_KPIS = {
-  grossRevenue: '₹1.84 Cr',
-  revenueGrowth: '+24.2% YoY',
-  netRevenue: '₹1.72 Cr',
-  netMargin: '93.3% Net',
-  ebitda: '₹18.9L',
-  ebitdaMargin: '11.0% EBITDA',
-  registeredPetParents: '42,850',
-  petParentsGrowth: '+1,840 MTD',
-  clinicalPractitioners: '148',
-  cliniciansOnDuty: '112 Active Today',
-  slaVelocity: '96.8%',
-  slaAverageTime: '38.4 mins avg'
+  grossRevenue: '₹1,42,85,000',
+  revenueGrowth: '+18.4% YoY',
+  netRevenue: '₹26,10,200',
+  netMargin: '18.3% PAT',
+  ebitda: '₹34,28,400',
+  ebitdaMargin: '24.0% EBITDA',
+  registeredPetParents: '12,480',
+  petParentsGrowth: '+18.4% YoY',
+  clinicalPractitioners: '42 Clinicians',
+  cliniciansOnDuty: 'Across 10 Centers',
+  slaVelocity: '98.8%',
+  slaAverageTime: '28.4 mins avg'
 };
 
 export const MOCK_DIVISIONAL_CONTRIBUTION = [
@@ -329,16 +329,16 @@ export const MOCK_CAPITAL_ALLOCATION = [
 ];
 
 export const MOCK_PL_STATEMENT = [
-  { label: 'Gross Billed Revenue (MRP)', val: '₹1,84,00,000', bold: true, hl: false, neg: false },
-  { label: 'Customer Schemes & Loyalty Discounts', val: '- ₹12,40,000', bold: false, hl: false, neg: true },
-  { label: 'Net Recognized Revenue', val: '₹1,71,60,000', bold: true, hl: true, neg: false },
-  { label: 'Cost of Goods Sold (Medicines & Pet Essentials)', val: '- ₹1,02,80,000', bold: false, hl: false, neg: true },
-  { label: 'Gross Operating Margin (40.1%)', val: '₹68,80,000', bold: true, hl: false, neg: false },
-  { label: 'Clinical, Veterinary & Ops Payroll', val: '- ₹28,50,000', bold: false, hl: false, neg: true },
-  { label: 'Logistics Fleet & 60-Minute Last-Mile', val: '- ₹9,20,000', bold: false, hl: false, neg: true },
-  { label: 'Hospital Facility Leases & Utilities', val: '- ₹8,40,000', bold: false, hl: false, neg: true },
-  { label: 'Cloud Infrastructure & AI Systems', val: '- ₹3,80,000', bold: false, hl: false, neg: true },
-  { label: 'Consolidated EBITDA (11.0%)', val: '₹18,90,000', bold: true, hl: true, neg: false }
+  { label: 'Gross Invoiced Revenue', val: '₹1,42,85,000', bold: true, hl: false, neg: false },
+  { label: 'Direct Cost of Goods Sold (COGS)', val: '- ₹62,85,000', bold: false, hl: false, neg: true },
+  { label: 'Gross Operating Margin (56.0%)', val: '₹80,00,000', bold: true, hl: false, neg: false },
+  { label: 'Clinical Salaries & Doctor Fees', val: '- ₹24,80,000', bold: false, hl: false, neg: true },
+  { label: 'Hospital Facility Leases (14 Units)', val: '- ₹11,50,000', bold: false, hl: false, neg: true },
+  { label: 'Utilities, Digital Infrastructure & EHR', val: '- ₹9,41,600', bold: false, hl: false, neg: true },
+  { label: 'Total Operating Expenses (OPEX)', val: '- ₹45,71,600', bold: false, hl: false, neg: true },
+  { label: 'Consolidated EBITDA (24.0%)', val: '₹34,28,400', bold: true, hl: true, neg: false },
+  { label: 'Depreciation, Amortization & Finance', val: '- ₹4,98,133', bold: false, hl: false, neg: true },
+  { label: 'Net Profit After Tax (PAT: 18.3%)', val: '₹26,10,200', bold: true, hl: true, neg: false }
 ];
 
 export const MOCK_GEOGRAPHIC_CLUSTERS = [
@@ -355,14 +355,14 @@ export const MOCK_GEOGRAPHIC_CLUSTERS = [
 ];
 
 export const MOCK_BALANCED_KPIS = [
-  { category: 'Financial', metric: 'Monthly Enterprise Revenue', target: '₹1.75 Cr', actual: '₹1.84 Cr', variance: '+5.1%', status: 'Target Met' },
-  { category: 'Financial', metric: 'Operating EBITDA Margin', target: '10.0%', actual: '11.0%', variance: '+1.0%', status: 'Target Met' },
-  { category: 'Financial', metric: 'Blended Gross Margin', target: '38.5%', actual: '40.1%', variance: '+1.6%', status: 'Target Met' },
-  { category: 'Operational', metric: '60-Minute Rapid Delivery SLA', target: '95.0%', actual: '96.8%', variance: '+1.8%', status: 'Target Met' },
+  { category: 'Financial', metric: 'Monthly Enterprise Revenue', target: '₹1.35 Cr', actual: '₹1,42,85,000', variance: '+5.8%', status: 'Target Met' },
+  { category: 'Financial', metric: 'Operating EBITDA Margin', target: '20.0%', actual: '24.0%', variance: '+4.0%', status: 'Target Met' },
+  { category: 'Financial', metric: 'Blended Gross Margin', target: '50.0%', actual: '56.0%', variance: '+6.0%', status: 'Target Met' },
+  { category: 'Operational', metric: '60-Minute Rapid Delivery SLA', target: '95.0%', actual: '98.8%', variance: '+3.8%', status: 'Target Met' },
   { category: 'Operational', metric: 'Pharmacy Formulary Stockout Rate', target: '<2.5%', actual: '1.4%', variance: '-1.1%', status: 'Target Met' },
-  { category: 'Clinical', metric: 'Veterinary Consultation Volume', target: '3,200', actual: '3,420', variance: '+6.9%', status: 'Target Met' },
+  { category: 'Clinical', metric: 'Veterinary Consultation Volume', target: '3,200', actual: '3,480', variance: '+8.8%', status: 'Target Met' },
   { category: 'Clinical', metric: 'Antibiotic Stewardship Compliance', target: '100.0%', actual: '100.0%', variance: '0.0%', status: 'Target Met' },
-  { category: 'Customer', metric: 'Pet Parent Net Promoter Score (NPS)', target: '72', actual: '78', variance: '+6 pts', status: 'Target Met' },
-  { category: 'Customer', metric: '12-Month Chronic Refill Retention', target: '70.0%', actual: '74.2%', variance: '+4.2%', status: 'Target Met' },
-  { category: 'Growth', metric: 'Active Wellness Club Subscribers', target: '8,000', actual: '8,420', variance: '+5.3%', status: 'Target Met' }
+  { category: 'Customer', metric: 'Pet Parent Customer CSAT Score', target: '92.0%', actual: '96.4%', variance: '+4.4%', status: 'Target Met' },
+  { category: 'Customer', metric: '12-Month Chronic Refill Retention', target: '70.0%', actual: '74.8%', variance: '+4.8%', status: 'Target Met' },
+  { category: 'Growth', metric: 'Active Total Customer Base', target: '10,000', actual: '12,480', variance: '+24.8%', status: 'Target Met' }
 ];

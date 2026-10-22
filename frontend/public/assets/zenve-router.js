@@ -488,10 +488,9 @@
     'tax settings': { controller: 'ZenveSettingsDashboard', tab: 'tax', hash: '#tax-settings', rootId: 'zset-root', module: 'Settings' },
     'payment settings': { controller: 'ZenveSettingsDashboard', tab: 'payments', hash: '#payment-settings', rootId: 'zset-root', module: 'Settings' },
     'delivery settings': { controller: 'ZenveSettingsDashboard', tab: 'delivery', hash: '#delivery-settings', rootId: 'zset-root', module: 'Settings' },
+    'api&integrations': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
     'api & integrations': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
-    'custom api & api integrations': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
     'custom api integration': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
-    'custom api integration (enterprise rag & agentic architecture)': { controller: 'ZenveSettingsDashboard', tab: 'integrations', hash: '#api-integrations', rootId: 'zset-root', module: 'Settings' },
     'security': { controller: 'ZenveSettingsDashboard', tab: 'security', hash: '#security-settings', rootId: 'zset-root', module: 'Settings' },
     'backup & recovery': { controller: 'ZenveSettingsDashboard', tab: 'backup', hash: '#backup-recovery', rootId: 'zset-root', module: 'Settings' }
   };

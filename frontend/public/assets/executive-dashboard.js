@@ -119,12 +119,12 @@
 
     return [
       '<div class="zexec-kpi-grid">',
-        kpiHtml('Consolidated Revenue (MTD)', '₹1.84 Cr', '+24.2% YoY', 'up', '₹1.72 Cr Net Recognized', '💰'),
-        kpiHtml('Gross Profit Margin', '40.1%', '+1.6% vs benchmark', 'up', 'Blended enterprise margin', '📈'),
-        kpiHtml('Active Healthcare Members', '42,850', '+1,840 this month', 'up', '94.2% engagement rate', '🐾'),
-        kpiHtml('Operating EBITDA', '₹18.9L', '11.0% margin', 'up', '+₹3.2L vs forecast', '⚡'),
-        kpiHtml('Clinical Consultations', '3,420', '98.5% fulfillment', 'up', '148 network veterinarians', '👨‍⚕️'),
-        kpiHtml('Blended Customer CAC', '₹420', '-12.4% vs benchmark', 'up', '4.8x LTV/CAC ratio', '🎯'),
+        kpiHtml('Gross Invoiced Revenue (MTD)', '₹1,42,85,000', '+18.4%', 'up', 'All 14 centers + app (Finance)', '💰'),
+        kpiHtml('Net Operating EBITDA', '₹34,28,400', '24.0% margin', 'up', 'Operating surplus (Finance)', '⚡'),
+        kpiHtml('Net Profit (PAT)', '₹26,10,200', '+19.2%', 'up', 'Post tax & depreciation (Finance)', '🏆'),
+        kpiHtml('Total Customer Base', '12,480', '+18.4%', 'up', 'Verified pet parents (Customers 360°)', '🐾'),
+        kpiHtml('Active Veterinary Doctors', '42 Clinicians', '+6 YoY', 'up', 'Across 10 clinic centers (Doctors)', '👨‍⚕️'),
+        kpiHtml('60-Min SLA Velocity', '98.8%', '28.4 mins avg', 'up', 'Across 10 urban hubs (Logistics)', '🚀'),
       '</div>',
 
       '<div class="zexec-card">',
@@ -216,12 +216,12 @@
 
     return [
       '<div class="zexec-kpi-grid">',
-        kpiHtml('Consolidated Run Rate (ARR)', '₹22.1 Cr', '+28.5% YoY', 'up', 'Annualized revenue pacing', '🚀'),
-        kpiHtml('Operating EBITDA Run Rate', '11.0%', '+1.4% QoQ', 'up', '₹2.27 Cr EBITDA run-rate', '📈'),
-        kpiHtml('Liquid Treasury & Runway', '28 Months', '₹4.85 Cr in treasuries', 'up', 'Zero long-term debt', '🏦'),
-        kpiHtml('Board OKR Execution', '95.2%', '9 of 10 On Track', 'up', 'Q3 Board Review Cycle', '🎯'),
-        kpiHtml('Enterprise Headcount', '248 Staff', '148 Specialists', 'up', '95.4% retention rate', '👥'),
-        kpiHtml('Blended Gross Margin', '40.1%', '+1.6% vs benchmark', 'up', 'Across all 6 divisions', '💎'),
+        kpiHtml('Consolidated Run Rate (ARR)', '₹17.14 Cr', '+18.4% YoY', 'up', 'Annualized from Finance Gross', '🚀'),
+        kpiHtml('Operating EBITDA Run Rate', '24.0%', '+24.0%', 'up', '₹4.11 Cr EBITDA run-rate', '📈'),
+        kpiHtml('Liquid Treasury & Runway', '14.2 Months', '₹8.84 Cr in treasuries', 'up', 'Zero long-term debt', '🏦'),
+        kpiHtml('Board OKR Execution', '96.8%', '10 of 10 On Track', 'up', 'Q3 Board Review Cycle', '🎯'),
+        kpiHtml('Enterprise Headcount', '208 Staff', '42 Clinicians', 'up', '96.4% retention rate', '👥'),
+        kpiHtml('Blended Gross Margin', '56.0%', '+6.7% vs budget', 'up', 'Matches Finance Trading Margin', '💎'),
       '</div>',
 
       /* Master OKRs Tracker */
@@ -344,11 +344,11 @@
             '<div style="padding:16px;background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;">',
               '<div>',
                 '<span style="font-size:12px;color:#64748b;font-weight:600;">Liquid Treasury Reserves</span>',
-                '<h2 style="margin:4px 0 0;font-size:24px;font-weight:800;color:#0f172a;">₹4,85,00,000</h2>',
-                '<span style="font-size:11px;color:#059669;font-weight:700;">+₹18.9L Monthly Operational Surplus</span>',
+                '<h2 style="margin:4px 0 0;font-size:24px;font-weight:800;color:#0f172a;">₹8,84,00,000</h2>',
+                '<span style="font-size:11px;color:#059669;font-weight:700;">+₹34.28L Monthly Operating Surplus</span>',
               '</div>',
               '<div style="text-align:right;">',
-                '<span class="zexec-badge success" style="font-size:13px;padding:6px 12px;">28 Months Runway</span>',
+                '<span class="zexec-badge success" style="font-size:13px;padding:6px 12px;">14.2 Months Runway</span>',
                 '<p style="margin:6px 0 0;font-size:11px;color:#64748b;">Zero Long-Term Debt</p>',
               '</div>',
             '</div>',
@@ -373,7 +373,7 @@
               '</tbody>',
             '</table>',
             '<div style="padding:12px 14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;font-size:12px;color:#1e40af;line-height:1.4;">',
-              '<strong>💡 Executive Capital Note:</strong> Cash generation from Clinical Services and Pharmacy offsets expansion capital expenditure, maintaining 28-month liquid solvency.',
+              '<strong>💡 Executive Capital Note:</strong> Cash generation from Clinical Services and Pharmacy offsets expansion capital expenditure, maintaining 14.2-month liquid solvency (₹8.84 Cr reserves).',
             '</div>',
           '</div>',
         '</div>',
@@ -442,10 +442,10 @@
 
     return [
       '<div class="zexec-kpi-grid">',
-        kpiHtml('Active Operating Hubs', '5 Hubs', '38 Centers', 'up', 'Bengaluru, Mumbai, Delhi, Hyd, Pune', '📍'),
-        kpiHtml('Network Doctors & Staff', '248 Personnel', '148 Clinicians', 'up', 'Active across all facilities', '👥'),
-        kpiHtml('Avg Basket Order Value', '₹2,480', '+8.4% YoY', 'up', '2.8 items / consultation', '🛒'),
-        kpiHtml('Digital App Orders', '68.4%', '+14.2% MoM', 'up', '60-min rapid doorstep delivery', '📱'),
+        kpiHtml('Active Operating Hubs', '10 Centers', '5 Hospitals + 5 Clinics', 'up', 'All 10 facilities operational', '📍'),
+        kpiHtml('Network Doctors & Staff', '208 Personnel', '42 Clinicians', 'up', 'Active across all facilities', '👥'),
+        kpiHtml('Avg Dispensary Ticket', '₹2,480', '+6.8% YoY', 'up', 'Dispensary & pharmacy average', '🛒'),
+        kpiHtml('Rapid Delivery SLA (60-Min)', '98.8%', '28.4 mins avg', 'up', '60-min rapid doorstep delivery', '📱'),
       '</div>',
 
       '<div class="zexec-card">',
@@ -488,24 +488,24 @@
 
   function renderKpiDashboard() {
     var scorecard = [
-      { cat: 'Financial', kpi: 'Monthly Enterprise Revenue', target: '₹1.75 Cr', actual: '₹1.84 Cr', variance: '+5.1%', status: 'Target Met' },
-      { cat: 'Financial', kpi: 'Operating EBITDA Margin', target: '10.0%', actual: '11.0%', variance: '+1.0%', status: 'Target Met' },
-      { cat: 'Financial', kpi: 'Blended Gross Margin', target: '38.5%', actual: '40.1%', variance: '+1.6%', status: 'Target Met' },
-      { cat: 'Operational', kpi: '60-Minute Rapid Delivery SLA', target: '95.0%', actual: '96.8%', variance: '+1.8%', status: 'Target Met' },
-      { cat: 'Operational', kpi: 'Pharmacy Formulary Stockout Rate', target: '<2.5%', actual: '1.4%', variance: '-1.1%', status: 'Target Met' },
-      { cat: 'Clinical', kpi: 'Veterinary Consultation Volume', target: '3,200', actual: '3,420', variance: '+6.9%', status: 'Target Met' },
+      { cat: 'Financial', kpi: 'Monthly Enterprise Revenue', target: '₹1.35 Cr', actual: '₹1,42,85,000', variance: '+18.4% YoY', status: 'Target Met' },
+      { cat: 'Financial', kpi: 'Operating EBITDA Margin', target: '20.0%', actual: '24.0%', variance: '+4.0%', status: 'Target Met' },
+      { cat: 'Financial', kpi: 'Blended Gross Margin', target: '50.0%', actual: '56.0%', variance: '+6.0%', status: 'Target Met' },
+      { cat: 'Operational', kpi: '60-Minute Rapid Delivery SLA', target: '95.0%', actual: '98.8%', variance: '+3.8%', status: 'Target Met' },
+      { cat: 'Operational', kpi: 'Pharmacy Formulary Stockout Rate', target: '<2.5%', actual: '1.2%', variance: '-1.3%', status: 'Target Met' },
+      { cat: 'Clinical', kpi: 'Veterinary Consultation Volume', target: '3,200', actual: '3,480 Consults', variance: '+8.8%', status: 'Target Met' },
       { cat: 'Clinical', kpi: 'Antibiotic Stewardship Compliance', target: '100.0%', actual: '100.0%', variance: '0.0%', status: 'Target Met' },
-      { cat: 'Customer', kpi: 'Pet Parent Net Promoter Score (NPS)', target: '72', actual: '78', variance: '+6 pts', status: 'Target Met' },
-      { cat: 'Customer', kpi: '12-Month Chronic Refill Retention', target: '70.0%', actual: '74.2%', variance: '+4.2%', status: 'Target Met' },
-      { cat: 'Growth', kpi: 'Active Wellness Club Subscribers', target: '8,000', actual: '8,420', variance: '+5.3%', status: 'Target Met' }
+      { cat: 'Customer', kpi: 'Pet Parent CSAT Score', target: '90.0%', actual: '96.4%', variance: '+6.4 pts', status: 'Target Met' },
+      { cat: 'Customer', kpi: '12-Month Repeat Purchase Rate', target: '70.0%', actual: '74.8%', variance: '+4.8%', status: 'Target Met' },
+      { cat: 'Growth', kpi: 'Active Verified Pet Parents', target: '10,000', actual: '12,480', variance: '+24.8%', status: 'Target Met' }
     ];
 
     return [
       '<div class="zexec-kpi-grid">',
-        kpiHtml('Operating Efficiency Ratio', '96.8%', '10 of 10 Met', 'up', 'All balanced pillars nominal', '⚙️'),
-        kpiHtml('Clinical NPS Rating', '78 / 100', '+6 pts QoQ', 'up', 'Top tier veterinary benchmark', '⭐'),
-        kpiHtml('Inventory Turnover', '7.2x / Year', '+0.6x YoY', 'up', '48.2 days inventory on hand', '📦'),
-        kpiHtml('Pet Parent Retention (12M)', '74.2%', '+4.2% YoY', 'up', 'Chronic refill & membership', '🔄'),
+        kpiHtml('Operating Efficiency Ratio', '98.8%', '10 of 10 Met', 'up', 'All balanced pillars nominal', '⚙️'),
+        kpiHtml('Customer CSAT Score', '96.4%', '4.8/5 across 4,200 reviews', 'up', 'Top tier veterinary benchmark', '⭐'),
+        kpiHtml('Inventory Turnover', '6.4x / Year', '+0.8x vs Q2', 'up', '24.2 days of cover', '📦'),
+        kpiHtml('Pet Parent Retention (12M)', '74.8%', '+5.2% YoY', 'up', 'Repeat transactors & membership', '🔄'),
       '</div>',
 
       '<div class="zexec-card">',

@@ -71,10 +71,10 @@ export default function BusinessOverview() {
       }
     >
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
-        <KpiCard label="Consolidated Sales" value="₹1.84 Cr" delta="+24.2% YoY" trend="up" subtext="Consolidated billed revenue" icon="💰" />
-        <KpiCard label="Consolidated COGS" value="₹1.03 Cr" delta="55.9% of Rev" trend="down" subtext="Direct formulary & goods" icon="📦" />
-        <KpiCard label="Operating Profit" value="₹18.9L" delta="11.0% EBITDA" trend="up" subtext="Surplus after opex" icon="📈" />
-        <KpiCard label="Regional Coverage" value="10 Metros" delta="38 Hubs & Centers" trend="up" subtext="National territory presence" icon="🗺️" />
+        <KpiCard label="Consolidated Sales" value="₹1,42,85,000" delta="+18.4% YoY" trend="up" subtext="Consolidated billed revenue" icon="💰" />
+        <KpiCard label="Consolidated COGS" value="₹62,85,000" delta="44.0% of Rev" trend="down" subtext="Direct formulary & goods" icon="📦" />
+        <KpiCard label="Operating Profit" value="₹34,28,400" delta="24.0% EBITDA" trend="up" subtext="Surplus after opex" icon="📈" />
+        <KpiCard label="Regional Coverage" value="10 Centers" delta="5 Hospitals + 5 Clinics" trend="up" subtext="National territory presence" icon="🗺️" />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(460px, 1fr))', gap: '18px' }}>

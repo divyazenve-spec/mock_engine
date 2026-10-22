@@ -737,7 +737,7 @@ export const CATEGORIES_NAVIGATOR = [
   {
     category: 'Settings',
     icon: '⚙️',
-    items: ['Company Settings', 'Business Units', 'Locations', 'Users', 'Roles & Permissions', 'Custom API Integration (Enterprise RAG & Agentic Architecture)', 'Security'],
+    items: ['Company Settings', 'Business Units', 'Locations', 'Users', 'Roles & Permissions', 'API&Integrations', 'Security'],
     defaultPath: '/settings'
   }
 ];

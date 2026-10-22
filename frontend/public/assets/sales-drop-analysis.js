@@ -94,6 +94,28 @@
     }
   }
 
+  /* Determines the effective anchor date:
+     - If the user picked an End Date in the overview header, honor it.
+     - If todayKey() is past the latest date in the stored records, anchor to span.end
+       so that analysis always evaluates the actual stored business records.
+     - Otherwise, uses todayKey(). */
+  function getAnchorDate(sales, metrics) {
+    var span = dataSpan(sales, metrics);
+    var today = todayKey();
+    try {
+      var endInput = document.querySelector('input[aria-label="End date"], input[type="date"]:last-of-type');
+      if (endInput && endInput.value && DATE_RE.test(endInput.value)) {
+        if (!span || !span.end || endInput.value <= span.end) {
+          return endInput.value;
+        }
+      }
+    } catch (e) {}
+    if (span && span.end && today > span.end) {
+      return span.end;
+    }
+    return today;
+  }
+
   function fmtKey(key, withYear) {
     var o = { day: '2-digit', month: 'short', timeZone: 'UTC' };
     if (withYear) o.year = 'numeric';
@@ -436,11 +458,12 @@
       if (s.status === 'Paid') series[w][diffDays(w === 'cur' ? curStart : prevStart, d)] += Number(s.amount) || 0;
     });
 
-    var comparable = cov.prev.ratio >= 0.5 && cov.cur.ratio >= 0.5 && tot.prev.n > 0;
+    var hasEnoughRecords = (cov.prev.days > 0 && cov.cur.days > 0 && tot.prev.n > 0);
+    var comparable = hasEnoughRecords;
     var why = '';
     if (!comparable) {
-      if (cov.prev.ratio < 0.5) why = 'the prior period (' + fmtKey(prevStart) + ' – ' + fmtKey(prevEnd) + ') has records for only ' + cov.prev.days + ' of ' + period + ' days';
-      else if (cov.cur.ratio < 0.5) why = 'the current period has records for only ' + cov.cur.days + ' of ' + period + ' days';
+      if (cov.prev.days === 0) why = 'the prior period (' + fmtKey(prevStart) + ' – ' + fmtKey(prevEnd) + ') has no records on file';
+      else if (cov.cur.days === 0) why = 'the current period has no records on file';
       else why = 'there are no paid orders in the prior period';
     }
 
@@ -853,7 +876,8 @@
       return;
     }
 
-    var A = analyse(S.sales, S.period, todayKey(), { metrics: S.metrics, inventory: S.inventory });
+    var anchor = getAnchorDate(S.sales, S.metrics);
+    var A = analyse(S.sales, S.period, anchor, { metrics: S.metrics, inventory: S.inventory });
     S.last = A;
     if (S.focus !== 'ALL' && !focusRow(A)) S.focus = 'ALL';
 
@@ -1195,7 +1219,7 @@
     show: function () {
       mount();
     },
-    _internals: { analyse: analyse, todayKey: todayKey, shiftKey: shiftKey, explain: explain, matchStock: matchStock }
+    _internals: { analyse: analyse, todayKey: todayKey, getAnchorDate: getAnchorDate, shiftKey: shiftKey, explain: explain, matchStock: matchStock }
   };
 
   if (document.readyState === 'loading') {

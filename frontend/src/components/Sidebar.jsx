@@ -301,7 +301,7 @@ export default function Sidebar({ activeItem = '', onNavigate }) {
       ),
       color: '#94a3b8',
       bg: 'rgba(148, 163, 184, 0.15)',
-      items: ['Company Settings', 'Business Units', 'Locations', 'Users', 'Roles & Permissions', 'Approval Workflows', 'Notification Settings', 'Dashboard Settings', 'Tax Settings', 'Payment Settings', 'Delivery Settings', 'Custom API Integration (Enterprise RAG & Agentic Architecture)', 'Security', 'Backup & Recovery']
+      items: ['Company Settings', 'Business Units', 'Locations', 'Users', 'Roles & Permissions', 'Approval Workflows', 'Notification Settings', 'Dashboard Settings', 'Tax Settings', 'Payment Settings', 'Delivery Settings', 'API&Integrations', 'Security', 'Backup & Recovery']
     }
   ];
 
