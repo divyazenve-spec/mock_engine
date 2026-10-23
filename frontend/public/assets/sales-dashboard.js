@@ -123,6 +123,7 @@
 
   var root = null;
   var trendGeo = null;
+  var ordersTrendGeo = null;
 
   /* ---------- helpers ---------- */
   function esc(s) {
@@ -537,13 +538,20 @@
     if (content) {
       content.addEventListener('click', onContentClick);
       content.addEventListener('change', function (e) {
-        if (e.target.id === 'zsd-compare') {
+        if (e.target.id === 'zsd-compare' || e.target.id === 'zsd-compare-orders') {
           S.compare = e.target.checked;
           renderTrend();
+          if (typeof renderOrdersTrend === 'function') renderOrdersTrend();
         }
       });
-      content.addEventListener('mousemove', onTrendMove);
-      content.addEventListener('mouseleave', hideTip);
+      content.addEventListener('mousemove', function (e) {
+        onTrendMove(e);
+        if (typeof onOrdersTrendMove === 'function') onOrdersTrendMove(e);
+      });
+      content.addEventListener('mouseleave', function () {
+        hideTip();
+        if (typeof hideOrdersTip === 'function') hideOrdersTip();
+      });
     }
   }
 
@@ -552,6 +560,16 @@
     S.page = 1;
     syncFilterInputs();
     renderAll();
+  }
+
+  function setMetric(m) {
+    if (!m) return;
+    S.metric = m;
+    if (S.tab === 'funnel') renderFunnelDashboard();
+    else {
+      renderTrend();
+      if (typeof renderOrdersTrend === 'function') renderOrdersTrend();
+    }
   }
 
   function onContentClick(e) {
@@ -570,9 +588,7 @@
     }
     var m = e.target.closest('[data-metric]');
     if (m) {
-      S.metric = m.getAttribute('data-metric');
-      if (S.tab === 'funnel') renderFunnelDashboard();
-      else renderTrend();
+      setMetric(m.getAttribute('data-metric'));
       return;
     }
     var sc = e.target.closest('[data-scenario]');
@@ -902,9 +918,11 @@
 
     trendGeo = { cur: cur, prev: prev, key: key, fmt: fmt, W: W, H: H, L: L, iw: iw, n: n, X: X, Y: Y, T: T, ih: ih };
     trendEl.innerHTML =
-      '<div class="zsd-ph"><h3>Sales trend<small>' + shortDay(S.from) + ' – ' + shortDay(S.to) + ' · hover for daily detail</small></h3>' +
-      '<div class="zsd-tog"><div class="zsd-seg"><button data-metric="revenue" class="' + (S.metric === 'revenue' ? 'on' : '') + '">Revenue</button>' +
-      '<button data-metric="orders" class="' + (S.metric === 'orders' ? 'on' : '') + '">Orders</button></div>' +
+      '<div class="zsd-ph"><h3>' + (S.metric === 'revenue' ? 'Sales trend' : 'Sales & orders trend') + '<small>' + shortDay(S.from) + ' – ' + shortDay(S.to) + ' · hover for daily detail</small></h3>' +
+      '<div class="zsd-tog"><div class="zsd-seg">' +
+      '<button data-metric="revenue" type="button" class="' + (S.metric === 'revenue' ? 'on' : '') + '" onclick="window.ZenveSalesDashboard &amp;&amp; window.ZenveSalesDashboard.setMetric ? window.ZenveSalesDashboard.setMetric(\'revenue\') : null">Revenue</button>' +
+      '<button data-metric="orders" type="button" class="' + (S.metric === 'orders' ? 'on' : '') + '" onclick="window.ZenveSalesDashboard &amp;&amp; window.ZenveSalesDashboard.setMetric ? window.ZenveSalesDashboard.setMetric(\'orders\') : null">Orders</button>' +
+      '</div>' +
       '<label><input type="checkbox" id="zsd-compare" ' + (S.compare ? 'checked' : '') + '> Prior period</label></div></div>' +
       '<div class="zsd-chartwrap" id="zsd-trendwrap"><svg class="zsd-svg" id="zsd-trendsvg" viewBox="0 0 ' + W + ' ' + H + '">' +
       '<defs><linearGradient id="zsd-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--primary)" stop-opacity=".28"/><stop offset="1" stop-color="var(--primary)" stop-opacity="0"/></linearGradient></defs>' +
@@ -944,6 +962,106 @@
     if (tip) {
       var p = g.prev && g.prev[i];
       tip.innerHTML = '<b>' + prettyDay(d.day) + '</b><br>' + g.fmt(d[g.key]) + (S.compare && p ? '<br><span style="opacity:.7">Prior: ' + g.fmt(p[g.key]) + '</span>' : '');
+      tip.style.left = (x / g.W * r.width) + 'px';
+      tip.style.top = (y / g.H * r.height) + 'px';
+      tip.style.opacity = 1;
+    }
+  }
+
+  /* dedicated orders volume trend graph */
+  function renderOrdersTrend() {
+    var cur = series(S.from, S.to), pr = prevRange(), prev = series(pr.from, pr.to);
+    var el = $('#zsd-orders-trend');
+    if (!el) return;
+
+    var n = cur.length;
+    if (n === 0) {
+      el.innerHTML = panelHead('Order volume trend', 'No data for selected dates') +
+        '<div class="zsd-empty">No order transactions found in this date range</div>';
+      return;
+    }
+
+    var totalOrders = cur.reduce(function (a, d) { return a + (d.orders || 0); }, 0);
+    var avgDaily = (totalOrders / Math.max(1, n)).toFixed(1);
+
+    var W = 800, H = 260, L = 44, R = 14, T = 14, B = 28, iw = W - L - R, ih = H - T - B;
+    var allVals = cur.map(function (d) { return d.orders; });
+    if (S.compare && prev.length) {
+      allVals = allVals.concat(prev.map(function (d) { return d.orders; }));
+    }
+    var maxV = niceMax(Math.max.apply(null, allVals.length ? allVals : [0]));
+    var X = function (i) { return L + (n <= 1 ? iw / 2 : i * iw / (n - 1)); };
+    var Y = function (v) { return T + ih - (maxV > 0 ? (v / maxV * ih) : 0); };
+    var path = function (arr) {
+      if (!arr || !arr.length) return '';
+      return arr.map(function (d, i) { return (i ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(d.orders).toFixed(1); }).join(' ');
+    };
+
+    var grid = '', k;
+    for (k = 0; k <= 4; k++) {
+      var v = Math.round(maxV * k / 4), y = Y(v);
+      grid += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y + '" y2="' + y + '" stroke="var(--border)" stroke-dasharray="' + (k ? '3 4' : '0') + '"/>' +
+        '<text x="' + (L - 8) + '" y="' + (y + 3) + '" text-anchor="end">' + v + '</text>';
+    }
+
+    var step = Math.max(1, Math.ceil(n / 8)), xl = '';
+    for (var i = 0; i < n; i += step) {
+      if (cur[i]) xl += '<text x="' + X(i) + '" y="' + (H - 8) + '" text-anchor="middle">' + shortDay(cur[i].day) + '</text>';
+    }
+
+    var area = n > 1
+      ? path(cur) + ' L' + X(n - 1).toFixed(1) + ' ' + (T + ih) + ' L' + X(0).toFixed(1) + ' ' + (T + ih) + ' Z'
+      : '';
+    var singleMarker = n === 1
+      ? '<circle cx="' + X(0).toFixed(1) + '" cy="' + Y(cur[0].orders).toFixed(1) + '" r="6" fill="#6366f1"/>'
+      : '';
+
+    ordersTrendGeo = { cur: cur, prev: prev, W: W, H: H, L: L, iw: iw, n: n, X: X, Y: Y, T: T, ih: ih };
+    el.innerHTML =
+      '<div class="zsd-ph"><h3>Order volume trend<small>' + shortDay(S.from) + ' – ' + shortDay(S.to) + ' · daily orders & velocity</small></h3>' +
+      '<div class="zsd-tog">' +
+      '<span class="zsd-badge Paid" style="font-size:11px;padding:3px 8px;font-weight:700;">' + totalOrders + ' Orders</span>' +
+      '<span style="font-size:11px;color:var(--muted-foreground);font-weight:600;">' + avgDaily + ' / day</span>' +
+      '<label style="margin-left:6px;"><input type="checkbox" id="zsd-compare-orders" ' + (S.compare ? 'checked' : '') + '> Prior period</label>' +
+      '</div></div>' +
+      '<div class="zsd-chartwrap" id="zsd-orderstrendwrap"><svg class="zsd-svg" id="zsd-orderstrendsvg" viewBox="0 0 ' + W + ' ' + H + '">' +
+      '<defs><linearGradient id="zsd-orders-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6366f1" stop-opacity=".3"/><stop offset="1" stop-color="#6366f1" stop-opacity="0"/></linearGradient></defs>' +
+      grid + xl +
+      (S.compare && prev.length > 1 ? '<path d="' + path(prev) + '" fill="none" stroke="var(--muted-foreground)" stroke-width="1.5" stroke-dasharray="4 4" opacity=".7"/>' : '') +
+      (area ? '<path d="' + area + '" fill="url(#zsd-orders-grad)"/>' : '') +
+      '<path d="' + path(cur) + '" fill="none" stroke="#6366f1" stroke-width="2.2" stroke-linejoin="round"/>' +
+      singleMarker +
+      '<g id="zsd-orders-hover" style="display:none"><line id="zsd-orders-hl" y1="' + T + '" y2="' + (T + ih) + '" stroke="#6366f1" stroke-opacity=".5"/>' +
+      '<circle id="zsd-orders-hc" r="4.5" fill="var(--card)" stroke="#6366f1" stroke-width="2.2"/></g></svg>' +
+      '<div class="zsd-tip" id="zsd-orders-tip"></div></div>';
+  }
+
+  function hideOrdersTip() {
+    var t = $('#zsd-orders-tip'), h = $('#zsd-orders-hover');
+    if (t) t.style.opacity = 0;
+    if (h) h.style.display = 'none';
+  }
+
+  function onOrdersTrendMove(e) {
+    var svg = e.target && e.target.closest && e.target.closest('#zsd-orderstrendsvg');
+    if (!svg || !ordersTrendGeo || !ordersTrendGeo.cur || !ordersTrendGeo.cur.length) { hideOrdersTip(); return; }
+    var g = ordersTrendGeo, r = svg.getBoundingClientRect();
+    if (!r.width || !r.height) { hideOrdersTip(); return; }
+    var sx = (e.clientX - r.left) / r.width * g.W;
+    var i = g.n <= 1 ? 0 : Math.round((sx - g.L) / g.iw * (g.n - 1));
+    i = Math.max(0, Math.min(g.n - 1, i));
+    var d = g.cur[i];
+    if (!d) { hideOrdersTip(); return; }
+    var x = g.X(i), y = g.Y(d.orders);
+
+    var h = $('#zsd-orders-hover');
+    if (h) h.style.display = 'block';
+    var hl = $('#zsd-orders-hl'); if (hl) { hl.setAttribute('x1', x); hl.setAttribute('x2', x); }
+    var hc = $('#zsd-orders-hc'); if (hc) { hc.setAttribute('cx', x); hc.setAttribute('cy', y); }
+    var tip = $('#zsd-orders-tip');
+    if (tip) {
+      var p = g.prev && g.prev[i];
+      tip.innerHTML = '<b>' + prettyDay(d.day) + '</b><br><span style="color:#6366f1;font-weight:700;">' + d.orders + ' orders</span>' + (S.compare && p ? '<br><span style="opacity:.7">Prior: ' + p.orders + ' orders</span>' : '');
       tip.style.left = (x / g.W * r.width) + 'px';
       tip.style.top = (y / g.H * r.height) + 'px';
       tip.style.opacity = 1;
@@ -1090,17 +1208,19 @@
   function renderSalesDashboard() {
     var c = $('#zsd-content');
     if (!c) return;
-    if (!c.querySelector('#zsd-trend') || c.getAttribute('data-view') !== 'sales') {
+    if (!c.querySelector('#zsd-trend') || !c.querySelector('#zsd-orders-trend') || c.getAttribute('data-view') !== 'sales') {
       c.setAttribute('data-view', 'sales');
       c.innerHTML =
         '<div class="zsd-kpis" id="zsd-kpis"></div>' +
-        '<div class="zsd-grid zsd-g-main"><div class="zsd-card zsd-panel" id="zsd-trend"></div><div class="zsd-card zsd-panel" id="zsd-channel"></div></div>' +
+        '<div class="zsd-g-trend-pair"><div class="zsd-card zsd-panel" id="zsd-trend"></div><div class="zsd-card zsd-panel" id="zsd-orders-trend"></div></div>' +
+        '<div class="zsd-grid zsd-g-main"><div class="zsd-card zsd-panel" id="zsd-channel"></div><div class="zsd-card zsd-panel" id="zsd-status-p"></div></div>' +
         '<div class="zsd-grid zsd-g-3"><div class="zsd-card zsd-panel" id="zsd-cat"></div><div class="zsd-card zsd-panel" id="zsd-city-p"></div>' +
-        '<div class="zsd-card zsd-panel" id="zsd-status-p"></div></div>' +
-        '<div class="zsd-grid zsd-g-main"><div class="zsd-card zsd-panel" id="zsd-table"></div><div class="zsd-card zsd-panel" id="zsd-top"></div></div>';
+        '<div class="zsd-card zsd-panel" id="zsd-top"></div></div>' +
+        '<div class="zsd-grid"><div class="zsd-card zsd-panel" id="zsd-table"></div></div>';
     }
     renderKpis();
     renderTrend();
+    renderOrdersTrend();
     renderChannel();
     renderCategory();
     renderCity();
@@ -2531,7 +2651,7 @@
       S.tab = tabFromHash(location.hash) || 'sales';
     }
     if (!root) build();
-    else if (!document.body.contains(root)) document.body.appendChild(root);
+    if (!document.body.contains(root)) document.body.appendChild(root);
     S.open = true;
     root.classList.add('zsd-open');
     root.scrollTop = 0;
@@ -2584,7 +2704,7 @@
     var tab = (e && e.detail && e.detail.tab) ? e.detail.tab : 'sales';
     open(tab);
   });
-  window.ZenveSalesDashboard = { open: open, close: close, switchTab: switchTab, reload: load };
+  window.ZenveSalesDashboard = { open: open, close: close, switchTab: switchTab, reload: load, setMetric: setMetric };
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && S.open) close();

@@ -32,6 +32,8 @@
 .zsd-delta{margin-top:8px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;color:var(--muted-foreground)}
 .zsd-delta.up{color:var(--success)}.zsd-delta.down{color:var(--destructive)}
 .zsd-grid{display:grid;gap:12px;margin-top:12px}
+.zsd-g-trend-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+@media (max-width:1200px){.zsd-g-trend-pair{grid-template-columns:1fr}}
 .zsd-g-main{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
 .zsd-g-channel{grid-template-columns:minmax(280px,360px) minmax(0,1fr)}
 .zsd-ch-benchmarks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
