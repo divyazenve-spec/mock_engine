@@ -13,7 +13,7 @@ export default function DoctorActivity() {
     { time: '12:15 PM', doctor: 'Dr. Rohan Kulkarni', type: 'Tumor Margin Cryo-Cauterization', patient: 'Coco (Labrador)', location: 'Koregaon Park - OT 2', vitals: 'Margin Clear, Hemostasis Ok', duration: '40 mins', state: 'In Surgery' },
     { time: '12:30 PM', doctor: 'Dr. Gaurav Sharma', type: 'Post-Fixation X-Ray Review', patient: 'Oreo (Indie Dog)', location: 'DLF CyberCity - Radiology Wing', vitals: 'Anatomical Alignment 100%', duration: '15 mins', state: 'Imaging Review' },
     { time: '12:45 PM', doctor: 'Dr. Sneha Nair', type: 'Slit-Lamp Biomicroscopy', patient: 'Luna (British Shorthair)', location: 'Indiranagar - Ophthalmic Suite', vitals: 'IOP 14 mmHg, Healing', duration: '20 mins', state: 'In Consultation' },
-    { time: '01:00 PM', doctor: 'Dr. Divya Reddy', type: 'Pediatric Incubator Triage', patient: 'Kitten Litter (4 Kittens)', location: 'Jubilee Hills - Neonatal ICU', vitals: 'Temp 38.1°C, Feeding Well', duration: '25 mins', state: 'Active Monitoring' }
+    { time: '01:00 PM', doctor: 'Dr. Edwin Reddy', type: 'Pediatric Incubator Triage', patient: 'Kitten Litter (4 Kittens)', location: 'Jubilee Hills - Neonatal ICU', vitals: 'Temp 38.1°C, Feeding Well', duration: '25 mins', state: 'Active Monitoring' }
   ];
 
   const cardStyle = { background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(0,0,0,0.08))', borderRadius: '12px', padding: '22px 24px' };

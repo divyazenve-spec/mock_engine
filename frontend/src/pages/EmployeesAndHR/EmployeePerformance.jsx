@@ -107,7 +107,7 @@ export default function EmployeePerformance() {
       status: 'In Review'
     },
     {
-      name: 'Divya Nambiar',
+      name: 'Edwin Nambiar',
       role: 'Junior Clinical Associate',
       dept: 'Clinical',
       score: 91.0,

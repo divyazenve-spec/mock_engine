@@ -18,7 +18,7 @@
     { id: 'EXP-2026-507', name: 'Pooja Hegde', role: 'Senior Pathologist', cat: 'Medical Consumables', date: '2026-10-12', merchant: 'Bio-Rad Laboratories India', amt: '₹36,700', receipt: 'BR-INV-55102.pdf', status: 'Pending' },
     { id: 'EXP-2026-508', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', cat: 'Software Subscriptions', date: '2026-10-04', merchant: 'Freshdesk / Freshworks Inc', amt: '₹16,500', receipt: 'FW-INV-66190.pdf', status: 'Approved' },
     { id: 'EXP-2026-509', name: 'Rahul Deshmukh', role: 'Warehouse Supervisor', cat: 'Travel & Conveyance', date: '2026-10-11', merchant: 'Uber India (Inter-DC Audit)', amt: '₹2,600', receipt: 'UBR-TRIP-3321.pdf', status: 'Pending' },
-    { id: 'EXP-2026-510', name: 'Divya Nambiar', role: 'Junior Clinical Associate', cat: 'Meals & Catering', date: '2026-10-06', merchant: 'Swiggy Gourmet (Clinic Overtime)', amt: '₹4,250', receipt: 'SWG-ODR-8841.pdf', status: 'Pending' }
+    { id: 'EXP-2026-510', name: 'Edwin Nambiar', role: 'Junior Clinical Associate', cat: 'Meals & Catering', date: '2026-10-06', merchant: 'Swiggy Gourmet (Clinic Overtime)', amt: '₹4,250', receipt: 'SWG-ODR-8841.pdf', status: 'Pending' }
   ];
 
   function closeOthers() {

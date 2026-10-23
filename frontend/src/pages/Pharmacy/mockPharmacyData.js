@@ -275,7 +275,7 @@ export const MOCK_PRESCRIPTIONS = [
     id: 'RX-2026-9410',
     pet: 'Zoe',
     species: 'Canine (Indie, 18kg)',
-    parent: 'Divya Swaminathan',
+    parent: 'Edwin Swaminathan',
     vet: 'Dr. Priya Sharma (VCI-KA-1104)',
     meds: 'Apoquel 5.4mg #60 + Meloxicam 2.5mg',
     notes: 'Allergic Pruritus & Acute Pododermatitis - Review in 14d',
@@ -395,7 +395,7 @@ export const MOCK_ORDERS = [
   },
   {
     id: 'PH-ORD-890',
-    customer: 'Divya Swaminathan (Zoe)',
+    customer: 'Edwin Swaminathan (Zoe)',
     address: 'MG Road, Bengaluru',
     items: 'Apoquel 5.4mg #60 + Meloxicam',
     channel: 'In-Clinic Counter',

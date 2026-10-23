@@ -106,7 +106,7 @@ export default function EmployeeTargets() {
       incentive: 'Standard (₹8,000)'
     },
     {
-      name: 'Divya Nambiar',
+      name: 'Edwin Nambiar',
       role: 'Junior Clinical Associate',
       dept: 'Clinical',
       metric: 'Anesthetic & ICU Patient Monitoring',

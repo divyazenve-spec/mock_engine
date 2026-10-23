@@ -26,16 +26,16 @@
 
   /* ── 11 Subdomains Configuration ─────────────────────────────────── */
   var TABS = [
-    { id: 'dashboard',      label: 'Customer Dashboard',     icon: '👥', hash: '#customer-dashboard',       badge: '',    title: 'Unified Customer 360° Command Center', sub: 'Holistic pet parent profiles, omnichannel engagement, and loyalty status' },
-    { id: 'all-customers',  label: 'All Customers',          icon: '📋', hash: '#all-customers',           badge: '', title: 'All Registered Customers & Pet Parents', sub: 'Verified contact directory, multi-pet ownership mapping, and geographic distribution' },
-    { id: 'new-customers',  label: 'New Customers',          icon: '✨', hash: '#new-customers',           badge: '',    title: 'New Customer Acquisition & First-Order Velocity', sub: 'Channel attribution, welcome bundle activations, and blended CAC dynamics' },
-    { id: 'active-customers', label: 'Active Customers',     icon: '⚡', hash: '#active-customers',        badge: '',     title: 'Active Customers & Omni-Channel Frequency', sub: 'Rolling DAU / WAU / MAU stickiness, repeat clinic visits, and mobile app usage' },
-    { id: 'repeat-customers', label: 'Repeat Customers',     icon: '🔄', hash: '#repeat-customers',        badge: '',    title: 'Repeat Customers & Order Frequency Progression', sub: 'Replenishment interval tracking, reorder retention, and multi-visit habit loops' },
-    { id: 'lifetime-value', label: 'Customer Lifetime Value', icon: '💎', hash: '#customer-lifetime-value', badge: '',  title: 'Customer Lifetime Value (LTV) & CAC Multiples', sub: 'Predictive CLV tiers, cumulative cohort GMV, and customer margin realization' },
-    { id: 'segmentation',   label: 'Customer Segmentation',  icon: '🧩', hash: '#customer-segmentation',   badge: '',    title: 'Customer Segmentation & Behavioral Clusters', sub: 'RFM analysis, pet life-stage clustering, and personalized CRM campaigns' },
-    { id: 'orders',         label: 'Customer Orders',        icon: '🛒', hash: '#customer-orders',         badge: '',  title: 'Customer Orders & Transaction History', sub: 'Omnichannel commerce purchases, clinic treatment billing, and 60-min deliveries' },
-    { id: 'revenue',        label: 'Customer Revenue',       icon: '💰', hash: '#customer-revenue',        badge: '',  title: 'Customer Revenue & Monetization Streams', sub: 'Gross merchandise value, monthly ARPU realization, and category gross margins' },
-    { id: 'complaints',     label: 'Customer Complaints',    icon: '⚠️', hash: '#customer-complaints',     badge: '',     title: 'Customer Complaints & Grievance Resolution', sub: 'Support ticket resolution speed, First-Contact Resolution, and post-service CSAT' }
+    { id: 'dashboard', label: 'Customer Dashboard', icon: '👥', hash: '#customer-dashboard', badge: '', title: 'Unified Customer 360° Command Center', sub: 'Holistic pet parent profiles, omnichannel engagement, and loyalty status' },
+    { id: 'all-customers', label: 'All Customers', icon: '📋', hash: '#all-customers', badge: '', title: 'All Registered Customers & Pet Parents', sub: 'Verified contact directory, multi-pet ownership mapping, and geographic distribution' },
+    { id: 'new-customers', label: 'New Customers', icon: '✨', hash: '#new-customers', badge: '', title: 'New Customer Acquisition & First-Order Velocity', sub: 'Channel attribution, welcome bundle activations, and blended CAC dynamics' },
+    { id: 'active-customers', label: 'Active Customers', icon: '⚡', hash: '#active-customers', badge: '', title: 'Active Customers & Omni-Channel Frequency', sub: 'Rolling DAU / WAU / MAU stickiness, repeat clinic visits, and mobile app usage' },
+    { id: 'repeat-customers', label: 'Repeat Customers', icon: '🔄', hash: '#repeat-customers', badge: '', title: 'Repeat Customers & Order Frequency Progression', sub: 'Replenishment interval tracking, reorder retention, and multi-visit habit loops' },
+    { id: 'lifetime-value', label: 'Customer Lifetime Value', icon: '💎', hash: '#customer-lifetime-value', badge: '', title: 'Customer Lifetime Value (LTV) & CAC Multiples', sub: 'Predictive CLV tiers, cumulative cohort GMV, and customer margin realization' },
+    { id: 'segmentation', label: 'Customer Segmentation', icon: '🧩', hash: '#customer-segmentation', badge: '', title: 'Customer Segmentation & Behavioral Clusters', sub: 'RFM analysis, pet life-stage clustering, and personalized CRM campaigns' },
+    { id: 'orders', label: 'Customer Orders', icon: '🛒', hash: '#customer-orders', badge: '', title: 'Customer Orders & Transaction History', sub: 'Omnichannel commerce purchases, clinic treatment billing, and 60-min deliveries' },
+    { id: 'revenue', label: 'Customer Revenue', icon: '💰', hash: '#customer-revenue', badge: '', title: 'Customer Revenue & Monetization Streams', sub: 'Gross merchandise value, monthly ARPU realization, and category gross margins' },
+    { id: 'complaints', label: 'Customer Complaints', icon: '⚠️', hash: '#customer-complaints', badge: '', title: 'Customer Complaints & Grievance Resolution', sub: 'Support ticket resolution speed, First-Contact Resolution, and post-service CSAT' }
   ];
 
   /* ── Master Datasets (10 Comprehensive Records per Dashboard) ───── */
@@ -66,7 +66,7 @@
   ];
 
   var NEW_CUSTOMERS_LIST = [
-    { id: 'NEW-8901', name: 'Divya Hegde', pet: 'Bruno (Golden Retriever Pup)', channel: 'Instagram Ad', date: 'Today, 09:15', firstOrder: 'Welcome Puppy Kit (₹3,450)', cac: '₹320', status: 'Activated' },
+    { id: 'NEW-8901', name: 'Edwin Hegde', pet: 'Bruno (Golden Retriever Pup)', channel: 'Instagram Ad', date: 'Today, 09:15', firstOrder: 'Welcome Puppy Kit (₹3,450)', cac: '₹320', status: 'Activated' },
     { id: 'NEW-8902', name: 'Rajesh Gupte', pet: 'Simba (Persian Kitten)', channel: 'Google Search', date: 'Today, 11:30', firstOrder: 'Royal Canin + Litter (₹2,890)', cac: '₹410', status: 'Activated' },
     { id: 'NEW-8903', name: 'Ayesha Khan', pet: 'Tobby (Pug)', channel: 'Vet Referral', date: 'Yesterday', firstOrder: 'First Vet Consultation (₹1,200)', cac: '₹180', status: 'Activated' },
     { id: 'NEW-8904', name: 'Sameer Kulkarni', pet: 'Shadow (Doberman Pup)', channel: 'App Install Ad', date: 'Yesterday', firstOrder: 'Deworming + Starter Pack (₹4,120)', cac: '₹460', status: 'Activated' },
@@ -238,15 +238,15 @@
   function kpiHtml(label, val, delta, trend, subtext, icon) {
     return [
       '<div class="zc360-kpi">',
-        '<div class="zc360-kpi-top">',
-          '<span class="zc360-kpi-label">' + esc(label) + '</span>',
-          '<span class="zc360-kpi-icon">' + esc(icon || '👥') + '</span>',
-        '</div>',
-        '<div class="zc360-kpi-val">' + esc(val) + '</div>',
-        '<div class="zc360-kpi-bottom">',
-          '<span class="zc360-delta ' + (trend === 'up' ? 'up' : trend === 'down' ? 'down' : 'warn') + '">' + (trend === 'up' ? '↑ ' : trend === 'down' ? '↓ ' : '• ') + esc(delta) + '</span>',
-          '<span class="zc360-subtext">' + esc(subtext) + '</span>',
-        '</div>',
+      '<div class="zc360-kpi-top">',
+      '<span class="zc360-kpi-label">' + esc(label) + '</span>',
+      '<span class="zc360-kpi-icon">' + esc(icon || '👥') + '</span>',
+      '</div>',
+      '<div class="zc360-kpi-val">' + esc(val) + '</div>',
+      '<div class="zc360-kpi-bottom">',
+      '<span class="zc360-delta ' + (trend === 'up' ? 'up' : trend === 'down' ? 'down' : 'warn') + '">' + (trend === 'up' ? '↑ ' : trend === 'down' ? '↓ ' : '• ') + esc(delta) + '</span>',
+      '<span class="zc360-subtext">' + esc(subtext) + '</span>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -255,46 +255,46 @@
   function renderDashboard() {
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('Total Customer Base', '12,480', '+18.4%', 'up', 'Verified pet parents', '👥'),
-        kpiHtml('Active 30-Day Transactors', '8,920', '+22.1%', 'up', 'Purchased or clinic visit', '⚡'),
-        kpiHtml('Avg. Lifetime Value (LTV)', '₹42,650', '+14.6%', 'up', 'Across all cohorts', '💎'),
-        kpiHtml('Repeat Purchase Rate', '74.8%', '+5.2%', 'up', 'High loyalty stickiness', '🔄'),
-        kpiHtml('Customer CSAT Score', '96.4%', '+2.1%', 'up', '4.8/5.0 across 4,200 reviews', '⭐'),
-        kpiHtml('Net Churn Rate', '1.8%', '-0.6%', 'up', 'Industry leading retention', '📉'),
+      kpiHtml('Total Customer Base', '12,480', '+18.4%', 'up', 'Verified pet parents', '👥'),
+      kpiHtml('Active 30-Day Transactors', '8,920', '+22.1%', 'up', 'Purchased or clinic visit', '⚡'),
+      kpiHtml('Avg. Lifetime Value (LTV)', '₹42,650', '+14.6%', 'up', 'Across all cohorts', '💎'),
+      kpiHtml('Repeat Purchase Rate', '74.8%', '+5.2%', 'up', 'High loyalty stickiness', '🔄'),
+      kpiHtml('Customer CSAT Score', '96.4%', '+2.1%', 'up', '4.8/5.0 across 4,200 reviews', '⭐'),
+      kpiHtml('Net Churn Rate', '1.8%', '-0.6%', 'up', 'Industry leading retention', '📉'),
       '</div>',
 
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">👥 Unified Pet Parent Relationship Matrix</h3>',
-            '<p class="zc360-card-sub">Registered pets, historical transaction volume, loyalty tiers, and churn risk (10 records)</p>',
-          '</div>',
-          '<button class="zc360-btn primary" onclick="ZenveCustomersDashboard.showOnboardModal()">+ Add Customer Profile</button>',
-        '</div>',
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead><tr><th>Customer ID</th><th>Pet Parent Name</th><th>Registered Pets</th><th>Loyalty Tier</th><th>Lifetime Value</th><th>Orders</th><th>MTD Spend</th><th>Last Touch</th><th>Risk</th><th>Status</th></tr></thead>',
-            '<tbody>',
-              CUSTOMERS.map(function(c) {
-                var tierClass = c.tier.indexOf('VIP') >= 0 ? 'active' : c.tier.indexOf('Gold') >= 0 ? 'warning' : 'neutral';
-                var riskClass = (c.churnRisk === 'Very Low' || c.churnRisk === 'Low') ? 'active' : (c.churnRisk === 'Medium' ? 'warning' : 'critical');
-                var statusClass = c.status === 'Active' ? 'active' : 'critical';
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:700;color:#2563eb;">' + esc(c.id) + '</td>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(c.name) + '</td>' +
-                  '<td style="color:#475569;font-weight:500;">🐾 ' + esc(c.pets) + '</td>' +
-                  '<td><span class="zc360-pill ' + tierClass + '">' + esc(c.tier) + '</span></td>' +
-                  '<td style="font-weight:700;color:#059669;">' + esc(c.ltv) + '</td>' +
-                  '<td style="font-weight:700;">' + c.ordersCount + '</td>' +
-                  '<td style="font-weight:600;color:#0f172a;">' + esc(c.mtdSpend) + '</td>' +
-                  '<td style="color:#64748b;font-size:12px;">' + esc(c.lastOrder) + '</td>' +
-                  '<td><span class="zc360-pill ' + riskClass + '">' + esc(c.churnRisk) + '</span></td>' +
-                  '<td><span class="zc360-pill ' + statusClass + '">' + esc(c.status) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">👥 Unified Pet Parent Relationship Matrix</h3>',
+      '<p class="zc360-card-sub">Registered pets, historical transaction volume, loyalty tiers, and churn risk (10 records)</p>',
+      '</div>',
+      '<button class="zc360-btn primary" onclick="ZenveCustomersDashboard.showOnboardModal()">+ Add Customer Profile</button>',
+      '</div>',
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead><tr><th>Customer ID</th><th>Pet Parent Name</th><th>Registered Pets</th><th>Loyalty Tier</th><th>Lifetime Value</th><th>Orders</th><th>MTD Spend</th><th>Last Touch</th><th>Risk</th><th>Status</th></tr></thead>',
+      '<tbody>',
+      CUSTOMERS.map(function (c) {
+        var tierClass = c.tier.indexOf('VIP') >= 0 ? 'active' : c.tier.indexOf('Gold') >= 0 ? 'warning' : 'neutral';
+        var riskClass = (c.churnRisk === 'Very Low' || c.churnRisk === 'Low') ? 'active' : (c.churnRisk === 'Medium' ? 'warning' : 'critical');
+        var statusClass = c.status === 'Active' ? 'active' : 'critical';
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:700;color:#2563eb;">' + esc(c.id) + '</td>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(c.name) + '</td>' +
+          '<td style="color:#475569;font-weight:500;">🐾 ' + esc(c.pets) + '</td>' +
+          '<td><span class="zc360-pill ' + tierClass + '">' + esc(c.tier) + '</span></td>' +
+          '<td style="font-weight:700;color:#059669;">' + esc(c.ltv) + '</td>' +
+          '<td style="font-weight:700;">' + c.ordersCount + '</td>' +
+          '<td style="font-weight:600;color:#0f172a;">' + esc(c.mtdSpend) + '</td>' +
+          '<td style="color:#64748b;font-size:12px;">' + esc(c.lastOrder) + '</td>' +
+          '<td><span class="zc360-pill ' + riskClass + '">' + esc(c.churnRisk) + '</span></td>' +
+          '<td><span class="zc360-pill ' + statusClass + '">' + esc(c.status) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -303,42 +303,42 @@
   function renderAllCustomers() {
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('Master Customer Profiles', '12,480', '+16.2%', 'up', 'Verified contact records', '📋'),
-        kpiHtml('Bengaluru Core Base', '78.4%', '+4.5%', 'up', 'Indiranagar, Koramangala & HSR', '📍'),
-        kpiHtml('Multi-Pet Households', '34.2%', '+8.1%', 'up', 'Multi-pet owners (High ARPU)', '🐾'),
-        kpiHtml('Verified Email & WhatsApp', '98.6%', '+1.2%', 'up', 'DPDP Act compliant', '🛡️'),
+      kpiHtml('Master Customer Profiles', '12,480', '+16.2%', 'up', 'Verified contact records', '📋'),
+      kpiHtml('Bengaluru Core Base', '78.4%', '+4.5%', 'up', 'Indiranagar, Koramangala & HSR', '📍'),
+      kpiHtml('Multi-Pet Households', '34.2%', '+8.1%', 'up', 'Multi-pet owners (High ARPU)', '🐾'),
+      kpiHtml('Verified Email & WhatsApp', '98.6%', '+1.2%', 'up', 'DPDP Act compliant', '🛡️'),
       '</div>',
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">📋 Comprehensive Customer Directory</h3>',
-            '<p class="zc360-card-sub">Active pet parent directory with verified communications and verified pet patient ownership (10 records)</p>',
-          '</div>',
-          '<button class="zc360-btn primary" onclick="ZenveCustomersDashboard.showOnboardModal()">+ Add Customer Profile</button>',
-        '</div>',
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead><tr><th>Customer ID</th><th>Pet Parent</th><th>Phone</th><th>Email</th><th>Location</th><th>Pets</th><th>Tier</th><th>Total Spend</th><th>Member Since</th><th>Status</th></tr></thead>',
-            '<tbody>',
-              ALL_CUSTOMERS_LIST.map(function(c) {
-                var tierClass = c.tier.indexOf('VIP') >= 0 ? 'active' : c.tier.indexOf('Gold') >= 0 ? 'warning' : 'neutral';
-                var statusClass = c.status === 'Active' ? 'active' : 'critical';
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:700;color:#2563eb;">' + esc(c.id) + '</td>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(c.name) + '</td>' +
-                  '<td style="color:#64748b;font-family:monospace;">' + esc(c.phone) + '</td>' +
-                  '<td style="color:#475569;">' + esc(c.email) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(c.location) + '</td>' +
-                  '<td style="color:#475569;font-size:12px;">🐾 ' + esc(c.pets) + '</td>' +
-                  '<td><span class="zc360-pill ' + tierClass + '">' + esc(c.tier) + '</span></td>' +
-                  '<td style="font-weight:700;color:#059669;">' + esc(c.totalSpend) + '</td>' +
-                  '<td style="color:#64748b;font-size:12px;">' + esc(c.joinDate) + '</td>' +
-                  '<td><span class="zc360-pill ' + statusClass + '">' + esc(c.status) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">📋 Comprehensive Customer Directory</h3>',
+      '<p class="zc360-card-sub">Active pet parent directory with verified communications and verified pet patient ownership (10 records)</p>',
+      '</div>',
+      '<button class="zc360-btn primary" onclick="ZenveCustomersDashboard.showOnboardModal()">+ Add Customer Profile</button>',
+      '</div>',
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead><tr><th>Customer ID</th><th>Pet Parent</th><th>Phone</th><th>Email</th><th>Location</th><th>Pets</th><th>Tier</th><th>Total Spend</th><th>Member Since</th><th>Status</th></tr></thead>',
+      '<tbody>',
+      ALL_CUSTOMERS_LIST.map(function (c) {
+        var tierClass = c.tier.indexOf('VIP') >= 0 ? 'active' : c.tier.indexOf('Gold') >= 0 ? 'warning' : 'neutral';
+        var statusClass = c.status === 'Active' ? 'active' : 'critical';
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:700;color:#2563eb;">' + esc(c.id) + '</td>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(c.name) + '</td>' +
+          '<td style="color:#64748b;font-family:monospace;">' + esc(c.phone) + '</td>' +
+          '<td style="color:#475569;">' + esc(c.email) + '</td>' +
+          '<td style="font-weight:600;">' + esc(c.location) + '</td>' +
+          '<td style="color:#475569;font-size:12px;">🐾 ' + esc(c.pets) + '</td>' +
+          '<td><span class="zc360-pill ' + tierClass + '">' + esc(c.tier) + '</span></td>' +
+          '<td style="font-weight:700;color:#059669;">' + esc(c.totalSpend) + '</td>' +
+          '<td style="color:#64748b;font-size:12px;">' + esc(c.joinDate) + '</td>' +
+          '<td><span class="zc360-pill ' + statusClass + '">' + esc(c.status) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -347,38 +347,38 @@
   function renderNewCustomers() {
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('New Customers (MTD)', '842', '+28.4%', 'up', 'Across organic & paid channels', '✨'),
-        kpiHtml('Blended CAC', '₹295', '-14.2%', 'up', 'Efficient referral mix', '📉'),
-        kpiHtml('Day-1 Activation Rate', '68.4%', '+6.8%', 'up', 'First purchase within 24h', '⚡'),
-        kpiHtml('First Order Avg Basket', '₹3,275', '+12.5%', 'up', 'Welcome bundle attach', '🛒'),
+      kpiHtml('New Customers (MTD)', '842', '+28.4%', 'up', 'Across organic & paid channels', '✨'),
+      kpiHtml('Blended CAC', '₹295', '-14.2%', 'up', 'Efficient referral mix', '📉'),
+      kpiHtml('Day-1 Activation Rate', '68.4%', '+6.8%', 'up', 'First purchase within 24h', '⚡'),
+      kpiHtml('First Order Avg Basket', '₹3,275', '+12.5%', 'up', 'Welcome bundle attach', '🛒'),
       '</div>',
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">✨ Recent New Customer Conversions</h3>',
-            '<p class="zc360-card-sub">Real-time first-time pet parent signups, attribution source, and first order values (10 records)</p>',
-          '</div>',
-          '<span class="zc360-pill active">Real-Time Acquisition Stream</span>',
-        '</div>',
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead><tr><th>ID</th><th>Parent</th><th>Pet Details</th><th>Channel</th><th>Signup Date</th><th>First Order</th><th>Attributed CAC</th><th>Status</th></tr></thead>',
-            '<tbody>',
-              NEW_CUSTOMERS_LIST.map(function(n) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:700;color:#2563eb;">' + esc(n.id) + '</td>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(n.name) + '</td>' +
-                  '<td style="color:#475569;font-weight:500;">🐾 ' + esc(n.pet) + '</td>' +
-                  '<td><span class="zc360-pill active">' + esc(n.channel) + '</span></td>' +
-                  '<td style="color:#64748b;font-size:12px;">' + esc(n.date) + '</td>' +
-                  '<td style="font-weight:700;color:#059669;">' + esc(n.firstOrder) + '</td>' +
-                  '<td style="color:#64748b;font-weight:600;">' + esc(n.cac) + '</td>' +
-                  '<td><span class="zc360-pill success">' + esc(n.status) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">✨ Recent New Customer Conversions</h3>',
+      '<p class="zc360-card-sub">Real-time first-time pet parent signups, attribution source, and first order values (10 records)</p>',
+      '</div>',
+      '<span class="zc360-pill active">Real-Time Acquisition Stream</span>',
+      '</div>',
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead><tr><th>ID</th><th>Parent</th><th>Pet Details</th><th>Channel</th><th>Signup Date</th><th>First Order</th><th>Attributed CAC</th><th>Status</th></tr></thead>',
+      '<tbody>',
+      NEW_CUSTOMERS_LIST.map(function (n) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:700;color:#2563eb;">' + esc(n.id) + '</td>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(n.name) + '</td>' +
+          '<td style="color:#475569;font-weight:500;">🐾 ' + esc(n.pet) + '</td>' +
+          '<td><span class="zc360-pill active">' + esc(n.channel) + '</span></td>' +
+          '<td style="color:#64748b;font-size:12px;">' + esc(n.date) + '</td>' +
+          '<td style="font-weight:700;color:#059669;">' + esc(n.firstOrder) + '</td>' +
+          '<td style="color:#64748b;font-weight:600;">' + esc(n.cac) + '</td>' +
+          '<td><span class="zc360-pill success">' + esc(n.status) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -387,36 +387,36 @@
   function renderActiveCustomers() {
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('Monthly Active Customers', '8,920', '+22.1%', 'up', 'Transacting or visiting clinics', '⚡'),
-        kpiHtml('DAU / MAU Stickiness', '28.6%', '+4.2%', 'up', 'Top quartile consumer health app', '📱'),
-        kpiHtml('Avg Order Interval', '14.2 Days', '-2.8 Days', 'up', 'Faster replenishment cycles', '⏱️'),
-        kpiHtml('Omni-Channel Engaged', '44.8%', '+9.5%', 'up', 'App + In-Clinic touchpoints', '🏬'),
+      kpiHtml('Monthly Active Customers', '8,920', '+22.1%', 'up', 'Transacting or visiting clinics', '⚡'),
+      kpiHtml('DAU / MAU Stickiness', '28.6%', '+4.2%', 'up', 'Top quartile consumer health app', '📱'),
+      kpiHtml('Avg Order Interval', '14.2 Days', '-2.8 Days', 'up', 'Faster replenishment cycles', '⏱️'),
+      kpiHtml('Omni-Channel Engaged', '44.8%', '+9.5%', 'up', 'App + In-Clinic touchpoints', '🏬'),
       '</div>',
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">⚡ Active Cadence & Platform Cohorts</h3>',
-            '<p class="zc360-card-sub">Engagement frequency tiers, service touchpoint preferences, and velocity tracking (10 records)</p>',
-          '</div>',
-          '<span class="zc360-pill active">Rolling 30-Day Cohort Analysis</span>',
-        '</div>',
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead><tr><th>Engagement Cohort</th><th>Active Count</th><th>Share of Base</th><th>Behavior Profile</th><th>Dominant Service</th><th>Growth Velocity</th></tr></thead>',
-            '<tbody>',
-              ACTIVE_COHORTS_LIST.map(function(c) {
-                return '<tr>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(c.cohort) + '</td>' +
-                  '<td style="font-weight:700;color:#2563eb;font-family:monospace;">' + esc(c.count) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(c.pctTotal) + '</td>' +
-                  '<td style="color:#475569;font-size:12px;">' + esc(c.frequency) + '</td>' +
-                  '<td style="color:#64748b;font-weight:600;">' + esc(c.topActivity) + '</td>' +
-                  '<td style="color:#059669;font-weight:700;">' + esc(c.trend) + '</td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">⚡ Active Cadence & Platform Cohorts</h3>',
+      '<p class="zc360-card-sub">Engagement frequency tiers, service touchpoint preferences, and velocity tracking (10 records)</p>',
+      '</div>',
+      '<span class="zc360-pill active">Rolling 30-Day Cohort Analysis</span>',
+      '</div>',
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead><tr><th>Engagement Cohort</th><th>Active Count</th><th>Share of Base</th><th>Behavior Profile</th><th>Dominant Service</th><th>Growth Velocity</th></tr></thead>',
+      '<tbody>',
+      ACTIVE_COHORTS_LIST.map(function (c) {
+        return '<tr>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(c.cohort) + '</td>' +
+          '<td style="font-weight:700;color:#2563eb;font-family:monospace;">' + esc(c.count) + '</td>' +
+          '<td style="font-weight:600;">' + esc(c.pctTotal) + '</td>' +
+          '<td style="color:#475569;font-size:12px;">' + esc(c.frequency) + '</td>' +
+          '<td style="color:#64748b;font-weight:600;">' + esc(c.topActivity) + '</td>' +
+          '<td style="color:#059669;font-weight:700;">' + esc(c.trend) + '</td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -425,36 +425,36 @@
   function renderRepeatCustomers() {
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('Overall Repeat Purchase Rate', '74.8%', '+5.2%', 'up', 'Highest retention tier in market', '🔄'),
-        kpiHtml('Repeat Customer Revenue', '₹2.84 Cr MTD', '+19.4%', 'up', 'Predictable recurring baseline', '💰'),
-        kpiHtml('Avg Order Count / User', '6.8 Orders', '+1.4', 'up', 'Annualized replenishment rate', '🛒'),
-        kpiHtml('Reorder Retention 90D', '81.2%', '+6.5%', 'up', '90-day repurchase frequency', '🛡️'),
+      kpiHtml('Overall Repeat Purchase Rate', '74.8%', '+5.2%', 'up', 'Highest retention tier in market', '🔄'),
+      kpiHtml('Repeat Customer Revenue', '₹2.84 Cr MTD', '+19.4%', 'up', 'Predictable recurring baseline', '💰'),
+      kpiHtml('Avg Order Count / User', '6.8 Orders', '+1.4', 'up', 'Annualized replenishment rate', '🛒'),
+      kpiHtml('Reorder Retention 90D', '81.2%', '+6.5%', 'up', '90-day repurchase frequency', '🛡️'),
       '</div>',
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">🔄 Customer Order Frequency Ladder</h3>',
-            '<p class="zc360-card-sub">Order progression distribution, reorder likelihood, and automated marketing triggers (10 records)</p>',
-          '</div>',
-          '<span class="zc360-pill active">Automated Habit Loops Active</span>',
-        '</div>',
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead><tr><th>Order Ladder</th><th>Customer Count</th><th>Base Share</th><th>Next Purchase Likelihood</th><th>Days to Reorder</th><th>CRM Trigger</th></tr></thead>',
-            '<tbody>',
-              REPEAT_METRICS_LIST.map(function(r) {
-                return '<tr>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(r.tier) + '</td>' +
-                  '<td style="font-weight:700;color:#2563eb;font-family:monospace;">' + r.count.toLocaleString() + '</td>' +
-                  '<td style="font-weight:600;">' + esc(r.share) + '</td>' +
-                  '<td style="color:#059669;font-weight:700;">' + esc(r.nextPurchaseProb) + '</td>' +
-                  '<td style="color:#64748b;font-weight:600;">' + esc(r.avgDaysToReorder) + '</td>' +
-                  '<td style="color:#475569;font-size:12px;">' + esc(r.marketingAction) + '</td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">🔄 Customer Order Frequency Ladder</h3>',
+      '<p class="zc360-card-sub">Order progression distribution, reorder likelihood, and automated marketing triggers (10 records)</p>',
+      '</div>',
+      '<span class="zc360-pill active">Automated Habit Loops Active</span>',
+      '</div>',
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead><tr><th>Order Ladder</th><th>Customer Count</th><th>Base Share</th><th>Next Purchase Likelihood</th><th>Days to Reorder</th><th>CRM Trigger</th></tr></thead>',
+      '<tbody>',
+      REPEAT_METRICS_LIST.map(function (r) {
+        return '<tr>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(r.tier) + '</td>' +
+          '<td style="font-weight:700;color:#2563eb;font-family:monospace;">' + r.count.toLocaleString() + '</td>' +
+          '<td style="font-weight:600;">' + esc(r.share) + '</td>' +
+          '<td style="color:#059669;font-weight:700;">' + esc(r.nextPurchaseProb) + '</td>' +
+          '<td style="color:#64748b;font-weight:600;">' + esc(r.avgDaysToReorder) + '</td>' +
+          '<td style="color:#475569;font-size:12px;">' + esc(r.marketingAction) + '</td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -463,37 +463,37 @@
   function renderLifetimeValue() {
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('Average Blended LTV', '₹42,650', '+14.6%', 'up', 'Across all customer segments', '💎'),
-        kpiHtml('Blended LTV : CAC Multiple', '8.4x', '+1.2x', 'up', 'Top-tier capital efficiency', '📈'),
-        kpiHtml('Avg Customer Lifespan', '21.4 Months', '+3.8 Mo', 'up', 'Subscribers & clinic clients', '⏳'),
-        kpiHtml('Cumulative Cohort GMV', '₹14.8 Cr', '+26.2%', 'up', 'Realized value since launch', '💰'),
+      kpiHtml('Average Blended LTV', '₹42,650', '+14.6%', 'up', 'Across all customer segments', '💎'),
+      kpiHtml('Blended LTV : CAC Multiple', '8.4x', '+1.2x', 'up', 'Top-tier capital efficiency', '📈'),
+      kpiHtml('Avg Customer Lifespan', '21.4 Months', '+3.8 Mo', 'up', 'Subscribers & clinic clients', '⏳'),
+      kpiHtml('Cumulative Cohort GMV', '₹14.8 Cr', '+26.2%', 'up', 'Realized value since launch', '💰'),
       '</div>',
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">💎 Lifetime Value (LTV) Tier Breakdown</h3>',
-            '<p class="zc360-card-sub">Predictive CLV tiers, cumulative cohort GMV, and gross margin contribution (10 records)</p>',
-          '</div>',
-          '<span class="zc360-pill success">High Unit Economics Health</span>',
-        '</div>',
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead><tr><th>Tier Segment</th><th>Customers</th><th>Avg Lifespan</th><th>Annual Spend</th><th>Estimated LTV</th><th>Margin %</th><th>LTV:CAC</th></tr></thead>',
-            '<tbody>',
-              LTV_SEGMENTS_LIST.map(function(s) {
-                return '<tr>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(s.segment) + '</td>' +
-                  '<td style="font-weight:700;color:#2563eb;font-family:monospace;">' + s.customers.toLocaleString() + '</td>' +
-                  '<td style="color:#64748b;">' + esc(s.avgLifespan) + '</td>' +
-                  '<td style="font-weight:600;color:#0f172a;">' + esc(s.avgAnnualSpend) + '</td>' +
-                  '<td style="font-weight:700;color:#059669;">' + esc(s.ltvValue) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(s.marginContrib) + '</td>' +
-                  '<td style="font-weight:700;color:#2563eb;">' + esc(s.ltvCac) + '</td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">💎 Lifetime Value (LTV) Tier Breakdown</h3>',
+      '<p class="zc360-card-sub">Predictive CLV tiers, cumulative cohort GMV, and gross margin contribution (10 records)</p>',
+      '</div>',
+      '<span class="zc360-pill success">High Unit Economics Health</span>',
+      '</div>',
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead><tr><th>Tier Segment</th><th>Customers</th><th>Avg Lifespan</th><th>Annual Spend</th><th>Estimated LTV</th><th>Margin %</th><th>LTV:CAC</th></tr></thead>',
+      '<tbody>',
+      LTV_SEGMENTS_LIST.map(function (s) {
+        return '<tr>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(s.segment) + '</td>' +
+          '<td style="font-weight:700;color:#2563eb;font-family:monospace;">' + s.customers.toLocaleString() + '</td>' +
+          '<td style="color:#64748b;">' + esc(s.avgLifespan) + '</td>' +
+          '<td style="font-weight:600;color:#0f172a;">' + esc(s.avgAnnualSpend) + '</td>' +
+          '<td style="font-weight:700;color:#059669;">' + esc(s.ltvValue) + '</td>' +
+          '<td style="font-weight:600;">' + esc(s.marginContrib) + '</td>' +
+          '<td style="font-weight:700;color:#2563eb;">' + esc(s.ltvCac) + '</td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -502,37 +502,37 @@
   function renderSegmentation() {
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('Persona Clusters', '10 Active', '+2 New', 'up', 'Dynamic daily cluster update', '🧩'),
-        kpiHtml('Multi-Pet Cluster Share', '28.5%', '+6.4%', 'up', 'Multi-pet owners (High basket)', '🐾'),
-        kpiHtml('Senior & Chronic Care', '17.5%', '+4.2%', 'up', 'High recurring predictability', '🩺'),
-        kpiHtml('Segment Campaign ROAS', '6.8x', '+1.4x', 'up', 'Hyper-personalized CRM', '🎯'),
+      kpiHtml('Persona Clusters', '10 Active', '+2 New', 'up', 'Dynamic daily cluster update', '🧩'),
+      kpiHtml('Multi-Pet Cluster Share', '28.5%', '+6.4%', 'up', 'Multi-pet owners (High basket)', '🐾'),
+      kpiHtml('Senior & Chronic Care', '17.5%', '+4.2%', 'up', 'High recurring predictability', '🩺'),
+      kpiHtml('Segment Campaign ROAS', '6.8x', '+1.4x', 'up', 'Hyper-personalized CRM', '🎯'),
       '</div>',
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">🧩 Behavioral Cohort Matrix</h3>',
-            '<p class="zc360-card-sub">RFM behavioral cohorts, basket composition metrics, and active CRM playbooks (10 records)</p>',
-          '</div>',
-          '<span class="zc360-pill active">RFM Clustering Live</span>',
-        '</div>',
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead><tr><th>Segment Persona</th><th>Count</th><th>Share</th><th>Behavior</th><th>AOV</th><th>Annual ARPU</th><th>Active Campaign</th></tr></thead>',
-            '<tbody>',
-              SEGMENTS_LIST.map(function(s) {
-                return '<tr>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(s.name) + '</td>' +
-                  '<td style="font-weight:700;color:#2563eb;font-family:monospace;">' + s.count.toLocaleString() + '</td>' +
-                  '<td style="font-weight:600;">' + esc(s.share) + '</td>' +
-                  '<td style="color:#475569;font-size:12px;">' + esc(s.behavior) + '</td>' +
-                  '<td style="font-weight:600;color:#0f172a;">' + esc(s.aov) + '</td>' +
-                  '<td style="font-weight:700;color:#059669;">' + esc(s.arpu) + '</td>' +
-                  '<td style="color:#2563eb;font-size:12px;font-weight:600;">' + esc(s.campaign) + '</td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">🧩 Behavioral Cohort Matrix</h3>',
+      '<p class="zc360-card-sub">RFM behavioral cohorts, basket composition metrics, and active CRM playbooks (10 records)</p>',
+      '</div>',
+      '<span class="zc360-pill active">RFM Clustering Live</span>',
+      '</div>',
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead><tr><th>Segment Persona</th><th>Count</th><th>Share</th><th>Behavior</th><th>AOV</th><th>Annual ARPU</th><th>Active Campaign</th></tr></thead>',
+      '<tbody>',
+      SEGMENTS_LIST.map(function (s) {
+        return '<tr>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(s.name) + '</td>' +
+          '<td style="font-weight:700;color:#2563eb;font-family:monospace;">' + s.count.toLocaleString() + '</td>' +
+          '<td style="font-weight:600;">' + esc(s.share) + '</td>' +
+          '<td style="color:#475569;font-size:12px;">' + esc(s.behavior) + '</td>' +
+          '<td style="font-weight:600;color:#0f172a;">' + esc(s.aov) + '</td>' +
+          '<td style="font-weight:700;color:#059669;">' + esc(s.arpu) + '</td>' +
+          '<td style="color:#2563eb;font-size:12px;font-weight:600;">' + esc(s.campaign) + '</td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -541,38 +541,38 @@
   function renderOrders() {
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('Total Customer Orders', '18,640', '+21.5%', 'up', 'Across app, clinic & web', '🛒'),
-        kpiHtml('Average Order Value', '₹3,480', '+8.6%', 'up', 'Combined retail & medical basket', '💰'),
-        kpiHtml('60-Min Fast Delivery', '62.4%', '+14.8%', 'up', 'Hyperlocal quick-commerce', '⚡'),
-        kpiHtml('Omni-Basket Attach', '38.6%', '+7.2%', 'up', 'Food + Meds + Spa cross-sell', '📦'),
+      kpiHtml('Total Customer Orders', '18,640', '+21.5%', 'up', 'Across app, clinic & web', '🛒'),
+      kpiHtml('Average Order Value', '₹3,480', '+8.6%', 'up', 'Combined retail & medical basket', '💰'),
+      kpiHtml('60-Min Fast Delivery', '62.4%', '+14.8%', 'up', 'Hyperlocal quick-commerce', '⚡'),
+      kpiHtml('Omni-Basket Attach', '38.6%', '+7.2%', 'up', 'Food + Meds + Spa cross-sell', '📦'),
       '</div>',
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">🛒 Recent Customer Purchases & Services</h3>',
-            '<p class="zc360-card-sub">Live omnichannel transaction stream, clinic invoices, and delivery tracking (10 records)</p>',
-          '</div>',
-          '<span class="zc360-pill active">Live Order Feed Active</span>',
-        '</div>',
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead><tr><th>Order ID</th><th>Pet Parent</th><th>Pet Patient</th><th>Items</th><th>Total</th><th>Channel</th><th>Fulfillment</th><th>Time</th></tr></thead>',
-            '<tbody>',
-              CUSTOMER_ORDERS_LIST.map(function(o) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:700;color:#2563eb;">' + esc(o.id) + '</td>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(o.parent) + '</td>' +
-                  '<td style="color:#475569;">🐾 ' + esc(o.pet) + '</td>' +
-                  '<td style="color:#334155;font-size:12px;max-width:280px;white-space:normal;">' + esc(o.items) + '</td>' +
-                  '<td style="font-weight:700;color:#059669;">' + esc(o.total) + '</td>' +
-                  '<td><span class="zc360-pill active">' + esc(o.channel) + '</span></td>' +
-                  '<td><span class="zc360-pill success">' + esc(o.fulfillment) + '</span></td>' +
-                  '<td style="color:#64748b;font-size:12px;">' + esc(o.time) + '</td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">🛒 Recent Customer Purchases & Services</h3>',
+      '<p class="zc360-card-sub">Live omnichannel transaction stream, clinic invoices, and delivery tracking (10 records)</p>',
+      '</div>',
+      '<span class="zc360-pill active">Live Order Feed Active</span>',
+      '</div>',
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead><tr><th>Order ID</th><th>Pet Parent</th><th>Pet Patient</th><th>Items</th><th>Total</th><th>Channel</th><th>Fulfillment</th><th>Time</th></tr></thead>',
+      '<tbody>',
+      CUSTOMER_ORDERS_LIST.map(function (o) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:700;color:#2563eb;">' + esc(o.id) + '</td>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(o.parent) + '</td>' +
+          '<td style="color:#475569;">🐾 ' + esc(o.pet) + '</td>' +
+          '<td style="color:#334155;font-size:12px;max-width:280px;white-space:normal;">' + esc(o.items) + '</td>' +
+          '<td style="font-weight:700;color:#059669;">' + esc(o.total) + '</td>' +
+          '<td><span class="zc360-pill active">' + esc(o.channel) + '</span></td>' +
+          '<td><span class="zc360-pill success">' + esc(o.fulfillment) + '</span></td>' +
+          '<td style="color:#64748b;font-size:12px;">' + esc(o.time) + '</td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -581,36 +581,36 @@
   function renderRevenue() {
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('Customer Revenue (MTD)', '₹3.11 Cr', '+24.8%', 'up', 'Total billed retail & clinical revenue', '💰'),
-        kpiHtml('Monthly User ARPU', '₹3,486', '+11.2%', 'up', 'Across active transacting parents', '📈'),
-        kpiHtml('Blended Gross Margin', '44.8%', '+3.6%', 'up', 'Driven by vet care & pharmacy mix', '💎'),
-        kpiHtml('Subscription Recurring', '18.2%', '+5.4%', 'up', 'Predictable recurring replenishment', '🔄'),
+      kpiHtml('Customer Revenue (MTD)', '₹3.11 Cr', '+24.8%', 'up', 'Total billed retail & clinical revenue', '💰'),
+      kpiHtml('Monthly User ARPU', '₹3,486', '+11.2%', 'up', 'Across active transacting parents', '📈'),
+      kpiHtml('Blended Gross Margin', '44.8%', '+3.6%', 'up', 'Driven by vet care & pharmacy mix', '💎'),
+      kpiHtml('Subscription Recurring', '18.2%', '+5.4%', 'up', 'Predictable recurring replenishment', '🔄'),
       '</div>',
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">💰 Customer Revenue by Channel</h3>',
-            '<p class="zc360-card-sub">Monetization breakdown across quick commerce, clinic consultations, pharmacy & spas (10 records)</p>',
-          '</div>',
-          '<span class="zc360-pill success">Gross Margin Target Met</span>',
-        '</div>',
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead><tr><th>Channel</th><th>MTD Revenue</th><th>Share</th><th>Avg Spend</th><th>Gross Margin</th><th>YoY Growth</th></tr></thead>',
-            '<tbody>',
-              REVENUE_CHANNELS_LIST.map(function(r) {
-                return '<tr>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(r.channel) + '</td>' +
-                  '<td style="font-weight:700;color:#059669;font-family:monospace;">' + esc(r.mtdRev) + '</td>' +
-                  '<td style="font-weight:700;color:#2563eb;">' + esc(r.share) + '</td>' +
-                  '<td style="color:#475569;font-weight:600;">' + esc(r.avgSpend) + '</td>' +
-                  '<td style="font-weight:600;color:#0f172a;">' + esc(r.grossMargin) + '</td>' +
-                  '<td style="color:#059669;font-weight:700;">' + esc(r.growth) + '</td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">💰 Customer Revenue by Channel</h3>',
+      '<p class="zc360-card-sub">Monetization breakdown across quick commerce, clinic consultations, pharmacy & spas (10 records)</p>',
+      '</div>',
+      '<span class="zc360-pill success">Gross Margin Target Met</span>',
+      '</div>',
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead><tr><th>Channel</th><th>MTD Revenue</th><th>Share</th><th>Avg Spend</th><th>Gross Margin</th><th>YoY Growth</th></tr></thead>',
+      '<tbody>',
+      REVENUE_CHANNELS_LIST.map(function (r) {
+        return '<tr>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(r.channel) + '</td>' +
+          '<td style="font-weight:700;color:#059669;font-family:monospace;">' + esc(r.mtdRev) + '</td>' +
+          '<td style="font-weight:700;color:#2563eb;">' + esc(r.share) + '</td>' +
+          '<td style="color:#475569;font-weight:600;">' + esc(r.avgSpend) + '</td>' +
+          '<td style="font-weight:600;color:#0f172a;">' + esc(r.grossMargin) + '</td>' +
+          '<td style="color:#059669;font-weight:700;">' + esc(r.growth) + '</td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -619,37 +619,37 @@
   function renderRetention() {
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('Month-1 Cohort Retention', '84.6%', '+3.8%', 'up', 'Day-30 retention benchmark', '🛡️'),
-        kpiHtml('Annual Churn Rate', '1.8% / mo', '-0.6%', 'up', 'Subscribers & clinic clients', '📉'),
-        kpiHtml('Win-Back Success', '38.4%', '+7.2%', 'up', 'Automated reminder triggers', '🔄'),
-        kpiHtml('Net Revenue Retention', '124.6%', '+8.4%', 'up', 'Expansion revenue from existing base', '💎'),
+      kpiHtml('Month-1 Cohort Retention', '84.6%', '+3.8%', 'up', 'Day-30 retention benchmark', '🛡️'),
+      kpiHtml('Annual Churn Rate', '1.8% / mo', '-0.6%', 'up', 'Subscribers & clinic clients', '📉'),
+      kpiHtml('Win-Back Success', '38.4%', '+7.2%', 'up', 'Automated reminder triggers', '🔄'),
+      kpiHtml('Net Revenue Retention', '124.6%', '+8.4%', 'up', 'Expansion revenue from existing base', '💎'),
       '</div>',
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">🛡️ Longitudinal Cohort Retention Analysis (M1 - M12)</h3>',
-            '<p class="zc360-card-sub">Tracking customer longevity, repurchase consistency, and cohort decay across 10 distinct monthly cohorts</p>',
-          '</div>',
-          '<span class="zc360-pill active">Cohort Decay Stabilized</span>',
-        '</div>',
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead><tr><th>Cohort Inception</th><th>Initial Users</th><th>Month 1</th><th>Month 3</th><th>Month 6</th><th>Month 12</th><th>Status</th></tr></thead>',
-            '<tbody>',
-              RETENTION_COHORTS_LIST.map(function(c) {
-                return '<tr>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(c.cohortMonth) + '</td>' +
-                  '<td style="font-weight:700;color:#2563eb;font-family:monospace;">' + c.initialSize.toLocaleString() + '</td>' +
-                  '<td style="color:#059669;font-weight:700;">' + esc(c.m1) + '</td>' +
-                  '<td style="color:#059669;font-weight:600;">' + esc(c.m3) + '</td>' +
-                  '<td style="color:#2563eb;font-weight:600;">' + esc(c.m6) + '</td>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(c.m12) + '</td>' +
-                  '<td><span class="zc360-pill success">' + esc(c.status) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">🛡️ Longitudinal Cohort Retention Analysis (M1 - M12)</h3>',
+      '<p class="zc360-card-sub">Tracking customer longevity, repurchase consistency, and cohort decay across 10 distinct monthly cohorts</p>',
+      '</div>',
+      '<span class="zc360-pill active">Cohort Decay Stabilized</span>',
+      '</div>',
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead><tr><th>Cohort Inception</th><th>Initial Users</th><th>Month 1</th><th>Month 3</th><th>Month 6</th><th>Month 12</th><th>Status</th></tr></thead>',
+      '<tbody>',
+      RETENTION_COHORTS_LIST.map(function (c) {
+        return '<tr>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(c.cohortMonth) + '</td>' +
+          '<td style="font-weight:700;color:#2563eb;font-family:monospace;">' + c.initialSize.toLocaleString() + '</td>' +
+          '<td style="color:#059669;font-weight:700;">' + esc(c.m1) + '</td>' +
+          '<td style="color:#059669;font-weight:600;">' + esc(c.m3) + '</td>' +
+          '<td style="color:#2563eb;font-weight:600;">' + esc(c.m6) + '</td>' +
+          '<td style="font-weight:700;color:#0f172a;">' + esc(c.m12) + '</td>' +
+          '<td><span class="zc360-pill success">' + esc(c.status) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -668,154 +668,154 @@
       var q = S.complaintSearch.toLowerCase();
       list = list.filter(function (g) {
         return g.id.toLowerCase().indexOf(q) >= 0 ||
-               g.parent.toLowerCase().indexOf(q) >= 0 ||
-               g.pet.toLowerCase().indexOf(q) >= 0 ||
-               g.issue.toLowerCase().indexOf(q) >= 0 ||
-               g.category.toLowerCase().indexOf(q) >= 0;
+          g.parent.toLowerCase().indexOf(q) >= 0 ||
+          g.pet.toLowerCase().indexOf(q) >= 0 ||
+          g.issue.toLowerCase().indexOf(q) >= 0 ||
+          g.category.toLowerCase().indexOf(q) >= 0;
       });
     }
 
     return [
       '<div class="zc360-kpi-grid">',
-        kpiHtml('Total Grievance Tickets', '10', '-18.0%', 'up', '100% resolved within SLA', '⚠️'),
-        kpiHtml('First Contact Resolution', '92.4%', '+4.8%', 'up', 'Resolved on first interaction', '⚡'),
-        kpiHtml('Avg. Resolution Time', '21 mins', '-8 mins', 'up', 'Industry leading turnaround', '⏱️'),
-        kpiHtml('Post-Resolution CSAT', '4.9 ⭐', '+0.3', 'up', 'Pet parent verified feedback', '⭐'),
-        kpiHtml('Cold-Chain / Rx SLA', '100%', '0.0%', 'neutral', 'Zero temperature deviations', '❄️'),
-        kpiHtml('Sentiment Recovery', '98.2%', '+2.4%', 'up', 'At-risk customer retention', '❤️'),
+      kpiHtml('Total Grievance Tickets', '10', '-18.0%', 'up', '100% resolved within SLA', '⚠️'),
+      kpiHtml('First Contact Resolution', '92.4%', '+4.8%', 'up', 'Resolved on first interaction', '⚡'),
+      kpiHtml('Avg. Resolution Time', '21 mins', '-8 mins', 'up', 'Industry leading turnaround', '⏱️'),
+      kpiHtml('Post-Resolution CSAT', '4.9 ⭐', '+0.3', 'up', 'Pet parent verified feedback', '⭐'),
+      kpiHtml('Cold-Chain / Rx SLA', '100%', '0.0%', 'neutral', 'Zero temperature deviations', '❄️'),
+      kpiHtml('Sentiment Recovery', '98.2%', '+2.4%', 'up', 'At-risk customer retention', '❤️'),
       '</div>',
 
       '<div class="zc360-grid-2">',
-        '<div class="zc360-card">',
-          '<div class="zc360-card-head">',
-            '<h3 class="zc360-card-title">📊 Grievance Category & Root-Cause Distribution</h3>',
-            '<span class="zc360-pill active">Real-Time Telemetry</span>',
-          '</div>',
-          '<div style="display:flex;flex-direction:column;gap:12px;padding:4px 0;">',
-            '<div>',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:4px;">',
-                '<span>🚚 Delivery Logistics & Delay (3 tickets)</span><span style="color:#2563eb;">30%</span>',
-              '</div>',
-              '<div class="zc360-progress-bar"><div class="zc360-progress-fill info" style="width:30%;"></div></div>',
-            '</div>',
-            '<div>',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:4px;">',
-                '<span>📦 Packaging & Seal Integrity (2 tickets)</span><span style="color:#8b5cf6;">20%</span>',
-              '</div>',
-              '<div class="zc360-progress-bar"><div class="zc360-progress-fill purple" style="width:20%;"></div></div>',
-            '</div>',
-            '<div>',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:4px;">',
-                '<span>❄️ Pharmacy & Cold-Chain SLA (2 tickets)</span><span style="color:#10b981;">20%</span>',
-              '</div>',
-              '<div class="zc360-progress-bar"><div class="zc360-progress-fill success" style="width:20%;"></div></div>',
-            '</div>',
-            '<div>',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:4px;">',
-                '<span>🏥 Clinic & Appointment Wait (2 tickets)</span><span style="color:#f59e0b;">20%</span>',
-              '</div>',
-              '<div class="zc360-progress-bar"><div class="zc360-progress-fill warning" style="width:20%;"></div></div>',
-            '</div>',
-            '<div>',
-              '<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:4px;">',
-                '<span>💳 Billing & Payment Gateway (1 ticket)</span><span style="color:#ef4444;">10%</span>',
-              '</div>',
-              '<div class="zc360-progress-bar"><div class="zc360-progress-fill danger" style="width:10%;"></div></div>',
-            '</div>',
-          '</div>',
-        '</div>',
-
-        '<div class="zc360-card">',
-          '<div class="zc360-card-head">',
-            '<h3 class="zc360-card-title">📋 SOP Remedies & Resolution Matrix</h3>',
-            '<span class="zc360-pill critical">Strict Tier-1 Protocol</span>',
-          '</div>',
-          '<div class="zc360-sop-grid">',
-            '<div class="zc360-sop-card">',
-              '<div class="zc360-sop-badge">🚚 Delivery Delay > 20 Mins</div>',
-              '<div class="zc360-sop-rule">Full Delivery Waiver + ₹200 Credit</div>',
-              '<div class="zc360-sop-desc">Auto-triggered if rider GPS exceeds 70 mins. Rider lead calls customer with live status ETA.</div>',
-            '</div>',
-            '<div class="zc360-sop-card">',
-              '<div class="zc360-sop-badge">❄️ Cold-Chain > 8°C Deviation</div>',
-              '<div class="zc360-sop-rule">Instant Swap + Vet Sign-off</div>',
-              '<div class="zc360-sop-desc">Vaccines and insulins replaced at ₹0 fee from nearest dark-store fridge hub within 25 mins.</div>',
-            '</div>',
-            '<div class="zc360-sop-card">',
-              '<div class="zc360-sop-badge">📦 Torn Kibble / Damaged Seal</div>',
-              '<div class="zc360-sop-rule">100% Free Swap + Treat Pouch</div>',
-              '<div class="zc360-sop-desc">No return pickup required. New sealed pack sent immediately with complimentary treat.</div>',
-            '</div>',
-            '<div class="zc360-sop-card">',
-              '<div class="zc360-sop-badge">🏥 Clinic Reschedule by Hospital</div>',
-              '<div class="zc360-sop-rule">VIP Priority Slot + Free Checkup</div>',
-              '<div class="zc360-sop-desc">If emergency surgery delays doctor, customer receives guaranteed next-slot bypass + free nails trim.</div>',
-            '</div>',
-          '</div>',
-        '</div>',
+      '<div class="zc360-card">',
+      '<div class="zc360-card-head">',
+      '<h3 class="zc360-card-title">📊 Grievance Category & Root-Cause Distribution</h3>',
+      '<span class="zc360-pill active">Real-Time Telemetry</span>',
+      '</div>',
+      '<div style="display:flex;flex-direction:column;gap:12px;padding:4px 0;">',
+      '<div>',
+      '<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:4px;">',
+      '<span>🚚 Delivery Logistics & Delay (3 tickets)</span><span style="color:#2563eb;">30%</span>',
+      '</div>',
+      '<div class="zc360-progress-bar"><div class="zc360-progress-fill info" style="width:30%;"></div></div>',
+      '</div>',
+      '<div>',
+      '<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:4px;">',
+      '<span>📦 Packaging & Seal Integrity (2 tickets)</span><span style="color:#8b5cf6;">20%</span>',
+      '</div>',
+      '<div class="zc360-progress-bar"><div class="zc360-progress-fill purple" style="width:20%;"></div></div>',
+      '</div>',
+      '<div>',
+      '<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:4px;">',
+      '<span>❄️ Pharmacy & Cold-Chain SLA (2 tickets)</span><span style="color:#10b981;">20%</span>',
+      '</div>',
+      '<div class="zc360-progress-bar"><div class="zc360-progress-fill success" style="width:20%;"></div></div>',
+      '</div>',
+      '<div>',
+      '<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:4px;">',
+      '<span>🏥 Clinic & Appointment Wait (2 tickets)</span><span style="color:#f59e0b;">20%</span>',
+      '</div>',
+      '<div class="zc360-progress-bar"><div class="zc360-progress-fill warning" style="width:20%;"></div></div>',
+      '</div>',
+      '<div>',
+      '<div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:4px;">',
+      '<span>💳 Billing & Payment Gateway (1 ticket)</span><span style="color:#ef4444;">10%</span>',
+      '</div>',
+      '<div class="zc360-progress-bar"><div class="zc360-progress-fill danger" style="width:10%;"></div></div>',
+      '</div>',
+      '</div>',
       '</div>',
 
       '<div class="zc360-card">',
-        '<div class="zc360-card-head">',
-          '<div>',
-            '<h3 class="zc360-card-title">⚠️ Live Customer Support & Grievance Register</h3>',
-            '<p style="margin:2px 0 0;font-size:12px;color:#64748b;">Active customer complaints, priority triage, SLA countdowns, and resolution logging (10 records)</p>',
-          '</div>',
-          '<div class="zc360-table-actions">',
-            '<input type="text" class="zc360-search" placeholder="Search ticket, parent, pet, or issue..." value="' + esc(S.complaintSearch || '') + '" oninput="ZenveCustomersDashboard.searchGrievances(this.value)" />',
-            '<div class="zc360-filter-group">',
-              ['ALL', 'Delivery', 'Packaging', 'Billing', 'Clinic', 'Pharmacy', 'OPEN'].map(function(f) {
-                var active = (S.complaintFilter === f) ? ' active' : '';
-                return '<button class="zc360-filter-btn' + active + '" onclick="ZenveCustomersDashboard.filterGrievances(\'' + f + '\')">' + f + '</button>';
-              }).join(''),
-            '</div>',
-            '<button class="zc360-btn primary" onclick="ZenveCustomersDashboard.showGrievanceModal()">+ Log New Grievance</button>',
-          '</div>',
-        '</div>',
+      '<div class="zc360-card-head">',
+      '<h3 class="zc360-card-title">📋 SOP Remedies & Resolution Matrix</h3>',
+      '<span class="zc360-pill critical">Strict Tier-1 Protocol</span>',
+      '</div>',
+      '<div class="zc360-sop-grid">',
+      '<div class="zc360-sop-card">',
+      '<div class="zc360-sop-badge">🚚 Delivery Delay > 20 Mins</div>',
+      '<div class="zc360-sop-rule">Full Delivery Waiver + ₹200 Credit</div>',
+      '<div class="zc360-sop-desc">Auto-triggered if rider GPS exceeds 70 mins. Rider lead calls customer with live status ETA.</div>',
+      '</div>',
+      '<div class="zc360-sop-card">',
+      '<div class="zc360-sop-badge">❄️ Cold-Chain > 8°C Deviation</div>',
+      '<div class="zc360-sop-rule">Instant Swap + Vet Sign-off</div>',
+      '<div class="zc360-sop-desc">Vaccines and insulins replaced at ₹0 fee from nearest dark-store fridge hub within 25 mins.</div>',
+      '</div>',
+      '<div class="zc360-sop-card">',
+      '<div class="zc360-sop-badge">📦 Torn Kibble / Damaged Seal</div>',
+      '<div class="zc360-sop-rule">100% Free Swap + Treat Pouch</div>',
+      '<div class="zc360-sop-desc">No return pickup required. New sealed pack sent immediately with complimentary treat.</div>',
+      '</div>',
+      '<div class="zc360-sop-card">',
+      '<div class="zc360-sop-badge">🏥 Clinic Reschedule by Hospital</div>',
+      '<div class="zc360-sop-rule">VIP Priority Slot + Free Checkup</div>',
+      '<div class="zc360-sop-desc">If emergency surgery delays doctor, customer receives guaranteed next-slot bypass + free nails trim.</div>',
+      '</div>',
+      '</div>',
+      '</div>',
+      '</div>',
 
-        '<div class="zc360-table-wrap">',
-          '<table class="zc360-table">',
-            '<thead>',
-              '<tr>',
-                '<th>Ticket ID</th>',
-                '<th>Pet Parent & Pet</th>',
-                '<th>Category</th>',
-                '<th>Priority</th>',
-                '<th>Grievance Issue & Description</th>',
-                '<th>Care Rep</th>',
-                '<th>SLA Time</th>',
-                '<th>Remedy / Outcome</th>',
-                '<th>CSAT</th>',
-                '<th>Status</th>',
-                '<th>Actions</th>',
-              '</tr>',
-            '</thead>',
-            '<tbody>',
-              (list.length === 0 ? '<tr><td colspan="11" style="text-align:center;padding:28px;color:#94a3b8;">No customer grievance records found</td></tr>' :
-              list.map(function (g) {
-                var prioClass = g.priority === 'Critical' ? 'critical' : g.priority === 'High' ? 'warning' : 'active';
-                var statusClass = g.status === 'Closed' ? 'active' : 'critical';
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:700;color:#2563eb;">' + esc(g.id) + '</td>' +
-                  '<td><div style="font-weight:700;color:#0f172a;">' + esc(g.parent) + '</div><div style="font-size:11px;color:#64748b;">🐾 ' + esc(g.pet) + '</div></td>' +
-                  '<td><span class="zc360-pill">' + esc(g.category) + '</span></td>' +
-                  '<td><span class="zc360-pill ' + prioClass + '">' + esc(g.priority) + '</span></td>' +
-                  '<td style="max-width:280px;line-height:1.4;"><div style="font-weight:600;color:#1e293b;">' + esc(g.issue) + '</div></td>' +
-                  '<td style="font-size:12px;color:#475569;font-weight:600;">' + esc(g.rep) + '</td>' +
-                  '<td style="font-weight:700;color:#0f172a;">' + esc(g.sla) + '</td>' +
-                  '<td style="color:#059669;font-weight:600;font-size:12px;">' + esc(g.remedy) + '</td>' +
-                  '<td style="font-weight:700;color:#eab308;">' + esc(g.csat) + '</td>' +
-                  '<td><span class="zc360-pill ' + statusClass + '">' + esc(g.status) + '</span></td>' +
-                  '<td>' +
-                    (g.status === 'Closed'
-                      ? '<button class="zc360-btn sm" onclick="alert(\'Ticket ' + g.id + ' is fully resolved.\\nOutcome: ' + g.remedy.replace(/'/g, "\\'") + '\')">View Details</button>'
-                      : '<button class="zc360-btn sm primary" onclick="ZenveCustomersDashboard.resolveGrievance(\'' + g.id + '\')">Resolve Ticket</button>') +
-                  '</td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zc360-card">',
+      '<div class="zc360-card-head">',
+      '<div>',
+      '<h3 class="zc360-card-title">⚠️ Live Customer Support & Grievance Register</h3>',
+      '<p style="margin:2px 0 0;font-size:12px;color:#64748b;">Active customer complaints, priority triage, SLA countdowns, and resolution logging (10 records)</p>',
+      '</div>',
+      '<div class="zc360-table-actions">',
+      '<input type="text" class="zc360-search" placeholder="Search ticket, parent, pet, or issue..." value="' + esc(S.complaintSearch || '') + '" oninput="ZenveCustomersDashboard.searchGrievances(this.value)" />',
+      '<div class="zc360-filter-group">',
+      ['ALL', 'Delivery', 'Packaging', 'Billing', 'Clinic', 'Pharmacy', 'OPEN'].map(function (f) {
+        var active = (S.complaintFilter === f) ? ' active' : '';
+        return '<button class="zc360-filter-btn' + active + '" onclick="ZenveCustomersDashboard.filterGrievances(\'' + f + '\')">' + f + '</button>';
+      }).join(''),
+      '</div>',
+      '<button class="zc360-btn primary" onclick="ZenveCustomersDashboard.showGrievanceModal()">+ Log New Grievance</button>',
+      '</div>',
+      '</div>',
+
+      '<div class="zc360-table-wrap">',
+      '<table class="zc360-table">',
+      '<thead>',
+      '<tr>',
+      '<th>Ticket ID</th>',
+      '<th>Pet Parent & Pet</th>',
+      '<th>Category</th>',
+      '<th>Priority</th>',
+      '<th>Grievance Issue & Description</th>',
+      '<th>Care Rep</th>',
+      '<th>SLA Time</th>',
+      '<th>Remedy / Outcome</th>',
+      '<th>CSAT</th>',
+      '<th>Status</th>',
+      '<th>Actions</th>',
+      '</tr>',
+      '</thead>',
+      '<tbody>',
+      (list.length === 0 ? '<tr><td colspan="11" style="text-align:center;padding:28px;color:#94a3b8;">No customer grievance records found</td></tr>' :
+        list.map(function (g) {
+          var prioClass = g.priority === 'Critical' ? 'critical' : g.priority === 'High' ? 'warning' : 'active';
+          var statusClass = g.status === 'Closed' ? 'active' : 'critical';
+          return '<tr>' +
+            '<td style="font-family:monospace;font-weight:700;color:#2563eb;">' + esc(g.id) + '</td>' +
+            '<td><div style="font-weight:700;color:#0f172a;">' + esc(g.parent) + '</div><div style="font-size:11px;color:#64748b;">🐾 ' + esc(g.pet) + '</div></td>' +
+            '<td><span class="zc360-pill">' + esc(g.category) + '</span></td>' +
+            '<td><span class="zc360-pill ' + prioClass + '">' + esc(g.priority) + '</span></td>' +
+            '<td style="max-width:280px;line-height:1.4;"><div style="font-weight:600;color:#1e293b;">' + esc(g.issue) + '</div></td>' +
+            '<td style="font-size:12px;color:#475569;font-weight:600;">' + esc(g.rep) + '</td>' +
+            '<td style="font-weight:700;color:#0f172a;">' + esc(g.sla) + '</td>' +
+            '<td style="color:#059669;font-weight:600;font-size:12px;">' + esc(g.remedy) + '</td>' +
+            '<td style="font-weight:700;color:#eab308;">' + esc(g.csat) + '</td>' +
+            '<td><span class="zc360-pill ' + statusClass + '">' + esc(g.status) + '</span></td>' +
+            '<td>' +
+            (g.status === 'Closed'
+              ? '<button class="zc360-btn sm" onclick="alert(\'Ticket ' + g.id + ' is fully resolved.\\nOutcome: ' + g.remedy.replace(/'/g, "\\'") + '\')">View Details</button>'
+              : '<button class="zc360-btn sm primary" onclick="ZenveCustomersDashboard.resolveGrievance(\'' + g.id + '\')">Resolve Ticket</button>') +
+            '</td>' +
+            '</tr>';
+        }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -827,45 +827,45 @@
 
     var html = [
       '<header class="zc360-head">',
-        '<div class="zc360-head-left">',
-          '<div class="zc360-title-row">',
-            '<h2 class="zc360-title">' + currentTab.icon + ' ' + esc(currentTab.title) + '</h2>',
-            '<span class="zc360-live-badge"><span class="zc360-pulse-dot"></span> Customer 360° · Active</span>',
-          '</div>',
-          '<p class="zc360-sub">' + esc(currentTab.sub) + '</p>',
-        '</div>',
-        '<div class="zc360-head-actions">',
-          '<button class="zc360-btn primary" onclick="ZenveCustomersDashboard.showOnboardModal()">+ Add Customer</button>',
-        '</div>',
+      '<div class="zc360-head-left">',
+      '<div class="zc360-title-row">',
+      '<h2 class="zc360-title">' + currentTab.icon + ' ' + esc(currentTab.title) + '</h2>',
+      '<span class="zc360-live-badge"><span class="zc360-pulse-dot"></span> Customer 360° · Active</span>',
+      '</div>',
+      '<p class="zc360-sub">' + esc(currentTab.sub) + '</p>',
+      '</div>',
+      '<div class="zc360-head-actions">',
+      '<button class="zc360-btn primary" onclick="ZenveCustomersDashboard.showOnboardModal()">+ Add Customer</button>',
+      '</div>',
       '</header>',
 
       '<nav class="zc360-tabs-bar">',
-        TABS.map(function (t) {
-          var active = t.id === S.tab ? ' active' : '';
-          return '<button class="zc360-tab' + active + '" onclick="ZenveCustomersDashboard.switchTab(\'' + t.id + '\')">' +
-            '<span>' + t.icon + '</span>' +
-            '<span>' + esc(t.label) + '</span>' +
-            '<span class="zc360-tab-badge">' + esc(t.badge) + '</span>' +
+      TABS.map(function (t) {
+        var active = t.id === S.tab ? ' active' : '';
+        return '<button class="zc360-tab' + active + '" onclick="ZenveCustomersDashboard.switchTab(\'' + t.id + '\')">' +
+          '<span>' + t.icon + '</span>' +
+          '<span>' + esc(t.label) + '</span>' +
+          '<span class="zc360-tab-badge">' + esc(t.badge) + '</span>' +
           '</button>';
-        }).join(''),
+      }).join(''),
       '</nav>',
 
       '<div class="zc360-body">'
     ];
 
     switch (S.tab) {
-      case 'dashboard':      html.push(renderDashboard()); break;
-      case 'all-customers':  html.push(renderAllCustomers()); break;
-      case 'new-customers':  html.push(renderNewCustomers()); break;
+      case 'dashboard': html.push(renderDashboard()); break;
+      case 'all-customers': html.push(renderAllCustomers()); break;
+      case 'new-customers': html.push(renderNewCustomers()); break;
       case 'active-customers': html.push(renderActiveCustomers()); break;
       case 'repeat-customers': html.push(renderRepeatCustomers()); break;
       case 'lifetime-value': html.push(renderLifetimeValue()); break;
-      case 'segmentation':   html.push(renderSegmentation()); break;
-      case 'orders':         html.push(renderOrders()); break;
-      case 'revenue':        html.push(renderRevenue()); break;
-      case 'retention':      html.push(renderRetention()); break;
-      case 'complaints':     html.push(renderComplaints()); break;
-      default:               html.push(renderDashboard());
+      case 'segmentation': html.push(renderSegmentation()); break;
+      case 'orders': html.push(renderOrders()); break;
+      case 'revenue': html.push(renderRevenue()); break;
+      case 'retention': html.push(renderRetention()); break;
+      case 'complaints': html.push(renderComplaints()); break;
+      default: html.push(renderDashboard());
     }
 
     html.push('</div>');
@@ -890,23 +890,23 @@
   function showOnboardModal() {
     var formHtml = [
       '<div class="zc360-modal-head">',
-        '<h3 class="zc360-modal-title">👥 Create Pet Parent Profile</h3>',
-        '<button class="zc360-btn" onclick="ZenveCustomersDashboard.closeModal()">✕</button>',
+      '<h3 class="zc360-modal-title">👥 Create Pet Parent Profile</h3>',
+      '<button class="zc360-btn" onclick="ZenveCustomersDashboard.closeModal()">✕</button>',
       '</div>',
       '<form onsubmit="event.preventDefault(); alert(\'Customer profile created! Welcome kit and referral reward dispatched!\'); ZenveCustomersDashboard.closeModal();">',
-        '<div class="zc360-form-group"><label>Pet Parent Full Name</label><input type="text" class="zc360-input" placeholder="e.g. Tanvi Deshmukh" required /></div>',
-        '<div class="zc360-form-row">',
-          '<div class="zc360-form-group"><label>Mobile Number</label><input type="tel" class="zc360-input" placeholder="+91 98450 99999" required /></div>',
-          '<div class="zc360-form-group"><label>City & Neighborhood</label><input type="text" class="zc360-input" placeholder="e.g. Indiranagar, BLR" required /></div>',
-        '</div>',
-        '<div class="zc360-form-row">',
-          '<div class="zc360-form-group"><label>Registered Pet Name & Breed</label><input type="text" class="zc360-input" placeholder="e.g. Sparky (Beagle)" required /></div>',
-          '<div class="zc360-form-group"><label>Initial Loyalty Tier</label><select class="zc360-select"><option>New Subscriber</option><option>Occasional Silver</option><option>Loyal Gold</option><option>VIP Elite</option></select></div>',
-        '</div>',
-        '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
-          '<button type="button" class="zc360-btn" onclick="ZenveCustomersDashboard.closeModal()">Cancel</button>',
-          '<button type="submit" class="zc360-btn primary">Save & Activate Profile</button>',
-        '</div>',
+      '<div class="zc360-form-group"><label>Pet Parent Full Name</label><input type="text" class="zc360-input" placeholder="e.g. Tanvi Deshmukh" required /></div>',
+      '<div class="zc360-form-row">',
+      '<div class="zc360-form-group"><label>Mobile Number</label><input type="tel" class="zc360-input" placeholder="+91 98450 99999" required /></div>',
+      '<div class="zc360-form-group"><label>City & Neighborhood</label><input type="text" class="zc360-input" placeholder="e.g. Indiranagar, BLR" required /></div>',
+      '</div>',
+      '<div class="zc360-form-row">',
+      '<div class="zc360-form-group"><label>Registered Pet Name & Breed</label><input type="text" class="zc360-input" placeholder="e.g. Sparky (Beagle)" required /></div>',
+      '<div class="zc360-form-group"><label>Initial Loyalty Tier</label><select class="zc360-select"><option>New Subscriber</option><option>Occasional Silver</option><option>Loyal Gold</option><option>VIP Elite</option></select></div>',
+      '</div>',
+      '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
+      '<button type="button" class="zc360-btn" onclick="ZenveCustomersDashboard.closeModal()">Cancel</button>',
+      '<button type="submit" class="zc360-btn primary">Save & Activate Profile</button>',
+      '</div>',
       '</form>'
     ].join('');
     showModal(formHtml);
@@ -923,7 +923,7 @@
   }
 
   function resolveGrievance(id) {
-    var ticket = GRIEVANCES.find(function(g) { return g.id === id; });
+    var ticket = GRIEVANCES.find(function (g) { return g.id === id; });
     if (!ticket) return;
     var remedy = prompt('Enter resolution outcome & compensation for ticket ' + id + ' (' + ticket.parent + '):', 'Full fee refund + ₹200 wallet credit provided');
     if (remedy) {
@@ -939,43 +939,43 @@
   function showGrievanceModal() {
     var formHtml = [
       '<div class="zc360-modal-head">',
-        '<h3 class="zc360-modal-title">⚠️ Log Customer Grievance</h3>',
-        '<button class="zc360-btn" onclick="ZenveCustomersDashboard.closeModal()">✕</button>',
+      '<h3 class="zc360-modal-title">⚠️ Log Customer Grievance</h3>',
+      '<button class="zc360-btn" onclick="ZenveCustomersDashboard.closeModal()">✕</button>',
       '</div>',
       '<form onsubmit="event.preventDefault(); ZenveCustomersDashboard.submitGrievance(this);">',
-        '<div class="zc360-form-row">',
-          '<div class="zc360-form-group"><label>Pet Parent Name</label><input type="text" name="parent" class="zc360-input" placeholder="e.g. Roshni Kapoor" required /></div>',
-          '<div class="zc360-form-group"><label>Pet Name & Breed</label><input type="text" name="pet" class="zc360-input" placeholder="e.g. Bella (Beagle)" required /></div>',
-        '</div>',
-        '<div class="zc360-form-row">',
-          '<div class="zc360-form-group"><label>Complaint Category</label>',
-            '<select name="category" class="zc360-select">',
-              '<option value="Delivery Delay">Delivery Delay (Dark Store)</option>',
-              '<option value="Product Packaging">Product Packaging / Damaged Seal</option>',
-              '<option value="Cold-Chain Pharmacy">Cold-Chain Pharmacy (Temperature)</option>',
-              '<option value="Clinic Reschedule">Clinic OPD Reschedule</option>',
-              '<option value="Billing Query">Billing & Loyalty Coins</option>',
-              '<option value="Grooming Service">Grooming Service Issue</option>',
-            '</select>',
-          '</div>',
-          '<div class="zc360-form-group"><label>Priority Level</label>',
-            '<select name="priority" class="zc360-select">',
-              '<option value="Critical">Critical (Immediate Triage)</option>',
-              '<option value="High">High (Within 15 mins)</option>',
-              '<option value="Medium" selected>Medium (Standard)</option>',
-              '<option value="Low">Low (Informational)</option>',
-            '</select>',
-          '</div>',
-        '</div>',
-        '<div class="zc360-form-group"><label>Grievance Description</label><textarea name="issue" class="zc360-input" rows="3" placeholder="Describe customer issue, order ID, and pet parent feedback..." required style="resize:vertical;"></textarea></div>',
-        '<div class="zc360-form-row">',
-          '<div class="zc360-form-group"><label>Assigned Care Specialist</label><input type="text" name="rep" class="zc360-input" value="Kiran R. (Escalation Lead)" required /></div>',
-          '<div class="zc360-form-group"><label>Initial Remedy Offer</label><input type="text" name="remedy" class="zc360-input" placeholder="e.g. Instant replacement + ₹200 wallet bonus" required /></div>',
-        '</div>',
-        '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
-          '<button type="button" class="zc360-btn" onclick="ZenveCustomersDashboard.closeModal()">Cancel</button>',
-          '<button type="submit" class="zc360-btn primary">Log & Initiate SLA Timer</button>',
-        '</div>',
+      '<div class="zc360-form-row">',
+      '<div class="zc360-form-group"><label>Pet Parent Name</label><input type="text" name="parent" class="zc360-input" placeholder="e.g. Roshni Kapoor" required /></div>',
+      '<div class="zc360-form-group"><label>Pet Name & Breed</label><input type="text" name="pet" class="zc360-input" placeholder="e.g. Bella (Beagle)" required /></div>',
+      '</div>',
+      '<div class="zc360-form-row">',
+      '<div class="zc360-form-group"><label>Complaint Category</label>',
+      '<select name="category" class="zc360-select">',
+      '<option value="Delivery Delay">Delivery Delay (Dark Store)</option>',
+      '<option value="Product Packaging">Product Packaging / Damaged Seal</option>',
+      '<option value="Cold-Chain Pharmacy">Cold-Chain Pharmacy (Temperature)</option>',
+      '<option value="Clinic Reschedule">Clinic OPD Reschedule</option>',
+      '<option value="Billing Query">Billing & Loyalty Coins</option>',
+      '<option value="Grooming Service">Grooming Service Issue</option>',
+      '</select>',
+      '</div>',
+      '<div class="zc360-form-group"><label>Priority Level</label>',
+      '<select name="priority" class="zc360-select">',
+      '<option value="Critical">Critical (Immediate Triage)</option>',
+      '<option value="High">High (Within 15 mins)</option>',
+      '<option value="Medium" selected>Medium (Standard)</option>',
+      '<option value="Low">Low (Informational)</option>',
+      '</select>',
+      '</div>',
+      '</div>',
+      '<div class="zc360-form-group"><label>Grievance Description</label><textarea name="issue" class="zc360-input" rows="3" placeholder="Describe customer issue, order ID, and pet parent feedback..." required style="resize:vertical;"></textarea></div>',
+      '<div class="zc360-form-row">',
+      '<div class="zc360-form-group"><label>Assigned Care Specialist</label><input type="text" name="rep" class="zc360-input" value="Kiran R. (Escalation Lead)" required /></div>',
+      '<div class="zc360-form-group"><label>Initial Remedy Offer</label><input type="text" name="remedy" class="zc360-input" placeholder="e.g. Instant replacement + ₹200 wallet bonus" required /></div>',
+      '</div>',
+      '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
+      '<button type="button" class="zc360-btn" onclick="ZenveCustomersDashboard.closeModal()">Cancel</button>',
+      '<button type="submit" class="zc360-btn primary">Log & Initiate SLA Timer</button>',
+      '</div>',
       '</form>'
     ].join('');
     showModal(formHtml);
@@ -1015,7 +1015,7 @@
 
   function open(tab) {
     // Close other domain overlays
-    ['zb2b-root', 'zix-root', 'zsub-root', 'zdoc-root', 'zfa-root', 'zmkt-dashboard-root', 'zvp-root', 'zfsh-root', 'zod-root', 'zsd-root', 'zpid-root', 'zph-root', 'zch-root', 'zrep-root', 'zalt-root', 'zset-root', 'zhr-root', 'zsys-root'].forEach(function(id) {
+    ['zb2b-root', 'zix-root', 'zsub-root', 'zdoc-root', 'zfa-root', 'zmkt-dashboard-root', 'zvp-root', 'zfsh-root', 'zod-root', 'zsd-root', 'zpid-root', 'zph-root', 'zch-root', 'zrep-root', 'zalt-root', 'zset-root', 'zhr-root', 'zsys-root'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) {
         el.style.display = 'none';
@@ -1039,13 +1039,13 @@
       document.body.classList.remove('zb2b-locked', 'zix-locked', 'zsub-locked', 'zdoc-locked', 'zfsh-locked', 'zvp-locked');
       document.documentElement.classList.add('zc360-locked');
       document.body.classList.add('zc360-locked');
-    } catch (e) {}
+    } catch (e) { }
 
     render();
 
     var targetTab = TABS.find(function (t) { return t.id === S.tab; });
     if (targetTab && targetTab.hash && window.location.hash !== targetTab.hash) {
-      try { history.replaceState(null, '', targetTab.hash); } catch (e) {}
+      try { history.replaceState(null, '', targetTab.hash); } catch (e) { }
     }
     root.scrollTop = 0;
   }
@@ -1059,9 +1059,9 @@
     try {
       document.documentElement.classList.remove('zc360-locked');
       document.body.classList.remove('zc360-locked');
-    } catch (e) {}
+    } catch (e) { }
     if (window.location.hash && tabFromHash(window.location.hash)) {
-      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {}
+      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) { }
     }
   }
 
@@ -1071,7 +1071,7 @@
     render();
     var targetTab = TABS.find(function (t) { return t.id === tabId; });
     if (targetTab && targetTab.hash) {
-      try { history.replaceState(null, '', targetTab.hash); } catch (e) {}
+      try { history.replaceState(null, '', targetTab.hash); } catch (e) { }
     }
     if (root) root.scrollTop = 0;
   }
@@ -1083,7 +1083,7 @@
       open(t);
     } else if (S.open && window.location.hash && window.location.hash !== '#') {
       var otherDomains = ['sales', 'operations', 'inventory', 'pharmacy', 'clinics', 'reports', 'alerts', 'settings', 'finance', 'marketing', 'vendors', 'procurement', 'fashion', 'import', 'export', 'subscription', 'doctor', 'b2b'];
-      var isOther = otherDomains.some(function(d) { return window.location.hash.indexOf(d) >= 0; });
+      var isOther = otherDomains.some(function (d) { return window.location.hash.indexOf(d) >= 0; });
       if (isOther) close();
     }
   }

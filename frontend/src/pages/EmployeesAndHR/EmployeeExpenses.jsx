@@ -15,7 +15,7 @@ export default function EmployeeExpenses() {
     { id: 'EXP-2026-507', empName: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Diagnostics & Pathology', category: 'Medical Consumables', date: '2026-10-12', merchant: 'Bio-Rad Laboratories India', amount: '₹36,700', receipt: 'BR-INV-55102.pdf', status: 'Pending' },
     { id: 'EXP-2026-508', empName: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', category: 'Software Subscriptions', date: '2026-10-04', merchant: 'Freshdesk / Freshworks Inc', amount: '₹16,500', receipt: 'FW-INV-66190.pdf', status: 'Approved' },
     { id: 'EXP-2026-509', empName: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', dept: 'Warehouse & Logistics', category: 'Travel & Conveyance', date: '2026-10-11', merchant: 'Uber India (Inter-warehouse audit)', amount: '₹2,600', receipt: 'UBR-TRIP-3321.pdf', status: 'Pending' },
-    { id: 'EXP-2026-510', empName: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical Care', category: 'Meals & Offsite', date: '2026-10-06', merchant: 'Swiggy Gourmet Catering (Clinic Overtime)', amount: '₹4,250', receipt: 'SWG-ODR-8841.pdf', status: 'Pending' }
+    { id: 'EXP-2026-510', empName: 'Edwin Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical Care', category: 'Meals & Offsite', date: '2026-10-06', merchant: 'Swiggy Gourmet Catering (Clinic Overtime)', amount: '₹4,250', receipt: 'SWG-ODR-8841.pdf', status: 'Pending' }
   ]);
 
   function handleAction(id, newStatus) {

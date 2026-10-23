@@ -12,7 +12,7 @@ export default function FashionShowrooms() {
     { id: 'SHW-06', name: 'Colaba Heritage Boutique', area: 'Apollo Bunder, Colaba', city: 'Mumbai', sqft: '1,600', footfall: '260', trials: '180', sales: '₹7.40L', revPerSqft: '₹462', conversion: '69.2%', avgTicket: '₹8,600', leadStylist: 'Farhan Merchant', rating: '4.9 ★' },
     { id: 'SHW-07', name: 'Vasant Vihar Couture Salon', area: 'Priya Complex, Vasant Vihar', city: 'South Delhi', sqft: '1,750', footfall: '280', trials: '190', sales: '₹8.10L', revPerSqft: '₹463', conversion: '67.9%', avgTicket: '₹8,350', leadStylist: 'Anika Sharma', rating: '4.8 ★' },
     { id: 'SHW-08', name: 'Whitefield Prestige Experience Hub', area: 'Outer Ring Rd, Whitefield', city: 'Bengaluru', sqft: '1,500', footfall: '240', trials: '160', sales: '₹6.50L', revPerSqft: '₹433', conversion: '66.7%', avgTicket: '₹7,800', leadStylist: 'Karthik Nair', rating: '4.7 ★' },
-    { id: 'SHW-09', name: 'Alwarpet Luxury Pet Gallery', area: 'TTK Road, Alwarpet', city: 'Chennai', sqft: '1,650', footfall: '220', trials: '145', sales: '₹5.80L', revPerSqft: '₹351', conversion: '65.9%', avgTicket: '₹7,500', leadStylist: 'Divya Sundaram', rating: '4.7 ★' },
+    { id: 'SHW-09', name: 'Alwarpet Luxury Pet Gallery', area: 'TTK Road, Alwarpet', city: 'Chennai', sqft: '1,650', footfall: '220', trials: '145', sales: '₹5.80L', revPerSqft: '₹351', conversion: '65.9%', avgTicket: '₹7,500', leadStylist: 'Edwin Sundaram', rating: '4.7 ★' },
     { id: 'SHW-010', name: 'Koregaon Park Atelier', area: 'North Main Rd, Koregaon Park', city: 'Pune', sqft: '1,400', footfall: '200', trials: '135', sales: '₹5.20L', revPerSqft: '₹371', conversion: '67.5%', avgTicket: '₹7,250', leadStylist: 'Tanvi Kulkarni', rating: '4.8 ★' }
   ];
 

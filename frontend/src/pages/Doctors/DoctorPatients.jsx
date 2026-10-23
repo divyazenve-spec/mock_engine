@@ -11,7 +11,7 @@ export default function DoctorPatients() {
     { name: 'Leo', breed: 'Beagle, 2y', owner: 'Ananya Sharma', doctor: 'Dr. Maya Chandran', diagnosis: 'Gastric Foreign Body (Sox)', plan: 'Endoscopic extraction post-care', nextVisit: '2026-10-19', status: 'Discharged Today' },
     { name: 'Coco', breed: 'Labrador, 7y', owner: 'Amit Deshmukh', doctor: 'Dr. Rohan Kulkarni', diagnosis: 'Splenic Mass Resection', plan: 'Histopathology & Yunnan Baiyao', nextVisit: '2026-10-25', status: 'Inpatient Ward' },
     { name: 'Zoe', breed: 'Siberian Husky, 1y', owner: 'Kabir Bedi', doctor: 'Dr. Gaurav Sharma', diagnosis: 'Diaphragmatic Hernia Repair', plan: 'ICU oxygen & thoracic drainage', nextVisit: '2026-10-23', status: 'Critical ICU' },
-    { name: 'Oreo', breed: 'Indie Dog, 3y', owner: 'Divya Pillai', doctor: 'Dr. Gaurav Sharma', diagnosis: 'Comminuted Femur Fracture', plan: '3.5mm LCP plate fixation & rest', nextVisit: '2026-10-28', status: 'Post-Op Recovery' },
+    { name: 'Oreo', breed: 'Indie Dog, 3y', owner: 'Edwin Pillai', doctor: 'Dr. Gaurav Sharma', diagnosis: 'Comminuted Femur Fracture', plan: '3.5mm LCP plate fixation & rest', nextVisit: '2026-10-28', status: 'Post-Op Recovery' },
     { name: 'Luna', breed: 'British Shorthair, 4y', owner: 'Priya Nambiar', doctor: 'Dr. Sneha Nair', diagnosis: 'Deep Corneal Ulceration', plan: 'Conjunctival flap & ofloxacin', nextVisit: '2026-10-21', status: 'Outpatient Care' },
     { name: 'Rocky', breed: 'Rottweiler, 5y', owner: 'Varun Tej', doctor: 'Dr. Siddharth Verma', diagnosis: 'Dilated Cardiomyopathy (DCM)', plan: 'Pimobendan 5mg BID & Furosemide', nextVisit: '2026-10-26', status: 'Monitored Stable' }
   ];

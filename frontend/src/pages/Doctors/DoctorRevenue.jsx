@@ -12,7 +12,7 @@ export default function DoctorRevenue() {
     { doctor: 'Dr. Rohan Kulkarni', spec: 'Surgical Oncology', consultsRev: '₹2.12 L', procRev: '₹7.96 L', medsRev: '₹2.52 L', totalRev: '₹12.60 L', margin: '67%', share: '10.7%' },
     { doctor: 'Dr. Gaurav Sharma', spec: 'Spine Neurosurgery', consultsRev: '₹2.38 L', procRev: '₹8.44 L', medsRev: '₹2.58 L', totalRev: '₹13.40 L', margin: '70%', share: '11.4%' },
     { doctor: 'Dr. Sneha Nair', spec: 'Ophthalmology', consultsRev: '₹2.27 L', procRev: '₹6.18 L', medsRev: '₹2.45 L', totalRev: '₹10.90 L', margin: '74%', share: '9.2%' },
-    { doctor: 'Dr. Divya Reddy', spec: 'Critical Care', consultsRev: '₹2.52 L', procRev: '₹6.45 L', medsRev: '₹2.88 L', totalRev: '₹11.85 L', margin: '68%', share: '10.0%' },
+    { doctor: 'Dr. Edwin Reddy', spec: 'Critical Care', consultsRev: '₹2.52 L', procRev: '₹6.45 L', medsRev: '₹2.88 L', totalRev: '₹11.85 L', margin: '68%', share: '10.0%' },
     { doctor: 'Dr. Maya Chandran', spec: 'Gastroenterology', consultsRev: '₹2.74 L', procRev: '₹7.82 L', medsRev: '₹3.04 L', totalRev: '₹13.60 L', margin: '72%', share: '11.5%' }
   ];
 

@@ -4,7 +4,7 @@ import KpiCard from '../shared/KpiCard';
 
 export default function NewCustomers() {
   const newSignups = [
-    { id: 'NEW-8901', name: 'Divya Hegde', pet: 'Bruno (Golden Retriever Pup)', channel: 'Instagram Ad', date: 'Today, 09:15', firstOrder: 'Welcome Puppy Kit (₹3,450)', cac: '₹320', status: 'Activated' },
+    { id: 'NEW-8901', name: 'Edwin Hegde', pet: 'Bruno (Golden Retriever Pup)', channel: 'Instagram Ad', date: 'Today, 09:15', firstOrder: 'Welcome Puppy Kit (₹3,450)', cac: '₹320', status: 'Activated' },
     { id: 'NEW-8902', name: 'Rajesh Gupte', pet: 'Simba (Persian Kitten)', channel: 'Google Search', date: 'Today, 11:30', firstOrder: 'Royal Canin + Litter (₹2,890)', cac: '₹410', status: 'Activated' },
     { id: 'NEW-8903', name: 'Ayesha Khan', pet: 'Tobby (Pug)', channel: 'Vet Referral', date: 'Yesterday', firstOrder: 'First Vet Consultation (₹1,200)', cac: '₹180', status: 'Activated' },
     { id: 'NEW-8904', name: 'Sameer Kulkarni', pet: 'Shadow (Doberman Pup)', channel: 'App Install Ad', date: 'Yesterday', firstOrder: 'Deworming + Starter Pack (₹4,120)', cac: '₹460', status: 'Activated' },

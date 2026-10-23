@@ -43,14 +43,14 @@ export default function TargetsAndAchievement() {
     { rank: 5, name: 'Rohan Mehta', target: '₹9,00,000', achieved: '₹9,80,000', attain: '108.9%', incentive: '₹28,000' },
     { rank: 6, name: 'Meenakshi Rao', target: '₹8,50,000', achieved: '₹9,10,000', attain: '107.1%', incentive: '₹24,000' },
     { rank: 7, name: 'Arjun Nambisan', target: '₹8,00,000', achieved: '₹8,45,000', attain: '105.6%', incentive: '₹20,000' },
-    { rank: 8, name: 'Divya Namboodiri', target: '₹7,50,000', achieved: '₹7,80,000', attain: '104.0%', incentive: '₹18,000' },
+    { rank: 8, name: 'Edwin Namboodiri', target: '₹7,50,000', achieved: '₹7,80,000', attain: '104.0%', incentive: '₹18,000' },
     { rank: 9, name: 'Vikram Chawla', target: '₹7,00,000', achieved: '₹7,15,000', attain: '102.1%', incentive: '₹15,000' },
     { rank: 10, name: 'Shreya Iyer', target: '₹6,50,000', achieved: '₹6,20,000', attain: '95.4%', incentive: '₹0' }
   ];
 
   // 10 Doctors Quotas
   const doctors = [
-    { name: 'Dr. Divya Balasubramanian', consults: 328, rate: '₹3,000', attain: '124.2%' },
+    { name: 'Dr. Edwin .', consults: 328, rate: '₹3,000', attain: '124.2%' },
     { name: 'Dr. Ananya Deshmukh', consults: 294, rate: '₹2,800', attain: '119.5%' },
     { name: 'Dr. Vikramaditya Rathore', consults: 246, rate: '₹3,200', attain: '116.8%' },
     { name: 'Dr. Priya Sharma', consults: 232, rate: '₹3,100', attain: '115.4%' },

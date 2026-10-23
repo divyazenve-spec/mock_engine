@@ -33,7 +33,7 @@
     { id: 'CNS-2026-081', pet: 'Bruno (Golden Retriever, 4y)', parent: 'Aditya Vikram Birla', doctor: 'Dr. Rajeshwari Swaminathan', specialty: 'Orthopedics', mode: 'In-Clinic', diagnosis: 'Cranial Cruciate Ligament (CCL) Rupture', fee: '₹1,500', status: 'Completed' },
     { id: 'CNS-2026-082', pet: 'Simba (Persian Cat, 2y)', parent: 'Pooja Singhania', doctor: 'Dr. Sneha Nair', specialty: 'Feline Medicine', mode: 'In-Clinic', diagnosis: 'Feline Lower Urinary Tract Disease (FLUTD)', fee: '₹1,200', status: 'Completed' },
     { id: 'CNS-2026-083', pet: 'Max (German Shepherd, 6y)', parent: 'Rohan Deshmukh', doctor: 'Dr. Vikramaditya Rathore', specialty: 'Critical Care', mode: 'In-Clinic', diagnosis: 'Gastric Dilatation-Volvulus (GDV) Triage', fee: '₹2,500', status: 'Under Observation' },
-    { id: 'CNS-2026-084', pet: 'Bella (Labrador Retriever, 3y)', parent: 'Sneha Kulkarni', doctor: 'Dr. Divya Reddy', specialty: 'Dermatology', mode: 'Video Telehealth', diagnosis: 'Atopic Dermatitis & Malassezia', fee: '₹850', status: 'Completed' },
+    { id: 'CNS-2026-084', pet: 'Bella (Labrador Retriever, 3y)', parent: 'Sneha Kulkarni', doctor: 'Dr. Edwin Reddy', specialty: 'Dermatology', mode: 'Video Telehealth', diagnosis: 'Atopic Dermatitis & Malassezia', fee: '₹850', status: 'Completed' },
     { id: 'CNS-2026-085', pet: 'Leo (Shih Tzu, 1.5y)', parent: 'Kunal Kapoor', doctor: 'Dr. Maya Chandran', specialty: 'Internal Medicine', mode: 'In-Clinic', diagnosis: 'Acute Hemorrhagic Gastroenteritis', fee: '₹1,400', status: 'In Consultation' },
     { id: 'CNS-2026-086', pet: 'Coco (Beagle, 5y)', parent: 'Ananya Sen', doctor: 'Dr. Siddharth Verma', specialty: 'Cardiology', mode: 'In-Clinic', diagnosis: 'Mitral Valve Disease (Stage B1)', fee: '₹1,800', status: 'Completed' },
     { id: 'CNS-2026-087', pet: 'Rocky (Rottweiler, 4y)', parent: 'Tarun Mathur', doctor: 'Dr. Anirudh Sen', specialty: 'Neurology', mode: 'In-Clinic', diagnosis: 'Thoracolumbar IVDD (Grade 3)', fee: '₹2,000', status: 'Completed' },
@@ -46,7 +46,7 @@
     { id: 'APT-1081', time: '09:00 AM', duration: '30m', pet: 'Bruno (Golden Retriever, 4y)', parent: 'Aditya Vikram Birla', doctor: 'Dr. Rajeshwari Swaminathan', clinic: 'Indiranagar Central Hospital', service: 'Orthopedic Joint Evaluation & TPLO', slotType: 'Scheduled Slot', status: 'In Session' },
     { id: 'APT-1082', time: '09:30 AM', duration: '20m', pet: 'Simba (Persian Cat, 2y)', parent: 'Pooja Singhania', doctor: 'Dr. Sneha Nair', clinic: 'Indiranagar Central Hospital', service: 'Feline Urinalysis & Ultrasound', slotType: 'Scheduled Slot', status: 'Confirmed' },
     { id: 'APT-1083', time: '10:00 AM', duration: '45m', pet: 'Max (German Shepherd, 6y)', parent: 'Rohan Deshmukh', doctor: 'Dr. Vikramaditya Rathore', clinic: 'Bandra Trauma Centre', service: 'Emergency GDV Decompression', slotType: 'Emergency Triage', status: 'Confirmed' },
-    { id: 'APT-1084', time: '10:30 AM', duration: '20m', pet: 'Bella (Labrador Retriever, 3y)', parent: 'Sneha Kulkarni', doctor: 'Dr. Divya Reddy', clinic: 'Bandra Trauma Centre', service: 'Dermatology Skin Scraping & Allergy', slotType: 'Scheduled Slot', status: 'Confirmed' },
+    { id: 'APT-1084', time: '10:30 AM', duration: '20m', pet: 'Bella (Labrador Retriever, 3y)', parent: 'Sneha Kulkarni', doctor: 'Dr. Edwin Reddy', clinic: 'Bandra Trauma Centre', service: 'Dermatology Skin Scraping & Allergy', slotType: 'Scheduled Slot', status: 'Confirmed' },
     { id: 'APT-1085', time: '11:00 AM', duration: '30m', pet: 'Leo (Shih Tzu, 1.5y)', parent: 'Kunal Kapoor', doctor: 'Dr. Maya Chandran', clinic: 'DLF CyberCity Hospital', service: 'Gastroenterology IV Infusion', slotType: 'Walk-In Priority', status: 'Confirmed' },
     { id: 'APT-1086', time: '11:30 AM', duration: '30m', pet: 'Coco (Beagle, 5y)', parent: 'Ananya Sen', doctor: 'Dr. Siddharth Verma', clinic: 'DLF CyberCity Hospital', service: 'Color Doppler Echocardiogram', slotType: 'Scheduled Slot', status: 'Confirmed' },
     { id: 'APT-1087', time: '12:00 PM', duration: '40m', pet: 'Rocky (Rottweiler, 4y)', parent: 'Tarun Mathur', doctor: 'Dr. Anirudh Sen', clinic: 'Jubilee Hills Center', service: 'Neurology Spinal Myelography', slotType: 'Scheduled Slot', status: 'Confirmed' },
@@ -61,7 +61,7 @@
     { id: 'TRT-403', pet: 'Simba (Persian Cat, 2y)', parent: 'Pooja Singhania', ward: 'Feline Special Care Bed-01', days: 3, vet: 'Dr. Sneha Nair', protocol: 'Urinary Catheterization & Acid-Base Balance', progress: '92%', status: 'Discharge Ready' },
     { id: 'TRT-404', pet: 'Leo (Shih Tzu, 1.5y)', parent: 'Kunal Kapoor', ward: 'Isolation Ward Bed-03', days: 2, vet: 'Dr. Maya Chandran', protocol: 'Targeted Rehydration & Antiemetic Line', progress: '65%', status: 'Under Observation' },
     { id: 'TRT-405', pet: 'Rocky (Rottweiler, 4y)', parent: 'Tarun Mathur', ward: 'Neurology HDU Bed-01', days: 4, vet: 'Dr. Anirudh Sen', protocol: 'High-Dose Methylprednisolone & Cage Rest', progress: '82%', status: 'Stable Recovery' },
-    { id: 'TRT-406', pet: 'Bella (Labrador, 3y)', parent: 'Sneha Kulkarni', ward: 'Daycare Suite Bed-06', days: 1, vet: 'Dr. Divya Reddy', protocol: 'Apoquel Induction & Medicated Wash', progress: '95%', status: 'Discharge Ready' },
+    { id: 'TRT-406', pet: 'Bella (Labrador, 3y)', parent: 'Sneha Kulkarni', ward: 'Daycare Suite Bed-06', days: 1, vet: 'Dr. Edwin Reddy', protocol: 'Apoquel Induction & Medicated Wash', progress: '95%', status: 'Discharge Ready' },
     { id: 'TRT-407', pet: 'Coco (Beagle, 5y)', parent: 'Ananya Sen', ward: 'Cardiology Telemetry Bed-02', days: 2, vet: 'Dr. Siddharth Verma', protocol: 'Pimobendan Support & Enalapril Titration', progress: '85%', status: 'Stable Recovery' },
     { id: 'TRT-408', pet: 'Oskar (S. Husky, 2.5y)', parent: 'Vikram Merchant', ward: 'Surgical Day Bed-05', days: 1, vet: 'Dr. Rohan Kulkarni', protocol: 'Excisional Biopsy Healing & Laser Therapy', progress: '90%', status: 'Discharge Ready' },
     { id: 'TRT-409', pet: 'Milo (B. Shorthair, 3y)', parent: 'Meera Nambiar', ward: 'Feline Day Ward Bed-03', days: 1, vet: 'Dr. Karthik Sundaram', protocol: 'Autologous Serum Eye Drops & Terramycin', progress: '84%', status: 'Discharge Ready' },
@@ -85,7 +85,7 @@
     { id: 'DX-2026-301', pet: 'Bruno (G. Retriever, 4y)', test: 'Digital Radiography (Stifle Joint AP/Lat)', modality: 'Digital X-Ray', vet: 'Dr. Rajeshwari Swaminathan', tat: '15 mins', flag: 'Cruciate Rupture & Effusion', status: 'Report Signed' },
     { id: 'DX-2026-302', pet: 'Simba (Persian, 2y)', test: 'Abdominal Color Ultrasound (Doppler)', modality: 'Ultrasound', vet: 'Dr. Sneha Nair', tat: '24 mins', flag: 'Cystic Calculi 4mm', status: 'Report Signed' },
     { id: 'DX-2026-303', pet: 'Max (G. Shepherd, 6y)', test: 'Emergency Blood Gas & Lactate Panel', modality: 'Biochemistry', vet: 'Dr. Vikramaditya Rathore', tat: '8 mins', flag: 'High Lactate (6.2 mmol/L)', status: 'Report Signed' },
-    { id: 'DX-2026-304', pet: 'Bella (Labrador, 3y)', test: 'Skin Cytology & Deep Scrape Microscopy', modality: 'Biochemistry', vet: 'Dr. Divya Reddy', tat: '20 mins', flag: 'Malassezia > 15/HPF', status: 'Report Signed' },
+    { id: 'DX-2026-304', pet: 'Bella (Labrador, 3y)', test: 'Skin Cytology & Deep Scrape Microscopy', modality: 'Biochemistry', vet: 'Dr. Edwin Reddy', tat: '20 mins', flag: 'Malassezia > 15/HPF', status: 'Report Signed' },
     { id: 'DX-2026-305', pet: 'Coco (Beagle, 5y)', test: 'Echocardiogram 2D & M-Mode', modality: 'Ultrasound', vet: 'Dr. Siddharth Verma', tat: '30 mins', flag: 'LA/Ao Ratio 1.8 Mild', status: 'Report Signed' },
     { id: 'DX-2026-306', pet: 'Leo (Shih Tzu, 1.5y)', test: 'Canine Parvovirus & Giardia Rapid PCR', modality: 'Biochemistry', vet: 'Dr. Maya Chandran', tat: '12 mins', flag: 'Giardia Positive', status: 'Report Signed' },
     { id: 'DX-2026-307', pet: 'Rocky (Rottweiler, 4y)', test: 'High-Field MRI (Spine T10-L3)', modality: 'Digital X-Ray', vet: 'Dr. Anirudh Sen', tat: '45 mins', flag: 'Extruded Disc (Grade 3)', status: 'Report Signed' },
@@ -141,7 +141,7 @@
     { id: 'FLR-105', facility: 'DLF CyberCity Multispecialty', floor: 'Floor 1 (Outpatient OPD)', dept: 'Specialist Consultation Suites', capacity: 10, occupied: 9, available: 1, rate: '90.0%', status: 'Peak OPD Hours', tag: 'blue', lead: 'Dr. Anirudh Sen' },
     { id: 'FLR-106', facility: 'DLF CyberCity Multispecialty', floor: 'Ground Floor (Advanced Imaging)', dept: 'CT Scanner, Echocardiography & Digital DR', capacity: 4, occupied: 4, available: 0, rate: '100.0%', status: 'Fully Booked', tag: 'blue', lead: 'Dr. Siddharth Verma' },
     { id: 'FLR-107', facility: 'Jubilee Hills Center', floor: 'Floor 2 (Specialty Care)', dept: 'Chemotherapy & Oncology Infusion Ward', capacity: 6, occupied: 4, available: 2, rate: '66.7%', status: 'Optimal Load', tag: 'green', lead: 'Dr. Rohan Kulkarni' },
-    { id: 'FLR-108', facility: 'Koregaon Park Hospital', floor: 'Floor 1 (Rehabilitation)', dept: 'Physical Therapy & Hydrotherapy Pool', capacity: 8, occupied: 6, available: 2, rate: '75.0%', status: 'Active Sessions', tag: 'blue', lead: 'Dr. Divya Reddy' },
+    { id: 'FLR-108', facility: 'Koregaon Park Hospital', floor: 'Floor 1 (Rehabilitation)', dept: 'Physical Therapy & Hydrotherapy Pool', capacity: 8, occupied: 6, available: 2, rate: '75.0%', status: 'Active Sessions', tag: 'blue', lead: 'Dr. Edwin Reddy' },
     { id: 'FLR-109', facility: 'Alwarpet Community Clinic', floor: 'Ground Floor (Primary Care)', dept: 'General Health & Ophthalmic Exam Rooms', capacity: 6, occupied: 4, available: 2, rate: '66.7%', status: 'Available', tag: 'green', lead: 'Dr. Karthik Sundaram' },
     { id: 'FLR-110', facility: 'Koramangala Care Clinic', floor: 'Ground Floor (Preventive Bay)', dept: 'Immunization, Microchipping & Triage', capacity: 5, occupied: 3, available: 2, rate: '60.0%', status: 'Available', tag: 'green', lead: 'Dr. Gaurav Sharma' }
   ];
@@ -809,7 +809,7 @@
     render();
     root.classList.add('zpanel-open');
     markSidebar(true, S.tab);
-    var targetHash = (MODULES.find(function(m){ return m.id === S.tab; }) || {}).hash || '#services-dashboard';
+    var targetHash = (MODULES.find(function (m) { return m.id === S.tab; }) || {}).hash || '#services-dashboard';
     if (window.location.hash !== targetHash) {
       try { history.pushState(null, '', targetHash); } catch (e) { window.location.hash = targetHash; }
     }
@@ -834,7 +834,7 @@
     markSidebar(false);
     var h = window.location.hash;
     if (h.startsWith('#services') || h.startsWith('#consult') || h.startsWith('#appoint') || h.startsWith('#treat') || h.startsWith('#vaccin') || h.startsWith('#diagnos') || h.startsWith('#procedure')) {
-      try { history.pushState(null, '', window.location.pathname + window.location.search); } catch (e) {}
+      try { history.pushState(null, '', window.location.pathname + window.location.search); } catch (e) { }
     }
   }
 
@@ -842,7 +842,7 @@
     if (!tab) return;
     S.tab = tab;
     markSidebar(true, tab);
-    var targetHash = (MODULES.find(function(m){ return m.id === tab; }) || {}).hash || '#services-dashboard';
+    var targetHash = (MODULES.find(function (m) { return m.id === tab; }) || {}).hash || '#services-dashboard';
     if (window.location.hash !== targetHash) {
       try { history.pushState(null, '', targetHash); } catch (e) { window.location.hash = targetHash; }
     }

@@ -1,0 +1,8 @@
+# =====================================================================
+# Zenve Control Center — SMS Gateway Configuration (Apitxt)
+# =====================================================================
+PROVIDER=apitxt
+API_KEY=YOUR_APITXT_AUTHKEY_HERE
+
+# Optional Settings:
+APITXT_CHANNEL=sms

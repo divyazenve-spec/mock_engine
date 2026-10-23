@@ -9,11 +9,11 @@ export default function AllClinics() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [toast, setToast] = useState('');
 
-    const clinicsData = [
+  const clinicsData = [
     { name: 'Zenve Koramangala Care Clinic', code: 'CLN-BLR-01', city: 'Bengaluru', address: '80 Feet Rd, 4th Block, Koramangala', tier: 'Specialty Outpatient', rooms: 4, leadVet: 'Dr. Sneha Nair', staff: 8, hours: '08:00 – 21:00', footfall: '58 Pets/day', monthlyRev: '₹9.40 L' },
     { name: 'Zenve Andheri Link Rd Clinic', code: 'CLN-BOM-01', city: 'Mumbai', address: 'Oshiwara Link Rd, Andheri West', tier: 'Specialty Outpatient', rooms: 5, leadVet: 'Dr. Pooja Mehta', staff: 10, hours: '08:00 – 22:00', footfall: '64 Pets/day', monthlyRev: '₹11.20 L' },
     { name: 'Zenve Saket Pet Wellness & Diagnostics', code: 'CLN-DEL-01', city: 'Delhi NCR', address: 'J-Block, Saket, South Delhi', tier: 'Diagnostic Care Center', rooms: 4, leadVet: 'Dr. Gaurav Sharma', staff: 9, hours: '08:00 – 20:30', footfall: '52 Pets/day', monthlyRev: '₹8.85 L' },
-    { name: 'Zenve Gachibowli Daycare & Dental', code: 'CLN-HYD-01', city: 'Hyderabad', address: 'Telecom Nagar, Gachibowli', tier: 'Specialty Outpatient', rooms: 4, leadVet: 'Dr. Divya Reddy', staff: 8, hours: '09:00 – 21:00', footfall: '60 Pets/day', monthlyRev: '₹10.15 L' },
+    { name: 'Zenve Gachibowli Daycare & Dental', code: 'CLN-HYD-01', city: 'Hyderabad', address: 'Telecom Nagar, Gachibowli', tier: 'Specialty Outpatient', rooms: 4, leadVet: 'Dr. Edwin Reddy', staff: 8, hours: '09:00 – 21:00', footfall: '60 Pets/day', monthlyRev: '₹10.15 L' },
     { name: 'Zenve Alwarpet Community Pet Clinic', code: 'CLN-MAA-01', city: 'Chennai', address: 'TTK Road, Alwarpet', tier: 'Primary Outpatient', rooms: 3, leadVet: 'Dr. Karthik Sundaram', staff: 6, hours: '09:00 – 20:00', footfall: '46 Pets/day', monthlyRev: '₹7.90 L' },
     { name: 'Zenve Whitefield Pet Health Hub', code: 'CLN-BLR-02', city: 'Bengaluru', address: 'Inner Circle, Whitefield', tier: 'Diagnostic Care Center', rooms: 5, leadVet: 'Dr. Ananya Ray', staff: 9, hours: '08:30 – 21:00', footfall: '54 Pets/day', monthlyRev: '₹8.60 L' },
     { name: 'Zenve Powai Lake Pet Polyclinic', code: 'CLN-BOM-02', city: 'Mumbai', address: 'Hiranandani Gardens, Powai', tier: 'Primary Outpatient', rooms: 4, leadVet: 'Dr. Siddharth Joshi', staff: 7, hours: '09:00 – 21:00', footfall: '48 Pets/day', monthlyRev: '₹7.80 L' },
@@ -87,7 +87,7 @@ export default function AllClinics() {
         </div>
       )}
 
-            {/* KPI Cards */}
+      {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard label="Outpatient Clinics" value="10 Centers" delta="+2 YoY" trend="up" subtext="Own & operated" icon="🩺" />
         <KpiCard label="Consultation Rooms" value="39 Suites" delta="+6 MTD" trend="up" subtext="Equipped with exam tables" icon="🚪" />

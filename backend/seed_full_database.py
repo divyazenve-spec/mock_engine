@@ -181,7 +181,7 @@ MOCK_APPOINTMENTS = [
         "pet_type": "Dog",
         "parent_name": "Sneha Kulkarni",
         "parent_phone": "+91 98400 56789",
-        "doctor_name": "Dr. Divya Reddy",
+        "doctor_name": "Dr. Edwin Reddy",
         "service_name": "Dermatology Skin Scraping & Allergy Test",
         "appointment_date": date.today(),
         "appointment_time": "10:30 AM",

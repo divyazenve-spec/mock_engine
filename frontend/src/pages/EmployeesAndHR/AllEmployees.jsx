@@ -19,7 +19,7 @@ export default function AllEmployees() {
     { id: 'EMP-1007', name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Clinical', location: 'Jayanagar Clinic', type: 'Full-time', joined: '20 Sep 2023', status: 'Active', email: 'pooja.hegde@zenvepet.com', phone: '+91 98450 77807', salary: '₹1,45,000 / mo', rating: '4.9 ★' },
     { id: 'EMP-1008', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', location: 'Central Support Node', type: 'Full-time', joined: '05 Jan 2024', status: 'Active', email: 'm.zeeshan@zenvepet.com', phone: '+91 98450 88908', salary: '₹88,000 / mo', rating: '4.8 ★' },
     { id: 'EMP-1009', name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', dept: 'Warehouse', location: 'Electronic City Warehouse', type: 'Full-time', joined: '15 Mar 2024', status: 'On Leave', email: 'rahul.d@zenvepet.com', phone: '+91 98450 99009', salary: '₹82,000 / mo', rating: '4.7 ★' },
-    { id: 'EMP-1010', name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical', location: 'Koramangala Hospital', type: 'Full-time', joined: '01 Aug 2024', status: 'Probation', email: 'divya.nambiar@zenvepet.com', phone: '+91 98450 00110', salary: '₹75,000 / mo', rating: '4.8 ★' }
+    { id: 'EMP-1010', name: 'Edwin Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical', location: 'Koramangala Hospital', type: 'Full-time', joined: '01 Aug 2024', status: 'Probation', email: 'Edwin.nambiar@zenvepet.com', phone: '+91 98450 00110', salary: '₹75,000 / mo', rating: '4.8 ★' }
   ]);
 
   const filtered = employees.filter(e => {

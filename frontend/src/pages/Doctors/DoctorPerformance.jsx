@@ -12,7 +12,7 @@ export default function DoctorPerformance() {
     { name: 'Dr. Rohan Kulkarni', spec: 'Surgical Oncology & Soft Tissue', consultTarget: 110, consultActual: 118, attainment: '107.3%', nps: '89.9', waitTime: '7.1 mins', success: '98.9%', grade: 'A' },
     { name: 'Dr. Gaurav Sharma', spec: 'Spine Neurosurgery & Trauma', consultTarget: 120, consultActual: 132, attainment: '110.0%', nps: '91.5', waitTime: '5.5 mins', success: '99.3%', grade: 'A+' },
     { name: 'Dr. Sneha Nair', spec: 'Ophthalmology & Microsurgery', consultTarget: 115, consultActual: 126, attainment: '109.5%', nps: '93.1', waitTime: '6.0 mins', success: '99.5%', grade: 'A+' },
-    { name: 'Dr. Divya Reddy', spec: 'Critical Care & Neonatology', consultTarget: 125, consultActual: 140, attainment: '112.0%', nps: '92.4', waitTime: '5.1 mins', success: '99.0%', grade: 'A+' },
+    { name: 'Dr. Edwin Reddy', spec: 'Critical Care & Neonatology', consultTarget: 125, consultActual: 140, attainment: '112.0%', nps: '92.4', waitTime: '5.1 mins', success: '99.0%', grade: 'A+' },
     { name: 'Dr. Maya Chandran', spec: 'Gastroenterology & Endoscopy', consultTarget: 135, consultActual: 152, attainment: '112.6%', nps: '94.8', waitTime: '5.6 mins', success: '99.4%', grade: 'A+' }
   ];
 

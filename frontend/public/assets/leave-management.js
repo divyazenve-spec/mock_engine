@@ -13,7 +13,7 @@
     { id: 'LV-2026-102', name: 'Dr. Rajesh Varma', role: 'Lead Veterinary Surgeon', type: 'Conference Leave', dates: '22 Oct - 24 Oct 2026', reason: 'Indian Veterinary Congress Mumbai', bal: '8 Days Left', status: 'Approved' },
     { id: 'LV-2026-103', name: 'Sneha Kulkarni', role: 'Head of Central Pharmacy', type: 'Casual Leave', dates: '19 Oct 2026 (1 Day)', reason: 'Personal dental appointment', bal: '11 Days Left', status: 'Pending' },
     { id: 'LV-2026-104', name: 'Karthik Subramaniam', role: 'Hyperlocal Fleet Operations Mgr', type: 'Sick Leave', dates: '08 Oct - 09 Oct 2026', reason: 'Viral fever recuperation', bal: '10 Days Left', status: 'Approved' },
-    { id: 'LV-2026-105', name: 'Divya Nambiar', role: 'Junior Clinical Associate', type: 'Casual Leave', dates: '28 Oct 2026 (1 Day)', reason: 'Family event', bal: '12 Days Left', status: 'Pending' },
+    { id: 'LV-2026-105', name: 'Edwin Nambiar', role: 'Junior Clinical Associate', type: 'Casual Leave', dates: '28 Oct 2026 (1 Day)', reason: 'Family event', bal: '12 Days Left', status: 'Pending' },
     { id: 'LV-2026-106', name: 'Vikramaditya Rao', role: 'Director of Engineering & AI', type: 'Paternity Leave', dates: '01 Nov - 14 Nov 2026', reason: 'Childbirth support', bal: '15 Days Left', status: 'Approved' },
     { id: 'LV-2026-107', name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', type: 'Annual Leave', dates: '26 Oct - 30 Oct 2026', reason: 'Diwali festive vacation', bal: '9 Days Left', status: 'Pending' },
     { id: 'LV-2026-108', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', type: 'Compensatory Off', dates: '16 Oct 2026 (1 Day)', reason: 'Overtime worked during weekend camp', bal: '3 Days Left', status: 'Approved' },

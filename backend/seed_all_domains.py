@@ -39,7 +39,7 @@ MOCK_CUSTOMERS = [
 
 # 10 Doctors
 MOCK_DOCTORS = [
-    ("DOC-01", "Dr. Divya Balasubramanian", "Veterinary Surgery", "BVSc & AH, MVSc", 12, "+91 98450 11101", "divya.b@zenve.care", "Zenve Central, Koramangala", 328, 4.96),
+    ("DOC-01", "Dr. Edwin .", "Veterinary Surgery", "BVSc & AH, MVSc", 12, "+91 98450 11101", "Edwin.b@zenve.care", "Zenve Central, Koramangala", 328, 4.96),
     ("DOC-02", "Dr. Ananya Deshmukh", "Small Animal Medicine", "BVSc, MVSc Med", 9, "+91 98450 11102", "ananya.d@zenve.care", "Zenve South, Indiranagar", 294, 4.94),
     ("DOC-03", "Dr. Vikramaditya Rathore", "Orthopedic Surgery", "MVSc Surgery", 11, "+91 98450 11103", "vikram.r@zenve.care", "Zenve North, Whitefield", 246, 4.93),
     ("DOC-04", "Dr. Priya Sharma", "Soft Tissue Surgery", "BVSc & AH", 8, "+91 98450 11104", "priya.s@zenve.care", "Zenve Central, Koramangala", 232, 4.95),
@@ -110,7 +110,7 @@ MOCK_CLINICS = [
 # 10 Services
 MOCK_SERVICES = [
     ("SRV-01", "Comprehensive Full Pet Health Checkup & Diagnostics", "Clinical Diagnostic", 45, 3500.0, "Dr. Priya Sharma"),
-    ("SRV-02", "Veterinary Surgery & Soft Tissue Procedures", "Surgery", 90, 14500.0, "Dr. Divya Balasubramanian"),
+    ("SRV-02", "Veterinary Surgery & Soft Tissue Procedures", "Surgery", 90, 14500.0, "Dr. Edwin ."),
     ("SRV-03", "Canine Core 7-in-1 Annual Booster Vaccination", "Immunization", 20, 1850.0, "Dr. Tanvi Venkatesh"),
     ("SRV-04", "Feline Tricat Trio Core Vaccine Protocol", "Immunization", 20, 1600.0, "Dr. Tanvi Venkatesh"),
     ("SRV-05", "Veterinary Dental Ultrasonic Scaling & Polishing", "Dental", 60, 5800.0, "Dr. Meera Nambiar"),

@@ -11,7 +11,7 @@ echo  [2/2] Starting Frontend (Vite Dev) on port 3001...
 echo.
 echo  After startup, open your browser and go to:
 echo.
-echo    >>> http://localhost:3001  <<<   (Main App)
+echo    --- http://localhost:3001 ---   (Main App)
 echo.
 echo  Press Ctrl+C to stop all servers.
 echo  ====================================================

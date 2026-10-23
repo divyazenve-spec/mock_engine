@@ -33,24 +33,24 @@
 
   /* ── Tabs Configuration ────────────────────────────────────────── */
   var TABS = [
-    { id: 'dashboard',    label: 'Finance Dashboard',   icon: '💰', hash: '#finance-dashboard',   badge: 'EBITDA 20%', title: 'Finance Dashboard', sub: 'Network-wide GAAP profit and loss, operating liquidity, and statutory compliance' },
-    { id: 'pnl',          label: 'Profit & Loss',       icon: '📈', hash: '#profit-loss',         badge: 'Audited',    title: 'Profit & Loss Statement (P&L)', sub: 'Management GAAP accounts, operating revenue streams, and cost absorption' },
-    { id: 'balance-sheet',label: 'Balance Sheet',       icon: '🏛️', hash: '#balance-sheet',       badge: '₹0 NW', title: 'Balance Sheet & Capital Structure', sub: 'Current liquidity, hospital equipment capital assets, and shareholder net worth' },
-    { id: 'cash-flow',    label: 'Cash Flow',           icon: '💧', hash: '#cash-flow',           badge: '14.2 Mo Run', title: 'Cash Flow Statement & Liquidity', sub: 'Direct operating cash conversion, clinical CAPEX, and liquid treasury' },
-    { id: 'revenue',      label: 'Revenue',             icon: '💵', hash: '#revenue',             badge: '₹0 MRR', title: 'Revenue Intelligence & Inflows', sub: 'Clinical OPD, surgical IPD, veterinary pharmacy, and corporate B2B contracts' },
-    { id: 'expenses',     label: 'Expenses',            icon: '🏢', hash: '#expenses',            badge: '35.9% OPEX', title: 'Operating Expenses (OPEX)', sub: 'Surgeon staffing, hospital leases, utilities, and marketing budget adherence' },
-    { id: 'cogs',         label: 'COGS',                icon: '📦', hash: '#cogs',                badge: '44% Ratio',  title: 'Cost of Goods Sold (COGS)', sub: 'Pharma procurement, surgical titanium implants, consumables, and supplier rebates' },
-    { id: 'gross-profit', label: 'Gross Profit',        icon: '💎', hash: '#gross-profit',        badge: '56% Margin', title: 'Gross Profit & Unit Economics', sub: 'Clinical department gross contribution and procedure-level profitability' },
-    { id: 'ebitda',       label: 'EBITDA',              icon: '⚡', hash: '#ebitda',              badge: '20.02%',     title: 'Operating EBITDA & Bridge', sub: 'Pre-tax operating cash velocity, facility margins, and normalized bridge' },
-    { id: 'net-profit',   label: 'Net Profit',          icon: '🏆', hash: '#net-profit',          badge: '11.8% PAT',  title: 'Net Profit (PAT) & Bottom Line', sub: 'Statutory earnings after tax, financing costs, and quarterly profit expansion' },
-    { id: 'receivables',  label: 'Accounts Receivable', icon: '📥', hash: '#accounts-receivable', badge: 'DSO 22d',    title: 'Accounts Receivable (AR)', sub: 'Corporate B2B debtor aging, pet insurance TPA claims, and collection notices' },
-    { id: 'payables',     label: 'Accounts Payable',    icon: '📤', hash: '#accounts-payable',    badge: 'DPO 34d',    title: 'Accounts Payable (AP)', sub: 'Supplier credit terms, 3-way matching, and scheduled NEFT/RTGS disbursements' },
-    { id: 'invoices',     label: 'Invoices',            icon: '🧾', hash: '#invoices',            badge: 'IRN Live',   title: 'GST Tax Invoices Register', sub: 'Automated e-invoice generation, HSN/SAC codes, and client billing receipts' },
-    { id: 'payments',     label: 'Payments',            icon: '💳', hash: '#payments',            badge: 'T+1 Sweep',  title: 'Payments & Gateway Settlement', sub: 'Multi-gateway reconciliation, Razorpay UPI, Pine Labs POS, and net credit' },
-    { id: 'refunds',      label: 'Refunds',             icon: '🔄', hash: '#refunds',             badge: '1.07% Rate', title: 'Refunds & Reversals Ledger', sub: 'Appointment rescheduling, sealed medication returns, and dispute protection' },
-    { id: 'taxes',        label: 'Taxes',               icon: '⚖️', hash: '#taxes',               badge: '100% Compliant', title: 'Statutory Tax Compliance', sub: 'GSTR-1 / 3B filings, ITC reconciliation, TDS 194J/194C, and advance corporate tax' },
-    { id: 'forecast',     label: 'Financial Forecast',  icon: '🔮', hash: '#financial-forecast',  badge: '12M Rolling', title: 'Financial Forecasting & Models', sub: '12-month rolling P&L simulations, scenario modeling, and CAPEX roadmap' },
-    { id: 'cost-analysis',label: 'Cost Analysis',       icon: '🔍', hash: '#cost-analysis',       badge: 'ABC Model',  title: 'Cost Structure & Breakeven Analysis', sub: 'Activity-based unit costs (ABC), marginal procedure absorption, and safety margin' }
+    { id: 'dashboard', label: 'Finance Dashboard', icon: '💰', hash: '#finance-dashboard', badge: 'EBITDA 20%', title: 'Finance Dashboard', sub: 'Network-wide GAAP profit and loss, operating liquidity, and statutory compliance' },
+    { id: 'pnl', label: 'Profit & Loss', icon: '📈', hash: '#profit-loss', badge: 'Audited', title: 'Profit & Loss Statement (P&L)', sub: 'Management GAAP accounts, operating revenue streams, and cost absorption' },
+    { id: 'balance-sheet', label: 'Balance Sheet', icon: '🏛️', hash: '#balance-sheet', badge: '₹0 NW', title: 'Balance Sheet & Capital Structure', sub: 'Current liquidity, hospital equipment capital assets, and shareholder net worth' },
+    { id: 'cash-flow', label: 'Cash Flow', icon: '💧', hash: '#cash-flow', badge: '14.2 Mo Run', title: 'Cash Flow Statement & Liquidity', sub: 'Direct operating cash conversion, clinical CAPEX, and liquid treasury' },
+    { id: 'revenue', label: 'Revenue', icon: '💵', hash: '#revenue', badge: '₹0 MRR', title: 'Revenue Intelligence & Inflows', sub: 'Clinical OPD, surgical IPD, veterinary pharmacy, and corporate B2B contracts' },
+    { id: 'expenses', label: 'Expenses', icon: '🏢', hash: '#expenses', badge: '35.9% OPEX', title: 'Operating Expenses (OPEX)', sub: 'Surgeon staffing, hospital leases, utilities, and marketing budget adherence' },
+    { id: 'cogs', label: 'COGS', icon: '📦', hash: '#cogs', badge: '44% Ratio', title: 'Cost of Goods Sold (COGS)', sub: 'Pharma procurement, surgical titanium implants, consumables, and supplier rebates' },
+    { id: 'gross-profit', label: 'Gross Profit', icon: '💎', hash: '#gross-profit', badge: '56% Margin', title: 'Gross Profit & Unit Economics', sub: 'Clinical department gross contribution and procedure-level profitability' },
+    { id: 'ebitda', label: 'EBITDA', icon: '⚡', hash: '#ebitda', badge: '20.02%', title: 'Operating EBITDA & Bridge', sub: 'Pre-tax operating cash velocity, facility margins, and normalized bridge' },
+    { id: 'net-profit', label: 'Net Profit', icon: '🏆', hash: '#net-profit', badge: '11.8% PAT', title: 'Net Profit (PAT) & Bottom Line', sub: 'Statutory earnings after tax, financing costs, and quarterly profit expansion' },
+    { id: 'receivables', label: 'Accounts Receivable', icon: '📥', hash: '#accounts-receivable', badge: 'DSO 22d', title: 'Accounts Receivable (AR)', sub: 'Corporate B2B debtor aging, pet insurance TPA claims, and collection notices' },
+    { id: 'payables', label: 'Accounts Payable', icon: '📤', hash: '#accounts-payable', badge: 'DPO 34d', title: 'Accounts Payable (AP)', sub: 'Supplier credit terms, 3-way matching, and scheduled NEFT/RTGS disbursements' },
+    { id: 'invoices', label: 'Invoices', icon: '🧾', hash: '#invoices', badge: 'IRN Live', title: 'GST Tax Invoices Register', sub: 'Automated e-invoice generation, HSN/SAC codes, and client billing receipts' },
+    { id: 'payments', label: 'Payments', icon: '💳', hash: '#payments', badge: 'T+1 Sweep', title: 'Payments & Gateway Settlement', sub: 'Multi-gateway reconciliation, Razorpay UPI, Pine Labs POS, and net credit' },
+    { id: 'refunds', label: 'Refunds', icon: '🔄', hash: '#refunds', badge: '1.07% Rate', title: 'Refunds & Reversals Ledger', sub: 'Appointment rescheduling, sealed medication returns, and dispute protection' },
+    { id: 'taxes', label: 'Taxes', icon: '⚖️', hash: '#taxes', badge: '100% Compliant', title: 'Statutory Tax Compliance', sub: 'GSTR-1 / 3B filings, ITC reconciliation, TDS 194J/194C, and advance corporate tax' },
+    { id: 'forecast', label: 'Financial Forecast', icon: '🔮', hash: '#financial-forecast', badge: '12M Rolling', title: 'Financial Forecasting & Models', sub: '12-month rolling P&L simulations, scenario modeling, and CAPEX roadmap' },
+    { id: 'cost-analysis', label: 'Cost Analysis', icon: '🔍', hash: '#cost-analysis', badge: 'ABC Model', title: 'Cost Structure & Breakeven Analysis', sub: 'Activity-based unit costs (ABC), marginal procedure absorption, and safety margin' }
   ];
 
   /* ── State ─────────────────────────────────────────────────────── */
@@ -130,15 +130,15 @@
   function kpiHtml(label, val, delta, trend, subtext, icon) {
     return [
       '<div class="zfa-kpi">',
-        '<div class="zfa-kpi-top">',
-          '<span class="zfa-kpi-label">' + esc(label) + '</span>',
-          '<span class="zfa-kpi-icon">' + esc(icon || '💰') + '</span>',
-        '</div>',
-        '<div class="zfa-kpi-val">' + esc(val) + '</div>',
-        '<div class="zfa-kpi-bottom">',
-          '<span class="zfa-delta ' + (trend === 'up' ? 'up' : trend === 'down' ? 'down' : 'warn') + '">' + (trend === 'up' ? '↑ ' : trend === 'down' ? '↓ ' : '• ') + esc(delta) + '</span>',
-          '<span class="zfa-subtext">' + esc(subtext) + '</span>',
-        '</div>',
+      '<div class="zfa-kpi-top">',
+      '<span class="zfa-kpi-label">' + esc(label) + '</span>',
+      '<span class="zfa-kpi-icon">' + esc(icon || '💰') + '</span>',
+      '</div>',
+      '<div class="zfa-kpi-val">' + esc(val) + '</div>',
+      '<div class="zfa-kpi-bottom">',
+      '<span class="zfa-delta ' + (trend === 'up' ? 'up' : trend === 'down' ? 'down' : 'warn') + '">' + (trend === 'up' ? '↑ ' : trend === 'down' ? '↓ ' : '• ') + esc(delta) + '</span>',
+      '<span class="zfa-subtext">' + esc(subtext) + '</span>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -160,44 +160,44 @@
       { metric: 'Net Profit After Tax (PAT: 18.3%)', actual: '₹26,10,200', budget: '₹21,60,000', variance: '+₹4,50,200 (+20.8%)', color: '#10b981' }
     ];
 
-    var pnlHtml = pnlRows.map(function(r) {
+    var pnlHtml = pnlRows.map(function (r) {
       return '<tr><td style="font-weight:600;color:#000;">' + esc(r.metric) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + r.color + ';">' + esc(r.actual) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(r.budget) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:' + (r.variance.indexOf('+') >= 0 ? '#34d399' : '#f87171') + ';">' + esc(r.variance) + '</td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Gross Invoiced Revenue', '₹1,42,85,000', '+12.4% MoM', 'up', 'Current month accrual', '💰'),
-        kpiHtml('Operating EBITDA', '₹34,28,400', '24.0% margin', 'up', 'Core operational profit', '⚡'),
-        kpiHtml('Net Profit (PAT)', '₹26,10,200', '18.3% margin', 'up', 'Bottom line statutory', '🏆'),
-        kpiHtml('Liquid Cash & Bank', '₹8,84,00,000', '14.2M runway', 'up', 'HDFC treasury & sweep', '🏦'),
-        kpiHtml('Accounts Receivable', '₹28,50,000', 'DSO: 22 Days', 'up', '10 key debtor accounts', '📥'),
-        kpiHtml('Accounts Payable', '₹19,20,000', 'DPO: 34 Days', 'up', '10 approved suppliers', '📤'),
+      kpiHtml('Gross Invoiced Revenue', '₹1,42,85,000', '+12.4% MoM', 'up', 'Current month accrual', '💰'),
+      kpiHtml('Operating EBITDA', '₹34,28,400', '24.0% margin', 'up', 'Core operational profit', '⚡'),
+      kpiHtml('Net Profit (PAT)', '₹26,10,200', '18.3% margin', 'up', 'Bottom line statutory', '🏆'),
+      kpiHtml('Liquid Cash & Bank', '₹8,84,00,000', '14.2M runway', 'up', 'HDFC treasury & sweep', '🏦'),
+      kpiHtml('Accounts Receivable', '₹28,50,000', 'DSO: 22 Days', 'up', '10 key debtor accounts', '📥'),
+      kpiHtml('Accounts Payable', '₹19,20,000', 'DPO: 34 Days', 'up', '10 approved suppliers', '📤'),
       '</div>',
       '<div class="zfa-grid-2">',
-        '<div class="zfa-card">',
-          '<div class="zfa-card-head">',
-            '<div><h3 class="zfa-card-title">📊 Executive Profit & Loss Summary</h3><p class="zfa-card-sub">Management GAAP accounts for Current Month</p></div>',
-            '<span class="zfa-badge green">AUDITED ACCRUAL</span>',
-          '</div>',
-          '<div class="zfa-table-wrap">',
-            '<table class="zfa-table">',
-              '<thead><tr><th>Financial Metric</th><th style="text-align:right;">Actual</th><th style="text-align:right;">Budget</th><th style="text-align:right;">Variance</th></tr></thead>',
-              '<tbody>' + pnlHtml + '</tbody>',
-            '</table>',
-          '</div>',
-        '</div>',
-        '<div class="zfa-card">',
-          '<div class="zfa-card-head">',
-            '<div><h3 class="zfa-card-title">⚖️ Working Capital & Aging Profile</h3><p class="zfa-card-sub">Trade receivables vs supplier payables maturity</p></div>',
-            '<button class="zfa-btn primary" onclick="ZenveFinanceDashboard.switchTab(\'cash-flow\')">View Cash Flow →</button>',
-          '</div>',
-          '<div style="display:flex;flex-direction:column;gap:12px;">',
-            '<div style="background:rgba(0,0,0,0.2);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);"><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><b>Current (0–30 Days)</b><span class="zfa-badge green">LOW RISK</span></div><div style="font-size:11px;color:#94a3b8;">Receivables: <strong style="color:#38bdf8;">₹18,20,000</strong> (63.9%) · Payables: <strong style="color:#fbbf24;">₹13,63,200</strong> (71.0%)</div></div>',
-            '<div style="background:rgba(0,0,0,0.2);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);"><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><b>31–60 Days (Grace Period)</b><span class="zfa-badge blue">NORMAL</span></div><div style="font-size:11px;color:#94a3b8;">Receivables: <strong style="color:#38bdf8;">₹6,80,000</strong> (23.8%) · Payables: <strong style="color:#fbbf24;">₹3,85,920</strong> (20.1%)</div></div>',
-            '<div style="background:rgba(0,0,0,0.2);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);"><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><b>61–90 Days (Overdue Warning)</b><span class="zfa-badge amber">MEDIUM RISK</span></div><div style="font-size:11px;color:#94a3b8;">Receivables: <strong style="color:#38bdf8;">₹2,45,000</strong> (8.6%) · Payables: <strong style="color:#fbbf24;">₹1,40,160</strong> (7.3%)</div></div>',
-            '<div style="background:rgba(0,0,0,0.2);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);"><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><b>90+ Days (Delinquent/Disputed)</b><span class="zfa-badge red">ACTION REQUIRED</span></div><div style="font-size:11px;color:#94a3b8;">Receivables: <strong style="color:#38bdf8;">₹1,05,000</strong> (3.7%) · Payables: <strong style="color:#fbbf24;">₹30,720</strong> (1.6%)</div></div>',
-          '</div>',
-        '</div>',
+      '<div class="zfa-card">',
+      '<div class="zfa-card-head">',
+      '<div><h3 class="zfa-card-title">📊 Executive Profit & Loss Summary</h3><p class="zfa-card-sub">Management GAAP accounts for Current Month</p></div>',
+      '<span class="zfa-badge green">AUDITED ACCRUAL</span>',
+      '</div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Financial Metric</th><th style="text-align:right;">Actual</th><th style="text-align:right;">Budget</th><th style="text-align:right;">Variance</th></tr></thead>',
+      '<tbody>' + pnlHtml + '</tbody>',
+      '</table>',
+      '</div>',
+      '</div>',
+      '<div class="zfa-card">',
+      '<div class="zfa-card-head">',
+      '<div><h3 class="zfa-card-title">⚖️ Working Capital & Aging Profile</h3><p class="zfa-card-sub">Trade receivables vs supplier payables maturity</p></div>',
+      '<button class="zfa-btn primary" onclick="ZenveFinanceDashboard.switchTab(\'cash-flow\')">View Cash Flow →</button>',
+      '</div>',
+      '<div style="display:flex;flex-direction:column;gap:12px;">',
+      '<div style="background:rgba(0,0,0,0.2);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);"><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><b>Current (0–30 Days)</b><span class="zfa-badge green">LOW RISK</span></div><div style="font-size:11px;color:#94a3b8;">Receivables: <strong style="color:#38bdf8;">₹18,20,000</strong> (63.9%) · Payables: <strong style="color:#fbbf24;">₹13,63,200</strong> (71.0%)</div></div>',
+      '<div style="background:rgba(0,0,0,0.2);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);"><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><b>31–60 Days (Grace Period)</b><span class="zfa-badge blue">NORMAL</span></div><div style="font-size:11px;color:#94a3b8;">Receivables: <strong style="color:#38bdf8;">₹6,80,000</strong> (23.8%) · Payables: <strong style="color:#fbbf24;">₹3,85,920</strong> (20.1%)</div></div>',
+      '<div style="background:rgba(0,0,0,0.2);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);"><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><b>61–90 Days (Overdue Warning)</b><span class="zfa-badge amber">MEDIUM RISK</span></div><div style="font-size:11px;color:#94a3b8;">Receivables: <strong style="color:#38bdf8;">₹2,45,000</strong> (8.6%) · Payables: <strong style="color:#fbbf24;">₹1,40,160</strong> (7.3%)</div></div>',
+      '<div style="background:rgba(0,0,0,0.2);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);"><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><b>90+ Days (Delinquent/Disputed)</b><span class="zfa-badge red">ACTION REQUIRED</span></div><div style="font-size:11px;color:#94a3b8;">Receivables: <strong style="color:#38bdf8;">₹1,05,000</strong> (3.7%) · Payables: <strong style="color:#fbbf24;">₹30,720</strong> (1.6%)</div></div>',
+      '</div>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -217,30 +217,30 @@
       { code: 'PAT-10', desc: 'Statutory Net Profit After Tax (PAT)', class: 'Bottom-Line Net', actual: '₹26,10,200', budget: '₹21,60,000', variance: '+₹4,50,200', pct: '18.3%' }
     ];
 
-    var pnlRowsHtml = pnlItems.map(function(item) {
+    var pnlRowsHtml = pnlItems.map(function (item) {
       return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(item.code) + '</td><td style="color:#000;font-weight:600;">' + esc(item.desc) + '</td><td style="color:#94a3b8;">' + esc(item.class) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + (item.actual.indexOf('-') >= 0 ? '#f87171' : '#10b981') + ';">' + esc(item.actual) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(item.budget) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:' + (item.variance.indexOf('+') >= 0 ? '#34d399' : '#f87171') + ';">' + esc(item.variance) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(item.pct) + '</td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Operating Revenue', '₹1,42,85,000', '+12.4% MoM', 'up', 'Consults, surgery & lab', '💰'),
-        kpiHtml('Total Direct COGS', '₹62,85,000', '44.0% of rev', 'neutral', 'Pharma & consumables', '📦'),
-        kpiHtml('Gross Profit', '₹80,00,000', '56.0% margin', 'up', 'Clinical service gross', '💎'),
-        kpiHtml('Total OPEX', '₹45,71,600', '32.0% of rev', 'neutral', 'Payroll, lease, cloud', '🏢'),
-        kpiHtml('Operating EBITDA', '₹34,28,400', '24.0% margin', 'up', 'Operating cash income', '⚡'),
-        kpiHtml('Net PAT', '₹26,10,200', '18.3% margin', 'up', 'Audited net profit', '🏆'),
+      kpiHtml('Operating Revenue', '₹1,42,85,000', '+12.4% MoM', 'up', 'Consults, surgery & lab', '💰'),
+      kpiHtml('Total Direct COGS', '₹62,85,000', '44.0% of rev', 'neutral', 'Pharma & consumables', '📦'),
+      kpiHtml('Gross Profit', '₹80,00,000', '56.0% margin', 'up', 'Clinical service gross', '💎'),
+      kpiHtml('Total OPEX', '₹45,71,600', '32.0% of rev', 'neutral', 'Payroll, lease, cloud', '🏢'),
+      kpiHtml('Operating EBITDA', '₹34,28,400', '24.0% margin', 'up', 'Operating cash income', '⚡'),
+      kpiHtml('Net PAT', '₹26,10,200', '18.3% margin', 'up', 'Audited net profit', '🏆'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head">',
-          '<div><h3 class="zfa-card-title">📑 Comprehensive GAAP Income Statement</h3><p class="zfa-card-sub">Audited waterfall from Top-line Gross Revenue to Bottom-line Net PAT</p></div>',
-          '<button class="zfa-btn primary" onclick="alert(\'Downloading official signed GAAP P&L statement (PDF)...\')">Export Audited P&L</button>',
-        '</div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Code</th><th>Line Item Description</th><th>Classification</th><th style="text-align:right;">Actual</th><th style="text-align:right;">Budget</th><th style="text-align:right;">Variance</th><th style="text-align:right;">% Revenue</th></tr></thead>',
-            '<tbody>' + pnlRowsHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head">',
+      '<div><h3 class="zfa-card-title">📑 Comprehensive GAAP Income Statement</h3><p class="zfa-card-sub">Audited waterfall from Top-line Gross Revenue to Bottom-line Net PAT</p></div>',
+      '<button class="zfa-btn primary" onclick="alert(\'Downloading official signed GAAP P&L statement (PDF)...\')">Export Audited P&L</button>',
+      '</div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Code</th><th>Line Item Description</th><th>Classification</th><th style="text-align:right;">Actual</th><th style="text-align:right;">Budget</th><th style="text-align:right;">Variance</th><th style="text-align:right;">% Revenue</th></tr></thead>',
+      '<tbody>' + pnlRowsHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -273,42 +273,42 @@
       { name: 'Current Period Net Profit (PAT)', bal: '₹26,10,200', share: '1.4%' }
     ];
 
-    var assetsHtml = assets.map(function(a) {
+    var assetsHtml = assets.map(function (a) {
       return '<tr><td style="color:#000;font-weight:600;">' + esc(a.name) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(a.bal) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(a.share) + '</td></tr>';
     }).join('');
 
-    var liabHtml = liabilities.map(function(l) {
+    var liabHtml = liabilities.map(function (l) {
       return '<tr><td style="color:#000;font-weight:600;">' + esc(l.name) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#f87171;">' + esc(l.bal) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(l.share) + '</td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Total Capital Assets', '₹18,42,50,000', '+8.2% YoY', 'up', 'Liquid & fixed base', '🏛️'),
-        kpiHtml('Shareholders Equity', '₹14,92,30,000', '81.0% of total', 'up', 'Net balance worth', '💎'),
-        kpiHtml('Current Ratio', '3.82x', 'Healthy', 'up', 'Short-term liquidity', '💧'),
-        kpiHtml('Quick Ratio', '3.15x', 'Ex-inventory', 'up', 'Instant coverage', '⚡'),
-        kpiHtml('Debt to Equity', '0.11x', 'Conservative', 'up', 'Minimal leverage', '🛡️'),
-        kpiHtml('Net Working Capital', '₹8,93,30,000', 'Strong buffer', 'up', 'Current surplus', '📈'),
+      kpiHtml('Total Capital Assets', '₹18,42,50,000', '+8.2% YoY', 'up', 'Liquid & fixed base', '🏛️'),
+      kpiHtml('Shareholders Equity', '₹14,92,30,000', '81.0% of total', 'up', 'Net balance worth', '💎'),
+      kpiHtml('Current Ratio', '3.82x', 'Healthy', 'up', 'Short-term liquidity', '💧'),
+      kpiHtml('Quick Ratio', '3.15x', 'Ex-inventory', 'up', 'Instant coverage', '⚡'),
+      kpiHtml('Debt to Equity', '0.11x', 'Conservative', 'up', 'Minimal leverage', '🛡️'),
+      kpiHtml('Net Working Capital', '₹8,93,30,000', 'Strong buffer', 'up', 'Current surplus', '📈'),
       '</div>',
       '<div class="zfa-grid-2">',
-        '<div class="zfa-card">',
-          '<div class="zfa-card-head"><div><h3 class="zfa-card-title">💼 Assets (Total: ₹18,42,50,000)</h3><p class="zfa-card-sub">Current liquid resources and fixed clinical equipment</p></div></div>',
-          '<div class="zfa-table-wrap">',
-            '<table class="zfa-table">',
-              '<thead><tr><th>Asset Class</th><th style="text-align:right;">Balance</th><th style="text-align:right;">Share %</th></tr></thead>',
-              '<tbody>' + assetsHtml + '</tbody>',
-            '</table>',
-          '</div>',
-        '</div>',
-        '<div class="zfa-card">',
-          '<div class="zfa-card-head"><div><h3 class="zfa-card-title">⚖️ Liabilities & Equity (Total: ₹18,42,50,000)</h3><p class="zfa-card-sub">External trade obligations and shareholder net worth</p></div></div>',
-          '<div class="zfa-table-wrap">',
-            '<table class="zfa-table">',
-              '<thead><tr><th>Obligation / Capital Component</th><th style="text-align:right;">Balance</th><th style="text-align:right;">Share %</th></tr></thead>',
-              '<tbody>' + liabHtml + '</tbody>',
-            '</table>',
-          '</div>',
-        '</div>',
+      '<div class="zfa-card">',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">💼 Assets (Total: ₹18,42,50,000)</h3><p class="zfa-card-sub">Current liquid resources and fixed clinical equipment</p></div></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Asset Class</th><th style="text-align:right;">Balance</th><th style="text-align:right;">Share %</th></tr></thead>',
+      '<tbody>' + assetsHtml + '</tbody>',
+      '</table>',
+      '</div>',
+      '</div>',
+      '<div class="zfa-card">',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">⚖️ Liabilities & Equity (Total: ₹18,42,50,000)</h3><p class="zfa-card-sub">External trade obligations and shareholder net worth</p></div></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Obligation / Capital Component</th><th style="text-align:right;">Balance</th><th style="text-align:right;">Share %</th></tr></thead>',
+      '<tbody>' + liabHtml + '</tbody>',
+      '</table>',
+      '</div>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -328,27 +328,27 @@
       { name: 'Net Consolidated Monthly Cash Inflow (Runway Expansion)', sec: 'Net Position', flow: '+₹21,75,000', color: '#38bdf8' }
     ];
 
-    var cashHtml = cashItems.map(function(c) {
+    var cashHtml = cashItems.map(function (c) {
       return '<tr><td style="color:#000;font-weight:600;">' + esc(c.name) + '</td><td style="color:#94a3b8;">' + esc(c.sec) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:' + c.color + ';">' + esc(c.flow) + '</td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Operating Cash (CFO)', '₹32,45,000', '+14.2% MoM', 'up', 'Operating collections', '💧'),
-        kpiHtml('Free Cash Flow (FCF)', '₹24,25,000', '74.7% of CFO', 'up', 'Post-capex surplus', '💎'),
-        kpiHtml('Monthly Net Burn', '+₹24.25L', 'Self-sustaining', 'up', 'Cash generative', '🛡️'),
-        kpiHtml('Liquid Runway', '14.2 Months', 'Self-funded', 'up', 'Zero external debt', '⏳'),
-        kpiHtml('Operating Cash Ratio', '1.69x', 'Healthy', 'up', 'Covers current liabilities', '📈'),
-        kpiHtml('Treasury Cleared', '₹8,84,00,000', 'Audit-verified', 'up', 'Core bank balances', '🏦'),
+      kpiHtml('Operating Cash (CFO)', '₹32,45,000', '+14.2% MoM', 'up', 'Operating collections', '💧'),
+      kpiHtml('Free Cash Flow (FCF)', '₹24,25,000', '74.7% of CFO', 'up', 'Post-capex surplus', '💎'),
+      kpiHtml('Monthly Net Burn', '+₹24.25L', 'Self-sustaining', 'up', 'Cash generative', '🛡️'),
+      kpiHtml('Liquid Runway', '14.2 Months', 'Self-funded', 'up', 'Zero external debt', '⏳'),
+      kpiHtml('Operating Cash Ratio', '1.69x', 'Healthy', 'up', 'Covers current liabilities', '📈'),
+      kpiHtml('Treasury Cleared', '₹8,84,00,000', 'Audit-verified', 'up', 'Core bank balances', '🏦'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">🌊 Direct Cash Flow Statement Waterfall</h3><p class="zfa-card-sub">Operating cash collections, capital investments, and financing service</p></div><span class="zfa-badge green">DIRECT GAAP</span></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Activity Item</th><th>Section</th><th style="text-align:right;">Net Flow (INR)</th></tr></thead>',
-            '<tbody>' + cashHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">🌊 Direct Cash Flow Statement Waterfall</h3><p class="zfa-card-sub">Operating cash collections, capital investments, and financing service</p></div><span class="zfa-badge green">DIRECT GAAP</span></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Activity Item</th><th>Section</th><th style="text-align:right;">Net Flow (INR)</th></tr></thead>',
+      '<tbody>' + cashHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -368,27 +368,27 @@
       { name: 'Telemedicine Remote Consults & Home Delivery', channel: 'Digital App Rail', rev: '₹2,20,000', vol: '440 calls', avg: '₹500', share: '1.5%', growth: '+31.4%' }
     ];
 
-    var revHtml = revStreams.map(function(s) {
+    var revHtml = revStreams.map(function (s) {
       return '<tr><td style="color:#000;font-weight:600;">' + esc(s.name) + '</td><td style="color:#38bdf8;">' + esc(s.channel) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(s.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#cbd5e1;">' + esc(s.vol) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(s.avg) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(s.share) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;font-weight:600;">' + esc(s.growth) + '</td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Monthly Run-Rate (MRR)', '₹1,42,85,000', '+12.4% MoM', 'up', 'Gross monthly billings', '💰'),
-        kpiHtml('Annualized Run-Rate (ARR)', '₹17.14 Cr', '+28.5% YoY', 'up', 'Forward pace', '🌐'),
-        kpiHtml('Avg Ticket / Consultation', '₹1,850', '+6.8% MoM', 'up', 'OPD average value', '🐾'),
-        kpiHtml('Avg Ticket / Surgery', '₹34,500', '+11.2% MoM', 'up', 'Ortho & soft-tissue', '🩺'),
-        kpiHtml('Pharmacy Attach Rate', '76.4%', '+3.2% pts', 'up', 'Prescription fulfillment', '💊'),
-        kpiHtml('ASC 606 / Ind-AS 115', '100.0%', 'Reconciled', 'up', 'Clean recognition', '🛡️'),
+      kpiHtml('Monthly Run-Rate (MRR)', '₹1,42,85,000', '+12.4% MoM', 'up', 'Gross monthly billings', '💰'),
+      kpiHtml('Annualized Run-Rate (ARR)', '₹17.14 Cr', '+28.5% YoY', 'up', 'Forward pace', '🌐'),
+      kpiHtml('Avg Ticket / Consultation', '₹1,850', '+6.8% MoM', 'up', 'OPD average value', '🐾'),
+      kpiHtml('Avg Ticket / Surgery', '₹34,500', '+11.2% MoM', 'up', 'Ortho & soft-tissue', '🩺'),
+      kpiHtml('Pharmacy Attach Rate', '76.4%', '+3.2% pts', 'up', 'Prescription fulfillment', '💊'),
+      kpiHtml('ASC 606 / Ind-AS 115', '100.0%', 'Reconciled', 'up', 'Clean recognition', '🛡️'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">💵 Revenue Stream Breakdown</h3><p class="zfa-card-sub">Commercial intake across outpatient clinics, surgical hospitals, pharmacy, and corporate accounts</p></div><button class="zfa-btn primary" onclick="alert(\'Exporting revenue breakdown ledger (CSV)...\')">Export Revenue CSV</button></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Stream Name</th><th>Channel Type</th><th style="text-align:right;">Monthly Revenue</th><th style="text-align:right;">Volume</th><th style="text-align:right;">Avg Ticket</th><th style="text-align:right;">Share %</th><th style="text-align:right;">MoM Growth</th></tr></thead>',
-            '<tbody>' + revHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">💵 Revenue Stream Breakdown</h3><p class="zfa-card-sub">Commercial intake across outpatient clinics, surgical hospitals, pharmacy, and corporate accounts</p></div><button class="zfa-btn primary" onclick="alert(\'Exporting revenue breakdown ledger (CSV)...\')">Export Revenue CSV</button></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Stream Name</th><th>Channel Type</th><th style="text-align:right;">Monthly Revenue</th><th style="text-align:right;">Volume</th><th style="text-align:right;">Avg Ticket</th><th style="text-align:right;">Share %</th><th style="text-align:right;">MoM Growth</th></tr></thead>',
+      '<tbody>' + revHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -408,27 +408,27 @@
       { code: 'OPX-110', name: 'Statutory Legal, Secretarial & CA Audit Retainer', center: 'Finance & Admin', budget: '₹1,55,000', actual: '₹1,44,600', var: '+₹10,400', pct: '3.2%' }
     ];
 
-    var opexHtml = opexLines.map(function(o) {
+    var opexHtml = opexLines.map(function (o) {
       return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(o.code) + '</td><td style="color:#000;font-weight:600;">' + esc(o.name) + '</td><td style="color:#94a3b8;">' + esc(o.center) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(o.budget) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(o.actual) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;">' + esc(o.var) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(o.pct) + '</td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Total Monthly OPEX', '₹45,71,600', '-1.8% vs budget', 'up', 'Total operating costs', '🏢'),
-        kpiHtml('Staffing & Payroll', '₹24,80,00,0', '54.2% of OPEX', 'neutral', 'Surgeons, nurses, tech', '👨‍⚕️'),
-        kpiHtml('Facility Leases', '₹11,50,000', '25.2% of OPEX', 'neutral', '14 hospital locations', '📍'),
-        kpiHtml('Hospital Utilities', '₹3,45,000', '7.5% of OPEX', 'up', 'Electricity, medical O2', '⚡'),
-        kpiHtml('Marketing & CAC', '₹2,60,000', 'CAC ₹420', 'up', 'Digital pet parent ads', '📣'),
-        kpiHtml('Budget Compliance', '98.2%', 'Audited', 'up', 'Under strict limit', '🛡️'),
+      kpiHtml('Total Monthly OPEX', '₹45,71,600', '-1.8% vs budget', 'up', 'Total operating costs', '🏢'),
+      kpiHtml('Staffing & Payroll', '₹24,80,00,0', '54.2% of OPEX', 'neutral', 'Surgeons, nurses, tech', '👨‍⚕️'),
+      kpiHtml('Facility Leases', '₹11,50,000', '25.2% of OPEX', 'neutral', '14 hospital locations', '📍'),
+      kpiHtml('Hospital Utilities', '₹3,45,000', '7.5% of OPEX', 'up', 'Electricity, medical O2', '⚡'),
+      kpiHtml('Marketing & CAC', '₹2,60,000', 'CAC ₹420', 'up', 'Digital pet parent ads', '📣'),
+      kpiHtml('Budget Compliance', '98.2%', 'Audited', 'up', 'Under strict limit', '🛡️'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📋 OPEX Departmental Ledger</h3><p class="zfa-card-sub">Approved budgets, actual disbursements, and variance</p></div><button class="zfa-btn primary" onclick="ZenveFinanceDashboard.showExpenseModal()">+ New Expense Voucher</button></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Code</th><th>Expense Line Item</th><th>Cost Center</th><th style="text-align:right;">Budget</th><th style="text-align:right;">Actual Spend</th><th style="text-align:right;">Variance</th><th style="text-align:right;">% OPEX</th></tr></thead>',
-            '<tbody>' + opexHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📋 OPEX Departmental Ledger</h3><p class="zfa-card-sub">Approved budgets, actual disbursements, and variance</p></div><button class="zfa-btn primary" onclick="ZenveFinanceDashboard.showExpenseModal()">+ New Expense Voucher</button></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Code</th><th>Expense Line Item</th><th>Cost Center</th><th style="text-align:right;">Budget</th><th style="text-align:right;">Actual Spend</th><th style="text-align:right;">Variance</th><th style="text-align:right;">% OPEX</th></tr></thead>',
+      '<tbody>' + opexHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -448,27 +448,27 @@
       { code: 'CG-10', cat: 'Chemotherapy Oncology Infusion Sets', spend: '₹1,00,000', rev: '₹3,10,000', margin: '67.7%', suppliers: 'Baxter Healthcare' }
     ];
 
-    var cogsHtml = cogsLines.map(function(c) {
+    var cogsHtml = cogsLines.map(function (c) {
       return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(c.code) + '</td><td style="color:#000;font-weight:600;">' + esc(c.cat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;font-weight:700;">' + esc(c.spend) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;">' + esc(c.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:600;">' + esc(c.margin) + '</td><td style="color:#94a3b8;">' + esc(c.suppliers) + '</td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Total Monthly COGS', '₹62,85,000', '44.0% of rev', 'up', 'Direct care supplies', '📦'),
-        kpiHtml('Pharma Procurement', '₹20,08,000', '31.9% of COGS', 'neutral', 'Vaccines & antibiotics', '💊'),
-        kpiHtml('Surgical Hardware', '₹16,40,000', '26.1% of COGS', 'neutral', 'Implants & suture sets', '🔩'),
-        kpiHtml('Diagnostic Consumables', '₹11,20,000', '17.8% of COGS', 'up', 'IDEXX reagent cartridges', '🔬'),
-        kpiHtml('Manufacturer Rebates', '₹4,20,000', '6.7% yield', 'up', 'Quarterly volume tier', '🎁'),
-        kpiHtml('Inventory Waste Rate', '0.42%', '-0.18% MoM', 'up', 'FEFO cold-chain control', '🛡️'),
+      kpiHtml('Total Monthly COGS', '₹62,85,000', '44.0% of rev', 'up', 'Direct care supplies', '📦'),
+      kpiHtml('Pharma Procurement', '₹20,08,000', '31.9% of COGS', 'neutral', 'Vaccines & antibiotics', '💊'),
+      kpiHtml('Surgical Hardware', '₹16,40,000', '26.1% of COGS', 'neutral', 'Implants & suture sets', '🔩'),
+      kpiHtml('Diagnostic Consumables', '₹11,20,000', '17.8% of COGS', 'up', 'IDEXX reagent cartridges', '🔬'),
+      kpiHtml('Manufacturer Rebates', '₹4,20,000', '6.7% yield', 'up', 'Quarterly volume tier', '🎁'),
+      kpiHtml('Inventory Waste Rate', '0.42%', '-0.18% MoM', 'up', 'FEFO cold-chain control', '🛡️'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📦 Direct Material Absorption Schedule</h3><p class="zfa-card-sub">Procurement costs linked to healthcare service delivery</p></div><button class="zfa-btn primary" onclick="alert(\'Opening purchase order procurement terminal...\')">Vendor PO Run</button></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Code</th><th>Category</th><th style="text-align:right;">Direct Spend</th><th style="text-align:right;">Linked Revenue</th><th style="text-align:right;">Gross Margin</th><th>Key Suppliers</th></tr></thead>',
-            '<tbody>' + cogsHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📦 Direct Material Absorption Schedule</h3><p class="zfa-card-sub">Procurement costs linked to healthcare service delivery</p></div><button class="zfa-btn primary" onclick="alert(\'Opening purchase order procurement terminal...\')">Vendor PO Run</button></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Code</th><th>Category</th><th style="text-align:right;">Direct Spend</th><th style="text-align:right;">Linked Revenue</th><th style="text-align:right;">Gross Margin</th><th>Key Suppliers</th></tr></thead>',
+      '<tbody>' + cogsHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -488,27 +488,27 @@
       { unit: 'Veterinary Dental & Oral Surgery', rev: '₹3,80,000', cogs: '₹1,44,400', gp: '₹2,35,600', margin: '62.0%', target: '58.0%', status: 'Exceeding' }
     ];
 
-    var deptHtml = depts.map(function(d) {
+    var deptHtml = depts.map(function (d) {
       return '<tr><td style="color:#000;font-weight:600;">' + esc(d.unit) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(d.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;">' + esc(d.cogs) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(d.gp) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:700;">' + esc(d.margin) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(d.target) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(d.status) + '</span></td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Total Gross Profit', '₹80,00,000', '+14.2% MoM', 'up', 'Consolidated trading', '💎'),
-        kpiHtml('Blended Gross Margin', '56.0%', '+1.8% pts', 'up', 'Target: >54.0%', '📈'),
-        kpiHtml('Surgical Gross Margin', '63.2%', 'High margin', 'up', 'Ortho & soft-tissue', '🩺'),
-        kpiHtml('Diagnostics Margin', '61.4%', 'Automated lab', 'up', 'In-house IDEXX suites', '🔬'),
-        kpiHtml('Pharmacy Gross Margin', '41.3%', 'Regulated trade', 'neutral', 'Cold-chain pharma', '💊'),
-        kpiHtml('Price Realization Index', '108.4', '+2.4 pts', 'up', 'Premium care index', '🛡️'),
+      kpiHtml('Total Gross Profit', '₹80,00,000', '+14.2% MoM', 'up', 'Consolidated trading', '💎'),
+      kpiHtml('Blended Gross Margin', '56.0%', '+1.8% pts', 'up', 'Target: >54.0%', '📈'),
+      kpiHtml('Surgical Gross Margin', '63.2%', 'High margin', 'up', 'Ortho & soft-tissue', '🩺'),
+      kpiHtml('Diagnostics Margin', '61.4%', 'Automated lab', 'up', 'In-house IDEXX suites', '🔬'),
+      kpiHtml('Pharmacy Gross Margin', '41.3%', 'Regulated trade', 'neutral', 'Cold-chain pharma', '💊'),
+      kpiHtml('Price Realization Index', '108.4', '+2.4 pts', 'up', 'Premium care index', '🛡️'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">💎 Gross Profit Contribution by Clinical Division</h3><p class="zfa-card-sub">Department gross margins after deducting direct medical materials</p></div><span class="zfa-badge green">ALL UNITS EXCEED TARGET</span></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Clinical Unit</th><th style="text-align:right;">Gross Revenue</th><th style="text-align:right;">Direct COGS</th><th style="text-align:right;">Gross Profit</th><th style="text-align:right;">Gross Margin %</th><th style="text-align:right;">Target Margin</th><th style="text-align:right;">Status</th></tr></thead>',
-            '<tbody>' + deptHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">💎 Gross Profit Contribution by Clinical Division</h3><p class="zfa-card-sub">Department gross margins after deducting direct medical materials</p></div><span class="zfa-badge green">ALL UNITS EXCEED TARGET</span></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Clinical Unit</th><th style="text-align:right;">Gross Revenue</th><th style="text-align:right;">Direct COGS</th><th style="text-align:right;">Gross Profit</th><th style="text-align:right;">Gross Margin %</th><th style="text-align:right;">Target Margin</th><th style="text-align:right;">Status</th></tr></thead>',
+      '<tbody>' + deptHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -528,27 +528,27 @@
       { code: 'FAC-10', name: 'Lavelle Road Specialty Referral', city: 'Bengaluru', rev: '₹2,50,000', ebitda: '₹35,000', margin: '14.0%', status: 'Break-even Met' }
     ];
 
-    var facHtml = facs.map(function(f) {
+    var facHtml = facs.map(function (f) {
       return '<tr><td style="color:#000;font-weight:600;"><span style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;margin-right:6px;">' + esc(f.code) + '</span>' + esc(f.name) + '</td><td style="color:#94a3b8;">' + esc(f.city) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(f.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(f.ebitda) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:700;">' + esc(f.margin) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(f.status) + '</span></td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Operating EBITDA (MTD)', '₹34,28,400', '24.0% margin', 'up', 'Core operational profit', '⚡'),
-        kpiHtml('Normalized Adj. EBITDA', '₹35,88,400', '+1.6L add-backs', 'up', 'Excluding non-recurring', '💎'),
-        kpiHtml('Annualized EBITDA Run-rate', '₹4.11 Cr', '+24.5% YoY', 'up', 'FY27 baseline', '📈'),
-        kpiHtml('EBITDA-to-Cash Ratio', '94.6%', 'High quality', 'up', 'Zero paper profits', '💧'),
-        kpiHtml('Flagship Hospital EBITDA', '30.3%', 'Indiranagar center', 'up', 'Mature facility margin', '🏥'),
-        kpiHtml('Break-even Month', '8.4 Months', 'Speedy ramp', 'up', 'New clinic break-even', '⏱️'),
+      kpiHtml('Operating EBITDA (MTD)', '₹34,28,400', '24.0% margin', 'up', 'Core operational profit', '⚡'),
+      kpiHtml('Normalized Adj. EBITDA', '₹35,88,400', '+1.6L add-backs', 'up', 'Excluding non-recurring', '💎'),
+      kpiHtml('Annualized EBITDA Run-rate', '₹4.11 Cr', '+24.5% YoY', 'up', 'FY27 baseline', '📈'),
+      kpiHtml('EBITDA-to-Cash Ratio', '94.6%', 'High quality', 'up', 'Zero paper profits', '💧'),
+      kpiHtml('Flagship Hospital EBITDA', '30.3%', 'Indiranagar center', 'up', 'Mature facility margin', '🏥'),
+      kpiHtml('Break-even Month', '8.4 Months', 'Speedy ramp', 'up', 'New clinic break-even', '⏱️'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">⚡ Facility-Level EBITDA Ranking</h3><p class="zfa-card-sub">Operating profit generated by each hospital and outpatient center</p></div><span class="zfa-badge green">100% LOCATIONS POSITIVE</span></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Facility</th><th>City</th><th style="text-align:right;">Revenue</th><th style="text-align:right;">EBITDA</th><th style="text-align:right;">EBITDA Margin</th><th style="text-align:right;">Status</th></tr></thead>',
-            '<tbody>' + facHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">⚡ Facility-Level EBITDA Ranking</h3><p class="zfa-card-sub">Operating profit generated by each hospital and outpatient center</p></div><span class="zfa-badge green">100% LOCATIONS POSITIVE</span></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Facility</th><th>City</th><th style="text-align:right;">Revenue</th><th style="text-align:right;">EBITDA</th><th style="text-align:right;">EBITDA Margin</th><th style="text-align:right;">Status</th></tr></thead>',
+      '<tbody>' + facHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -568,27 +568,27 @@
       { quarter: 'FY26 Q2 (Current)', rev: '₹1,42,85,000', ebitda: '₹37,14,100', pat: '₹26,10,200', margin: '18.3%', eps: '₹17.40' }
     ];
 
-    var qHtml = quarters.map(function(q) {
+    var qHtml = quarters.map(function (q) {
       return '<tr><td style="color:#000;font-weight:600;">' + esc(q.quarter) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(q.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(q.ebitda) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(q.pat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#34d399;font-weight:600;">' + esc(q.margin) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#000;">' + esc(q.eps) + '</td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Net Profit (PAT)', '₹26,10,200', '+14.8% YoY', 'up', 'Current month surplus', '🏆'),
-        kpiHtml('Net Profit Margin', '18.3%', '+2.8% pts', 'up', 'Consolidated margin', '📈'),
-        kpiHtml('Profit Before Tax (PBT)', '₹34,80,267', '+13.5% YoY', 'up', 'Operating surplus', '💼'),
-        kpiHtml('Effective Tax Rate', '25.0%', 'Stable', 'neutral', 'Section 115BAA corporate', '🏛️'),
-        kpiHtml('Annualized PAT Run-rate', '₹3.13 Cr', '+14.8% YoY', 'up', 'For network expansion', '🏗️'),
-        kpiHtml('Earnings Per Share (EPS)', '₹17.40', '+12.4% YoY', 'up', 'Common equity base', '💎'),
+      kpiHtml('Net Profit (PAT)', '₹26,10,200', '+14.8% YoY', 'up', 'Current month surplus', '🏆'),
+      kpiHtml('Net Profit Margin', '18.3%', '+2.8% pts', 'up', 'Consolidated margin', '📈'),
+      kpiHtml('Profit Before Tax (PBT)', '₹34,80,267', '+13.5% YoY', 'up', 'Operating surplus', '💼'),
+      kpiHtml('Effective Tax Rate', '25.0%', 'Stable', 'neutral', 'Section 115BAA corporate', '🏛️'),
+      kpiHtml('Annualized PAT Run-rate', '₹3.13 Cr', '+14.8% YoY', 'up', 'For network expansion', '🏗️'),
+      kpiHtml('Earnings Per Share (EPS)', '₹17.40', '+12.4% YoY', 'up', 'Common equity base', '💎'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">🏆 Bottom-Line Earnings Bridge & Quarterly Trend</h3><p class="zfa-card-sub">Consecutive quarterly profit acceleration</p></div><span class="zfa-badge green">CONSISTENT EXPANSION</span></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Reporting Quarter</th><th style="text-align:right;">Gross Revenue</th><th style="text-align:right;">Operating EBITDA</th><th style="text-align:right;">Net PAT</th><th style="text-align:right;">PAT Margin %</th><th style="text-align:right;">EPS (INR)</th></tr></thead>',
-            '<tbody>' + qHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">🏆 Bottom-Line Earnings Bridge & Quarterly Trend</h3><p class="zfa-card-sub">Consecutive quarterly profit acceleration</p></div><span class="zfa-badge green">CONSISTENT EXPANSION</span></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Reporting Quarter</th><th style="text-align:right;">Gross Revenue</th><th style="text-align:right;">Operating EBITDA</th><th style="text-align:right;">Net PAT</th><th style="text-align:right;">PAT Margin %</th><th style="text-align:right;">EPS (INR)</th></tr></thead>',
+      '<tbody>' + qHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -608,27 +608,27 @@
       { id: 'AR-310', client: 'VIP Elite Kennel Club Breeding Group', type: 'Institutional Breeder', totalDue: '₹1,40,000', bucket: '90+ Days', dso: '104 Days', status: 'Notice Sent' }
     ];
 
-    var dHtml = debtors.map(function(d) {
+    var dHtml = debtors.map(function (d) {
       return '<tr><td style="color:#000;font-weight:600;"><span style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;margin-right:6px;">' + esc(d.id) + '</span>' + esc(d.client) + '</td><td style="color:#94a3b8;">' + esc(d.type) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(d.totalDue) + '</td><td><span class="zfa-badge ' + (d.bucket.indexOf('0–30') >= 0 ? 'green' : d.bucket.indexOf('31–60') >= 0 ? 'blue' : 'amber') + '">' + esc(d.bucket) + '</span></td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#cbd5e1;">' + esc(d.dso) + '</td><td style="text-align:right;"><span class="zfa-badge ' + (d.status === 'Current' || d.status === 'Scheduled' ? 'green' : 'red') + '">' + esc(d.status) + '</span></td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Total Receivables (AR)', '₹28,50,000', '-4.2% MoM', 'up', '10 corporate accounts', '📥'),
-        kpiHtml('Days Sales Outstanding (DSO)', '22 Days', '-3 Days MoM', 'up', 'Benchmark 35 days', '⏱️'),
-        kpiHtml('Current (0–30 Days)', '₹18,20,000', '63.9% of AR', 'up', 'Healthy collections', '🛡️'),
-        kpiHtml('31–60 Days Overdue', '₹6,80,000', '23.8% of AR', 'neutral', 'Active follow-up', '⚡'),
-        kpiHtml('Overdue >60 Days', '₹3,50,000', '12.3% of AR', 'down', 'Escalated follow-up', '🚨'),
-        kpiHtml('Bad Debt Provision', '₹45,000', '1.5% coverage', 'up', 'Negligible credit loss', '💎'),
+      kpiHtml('Total Receivables (AR)', '₹28,50,000', '-4.2% MoM', 'up', '10 corporate accounts', '📥'),
+      kpiHtml('Days Sales Outstanding (DSO)', '22 Days', '-3 Days MoM', 'up', 'Benchmark 35 days', '⏱️'),
+      kpiHtml('Current (0–30 Days)', '₹18,20,000', '63.9% of AR', 'up', 'Healthy collections', '🛡️'),
+      kpiHtml('31–60 Days Overdue', '₹6,80,000', '23.8% of AR', 'neutral', 'Active follow-up', '⚡'),
+      kpiHtml('Overdue >60 Days', '₹3,50,000', '12.3% of AR', 'down', 'Escalated follow-up', '🚨'),
+      kpiHtml('Bad Debt Provision', '₹45,000', '1.5% coverage', 'up', 'Negligible credit loss', '💎'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📋 Trade Debtors & Corporate Receivables Schedule</h3><p class="zfa-card-sub">Outstanding balances by insurance TPAs and corporate wellness programs</p></div><button class="zfa-btn primary" onclick="alert(\'Sending automated payment reminder WhatsApp/Email notices...\')">📢 Send Reminders</button></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Debtor / Partner</th><th>Account Type</th><th style="text-align:right;">Total Due</th><th>Aging Bucket</th><th style="text-align:right;">Client DSO</th><th style="text-align:right;">Status</th></tr></thead>',
-            '<tbody>' + dHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📋 Trade Debtors & Corporate Receivables Schedule</h3><p class="zfa-card-sub">Outstanding balances by insurance TPAs and corporate wellness programs</p></div><button class="zfa-btn primary" onclick="alert(\'Sending automated payment reminder WhatsApp/Email notices...\')">📢 Send Reminders</button></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Debtor / Partner</th><th>Account Type</th><th style="text-align:right;">Total Due</th><th>Aging Bucket</th><th style="text-align:right;">Client DSO</th><th style="text-align:right;">Status</th></tr></thead>',
+      '<tbody>' + dHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -648,27 +648,27 @@
       { id: 'AP-510', vendor: 'Elanco India Parasiticide Care', cat: 'Dewormers & Topical Sprays', bal: '₹70,000', terms: 'Net 45', due: 'In 25 Days', disc: '₹1,400 (2%)', status: 'Approved for Batch' }
     ];
 
-    var pHtml = payables.map(function(p) {
+    var pHtml = payables.map(function (p) {
       return '<tr><td style="color:#000;font-weight:600;"><span style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;margin-right:6px;">' + esc(p.id) + '</span>' + esc(p.vendor) + '</td><td style="color:#94a3b8;">' + esc(p.cat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#f87171;">' + esc(p.bal) + '</td><td style="text-align:center;color:#cbd5e1;">' + esc(p.terms) + '</td><td style="text-align:center;font-family:\'IBM Plex Mono\',monospace;color:' + (p.due === 'Overdue' ? '#f87171' : '#38bdf8') + ';">' + esc(p.due) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;">' + esc(p.disc) + '</td><td style="text-align:right;"><span class="zfa-badge ' + (p.status.indexOf('Approved') >= 0 || p.status.indexOf('Scheduled') >= 0 ? 'green' : 'amber') + '">' + esc(p.status) + '</span></td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Total Payables (AP)', '₹19,20,000', 'Optimal working cap', 'up', '10 active suppliers', '📤'),
-        kpiHtml('Days Payable Outstanding', '34 Days', '+4 Days MoM', 'up', 'Terms maximized', '⏱️'),
-        kpiHtml('Approved for Immediate Run', '₹9,45,000', '49.2% of AP', 'up', '3-way match verified', '✅'),
-        kpiHtml('Early Cash Discounts', '₹38,400', '2.0% average', 'up', 'Early settlement savings', '🎁'),
-        kpiHtml('Pending GRN Match', '₹1,85,000', 'Warehouse hold', 'neutral', 'Physical count in-transit', '🔍'),
-        kpiHtml('Disputed Invoices', '₹65,000', '1 billing mismatch', 'down', 'Biohazard waste billing', '⚠️'),
+      kpiHtml('Total Payables (AP)', '₹19,20,000', 'Optimal working cap', 'up', '10 active suppliers', '📤'),
+      kpiHtml('Days Payable Outstanding', '34 Days', '+4 Days MoM', 'up', 'Terms maximized', '⏱️'),
+      kpiHtml('Approved for Immediate Run', '₹9,45,000', '49.2% of AP', 'up', '3-way match verified', '✅'),
+      kpiHtml('Early Cash Discounts', '₹38,400', '2.0% average', 'up', 'Early settlement savings', '🎁'),
+      kpiHtml('Pending GRN Match', '₹1,85,000', 'Warehouse hold', 'neutral', 'Physical count in-transit', '🔍'),
+      kpiHtml('Disputed Invoices', '₹65,000', '1 billing mismatch', 'down', 'Biohazard waste billing', '⚠️'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📑 Trade Creditors & Supplier Settlement Queue</h3><p class="zfa-card-sub">3-way matching verified against Purchase Order (PO) and Goods Receipt Note (GRN)</p></div><button class="zfa-btn primary" onclick="alert(\'Executing batch payment run via HDFC CMS-NEFT...\')">💳 Execute NEFT Batch Run</button></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Vendor / Supplier</th><th>Category</th><th style="text-align:right;">Balance Due</th><th style="text-align:center;">Credit Terms</th><th style="text-align:center;">Due In</th><th style="text-align:right;">Early Cash Discount</th><th style="text-align:right;">Status</th></tr></thead>',
-            '<tbody>' + pHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📑 Trade Creditors & Supplier Settlement Queue</h3><p class="zfa-card-sub">3-way matching verified against Purchase Order (PO) and Goods Receipt Note (GRN)</p></div><button class="zfa-btn primary" onclick="alert(\'Executing batch payment run via HDFC CMS-NEFT...\')">💳 Execute NEFT Batch Run</button></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Vendor / Supplier</th><th>Category</th><th style="text-align:right;">Balance Due</th><th style="text-align:center;">Credit Terms</th><th style="text-align:center;">Due In</th><th style="text-align:right;">Early Cash Discount</th><th style="text-align:right;">Status</th></tr></thead>',
+      '<tbody>' + pHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -688,27 +688,27 @@
       { id: 'INV-2026-910', date: '2026-09-28', client: 'Elite Kennel Breeders (Litter of 6)', fac: 'Whitefield Emergency Hub', desc: 'Pre-adoption Screening & Microchip', taxable: '₹24,000', gst: '₹4,320', total: '₹28,320', st: 'Overdue' }
     ];
 
-    var invHtml = invList.map(function(inv) {
+    var invHtml = invList.map(function (inv) {
       return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;font-weight:600;">' + esc(inv.id) + '</td><td style="color:#cbd5e1;">' + esc(inv.date) + '</td><td style="color:#000;font-weight:600;">' + esc(inv.client) + '</td><td style="color:#94a3b8;">' + esc(inv.fac) + '</td><td style="color:#cbd5e1;">' + esc(inv.desc) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;">' + esc(inv.taxable) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#fbbf24;">' + esc(inv.gst) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(inv.total) + '</td><td><span class="zfa-badge ' + (inv.st === 'Paid' ? 'green' : inv.st === 'Pending' ? 'blue' : 'red') + '">' + esc(inv.st) + '</span></td><td style="text-align:center;"><button class="zfa-btn ghost" style="padding:2px 8px;font-size:11px;" onclick="alert(\'Printing tax invoice PDF for ' + esc(inv.id) + '...\')">📄 PDF</button></td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Invoices Issued (MTD)', '3,420', '+11.4% MoM', 'up', 'GST Compliant', '🧾'),
-        kpiHtml('Total Invoiced Value', '₹1,42,85,000', '₹21.79L GST Output', 'up', 'Consolidated billings', '💰'),
-        kpiHtml('Settled / Paid', '₹1,14,35,000', '80.0% settlement', 'up', 'Instant POS & digital', '✅'),
-        kpiHtml('Pending Settlement', '₹24,80,000', 'Within credit terms', 'neutral', 'Corporate & insurance', '⏳'),
-        kpiHtml('Overdue Invoices', '₹3,70,000', '2.6% of total', 'down', 'Follow-up notices sent', '⚠️'),
-        kpiHtml('e-Invoice IRN Sync', '99.9%', 'Sub-second sync', 'up', 'NIC e-Invoice portal', '📶'),
+      kpiHtml('Invoices Issued (MTD)', '3,420', '+11.4% MoM', 'up', 'GST Compliant', '🧾'),
+      kpiHtml('Total Invoiced Value', '₹1,42,85,000', '₹21.79L GST Output', 'up', 'Consolidated billings', '💰'),
+      kpiHtml('Settled / Paid', '₹1,14,35,000', '80.0% settlement', 'up', 'Instant POS & digital', '✅'),
+      kpiHtml('Pending Settlement', '₹24,80,000', 'Within credit terms', 'neutral', 'Corporate & insurance', '⏳'),
+      kpiHtml('Overdue Invoices', '₹3,70,000', '2.6% of total', 'down', 'Follow-up notices sent', '⚠️'),
+      kpiHtml('e-Invoice IRN Sync', '99.9%', 'Sub-second sync', 'up', 'NIC e-Invoice portal', '📶'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📑 GST Tax Invoices Register</h3><p class="zfa-card-sub">Compliant digital receipts with HSN/SAC codes and automated IRN hash generation</p></div><button class="zfa-btn primary" onclick="ZenveFinanceDashboard.showInvoiceModal()">+ Generate Tax Invoice</button></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Invoice ID</th><th>Date</th><th>Client / Pet</th><th>Facility</th><th>Clinical Description</th><th style="text-align:right;">Taxable</th><th style="text-align:right;">18% GST</th><th style="text-align:right;">Total</th><th>Status</th><th style="text-align:center;">Action</th></tr></thead>',
-            '<tbody>' + invHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📑 GST Tax Invoices Register</h3><p class="zfa-card-sub">Compliant digital receipts with HSN/SAC codes and automated IRN hash generation</p></div><button class="zfa-btn primary" onclick="ZenveFinanceDashboard.showInvoiceModal()">+ Generate Tax Invoice</button></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Invoice ID</th><th>Date</th><th>Client / Pet</th><th>Facility</th><th>Clinical Description</th><th style="text-align:right;">Taxable</th><th style="text-align:right;">18% GST</th><th style="text-align:right;">Total</th><th>Status</th><th style="text-align:center;">Action</th></tr></thead>',
+      '<tbody>' + invHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -726,27 +726,27 @@
       { name: 'PayU PG Checkout Fallback Rail', vol: '₹80,000', txns: '64', mdr: '1.40%', fee: '₹1,120', net: '₹78,880', st: 'T+1 Morning' }
     ];
 
-    var railHtml = rails.map(function(r) {
+    var railHtml = rails.map(function (r) {
       return '<tr><td style="color:#000;font-weight:600;">' + esc(r.name) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(r.vol) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#cbd5e1;">' + esc(r.txns) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(r.mdr) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;">' + esc(r.fee) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(r.net) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(r.st) + '</span></td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Digital Collections', '₹1,14,35,000', '+13.2% MoM', 'up', 'Inbound MTD flow', '💳'),
-        kpiHtml('UPI Share', '54.2%', '+6.4% YoY', 'up', 'Zero MDR rail', '📱'),
-        kpiHtml('Card & POS Volume', '₹42,80,000', '37.4% share', 'neutral', 'Pine Labs terminals', '🏧'),
-        kpiHtml('Blended MDR Cost', '0.48%', '-0.12% MoM', 'up', 'Low transaction fees', '💰'),
-        kpiHtml('Settlement Window', 'T+0 / T+1', 'Automated sweep', 'up', 'Direct HDFC sweep', '⚡'),
-        kpiHtml('Reconciliation Accuracy', '99.8%', 'Sub-second sync', 'up', 'Core banking matched', '🛡️'),
+      kpiHtml('Digital Collections', '₹1,14,35,000', '+13.2% MoM', 'up', 'Inbound MTD flow', '💳'),
+      kpiHtml('UPI Share', '54.2%', '+6.4% YoY', 'up', 'Zero MDR rail', '📱'),
+      kpiHtml('Card & POS Volume', '₹42,80,000', '37.4% share', 'neutral', 'Pine Labs terminals', '🏧'),
+      kpiHtml('Blended MDR Cost', '0.48%', '-0.12% MoM', 'up', 'Low transaction fees', '💰'),
+      kpiHtml('Settlement Window', 'T+0 / T+1', 'Automated sweep', 'up', 'Direct HDFC sweep', '⚡'),
+      kpiHtml('Reconciliation Accuracy', '99.8%', 'Sub-second sync', 'up', 'Core banking matched', '🛡️'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">💳 Payment Gateways & Merchant Rails</h3><p class="zfa-card-sub">Inflow channels, merchant discount rates (MDR), and net bank realization</p></div><button class="zfa-btn primary" onclick="alert(\'Reconciling gateway batches with Core Banking API...\')">🔄 Run Reconciliation</button></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Gateway Rail</th><th style="text-align:right;">Processed Volume</th><th style="text-align:right;">Txns</th><th style="text-align:right;">MDR Rate</th><th style="text-align:right;">MDR Fee</th><th style="text-align:right;">Net Cleared</th><th style="text-align:right;">Status</th></tr></thead>',
-            '<tbody>' + railHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">💳 Payment Gateways & Merchant Rails</h3><p class="zfa-card-sub">Inflow channels, merchant discount rates (MDR), and net bank realization</p></div><button class="zfa-btn primary" onclick="alert(\'Reconciling gateway batches with Core Banking API...\')">🔄 Run Reconciliation</button></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Gateway Rail</th><th style="text-align:right;">Processed Volume</th><th style="text-align:right;">Txns</th><th style="text-align:right;">MDR Rate</th><th style="text-align:right;">MDR Fee</th><th style="text-align:right;">Net Cleared</th><th style="text-align:right;">Status</th></tr></thead>',
+      '<tbody>' + railHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -763,30 +763,30 @@
       { id: 'REF-207', inv: 'INV-2026-820', client: 'Deepak Joshi (Thor - German Shepherd)', amt: '₹19,500', reason: 'Duplicate POS Debit Gateway Timeout', rail: 'HDFC PG Reversal', st: 'Settled' },
       { id: 'REF-208', inv: 'INV-2026-811', client: 'Sunita Rao (Zoe - Cocker Spaniel)', amt: '₹8,200', reason: 'Unused Surgical Implant Exchange Return', rail: 'Original Card Rail', st: 'Refunded' },
       { id: 'REF-209', inv: 'INV-2026-795', client: 'Farhan Akhtar (Bruno - Boxer)', amt: '₹3,400', reason: 'Telemetry ECG Artifact Cancellation', rail: 'Razorpay UPI', st: 'Refunded' },
-      { id: 'REF-210', inv: 'INV-2026-788', client: 'Divya Nambisan (Coco - Dachshund)', amt: '₹14,600', reason: 'Insurance Settlement Overcharge Refund', rail: 'NEFT Client Sweep', st: 'Refunded' }
+      { id: 'REF-210', inv: 'INV-2026-788', client: 'Edwin Nambisan (Coco - Dachshund)', amt: '₹14,600', reason: 'Insurance Settlement Overcharge Refund', rail: 'NEFT Client Sweep', st: 'Refunded' }
     ];
 
-    var refHtml = refList.map(function(r) {
+    var refHtml = refList.map(function (r) {
       return '<tr><td style="font-family:\'IBM Plex Mono\',monospace;color:#f87171;font-weight:600;">' + esc(r.id) + '</td><td style="font-family:\'IBM Plex Mono\',monospace;color:#38bdf8;">' + esc(r.inv) + '</td><td style="color:#000;font-weight:600;">' + esc(r.client) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#f87171;">' + esc(r.amt) + '</td><td style="color:#cbd5e1;">' + esc(r.reason) + '</td><td style="color:#94a3b8;">' + esc(r.rail) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(r.st) + '</span></td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Total Processed Refunds', '₹84,500', '0.59% of revenue', 'up', '10 audited cases', '🔄'),
-        kpiHtml('Cancelled OPD Consults', '₹18,500', 'Doctor rescheduling', 'neutral', 'Instant credit reversal', '📅'),
-        kpiHtml('Pharmacy Sealed Returns', '₹32,000', 'Sealed batch checked', 'up', 'Within 7-day policy', '💊'),
-        kpiHtml('Duplicate POS Swipes', '₹24,000', 'Gateway timeout', 'up', '100% resolved in 24h', '💳'),
-        kpiHtml('Average Dispute TAT', '4.2 Hours', '-1.5h MoM', 'up', 'Industry benchmark 48h', '⏱️'),
-        kpiHtml('Chargeback Loss Rate', '0.02%', 'Minimal loss', 'up', 'Evidence audit trail', '🛡️'),
+      kpiHtml('Total Processed Refunds', '₹84,500', '0.59% of revenue', 'up', '10 audited cases', '🔄'),
+      kpiHtml('Cancelled OPD Consults', '₹18,500', 'Doctor rescheduling', 'neutral', 'Instant credit reversal', '📅'),
+      kpiHtml('Pharmacy Sealed Returns', '₹32,000', 'Sealed batch checked', 'up', 'Within 7-day policy', '💊'),
+      kpiHtml('Duplicate POS Swipes', '₹24,000', 'Gateway timeout', 'up', '100% resolved in 24h', '💳'),
+      kpiHtml('Average Dispute TAT', '4.2 Hours', '-1.5h MoM', 'up', 'Industry benchmark 48h', '⏱️'),
+      kpiHtml('Chargeback Loss Rate', '0.02%', 'Minimal loss', 'up', 'Evidence audit trail', '🛡️'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">🔄 Customer Refunds & Disputed Reversals Log</h3><p class="zfa-card-sub">Clinical refund authorizations linked directly to verified invoice records</p></div><button class="zfa-btn primary" onclick="ZenveFinanceDashboard.showRefundModal()">+ Authorize Refund</button></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Refund ID</th><th>Original Invoice</th><th>Pet Parent & Pet</th><th style="text-align:right;">Refund Amount</th><th>Clinical Reason</th><th>Settlement Channel</th><th style="text-align:right;">Status</th></tr></thead>',
-            '<tbody>' + refHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">🔄 Customer Refunds & Disputed Reversals Log</h3><p class="zfa-card-sub">Clinical refund authorizations linked directly to verified invoice records</p></div><button class="zfa-btn primary" onclick="ZenveFinanceDashboard.showRefundModal()">+ Authorize Refund</button></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Refund ID</th><th>Original Invoice</th><th>Pet Parent & Pet</th><th style="text-align:right;">Refund Amount</th><th>Clinical Reason</th><th>Settlement Channel</th><th style="text-align:right;">Status</th></tr></thead>',
+      '<tbody>' + refHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -806,27 +806,27 @@
       { form: 'E-Way Bill Consolidated Log', period: 'Current Month', due: 'Real-time', taxable: '₹18,50,000', taxAmt: '₹3,33,000', itc: '₹0', net: 'Interstate Drug', st: 'Active (NIC Sync)' }
     ];
 
-    var gstHtml = gstForms.map(function(g) {
+    var gstHtml = gstForms.map(function (g) {
       return '<tr><td style="color:#000;font-weight:600;">' + esc(g.form) + '</td><td style="color:#38bdf8;">' + esc(g.period) + '</td><td style="color:#cbd5e1;">' + esc(g.due) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;">' + esc(g.taxable) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#fbbf24;">' + esc(g.taxAmt) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;">' + esc(g.itc) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(g.net) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(g.st) + '</span></td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('GST Output Liability', '₹21,79,068', '+11.4% MoM', 'up', 'Current month gross', '🏛️'),
-        kpiHtml('Input Tax Credit (ITC)', '₹9,58,000', '100% matched GSTR-2B', 'up', 'Zero disputed credit', '📥'),
-        kpiHtml('Net GST Payable', '₹12,21,068', 'Due 20 Oct 2026', 'neutral', 'Statutory due date', '💰'),
-        kpiHtml('TDS Deposited', '₹4,68,500', '100% deposited', 'up', 'Challan ITNS 281', '📑'),
-        kpiHtml('Advance Corporate Tax', '₹8,70,000', 'Q2 FY27 cleared', 'up', 'Section 115BAA rate', '🛡️'),
-        kpiHtml('Compliance Rating', '100 / 100', 'Zero penalties', 'up', 'Tier-1 clean audit', '⭐'),
+      kpiHtml('GST Output Liability', '₹21,79,068', '+11.4% MoM', 'up', 'Current month gross', '🏛️'),
+      kpiHtml('Input Tax Credit (ITC)', '₹9,58,000', '100% matched GSTR-2B', 'up', 'Zero disputed credit', '📥'),
+      kpiHtml('Net GST Payable', '₹12,21,068', 'Due 20 Oct 2026', 'neutral', 'Statutory due date', '💰'),
+      kpiHtml('TDS Deposited', '₹4,68,500', '100% deposited', 'up', 'Challan ITNS 281', '📑'),
+      kpiHtml('Advance Corporate Tax', '₹8,70,000', 'Q2 FY27 cleared', 'up', 'Section 115BAA rate', '🛡️'),
+      kpiHtml('Compliance Rating', '100 / 100', 'Zero penalties', 'up', 'Tier-1 clean audit', '⭐'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">⚖️ Goods & Services Tax (GST) Returns</h3><p class="zfa-card-sub">GSTIN: 29AABCZ8412K1Z9 · Government of India GST Portal Sync</p></div><button class="zfa-btn primary" onclick="alert(\'Generating GST e-Challan PMT-06...\')">Generate PMT-06</button></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Form Type</th><th>Tax Period</th><th>Due Date</th><th style="text-align:right;">Taxable Turnover</th><th style="text-align:right;">Output Tax</th><th style="text-align:right;">ITC Offset</th><th style="text-align:right;">Net Cash Paid</th><th style="text-align:right;">Status</th></tr></thead>',
-            '<tbody>' + gstHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">⚖️ Goods & Services Tax (GST) Returns</h3><p class="zfa-card-sub">GSTIN: 29AABCZ8412K1Z9 · Government of India GST Portal Sync</p></div><button class="zfa-btn primary" onclick="alert(\'Generating GST e-Challan PMT-06...\')">Generate PMT-06</button></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Form Type</th><th>Tax Period</th><th>Due Date</th><th style="text-align:right;">Taxable Turnover</th><th style="text-align:right;">Output Tax</th><th style="text-align:right;">ITC Offset</th><th style="text-align:right;">Net Cash Paid</th><th style="text-align:right;">Status</th></tr></thead>',
+      '<tbody>' + gstHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -846,27 +846,27 @@
       { q: 'FY29 Q2', rev: '₹3.30 Cr', cogs: '₹1.31 Cr', opex: '₹84.5L', ebitda: '₹1.14 Cr', pat: '₹89.5L', cash: '₹15.10 Cr' }
     ];
 
-    var fHtml = quarters.map(function(q) {
+    var fHtml = quarters.map(function (q) {
       return '<tr><td style="color:#000;font-weight:600;">' + esc(q.q) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#10b981;">' + esc(q.rev) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#f87171;">' + esc(q.cogs) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(q.opex) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#38bdf8;">' + esc(q.ebitda) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#34d399;">' + esc(q.pat) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#000;">' + esc(q.cash) + '</td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Next 12M Projected Revenue', '₹19.45 Cr', '+36.2% YoY', 'up', 'Base expansion path', '🔮'),
-        kpiHtml('Projected FY28 EBITDA', '₹5.24 Cr', '26.9% margin', 'up', 'Operating leverage', '⚡'),
-        kpiHtml('12M Free Cash Flow', '₹3.62 Cr', 'Post all CAPEX', 'up', 'Self-funded pipeline', '💧'),
-        kpiHtml('Total Planned CAPEX', '₹5.20 Cr', 'Across 10 sites', 'neutral', 'Board approved', '🏗️'),
-        kpiHtml('Target Breakeven / Bed', '12.8 Months', '-2.4 MoM', 'up', 'Capital efficiency', '⏱️'),
-        kpiHtml('Sensitivity Risk Score', '0.18', 'Low risk', 'up', 'Stress-tested', '🛡️'),
+      kpiHtml('Next 12M Projected Revenue', '₹19.45 Cr', '+36.2% YoY', 'up', 'Base expansion path', '🔮'),
+      kpiHtml('Projected FY28 EBITDA', '₹5.24 Cr', '26.9% margin', 'up', 'Operating leverage', '⚡'),
+      kpiHtml('12M Free Cash Flow', '₹3.62 Cr', 'Post all CAPEX', 'up', 'Self-funded pipeline', '💧'),
+      kpiHtml('Total Planned CAPEX', '₹5.20 Cr', 'Across 10 sites', 'neutral', 'Board approved', '🏗️'),
+      kpiHtml('Target Breakeven / Bed', '12.8 Months', '-2.4 MoM', 'up', 'Capital efficiency', '⏱️'),
+      kpiHtml('Sensitivity Risk Score', '0.18', 'Low risk', 'up', 'Stress-tested', '🛡️'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📈 4-Quarter Rolling Forward P&L Projections</h3><p class="zfa-card-sub">Management predictive model incorporating 14 existing sites + 4 planned expansions</p></div><button class="zfa-btn primary" onclick="alert(\'Exporting full dynamic forecast simulation model (Excel)...\')">Export Model (XLSX)</button></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Forward Quarter</th><th style="text-align:right;">Forecast Revenue</th><th style="text-align:right;">Direct COGS</th><th style="text-align:right;">Forecast OPEX</th><th style="text-align:right;">Projected EBITDA</th><th style="text-align:right;">Projected PAT</th><th style="text-align:right;">Closing Treasury</th></tr></thead>',
-            '<tbody>' + fHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">📈 4-Quarter Rolling Forward P&L Projections</h3><p class="zfa-card-sub">Management predictive model incorporating 14 existing sites + 4 planned expansions</p></div><button class="zfa-btn primary" onclick="alert(\'Exporting full dynamic forecast simulation model (Excel)...\')">Export Model (XLSX)</button></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Forward Quarter</th><th style="text-align:right;">Forecast Revenue</th><th style="text-align:right;">Direct COGS</th><th style="text-align:right;">Forecast OPEX</th><th style="text-align:right;">Projected EBITDA</th><th style="text-align:right;">Projected PAT</th><th style="text-align:right;">Closing Treasury</th></tr></thead>',
+      '<tbody>' + fHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -886,27 +886,27 @@
       { act: 'Canine/Feline Core Annual Vaccination', type: 'Wellness Program', cost: '₹320', bm: '₹500', var: '-36.0%', eff: 'Central Cold-Chain Bulk' }
     ];
 
-    var actHtml = actCosts.map(function(a) {
+    var actHtml = actCosts.map(function (a) {
       return '<tr><td style="color:#000;font-weight:600;">' + esc(a.act) + '</td><td style="color:#38bdf8;">' + esc(a.type) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;font-weight:700;color:#34d399;">' + esc(a.cost) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#94a3b8;">' + esc(a.bm) + '</td><td style="text-align:right;font-family:\'IBM Plex Mono\',monospace;color:#10b981;font-weight:600;">' + esc(a.var) + '</td><td style="text-align:right;"><span class="zfa-badge green">' + esc(a.eff) + '</span></td></tr>';
     }).join('');
 
     return [
       '<div class="zfa-kpi-grid">',
-        kpiHtml('Network Breakeven', '₹87,80,000', 'Actual: ₹1,42,85,000', 'up', '61.5% capacity achieved', '⚖️'),
-        kpiHtml('Margin of Safety', '38.5%', '+4.2% pts', 'up', 'Substantial cushion', '🛡️'),
-        kpiHtml('Cost / Inpatient Bed-Day', '₹1,850', '-6.2% vs BM', 'up', 'Nurse-to-pet ratio', '🛏️'),
-        kpiHtml('Cost / Surgical OT Hour', '₹3,400 / hr', 'High throughput', 'up', 'Operating theatres', '🩺'),
-        kpiHtml('Fixed Cost Ratio', '31.5%', 'Lean real estate', 'up', '₹34.2L fixed base', '🏢'),
-        kpiHtml('Variable Cost Ratio', '68.5%', 'High elasticity', 'up', 'Low risk capital model', '📉'),
+      kpiHtml('Network Breakeven', '₹87,80,000', 'Actual: ₹1,42,85,000', 'up', '61.5% capacity achieved', '⚖️'),
+      kpiHtml('Margin of Safety', '38.5%', '+4.2% pts', 'up', 'Substantial cushion', '🛡️'),
+      kpiHtml('Cost / Inpatient Bed-Day', '₹1,850', '-6.2% vs BM', 'up', 'Nurse-to-pet ratio', '🛏️'),
+      kpiHtml('Cost / Surgical OT Hour', '₹3,400 / hr', 'High throughput', 'up', 'Operating theatres', '🩺'),
+      kpiHtml('Fixed Cost Ratio', '31.5%', 'Lean real estate', 'up', '₹34.2L fixed base', '🏢'),
+      kpiHtml('Variable Cost Ratio', '68.5%', 'High elasticity', 'up', 'Low risk capital model', '📉'),
       '</div>',
       '<div class="zfa-card">',
-        '<div class="zfa-card-head"><div><h3 class="zfa-card-title">🔍 Activity-Based Unit Costing (ABC Model)</h3><p class="zfa-card-sub">Granular clinical unit costs compared to private hospital industry benchmarks</p></div><span class="zfa-badge green">15–26% COST ADVANTAGE</span></div>',
-        '<div class="zfa-table-wrap">',
-          '<table class="zfa-table">',
-            '<thead><tr><th>Activity / Service Unit</th><th>Classification</th><th style="text-align:right;">Zenve Unit Cost</th><th style="text-align:right;">Metro Benchmark</th><th style="text-align:right;">Variance</th><th style="text-align:right;">Efficiency</th></tr></thead>',
-            '<tbody>' + actHtml + '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zfa-card-head"><div><h3 class="zfa-card-title">🔍 Activity-Based Unit Costing (ABC Model)</h3><p class="zfa-card-sub">Granular clinical unit costs compared to private hospital industry benchmarks</p></div><span class="zfa-badge green">15–26% COST ADVANTAGE</span></div>',
+      '<div class="zfa-table-wrap">',
+      '<table class="zfa-table">',
+      '<thead><tr><th>Activity / Service Unit</th><th>Classification</th><th style="text-align:right;">Zenve Unit Cost</th><th style="text-align:right;">Metro Benchmark</th><th style="text-align:right;">Variance</th><th style="text-align:right;">Efficiency</th></tr></thead>',
+      '<tbody>' + actHtml + '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -958,9 +958,9 @@
         var isActive = t.id === S.tab;
         return [
           '<button class="zfa-tab ' + (isActive ? 'active' : '') + '" onclick="ZenveFinanceDashboard.switchTab(\'' + t.id + '\')">',
-            '<span>' + t.icon + '</span>',
-            '<span>' + esc(t.label) + '</span>',
-            t.badge ? '<span class="zfa-tab-badge">' + esc(t.badge) + '</span>' : '',
+          '<span>' + t.icon + '</span>',
+          '<span>' + esc(t.label) + '</span>',
+          t.badge ? '<span class="zfa-tab-badge">' + esc(t.badge) + '</span>' : '',
           '</button>'
         ].join('');
       }).join('');
@@ -970,25 +970,25 @@
     var body = root.querySelector('.zfa-body');
     if (body) {
       switch (S.tab) {
-        case 'dashboard':     body.innerHTML = renderDashboard(); break;
-        case 'pnl':           body.innerHTML = renderPnL(); break;
+        case 'dashboard': body.innerHTML = renderDashboard(); break;
+        case 'pnl': body.innerHTML = renderPnL(); break;
         case 'balance-sheet': body.innerHTML = renderBalanceSheet(); break;
-        case 'cash-flow':     body.innerHTML = renderCashFlow(); break;
-        case 'revenue':       body.innerHTML = renderRevenue(); break;
-        case 'expenses':      body.innerHTML = renderExpenses(); break;
-        case 'cogs':          body.innerHTML = renderCOGS(); break;
-        case 'gross-profit':  body.innerHTML = renderGrossProfit(); break;
-        case 'ebitda':        body.innerHTML = renderEBITDA(); break;
-        case 'net-profit':    body.innerHTML = renderNetProfit(); break;
-        case 'receivables':   body.innerHTML = renderReceivables(); break;
-        case 'payables':      body.innerHTML = renderPayables(); break;
-        case 'invoices':      body.innerHTML = renderInvoices(); break;
-        case 'payments':      body.innerHTML = renderPayments(); break;
-        case 'refunds':       body.innerHTML = renderRefunds(); break;
-        case 'taxes':         body.innerHTML = renderTaxes(); break;
-        case 'forecast':      body.innerHTML = renderForecast(); break;
+        case 'cash-flow': body.innerHTML = renderCashFlow(); break;
+        case 'revenue': body.innerHTML = renderRevenue(); break;
+        case 'expenses': body.innerHTML = renderExpenses(); break;
+        case 'cogs': body.innerHTML = renderCOGS(); break;
+        case 'gross-profit': body.innerHTML = renderGrossProfit(); break;
+        case 'ebitda': body.innerHTML = renderEBITDA(); break;
+        case 'net-profit': body.innerHTML = renderNetProfit(); break;
+        case 'receivables': body.innerHTML = renderReceivables(); break;
+        case 'payables': body.innerHTML = renderPayables(); break;
+        case 'invoices': body.innerHTML = renderInvoices(); break;
+        case 'payments': body.innerHTML = renderPayments(); break;
+        case 'refunds': body.innerHTML = renderRefunds(); break;
+        case 'taxes': body.innerHTML = renderTaxes(); break;
+        case 'forecast': body.innerHTML = renderForecast(); break;
         case 'cost-analysis': body.innerHTML = renderCostAnalysis(); break;
-        default:              body.innerHTML = renderDashboard(); break;
+        default: body.innerHTML = renderDashboard(); break;
       }
     }
   }
@@ -1000,17 +1000,17 @@
     root.id = 'zfa-root';
     root.innerHTML = [
       '<header class="zfa-head">',
-        '<div class="zfa-head-left">',
-          '<div class="zfa-title-row">',
-            '<h1 class="zfa-title">Finance Dashboard</h1>',
-            '<span class="zfa-live-badge"><span class="zfa-pulse-dot"></span> EBITDA 20.02%</span>',
-          '</div>',
-          '<p class="zfa-sub">Network-wide GAAP profit and loss, operating liquidity, and statutory compliance</p>',
-        '</div>',
-        '<div class="zfa-head-actions">',
-          '<button class="zfa-btn" onclick="alert(\'Refreshing live treasury balances and general ledger accounts...\')">🔄 Refresh Ledgers</button>',
-          '<button class="zfa-btn primary zfa-context-action">+ Add Transaction</button>',
-        '</div>',
+      '<div class="zfa-head-left">',
+      '<div class="zfa-title-row">',
+      '<h1 class="zfa-title">Finance Dashboard</h1>',
+      '<span class="zfa-live-badge"><span class="zfa-pulse-dot"></span> EBITDA 20.02%</span>',
+      '</div>',
+      '<p class="zfa-sub">Network-wide GAAP profit and loss, operating liquidity, and statutory compliance</p>',
+      '</div>',
+      '<div class="zfa-head-actions">',
+      '<button class="zfa-btn" onclick="alert(\'Refreshing live treasury balances and general ledger accounts...\')">🔄 Refresh Ledgers</button>',
+      '<button class="zfa-btn primary zfa-context-action">+ Add Transaction</button>',
+      '</div>',
       '</header>',
       '<nav class="zfa-tabs-bar" aria-label="Finance & Accounting Subdomains"></nav>',
       '<div class="zfa-body"></div>'
@@ -1022,28 +1022,28 @@
   function open(tab) {
     // Close other domain overlays cleanly
     if (window.ZenveSalesDashboard && typeof window.ZenveSalesDashboard.close === 'function') {
-      try { window.ZenveSalesDashboard.close(); } catch (e) {}
+      try { window.ZenveSalesDashboard.close(); } catch (e) { }
     }
     if (window.ZenveOperationsDashboard && typeof window.ZenveOperationsDashboard.close === 'function') {
-      try { window.ZenveOperationsDashboard.close(); } catch (e) {}
+      try { window.ZenveOperationsDashboard.close(); } catch (e) { }
     }
     if (window.ZenveProductsInventory && typeof window.ZenveProductsInventory.close === 'function') {
-      try { window.ZenveProductsInventory.close(); } catch (e) {}
+      try { window.ZenveProductsInventory.close(); } catch (e) { }
     }
     if (window.ZenvePharmacyDashboard && typeof window.ZenvePharmacyDashboard.close === 'function') {
-      try { window.ZenvePharmacyDashboard.close(); } catch (e) {}
+      try { window.ZenvePharmacyDashboard.close(); } catch (e) { }
     }
     if (window.ZenveClinicsDashboard && typeof window.ZenveClinicsDashboard.close === 'function') {
-      try { window.ZenveClinicsDashboard.close(); } catch (e) {}
+      try { window.ZenveClinicsDashboard.close(); } catch (e) { }
     }
     if (window.ZenveReportsDashboard && typeof window.ZenveReportsDashboard.close === 'function') {
-      try { window.ZenveReportsDashboard.close(); } catch (e) {}
+      try { window.ZenveReportsDashboard.close(); } catch (e) { }
     }
     if (window.ZenveAlertsDashboard && typeof window.ZenveAlertsDashboard.close === 'function') {
-      try { window.ZenveAlertsDashboard.close(); } catch (e) {}
+      try { window.ZenveAlertsDashboard.close(); } catch (e) { }
     }
     if (window.ZenveSettingsDashboard && typeof window.ZenveSettingsDashboard.close === 'function') {
-      try { window.ZenveSettingsDashboard.close(); } catch (e) {}
+      try { window.ZenveSettingsDashboard.close(); } catch (e) { }
     }
 
     document.querySelectorAll('.zpanel-root, [id$="-root"]').forEach(function (el) {
@@ -1057,7 +1057,7 @@
         var btn = d.querySelector('button[aria-label*="close" i], button:last-child');
         if (btn) btn.click();
       });
-    } catch (e) {}
+    } catch (e) { }
 
     if (tab && TABS.some(function (t) { return t.id === tab; })) {
       S.tab = tab;
@@ -1072,7 +1072,7 @@
 
     var targetTab = TABS.find(function (t) { return t.id === S.tab; });
     if (targetTab && targetTab.hash && window.location.hash !== targetTab.hash) {
-      try { history.replaceState(null, '', targetTab.hash); } catch (e) {}
+      try { history.replaceState(null, '', targetTab.hash); } catch (e) { }
     }
   }
 
@@ -1080,7 +1080,7 @@
     S.open = false;
     if (root) root.classList.remove('zfa-open');
     if (window.location.hash && tabFromHash(window.location.hash)) {
-      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {}
+      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) { }
     }
   }
 
@@ -1090,7 +1090,7 @@
     render();
     var targetTab = TABS.find(function (t) { return t.id === tabId; });
     if (targetTab && targetTab.hash) {
-      try { history.replaceState(null, '', targetTab.hash); } catch (e) {}
+      try { history.replaceState(null, '', targetTab.hash); } catch (e) { }
     }
     if (root) root.scrollTop = 0;
   }
@@ -1118,23 +1118,23 @@
   function showTxnModal() {
     var html = [
       '<div class="zfa-modal-head">',
-        '<h3 class="zfa-modal-title">Record General Ledger Transaction</h3>',
-        '<button class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">✕</button>',
+      '<h3 class="zfa-modal-title">Record General Ledger Transaction</h3>',
+      '<button class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">✕</button>',
       '</div>',
       '<form onsubmit="event.preventDefault(); alert(\'Transaction recorded to General Ledger!\'); ZenveFinanceDashboard.closeModal();">',
-        '<div class="zfa-form-group"><label>Transaction Description</label><input type="text" class="zfa-input" placeholder="e.g. Diagnostic Equipment Service Fee" required /></div>',
-        '<div class="zfa-form-row">',
-          '<div class="zfa-form-group"><label>Account Category</label><select class="zfa-select"><option>Operating Revenue</option><option>Direct COGS</option><option>Clinical OPEX</option><option>Capital CAPEX</option></select></div>',
-          '<div class="zfa-form-group"><label>Amount (INR)</label><input type="text" class="zfa-input" placeholder="₹0" required /></div>',
-        '</div>',
-        '<div class="zfa-form-row">',
-          '<div class="zfa-form-group"><label>Payment Rail</label><select class="zfa-select"><option>HDFC Core CMS (RTGS)</option><option>Razorpay UPI</option><option>Pine Labs POS</option><option>Corporate Card</option></select></div>',
-          '<div class="zfa-form-group"><label>Linked Facility</label><select class="zfa-select"><option>Koramangala 0.0x7</option><option>Bandra Multi-Specialty</option><option>Okhla Animal Hospital</option><option>Network Wide</option></select></div>',
-        '</div>',
-        '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
-          '<button type="button" class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">Cancel</button>',
-          '<button type="submit" class="zfa-btn primary">Record Entry</button>',
-        '</div>',
+      '<div class="zfa-form-group"><label>Transaction Description</label><input type="text" class="zfa-input" placeholder="e.g. Diagnostic Equipment Service Fee" required /></div>',
+      '<div class="zfa-form-row">',
+      '<div class="zfa-form-group"><label>Account Category</label><select class="zfa-select"><option>Operating Revenue</option><option>Direct COGS</option><option>Clinical OPEX</option><option>Capital CAPEX</option></select></div>',
+      '<div class="zfa-form-group"><label>Amount (INR)</label><input type="text" class="zfa-input" placeholder="₹0" required /></div>',
+      '</div>',
+      '<div class="zfa-form-row">',
+      '<div class="zfa-form-group"><label>Payment Rail</label><select class="zfa-select"><option>HDFC Core CMS (RTGS)</option><option>Razorpay UPI</option><option>Pine Labs POS</option><option>Corporate Card</option></select></div>',
+      '<div class="zfa-form-group"><label>Linked Facility</label><select class="zfa-select"><option>Koramangala 0.0x7</option><option>Bandra Multi-Specialty</option><option>Okhla Animal Hospital</option><option>Network Wide</option></select></div>',
+      '</div>',
+      '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
+      '<button type="button" class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">Cancel</button>',
+      '<button type="submit" class="zfa-btn primary">Record Entry</button>',
+      '</div>',
       '</form>'
     ].join('');
     showModal(html);
@@ -1143,20 +1143,20 @@
   function showInvoiceModal() {
     var html = [
       '<div class="zfa-modal-head">',
-        '<h3 class="zfa-modal-title">Generate Compliant GST Tax Invoice</h3>',
-        '<button class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">✕</button>',
+      '<h3 class="zfa-modal-title">Generate Compliant GST Tax Invoice</h3>',
+      '<button class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">✕</button>',
       '</div>',
       '<form onsubmit="event.preventDefault(); alert(\'GST Tax Invoice generated and IRN portal synced!\'); ZenveFinanceDashboard.closeModal();">',
-        '<div class="zfa-form-group"><label>Pet Parent / Client Name</label><input type="text" class="zfa-input" placeholder="e.g. Kunal Sharma (Pet: Bruno)" required /></div>',
-        '<div class="zfa-form-group"><label>Clinical Service Description</label><input type="text" class="zfa-input" placeholder="e.g. TPLO Surgical Package + Inpatient Care" required /></div>',
-        '<div class="zfa-form-row">',
-          '<div class="zfa-form-group"><label>Taxable Amount (INR)</label><input type="text" class="zfa-input" placeholder="₹0" required /></div>',
-          '<div class="zfa-form-group"><label>GST Slab</label><select class="zfa-select"><option>18% GST (9% CGST + 9% SGST)</option><option>18% IGST (Interstate)</option><option>0% Exempted Healthcare</option></select></div>',
-        '</div>',
-        '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
-          '<button type="button" class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">Cancel</button>',
-          '<button type="submit" class="zfa-btn primary">Issue e-Invoice</button>',
-        '</div>',
+      '<div class="zfa-form-group"><label>Pet Parent / Client Name</label><input type="text" class="zfa-input" placeholder="e.g. Kunal Sharma (Pet: Bruno)" required /></div>',
+      '<div class="zfa-form-group"><label>Clinical Service Description</label><input type="text" class="zfa-input" placeholder="e.g. TPLO Surgical Package + Inpatient Care" required /></div>',
+      '<div class="zfa-form-row">',
+      '<div class="zfa-form-group"><label>Taxable Amount (INR)</label><input type="text" class="zfa-input" placeholder="₹0" required /></div>',
+      '<div class="zfa-form-group"><label>GST Slab</label><select class="zfa-select"><option>18% GST (9% CGST + 9% SGST)</option><option>18% IGST (Interstate)</option><option>0% Exempted Healthcare</option></select></div>',
+      '</div>',
+      '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
+      '<button type="button" class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">Cancel</button>',
+      '<button type="submit" class="zfa-btn primary">Issue e-Invoice</button>',
+      '</div>',
       '</form>'
     ].join('');
     showModal(html);
@@ -1165,19 +1165,19 @@
   function showExpenseModal() {
     var html = [
       '<div class="zfa-modal-head">',
-        '<h3 class="zfa-modal-title">Submit New Expense Voucher</h3>',
-        '<button class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">✕</button>',
+      '<h3 class="zfa-modal-title">Submit New Expense Voucher</h3>',
+      '<button class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">✕</button>',
       '</div>',
       '<form onsubmit="event.preventDefault(); alert(\'Expense voucher submitted for finance controller review!\'); ZenveFinanceDashboard.closeModal();">',
-        '<div class="zfa-form-group"><label>Expense Description</label><input type="text" class="zfa-input" placeholder="e.g. Shimadzu Digital X-Ray Annual Calibration" required /></div>',
-        '<div class="zfa-form-row">',
-          '<div class="zfa-form-group"><label>Cost Center</label><select class="zfa-select"><option>Clinical Operations</option><option>Facilities & Infrastructure</option><option>Hospital Utilities</option><option>Marketing & CAC</option></select></div>',
-          '<div class="zfa-form-group"><label>Amount (INR)</label><input type="text" class="zfa-input" placeholder="₹0" required /></div>',
-        '</div>',
-        '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
-          '<button type="button" class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">Cancel</button>',
-          '<button type="submit" class="zfa-btn primary">Submit Voucher</button>',
-        '</div>',
+      '<div class="zfa-form-group"><label>Expense Description</label><input type="text" class="zfa-input" placeholder="e.g. Shimadzu Digital X-Ray Annual Calibration" required /></div>',
+      '<div class="zfa-form-row">',
+      '<div class="zfa-form-group"><label>Cost Center</label><select class="zfa-select"><option>Clinical Operations</option><option>Facilities & Infrastructure</option><option>Hospital Utilities</option><option>Marketing & CAC</option></select></div>',
+      '<div class="zfa-form-group"><label>Amount (INR)</label><input type="text" class="zfa-input" placeholder="₹0" required /></div>',
+      '</div>',
+      '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
+      '<button type="button" class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">Cancel</button>',
+      '<button type="submit" class="zfa-btn primary">Submit Voucher</button>',
+      '</div>',
       '</form>'
     ].join('');
     showModal(html);
@@ -1186,20 +1186,20 @@
   function showRefundModal() {
     var html = [
       '<div class="zfa-modal-head">',
-        '<h3 class="zfa-modal-title">Authorize Customer Refund</h3>',
-        '<button class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">✕</button>',
+      '<h3 class="zfa-modal-title">Authorize Customer Refund</h3>',
+      '<button class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">✕</button>',
       '</div>',
       '<form onsubmit="event.preventDefault(); alert(\'Refund authorization sent to Payment Gateway!\'); ZenveFinanceDashboard.closeModal();">',
-        '<div class="zfa-form-group"><label>Original Invoice #</label><input type="text" class="zfa-input" placeholder="e.g. INV-ZV-8021" required /></div>',
-        '<div class="zfa-form-row">',
-          '<div class="zfa-form-group"><label>Refund Amount (INR)</label><input type="text" class="zfa-input" placeholder="₹0" required /></div>',
-          '<div class="zfa-form-group"><label>Refund Channel</label><select class="zfa-select"><option>Original UPI Rail</option><option>Original Card Rail</option><option>Zenve Wallet Credit</option></select></div>',
-        '</div>',
-        '<div class="zfa-form-group"><label>Clinical / Reason Justification</label><input type="text" class="zfa-input" placeholder="e.g. Consultation Cancelled Prior to Triage" required /></div>',
-        '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
-          '<button type="button" class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">Cancel</button>',
-          '<button type="submit" class="zfa-btn danger">Authorize Reversal</button>',
-        '</div>',
+      '<div class="zfa-form-group"><label>Original Invoice #</label><input type="text" class="zfa-input" placeholder="e.g. INV-ZV-8021" required /></div>',
+      '<div class="zfa-form-row">',
+      '<div class="zfa-form-group"><label>Refund Amount (INR)</label><input type="text" class="zfa-input" placeholder="₹0" required /></div>',
+      '<div class="zfa-form-group"><label>Refund Channel</label><select class="zfa-select"><option>Original UPI Rail</option><option>Original Card Rail</option><option>Zenve Wallet Credit</option></select></div>',
+      '</div>',
+      '<div class="zfa-form-group"><label>Clinical / Reason Justification</label><input type="text" class="zfa-input" placeholder="e.g. Consultation Cancelled Prior to Triage" required /></div>',
+      '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
+      '<button type="button" class="zfa-btn" onclick="ZenveFinanceDashboard.closeModal()">Cancel</button>',
+      '<button type="submit" class="zfa-btn danger">Authorize Reversal</button>',
+      '</div>',
       '</form>'
     ].join('');
     showModal(html);
@@ -1212,7 +1212,7 @@
       open(t);
     } else if (S.open && window.location.hash && window.location.hash !== '#') {
       var otherDomains = ['sales', 'operations', 'inventory', 'pharmacy', 'clinics', 'doctors', 'reports', 'alerts', 'settings'];
-      var isOther = otherDomains.some(function(d) { return window.location.hash.indexOf(d) >= 0; });
+      var isOther = otherDomains.some(function (d) { return window.location.hash.indexOf(d) >= 0; });
       if (isOther) close();
     }
   }

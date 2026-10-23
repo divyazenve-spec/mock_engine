@@ -18,10 +18,10 @@
   }
 
   var TABS = [
-    { id: 'dashboard',   label: 'Executive Dashboard', icon: '🏛️', hash: '#overview', badge: '', title: 'Zenve Executive Control Center', sub: 'Complete business intelligence for healthier, happier pets across all healthcare and commerce operations' },
-    { id: 'ceo-control', label: 'CEO Control Center',  icon: '👔', hash: '#ceo-control-center',   badge: '', title: 'CEO Strategic Command & Governance', sub: 'Strategic enterprise OKRs, multi-entity performance pacing, capital allocation decisions, and risk governance sentinel' },
-    { id: 'overview',    label: 'Business Overview',   icon: '📊', hash: '#business-overview',    badge: '', title: 'Business Overview & Segment Economics', sub: 'Multi-entity profit margins, geographic revenue distribution, and unit economics' },
-    { id: 'kpi',         label: 'KPI Dashboard',       icon: '🎯', hash: '#kpi-dashboard',        badge: '', title: 'Master Enterprise KPI Scorecard', sub: 'Balanced scorecard covering financial, clinical quality, customer sentiment, and logistics' }
+    { id: 'dashboard', label: 'Executive Dashboard', icon: '🏛️', hash: '#overview', badge: '', title: 'Zenve Executive Control Center', sub: 'Complete business intelligence for healthier, happier pets across all healthcare and commerce operations' },
+    { id: 'ceo-control', label: 'CEO Control Center', icon: '👔', hash: '#ceo-control-center', badge: '', title: 'CEO Strategic Command & Governance', sub: 'Strategic enterprise OKRs, multi-entity performance pacing, capital allocation decisions, and risk governance sentinel' },
+    { id: 'overview', label: 'Business Overview', icon: '📊', hash: '#business-overview', badge: '', title: 'Business Overview & Segment Economics', sub: 'Multi-entity profit margins, geographic revenue distribution, and unit economics' },
+    { id: 'kpi', label: 'KPI Dashboard', icon: '🎯', hash: '#kpi-dashboard', badge: '', title: 'Master Enterprise KPI Scorecard', sub: 'Balanced scorecard covering financial, clinical quality, customer sentiment, and logistics' }
   ];
 
   var S = {
@@ -90,15 +90,15 @@
   function kpiHtml(label, val, delta, trend, subtext, icon) {
     return [
       '<div class="zexec-kpi">',
-        '<div class="zexec-kpi-top">',
-          '<span class="zexec-kpi-label">' + esc(label) + '</span>',
-          '<span class="zexec-kpi-icon">' + esc(icon || '🏛️') + '</span>',
-        '</div>',
-        '<div class="zexec-kpi-val">' + esc(val) + '</div>',
-        '<div class="zexec-kpi-bottom">',
-          '<span class="zexec-delta ' + (trend === 'up' ? 'up' : trend === 'down' ? 'down' : 'warn') + '">' + (trend === 'up' ? '↑ ' : trend === 'down' ? '↓ ' : '• ') + esc(delta) + '</span>',
-          '<span class="zexec-subtext">' + esc(subtext) + '</span>',
-        '</div>',
+      '<div class="zexec-kpi-top">',
+      '<span class="zexec-kpi-label">' + esc(label) + '</span>',
+      '<span class="zexec-kpi-icon">' + esc(icon || '🏛️') + '</span>',
+      '</div>',
+      '<div class="zexec-kpi-val">' + esc(val) + '</div>',
+      '<div class="zexec-kpi-bottom">',
+      '<span class="zexec-delta ' + (trend === 'up' ? 'up' : trend === 'down' ? 'down' : 'warn') + '">' + (trend === 'up' ? '↑ ' : trend === 'down' ? '↓ ' : '• ') + esc(delta) + '</span>',
+      '<span class="zexec-subtext">' + esc(subtext) + '</span>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -119,48 +119,48 @@
 
     return [
       '<div class="zexec-kpi-grid">',
-        kpiHtml('Gross Invoiced Revenue (MTD)', '₹1,42,85,000', '+18.4%', 'up', 'All 14 centers + app (Finance)', '💰'),
-        kpiHtml('Net Operating EBITDA', '₹34,28,400', '24.0% margin', 'up', 'Operating surplus (Finance)', '⚡'),
-        kpiHtml('Net Profit (PAT)', '₹26,10,200', '+19.2%', 'up', 'Post tax & depreciation (Finance)', '🏆'),
-        kpiHtml('Total Customer Base', '12,480', '+18.4%', 'up', 'Verified pet parents (Customers 360°)', '🐾'),
-        kpiHtml('Active Veterinary Doctors', '42 Clinicians', '+6 YoY', 'up', 'Across 10 clinic centers (Doctors)', '👨‍⚕️'),
-        kpiHtml('60-Min SLA Velocity', '98.8%', '28.4 mins avg', 'up', 'Across 10 urban hubs (Logistics)', '🚀'),
+      kpiHtml('Gross Invoiced Revenue (MTD)', '₹1,42,85,000', '+18.4%', 'up', 'All 14 centers + app (Finance)', '💰'),
+      kpiHtml('Net Operating EBITDA', '₹34,28,400', '24.0% margin', 'up', 'Operating surplus (Finance)', '⚡'),
+      kpiHtml('Net Profit (PAT)', '₹26,10,200', '+19.2%', 'up', 'Post tax & depreciation (Finance)', '🏆'),
+      kpiHtml('Total Customer Base', '12,480', '+18.4%', 'up', 'Verified pet parents (Customers 360°)', '🐾'),
+      kpiHtml('Active Veterinary Doctors', '42 Clinicians', '+6 YoY', 'up', 'Across 10 clinic centers (Doctors)', '👨‍⚕️'),
+      kpiHtml('60-Min SLA Velocity', '98.8%', '28.4 mins avg', 'up', 'Across 10 urban hubs (Logistics)', '🚀'),
       '</div>',
 
       '<div class="zexec-card">',
-        '<div class="zexec-card-head">',
-          '<div>',
-            '<h3 class="zexec-card-title">Business Unit Financial Contribution</h3>',
-            '<p class="zexec-card-sub">MTD performance breakdown across clinical, pharmaceutical, commerce, and diagnostic segments</p>',
-          '</div>',
-          '<span class="zexec-badge success">Audit Certified · 6 Units</span>',
-        '</div>',
-        '<div class="zexec-table-wrap">',
-          '<table class="zexec-table">',
-            '<thead>',
-              '<tr>',
-                '<th>Business Segment</th>',
-                '<th>MTD Revenue</th>',
-                '<th>Target Pacing</th>',
-                '<th>Gross Margin</th>',
-                '<th>Active Volume</th>',
-                '<th>Segment Health</th>',
-              '</tr>',
-            '</thead>',
-            '<tbody>',
-              segments.map(function(s) {
-                return '<tr>' +
-                  '<td><b>' + esc(s.name) + '</b></td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#0f172a;">' + esc(s.rev) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;color:#10b981;font-weight:600;">' + esc(s.pacing) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;color:#38bdf8;font-weight:600;">' + esc(s.margin) + '</td>' +
-                  '<td style="color:#64748b;">' + esc(s.volume) + '</td>' +
-                  '<td><span class="zexec-badge ' + (s.health === 'Outperforming' || s.health === 'High Growth' ? 'success' : 'info') + '">' + esc(s.health) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zexec-card-head">',
+      '<div>',
+      '<h3 class="zexec-card-title">Business Unit Financial Contribution</h3>',
+      '<p class="zexec-card-sub">MTD performance breakdown across clinical, pharmaceutical, commerce, and diagnostic segments</p>',
+      '</div>',
+      '<span class="zexec-badge success">Audit Certified · 6 Units</span>',
+      '</div>',
+      '<div class="zexec-table-wrap">',
+      '<table class="zexec-table">',
+      '<thead>',
+      '<tr>',
+      '<th>Business Segment</th>',
+      '<th>MTD Revenue</th>',
+      '<th>Target Pacing</th>',
+      '<th>Gross Margin</th>',
+      '<th>Active Volume</th>',
+      '<th>Segment Health</th>',
+      '</tr>',
+      '</thead>',
+      '<tbody>',
+      segments.map(function (s) {
+        return '<tr>' +
+          '<td><b>' + esc(s.name) + '</b></td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#0f172a;">' + esc(s.rev) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;color:#10b981;font-weight:600;">' + esc(s.pacing) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;color:#38bdf8;font-weight:600;">' + esc(s.margin) + '</td>' +
+          '<td style="color:#64748b;">' + esc(s.volume) + '</td>' +
+          '<td><span class="zexec-badge ' + (s.health === 'Outperforming' || s.health === 'High Growth' ? 'success' : 'info') + '">' + esc(s.health) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -191,7 +191,7 @@
       { name: 'Preventive Care Subscriptions & Wellness', lead: 'Deepa Nair', revenue: '₹12.8L', pacing: '118.5%', margin: '78.5%', growth: '+54.0% YoY', status: 'High Growth' },
       { name: 'Pet Grooming & Spa Services', lead: 'Sneha Kapoor', revenue: '₹9.4L', pacing: '97.2%', margin: '44.0%', growth: '+14.5% YoY', status: 'On Track' },
       { name: 'Pet Fashion, Travel & Lifestyle', lead: 'Neha Kapur', revenue: '₹8.4L', pacing: '98.5%', margin: '48.2%', growth: '+16.8% YoY', status: 'On Track' },
-      { name: 'Digital Telehealth & Remote Monitoring', lead: 'Dr. Divya Reddy', revenue: '₹5.5L', pacing: '105.0%', margin: '82.0%', growth: '+42.0% YoY', status: 'High Growth' }
+      { name: 'Digital Telehealth & Remote Monitoring', lead: 'Dr. Edwin Reddy', revenue: '₹5.5L', pacing: '105.0%', margin: '82.0%', growth: '+42.0% YoY', status: 'High Growth' }
     ];
 
     var decisions = [
@@ -216,212 +216,212 @@
 
     return [
       '<div class="zexec-kpi-grid">',
-        kpiHtml('Consolidated Run Rate (ARR)', '₹17.14 Cr', '+18.4% YoY', 'up', 'Annualized from Finance Gross', '🚀'),
-        kpiHtml('Operating EBITDA Run Rate', '24.0%', '+24.0%', 'up', '₹4.11 Cr EBITDA run-rate', '📈'),
-        kpiHtml('Liquid Treasury & Runway', '14.2 Months', '₹8.84 Cr in treasuries', 'up', 'Zero long-term debt', '🏦'),
-        kpiHtml('Board OKR Execution', '96.8%', '10 of 10 On Track', 'up', 'Q3 Board Review Cycle', '🎯'),
-        kpiHtml('Enterprise Headcount', '208 Staff', '42 Clinicians', 'up', '96.4% retention rate', '👥'),
-        kpiHtml('Blended Gross Margin', '56.0%', '+6.7% vs budget', 'up', 'Matches Finance Trading Margin', '💎'),
+      kpiHtml('Consolidated Run Rate (ARR)', '₹17.14 Cr', '+18.4% YoY', 'up', 'Annualized from Finance Gross', '🚀'),
+      kpiHtml('Operating EBITDA Run Rate', '24.0%', '+24.0%', 'up', '₹4.11 Cr EBITDA run-rate', '📈'),
+      kpiHtml('Liquid Treasury & Runway', '14.2 Months', '₹8.84 Cr in treasuries', 'up', 'Zero long-term debt', '🏦'),
+      kpiHtml('Board OKR Execution', '96.8%', '10 of 10 On Track', 'up', 'Q3 Board Review Cycle', '🎯'),
+      kpiHtml('Enterprise Headcount', '208 Staff', '42 Clinicians', 'up', '96.4% retention rate', '👥'),
+      kpiHtml('Blended Gross Margin', '56.0%', '+6.7% vs budget', 'up', 'Matches Finance Trading Margin', '💎'),
       '</div>',
 
       /* Master OKRs Tracker */
       '<div class="zexec-card">',
-        '<div class="zexec-card-head">',
-          '<div>',
-            '<h3 class="zexec-card-title">Master Board OKR Execution Matrix (FY25-26)</h3>',
-            '<p class="zexec-card-sub">Key strategic objectives and quarterly milestones monitored directly by the Office of the CEO</p>',
-          '</div>',
-          '<div style="display:flex;gap:8px;">',
-            '<button class="zexec-btn" onclick="alert(\'Downloading OKR Executive Packet (PDF)...\')">📑 Export OKR Brief</button>',
-            '<button class="zexec-btn primary" onclick="alert(\'Syncing OKR milestones with Enterprise Project Management Suite...\')">🔄 Sync Status</button>',
-          '</div>',
-        '</div>',
-        '<div class="zexec-table-wrap">',
-          '<table class="zexec-table">',
-            '<thead>',
-              '<tr>',
-                '<th>Strategic Objective</th>',
-                '<th>Executive Lead</th>',
-                '<th>Current Pacing</th>',
-                '<th>Quarterly Target</th>',
-                '<th>Confidence</th>',
-                '<th>Status</th>',
-              '</tr>',
-            '</thead>',
-            '<tbody>',
-              okrs.map(function(okr) {
-                return '<tr>' +
-                  '<td><b>' + esc(okr.title) + '</b></td>' +
-                  '<td style="color:#64748b;">' + esc(okr.lead) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#0f172a;">' + esc(okr.current) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;color:#64748b;">' + esc(okr.target) + '</td>' +
-                  '<td><span style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#10b981;">' + okr.pct + '%</span></td>' +
-                  '<td><span class="zexec-badge ' + (okr.status === 'Completed' || okr.status === 'Exceeded' ? 'success' : 'warn') + '">' + esc(okr.status) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zexec-card-head">',
+      '<div>',
+      '<h3 class="zexec-card-title">Master Board OKR Execution Matrix (FY25-26)</h3>',
+      '<p class="zexec-card-sub">Key strategic objectives and quarterly milestones monitored directly by the Office of the CEO</p>',
+      '</div>',
+      '<div style="display:flex;gap:8px;">',
+      '<button class="zexec-btn" onclick="alert(\'Downloading OKR Executive Packet (PDF)...\')">📑 Export OKR Brief</button>',
+      '<button class="zexec-btn primary" onclick="alert(\'Syncing OKR milestones with Enterprise Project Management Suite...\')">🔄 Sync Status</button>',
+      '</div>',
+      '</div>',
+      '<div class="zexec-table-wrap">',
+      '<table class="zexec-table">',
+      '<thead>',
+      '<tr>',
+      '<th>Strategic Objective</th>',
+      '<th>Executive Lead</th>',
+      '<th>Current Pacing</th>',
+      '<th>Quarterly Target</th>',
+      '<th>Confidence</th>',
+      '<th>Status</th>',
+      '</tr>',
+      '</thead>',
+      '<tbody>',
+      okrs.map(function (okr) {
+        return '<tr>' +
+          '<td><b>' + esc(okr.title) + '</b></td>' +
+          '<td style="color:#64748b;">' + esc(okr.lead) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#0f172a;">' + esc(okr.current) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;color:#64748b;">' + esc(okr.target) + '</td>' +
+          '<td><span style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#10b981;">' + okr.pct + '%</span></td>' +
+          '<td><span class="zexec-badge ' + (okr.status === 'Completed' || okr.status === 'Exceeded' ? 'success' : 'warn') + '">' + esc(okr.status) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>',
 
       /* Multi-Entity Business Unit Pacing */
       '<div class="zexec-card">',
-        '<div class="zexec-card-head">',
-          '<div>',
-            '<h3 class="zexec-card-title">Business Unit Contribution & Strategic Pacing</h3>',
-            '<p class="zexec-card-sub">Consolidated operational pacing and gross margins across Zenve operating entities</p>',
-          '</div>',
-          '<span class="zexec-badge success">All 6 Divisions Operating</span>',
-        '</div>',
-        '<div class="zexec-table-wrap">',
-          '<table class="zexec-table">',
-            '<thead>',
-              '<tr>',
-                '<th>Business Segment</th>',
-                '<th>Executive Lead</th>',
-                '<th>MTD Revenue</th>',
-                '<th>Target Pacing</th>',
-                '<th>Gross Margin</th>',
-                '<th>YoY Growth</th>',
-                '<th>Strategic Status</th>',
-              '</tr>',
-            '</thead>',
-            '<tbody>',
-              businessUnits.map(function(bu) {
-                return '<tr>' +
-                  '<td><b>' + esc(bu.name) + '</b></td>' +
-                  '<td style="color:#64748b;">' + esc(bu.lead) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#0f172a;">' + esc(bu.revenue) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;color:#10b981;font-weight:600;">' + esc(bu.pacing) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;color:#38bdf8;font-weight:600;">' + esc(bu.margin) + '</td>' +
-                  '<td style="color:#059669;font-weight:700;">' + esc(bu.growth) + '</td>' +
-                  '<td><span class="zexec-badge ' + (bu.status === 'Outperforming' || bu.status === 'High Growth' ? 'success' : 'info') + '">' + esc(bu.status) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zexec-card-head">',
+      '<div>',
+      '<h3 class="zexec-card-title">Business Unit Contribution & Strategic Pacing</h3>',
+      '<p class="zexec-card-sub">Consolidated operational pacing and gross margins across Zenve operating entities</p>',
+      '</div>',
+      '<span class="zexec-badge success">All 6 Divisions Operating</span>',
+      '</div>',
+      '<div class="zexec-table-wrap">',
+      '<table class="zexec-table">',
+      '<thead>',
+      '<tr>',
+      '<th>Business Segment</th>',
+      '<th>Executive Lead</th>',
+      '<th>MTD Revenue</th>',
+      '<th>Target Pacing</th>',
+      '<th>Gross Margin</th>',
+      '<th>YoY Growth</th>',
+      '<th>Strategic Status</th>',
+      '</tr>',
+      '</thead>',
+      '<tbody>',
+      businessUnits.map(function (bu) {
+        return '<tr>' +
+          '<td><b>' + esc(bu.name) + '</b></td>' +
+          '<td style="color:#64748b;">' + esc(bu.lead) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#0f172a;">' + esc(bu.revenue) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;color:#10b981;font-weight:600;">' + esc(bu.pacing) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;color:#38bdf8;font-weight:600;">' + esc(bu.margin) + '</td>' +
+          '<td style="color:#059669;font-weight:700;">' + esc(bu.growth) + '</td>' +
+          '<td><span class="zexec-badge ' + (bu.status === 'Outperforming' || bu.status === 'High Growth' ? 'success' : 'info') + '">' + esc(bu.status) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>',
 
       /* 2-Column: Governance Decision Log & Capital Runway Waterfall */
       '<div class="zexec-grid-2">',
-        /* Decision Log */
-        '<div class="zexec-card">',
-          '<div class="zexec-card-head">',
-            '<div>',
-              '<h3 class="zexec-card-title">Executive Decision & Capital Governance Log</h3>',
-              '<p class="zexec-card-sub">Action items requiring Chief Executive Officer or Board authorization</p>',
-            '</div>',
-            '<span class="zexec-badge info">' + decisions.length + ' Items Logged</span>',
-          '</div>',
-          '<div style="display:flex;flex-direction:column;gap:12px;">',
-            decisions.map(function(dec) {
-              return '<div style="padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">' +
-                '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">' +
-                  '<span style="font-family:IBM Plex Mono,monospace;font-size:11px;font-weight:700;color:#2563eb;">' + esc(dec.id) + '</span>' +
-                  '<span class="zexec-badge ' + (dec.priority === 'Completed' || dec.priority === 'Approved' ? 'success' : 'warn') + '">' + esc(dec.priority) + '</span>' +
-                '</div>' +
-                '<div style="font-size:12px;font-weight:600;color:#0f172a;line-height:1.4;">' + esc(dec.action) + '</div>' +
-                '<div style="display:flex;justify-content:space-between;font-size:11px;color:#64748b;margin-top:6px;">' +
-                  '<span>Owner: ' + esc(dec.owner) + '</span>' +
-                  '<span style="font-weight:600;color:#0f172a;">' + esc(dec.capital) + '</span>' +
-                '</div>' +
-              '</div>';
-            }).join(''),
-          '</div>',
-        '</div>',
+      /* Decision Log */
+      '<div class="zexec-card">',
+      '<div class="zexec-card-head">',
+      '<div>',
+      '<h3 class="zexec-card-title">Executive Decision & Capital Governance Log</h3>',
+      '<p class="zexec-card-sub">Action items requiring Chief Executive Officer or Board authorization</p>',
+      '</div>',
+      '<span class="zexec-badge info">' + decisions.length + ' Items Logged</span>',
+      '</div>',
+      '<div style="display:flex;flex-direction:column;gap:12px;">',
+      decisions.map(function (dec) {
+        return '<div style="padding:12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">' +
+          '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">' +
+          '<span style="font-family:IBM Plex Mono,monospace;font-size:11px;font-weight:700;color:#2563eb;">' + esc(dec.id) + '</span>' +
+          '<span class="zexec-badge ' + (dec.priority === 'Completed' || dec.priority === 'Approved' ? 'success' : 'warn') + '">' + esc(dec.priority) + '</span>' +
+          '</div>' +
+          '<div style="font-size:12px;font-weight:600;color:#0f172a;line-height:1.4;">' + esc(dec.action) + '</div>' +
+          '<div style="display:flex;justify-content:space-between;font-size:11px;color:#64748b;margin-top:6px;">' +
+          '<span>Owner: ' + esc(dec.owner) + '</span>' +
+          '<span style="font-weight:600;color:#0f172a;">' + esc(dec.capital) + '</span>' +
+          '</div>' +
+          '</div>';
+      }).join(''),
+      '</div>',
+      '</div>',
 
-        /* Capital Allocation & Treasury Waterfall */
-        '<div class="zexec-card">',
-          '<div class="zexec-card-head">',
-            '<div>',
-              '<h3 class="zexec-card-title">Capital Allocation & Treasury Waterfall</h3>',
-              '<p class="zexec-card-sub">Liquid balance sheet strength and capital deployment efficiency</p>',
-            '</div>',
-            '<span class="zexec-badge success">Self-Sustaining</span>',
-          '</div>',
-          '<div style="display:flex;flex-direction:column;gap:16px;">',
-            '<div style="padding:16px;background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;">',
-              '<div>',
-                '<span style="font-size:12px;color:#64748b;font-weight:600;">Liquid Treasury Reserves</span>',
-                '<h2 style="margin:4px 0 0;font-size:24px;font-weight:800;color:#0f172a;">₹8,84,00,000</h2>',
-                '<span style="font-size:11px;color:#059669;font-weight:700;">+₹34.28L Monthly Operating Surplus</span>',
-              '</div>',
-              '<div style="text-align:right;">',
-                '<span class="zexec-badge success" style="font-size:13px;padding:6px 12px;">14.2 Months Runway</span>',
-                '<p style="margin:6px 0 0;font-size:11px;color:#64748b;">Zero Long-Term Debt</p>',
-              '</div>',
-            '</div>',
-            '<table class="zexec-table">',
-              '<thead>',
-                '<tr>',
-                  '<th>Capital Pillar</th>',
-                  '<th>Allocation</th>',
-                  '<th>Deployed (MTD)</th>',
-                  '<th>Solvency Ratio</th>',
-                '</tr>',
-              '</thead>',
-              '<tbody>',
-                capitalPillars.map(function(p) {
-                  return '<tr>' +
-                    '<td><b>' + esc(p.pillar) + '</b></td>' +
-                    '<td style="font-family:IBM Plex Mono,monospace;">' + esc(p.allocation) + '</td>' +
-                    '<td style="font-family:IBM Plex Mono,monospace;color:#10b981;font-weight:600;">' + esc(p.deployed) + '</td>' +
-                    '<td style="font-family:IBM Plex Mono,monospace;color:#38bdf8;">' + esc(p.solvency) + '</td>' +
-                  '</tr>';
-                }).join(''),
-              '</tbody>',
-            '</table>',
-            '<div style="padding:12px 14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;font-size:12px;color:#1e40af;line-height:1.4;">',
-              '<strong>💡 Executive Capital Note:</strong> Cash generation from Clinical Services and Pharmacy offsets expansion capital expenditure, maintaining 14.2-month liquid solvency (₹8.84 Cr reserves).',
-            '</div>',
-          '</div>',
-        '</div>',
+      /* Capital Allocation & Treasury Waterfall */
+      '<div class="zexec-card">',
+      '<div class="zexec-card-head">',
+      '<div>',
+      '<h3 class="zexec-card-title">Capital Allocation & Treasury Waterfall</h3>',
+      '<p class="zexec-card-sub">Liquid balance sheet strength and capital deployment efficiency</p>',
+      '</div>',
+      '<span class="zexec-badge success">Self-Sustaining</span>',
+      '</div>',
+      '<div style="display:flex;flex-direction:column;gap:16px;">',
+      '<div style="padding:16px;background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;">',
+      '<div>',
+      '<span style="font-size:12px;color:#64748b;font-weight:600;">Liquid Treasury Reserves</span>',
+      '<h2 style="margin:4px 0 0;font-size:24px;font-weight:800;color:#0f172a;">₹8,84,00,000</h2>',
+      '<span style="font-size:11px;color:#059669;font-weight:700;">+₹34.28L Monthly Operating Surplus</span>',
+      '</div>',
+      '<div style="text-align:right;">',
+      '<span class="zexec-badge success" style="font-size:13px;padding:6px 12px;">14.2 Months Runway</span>',
+      '<p style="margin:6px 0 0;font-size:11px;color:#64748b;">Zero Long-Term Debt</p>',
+      '</div>',
+      '</div>',
+      '<table class="zexec-table">',
+      '<thead>',
+      '<tr>',
+      '<th>Capital Pillar</th>',
+      '<th>Allocation</th>',
+      '<th>Deployed (MTD)</th>',
+      '<th>Solvency Ratio</th>',
+      '</tr>',
+      '</thead>',
+      '<tbody>',
+      capitalPillars.map(function (p) {
+        return '<tr>' +
+          '<td><b>' + esc(p.pillar) + '</b></td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;">' + esc(p.allocation) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;color:#10b981;font-weight:600;">' + esc(p.deployed) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;color:#38bdf8;">' + esc(p.solvency) + '</td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '<div style="padding:12px 14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;font-size:12px;color:#1e40af;line-height:1.4;">',
+      '<strong>💡 Executive Capital Note:</strong> Cash generation from Clinical Services and Pharmacy offsets expansion capital expenditure, maintaining 14.2-month liquid solvency (₹8.84 Cr reserves).',
+      '</div>',
+      '</div>',
+      '</div>',
       '</div>',
 
       /* Enterprise Risk Radar & Early Warning Sentinel */
       '<div class="zexec-card">',
-        '<div class="zexec-card-head">',
-          '<div>',
-            '<h3 class="zexec-card-title">Enterprise Risk Radar & Governance Sentinel</h3>',
-            '<p class="zexec-card-sub">Continuous monitoring across veterinary clinical safety, supply chain integrity, regulatory audits, and human capital</p>',
-          '</div>',
-          '<span class="zexec-badge success">All Vectors Nominal</span>',
-        '</div>',
-        '<div class="zexec-risk-grid">',
-          '<div class="zexec-risk-card">',
-            '<div class="zexec-risk-head">',
-              '<span>Clinical Quality & Compliance</span>',
-              '<span class="zexec-badge success">Nominal</span>',
-            '</div>',
-            '<div class="zexec-risk-val">0 Open Audits</div>',
-            '<p class="zexec-risk-desc">All 5 hospital hubs passed NABH and VCI inspection protocols.</p>',
-          '</div>',
-          '<div class="zexec-risk-card">',
-            '<div class="zexec-risk-head">',
-              '<span>Cold-Chain & Pharmacy</span>',
-              '<span class="zexec-badge success">Nominal</span>',
-            '</div>',
-            '<div class="zexec-risk-val">4.1°C Avg (100% Online)</div>',
-            '<p class="zexec-risk-desc">12 IoT probes continuously logging zero temperature excursions.</p>',
-          '</div>',
-          '<div class="zexec-risk-card">',
-            '<div class="zexec-risk-head">',
-              '<span>Specialist Retention</span>',
-              '<span class="zexec-badge success">Optimal</span>',
-            '</div>',
-            '<div class="zexec-risk-val">95.4% Retained</div>',
-            '<p class="zexec-risk-desc">148 clinicians active with 0 unscheduled doctor exits.</p>',
-          '</div>',
-          '<div class="zexec-risk-card">',
-            '<div class="zexec-risk-head">',
-              '<span>Cybersecurity & Records</span>',
-              '<span class="zexec-badge success">Secured</span>',
-            '</div>',
-            '<div class="zexec-risk-val">ISO 27001 Ready</div>',
-            '<p class="zexec-risk-desc">256-bit encrypted pet health record vault with zero breach flags.</p>',
-          '</div>',
-        '</div>',
+      '<div class="zexec-card-head">',
+      '<div>',
+      '<h3 class="zexec-card-title">Enterprise Risk Radar & Governance Sentinel</h3>',
+      '<p class="zexec-card-sub">Continuous monitoring across veterinary clinical safety, supply chain integrity, regulatory audits, and human capital</p>',
+      '</div>',
+      '<span class="zexec-badge success">All Vectors Nominal</span>',
+      '</div>',
+      '<div class="zexec-risk-grid">',
+      '<div class="zexec-risk-card">',
+      '<div class="zexec-risk-head">',
+      '<span>Clinical Quality & Compliance</span>',
+      '<span class="zexec-badge success">Nominal</span>',
+      '</div>',
+      '<div class="zexec-risk-val">0 Open Audits</div>',
+      '<p class="zexec-risk-desc">All 5 hospital hubs passed NABH and VCI inspection protocols.</p>',
+      '</div>',
+      '<div class="zexec-risk-card">',
+      '<div class="zexec-risk-head">',
+      '<span>Cold-Chain & Pharmacy</span>',
+      '<span class="zexec-badge success">Nominal</span>',
+      '</div>',
+      '<div class="zexec-risk-val">4.1°C Avg (100% Online)</div>',
+      '<p class="zexec-risk-desc">12 IoT probes continuously logging zero temperature excursions.</p>',
+      '</div>',
+      '<div class="zexec-risk-card">',
+      '<div class="zexec-risk-head">',
+      '<span>Specialist Retention</span>',
+      '<span class="zexec-badge success">Optimal</span>',
+      '</div>',
+      '<div class="zexec-risk-val">95.4% Retained</div>',
+      '<p class="zexec-risk-desc">148 clinicians active with 0 unscheduled doctor exits.</p>',
+      '</div>',
+      '<div class="zexec-risk-card">',
+      '<div class="zexec-risk-head">',
+      '<span>Cybersecurity & Records</span>',
+      '<span class="zexec-badge success">Secured</span>',
+      '</div>',
+      '<div class="zexec-risk-val">ISO 27001 Ready</div>',
+      '<p class="zexec-risk-desc">256-bit encrypted pet health record vault with zero breach flags.</p>',
+      '</div>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -442,46 +442,46 @@
 
     return [
       '<div class="zexec-kpi-grid">',
-        kpiHtml('Active Operating Hubs', '10 Centers', '5 Hospitals + 5 Clinics', 'up', 'All 10 facilities operational', '📍'),
-        kpiHtml('Network Doctors & Staff', '208 Personnel', '42 Clinicians', 'up', 'Active across all facilities', '👥'),
-        kpiHtml('Avg Dispensary Ticket', '₹2,480', '+6.8% YoY', 'up', 'Dispensary & pharmacy average', '🛒'),
-        kpiHtml('Rapid Delivery SLA (60-Min)', '98.8%', '28.4 mins avg', 'up', '60-min rapid doorstep delivery', '📱'),
+      kpiHtml('Active Operating Hubs', '10 Centers', '5 Hospitals + 5 Clinics', 'up', 'All 10 facilities operational', '📍'),
+      kpiHtml('Network Doctors & Staff', '208 Personnel', '42 Clinicians', 'up', 'Active across all facilities', '👥'),
+      kpiHtml('Avg Dispensary Ticket', '₹2,480', '+6.8% YoY', 'up', 'Dispensary & pharmacy average', '🛒'),
+      kpiHtml('Rapid Delivery SLA (60-Min)', '98.8%', '28.4 mins avg', 'up', '60-min rapid doorstep delivery', '📱'),
       '</div>',
 
       '<div class="zexec-card">',
-        '<div class="zexec-card-head">',
-          '<div>',
-            '<h3 class="zexec-card-title">Geographic Market Share & Economics</h3>',
-            '<p class="zexec-card-sub">Metropolitan territory performance and local clinic footprint</p>',
-          '</div>',
-          '<span class="zexec-badge success">5 Metros Operational</span>',
-        '</div>',
-        '<div class="zexec-table-wrap">',
-          '<table class="zexec-table">',
-            '<thead>',
-              '<tr>',
-                '<th>Metropolitan Market</th>',
-                '<th>Monthly Revenue</th>',
-                '<th>Clinics / Hubs</th>',
-                '<th>Active Pets</th>',
-                '<th>MoM Growth</th>',
-                '<th>Market Position</th>',
-              '</tr>',
-            '</thead>',
-            '<tbody>',
-              regions.map(function(r) {
-                return '<tr>' +
-                  '<td><b>' + esc(r.name) + '</b></td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#0f172a;">' + esc(r.rev) + '</td>' +
-                  '<td>' + esc(r.hubs) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;">' + esc(r.pets) + '</td>' +
-                  '<td style="color:#059669;font-weight:700;">' + esc(r.mom) + '</td>' +
-                  '<td><span class="zexec-badge success">' + esc(r.pos) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zexec-card-head">',
+      '<div>',
+      '<h3 class="zexec-card-title">Geographic Market Share & Economics</h3>',
+      '<p class="zexec-card-sub">Metropolitan territory performance and local clinic footprint</p>',
+      '</div>',
+      '<span class="zexec-badge success">5 Metros Operational</span>',
+      '</div>',
+      '<div class="zexec-table-wrap">',
+      '<table class="zexec-table">',
+      '<thead>',
+      '<tr>',
+      '<th>Metropolitan Market</th>',
+      '<th>Monthly Revenue</th>',
+      '<th>Clinics / Hubs</th>',
+      '<th>Active Pets</th>',
+      '<th>MoM Growth</th>',
+      '<th>Market Position</th>',
+      '</tr>',
+      '</thead>',
+      '<tbody>',
+      regions.map(function (r) {
+        return '<tr>' +
+          '<td><b>' + esc(r.name) + '</b></td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#0f172a;">' + esc(r.rev) + '</td>' +
+          '<td>' + esc(r.hubs) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;">' + esc(r.pets) + '</td>' +
+          '<td style="color:#059669;font-weight:700;">' + esc(r.mom) + '</td>' +
+          '<td><span class="zexec-badge success">' + esc(r.pos) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -502,46 +502,46 @@
 
     return [
       '<div class="zexec-kpi-grid">',
-        kpiHtml('Operating Efficiency Ratio', '98.8%', '10 of 10 Met', 'up', 'All balanced pillars nominal', '⚙️'),
-        kpiHtml('Customer CSAT Score', '96.4%', '4.8/5 across 4,200 reviews', 'up', 'Top tier veterinary benchmark', '⭐'),
-        kpiHtml('Inventory Turnover', '6.4x / Year', '+0.8x vs Q2', 'up', '24.2 days of cover', '📦'),
-        kpiHtml('Pet Parent Retention (12M)', '74.8%', '+5.2% YoY', 'up', 'Repeat transactors & membership', '🔄'),
+      kpiHtml('Operating Efficiency Ratio', '98.8%', '10 of 10 Met', 'up', 'All balanced pillars nominal', '⚙️'),
+      kpiHtml('Customer CSAT Score', '96.4%', '4.8/5 across 4,200 reviews', 'up', 'Top tier veterinary benchmark', '⭐'),
+      kpiHtml('Inventory Turnover', '6.4x / Year', '+0.8x vs Q2', 'up', '24.2 days of cover', '📦'),
+      kpiHtml('Pet Parent Retention (12M)', '74.8%', '+5.2% YoY', 'up', 'Repeat transactors & membership', '🔄'),
       '</div>',
 
       '<div class="zexec-card">',
-        '<div class="zexec-card-head">',
-          '<div>',
-            '<h3 class="zexec-card-title">Enterprise Master Scorecard (Balanced KPIs)</h3>',
-            '<p class="zexec-card-sub">Holistic performance indicators across Financial, Customer, Internal Process, and Growth</p>',
-          '</div>',
-          '<button class="zexec-btn" onclick="alert(\'Printing Executive Scorecard PDF...\')">🖨️ Print Scorecard</button>',
-        '</div>',
-        '<div class="zexec-table-wrap">',
-          '<table class="zexec-table">',
-            '<thead>',
-              '<tr>',
-                '<th>Category</th>',
-                '<th>Indicator</th>',
-                '<th>Actual (MTD)</th>',
-                '<th>Target</th>',
-                '<th>Variance</th>',
-                '<th>Health</th>',
-              '</tr>',
-            '</thead>',
-            '<tbody>',
-              scorecard.map(function(k) {
-                return '<tr>' +
-                  '<td><span style="font-size:11px;color:#64748b;font-weight:600;">' + esc(k.cat) + '</span></td>' +
-                  '<td><b>' + esc(k.kpi) + '</b></td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#0f172a;">' + esc(k.actual) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;color:#64748b;">' + esc(k.target) + '</td>' +
-                  '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#10b981;">' + esc(k.variance) + '</td>' +
-                  '<td><span class="zexec-badge success">● ' + esc(k.status) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zexec-card-head">',
+      '<div>',
+      '<h3 class="zexec-card-title">Enterprise Master Scorecard (Balanced KPIs)</h3>',
+      '<p class="zexec-card-sub">Holistic performance indicators across Financial, Customer, Internal Process, and Growth</p>',
+      '</div>',
+      '<button class="zexec-btn" onclick="alert(\'Printing Executive Scorecard PDF...\')">🖨️ Print Scorecard</button>',
+      '</div>',
+      '<div class="zexec-table-wrap">',
+      '<table class="zexec-table">',
+      '<thead>',
+      '<tr>',
+      '<th>Category</th>',
+      '<th>Indicator</th>',
+      '<th>Actual (MTD)</th>',
+      '<th>Target</th>',
+      '<th>Variance</th>',
+      '<th>Health</th>',
+      '</tr>',
+      '</thead>',
+      '<tbody>',
+      scorecard.map(function (k) {
+        return '<tr>' +
+          '<td><span style="font-size:11px;color:#64748b;font-weight:600;">' + esc(k.cat) + '</span></td>' +
+          '<td><b>' + esc(k.kpi) + '</b></td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#0f172a;">' + esc(k.actual) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;color:#64748b;">' + esc(k.target) + '</td>' +
+          '<td style="font-family:IBM Plex Mono,monospace;font-weight:700;color:#10b981;">' + esc(k.variance) + '</td>' +
+          '<td><span class="zexec-badge success">● ' + esc(k.status) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -558,9 +558,9 @@
       var isActive = t.id === S.tab;
       return [
         '<button type="button" class="zexec-tab ' + (isActive ? 'active' : '') + '" data-tab="' + t.id + '">',
-          '<span>' + t.icon + '</span>',
-          '<span>' + esc(t.label) + '</span>',
-          (t.badge ? '<span class="zexec-tab-badge">' + esc(t.badge) + '</span>' : ''),
+        '<span>' + t.icon + '</span>',
+        '<span>' + esc(t.label) + '</span>',
+        (t.badge ? '<span class="zexec-tab-badge">' + esc(t.badge) + '</span>' : ''),
         '</button>'
       ].join('');
     }).join('');
@@ -569,10 +569,10 @@
   function renderBody() {
     switch (S.tab) {
       case 'ceo-control': return renderCeoControlCenter();
-      case 'overview':    return renderBusinessOverview();
-      case 'kpi':         return renderKpiDashboard();
+      case 'overview': return renderBusinessOverview();
+      case 'kpi': return renderKpiDashboard();
       case 'dashboard':
-      default:            return renderExecutiveDashboard();
+      default: return renderExecutiveDashboard();
     }
   }
 
@@ -582,24 +582,24 @@
 
     root.innerHTML = [
       '<header class="zexec-head">',
-        '<div class="zexec-head-left">',
-          '<div class="zexec-title-row">',
-            '<h1 class="zexec-title">' + esc(current.title) + '</h1>',
-            '<span class="zexec-live-badge"><span class="zexec-pulse-dot"></span> Live Enterprise</span>',
-          '</div>',
-          '<p class="zexec-sub">' + esc(current.sub) + '</p>',
-        '</div>',
-        '<div class="zexec-head-actions">',
-          '<button class="zexec-btn" onclick="alert(\'Syncing enterprise financials with ERP ledgers...\')">🔄 Sync Ledgers</button>',
-          '<button class="zexec-btn primary" onclick="alert(\'Executive Board Brief downloaded (PDF).\')">📊 Download Board Brief</button>',
-          '<button class="zexec-btn" id="zexec-close-btn" title="Close Executive Dashboard">✕</button>',
-        '</div>',
+      '<div class="zexec-head-left">',
+      '<div class="zexec-title-row">',
+      '<h1 class="zexec-title">' + esc(current.title) + '</h1>',
+      '<span class="zexec-live-badge"><span class="zexec-pulse-dot"></span> Live Enterprise</span>',
+      '</div>',
+      '<p class="zexec-sub">' + esc(current.sub) + '</p>',
+      '</div>',
+      '<div class="zexec-head-actions">',
+      '<button class="zexec-btn" onclick="alert(\'Syncing enterprise financials with ERP ledgers...\')">🔄 Sync Ledgers</button>',
+      '<button class="zexec-btn primary" onclick="alert(\'Executive Board Brief downloaded (PDF).\')">📊 Download Board Brief</button>',
+      '<button class="zexec-btn" id="zexec-close-btn" title="Close Executive Dashboard">✕</button>',
+      '</div>',
       '</header>',
       '<nav class="zexec-tabs-bar">',
-        renderTabsBar(),
+      renderTabsBar(),
       '</nav>',
       '<div class="zexec-body">',
-        renderBody(),
+      renderBody(),
       '</div>'
     ].join('');
 
@@ -695,7 +695,7 @@
       open(t);
     } else if (S.open && window.location.hash && window.location.hash !== '#') {
       var otherDomains = ['sales', 'operations', 'inventory', 'pharmacy', 'clinics', 'reports', 'alerts', 'settings', 'finance', 'marketing', 'vendors', 'procurement', 'fashion', 'import', 'export', 'subscription', 'customer', 'doctor', 'ai', 'b2b'];
-      var isOther = otherDomains.some(function(d) { return window.location.hash.indexOf(d) >= 0; });
+      var isOther = otherDomains.some(function (d) { return window.location.hash.indexOf(d) >= 0; });
       if (isOther) close();
     }
   }

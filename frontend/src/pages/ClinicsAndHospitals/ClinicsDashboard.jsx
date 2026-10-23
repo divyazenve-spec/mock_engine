@@ -5,7 +5,7 @@ import KpiCard from '../shared/KpiCard';
 export default function ClinicsDashboard() {
   const [selectedPeriod, setSelectedPeriod] = useState('Today');
 
-    const facilityHighlights = [
+  const facilityHighlights = [
     { name: 'Zenve Indiranagar Central Hospital', type: 'Tertiary 24x7 Referral Hospital', city: 'Bengaluru', beds: '28 Beds (6 ICU)', ot: '3 Modular OTs', rev: '₹28.40 L' },
     { name: 'Zenve Bandra West Trauma Centre', type: 'Tertiary 24x7 Referral Hospital', city: 'Mumbai', beds: '24 Beds (5 ICU)', ot: '2 Modular OTs', rev: '₹25.10 L' },
     { name: 'Zenve DLF CyberCity Critical Care', type: 'Tertiary 24x7 Referral Hospital', city: 'Delhi NCR', beds: '32 Beds (8 ICU)', ot: '3 Modular OTs', rev: '₹31.25 L' },
@@ -16,7 +16,7 @@ export default function ClinicsDashboard() {
     { name: 'Zenve Saket Pet Wellness & Diagnostics', type: 'Primary OPD & Diagnostics', city: 'Delhi NCR', beds: '6 Daycare Pods', ot: '1 Minor OT', rev: '₹8.85 L' }
   ];
 
-    const liveAdmissions = [
+  const liveAdmissions = [
     { id: 'ADM-401', pet: 'Bruno (Golden Retriever, 4y)', reason: 'TPLO Cruciate Ligament Rupture', facility: 'Indiranagar Central Hospital', doctor: 'Dr. Rajeshwari Swaminathan', bed: 'ICU Pod-02', status: 'In Surgery', time: '10:30 AM' },
     { id: 'ADM-402', pet: 'Milo (Persian Cat, 3y)', reason: 'Feline Lower Urinary Tract Obstruction', facility: 'Bandra Trauma Centre', doctor: 'Dr. Pooja Mehta', bed: 'Critical Ward-04', status: 'Admitted', time: '10:45 AM' },
     { id: 'ADM-403', pet: 'Simba (German Shepherd, 6y)', reason: 'Gastric Dilatation-Volvulus (GDV)', facility: 'DLF CyberCity Hospital', doctor: 'Dr. Vikramaditya Rathore', bed: 'OT Suite-01', status: 'In Surgery', time: '11:15 AM' },
@@ -26,7 +26,7 @@ export default function ClinicsDashboard() {
     { id: 'ADM-407', pet: 'Zoe (Siberian Husky, 1y)', reason: 'Diaphragmatic Hernia Repair', facility: 'Bandra Trauma Centre', doctor: 'Dr. Vikramaditya Rathore', bed: 'ICU Pod-01', status: 'In Surgery', time: '12:00 PM' },
     { id: 'ADM-408', pet: 'Oreo (Indie Dog, 3y)', reason: 'Femoral Fracture Locking Plate', facility: 'DLF CyberCity Hospital', doctor: 'Dr. Gaurav Sharma', bed: 'Trauma Bay-02', status: 'Admitted', time: '12:15 PM' },
     { id: 'ADM-409', pet: 'Luna (British Shorthair, 4y)', reason: 'Corneal Ulcer Conjunctival Flap', facility: 'Indiranagar Central Hospital', doctor: 'Dr. Sneha Nair', bed: 'Minor OT-01', status: 'Post-Op Recovery', time: '08:50 AM' },
-    { id: 'ADM-410', pet: 'Rocky (Rottweiler, 5y)', reason: 'Acute Pancreatitis & Ketoacidosis', facility: 'Jubilee Hills Center', doctor: 'Dr. Divya Reddy', bed: 'ICU Pod-03', status: 'Admitted', time: '12:30 PM' }
+    { id: 'ADM-410', pet: 'Rocky (Rottweiler, 5y)', reason: 'Acute Pancreatitis & Ketoacidosis', facility: 'Jubilee Hills Center', doctor: 'Dr. Edwin Reddy', bed: 'ICU Pod-03', status: 'Admitted', time: '12:30 PM' }
   ];
 
   return (
@@ -92,7 +92,7 @@ export default function ClinicsDashboard() {
         </div>
       }
     >
-            {/* Network Overview KPIs */}
+      {/* Network Overview KPIs */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard label="Network Facilities" value="10 Centers" delta="+2 YoY" trend="up" subtext="5 Hospitals + 5 Clinics" icon="🏥" />
         <KpiCard label="Network Inpatient Beds" value="126 Beds" delta="82.5%" trend="up" subtext="64 Occupied / 27 ICU" icon="🛏️" />
@@ -267,10 +267,10 @@ export default function ClinicsDashboard() {
                       fontWeight: 600,
                       background: adm.status === 'In Surgery' ? 'rgba(239,68,68,0.15)' :
                         adm.status === 'Admitted' ? 'rgba(245,158,11,0.15)' :
-                        adm.status === 'Post-Op Recovery' ? 'rgba(59,130,246,0.15)' : 'rgba(16,185,129,0.15)',
+                          adm.status === 'Post-Op Recovery' ? 'rgba(59,130,246,0.15)' : 'rgba(16,185,129,0.15)',
                       color: adm.status === 'In Surgery' ? '#f87171' :
                         adm.status === 'Admitted' ? '#fbbf24' :
-                        adm.status === 'Post-Op Recovery' ? '#60a5fa' : '#34d399'
+                          adm.status === 'Post-Op Recovery' ? '#60a5fa' : '#34d399'
                     }}>
                       {adm.status}
                     </span>

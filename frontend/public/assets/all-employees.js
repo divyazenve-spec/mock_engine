@@ -17,7 +17,7 @@
     { id: 'EMP-1007', name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Clinical', loc: 'Jayanagar Specialty', email: 'pooja.hegde@zenvepet.in', phone: '+91 98450 11007', joined: '2023-08-01', status: 'Active', salary: '₹15,60,000' },
     { id: 'EMP-1008', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', loc: 'Support Node Central', email: 'm.zeeshan@zenvepet.in', phone: '+91 98450 11008', joined: '2023-07-15', status: 'Active', salary: '₹12,40,000' },
     { id: 'EMP-1009', name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', dept: 'Warehouse', loc: 'Electronic City DC', email: 'rahul.d@zenvepet.in', phone: '+91 98450 11009', joined: '2023-09-01', status: 'On Leave', salary: '₹9,80,000' },
-    { id: 'EMP-1010', name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical', loc: 'Koramangala Central', email: 'divya.n@zenvepet.in', phone: '+91 98450 11010', joined: '2024-01-10', status: 'Active', salary: '₹8,50,000' }
+    { id: 'EMP-1010', name: 'Edwin Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical', loc: 'Koramangala Central', email: 'Edwin.n@zenvepet.in', phone: '+91 98450 11010', joined: '2024-01-10', status: 'Active', salary: '₹8,50,000' }
   ];
 
   function closeOthers() {
@@ -69,7 +69,7 @@
       '    <div class="zhr-card"><div class="zhr-card-label">Total Roster</div><div class="zhr-card-value">10 Staff</div><div class="zhr-card-sub">Core roster tracked</div></div>',
       '    <div class="zhr-card"><div class="zhr-card-label">Active on Duty</div><div class="zhr-card-value">9 Staff</div><div class="zhr-card-sub">90% operational coverage</div></div>',
       '    <div class="zhr-card"><div class="zhr-card-label">On Approved Leave</div><div class="zhr-card-value">1 Staff</div><div class="zhr-card-sub">Approved casual leave</div></div>',
-      '    <div class="zhr-card"><div class="zhr-card-label">Probation / Training</div><div class="zhr-card-value">1 Staff</div><div class="zhr-card-sub">Divya Nambiar (Q4)</div></div>',
+      '    <div class="zhr-card"><div class="zhr-card-label">Probation / Training</div><div class="zhr-card-value">1 Staff</div><div class="zhr-card-sub">Edwin Nambiar (Q4)</div></div>',
       '  </div>',
       '  <div class="zhr-card" style="padding:12px 18px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;">',
       '    <input type="text" id="zhr-search-input" placeholder="Search by name, role, department, location, ID..." style="flex:1;max-width:450px;padding:8px 14px;border-radius:7px;border:1px solid rgba(255,255,255,0.12);background:rgba(0,0,0,0.3);color:#fff;font-size:12px;outline:none;" />',

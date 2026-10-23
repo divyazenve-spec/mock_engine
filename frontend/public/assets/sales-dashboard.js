@@ -39,15 +39,15 @@
     'Cardiology': { name: 'Dr. Arvind Swaminathan', spec: 'Cardiologist, MD, DM', reg: 'MCI-48291', av: 'AS' },
     'Neurology': { name: 'Dr. Meera Nambiar', spec: 'Senior Neurologist, MD', reg: 'MCI-39102', av: 'MN' },
     'Pediatrics': { name: 'Dr. Siddharth Rao', spec: 'Pediatric Specialist, DCH', reg: 'MCI-51829', av: 'SR' },
-    'General Medicine': { name: 'Dr. Divya Balasubramanian', spec: 'Lead Physician, MBBS, MD', reg: 'MCI-62910', av: 'DB' },
-    'General Care': { name: 'Dr. Divya Balasubramanian', spec: 'Lead Physician, MBBS, MD', reg: 'MCI-62910', av: 'DB' },
+    'General Medicine': { name: 'Dr. Edwin .', spec: 'Lead Physician, MBBS, MD', reg: 'MCI-62910', av: 'DB' },
+    'General Care': { name: 'Dr. Edwin .', spec: 'Lead Physician, MBBS, MD', reg: 'MCI-62910', av: 'DB' },
     'Diagnostics': { name: 'Dr. Kavita Reddy', spec: 'Clinical Pathologist, MD', reg: 'MCI-29481', av: 'KR' },
     'Orthopedics': { name: 'Dr. Rohan Kulkarni', spec: 'Orthopedic Surgeon, MS', reg: 'MCI-73019', av: 'RK' },
     'Dermatology': { name: 'Dr. Alok Verma', spec: 'Consultant Dermatologist, MD', reg: 'MCI-84012', av: 'AV' },
     'Wellness': { name: 'Dr. Sunita Sen', spec: 'Wellness & Preventive Care, MD', reg: 'MCI-91823', av: 'SS' }
   };
   var DOCTOR_LIST = [
-    { name: 'Dr. Divya Balasubramanian', spec: 'Chief Veterinary Surgeon, MVSc', reg: 'KVC-8492', av: 'DB' },
+    { name: 'Dr. Edwin .', spec: 'Chief Veterinary Surgeon, MVSc', reg: 'KVC-8492', av: 'DB' },
     { name: 'Dr. Ananya Deshmukh', spec: 'Small Animal Internist, MVSc', reg: 'MVC-5120', av: 'AD' },
     { name: 'Dr. Vikramaditya Rathore', spec: 'Orthopedic Veterinary Specialist', reg: 'DVC-3914', av: 'VR' },
     { name: 'Dr. Priya Sharma', spec: 'Veterinary Surgeon, BVSc & AH', reg: 'KVC-7104', av: 'PS' },
@@ -61,7 +61,7 @@
 
   function getDoctorForSale(s) {
     if (s.doctor) {
-      var av = s.doctor.split(/\s+/).map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
+      var av = s.doctor.split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
       return { name: s.doctor, spec: s.specialty || 'Medical Specialist', reg: s.reg || 'MCI-Active', av: av || 'DR' };
     }
     if (s.source && DOCTOR_SPECIALTIES[s.source]) {
@@ -88,7 +88,7 @@
 
   function getEmployeeForSale(s) {
     if (s.employee) {
-      var av = s.employee.split(/\s+/).map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
+      var av = s.employee.split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
       return { id: s.employee_id || 'EMP', name: s.employee, dept: s.department || 'Operations', role: s.role || 'Coordinator', av: av || 'EM', target: 180000 };
     }
     var str = (s.transaction_ref || '') + (s.source || '');
@@ -1651,7 +1651,7 @@
       return it;
     }).sort(function (a, b) { return b.rev - a.rev; });
 
-    var topDoc = docData[0] || { name: 'Dr. Divya Balasubramanian', rev: 0, share: 0 };
+    var topDoc = docData[0] || { name: 'Dr. Edwin .', rev: 0, share: 0 };
     var kpiCards = [
       ['Medical Specialists', docData.length + ' doctors', '<div class="zsd-delta">Consulting physicians & surgeons</div>'],
       ['Leading Physician', topDoc.name + ' (' + topDoc.share.toFixed(1) + '%)', '<div class="zsd-delta up">' + inr.format(topDoc.rev) + ' generated</div>'],
@@ -1902,7 +1902,7 @@
     var listAll = rows(S.from, S.to, 'funnelStage');
     if (!listAll.length) listAll = DEFAULT_FUNNEL_LEADS.slice();
     var pAll = paid(listAll);
-    if (!pAll.length) pAll = listAll.filter(function(s){ return s.status === 'Paid'; });
+    if (!pAll.length) pAll = listAll.filter(function (s) { return s.status === 'Paid'; });
     var totPaidAll = sum(pAll) || 948200;
 
     // Current period funnel stats
@@ -2001,7 +2001,7 @@
 
     // 4. Conversion Velocity & Pipeline Cohort Trend
     var curSeries = series(S.from, S.to);
-    if (!curSeries.length || curSeries.every(function(d){ return d.orders === 0; })) {
+    if (!curSeries.length || curSeries.every(function (d) { return d.orders === 0; })) {
       curSeries = [
         { day: '2026-10-04', orders: 12, rev: 27600 },
         { day: '2026-10-05', orders: 15, rev: 34500 },
@@ -2194,13 +2194,13 @@
     { rank: 5, name: 'Rohan Mehta', dept: 'Veterinary Dentistry', role: 'Specialty Care Consultant', target: 900000, achieved: 980000, attain: '108.9%', variance: '+₹80,000' },
     { rank: 6, name: 'Meenakshi Rao', dept: 'Tele-Health & Triage', role: 'Clinical Triage Rep', target: 850000, achieved: 910000, attain: '107.1%', variance: '+₹60,000' },
     { rank: 7, name: 'Arjun Nambisan', dept: 'Ambulance & Dispatch', role: 'Field Ops Manager', target: 800000, achieved: 845000, attain: '105.6%', variance: '+₹45,000' },
-    { rank: 8, name: 'Divya Namboodiri', dept: 'Wellness & Vaccines', role: 'Patient Care Executive', target: 750000, achieved: 780000, attain: '104.0%', variance: '+₹30,000' },
+    { rank: 8, name: 'Edwin Namboodiri', dept: 'Wellness & Vaccines', role: 'Patient Care Executive', target: 750000, achieved: 780000, attain: '104.0%', variance: '+₹30,000' },
     { rank: 9, name: 'Vikram Chawla', dept: 'Corporate Benefits', role: 'B2B Accounts Lead', target: 700000, achieved: 715000, attain: '102.1%', variance: '+₹15,000' },
     { rank: 10, name: 'Shreya Iyer', dept: 'Preventive Care', role: 'Care Coordinator', target: 650000, achieved: 620000, attain: '95.4%', variance: '-₹30,000' }
   ];
 
   var TARGET_DOCTORS = [
-    { name: 'Dr. Divya Balasubramanian', spec: 'Chief Veterinary Surgeon, MVSc', cTarget: 260, cDone: 320, cAttain: '123.1%', rTarget: 960000, rDone: 1180000, rAttain: '122.9%' },
+    { name: 'Dr. Edwin .', spec: 'Chief Veterinary Surgeon, MVSc', cTarget: 260, cDone: 320, cAttain: '123.1%', rTarget: 960000, rDone: 1180000, rAttain: '122.9%' },
     { name: 'Dr. Ananya Deshmukh', spec: 'Small Animal Internist, MVSc', cTarget: 250, cDone: 290, cAttain: '116.0%', rTarget: 870000, rDone: 1020000, rAttain: '117.2%' },
     { name: 'Dr. Vikramaditya Rathore', spec: 'Orthopedic Veterinary Specialist', cTarget: 210, cDone: 240, cAttain: '114.3%', rTarget: 760000, rDone: 875000, rAttain: '115.1%' },
     { name: 'Dr. Priya Sharma', spec: 'Veterinary Surgeon, BVSc & AH', cTarget: 200, cDone: 230, cAttain: '115.0%', rTarget: 710000, rDone: 815000, rAttain: '114.8%' },
@@ -2406,7 +2406,7 @@
 
     var visibleSchedule = schedule.slice(0, horizon);
     var nextMonthRev = schedule[0].rev;
-    var cumulativeRev = visibleSchedule.reduce(function(a, b){ return a + b.rev; }, 0);
+    var cumulativeRev = visibleSchedule.reduce(function (a, b) { return a + b.rev; }, 0);
     var avgDailyRate = Math.round(nextMonthRev / 30);
 
     var forecastHero =
@@ -2446,8 +2446,8 @@
 
     var CW = 900, CH = 260, CL = 60, CR = 20, CT = 20, CB = 30, ciw = CW - CL - CR, cih = CH - CT - CB;
     var cMax = 2200000;
-    var cX = function(idx) { return CL + idx * (ciw / (chartPts.length - 1)); };
-    var cY = function(val) { return CT + cih - (val / cMax * cih); };
+    var cX = function (idx) { return CL + idx * (ciw / (chartPts.length - 1)); };
+    var cY = function (val) { return CT + cih - (val / cMax * cih); };
 
     var cGrid = '';
     for (var g = 0; g <= 4; g++) {
@@ -2473,7 +2473,7 @@
 
     var confidenceBandArea = (upperPath && lowerPath) ? upperPath + lowerPath + ' Z' : '';
 
-    var cLabels = chartPts.map(function(pt, idx) {
+    var cLabels = chartPts.map(function (pt, idx) {
       return '<text x="' + cX(idx).toFixed(1) + '" y="' + (CH - 8) + '" text-anchor="middle" font-size="10" fill="' + (pt.actual ? 'var(--foreground)' : '#a78bfa') + '">' + pt.m + '</text>';
     }).join('');
 
@@ -2486,7 +2486,7 @@
       (confidenceBandArea ? '<path d="' + confidenceBandArea + '" fill="url(#zsd-fc-band-grad)"/>' : '') +
       '<path d="' + actualPath + '" fill="none" stroke="#10b981" stroke-width="2.6"/>' +
       '<path d="' + projPath + '" fill="none" stroke="#a78bfa" stroke-width="2.6" stroke-dasharray="5 4"/>' +
-      chartPts.map(function(pt, idx) {
+      chartPts.map(function (pt, idx) {
         if (pt.actual != null) {
           return '<circle cx="' + cX(idx).toFixed(1) + '" cy="' + cY(pt.actual).toFixed(1) + '" r="4" fill="#10b981"/>';
         }
@@ -2630,16 +2630,16 @@
 
   function open(tab) {
     if (window.ZenveOperationsDashboard && typeof window.ZenveOperationsDashboard.close === 'function') {
-      try { window.ZenveOperationsDashboard.close(); } catch (e) {}
+      try { window.ZenveOperationsDashboard.close(); } catch (e) { }
     }
     if (window.ZenveProductsInventory && typeof window.ZenveProductsInventory.close === 'function') {
-      try { window.ZenveProductsInventory.close(); } catch (e) {}
+      try { window.ZenveProductsInventory.close(); } catch (e) { }
     }
     if (window.ZenvePharmacyDashboard && typeof window.ZenvePharmacyDashboard.close === 'function') {
-      try { window.ZenvePharmacyDashboard.close(); } catch (e) {}
+      try { window.ZenvePharmacyDashboard.close(); } catch (e) { }
     }
     if (window.ZenveClinicsDashboard && typeof window.ZenveClinicsDashboard.close === 'function') {
-      try { window.ZenveClinicsDashboard.close(); } catch (e) {}
+      try { window.ZenveClinicsDashboard.close(); } catch (e) { }
     }
     document.querySelectorAll('.zpanel-root, [id$="-root"]').forEach(function (el) {
       if (el.id !== 'zsd-root') el.classList.remove('zpanel-open', 'zod-open', 'zsd-open', 'zpid-open', 'zph-open', 'zch-open');
@@ -2668,12 +2668,12 @@
         if (d.closest('#zsd-root')) return;
         var btn = d.querySelector('button[aria-label*="close" i], button:last-child');
         if (btn) {
-          try { btn.click(); } catch (err) {}
+          try { btn.click(); } catch (err) { }
         }
-        try { d.remove(); } catch (err) {}
+        try { d.remove(); } catch (err) { }
       });
       document.querySelectorAll('[data-radix-focus-guard], [data-radix-popper-content-wrapper], [data-radix-portal]').forEach(function (g) {
-        try { g.remove(); } catch (err) {}
+        try { g.remove(); } catch (err) { }
       });
       document.body.style.pointerEvents = '';
       document.body.style.overflow = '';

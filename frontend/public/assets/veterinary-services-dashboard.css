@@ -32,13 +32,16 @@
 #zvs-root::-webkit-scrollbar {
   width: 6px;
 }
+
 #zvs-root::-webkit-scrollbar-track {
   background: #f8fafc;
 }
+
 #zvs-root::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 6px;
 }
+
 #zvs-root::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
@@ -126,9 +129,20 @@
 }
 
 @keyframes zvsPulse {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.25); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.8; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
 }
 
 .zvs-subtitle {
@@ -335,9 +349,17 @@
   font-weight: 700;
 }
 
-.zvs-delta.up { color: #16a34a; }
-.zvs-delta.down { color: #dc2626; }
-.zvs-delta.neutral { color: #64748b; }
+.zvs-delta.up {
+  color: #16a34a;
+}
+
+.zvs-delta.down {
+  color: #dc2626;
+}
+
+.zvs-delta.neutral {
+  color: #64748b;
+}
 
 .zvs-subtext {
   font-size: 11px;
@@ -426,12 +448,36 @@
   text-transform: uppercase;
 }
 
-.zvs-tag.green { background: #dcfce7; color: #15803d; }
-.zvs-tag.blue { background: #eff6ff; color: #1d4ed8; }
-.zvs-tag.yellow { background: #fef9c3; color: #854d0e; }
-.zvs-tag.red { background: #fee2e2; color: #b91c1c; }
-.zvs-tag.purple { background: #f3e8ff; color: #7e22ce; }
-.zvs-tag.cyan { background: #ecfeff; color: #0891b2; border: 1px solid #a5f3fc; }
+.zvs-tag.green {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.zvs-tag.blue {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.zvs-tag.yellow {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.zvs-tag.red {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.zvs-tag.purple {
+  background: #f3e8ff;
+  color: #7e22ce;
+}
+
+.zvs-tag.cyan {
+  background: #ecfeff;
+  color: #0891b2;
+  border: 1px solid #a5f3fc;
+}
 
 /* ── Filters & Search ─────────────────────────────────────────────── */
 .zvs-filter-bar {
@@ -456,7 +502,8 @@
   background: #ffffff;
 }
 
-.zvs-input:focus, .zvs-select:focus {
+.zvs-input:focus,
+.zvs-select:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
@@ -497,8 +544,15 @@
 }
 
 @keyframes zvsPop {
-  0% { transform: scale(0.96); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .zvs-modal-head {
@@ -555,8 +609,15 @@
 }
 
 @keyframes zvsSlideUp {
-  0% { transform: translateY(12px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ── Sidebar Active Sync ──────────────────────────────────────────── */

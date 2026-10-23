@@ -24,15 +24,15 @@
 
   /* ── 9 Subdomains Configuration ─────────────────────────────────── */
   var TABS = [
-    { id: 'dashboard',    label: 'B2B Dashboard',        icon: '🏢', hash: '#b2b-dashboard',       badge: '',    title: 'B2B Enterprise & Institutional Accounts', sub: 'Corporate kennels, breeder partnerships, institutional hospital contracts, and wholesale volume receivables' },
-    { id: 'customers',    label: 'Enterprise Customers', icon: '👥', hash: '#enterprise-customers', badge: '',   title: 'Enterprise Key Decision Makers & Stakeholders', sub: 'Corporate buyer hierarchy, authorized procurement officers, and institutional account owners' },
-    { id: 'accounts',     label: 'Corporate Accounts',   icon: '🏛️', hash: '#corporate-accounts',   badge: '', title: 'Corporate Account Master & Credit Sanctions', sub: 'Corporate KYC compliance, GSTIN master, revolving credit sanctions, and relationship manager assignments' },
-    { id: 'orders',       label: 'B2B Orders',           icon: '📦', hash: '#b2b-orders',           badge: '',    title: 'B2B Purchase Orders & Bulk Fulfillment', sub: 'Institutional purchase orders, batch fulfillment allocations, warehouse dispatch manifests, and invoice linking' },
-    { id: 'sales',        label: 'B2B Sales',            icon: '💼', hash: '#b2b-sales',            badge: '',    title: 'Enterprise Sales Pipeline & Performance', sub: 'Deal stage velocity, relationship manager quotas, RFP win-loss ratios, and qualified corporate pipeline' },
-    { id: 'revenue',      label: 'B2B Revenue',          icon: '💰', hash: '#b2b-revenue',          badge: '',    title: 'B2B Revenue Trajectory & Unit Economics', sub: 'Institutional revenue breakdowns, channel contribution margins, contract run rates, and fiscal projections' },
-    { id: 'contracts',    label: 'Contracts',            icon: '📜', hash: '#contracts',            badge: '', title: 'Master Services Agreements (MSA) & Deeds', sub: 'Corporate legal master deeds, SLA penalty terms, renewal milestones, and compliance tracking' },
-    { id: 'pricing',      label: 'Enterprise Pricing',   icon: '🏷️', hash: '#enterprise-pricing',   badge: '', title: 'Enterprise Tiered Pricing & Rate Cards', sub: 'Volume discount tiers, institutional master rate cards, MOQs, and corporate price lock guarantees' },
-    { id: 'receivables',  label: 'B2B Receivables',      icon: '💳', hash: '#b2b-receivables',      badge: '',   title: 'B2B Accounts Receivable & Aging Ledger', sub: 'Corporate invoice aging buckets, DSO tracking, collections follow-up, and institutional credit risk' }
+    { id: 'dashboard', label: 'B2B Dashboard', icon: '🏢', hash: '#b2b-dashboard', badge: '', title: 'B2B Enterprise & Institutional Accounts', sub: 'Corporate kennels, breeder partnerships, institutional hospital contracts, and wholesale volume receivables' },
+    { id: 'customers', label: 'Enterprise Customers', icon: '👥', hash: '#enterprise-customers', badge: '', title: 'Enterprise Key Decision Makers & Stakeholders', sub: 'Corporate buyer hierarchy, authorized procurement officers, and institutional account owners' },
+    { id: 'accounts', label: 'Corporate Accounts', icon: '🏛️', hash: '#corporate-accounts', badge: '', title: 'Corporate Account Master & Credit Sanctions', sub: 'Corporate KYC compliance, GSTIN master, revolving credit sanctions, and relationship manager assignments' },
+    { id: 'orders', label: 'B2B Orders', icon: '📦', hash: '#b2b-orders', badge: '', title: 'B2B Purchase Orders & Bulk Fulfillment', sub: 'Institutional purchase orders, batch fulfillment allocations, warehouse dispatch manifests, and invoice linking' },
+    { id: 'sales', label: 'B2B Sales', icon: '💼', hash: '#b2b-sales', badge: '', title: 'Enterprise Sales Pipeline & Performance', sub: 'Deal stage velocity, relationship manager quotas, RFP win-loss ratios, and qualified corporate pipeline' },
+    { id: 'revenue', label: 'B2B Revenue', icon: '💰', hash: '#b2b-revenue', badge: '', title: 'B2B Revenue Trajectory & Unit Economics', sub: 'Institutional revenue breakdowns, channel contribution margins, contract run rates, and fiscal projections' },
+    { id: 'contracts', label: 'Contracts', icon: '📜', hash: '#contracts', badge: '', title: 'Master Services Agreements (MSA) & Deeds', sub: 'Corporate legal master deeds, SLA penalty terms, renewal milestones, and compliance tracking' },
+    { id: 'pricing', label: 'Enterprise Pricing', icon: '🏷️', hash: '#enterprise-pricing', badge: '', title: 'Enterprise Tiered Pricing & Rate Cards', sub: 'Volume discount tiers, institutional master rate cards, MOQs, and corporate price lock guarantees' },
+    { id: 'receivables', label: 'B2B Receivables', icon: '💳', hash: '#b2b-receivables', badge: '', title: 'B2B Accounts Receivable & Aging Ledger', sub: 'Corporate invoice aging buckets, DSO tracking, collections follow-up, and institutional credit risk' }
   ];
 
   /* ── Master Datasets (10 Mock Records Each) ───────────────────────── */
@@ -85,7 +85,7 @@
     { rep: 'Rohit Kulkarni (Breeder & Kennel Lead)', accounts: 12, quota: '₹40,00,000', actual: '₹43,10,000', attainment: '107.8%', pipeline: '₹21,50,000', commission: '₹2,15,500' },
     { rep: 'Meera Nambiar (South Regional Enterprise RM)', accounts: 7, quota: '₹48,00,000', actual: '₹49,90,000', attainment: '104.0%', pipeline: '₹23,00,000', commission: '₹2,49,500' },
     { rep: 'Siddharth Joshi (West Regional Enterprise RM)', accounts: 8, quota: '₹52,00,000', actual: '₹54,60,000', attainment: '105.0%', pipeline: '₹27,50,000', commission: '₹2,73,000' },
-    { rep: 'Divya Nair (Strategic RFP & Contracts Lead)', accounts: 9, quota: '₹58,00,000', actual: '₹61,40,000', attainment: '105.9%', pipeline: '₹31,00,000', commission: '₹3,07,000' }
+    { rep: 'Edwin Nair (Strategic RFP & Contracts Lead)', accounts: 9, quota: '₹58,00,000', actual: '₹61,40,000', attainment: '105.9%', pipeline: '₹31,00,000', commission: '₹3,07,000' }
   ];
 
   var REVENUE_STREAMS = [
@@ -203,15 +203,15 @@
   function kpiHtml(label, val, delta, trend, subtext, icon) {
     return [
       '<div class="zb2b-kpi">',
-        '<div class="zb2b-kpi-top">',
-          '<span class="zb2b-kpi-label">' + esc(label) + '</span>',
-          '<span class="zb2b-kpi-icon">' + esc(icon || '🏢') + '</span>',
-        '</div>',
-        '<div class="zb2b-kpi-val">' + esc(val) + '</div>',
-        '<div class="zb2b-kpi-bottom">',
-          '<span class="zb2b-delta ' + (trend === 'up' ? 'up' : trend === 'down' ? 'down' : trend === 'neutral' ? 'neutral' : 'warn') + '">' + (trend === 'up' ? '↑ ' : trend === 'down' ? '↓ ' : '• ') + esc(delta) + '</span>',
-          '<span class="zb2b-subtext">' + esc(subtext) + '</span>',
-        '</div>',
+      '<div class="zb2b-kpi-top">',
+      '<span class="zb2b-kpi-label">' + esc(label) + '</span>',
+      '<span class="zb2b-kpi-icon">' + esc(icon || '🏢') + '</span>',
+      '</div>',
+      '<div class="zb2b-kpi-val">' + esc(val) + '</div>',
+      '<div class="zb2b-kpi-bottom">',
+      '<span class="zb2b-delta ' + (trend === 'up' ? 'up' : trend === 'down' ? 'down' : trend === 'neutral' ? 'neutral' : 'warn') + '">' + (trend === 'up' ? '↑ ' : trend === 'down' ? '↓ ' : '• ') + esc(delta) + '</span>',
+      '<span class="zb2b-subtext">' + esc(subtext) + '</span>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -220,41 +220,41 @@
   function renderDashboard() {
     return [
       '<div class="zb2b-kpi-grid">',
-        kpiHtml('B2B Gross Revenue (MTD)', '₹24,40,000', '14.8%', 'up', 'vs last month', '🏢'),
-        kpiHtml('Active Corporate Clients', '10 Accounts', '+2 New', 'up', '100% compliant', '📑'),
-        kpiHtml('Avg. Contract Value (ACV)', '₹32,45,000', '8.2%', 'up', 'Annualized', '💼'),
-        kpiHtml('Outstanding Receivables', '₹39,85,000', 'DSO 34d', 'neutral', 'Within credit terms', '💰'),
-        kpiHtml('Wholesale Gross Margin', '36.8%', '2.4%', 'up', 'Target 35%', '📈'),
-        kpiHtml('Contract Renewal Rate', '98.5%', '1.5%', 'up', 'Industry leading', '🛡️'),
+      kpiHtml('B2B Gross Revenue (MTD)', '₹24,40,000', '14.8%', 'up', 'vs last month', '🏢'),
+      kpiHtml('Active Corporate Clients', '10 Accounts', '+2 New', 'up', '100% compliant', '📑'),
+      kpiHtml('Avg. Contract Value (ACV)', '₹32,45,000', '8.2%', 'up', 'Annualized', '💼'),
+      kpiHtml('Outstanding Receivables', '₹39,85,000', 'DSO 34d', 'neutral', 'Within credit terms', '💰'),
+      kpiHtml('Wholesale Gross Margin', '36.8%', '2.4%', 'up', 'Target 35%', '📈'),
+      kpiHtml('Contract Renewal Rate', '98.5%', '1.5%', 'up', 'Industry leading', '🛡️'),
       '</div>',
 
       '<div class="zb2b-card">',
-        '<div class="zb2b-card-head">',
-          '<div>',
-            '<h3 class="zb2b-card-title">🏢 Major Enterprise & Institutional Accounts (10 Active)</h3>',
-            '<p class="zb2b-card-sub">Commercial standing, contracted commitments, and active credit utilization</p>',
-          '</div>',
-          '<button class="zb2b-btn primary" onclick="ZenveB2BDashboard.showOnboardModal()">+ Onboard Client</button>',
-        '</div>',
-        '<div class="zb2b-table-wrap">',
-          '<table class="zb2b-table">',
-            '<thead><tr><th>Account ID</th><th>Organization Name</th><th>Category</th><th>Annual Contract</th><th>MTD Run Rate</th><th>Credit Terms</th><th>Account RM</th><th>Status</th></tr></thead>',
-            '<tbody>',
-              (ACCOUNTS.map(function(a) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:600;">' + esc(a.id) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(a.name) + '</td>' +
-                  '<td>' + esc(a.category) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(a.contractVal) + '</td>' +
-                  '<td style="color:#059669;font-weight:600;">' + esc(a.mtdOrders) + '</td>' +
-                  '<td>' + esc(a.terms) + ' (' + esc(a.creditLimit) + ')</td>' +
-                  '<td>' + esc(a.rm) + '</td>' +
-                  '<td><span class="zb2b-pill active">' + esc(a.status) + '</span></td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zb2b-card-head">',
+      '<div>',
+      '<h3 class="zb2b-card-title">🏢 Major Enterprise & Institutional Accounts (10 Active)</h3>',
+      '<p class="zb2b-card-sub">Commercial standing, contracted commitments, and active credit utilization</p>',
+      '</div>',
+      '<button class="zb2b-btn primary" onclick="ZenveB2BDashboard.showOnboardModal()">+ Onboard Client</button>',
+      '</div>',
+      '<div class="zb2b-table-wrap">',
+      '<table class="zb2b-table">',
+      '<thead><tr><th>Account ID</th><th>Organization Name</th><th>Category</th><th>Annual Contract</th><th>MTD Run Rate</th><th>Credit Terms</th><th>Account RM</th><th>Status</th></tr></thead>',
+      '<tbody>',
+      (ACCOUNTS.map(function (a) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:600;">' + esc(a.id) + '</td>' +
+          '<td style="font-weight:600;">' + esc(a.name) + '</td>' +
+          '<td>' + esc(a.category) + '</td>' +
+          '<td style="font-weight:600;">' + esc(a.contractVal) + '</td>' +
+          '<td style="color:#059669;font-weight:600;">' + esc(a.mtdOrders) + '</td>' +
+          '<td>' + esc(a.terms) + ' (' + esc(a.creditLimit) + ')</td>' +
+          '<td>' + esc(a.rm) + '</td>' +
+          '<td><span class="zb2b-pill active">' + esc(a.status) + '</span></td>' +
+          '</tr>';
+      }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -262,33 +262,33 @@
   function renderCustomers() {
     return [
       '<div class="zb2b-kpi-grid">',
-        kpiHtml('Enterprise Stakeholders', '10 Key Contacts', '+3 Added', 'up', 'Authorized procurement heads', '👥'),
-        kpiHtml('Tier 1 Enterprise Clients', '5 Accounts', '50.0%', 'up', 'High-volume clinical buyers', '⭐'),
-        kpiHtml('Corporate Account NPS', '84 NPS', '+6 pts', 'up', 'Quarterly client survey', '🎯'),
-        kpiHtml('Avg Client Tenure', '3.4 Years', '0.8y', 'up', 'Multi-year commitments', '📅'),
+      kpiHtml('Enterprise Stakeholders', '10 Key Contacts', '+3 Added', 'up', 'Authorized procurement heads', '👥'),
+      kpiHtml('Tier 1 Enterprise Clients', '5 Accounts', '50.0%', 'up', 'High-volume clinical buyers', '⭐'),
+      kpiHtml('Corporate Account NPS', '84 NPS', '+6 pts', 'up', 'Quarterly client survey', '🎯'),
+      kpiHtml('Avg Client Tenure', '3.4 Years', '0.8y', 'up', 'Multi-year commitments', '📅'),
       '</div>',
       '<div class="zb2b-card">',
-        '<div class="zb2b-card-head">',
-          '<div><h3 class="zb2b-card-title">👥 Enterprise Decision Makers Directory (10 Stakeholders)</h3><p class="zb2b-card-sub">Procurement heads, authorized signatories, and annual spend allocation</p></div>',
-        '</div>',
-        '<div class="zb2b-table-wrap">',
-          '<table class="zb2b-table">',
-            '<thead><tr><th>Contact ID</th><th>Procurement Head</th><th>Enterprise Organization</th><th>Classification</th><th>Locations</th><th>Annual Spend</th><th>Contact Details</th></tr></thead>',
-            '<tbody>',
-              (CUSTOMERS.map(function(c) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:600;">' + esc(c.id) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(c.name) + '</td>' +
-                  '<td>' + esc(c.company) + '</td>' +
-                  '<td><span class="zb2b-pill active">' + esc(c.tier) + '</span></td>' +
-                  '<td>' + esc(c.locations) + '</td>' +
-                  '<td style="color:#059669;font-weight:600;">' + esc(c.annualSpend) + '</td>' +
-                  '<td style="font-family:monospace;font-size:11px;">' + esc(c.contact) + '</td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zb2b-card-head">',
+      '<div><h3 class="zb2b-card-title">👥 Enterprise Decision Makers Directory (10 Stakeholders)</h3><p class="zb2b-card-sub">Procurement heads, authorized signatories, and annual spend allocation</p></div>',
+      '</div>',
+      '<div class="zb2b-table-wrap">',
+      '<table class="zb2b-table">',
+      '<thead><tr><th>Contact ID</th><th>Procurement Head</th><th>Enterprise Organization</th><th>Classification</th><th>Locations</th><th>Annual Spend</th><th>Contact Details</th></tr></thead>',
+      '<tbody>',
+      (CUSTOMERS.map(function (c) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:600;">' + esc(c.id) + '</td>' +
+          '<td style="font-weight:600;">' + esc(c.name) + '</td>' +
+          '<td>' + esc(c.company) + '</td>' +
+          '<td><span class="zb2b-pill active">' + esc(c.tier) + '</span></td>' +
+          '<td>' + esc(c.locations) + '</td>' +
+          '<td style="color:#059669;font-weight:600;">' + esc(c.annualSpend) + '</td>' +
+          '<td style="font-family:monospace;font-size:11px;">' + esc(c.contact) + '</td>' +
+          '</tr>';
+      }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -296,34 +296,34 @@
   function renderAccounts() {
     return [
       '<div class="zb2b-kpi-grid">',
-        kpiHtml('Total Sanctioned Credit', '₹1,78,00,000', '10 Accounts', 'up', 'Board approved credit limits', '🏛️'),
-        kpiHtml('Credit Utilization', '44.6%', '₹79.4L drawn', 'neutral', 'Safe operating buffer', '📊'),
-        kpiHtml('Avg Payment Terms', '38.5 Days', '-3.5d', 'up', 'Weighted invoice collection', '⏱️'),
-        kpiHtml('GST & E-Invoicing', '100.0%', '10/10 verified', 'up', 'Fully tax compliant', '✅'),
+      kpiHtml('Total Sanctioned Credit', '₹1,78,00,000', '10 Accounts', 'up', 'Board approved credit limits', '🏛️'),
+      kpiHtml('Credit Utilization', '44.6%', '₹79.4L drawn', 'neutral', 'Safe operating buffer', '📊'),
+      kpiHtml('Avg Payment Terms', '38.5 Days', '-3.5d', 'up', 'Weighted invoice collection', '⏱️'),
+      kpiHtml('GST & E-Invoicing', '100.0%', '10/10 verified', 'up', 'Fully tax compliant', '✅'),
       '</div>',
       '<div class="zb2b-card">',
-        '<div class="zb2b-card-head">',
-          '<div><h3 class="zb2b-card-title">🏛️ Corporate Credit Sanctions & Risk Ledger (10 Accounts)</h3><p class="zb2b-card-sub">Assigned credit limits, drawn balances, GSTINs, and risk grades</p></div>',
-        '</div>',
-        '<div class="zb2b-table-wrap">',
-          '<table class="zb2b-table">',
-            '<thead><tr><th>Account Code</th><th>Corporate Entity</th><th>GSTIN</th><th>Sanctioned Limit</th><th>Used Credit</th><th>Terms</th><th>Account RM</th><th>Risk Grade</th></tr></thead>',
-            '<tbody>',
-              (ACCOUNTS.map(function(a) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:600;">' + esc(a.id) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(a.name) + '</td>' +
-                  '<td style="font-family:monospace;font-size:11px;">' + esc(a.gst) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(a.creditLimit) + '</td>' +
-                  '<td style="color:#4338ca;font-weight:600;">' + esc(a.usedCredit) + '</td>' +
-                  '<td>' + esc(a.terms) + '</td>' +
-                  '<td>' + esc(a.rm) + '</td>' +
-                  '<td><span class="zb2b-pill ' + (a.risk === 'Low Risk' ? 'active' : 'warning') + '">' + esc(a.risk) + '</span></td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zb2b-card-head">',
+      '<div><h3 class="zb2b-card-title">🏛️ Corporate Credit Sanctions & Risk Ledger (10 Accounts)</h3><p class="zb2b-card-sub">Assigned credit limits, drawn balances, GSTINs, and risk grades</p></div>',
+      '</div>',
+      '<div class="zb2b-table-wrap">',
+      '<table class="zb2b-table">',
+      '<thead><tr><th>Account Code</th><th>Corporate Entity</th><th>GSTIN</th><th>Sanctioned Limit</th><th>Used Credit</th><th>Terms</th><th>Account RM</th><th>Risk Grade</th></tr></thead>',
+      '<tbody>',
+      (ACCOUNTS.map(function (a) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:600;">' + esc(a.id) + '</td>' +
+          '<td style="font-weight:600;">' + esc(a.name) + '</td>' +
+          '<td style="font-family:monospace;font-size:11px;">' + esc(a.gst) + '</td>' +
+          '<td style="font-weight:600;">' + esc(a.creditLimit) + '</td>' +
+          '<td style="color:#4338ca;font-weight:600;">' + esc(a.usedCredit) + '</td>' +
+          '<td>' + esc(a.terms) + '</td>' +
+          '<td>' + esc(a.rm) + '</td>' +
+          '<td><span class="zb2b-pill ' + (a.risk === 'Low Risk' ? 'active' : 'warning') + '">' + esc(a.risk) + '</span></td>' +
+          '</tr>';
+      }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -331,34 +331,34 @@
   function renderOrders() {
     return [
       '<div class="zb2b-kpi-grid">',
-        kpiHtml('B2B Orders (MTD)', '28 Orders', '18.2%', 'up', 'Institutional order volume', '📦'),
-        kpiHtml('Order Value Realized', '₹38,70,000', '22.4%', 'up', 'MTD dispatched revenue', '💵'),
-        kpiHtml('On-Time Dispatch SLA', '98.2%', '1.2%', 'up', 'Dispatched within 24-48h', '⚡'),
-        kpiHtml('Open Warehouse POs', '3 Orders', '₹8.4L Value', 'neutral', 'Packing & QC allocation', '⏳'),
+      kpiHtml('B2B Orders (MTD)', '28 Orders', '18.2%', 'up', 'Institutional order volume', '📦'),
+      kpiHtml('Order Value Realized', '₹38,70,000', '22.4%', 'up', 'MTD dispatched revenue', '💵'),
+      kpiHtml('On-Time Dispatch SLA', '98.2%', '1.2%', 'up', 'Dispatched within 24-48h', '⚡'),
+      kpiHtml('Open Warehouse POs', '3 Orders', '₹8.4L Value', 'neutral', 'Packing & QC allocation', '⏳'),
       '</div>',
       '<div class="zb2b-card">',
-        '<div class="zb2b-card-head">',
-          '<div><h3 class="zb2b-card-title">📦 Live Institutional Purchase Orders (10 Orders)</h3><p class="zb2b-card-sub">Active corporate purchase orders, item allocation, and logistics status</p></div>',
-          '<button class="zb2b-btn primary" onclick="ZenveB2BDashboard.showPOModal()">+ Create B2B Order</button>',
-        '</div>',
-        '<div class="zb2b-table-wrap">',
-          '<table class="zb2b-table">',
-            '<thead><tr><th>PO Number</th><th>Client Entity</th><th>Line Items Description</th><th>PO Value</th><th>Order Date</th><th>Dispatch ETA</th><th>Status</th></tr></thead>',
-            '<tbody>',
-              (ORDERS.map(function(o) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:600;">' + esc(o.po) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(o.client) + '</td>' +
-                  '<td>' + esc(o.items) + '</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(o.val) + '</td>' +
-                  '<td>' + esc(o.orderDate) + '</td>' +
-                  '<td>' + esc(o.dispatchDate) + '</td>' +
-                  '<td><span class="zb2b-pill ' + (o.status === 'Delivered' ? 'active' : o.status === 'Dispatched' ? 'corporate' : 'warning') + '">' + esc(o.status) + '</span></td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zb2b-card-head">',
+      '<div><h3 class="zb2b-card-title">📦 Live Institutional Purchase Orders (10 Orders)</h3><p class="zb2b-card-sub">Active corporate purchase orders, item allocation, and logistics status</p></div>',
+      '<button class="zb2b-btn primary" onclick="ZenveB2BDashboard.showPOModal()">+ Create B2B Order</button>',
+      '</div>',
+      '<div class="zb2b-table-wrap">',
+      '<table class="zb2b-table">',
+      '<thead><tr><th>PO Number</th><th>Client Entity</th><th>Line Items Description</th><th>PO Value</th><th>Order Date</th><th>Dispatch ETA</th><th>Status</th></tr></thead>',
+      '<tbody>',
+      (ORDERS.map(function (o) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:600;">' + esc(o.po) + '</td>' +
+          '<td style="font-weight:600;">' + esc(o.client) + '</td>' +
+          '<td>' + esc(o.items) + '</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(o.val) + '</td>' +
+          '<td>' + esc(o.orderDate) + '</td>' +
+          '<td>' + esc(o.dispatchDate) + '</td>' +
+          '<td><span class="zb2b-pill ' + (o.status === 'Delivered' ? 'active' : o.status === 'Dispatched' ? 'corporate' : 'warning') + '">' + esc(o.status) + '</span></td>' +
+          '</tr>';
+      }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -366,33 +366,33 @@
   function renderSales() {
     return [
       '<div class="zb2b-kpi-grid">',
-        kpiHtml('Quarterly Closed Bookings', '₹6,42,80,000', '16.5%', 'up', 'Q4 corporate pipeline', '💼'),
-        kpiHtml('Active Qualified Pipeline', '₹2,95,00,000', '14 Deals', 'up', 'Weighted pipeline coverage', '📈'),
-        kpiHtml('Deal Win Rate', '76.4%', '5.2%', 'up', 'Institutional RFP wins', '🏆'),
-        kpiHtml('Avg Enterprise Sales Cycle', '32 Days', '-6 Days', 'up', 'Proposal to signed deed', '⚡'),
+      kpiHtml('Quarterly Closed Bookings', '₹6,42,80,000', '16.5%', 'up', 'Q4 corporate pipeline', '💼'),
+      kpiHtml('Active Qualified Pipeline', '₹2,95,00,000', '14 Deals', 'up', 'Weighted pipeline coverage', '📈'),
+      kpiHtml('Deal Win Rate', '76.4%', '5.2%', 'up', 'Institutional RFP wins', '🏆'),
+      kpiHtml('Avg Enterprise Sales Cycle', '32 Days', '-6 Days', 'up', 'Proposal to signed deed', '⚡'),
       '</div>',
       '<div class="zb2b-card">',
-        '<div class="zb2b-card-head">',
-          '<div><h3 class="zb2b-card-title">💼 Enterprise Account Executives Scorecard (10 Executives)</h3><p class="zb2b-card-sub">Sales quotas, year-to-date closed bookings, and live pipeline coverage</p></div>',
-        '</div>',
-        '<div class="zb2b-table-wrap">',
-          '<table class="zb2b-table">',
-            '<thead><tr><th>Sales Lead</th><th>Assigned Accounts</th><th>Quota Target</th><th>Closed Bookings</th><th>Attainment %</th><th>Live Pipeline</th><th>Commissions</th></tr></thead>',
-            '<tbody>',
-              (SALES_REPS.map(function(r) {
-                return '<tr>' +
-                  '<td style="font-weight:600;">' + esc(r.rep) + '</td>' +
-                  '<td>' + esc(r.accounts) + ' Accounts</td>' +
-                  '<td>' + esc(r.quota) + '</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(r.actual) + '</td>' +
-                  '<td><span class="zb2b-pill active">' + esc(r.attainment) + '</span></td>' +
-                  '<td style="color:#4338ca;font-weight:600;">' + esc(r.pipeline) + '</td>' +
-                  '<td>' + esc(r.commission) + '</td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zb2b-card-head">',
+      '<div><h3 class="zb2b-card-title">💼 Enterprise Account Executives Scorecard (10 Executives)</h3><p class="zb2b-card-sub">Sales quotas, year-to-date closed bookings, and live pipeline coverage</p></div>',
+      '</div>',
+      '<div class="zb2b-table-wrap">',
+      '<table class="zb2b-table">',
+      '<thead><tr><th>Sales Lead</th><th>Assigned Accounts</th><th>Quota Target</th><th>Closed Bookings</th><th>Attainment %</th><th>Live Pipeline</th><th>Commissions</th></tr></thead>',
+      '<tbody>',
+      (SALES_REPS.map(function (r) {
+        return '<tr>' +
+          '<td style="font-weight:600;">' + esc(r.rep) + '</td>' +
+          '<td>' + esc(r.accounts) + ' Accounts</td>' +
+          '<td>' + esc(r.quota) + '</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(r.actual) + '</td>' +
+          '<td><span class="zb2b-pill active">' + esc(r.attainment) + '</span></td>' +
+          '<td style="color:#4338ca;font-weight:600;">' + esc(r.pipeline) + '</td>' +
+          '<td>' + esc(r.commission) + '</td>' +
+          '</tr>';
+      }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -400,32 +400,32 @@
   function renderRevenue() {
     return [
       '<div class="zb2b-kpi-grid">',
-        kpiHtml('Annualized B2B Run Rate', '₹4,28,00,000', '21.4%', 'up', 'ARR expansion trajectory', '💰'),
-        kpiHtml('Blended B2B Gross Margin', '37.2%', '3.1%', 'up', 'Weighted product margin', '📈'),
-        kpiHtml('Monthly Revenue per Account', '₹3,56,000', '12.0%', 'up', 'ARPU commercial volume', '🏢'),
-        kpiHtml('Repeat Contract Revenue', '91.8%', '4.2%', 'up', 'Recurring purchase covenants', '🔄'),
+      kpiHtml('Annualized B2B Run Rate', '₹4,28,00,000', '21.4%', 'up', 'ARR expansion trajectory', '💰'),
+      kpiHtml('Blended B2B Gross Margin', '37.2%', '3.1%', 'up', 'Weighted product margin', '📈'),
+      kpiHtml('Monthly Revenue per Account', '₹3,56,000', '12.0%', 'up', 'ARPU commercial volume', '🏢'),
+      kpiHtml('Repeat Contract Revenue', '91.8%', '4.2%', 'up', 'Recurring purchase covenants', '🔄'),
       '</div>',
       '<div class="zb2b-card">',
-        '<div class="zb2b-card-head">',
-          '<div><h3 class="zb2b-card-title">💰 B2B Revenue Streams & Margin Analysis (10 Streams)</h3><p class="zb2b-card-sub">Channel realization, contribution margin, and year-over-year momentum</p></div>',
-        '</div>',
-        '<div class="zb2b-table-wrap">',
-          '<table class="zb2b-table">',
-            '<thead><tr><th>Revenue Stream</th><th>B2B Share</th><th>MTD Realized</th><th>YTD Realized</th><th>Gross Margin</th><th>Trajectory</th></tr></thead>',
-            '<tbody>',
-              (REVENUE_STREAMS.map(function(s) {
-                return '<tr>' +
-                  '<td style="font-weight:600;">' + esc(s.stream) + '</td>' +
-                  '<td>' + esc(s.share) + '</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(s.mtd) + '</td>' +
-                  '<td>' + esc(s.ytd) + '</td>' +
-                  '<td style="font-weight:600;color:#4338ca;">' + esc(s.margin) + '</td>' +
-                  '<td><span class="zb2b-pill active">' + esc(s.status) + '</span></td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zb2b-card-head">',
+      '<div><h3 class="zb2b-card-title">💰 B2B Revenue Streams & Margin Analysis (10 Streams)</h3><p class="zb2b-card-sub">Channel realization, contribution margin, and year-over-year momentum</p></div>',
+      '</div>',
+      '<div class="zb2b-table-wrap">',
+      '<table class="zb2b-table">',
+      '<thead><tr><th>Revenue Stream</th><th>B2B Share</th><th>MTD Realized</th><th>YTD Realized</th><th>Gross Margin</th><th>Trajectory</th></tr></thead>',
+      '<tbody>',
+      (REVENUE_STREAMS.map(function (s) {
+        return '<tr>' +
+          '<td style="font-weight:600;">' + esc(s.stream) + '</td>' +
+          '<td>' + esc(s.share) + '</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(s.mtd) + '</td>' +
+          '<td>' + esc(s.ytd) + '</td>' +
+          '<td style="font-weight:600;color:#4338ca;">' + esc(s.margin) + '</td>' +
+          '<td><span class="zb2b-pill active">' + esc(s.status) + '</span></td>' +
+          '</tr>';
+      }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -433,33 +433,33 @@
   function renderContracts() {
     return [
       '<div class="zb2b-kpi-grid">',
-        kpiHtml('Active Commercial MSAs', '10 Contracts', '₹4.12 Cr', 'up', 'Binding bilateral deeds', '📜'),
-        kpiHtml('Contracts Expiring in 90D', '2 Contracts', 'Renewal in flight', 'warn', 'Proactive legal follow-up', '⏳'),
-        kpiHtml('Legal SLA Compliance', '99.2%', '0.5%', 'up', 'Zero penalty disputes', '🛡️'),
-        kpiHtml('Avg Contract Tenure', '2.6 Years', '0.4y', 'up', 'Multi-year lock-in agreements', '📅'),
+      kpiHtml('Active Commercial MSAs', '10 Contracts', '₹4.12 Cr', 'up', 'Binding bilateral deeds', '📜'),
+      kpiHtml('Contracts Expiring in 90D', '2 Contracts', 'Renewal in flight', 'warn', 'Proactive legal follow-up', '⏳'),
+      kpiHtml('Legal SLA Compliance', '99.2%', '0.5%', 'up', 'Zero penalty disputes', '🛡️'),
+      kpiHtml('Avg Contract Tenure', '2.6 Years', '0.4y', 'up', 'Multi-year lock-in agreements', '📅'),
       '</div>',
       '<div class="zb2b-card">',
-        '<div class="zb2b-card-head">',
-          '<div><h3 class="zb2b-card-title">📜 Master Services Agreements (MSA) Ledger (10 Deeds)</h3><p class="zb2b-card-sub">Active corporate contracts, tenure validity, and committed volumes</p></div>',
-        '</div>',
-        '<div class="zb2b-table-wrap">',
-          '<table class="zb2b-table">',
-            '<thead><tr><th>Contract ID</th><th>Agreement Name</th><th>Client Entity</th><th>Validity Period</th><th>Committed Value</th><th>SLA Default Terms</th><th>Status</th></tr></thead>',
-            '<tbody>',
-              (CONTRACTS.map(function(c) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:600;">' + esc(c.id) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(c.title) + '</td>' +
-                  '<td>' + esc(c.entity) + '</td>' +
-                  '<td>' + esc(c.validFrom) + ' to ' + esc(c.validTo) + '</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(c.value) + '</td>' +
-                  '<td style="font-size:11px;color:#64748b;">' + esc(c.slaPenalty) + '</td>' +
-                  '<td><span class="zb2b-pill ' + (c.status.indexOf('Active') >= 0 ? 'active' : 'warning') + '">' + esc(c.status) + '</span></td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zb2b-card-head">',
+      '<div><h3 class="zb2b-card-title">📜 Master Services Agreements (MSA) Ledger (10 Deeds)</h3><p class="zb2b-card-sub">Active corporate contracts, tenure validity, and committed volumes</p></div>',
+      '</div>',
+      '<div class="zb2b-table-wrap">',
+      '<table class="zb2b-table">',
+      '<thead><tr><th>Contract ID</th><th>Agreement Name</th><th>Client Entity</th><th>Validity Period</th><th>Committed Value</th><th>SLA Default Terms</th><th>Status</th></tr></thead>',
+      '<tbody>',
+      (CONTRACTS.map(function (c) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:600;">' + esc(c.id) + '</td>' +
+          '<td style="font-weight:600;">' + esc(c.title) + '</td>' +
+          '<td>' + esc(c.entity) + '</td>' +
+          '<td>' + esc(c.validFrom) + ' to ' + esc(c.validTo) + '</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(c.value) + '</td>' +
+          '<td style="font-size:11px;color:#64748b;">' + esc(c.slaPenalty) + '</td>' +
+          '<td><span class="zb2b-pill ' + (c.status.indexOf('Active') >= 0 ? 'active' : 'warning') + '">' + esc(c.status) + '</span></td>' +
+          '</tr>';
+      }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -467,55 +467,55 @@
   function renderPricing() {
     return [
       '<div class="zb2b-kpi-grid">',
-        kpiHtml('Avg Volume Discount', '22.5%', 'Scale based', 'neutral', 'Tiered volume brackets', '🏷️'),
-        kpiHtml('Price-Locked Master SKUs', '10 Core SKUs', '12-Mo lock', 'up', 'Contract guaranteed rates', '🔒'),
-        kpiHtml('Volume Rebates Issued', '₹14,80,000', 'YTD total', 'neutral', 'Performance based rebates', '💵'),
-        kpiHtml('Minimum Order Value (MOQ)', '₹50,000', 'Base MOQ', 'neutral', 'Wholesale fulfillment floor', '📦'),
+      kpiHtml('Avg Volume Discount', '22.5%', 'Scale based', 'neutral', 'Tiered volume brackets', '🏷️'),
+      kpiHtml('Price-Locked Master SKUs', '10 Core SKUs', '12-Mo lock', 'up', 'Contract guaranteed rates', '🔒'),
+      kpiHtml('Volume Rebates Issued', '₹14,80,000', 'YTD total', 'neutral', 'Performance based rebates', '💵'),
+      kpiHtml('Minimum Order Value (MOQ)', '₹50,000', 'Base MOQ', 'neutral', 'Wholesale fulfillment floor', '📦'),
       '</div>',
       '<div class="zb2b-card">',
-        '<div class="zb2b-card-head">',
-          '<div><h3 class="zb2b-card-title">🏷️ Tiered Volume Pricing & Commercial Matrix (10 Tiers)</h3><p class="zb2b-card-sub">Discount brackets, minimum order commitments, and payment credit rules</p></div>',
-        '</div>',
-        '<div class="zb2b-table-wrap">',
-          '<table class="zb2b-table">',
-            '<thead><tr><th>Tier Classification</th><th>Min Order Value</th><th>Discount Off MRP</th><th>Credit Terms</th><th>Freight Policy</th><th>Rebate Schedule</th></tr></thead>',
-            '<tbody>',
-              (PRICING_TIERS.map(function(t) {
-                return '<tr>' +
-                  '<td style="font-weight:600;">' + esc(t.tier) + '</td>' +
-                  '<td style="font-weight:600;color:#4338ca;">' + esc(t.minOrder) + '</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(t.discount) + '</td>' +
-                  '<td>' + esc(t.paymentTerms) + '</td>' +
-                  '<td>' + esc(t.freight) + '</td>' +
-                  '<td style="color:#64748b;">' + esc(t.rebate) + '</td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zb2b-card-head">',
+      '<div><h3 class="zb2b-card-title">🏷️ Tiered Volume Pricing & Commercial Matrix (10 Tiers)</h3><p class="zb2b-card-sub">Discount brackets, minimum order commitments, and payment credit rules</p></div>',
+      '</div>',
+      '<div class="zb2b-table-wrap">',
+      '<table class="zb2b-table">',
+      '<thead><tr><th>Tier Classification</th><th>Min Order Value</th><th>Discount Off MRP</th><th>Credit Terms</th><th>Freight Policy</th><th>Rebate Schedule</th></tr></thead>',
+      '<tbody>',
+      (PRICING_TIERS.map(function (t) {
+        return '<tr>' +
+          '<td style="font-weight:600;">' + esc(t.tier) + '</td>' +
+          '<td style="font-weight:600;color:#4338ca;">' + esc(t.minOrder) + '</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(t.discount) + '</td>' +
+          '<td>' + esc(t.paymentTerms) + '</td>' +
+          '<td>' + esc(t.freight) + '</td>' +
+          '<td style="color:#64748b;">' + esc(t.rebate) + '</td>' +
+          '</tr>';
+      }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>',
       '<div class="zb2b-card" style="margin-top:20px;">',
-        '<div class="zb2b-card-head">',
-          '<div><h3 class="zb2b-card-title">📦 High-Velocity Master SKU Rate Card (10 Products)</h3><p class="zb2b-card-sub">Contracted bulk unit pricing across Tier 1, Tier 2, and Tier 3</p></div>',
-        '</div>',
-        '<div class="zb2b-table-wrap">',
-          '<table class="zb2b-table">',
-            '<thead><tr><th>SKU Code</th><th>Product Description</th><th>Standard MRP</th><th>Tier 1 Price</th><th>Tier 2 Price</th><th>Tier 3 Price</th><th>MOQ</th></tr></thead>',
-            '<tbody>',
-              (RATE_CARDS.map(function(s) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:600;">' + esc(s.sku) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(s.name) + '</td>' +
-                  '<td style="color:#64748b;">' + esc(s.retailMrp) + '</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(s.tier1) + '</td>' +
-                  '<td style="font-weight:600;color:#4338ca;">' + esc(s.tier2) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(s.tier3) + '</td>' +
-                  '<td>' + esc(s.minQty) + '</td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zb2b-card-head">',
+      '<div><h3 class="zb2b-card-title">📦 High-Velocity Master SKU Rate Card (10 Products)</h3><p class="zb2b-card-sub">Contracted bulk unit pricing across Tier 1, Tier 2, and Tier 3</p></div>',
+      '</div>',
+      '<div class="zb2b-table-wrap">',
+      '<table class="zb2b-table">',
+      '<thead><tr><th>SKU Code</th><th>Product Description</th><th>Standard MRP</th><th>Tier 1 Price</th><th>Tier 2 Price</th><th>Tier 3 Price</th><th>MOQ</th></tr></thead>',
+      '<tbody>',
+      (RATE_CARDS.map(function (s) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:600;">' + esc(s.sku) + '</td>' +
+          '<td style="font-weight:600;">' + esc(s.name) + '</td>' +
+          '<td style="color:#64748b;">' + esc(s.retailMrp) + '</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(s.tier1) + '</td>' +
+          '<td style="font-weight:600;color:#4338ca;">' + esc(s.tier2) + '</td>' +
+          '<td style="font-weight:600;">' + esc(s.tier3) + '</td>' +
+          '<td>' + esc(s.minQty) + '</td>' +
+          '</tr>';
+      }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -523,33 +523,33 @@
   function renderReceivables() {
     return [
       '<div class="zb2b-kpi-grid">',
-        kpiHtml('Total B2B Receivables', '₹39,85,000', '10 Invoices', 'neutral', 'Current active ledger', '💳'),
-        kpiHtml('Days Sales Outstanding (DSO)', '34.2 Days', '-4.1 Days', 'up', 'Healthy collection velocity', '⏱️'),
-        kpiHtml('Current Dues (0-30 Days)', '₹28,45,000', '71.4%', 'up', 'Within normal payment cycle', '✅'),
-        kpiHtml('Overdue Dues (> 60 Days)', '₹2,90,000', '7.3%', 'warn', 'Under RM active recovery', '⚠️'),
+      kpiHtml('Total B2B Receivables', '₹39,85,000', '10 Invoices', 'neutral', 'Current active ledger', '💳'),
+      kpiHtml('Days Sales Outstanding (DSO)', '34.2 Days', '-4.1 Days', 'up', 'Healthy collection velocity', '⏱️'),
+      kpiHtml('Current Dues (0-30 Days)', '₹28,45,000', '71.4%', 'up', 'Within normal payment cycle', '✅'),
+      kpiHtml('Overdue Dues (> 60 Days)', '₹2,90,000', '7.3%', 'warn', 'Under RM active recovery', '⚠️'),
       '</div>',
       '<div class="zb2b-card">',
-        '<div class="zb2b-card-head">',
-          '<div><h3 class="zb2b-card-title">💳 Corporate Receivables Aging Ledger (10 Invoices)</h3><p class="zb2b-card-sub">Invoiced amounts, aging buckets, due dates, and collection status</p></div>',
-        '</div>',
-        '<div class="zb2b-table-wrap">',
-          '<table class="zb2b-table">',
-            '<thead><tr><th>Invoice #</th><th>Corporate Client</th><th>Amount</th><th>Due Date</th><th>Aging Bucket</th><th>Payment Terms</th><th>Recovery Status</th></tr></thead>',
-            '<tbody>',
-              (RECEIVABLES.map(function(r) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:600;">' + esc(r.inv) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(r.client) + '</td>' +
-                  '<td style="font-weight:600;color:#0f172a;">' + esc(r.amt) + '</td>' +
-                  '<td>' + esc(r.dueDate) + '</td>' +
-                  '<td><span class="zb2b-pill ' + (r.aging === '0-30 Days' ? 'active' : r.aging === '31-60 Days' ? 'warning' : 'danger') + '">' + esc(r.aging) + '</span></td>' +
-                  '<td>' + esc(r.terms) + '</td>' +
-                  '<td>' + esc(r.status) + '</td>' +
-                '</tr>';
-              }).join('')),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zb2b-card-head">',
+      '<div><h3 class="zb2b-card-title">💳 Corporate Receivables Aging Ledger (10 Invoices)</h3><p class="zb2b-card-sub">Invoiced amounts, aging buckets, due dates, and collection status</p></div>',
+      '</div>',
+      '<div class="zb2b-table-wrap">',
+      '<table class="zb2b-table">',
+      '<thead><tr><th>Invoice #</th><th>Corporate Client</th><th>Amount</th><th>Due Date</th><th>Aging Bucket</th><th>Payment Terms</th><th>Recovery Status</th></tr></thead>',
+      '<tbody>',
+      (RECEIVABLES.map(function (r) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:600;">' + esc(r.inv) + '</td>' +
+          '<td style="font-weight:600;">' + esc(r.client) + '</td>' +
+          '<td style="font-weight:600;color:#0f172a;">' + esc(r.amt) + '</td>' +
+          '<td>' + esc(r.dueDate) + '</td>' +
+          '<td><span class="zb2b-pill ' + (r.aging === '0-30 Days' ? 'active' : r.aging === '31-60 Days' ? 'warning' : 'danger') + '">' + esc(r.aging) + '</span></td>' +
+          '<td>' + esc(r.terms) + '</td>' +
+          '<td>' + esc(r.status) + '</td>' +
+          '</tr>';
+      }).join('')),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -561,44 +561,44 @@
 
     var html = [
       '<header class="zb2b-head">',
-        '<div class="zb2b-head-left">',
-          '<div class="zb2b-title-row">',
-            '<h2 class="zb2b-title">' + currentTab.icon + ' ' + esc(currentTab.title) + '</h2>',
-            '<span class="zb2b-live-badge"><span class="zb2b-pulse-dot"></span> B2B Enterprise · Active</span>',
-          '</div>',
-          '<p class="zb2b-sub">' + esc(currentTab.sub) + '</p>',
-        '</div>',
-        '<div class="zb2b-head-actions">',
-          '<button class="zb2b-btn" onclick="ZenveB2BDashboard.showPOModal()">+ New PO</button>',
-          '<button class="zb2b-btn primary" onclick="ZenveB2BDashboard.showOnboardModal()">+ Onboard Client</button>',
-        '</div>',
+      '<div class="zb2b-head-left">',
+      '<div class="zb2b-title-row">',
+      '<h2 class="zb2b-title">' + currentTab.icon + ' ' + esc(currentTab.title) + '</h2>',
+      '<span class="zb2b-live-badge"><span class="zb2b-pulse-dot"></span> B2B Enterprise · Active</span>',
+      '</div>',
+      '<p class="zb2b-sub">' + esc(currentTab.sub) + '</p>',
+      '</div>',
+      '<div class="zb2b-head-actions">',
+      '<button class="zb2b-btn" onclick="ZenveB2BDashboard.showPOModal()">+ New PO</button>',
+      '<button class="zb2b-btn primary" onclick="ZenveB2BDashboard.showOnboardModal()">+ Onboard Client</button>',
+      '</div>',
       '</header>',
 
       '<nav class="zb2b-tabs-bar">',
-        TABS.map(function (t) {
-          var active = t.id === S.tab ? ' active' : '';
-          return '<button class="zb2b-tab' + active + '" onclick="ZenveB2BDashboard.switchTab(\'' + t.id + '\')">' +
-            '<span>' + t.icon + '</span>' +
-            '<span>' + esc(t.label) + '</span>' +
-            '<span class="zb2b-tab-badge">' + esc(t.badge) + '</span>' +
+      TABS.map(function (t) {
+        var active = t.id === S.tab ? ' active' : '';
+        return '<button class="zb2b-tab' + active + '" onclick="ZenveB2BDashboard.switchTab(\'' + t.id + '\')">' +
+          '<span>' + t.icon + '</span>' +
+          '<span>' + esc(t.label) + '</span>' +
+          '<span class="zb2b-tab-badge">' + esc(t.badge) + '</span>' +
           '</button>';
-        }).join(''),
+      }).join(''),
       '</nav>',
 
       '<main class="zb2b-body">'
     ];
 
     switch (S.tab) {
-      case 'dashboard':   html.push(renderDashboard()); break;
-      case 'customers':   html.push(renderCustomers()); break;
-      case 'accounts':    html.push(renderAccounts()); break;
-      case 'orders':      html.push(renderOrders()); break;
-      case 'sales':       html.push(renderSales()); break;
-      case 'revenue':     html.push(renderRevenue()); break;
-      case 'contracts':   html.push(renderContracts()); break;
-      case 'pricing':     html.push(renderPricing()); break;
+      case 'dashboard': html.push(renderDashboard()); break;
+      case 'customers': html.push(renderCustomers()); break;
+      case 'accounts': html.push(renderAccounts()); break;
+      case 'orders': html.push(renderOrders()); break;
+      case 'sales': html.push(renderSales()); break;
+      case 'revenue': html.push(renderRevenue()); break;
+      case 'contracts': html.push(renderContracts()); break;
+      case 'pricing': html.push(renderPricing()); break;
       case 'receivables': html.push(renderReceivables()); break;
-      default:            html.push(renderDashboard());
+      default: html.push(renderDashboard());
     }
 
     html.push('</main>');
@@ -626,22 +626,22 @@
   function showPOModal() {
     var formHtml = [
       '<div class="zb2b-modal-head">',
-        '<h3 class="zb2b-modal-title">📦 Issue Institutional Purchase Order</h3>',
-        '<button class="zb2b-btn" onclick="ZenveB2BDashboard.closeModal()">✕</button>',
+      '<h3 class="zb2b-modal-title">📦 Issue Institutional Purchase Order</h3>',
+      '<button class="zb2b-btn" onclick="ZenveB2BDashboard.closeModal()">✕</button>',
       '</div>',
       '<form onsubmit="event.preventDefault(); alert(\'B2B Purchase order generated and linked to ERP!\'); ZenveB2BDashboard.closeModal();">',
-        '<div class="zb2b-form-group"><label>Client Corporate Organization</label><select class="zb2b-select">' +
-          (ACCOUNTS.length ? ACCOUNTS.map(function(a){ return '<option>' + esc(a.name) + '</option>'; }).join('') : '<option value="">No registered accounts</option>') +
-        '</select></div>',
-        '<div class="zb2b-form-group"><label>Order Description & Line Items</label><input type="text" class="zb2b-input" placeholder="e.g. 500 vials Nobivac DHPPi + 40 boxes Bravecto" required /></div>',
-        '<div class="zb2b-form-row">',
-          '<div class="zb2b-form-group"><label>PO Total Value (INR)</label><input type="text" class="zb2b-input" placeholder="₹3,45,000" required /></div>',
-          '<div class="zb2b-form-group"><label>Credit Payment Terms</label><select class="zb2b-select"><option>Net 30 Days</option><option>Net 45 Days</option><option>Net 60 Days</option></select></div>',
-        '</div>',
-        '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
-          '<button type="button" class="zb2b-btn" onclick="ZenveB2BDashboard.closeModal()">Cancel</button>',
-          '<button type="submit" class="zb2b-btn primary">Generate & Confirm Order</button>',
-        '</div>',
+      '<div class="zb2b-form-group"><label>Client Corporate Organization</label><select class="zb2b-select">' +
+      (ACCOUNTS.length ? ACCOUNTS.map(function (a) { return '<option>' + esc(a.name) + '</option>'; }).join('') : '<option value="">No registered accounts</option>') +
+      '</select></div>',
+      '<div class="zb2b-form-group"><label>Order Description & Line Items</label><input type="text" class="zb2b-input" placeholder="e.g. 500 vials Nobivac DHPPi + 40 boxes Bravecto" required /></div>',
+      '<div class="zb2b-form-row">',
+      '<div class="zb2b-form-group"><label>PO Total Value (INR)</label><input type="text" class="zb2b-input" placeholder="₹3,45,000" required /></div>',
+      '<div class="zb2b-form-group"><label>Credit Payment Terms</label><select class="zb2b-select"><option>Net 30 Days</option><option>Net 45 Days</option><option>Net 60 Days</option></select></div>',
+      '</div>',
+      '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
+      '<button type="button" class="zb2b-btn" onclick="ZenveB2BDashboard.closeModal()">Cancel</button>',
+      '<button type="submit" class="zb2b-btn primary">Generate & Confirm Order</button>',
+      '</div>',
       '</form>'
     ].join('');
     showModal(formHtml);
@@ -650,23 +650,23 @@
   function showOnboardModal() {
     var formHtml = [
       '<div class="zb2b-modal-head">',
-        '<h3 class="zb2b-modal-title">🏢 Onboard New Enterprise Account</h3>',
-        '<button class="zb2b-btn" onclick="ZenveB2BDashboard.closeModal()">✕</button>',
+      '<h3 class="zb2b-modal-title">🏢 Onboard New Enterprise Account</h3>',
+      '<button class="zb2b-btn" onclick="ZenveB2BDashboard.closeModal()">✕</button>',
       '</div>',
       '<form onsubmit="event.preventDefault(); alert(\'Enterprise client onboarded. Master Services Agreement generated!\'); ZenveB2BDashboard.closeModal();">',
-        '<div class="zb2b-form-group"><label>Organization Legal Entity Name</label><input type="text" class="zb2b-input" placeholder="e.g. Apollo Veterinary Hospitals Pvt Ltd" required /></div>',
-        '<div class="zb2b-form-row">',
-          '<div class="zb2b-form-group"><label>Corporate GSTIN</label><input type="text" class="zb2b-input" placeholder="29AAACP8912K1Z8" required /></div>',
-          '<div class="zb2b-form-group"><label>Enterprise Category</label><select class="zb2b-select"><option>Veterinary Hospital Chain</option><option>Security & Govt Kennels</option><option>Breeder Co-op</option><option>Corporate Benefits</option></select></div>',
-        '</div>',
-        '<div class="zb2b-form-row">',
-          '<div class="zb2b-form-group"><label>Approved Credit Limit (INR)</label><input type="text" class="zb2b-input" placeholder="₹25,00,000" required /></div>',
-          '<div class="zb2b-form-group"><label>Assigned Relationship Manager</label><select class="zb2b-select"><option>Vikram Mehta (VP)</option><option>Sneha Rao (Senior RM)</option><option>Aarav Sen</option></select></div>',
-        '</div>',
-        '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
-          '<button type="button" class="zb2b-btn" onclick="ZenveB2BDashboard.closeModal()">Cancel</button>',
-          '<button type="submit" class="zb2b-btn primary">Complete Onboarding</button>',
-        '</div>',
+      '<div class="zb2b-form-group"><label>Organization Legal Entity Name</label><input type="text" class="zb2b-input" placeholder="e.g. Apollo Veterinary Hospitals Pvt Ltd" required /></div>',
+      '<div class="zb2b-form-row">',
+      '<div class="zb2b-form-group"><label>Corporate GSTIN</label><input type="text" class="zb2b-input" placeholder="29AAACP8912K1Z8" required /></div>',
+      '<div class="zb2b-form-group"><label>Enterprise Category</label><select class="zb2b-select"><option>Veterinary Hospital Chain</option><option>Security & Govt Kennels</option><option>Breeder Co-op</option><option>Corporate Benefits</option></select></div>',
+      '</div>',
+      '<div class="zb2b-form-row">',
+      '<div class="zb2b-form-group"><label>Approved Credit Limit (INR)</label><input type="text" class="zb2b-input" placeholder="₹25,00,000" required /></div>',
+      '<div class="zb2b-form-group"><label>Assigned Relationship Manager</label><select class="zb2b-select"><option>Vikram Mehta (VP)</option><option>Sneha Rao (Senior RM)</option><option>Aarav Sen</option></select></div>',
+      '</div>',
+      '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
+      '<button type="button" class="zb2b-btn" onclick="ZenveB2BDashboard.closeModal()">Cancel</button>',
+      '<button type="submit" class="zb2b-btn primary">Complete Onboarding</button>',
+      '</div>',
       '</form>'
     ].join('');
     showModal(formHtml);
@@ -685,7 +685,7 @@
 
   function open(tab) {
     // Close other domain overlays
-    ['zfa-root', 'zmkt-dashboard-root', 'zvp-root', 'zfsh-root', 'zix-root', 'zsub-root', 'zod-root', 'zsd-root', 'zpid-root', 'zph-root', 'zch-root', 'zrep-root', 'zalt-root', 'zset-root', 'zhr-root', 'zsys-root'].forEach(function(id) {
+    ['zfa-root', 'zmkt-dashboard-root', 'zvp-root', 'zfsh-root', 'zix-root', 'zsub-root', 'zod-root', 'zsd-root', 'zpid-root', 'zph-root', 'zch-root', 'zrep-root', 'zalt-root', 'zset-root', 'zhr-root', 'zsys-root'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) {
         el.classList.remove('zfa-open', 'zmkt-open', 'zvp-open', 'zfsh-open', 'zix-open', 'zsub-open', 'zod-open', 'zsd-open', 'zpid-open', 'zph-open', 'zch-open', 'zrep-open', 'zalt-open', 'zset-open', 'zhr-open', 'zsys-open', 'zpanel-open');
@@ -693,7 +693,7 @@
       }
     });
     if (document.querySelectorAll) {
-      document.querySelectorAll('.zpanel-root').forEach(function(el) {
+      document.querySelectorAll('.zpanel-root').forEach(function (el) {
         if (el.id !== 'zb2b-root') {
           el.style.display = 'none';
           el.classList.remove('zfa-open', 'zmkt-open', 'zvp-open', 'zfsh-open', 'zix-open', 'zsub-open', 'zod-open', 'zsd-open', 'zpid-open', 'zph-open', 'zch-open', 'zrep-open', 'zalt-open', 'zset-open', 'zhr-open', 'zsys-open', 'zpanel-open');
@@ -716,12 +716,12 @@
       document.body.classList.remove('zfsh-locked', 'zvp-locked', 'zalt-locked', 'zix-locked', 'zsub-locked');
       document.documentElement.classList.add('zb2b-locked');
       document.body.classList.add('zb2b-locked');
-    } catch (e) {}
+    } catch (e) { }
     render();
 
     var targetTab = TABS.find(function (t) { return t.id === S.tab; });
     if (targetTab && targetTab.hash && window.location.hash !== targetTab.hash) {
-      try { history.replaceState(null, '', targetTab.hash); } catch (e) {}
+      try { history.replaceState(null, '', targetTab.hash); } catch (e) { }
     }
     root.scrollTop = 0;
   }
@@ -735,9 +735,9 @@
     try {
       document.documentElement.classList.remove('zb2b-locked');
       document.body.classList.remove('zb2b-locked');
-    } catch (e) {}
+    } catch (e) { }
     if (window.location.hash && tabFromHash(window.location.hash)) {
-      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {}
+      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) { }
     }
   }
 
@@ -747,7 +747,7 @@
     render();
     var targetTab = TABS.find(function (t) { return t.id === tabId; });
     if (targetTab && targetTab.hash) {
-      try { history.replaceState(null, '', targetTab.hash); } catch (e) {}
+      try { history.replaceState(null, '', targetTab.hash); } catch (e) { }
     }
     if (root) root.scrollTop = 0;
   }
@@ -759,7 +759,7 @@
       open(t);
     } else if (S.open && window.location.hash && window.location.hash !== '#') {
       var otherDomains = ['sales', 'operations', 'inventory', 'pharmacy', 'clinics', 'doctors', 'reports', 'alerts', 'settings', 'finance', 'marketing', 'vendors', 'procurement', 'fashion', 'import', 'export', 'subscription'];
-      var isOther = otherDomains.some(function(d) { return window.location.hash.indexOf(d) >= 0; });
+      var isOther = otherDomains.some(function (d) { return window.location.hash.indexOf(d) >= 0; });
       if (isOther) close();
     }
   }

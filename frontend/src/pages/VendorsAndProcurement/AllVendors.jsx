@@ -16,7 +16,7 @@ export default function AllVendors() {
     { id: 'VEN-007', name: 'Farmina Pet Foods India', gstin: '29AABCF9943P1Z3', category: 'Veterinary Nutrition', contact: 'Rohan Nambiar', city: 'Bengaluru', spend: '₹3,65,000', pos: 7, rating: 'AA', status: 'Active', since: '2023-05' },
     { id: 'VEN-008', name: 'Virbac Animal Health India', gstin: '27AABCV1034D1ZU', category: 'Dermatologicals & Anti-Infectives', contact: 'Sameer Patil', city: 'Mumbai', spend: '₹2,95,000', pos: 9, rating: 'AA', status: 'Active', since: '2023-07' },
     { id: 'VEN-009', name: 'Intas Pharmaceuticals Vet', gstin: '24AABCI7840E1ZT', category: 'Injectables & Critical Care', contact: 'Harish Solanki', city: 'Ahmedabad', spend: '₹2,15,000', pos: 8, rating: 'A+', status: 'Active', since: '2023-09' },
-    { id: 'VEN-010', name: 'Purina PetCare India', gstin: '06AABCP2290R1ZW', category: 'Clinical Probiotics & Diets', contact: 'Divya Kapoor', city: 'Gurugram', spend: '₹1,65,000', pos: 5, rating: 'A+', status: 'Active', since: '2024-02' }
+    { id: 'VEN-010', name: 'Purina PetCare India', gstin: '06AABCP2290R1ZW', category: 'Clinical Probiotics & Diets', contact: 'Edwin Kapoor', city: 'Gurugram', spend: '₹1,65,000', pos: 5, rating: 'A+', status: 'Active', since: '2024-02' }
   ];
 
   const filtered = vendors.filter(v => {

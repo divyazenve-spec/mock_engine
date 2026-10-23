@@ -12,7 +12,7 @@ export default function DoctorCommissions() {
     { id: 'SET-DOC-906', doctor: 'Dr. Rohan Kulkarni', spec: 'Surgical Oncology', billed: '₹12,60,000', rate: '15%', gross: '₹1,89,000', tds: '₹18,900', net: '₹1,70,100' },
     { id: 'SET-DOC-907', doctor: 'Dr. Gaurav Sharma', spec: 'Orthopedics & Spine', billed: '₹13,40,000', rate: '15%', gross: '₹2,01,000', tds: '₹20,100', net: '₹1,80,900' },
     { id: 'SET-DOC-908', doctor: 'Dr. Sneha Nair', spec: 'Ophthalmology', billed: '₹10,90,000', rate: '15%', gross: '₹1,63,500', tds: '₹16,350', net: '₹1,47,150' },
-    { id: 'SET-DOC-909', doctor: 'Dr. Divya Reddy', spec: 'Critical Care & Neonatal', billed: '₹11,85,000', rate: '15%', gross: '₹1,77,750', tds: '₹17,775', net: '₹1,59,975' },
+    { id: 'SET-DOC-909', doctor: 'Dr. Edwin Reddy', spec: 'Critical Care & Neonatal', billed: '₹11,85,000', rate: '15%', gross: '₹1,77,750', tds: '₹17,775', net: '₹1,59,975' },
     { id: 'SET-DOC-910', doctor: 'Dr. Maya Chandran', spec: 'Gastroenterology', billed: '₹13,60,000', rate: '15%', gross: '₹2,04,000', tds: '₹20,400', net: '₹1,83,600' }
   ];
 

@@ -11,7 +11,7 @@
   var recruits = [
     { name: 'Dr. Arvind Swaminathan', role: 'Associate Veterinary Surgeon', dept: 'Clinical Care', date: '2026-10-15', buddy: 'Dr. Priya Nair', hardware: 'MacBook Pro M3 + iPad', bvg: 'Verified (SpringVerify)', pct: 90, status: 'In Progress' },
     { name: 'Pooja Hegde', role: 'Senior Pathologist', dept: 'Clinical Care', date: '2026-10-01', buddy: 'Dr. Rajesh Varma', hardware: 'ThinkPad P16s + Lab Terminal', bvg: 'Verified (SpringVerify)', pct: 100, status: 'Completed' },
-    { name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical Care', date: '2026-10-06', buddy: 'Pooja Hegde', hardware: 'Dell Latitude 7440', bvg: 'Verified (SpringVerify)', pct: 100, status: 'Completed' },
+    { name: 'Edwin Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical Care', date: '2026-10-06', buddy: 'Pooja Hegde', hardware: 'Dell Latitude 7440', bvg: 'Verified (SpringVerify)', pct: 100, status: 'Completed' },
     { name: 'Rohan Shenoy', role: 'Emergency Critical Care Vet', dept: 'Emergency & ICU', date: '2026-10-18', buddy: 'Dr. Rajesh Varma', hardware: 'MacBook Air M3', bvg: 'Verified (SpringVerify)', pct: 75, status: 'In Progress' },
     { name: 'Ananya Sen', role: 'Lead Talent Acquisition & HR', dept: 'People & HR', date: '2026-09-28', buddy: 'Vikramaditya Rao', hardware: 'MacBook Air M3', bvg: 'Verified (SpringVerify)', pct: 100, status: 'Completed' },
     { name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', date: '2026-10-03', buddy: 'Sneha Kulkarni', hardware: 'MacBook Air M3', bvg: 'Verified (SpringVerify)', pct: 100, status: 'Completed' },

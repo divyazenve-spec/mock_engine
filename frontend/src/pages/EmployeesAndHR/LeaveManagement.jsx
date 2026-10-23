@@ -98,7 +98,7 @@ export default function LeaveManagement() {
     },
     {
       id: 'LV-2026-110',
-      empName: 'Divya Nambiar',
+      empName: 'Edwin Nambiar',
       role: 'Junior Clinical Associate',
       type: 'Casual Leave',
       dates: '21 Oct (1d)',

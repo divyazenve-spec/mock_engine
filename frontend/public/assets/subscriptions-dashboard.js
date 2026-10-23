@@ -23,14 +23,14 @@
 
   /* ── 8 Subdomains Configuration ─────────────────────────────────── */
   var TABS = [
-    { id: 'dashboard',   label: 'Subscription Dashboard', icon: '🔄', hash: '#subscription-dashboard', badge: '10', title: 'Recurring Subscriptions & Pet Wellness Memberships', sub: 'Monthly recurring revenue (MRR), automated doorstep auto-shipments, preventive wellness plans, and subscriber cohorts' },
-    { id: 'active',      label: 'Active Subscriptions',   icon: '✅', hash: '#active-subscriptions',   badge: '10', title: 'Active Member Roster & Auto-Debit Mandates', sub: 'Live subscriber cohort, e-mandate banking authorizations, recurring fulfillment status, and pet health profiles' },
-    { id: 'new',         label: 'New Subscriptions',      icon: '✨', hash: '#new-subscriptions',      badge: '10', title: 'New Subscriber Acquisition & Channel Velocity', sub: 'Monthly new subscriber signups, acquisition channel conversion, customer acquisition cost (CAC), and payback period' },
-    { id: 'renewals',    label: 'Renewals',               icon: '🔄', hash: '#renewals',               badge: '10', title: 'Automated Billing Cycles & Renewal Rates', sub: 'Monthly automated debit execution, dunning management, card & UPI retry algorithms, and successful collection velocity' },
-    { id: 'expiring',    label: 'Expiring Subscriptions', icon: '⏳', hash: '#expiring-subscriptions', badge: '10', title: 'Upcoming Expiries & Proactive Retention Alerts', sub: 'Annual membership renewals due in 30 days, token expiration mitigation, and concierge outreach pipeline' },
-    { id: 'churn',       label: 'Churn',                  icon: '📉', hash: '#churn',                  badge: '10', title: 'Subscriber Churn Analytics & Root Cause Mitigation', sub: 'Voluntary and involuntary churn analysis, exit survey insights, revenue attrition, and win-back campaigns' },
-    { id: 'revenue',     label: 'Subscription Revenue',   icon: '💵', hash: '#subscription-revenue',   badge: '10', title: 'Recurring Revenue (MRR / ARR) Trajectory', sub: 'Monthly recurring revenue breakdown, annualized contract run rates, expansion revenue, and gross margins' },
-    { id: 'analytics',   label: 'Subscription Analytics', icon: '📊', hash: '#subscription-analytics', badge: '10', title: 'Cohort Retention & Lifetime Value (LTV) Deep-Dive', sub: 'Multi-month retention heatmaps, customer lifetime value expansion, payback velocity, and subscriber health scores' }
+    { id: 'dashboard', label: 'Subscription Dashboard', icon: '🔄', hash: '#subscription-dashboard', badge: '10', title: 'Recurring Subscriptions & Pet Wellness Memberships', sub: 'Monthly recurring revenue (MRR), automated doorstep auto-shipments, preventive wellness plans, and subscriber cohorts' },
+    { id: 'active', label: 'Active Subscriptions', icon: '✅', hash: '#active-subscriptions', badge: '10', title: 'Active Member Roster & Auto-Debit Mandates', sub: 'Live subscriber cohort, e-mandate banking authorizations, recurring fulfillment status, and pet health profiles' },
+    { id: 'new', label: 'New Subscriptions', icon: '✨', hash: '#new-subscriptions', badge: '10', title: 'New Subscriber Acquisition & Channel Velocity', sub: 'Monthly new subscriber signups, acquisition channel conversion, customer acquisition cost (CAC), and payback period' },
+    { id: 'renewals', label: 'Renewals', icon: '🔄', hash: '#renewals', badge: '10', title: 'Automated Billing Cycles & Renewal Rates', sub: 'Monthly automated debit execution, dunning management, card & UPI retry algorithms, and successful collection velocity' },
+    { id: 'expiring', label: 'Expiring Subscriptions', icon: '⏳', hash: '#expiring-subscriptions', badge: '10', title: 'Upcoming Expiries & Proactive Retention Alerts', sub: 'Annual membership renewals due in 30 days, token expiration mitigation, and concierge outreach pipeline' },
+    { id: 'churn', label: 'Churn', icon: '📉', hash: '#churn', badge: '10', title: 'Subscriber Churn Analytics & Root Cause Mitigation', sub: 'Voluntary and involuntary churn analysis, exit survey insights, revenue attrition, and win-back campaigns' },
+    { id: 'revenue', label: 'Subscription Revenue', icon: '💵', hash: '#subscription-revenue', badge: '10', title: 'Recurring Revenue (MRR / ARR) Trajectory', sub: 'Monthly recurring revenue breakdown, annualized contract run rates, expansion revenue, and gross margins' },
+    { id: 'analytics', label: 'Subscription Analytics', icon: '📊', hash: '#subscription-analytics', badge: '10', title: 'Cohort Retention & Lifetime Value (LTV) Deep-Dive', sub: 'Multi-month retention heatmaps, customer lifetime value expansion, payback velocity, and subscriber health scores' }
   ];
 
   /* ── Master Datasets (10 Items in Each Subdomain) ─────────────────── */
@@ -88,7 +88,7 @@
 
   var EXPIRING = [
     { subId: 'SUB-EXP-301', petName: 'Simba (Golden Retriever)', parent: 'Rahul Khanna', plan: 'Annual Preventive Care Plan', expiryDate: 'Expiring in 3 Days (16 Oct)', val: '₹21,999 / yr', action: 'Automated WhatsApp Notice Sent' },
-    { subId: 'SUB-EXP-302', petName: 'Cookie (Cocker Spaniel)', parent: 'Divya Sundaram', plan: 'Senior Canine Health Comprehensive', expiryDate: 'Expiring in 5 Days (18 Oct)', val: '₹32,999 / yr', action: 'Concierge Call Completed - Confirmed' },
+    { subId: 'SUB-EXP-302', petName: 'Cookie (Cocker Spaniel)', parent: 'Edwin Sundaram', plan: 'Senior Canine Health Comprehensive', expiryDate: 'Expiring in 5 Days (18 Oct)', val: '₹32,999 / yr', action: 'Concierge Call Completed - Confirmed' },
     { subId: 'SUB-EXP-303', petName: 'Bella (Persian Cat)', parent: 'Naveen Chhabra', plan: 'Feline Complete Annual Care', expiryDate: 'Expiring in 7 Days (20 Oct)', val: '₹14,999 / yr', action: 'Card Token Expiry - Update Link Sent' },
     { subId: 'SUB-EXP-304', petName: 'Zeus (Rottweiler)', parent: 'Gaurav Aggarwal', plan: 'Adult Canine Preventive Care', expiryDate: 'Expiring in 9 Days (22 Oct)', val: '₹23,999 / yr', action: 'Renewal Discount Code Activated (10%)' },
     { subId: 'SUB-EXP-305', petName: 'Milo (Beagle)', parent: 'Deepika Raman', plan: 'Zenve Nutrition Annual Subscription', expiryDate: 'Expiring in 12 Days (25 Oct)', val: '₹38,400 / yr', action: 'Auto-Renewal Pre-Approved' },
@@ -185,15 +185,15 @@
   function kpiHtml(label, val, delta, trend, subtext, icon) {
     return [
       '<div class="zsub-kpi">',
-        '<div class="zsub-kpi-top">',
-          '<span class="zsub-kpi-label">' + esc(label) + '</span>',
-          '<span class="zsub-kpi-icon">' + esc(icon || '🔄') + '</span>',
-        '</div>',
-        '<div class="zsub-kpi-val">' + esc(val) + '</div>',
-        '<div class="zsub-kpi-bottom">',
-          '<span class="zsub-delta ' + (trend === 'up' ? 'up' : trend === 'down' ? 'down' : 'neutral') + '">' + (trend === 'up' ? '↑ ' : trend === 'down' ? '↓ ' : '• ') + esc(delta) + '</span>',
-          '<span class="zsub-subtext">' + esc(subtext) + '</span>',
-        '</div>',
+      '<div class="zsub-kpi-top">',
+      '<span class="zsub-kpi-label">' + esc(label) + '</span>',
+      '<span class="zsub-kpi-icon">' + esc(icon || '🔄') + '</span>',
+      '</div>',
+      '<div class="zsub-kpi-val">' + esc(val) + '</div>',
+      '<div class="zsub-kpi-bottom">',
+      '<span class="zsub-delta ' + (trend === 'up' ? 'up' : trend === 'down' ? 'down' : 'neutral') + '">' + (trend === 'up' ? '↑ ' : trend === 'down' ? '↓ ' : '• ') + esc(delta) + '</span>',
+      '<span class="zsub-subtext">' + esc(subtext) + '</span>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -202,41 +202,41 @@
   function renderDashboard() {
     return [
       '<div class="zsub-kpi-grid">',
-        kpiHtml('Monthly Recurring Rev (MRR)', '₹28.92 L', '+14.6% MoM', 'up', 'Annualized ARR: ₹3.47 Cr', '🔄'),
-        kpiHtml('Active Paying Subscribers', '1,388 Pets', 'Across 10 recurring plans', 'up', 'Recurring subscriber base', '👥'),
-        kpiHtml('Subscriber Renewal Rate', '97.2%', 'Automated UPI / Card mandates', 'up', 'Auto-debit adherence', '🛡️'),
-        kpiHtml('Gross Monthly Churn', '0.7%', '-0.3% vs Q2 benchmark', 'up', 'Monthly churn metrics', '📉'),
-        kpiHtml('Average Revenue / User (ARPU)', '₹2,084 / mo', '+8.4% YoY', 'up', 'Multi-tier add-ons', '💎'),
-        kpiHtml('Customer Lifetime Value (LTV)', '₹31,260', 'LTV/CAC ratio: 5.1x', 'up', 'Lifetime customer value', '⭐'),
+      kpiHtml('Monthly Recurring Rev (MRR)', '₹28.92 L', '+14.6% MoM', 'up', 'Annualized ARR: ₹3.47 Cr', '🔄'),
+      kpiHtml('Active Paying Subscribers', '1,388 Pets', 'Across 10 recurring plans', 'up', 'Recurring subscriber base', '👥'),
+      kpiHtml('Subscriber Renewal Rate', '97.2%', 'Automated UPI / Card mandates', 'up', 'Auto-debit adherence', '🛡️'),
+      kpiHtml('Gross Monthly Churn', '0.7%', '-0.3% vs Q2 benchmark', 'up', 'Monthly churn metrics', '📉'),
+      kpiHtml('Average Revenue / User (ARPU)', '₹2,084 / mo', '+8.4% YoY', 'up', 'Multi-tier add-ons', '💎'),
+      kpiHtml('Customer Lifetime Value (LTV)', '₹31,260', 'LTV/CAC ratio: 5.1x', 'up', 'Lifetime customer value', '⭐'),
       '</div>',
 
       '<div class="zsub-card">',
-        '<div class="zsub-card-head">',
-          '<div>',
-            '<h3 class="zsub-card-title">🔄 Recurring Membership Plans & MRR Performance (' + PLANS.length + ' Plans)</h3>',
-            '<p class="zsub-card-sub">Active subscriber counts, recurring revenue contribution, and plan benefits</p>',
-          '</div>',
-          '<button class="zsub-btn primary" onclick="ZenveSubscriptionsDashboard.showNewPlanModal()">+ New Plan</button>',
-        '</div>',
-        '<div class="zsub-table-wrap">',
-          '<table class="zsub-table">',
-            '<thead><tr><th>Plan Code</th><th>Plan Name</th><th>Monthly Price</th><th>Active Pets</th><th>MRR Contribution</th><th>Renewal Rate</th><th>Monthly Churn</th><th>Status</th></tr></thead>',
-            '<tbody>',
-              PLANS.map(function(p) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:600;">' + esc(p.id) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(p.name) + '</td>' +
-                  '<td style="font-weight:600;color:#6d28d9;">' + esc(p.price) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(p.activeSubscribers) + ' Pets</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(p.mrr) + '</td>' +
-                  '<td>' + esc(p.renewalRate) + '</td>' +
-                  '<td><span class="zsub-pill active">' + esc(p.churn) + '</span></td>' +
-                  '<td><span class="zsub-pill sub">Live Plan</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zsub-card-head">',
+      '<div>',
+      '<h3 class="zsub-card-title">🔄 Recurring Membership Plans & MRR Performance (' + PLANS.length + ' Plans)</h3>',
+      '<p class="zsub-card-sub">Active subscriber counts, recurring revenue contribution, and plan benefits</p>',
+      '</div>',
+      '<button class="zsub-btn primary" onclick="ZenveSubscriptionsDashboard.showNewPlanModal()">+ New Plan</button>',
+      '</div>',
+      '<div class="zsub-table-wrap">',
+      '<table class="zsub-table">',
+      '<thead><tr><th>Plan Code</th><th>Plan Name</th><th>Monthly Price</th><th>Active Pets</th><th>MRR Contribution</th><th>Renewal Rate</th><th>Monthly Churn</th><th>Status</th></tr></thead>',
+      '<tbody>',
+      PLANS.map(function (p) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:600;">' + esc(p.id) + '</td>' +
+          '<td style="font-weight:600;">' + esc(p.name) + '</td>' +
+          '<td style="font-weight:600;color:#6d28d9;">' + esc(p.price) + '</td>' +
+          '<td style="font-weight:600;">' + esc(p.activeSubscribers) + ' Pets</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(p.mrr) + '</td>' +
+          '<td>' + esc(p.renewalRate) + '</td>' +
+          '<td><span class="zsub-pill active">' + esc(p.churn) + '</span></td>' +
+          '<td><span class="zsub-pill sub">Live Plan</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -244,32 +244,32 @@
   function renderActive() {
     return [
       '<div class="zsub-kpi-grid">',
-        kpiHtml('Total Active Subscriptions', '1,388 Pets', 'Across all 10 tier plans', 'up', 'Active roster count', '✅'),
-        kpiHtml('Auto-Debit Mandate Success', '97.4%', 'NPCI UPI & E-NACH', 'up', 'Automated tokenization', '💳'),
-        kpiHtml('Subscriber Longevity', '18.4 Months', 'High customer stickiness', 'up', 'Average membership lifespan', '⏱️'),
-        kpiHtml('Collected Active MRR', '₹28.92 L', '98.6% collectable', 'up', 'Recurring revenue realized', '💰'),
+      kpiHtml('Total Active Subscriptions', '1,388 Pets', 'Across all 10 tier plans', 'up', 'Active roster count', '✅'),
+      kpiHtml('Auto-Debit Mandate Success', '97.4%', 'NPCI UPI & E-NACH', 'up', 'Automated tokenization', '💳'),
+      kpiHtml('Subscriber Longevity', '18.4 Months', 'High customer stickiness', 'up', 'Average membership lifespan', '⏱️'),
+      kpiHtml('Collected Active MRR', '₹28.92 L', '98.6% collectable', 'up', 'Recurring revenue realized', '💰'),
       '</div>',
       '<div class="zsub-card">',
-        '<div class="zsub-card-head"><div><h3 class="zsub-card-title">✅ Live Active Members Master Roster (' + SUBSCRIBERS.length + ' Records)</h3><p class="zsub-card-sub">Subscribed pets, parent details, mandate rails, and renewal dates</p></div></div>',
-        '<div class="zsub-table-wrap">',
-          '<table class="zsub-table">',
-            '<thead><tr><th>Sub ID</th><th>Pet Patient</th><th>Parent Name</th><th>Plan</th><th>Mandate Rail</th><th>Monthly Rate</th><th>Next Billing</th><th>Status</th></tr></thead>',
-            '<tbody>',
-              SUBSCRIBERS.map(function(s) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:600;">' + esc(s.subId) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(s.petName) + '</td>' +
-                  '<td>' + esc(s.parent) + '</td>' +
-                  '<td>' + esc(s.plan) + '</td>' +
-                  '<td>' + esc(s.autoDebit) + '</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(s.monthlyFee) + '</td>' +
-                  '<td>' + esc(s.nextRenewal) + '</td>' +
-                  '<td><span class="zsub-pill active">' + esc(s.status) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zsub-card-head"><div><h3 class="zsub-card-title">✅ Live Active Members Master Roster (' + SUBSCRIBERS.length + ' Records)</h3><p class="zsub-card-sub">Subscribed pets, parent details, mandate rails, and renewal dates</p></div></div>',
+      '<div class="zsub-table-wrap">',
+      '<table class="zsub-table">',
+      '<thead><tr><th>Sub ID</th><th>Pet Patient</th><th>Parent Name</th><th>Plan</th><th>Mandate Rail</th><th>Monthly Rate</th><th>Next Billing</th><th>Status</th></tr></thead>',
+      '<tbody>',
+      SUBSCRIBERS.map(function (s) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:600;">' + esc(s.subId) + '</td>' +
+          '<td style="font-weight:600;">' + esc(s.petName) + '</td>' +
+          '<td>' + esc(s.parent) + '</td>' +
+          '<td>' + esc(s.plan) + '</td>' +
+          '<td>' + esc(s.autoDebit) + '</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(s.monthlyFee) + '</td>' +
+          '<td>' + esc(s.nextRenewal) + '</td>' +
+          '<td><span class="zsub-pill active">' + esc(s.status) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -277,30 +277,30 @@
   function renderNew() {
     return [
       '<div class="zsub-kpi-grid">',
-        kpiHtml('New Subscriptions (MTD)', '184 Signups', '+22.4% MoM', 'up', 'Target: 160 signups', '✨'),
-        kpiHtml('Blended Acquisition CAC', '₹490', '-18.5% YoY reduction', 'up', 'Clinic referral efficiency', '🎯'),
-        kpiHtml('New MRR Added', '₹3.84 L', '+26.8% MoM', 'up', 'Pure ARR expansion', '💰'),
-        kpiHtml('Avg Payback Period', '14.2 Days', 'First month margin positive', 'up', 'Payback duration', '⏱️'),
+      kpiHtml('New Subscriptions (MTD)', '184 Signups', '+22.4% MoM', 'up', 'Target: 160 signups', '✨'),
+      kpiHtml('Blended Acquisition CAC', '₹490', '-18.5% YoY reduction', 'up', 'Clinic referral efficiency', '🎯'),
+      kpiHtml('New MRR Added', '₹3.84 L', '+26.8% MoM', 'up', 'Pure ARR expansion', '💰'),
+      kpiHtml('Avg Payback Period', '14.2 Days', 'First month margin positive', 'up', 'Payback duration', '⏱️'),
       '</div>',
       '<div class="zsub-card">',
-        '<div class="zsub-card-head"><div><h3 class="zsub-card-title">✨ New Subscriber Acquisition Channels (' + ACQUISITIONS.length + ' Channels)</h3><p class="zsub-card-sub">Acquisition velocity, CAC, conversion rate, and payback days</p></div></div>',
-        '<div class="zsub-table-wrap">',
-          '<table class="zsub-table">',
-            '<thead><tr><th>Channel</th><th>Signups</th><th>CAC</th><th>Conversion</th><th>New MRR</th><th>Payback</th></tr></thead>',
-            '<tbody>',
-              ACQUISITIONS.map(function(a) {
-                return '<tr>' +
-                  '<td style="font-weight:600;">' + esc(a.channel) + '</td>' +
-                  '<td style="font-weight:600;color:#6d28d9;">' + esc(a.newSubs) + ' Subs</td>' +
-                  '<td>' + esc(a.cac) + '</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(a.conversion) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(a.mrrAdded) + '</td>' +
-                  '<td><span class="zsub-pill active">' + esc(a.payback) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zsub-card-head"><div><h3 class="zsub-card-title">✨ New Subscriber Acquisition Channels (' + ACQUISITIONS.length + ' Channels)</h3><p class="zsub-card-sub">Acquisition velocity, CAC, conversion rate, and payback days</p></div></div>',
+      '<div class="zsub-table-wrap">',
+      '<table class="zsub-table">',
+      '<thead><tr><th>Channel</th><th>Signups</th><th>CAC</th><th>Conversion</th><th>New MRR</th><th>Payback</th></tr></thead>',
+      '<tbody>',
+      ACQUISITIONS.map(function (a) {
+        return '<tr>' +
+          '<td style="font-weight:600;">' + esc(a.channel) + '</td>' +
+          '<td style="font-weight:600;color:#6d28d9;">' + esc(a.newSubs) + ' Subs</td>' +
+          '<td>' + esc(a.cac) + '</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(a.conversion) + '</td>' +
+          '<td style="font-weight:600;">' + esc(a.mrrAdded) + '</td>' +
+          '<td><span class="zsub-pill active">' + esc(a.payback) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -308,30 +308,30 @@
   function renderRenewals() {
     return [
       '<div class="zsub-kpi-grid">',
-        kpiHtml('First-Pass Renewal Rate', '97.3%', '+1.8% vs Q2', 'up', 'Automated mandate execution', '🔄'),
-        kpiHtml('Smart Dunning Recovery', '88.5%', 'WhatsApp prompt + retry', 'up', 'Dunning recovery rate', '⚡'),
-        kpiHtml('Processed Renewal Funds', '₹28.14 L', 'MTD collected', 'up', 'Direct bank settlement', '💰'),
-        kpiHtml('Involuntary Churn', '0.4%', '-0.2% vs target', 'up', 'Payment failure churn', '📉'),
+      kpiHtml('First-Pass Renewal Rate', '97.3%', '+1.8% vs Q2', 'up', 'Automated mandate execution', '🔄'),
+      kpiHtml('Smart Dunning Recovery', '88.5%', 'WhatsApp prompt + retry', 'up', 'Dunning recovery rate', '⚡'),
+      kpiHtml('Processed Renewal Funds', '₹28.14 L', 'MTD collected', 'up', 'Direct bank settlement', '💰'),
+      kpiHtml('Involuntary Churn', '0.4%', '-0.2% vs target', 'up', 'Payment failure churn', '📉'),
       '</div>',
       '<div class="zsub-card">',
-        '<div class="zsub-card-head"><div><h3 class="zsub-card-title">🔄 Monthly Renewal Batches & Auto-Debit Performance (' + RENEWALS.length + ' Batches)</h3><p class="zsub-card-sub">Scheduled debits, success rates, retry recovery, and collected funds</p></div></div>',
-        '<div class="zsub-table-wrap">',
-          '<table class="zsub-table">',
-            '<thead><tr><th>Billing Cohort</th><th>Scheduled</th><th>Success</th><th>Retry Queue</th><th>Renewal Rate</th><th>Collected Value</th></tr></thead>',
-            '<tbody>',
-              RENEWALS.map(function(r) {
-                return '<tr>' +
-                  '<td style="font-weight:600;">' + esc(r.cohort) + '</td>' +
-                  '<td>' + esc(r.scheduled) + ' Debits</td>' +
-                  '<td style="color:#059669;font-weight:600;">' + esc(r.successful) + '</td>' +
-                  '<td style="color:#d97706;">' + esc(r.retryQueue) + '</td>' +
-                  '<td><span class="zsub-pill active">' + esc(r.rate) + '</span></td>' +
-                  '<td style="font-weight:600;color:#6d28d9;">' + esc(r.processedRev) + '</td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zsub-card-head"><div><h3 class="zsub-card-title">🔄 Monthly Renewal Batches & Auto-Debit Performance (' + RENEWALS.length + ' Batches)</h3><p class="zsub-card-sub">Scheduled debits, success rates, retry recovery, and collected funds</p></div></div>',
+      '<div class="zsub-table-wrap">',
+      '<table class="zsub-table">',
+      '<thead><tr><th>Billing Cohort</th><th>Scheduled</th><th>Success</th><th>Retry Queue</th><th>Renewal Rate</th><th>Collected Value</th></tr></thead>',
+      '<tbody>',
+      RENEWALS.map(function (r) {
+        return '<tr>' +
+          '<td style="font-weight:600;">' + esc(r.cohort) + '</td>' +
+          '<td>' + esc(r.scheduled) + ' Debits</td>' +
+          '<td style="color:#059669;font-weight:600;">' + esc(r.successful) + '</td>' +
+          '<td style="color:#d97706;">' + esc(r.retryQueue) + '</td>' +
+          '<td><span class="zsub-pill active">' + esc(r.rate) + '</span></td>' +
+          '<td style="font-weight:600;color:#6d28d9;">' + esc(r.processedRev) + '</td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -339,31 +339,31 @@
   function renderExpiring() {
     return [
       '<div class="zsub-kpi-grid">',
-        kpiHtml('Expiries in 30 Days', '10 Plans', '₹2.88 L Annualized', 'up', 'Annual membership plans', '⏳'),
-        kpiHtml('Pre-Renewal Confirmation', '91.4%', 'Automated outreach response', 'up', 'Renewal confirmations', '✅'),
-        kpiHtml('Token Expirations', '14 Cards', 'Mandate update in progress', 'neutral', 'NPCI notification', '💳'),
-        kpiHtml('Concierge Retention Rate', '94.2%', 'Direct vet nurse call', 'up', 'Retention outreach saves', '🛡️'),
+      kpiHtml('Expiries in 30 Days', '10 Plans', '₹2.88 L Annualized', 'up', 'Annual membership plans', '⏳'),
+      kpiHtml('Pre-Renewal Confirmation', '91.4%', 'Automated outreach response', 'up', 'Renewal confirmations', '✅'),
+      kpiHtml('Token Expirations', '14 Cards', 'Mandate update in progress', 'neutral', 'NPCI notification', '💳'),
+      kpiHtml('Concierge Retention Rate', '94.2%', 'Direct vet nurse call', 'up', 'Retention outreach saves', '🛡️'),
       '</div>',
       '<div class="zsub-card">',
-        '<div class="zsub-card-head"><div><h3 class="zsub-card-title">⏳ Proactive Expiration Watchlist & Action Queue (' + EXPIRING.length + ' Subscriptions)</h3><p class="zsub-card-sub">Subscriptions expiring within 30 days and automated retention actions</p></div></div>',
-        '<div class="zsub-table-wrap">',
-          '<table class="zsub-table">',
-            '<thead><tr><th>Sub ID</th><th>Pet Patient</th><th>Parent</th><th>Plan</th><th>Expiry Timeline</th><th>Value</th><th>Action Taken</th></tr></thead>',
-            '<tbody>',
-              EXPIRING.map(function(e) {
-                return '<tr>' +
-                  '<td style="font-family:monospace;font-weight:600;">' + esc(e.subId) + '</td>' +
-                  '<td style="font-weight:600;">' + esc(e.petName) + '</td>' +
-                  '<td>' + esc(e.parent) + '</td>' +
-                  '<td>' + esc(e.plan) + '</td>' +
-                  '<td style="color:#d97706;font-weight:600;">' + esc(e.expiryDate) + '</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(e.val) + '</td>' +
-                  '<td><span class="zsub-pill sub">' + esc(e.action) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zsub-card-head"><div><h3 class="zsub-card-title">⏳ Proactive Expiration Watchlist & Action Queue (' + EXPIRING.length + ' Subscriptions)</h3><p class="zsub-card-sub">Subscriptions expiring within 30 days and automated retention actions</p></div></div>',
+      '<div class="zsub-table-wrap">',
+      '<table class="zsub-table">',
+      '<thead><tr><th>Sub ID</th><th>Pet Patient</th><th>Parent</th><th>Plan</th><th>Expiry Timeline</th><th>Value</th><th>Action Taken</th></tr></thead>',
+      '<tbody>',
+      EXPIRING.map(function (e) {
+        return '<tr>' +
+          '<td style="font-family:monospace;font-weight:600;">' + esc(e.subId) + '</td>' +
+          '<td style="font-weight:600;">' + esc(e.petName) + '</td>' +
+          '<td>' + esc(e.parent) + '</td>' +
+          '<td>' + esc(e.plan) + '</td>' +
+          '<td style="color:#d97706;font-weight:600;">' + esc(e.expiryDate) + '</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(e.val) + '</td>' +
+          '<td><span class="zsub-pill sub">' + esc(e.action) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -371,30 +371,30 @@
   function renderChurn() {
     return [
       '<div class="zsub-kpi-grid">',
-        kpiHtml('Gross Monthly Churn', '0.7%', '-0.3% MoM reduction', 'up', '10 categorizations monitored', '📉'),
-        kpiHtml('Net Revenue Retention (NRR)', '114.8%', '+4.2% YoY', 'up', 'Expansion > Churn', '📈'),
-        kpiHtml('Preventable Churn Ratio', '78.5%', 'Mitigated via downgrades', 'up', 'Exit mitigation rate', '🛡️'),
-        kpiHtml('Win-Back Campaign Rate', '34.2%', 'Targeted re-activation', 'up', 'Re-subscribed in 90D', '🔄'),
+      kpiHtml('Gross Monthly Churn', '0.7%', '-0.3% MoM reduction', 'up', '10 categorizations monitored', '📉'),
+      kpiHtml('Net Revenue Retention (NRR)', '114.8%', '+4.2% YoY', 'up', 'Expansion > Churn', '📈'),
+      kpiHtml('Preventable Churn Ratio', '78.5%', 'Mitigated via downgrades', 'up', 'Exit mitigation rate', '🛡️'),
+      kpiHtml('Win-Back Campaign Rate', '34.2%', 'Targeted re-activation', 'up', 'Re-subscribed in 90D', '🔄'),
       '</div>',
       '<div class="zsub-card">',
-        '<div class="zsub-card-head"><div><h3 class="zsub-card-title">📉 Root Cause Churn Analysis & Remediation (' + CHURN_REASONS.length + ' Categories)</h3><p class="zsub-card-sub">Stated exit reasons, lost MRR, and automated retention workflows</p></div></div>',
-        '<div class="zsub-table-wrap">',
-          '<table class="zsub-table">',
-            '<thead><tr><th>Stated Cancellation Reason</th><th>Share</th><th>Cancelled Accounts</th><th>Lost Monthly MRR</th><th>Preventable?</th><th>Remediation Action</th></tr></thead>',
-            '<tbody>',
-              CHURN_REASONS.map(function(c) {
-                return '<tr>' +
-                  '<td style="font-weight:600;">' + esc(c.reason) + '</td>' +
-                  '<td style="color:#6d28d9;font-weight:600;">' + esc(c.pct) + '</td>' +
-                  '<td>' + esc(c.count) + ' Pets</td>' +
-                  '<td style="font-weight:600;color:#dc2626;">' + esc(c.mrrLost) + '</td>' +
-                  '<td>' + esc(c.preventable) + '</td>' +
-                  '<td style="color:#059669;">' + esc(c.action) + '</td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zsub-card-head"><div><h3 class="zsub-card-title">📉 Root Cause Churn Analysis & Remediation (' + CHURN_REASONS.length + ' Categories)</h3><p class="zsub-card-sub">Stated exit reasons, lost MRR, and automated retention workflows</p></div></div>',
+      '<div class="zsub-table-wrap">',
+      '<table class="zsub-table">',
+      '<thead><tr><th>Stated Cancellation Reason</th><th>Share</th><th>Cancelled Accounts</th><th>Lost Monthly MRR</th><th>Preventable?</th><th>Remediation Action</th></tr></thead>',
+      '<tbody>',
+      CHURN_REASONS.map(function (c) {
+        return '<tr>' +
+          '<td style="font-weight:600;">' + esc(c.reason) + '</td>' +
+          '<td style="color:#6d28d9;font-weight:600;">' + esc(c.pct) + '</td>' +
+          '<td>' + esc(c.count) + ' Pets</td>' +
+          '<td style="font-weight:600;color:#dc2626;">' + esc(c.mrrLost) + '</td>' +
+          '<td>' + esc(c.preventable) + '</td>' +
+          '<td style="color:#059669;">' + esc(c.action) + '</td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -402,30 +402,30 @@
   function renderRevenue() {
     return [
       '<div class="zsub-kpi-grid">',
-        kpiHtml('Annual Recurring Revenue (ARR)', '₹3.47 Cr', '+32.4% YoY', 'up', 'Current MRR x 12', '💵'),
-        kpiHtml('Monthly Recurring Rev (MRR)', '₹28.92 L', '+14.6% MoM', 'up', '100% contracted debits', '🔄'),
-        kpiHtml('Subscription Gross Margin', '74.2%', '+3.8% YoY', 'up', 'High digital & telehealth mix', '📈'),
-        kpiHtml('Expansion / Upsell MRR', '₹4.65 L', '+21.5% MoM', 'up', 'Nutrition tier upgrades', '🚀'),
+      kpiHtml('Annual Recurring Revenue (ARR)', '₹3.47 Cr', '+32.4% YoY', 'up', 'Current MRR x 12', '💵'),
+      kpiHtml('Monthly Recurring Rev (MRR)', '₹28.92 L', '+14.6% MoM', 'up', '100% contracted debits', '🔄'),
+      kpiHtml('Subscription Gross Margin', '74.2%', '+3.8% YoY', 'up', 'High digital & telehealth mix', '📈'),
+      kpiHtml('Expansion / Upsell MRR', '₹4.65 L', '+21.5% MoM', 'up', 'Nutrition tier upgrades', '🚀'),
       '</div>',
       '<div class="zsub-card">',
-        '<div class="zsub-card-head"><div><h3 class="zsub-card-title">💵 Recurring Revenue Contribution by Tier (' + TIER_REVENUES.length + ' Tiers)</h3><p class="zsub-card-sub">Revenue realization, ARR velocity, ARPU, and plan margins</p></div></div>',
-        '<div class="zsub-table-wrap">',
-          '<table class="zsub-table">',
-            '<thead><tr><th>Plan Tier</th><th>MRR Share</th><th>Monthly MRR</th><th>Annualized ARR</th><th>Gross Margin</th><th>YoY Growth</th></tr></thead>',
-            '<tbody>',
-              TIER_REVENUES.map(function(t) {
-                return '<tr>' +
-                  '<td style="font-weight:600;">' + esc(t.name) + '</td>' +
-                  '<td>' + esc(t.share) + '</td>' +
-                  '<td style="font-weight:600;color:#059669;">' + esc(t.mrr) + '</td>' +
-                  '<td style="font-weight:600;color:#6d28d9;">' + esc(t.arr) + '</td>' +
-                  '<td style="font-weight:600;color:#0891b2;">' + esc(t.margin) + '</td>' +
-                  '<td><span class="zsub-pill active">' + esc(t.growth) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zsub-card-head"><div><h3 class="zsub-card-title">💵 Recurring Revenue Contribution by Tier (' + TIER_REVENUES.length + ' Tiers)</h3><p class="zsub-card-sub">Revenue realization, ARR velocity, ARPU, and plan margins</p></div></div>',
+      '<div class="zsub-table-wrap">',
+      '<table class="zsub-table">',
+      '<thead><tr><th>Plan Tier</th><th>MRR Share</th><th>Monthly MRR</th><th>Annualized ARR</th><th>Gross Margin</th><th>YoY Growth</th></tr></thead>',
+      '<tbody>',
+      TIER_REVENUES.map(function (t) {
+        return '<tr>' +
+          '<td style="font-weight:600;">' + esc(t.name) + '</td>' +
+          '<td>' + esc(t.share) + '</td>' +
+          '<td style="font-weight:600;color:#059669;">' + esc(t.mrr) + '</td>' +
+          '<td style="font-weight:600;color:#6d28d9;">' + esc(t.arr) + '</td>' +
+          '<td style="font-weight:600;color:#0891b2;">' + esc(t.margin) + '</td>' +
+          '<td><span class="zsub-pill active">' + esc(t.growth) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -433,30 +433,30 @@
   function renderAnalytics() {
     return [
       '<div class="zsub-kpi-grid">',
-        kpiHtml('Blended LTV / CAC', '5.1x', 'World-class > 3.0x', 'up', 'Healthy acquisition engine', '📊'),
-        kpiHtml('Avg Customer Lifetime', '18.4 Months', '+2.6 mo vs FY25', 'up', 'Long-term pet relationship', '⏱️'),
-        kpiHtml('Quick Ratio (Growth / Churn)', '4.8x', 'New MRR vs Lost MRR', 'up', 'Growth vs churn velocity', '🚀'),
-        kpiHtml('Net Revenue Retention (NRR)', '114.8%', '+14.8% expansion', 'up', 'Net revenue retention rate', '📈'),
+      kpiHtml('Blended LTV / CAC', '5.1x', 'World-class > 3.0x', 'up', 'Healthy acquisition engine', '📊'),
+      kpiHtml('Avg Customer Lifetime', '18.4 Months', '+2.6 mo vs FY25', 'up', 'Long-term pet relationship', '⏱️'),
+      kpiHtml('Quick Ratio (Growth / Churn)', '4.8x', 'New MRR vs Lost MRR', 'up', 'Growth vs churn velocity', '🚀'),
+      kpiHtml('Net Revenue Retention (NRR)', '114.8%', '+14.8% expansion', 'up', 'Net revenue retention rate', '📈'),
       '</div>',
       '<div class="zsub-card">',
-        '<div class="zsub-card-head"><div><h3 class="zsub-card-title">📊 Subscriber Cohort Retention Longevity (' + COHORTS.length + ' Cohorts)</h3><p class="zsub-card-sub">Month-over-month cohort retention longevity and cumulative LTV</p></div></div>',
-        '<div class="zsub-table-wrap">',
-          '<table class="zsub-table">',
-            '<thead><tr><th>Signup Cohort</th><th>Starting Pets</th><th>Month 3 Ret.</th><th>Month 6 Ret.</th><th>Cumulative LTV</th><th>LTV / CAC</th></tr></thead>',
-            '<tbody>',
-              COHORTS.map(function(c) {
-                return '<tr>' +
-                  '<td style="font-weight:600;">' + esc(c.cohort) + '</td>' +
-                  '<td>' + esc(c.startingUsers) + ' Pets</td>' +
-                  '<td style="color:#059669;font-weight:600;">' + esc(c.m3Ret) + '</td>' +
-                  '<td style="color:#059669;font-weight:600;">' + esc(c.m6Ret) + '</td>' +
-                  '<td style="font-weight:600;color:#6d28d9;">' + esc(c.cumulativeLtv) + '</td>' +
-                  '<td><span class="zsub-pill active">' + esc(c.ltvCacRatio) + '</span></td>' +
-                '</tr>';
-              }).join(''),
-            '</tbody>',
-          '</table>',
-        '</div>',
+      '<div class="zsub-card-head"><div><h3 class="zsub-card-title">📊 Subscriber Cohort Retention Longevity (' + COHORTS.length + ' Cohorts)</h3><p class="zsub-card-sub">Month-over-month cohort retention longevity and cumulative LTV</p></div></div>',
+      '<div class="zsub-table-wrap">',
+      '<table class="zsub-table">',
+      '<thead><tr><th>Signup Cohort</th><th>Starting Pets</th><th>Month 3 Ret.</th><th>Month 6 Ret.</th><th>Cumulative LTV</th><th>LTV / CAC</th></tr></thead>',
+      '<tbody>',
+      COHORTS.map(function (c) {
+        return '<tr>' +
+          '<td style="font-weight:600;">' + esc(c.cohort) + '</td>' +
+          '<td>' + esc(c.startingUsers) + ' Pets</td>' +
+          '<td style="color:#059669;font-weight:600;">' + esc(c.m3Ret) + '</td>' +
+          '<td style="color:#059669;font-weight:600;">' + esc(c.m6Ret) + '</td>' +
+          '<td style="font-weight:600;color:#6d28d9;">' + esc(c.cumulativeLtv) + '</td>' +
+          '<td><span class="zsub-pill active">' + esc(c.ltvCacRatio) + '</span></td>' +
+          '</tr>';
+      }).join(''),
+      '</tbody>',
+      '</table>',
+      '</div>',
       '</div>'
     ].join('');
   }
@@ -468,27 +468,27 @@
 
     var html = [
       '<header class="zsub-head">',
-        '<div class="zsub-head-left">',
-          '<div class="zsub-title-row">',
-            '<h2 class="zsub-title">' + currentTab.icon + ' ' + esc(currentTab.title) + '</h2>',
-            '<span class="zsub-live-badge"><span class="zsub-pulse-dot"></span> Subscriptions · Active</span>',
-          '</div>',
-          '<p class="zsub-sub">' + esc(currentTab.sub) + '</p>',
-        '</div>',
-        '<div class="zsub-head-actions">',
-          '<button class="zsub-btn primary" onclick="ZenveSubscriptionsDashboard.showNewPlanModal()">+ New Plan</button>',
-        '</div>',
+      '<div class="zsub-head-left">',
+      '<div class="zsub-title-row">',
+      '<h2 class="zsub-title">' + currentTab.icon + ' ' + esc(currentTab.title) + '</h2>',
+      '<span class="zsub-live-badge"><span class="zsub-pulse-dot"></span> Subscriptions · Active</span>',
+      '</div>',
+      '<p class="zsub-sub">' + esc(currentTab.sub) + '</p>',
+      '</div>',
+      '<div class="zsub-head-actions">',
+      '<button class="zsub-btn primary" onclick="ZenveSubscriptionsDashboard.showNewPlanModal()">+ New Plan</button>',
+      '</div>',
       '</header>',
 
       '<nav class="zsub-tabs-bar">',
-        TABS.map(function (t) {
-          var active = t.id === S.tab ? ' active' : '';
-          return '<button class="zsub-tab' + active + '" onclick="ZenveSubscriptionsDashboard.switchTab(\'' + t.id + '\')">' +
-            '<span>' + t.icon + '</span>' +
-            '<span>' + esc(t.label) + '</span>' +
-            '<span class="zsub-tab-badge">' + esc(t.badge) + '</span>' +
+      TABS.map(function (t) {
+        var active = t.id === S.tab ? ' active' : '';
+        return '<button class="zsub-tab' + active + '" onclick="ZenveSubscriptionsDashboard.switchTab(\'' + t.id + '\')">' +
+          '<span>' + t.icon + '</span>' +
+          '<span>' + esc(t.label) + '</span>' +
+          '<span class="zsub-tab-badge">' + esc(t.badge) + '</span>' +
           '</button>';
-        }).join(''),
+      }).join(''),
       '</nav>',
 
       '<main class="zsub-body">'
@@ -496,14 +496,14 @@
 
     switch (S.tab) {
       case 'dashboard': html.push(renderDashboard()); break;
-      case 'active':    html.push(renderActive()); break;
-      case 'new':       html.push(renderNew()); break;
-      case 'renewals':  html.push(renderRenewals()); break;
-      case 'expiring':  html.push(renderExpiring()); break;
-      case 'churn':     html.push(renderChurn()); break;
-      case 'revenue':   html.push(renderRevenue()); break;
+      case 'active': html.push(renderActive()); break;
+      case 'new': html.push(renderNew()); break;
+      case 'renewals': html.push(renderRenewals()); break;
+      case 'expiring': html.push(renderExpiring()); break;
+      case 'churn': html.push(renderChurn()); break;
+      case 'revenue': html.push(renderRevenue()); break;
       case 'analytics': html.push(renderAnalytics()); break;
-      default:          html.push(renderDashboard());
+      default: html.push(renderDashboard());
     }
 
     html.push('</main>');
@@ -531,20 +531,20 @@
   function showNewPlanModal() {
     var formHtml = [
       '<div class="zsub-modal-head">',
-        '<h3 class="zsub-modal-title">🔄 Create New Recurring Wellness Plan</h3>',
-        '<button class="zsub-btn" onclick="ZenveSubscriptionsDashboard.closeModal()">✕</button>',
+      '<h3 class="zsub-modal-title">🔄 Create New Recurring Wellness Plan</h3>',
+      '<button class="zsub-btn" onclick="ZenveSubscriptionsDashboard.closeModal()">✕</button>',
       '</div>',
       '<form onsubmit="event.preventDefault(); alert(\'Subscription plan created and published to Zenve SuperApp!\'); ZenveSubscriptionsDashboard.closeModal();">',
-        '<div class="zsub-form-group"><label>Subscription Plan Title</label><input type="text" class="zsub-input" placeholder="e.g. Feline Renal Care & Monthly Diet Subscription" required /></div>',
-        '<div class="zsub-form-row">',
-          '<div class="zsub-form-group"><label>Monthly Price (INR)</label><input type="text" class="zsub-input" placeholder="₹1,850" required /></div>',
-          '<div class="zsub-form-group"><label>Billing Frequency</label><select class="zsub-select"><option>Monthly Auto-Debit</option><option>Quarterly Advance</option><option>Annual Prepaid</option></select></div>',
-        '</div>',
-        '<div class="zsub-form-group"><label>Included Benefits & Inclusions</label><input type="text" class="zsub-input" placeholder="e.g. Free 60-min delivery + 2 vet consults + monthly kibble" required /></div>',
-        '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
-          '<button type="button" class="zsub-btn" onclick="ZenveSubscriptionsDashboard.closeModal()">Cancel</button>',
-          '<button type="submit" class="zsub-btn primary">Publish Subscription</button>',
-        '</div>',
+      '<div class="zsub-form-group"><label>Subscription Plan Title</label><input type="text" class="zsub-input" placeholder="e.g. Feline Renal Care & Monthly Diet Subscription" required /></div>',
+      '<div class="zsub-form-row">',
+      '<div class="zsub-form-group"><label>Monthly Price (INR)</label><input type="text" class="zsub-input" placeholder="₹1,850" required /></div>',
+      '<div class="zsub-form-group"><label>Billing Frequency</label><select class="zsub-select"><option>Monthly Auto-Debit</option><option>Quarterly Advance</option><option>Annual Prepaid</option></select></div>',
+      '</div>',
+      '<div class="zsub-form-group"><label>Included Benefits & Inclusions</label><input type="text" class="zsub-input" placeholder="e.g. Free 60-min delivery + 2 vet consults + monthly kibble" required /></div>',
+      '<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;">',
+      '<button type="button" class="zsub-btn" onclick="ZenveSubscriptionsDashboard.closeModal()">Cancel</button>',
+      '<button type="submit" class="zsub-btn primary">Publish Subscription</button>',
+      '</div>',
       '</form>'
     ].join('');
     showModal(formHtml);
@@ -563,7 +563,7 @@
 
   function open(tab) {
     // Close other domain overlays
-    ['zfa-root', 'zmkt-dashboard-root', 'zvp-root', 'zfsh-root', 'zb2b-root', 'zix-root', 'zod-root', 'zsd-root', 'zpid-root', 'zph-root', 'zch-root', 'zrep-root', 'zalt-root', 'zset-root', 'zhr-root', 'zsys-root'].forEach(function(id) {
+    ['zfa-root', 'zmkt-dashboard-root', 'zvp-root', 'zfsh-root', 'zb2b-root', 'zix-root', 'zod-root', 'zsd-root', 'zpid-root', 'zph-root', 'zch-root', 'zrep-root', 'zalt-root', 'zset-root', 'zhr-root', 'zsys-root'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) {
         el.classList.remove('zfa-open', 'zmkt-open', 'zvp-open', 'zfsh-open', 'zb2b-open', 'zix-open', 'zsub-open', 'zod-open', 'zsd-open', 'zpid-open', 'zph-open', 'zch-open', 'zrep-open', 'zalt-open', 'zset-open', 'zhr-open', 'zsys-open', 'zpanel-open');
@@ -571,7 +571,7 @@
       }
     });
     if (document.querySelectorAll) {
-      document.querySelectorAll('.zpanel-root').forEach(function(el) {
+      document.querySelectorAll('.zpanel-root').forEach(function (el) {
         if (el.id !== 'zsub-root') {
           el.style.display = 'none';
           el.classList.remove('zfa-open', 'zmkt-open', 'zvp-open', 'zfsh-open', 'zb2b-open', 'zix-open', 'zsub-open', 'zod-open', 'zsd-open', 'zpid-open', 'zph-open', 'zch-open', 'zrep-open', 'zalt-open', 'zset-open', 'zhr-open', 'zsys-open', 'zpanel-open');
@@ -594,12 +594,12 @@
       document.body.classList.remove('zfsh-locked', 'zvp-locked', 'zalt-locked', 'zb2b-locked', 'zix-locked');
       document.documentElement.classList.add('zsub-locked');
       document.body.classList.add('zsub-locked');
-    } catch (e) {}
+    } catch (e) { }
     render();
 
     var targetTab = TABS.find(function (t) { return t.id === S.tab; });
     if (targetTab && targetTab.hash && window.location.hash !== targetTab.hash) {
-      try { history.replaceState(null, '', targetTab.hash); } catch (e) {}
+      try { history.replaceState(null, '', targetTab.hash); } catch (e) { }
     }
     root.scrollTop = 0;
   }
@@ -613,9 +613,9 @@
     try {
       document.documentElement.classList.remove('zsub-locked');
       document.body.classList.remove('zsub-locked');
-    } catch (e) {}
+    } catch (e) { }
     if (window.location.hash && tabFromHash(window.location.hash)) {
-      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {}
+      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) { }
     }
   }
 
@@ -625,7 +625,7 @@
     render();
     var targetTab = TABS.find(function (t) { return t.id === tabId; });
     if (targetTab && targetTab.hash) {
-      try { history.replaceState(null, '', targetTab.hash); } catch (e) {}
+      try { history.replaceState(null, '', targetTab.hash); } catch (e) { }
     }
     if (root) root.scrollTop = 0;
   }
@@ -637,7 +637,7 @@
       open(t);
     } else if (S.open && window.location.hash && window.location.hash !== '#') {
       var otherDomains = ['sales', 'operations', 'inventory', 'pharmacy', 'clinics', 'doctors', 'reports', 'alerts', 'settings', 'finance', 'marketing', 'vendors', 'procurement', 'fashion', 'b2b', 'enterprise', 'import', 'export'];
-      var isOther = otherDomains.some(function(d) { return window.location.hash.indexOf(d) >= 0; });
+      var isOther = otherDomains.some(function (d) { return window.location.hash.indexOf(d) >= 0; });
       if (isOther) close();
     }
   }

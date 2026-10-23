@@ -36,7 +36,7 @@ SERVICES = [
 CHANNELS = ["Android", "iOS", "Web", "Other"]
 
 DOCTORS = [
-    "Dr. Divya Balasubramanian",
+    "Dr. Edwin .",
     "Dr. Ananya Deshmukh",
     "Dr. Vikramaditya Rathore",
     "Dr. Priya Sharma",

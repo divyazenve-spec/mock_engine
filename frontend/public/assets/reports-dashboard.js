@@ -24,25 +24,25 @@
 
   /* ── 1. Module Registry ──────────────────────────────────────────── */
   var MODULES = [
-    { id: 'sales',       label: 'Sales Reports',      icon: '📊', hash: '#sales-reports',      badge: '' },
-    { id: 'revenue',     label: 'Revenue Reports',    icon: '💼', hash: '#revenue-reports',    badge: '' },
-    { id: 'customer',    label: 'Customer Reports',   icon: '👥', hash: '#customer-reports',   badge: '' },
-    { id: 'pet',         label: 'Pet Reports',        icon: '🐾', hash: '#pet-reports',        badge: '' },
-    { id: 'doctor',      label: 'Doctor Reports',     icon: '🩺', hash: '#doctor-reports',     badge: '' },
-    { id: 'clinic',      label: 'Clinic Reports',     icon: '🏥', hash: '#clinic-reports',     badge: '' },
-    { id: 'product',     label: 'Product Reports',    icon: '🏷️', hash: '#product-reports',    badge: '' },
-    { id: 'inventory',   label: 'Inventory Reports',  icon: '📦', hash: '#inventory-reports',  badge: '' },
-    { id: 'finance',     label: 'Finance Reports',    icon: '💰', hash: '#finance-reports',    badge: '' },
-    { id: 'hr',          label: 'HR Reports',         icon: '🧑‍💼', hash: '#hr-reports',         badge: '' },
-    { id: 'marketing',   label: 'Marketing Reports',  icon: '📣', hash: '#marketing-reports',  badge: '' },
-    { id: 'operations',  label: 'Operations Reports', icon: '🚚', hash: '#operations-reports', badge: '' },
-    { id: 'vendor',      label: 'Vendor Reports',     icon: '🤝', hash: '#vendor-reports',     badge: '' },
-    { id: 'custom',      label: 'Custom Reports',     icon: '⚙️', hash: '#custom-reports',     badge: '' },
-    { id: 'scheduled',   label: 'Scheduled Reports',  icon: '⏰', hash: '#scheduled-reports',  badge: '' },
-    { id: 'export',      label: 'Export Center',      icon: '📥', hash: '#export-center',      badge: '' }
+    { id: 'sales', label: 'Sales Reports', icon: '📊', hash: '#sales-reports', badge: '' },
+    { id: 'revenue', label: 'Revenue Reports', icon: '💼', hash: '#revenue-reports', badge: '' },
+    { id: 'customer', label: 'Customer Reports', icon: '👥', hash: '#customer-reports', badge: '' },
+    { id: 'pet', label: 'Pet Reports', icon: '🐾', hash: '#pet-reports', badge: '' },
+    { id: 'doctor', label: 'Doctor Reports', icon: '🩺', hash: '#doctor-reports', badge: '' },
+    { id: 'clinic', label: 'Clinic Reports', icon: '🏥', hash: '#clinic-reports', badge: '' },
+    { id: 'product', label: 'Product Reports', icon: '🏷️', hash: '#product-reports', badge: '' },
+    { id: 'inventory', label: 'Inventory Reports', icon: '📦', hash: '#inventory-reports', badge: '' },
+    { id: 'finance', label: 'Finance Reports', icon: '💰', hash: '#finance-reports', badge: '' },
+    { id: 'hr', label: 'HR Reports', icon: '🧑‍💼', hash: '#hr-reports', badge: '' },
+    { id: 'marketing', label: 'Marketing Reports', icon: '📣', hash: '#marketing-reports', badge: '' },
+    { id: 'operations', label: 'Operations Reports', icon: '🚚', hash: '#operations-reports', badge: '' },
+    { id: 'vendor', label: 'Vendor Reports', icon: '🤝', hash: '#vendor-reports', badge: '' },
+    { id: 'custom', label: 'Custom Reports', icon: '⚙️', hash: '#custom-reports', badge: '' },
+    { id: 'scheduled', label: 'Scheduled Reports', icon: '⏰', hash: '#scheduled-reports', badge: '' },
+    { id: 'export', label: 'Export Center', icon: '📥', hash: '#export-center', badge: '' }
   ];
 
-    /* ── 2. Data Store ───────────────────────────────────────────────── */
+  /* ── 2. Data Store ───────────────────────────────────────────────── */
   var D = {
     // 1. Sales Data
     salesSummary: {
@@ -110,7 +110,7 @@
 
     // 5. Doctor Data
     doctors: [
-      { name: 'Dr. Divya Balasubramanian', specialty: 'Veterinary Surgery', consults: '328', surgeries: '42', satisfaction: '4.96', commission: '₹1,48,500' },
+      { name: 'Dr. Edwin .', specialty: 'Veterinary Surgery', consults: '328', surgeries: '42', satisfaction: '4.96', commission: '₹1,48,500' },
       { name: 'Dr. Ananya Deshmukh', specialty: 'Small Animal Medicine', consults: '294', surgeries: '18', satisfaction: '4.94', commission: '₹1,26,400' },
       { name: 'Dr. Vikramaditya Rathore', specialty: 'Orthopedic Surgery', consults: '246', surgeries: '38', satisfaction: '4.93', commission: '₹1,38,900' },
       { name: 'Dr. Priya Sharma', specialty: 'Soft Tissue Surgery', consults: '232', surgeries: '35', satisfaction: '4.95', commission: '₹1,32,000' },
@@ -281,7 +281,7 @@
     activeTab: 'sales',
     filterPeriod: 'month',
     searchQuery: '',
-        customQuery: {
+    customQuery: {
       dimension: 'channel',
       metric: 'net_sales',
       dateRange: '30d',
@@ -359,24 +359,24 @@
     for (var i = 0; i < MODULES.length; i++) {
       var m = MODULES[i];
       if (norm === m.label.toLowerCase() ||
-          norm.indexOf(m.label.toLowerCase()) >= 0 ||
-          norm === m.id ||
-          (m.id === 'sales' && norm.indexOf('sales report') >= 0) ||
-          (m.id === 'revenue' && norm.indexOf('revenue report') >= 0) ||
-          (m.id === 'customer' && norm.indexOf('customer report') >= 0) ||
-          (m.id === 'pet' && norm.indexOf('pet report') >= 0) ||
-          (m.id === 'doctor' && norm.indexOf('doctor report') >= 0) ||
-          (m.id === 'clinic' && norm.indexOf('clinic report') >= 0) ||
-          (m.id === 'product' && norm.indexOf('product report') >= 0) ||
-          (m.id === 'inventory' && norm.indexOf('inventory report') >= 0) ||
-          (m.id === 'finance' && norm.indexOf('finance report') >= 0) ||
-          (m.id === 'hr' && norm.indexOf('hr report') >= 0) ||
-          (m.id === 'marketing' && norm.indexOf('marketing report') >= 0) ||
-          (m.id === 'operations' && norm.indexOf('operations report') >= 0) ||
-          (m.id === 'vendor' && norm.indexOf('vendor report') >= 0) ||
-          (m.id === 'custom' && norm.indexOf('custom report') >= 0) ||
-          (m.id === 'scheduled' && norm.indexOf('scheduled report') >= 0) ||
-          (m.id === 'export' && norm.indexOf('export center') >= 0)) {
+        norm.indexOf(m.label.toLowerCase()) >= 0 ||
+        norm === m.id ||
+        (m.id === 'sales' && norm.indexOf('sales report') >= 0) ||
+        (m.id === 'revenue' && norm.indexOf('revenue report') >= 0) ||
+        (m.id === 'customer' && norm.indexOf('customer report') >= 0) ||
+        (m.id === 'pet' && norm.indexOf('pet report') >= 0) ||
+        (m.id === 'doctor' && norm.indexOf('doctor report') >= 0) ||
+        (m.id === 'clinic' && norm.indexOf('clinic report') >= 0) ||
+        (m.id === 'product' && norm.indexOf('product report') >= 0) ||
+        (m.id === 'inventory' && norm.indexOf('inventory report') >= 0) ||
+        (m.id === 'finance' && norm.indexOf('finance report') >= 0) ||
+        (m.id === 'hr' && norm.indexOf('hr report') >= 0) ||
+        (m.id === 'marketing' && norm.indexOf('marketing report') >= 0) ||
+        (m.id === 'operations' && norm.indexOf('operations report') >= 0) ||
+        (m.id === 'vendor' && norm.indexOf('vendor report') >= 0) ||
+        (m.id === 'custom' && norm.indexOf('custom report') >= 0) ||
+        (m.id === 'scheduled' && norm.indexOf('scheduled report') >= 0) ||
+        (m.id === 'export' && norm.indexOf('export center') >= 0)) {
         return m.id;
       }
     }
@@ -402,42 +402,42 @@
       var isActive = m.id === S.activeTab;
       return (
         '<button type="button" class="zrep-chip ' + (isActive ? 'active' : '') + '" data-tab="' + m.id + '">' +
-          '<span>' + m.icon + '</span>' +
-          '<span>' + m.label + '</span>' +
-          '<span class="zrep-chip-badge">' + m.badge + '</span>' +
+        '<span>' + m.icon + '</span>' +
+        '<span>' + m.label + '</span>' +
+        '<span class="zrep-chip-badge">' + m.badge + '</span>' +
         '</button>'
       );
     }).join('');
 
     root.innerHTML =
       '<header class="zrep-header">' +
-        '<div class="zrep-header-left">' +
-          '<div class="zrep-brand-badge">📑</div>' +
-          '<div class="zrep-title-group">' +
-            '<div class="zrep-title-row">' +
-              '<h1 class="zrep-main-title">Reports &amp; Analytics</h1>' +
-              '<span class="zrep-status-badge">' +
-                '<span class="zrep-pulse-dot"></span>' +
-                '16 Modules Connected' +
-              '</span>' +
-            '</div>' +
-            '<p class="zrep-sub-title">Unified Multi-Domain Intelligence, Automated Schedules &amp; Enterprise Export Center</p>' +
-          '</div>' +
-        '</div>' +
-        '<div class="zrep-header-actions">' +
-          '<button type="button" class="zrep-btn zrep-btn-primary" id="zrep-action-custom">' +
-            '<span>⚡</span> Run Custom Report' +
-          '</button>' +
-          '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-action-export">' +
-            '<span>📥</span> Export Center' +
-          '</button>' +
-        '</div>' +
+      '<div class="zrep-header-left">' +
+      '<div class="zrep-brand-badge">📑</div>' +
+      '<div class="zrep-title-group">' +
+      '<div class="zrep-title-row">' +
+      '<h1 class="zrep-main-title">Reports &amp; Analytics</h1>' +
+      '<span class="zrep-status-badge">' +
+      '<span class="zrep-pulse-dot"></span>' +
+      '16 Modules Connected' +
+      '</span>' +
+      '</div>' +
+      '<p class="zrep-sub-title">Unified Multi-Domain Intelligence, Automated Schedules &amp; Enterprise Export Center</p>' +
+      '</div>' +
+      '</div>' +
+      '<div class="zrep-header-actions">' +
+      '<button type="button" class="zrep-btn zrep-btn-primary" id="zrep-action-custom">' +
+      '<span>⚡</span> Run Custom Report' +
+      '</button>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-action-export">' +
+      '<span>📥</span> Export Center' +
+      '</button>' +
+      '</div>' +
       '</header>' +
       '<nav class="zrep-nav-ribbon" id="zrep-nav-ribbon">' +
-        chipsHtml +
+      chipsHtml +
       '</nav>' +
       '<div class="zrep-main-workspace" id="zrep-workspace">' +
-        renderActiveView() +
+      renderActiveView() +
       '</div>';
 
     bindShellEvents();
@@ -480,23 +480,23 @@
   /* ── 6. Render Active Tab View ───────────────────────────────────── */
   function renderActiveView() {
     switch (S.activeTab) {
-      case 'sales':       return renderSalesReport();
-      case 'revenue':     return renderRevenueReport();
-      case 'customer':    return renderCustomerReport();
-      case 'pet':         return renderPetReport();
-      case 'doctor':      return renderDoctorReport();
-      case 'clinic':      return renderClinicReport();
-      case 'product':     return renderProductReport();
-      case 'inventory':   return renderInventoryReport();
-      case 'finance':     return renderFinanceReport();
-      case 'hr':          return renderHRReport();
-      case 'marketing':   return renderMarketingReport();
-      case 'operations':  return renderOperationsReport();
-      case 'vendor':      return renderVendorReport();
-      case 'custom':      return renderCustomReports();
-      case 'scheduled':   return renderScheduledReports();
-      case 'export':      return renderExportCenter();
-      default:            return renderSalesReport();
+      case 'sales': return renderSalesReport();
+      case 'revenue': return renderRevenueReport();
+      case 'customer': return renderCustomerReport();
+      case 'pet': return renderPetReport();
+      case 'doctor': return renderDoctorReport();
+      case 'clinic': return renderClinicReport();
+      case 'product': return renderProductReport();
+      case 'inventory': return renderInventoryReport();
+      case 'finance': return renderFinanceReport();
+      case 'hr': return renderHRReport();
+      case 'marketing': return renderMarketingReport();
+      case 'operations': return renderOperationsReport();
+      case 'vendor': return renderVendorReport();
+      case 'custom': return renderCustomReports();
+      case 'scheduled': return renderScheduledReports();
+      case 'export': return renderExportCenter();
+      default: return renderSalesReport();
     }
   }
 
@@ -505,59 +505,59 @@
     var chRows = (D.salesChannels.length ? D.salesChannels.map(function (c) {
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + c.channel + '</td>' +
-          '<td>' + c.orders + '</td>' +
-          '<td>' + c.gross + '</td>' +
-          '<td style="font-weight:700; color:#4f46e5;">' + c.net + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-purple">' + c.share + '</span></td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + c.channel + '</td>' +
+        '<td>' + c.orders + '</td>' +
+        '<td>' + c.gross + '</td>' +
+        '<td style="font-weight:700; color:#4f46e5;">' + c.net + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-purple">' + c.share + '</span></td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="5" style="text-align:center;padding:24px;color:#94a3b8;">No sales channel records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Gross Sales</span><span class="zrep-kpi-icon">💰</span></div>' +
-            '<div class="zrep-kpi-value">' + D.salesSummary.grossSales + '</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +14.2%</span><span class="zrep-kpi-desc">vs last period</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Net GMV Revenue</span><span class="zrep-kpi-icon">📈</span></div>' +
-            '<div class="zrep-kpi-value" style="color:#4f46e5;">' + D.salesSummary.netSales + '</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +15.8%</span><span class="zrep-kpi-desc">after discounts</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Orders</span><span class="zrep-kpi-icon">📦</span></div>' +
-            '<div class="zrep-kpi-value">' + D.salesSummary.ordersCount + '</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +8.4%</span><span class="zrep-kpi-desc">completed orders</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Order Value</span><span class="zrep-kpi-icon">🎯</span></div>' +
-            '<div class="zrep-kpi-value">' + D.salesSummary.aov + '</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +5.2%</span><span class="zrep-kpi-desc">basket size</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Gross Sales</span><span class="zrep-kpi-icon">💰</span></div>' +
+      '<div class="zrep-kpi-value">' + D.salesSummary.grossSales + '</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +14.2%</span><span class="zrep-kpi-desc">vs last period</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Net GMV Revenue</span><span class="zrep-kpi-icon">📈</span></div>' +
+      '<div class="zrep-kpi-value" style="color:#4f46e5;">' + D.salesSummary.netSales + '</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +15.8%</span><span class="zrep-kpi-desc">after discounts</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Orders</span><span class="zrep-kpi-icon">📦</span></div>' +
+      '<div class="zrep-kpi-value">' + D.salesSummary.ordersCount + '</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +8.4%</span><span class="zrep-kpi-desc">completed orders</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Order Value</span><span class="zrep-kpi-icon">🎯</span></div>' +
+      '<div class="zrep-kpi-value">' + D.salesSummary.aov + '</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +5.2%</span><span class="zrep-kpi-desc">basket size</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Channel Revenue Breakdown</h3>' +
-              '<p class="zrep-card-subtitle">Gross billing, Net GMV and order contribution across all sales channels</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-sales">' +
-              '<span>📥</span> Download Sales CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Sales Channel</th><th>Total Orders</th><th>Gross Billing</th><th>Net GMV</th><th>Contribution %</th></tr></thead>' +
-                '<tbody>' + chRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Channel Revenue Breakdown</h3>' +
+      '<p class="zrep-card-subtitle">Gross billing, Net GMV and order contribution across all sales channels</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-sales">' +
+      '<span>📥</span> Download Sales CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Sales Channel</th><th>Total Orders</th><th>Gross Billing</th><th>Net GMV</th><th>Contribution %</th></tr></thead>' +
+      '<tbody>' + chRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -567,60 +567,60 @@
     var buRows = (D.revenueBUs.length ? D.revenueBUs.map(function (b) {
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + b.unit + '</td>' +
-          '<td>' + b.target + '</td>' +
-          '<td style="font-weight:700; color:#0f172a;">' + b.achieved + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-green">' + b.attainment + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-blue">' + b.margin + '</span></td>' +
-          '<td style="color:#16a34a; font-weight:600;">' + b.trend + '</td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + b.unit + '</td>' +
+        '<td>' + b.target + '</td>' +
+        '<td style="font-weight:700; color:#0f172a;">' + b.achieved + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-green">' + b.attainment + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-blue">' + b.margin + '</span></td>' +
+        '<td style="color:#16a34a; font-weight:600;">' + b.trend + '</td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No business unit revenue records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Period Revenue Attainment</span><span class="zrep-kpi-icon">🎯</span></div>' +
-            '<div class="zrep-kpi-value">105.5%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +5.5%</span><span class="zrep-kpi-desc">target attainment</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Blended Gross Margin</span><span class="zrep-kpi-icon">💎</span></div>' +
-            '<div class="zrep-kpi-value">52.6%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +3.4%</span><span class="zrep-kpi-desc">margin expansion</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Annual Recurring Revenue</span><span class="zrep-kpi-icon">🔄</span></div>' +
-            '<div class="zrep-kpi-value">₹16.40 Cr</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +28.2%</span><span class="zrep-kpi-desc">wellness plans</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Cash Inflow Speed</span><span class="zrep-kpi-icon">⚡</span></div>' +
-            '<div class="zrep-kpi-value">98.4%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +2.1%</span><span class="zrep-kpi-desc">clearance speed</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Period Revenue Attainment</span><span class="zrep-kpi-icon">🎯</span></div>' +
+      '<div class="zrep-kpi-value">105.5%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +5.5%</span><span class="zrep-kpi-desc">target attainment</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Blended Gross Margin</span><span class="zrep-kpi-icon">💎</span></div>' +
+      '<div class="zrep-kpi-value">52.6%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +3.4%</span><span class="zrep-kpi-desc">margin expansion</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Annual Recurring Revenue</span><span class="zrep-kpi-icon">🔄</span></div>' +
+      '<div class="zrep-kpi-value">₹16.40 Cr</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +28.2%</span><span class="zrep-kpi-desc">wellness plans</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Cash Inflow Speed</span><span class="zrep-kpi-icon">⚡</span></div>' +
+      '<div class="zrep-kpi-value">98.4%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +2.1%</span><span class="zrep-kpi-desc">clearance speed</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Business Unit Performance vs Budget Targets</h3>' +
-              '<p class="zrep-card-subtitle">Segment revenue, attainment % and gross margins across 5 core business units</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-revenue">' +
-              '<span>📥</span> Download Revenue CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Business Unit</th><th>Target Budget</th><th>Actual Revenue</th><th>Attainment %</th><th>Gross Margin %</th><th>YoY Growth</th></tr></thead>' +
-                '<tbody>' + buRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Business Unit Performance vs Budget Targets</h3>' +
+      '<p class="zrep-card-subtitle">Segment revenue, attainment % and gross margins across 5 core business units</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-revenue">' +
+      '<span>📥</span> Download Revenue CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Business Unit</th><th>Target Budget</th><th>Actual Revenue</th><th>Attainment %</th><th>Gross Margin %</th><th>YoY Growth</th></tr></thead>' +
+      '<tbody>' + buRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -630,61 +630,61 @@
     var cohortRows = (D.customerCohorts.length ? D.customerCohorts.map(function (c) {
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + c.cohort + '</td>' +
-          '<td>' + c.users + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-green">' + c.m1 + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-green">' + c.m3 + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-blue">' + c.m6 + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-purple">' + c.m12 + '</span></td>' +
-          '<td style="font-weight:700; color:#4f46e5;">' + c.ltv + '</td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + c.cohort + '</td>' +
+        '<td>' + c.users + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-green">' + c.m1 + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-green">' + c.m3 + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-blue">' + c.m6 + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-purple">' + c.m12 + '</span></td>' +
+        '<td style="font-weight:700; color:#4f46e5;">' + c.ltv + '</td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="7" style="text-align:center;padding:24px;color:#94a3b8;">No customer cohort records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Registered Pet Parents</span><span class="zrep-kpi-icon">👥</span></div>' +
-            '<div class="zrep-kpi-value">17,720</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +12.8%</span><span class="zrep-kpi-desc">new this month</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Repeat Purchase Rate</span><span class="zrep-kpi-icon">🔁</span></div>' +
-            '<div class="zrep-kpi-value">76.4%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +4.2%</span><span class="zrep-kpi-desc">within 60 days</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Customer LTV</span><span class="zrep-kpi-icon">💎</span></div>' +
-            '<div class="zrep-kpi-value">₹24,800</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +9.4%</span><span class="zrep-kpi-desc">annualized spend</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Churn Risk Propensity</span><span class="zrep-kpi-icon">🛡️</span></div>' +
-            '<div class="zrep-kpi-value">3.8%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.6%</span><span class="zrep-kpi-desc">churn reduced</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Registered Pet Parents</span><span class="zrep-kpi-icon">👥</span></div>' +
+      '<div class="zrep-kpi-value">17,720</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +12.8%</span><span class="zrep-kpi-desc">new this month</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Repeat Purchase Rate</span><span class="zrep-kpi-icon">🔁</span></div>' +
+      '<div class="zrep-kpi-value">76.4%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +4.2%</span><span class="zrep-kpi-desc">within 60 days</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Customer LTV</span><span class="zrep-kpi-icon">💎</span></div>' +
+      '<div class="zrep-kpi-value">₹24,800</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +9.4%</span><span class="zrep-kpi-desc">annualized spend</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Churn Risk Propensity</span><span class="zrep-kpi-icon">🛡️</span></div>' +
+      '<div class="zrep-kpi-value">3.8%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.6%</span><span class="zrep-kpi-desc">churn reduced</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Customer Cohort Retention &amp; LTV Progression</h3>' +
-              '<p class="zrep-card-subtitle">Monthly registration cohorts, retention milestones and accumulated lifetime value</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-customer">' +
-              '<span>📥</span> Download Cohort CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Acquisition Cohort</th><th>Cohort Size</th><th>Month 1</th><th>Month 3</th><th>Month 6</th><th>Month 12</th><th>Estimated LTV</th></tr></thead>' +
-                '<tbody>' + cohortRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Customer Cohort Retention &amp; LTV Progression</h3>' +
+      '<p class="zrep-card-subtitle">Monthly registration cohorts, retention milestones and accumulated lifetime value</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-customer">' +
+      '<span>📥</span> Download Cohort CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Acquisition Cohort</th><th>Cohort Size</th><th>Month 1</th><th>Month 3</th><th>Month 6</th><th>Month 12</th><th>Estimated LTV</th></tr></thead>' +
+      '<tbody>' + cohortRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -694,60 +694,60 @@
     var breedRows = (D.petBreeds.length ? D.petBreeds.map(function (p) {
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + p.breed + '</td>' +
-          '<td><span class="zrep-pill ' + (p.species === 'Dog' ? 'zrep-pill-blue' : 'zrep-pill-purple') + '">' + p.species + '</span></td>' +
-          '<td style="font-weight:700;">' + p.count + '</td>' +
-          '<td>' + p.avgAge + '</td>' +
-          '<td>' + p.topCondition + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-green">' + p.adherence + '</span></td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + p.breed + '</td>' +
+        '<td><span class="zrep-pill ' + (p.species === 'Dog' ? 'zrep-pill-blue' : 'zrep-pill-purple') + '">' + p.species + '</span></td>' +
+        '<td style="font-weight:700;">' + p.count + '</td>' +
+        '<td>' + p.avgAge + '</td>' +
+        '<td>' + p.topCondition + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-green">' + p.adherence + '</span></td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No pet epidemiology records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Registered Pets</span><span class="zrep-kpi-icon">🐾</span></div>' +
-            '<div class="zrep-kpi-value">18,810</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +14.5%</span><span class="zrep-kpi-desc">in health registry</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Vaccination Adherence</span><span class="zrep-kpi-icon">💉</span></div>' +
-            '<div class="zrep-kpi-value">94.7%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +3.1%</span><span class="zrep-kpi-desc">on-time immunizations</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Chronic Cohort Wellness</span><span class="zrep-kpi-icon">❤️</span></div>' +
-            '<div class="zrep-kpi-value">3,240</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +8.2%</span><span class="zrep-kpi-desc">active management</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Avg Care Plans / Pet</span><span class="zrep-kpi-icon">📋</span></div>' +
-            '<div class="zrep-kpi-value">4.1 Plans</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.4</span><span class="zrep-kpi-desc">preventive visits</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Registered Pets</span><span class="zrep-kpi-icon">🐾</span></div>' +
+      '<div class="zrep-kpi-value">18,810</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +14.5%</span><span class="zrep-kpi-desc">in health registry</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Vaccination Adherence</span><span class="zrep-kpi-icon">💉</span></div>' +
+      '<div class="zrep-kpi-value">94.7%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +3.1%</span><span class="zrep-kpi-desc">on-time immunizations</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Chronic Cohort Wellness</span><span class="zrep-kpi-icon">❤️</span></div>' +
+      '<div class="zrep-kpi-value">3,240</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +8.2%</span><span class="zrep-kpi-desc">active management</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Avg Care Plans / Pet</span><span class="zrep-kpi-icon">📋</span></div>' +
+      '<div class="zrep-kpi-value">4.1 Plans</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.4</span><span class="zrep-kpi-desc">preventive visits</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Pet Breed Demographics &amp; Health Profile</h3>' +
-              '<p class="zrep-card-subtitle">Epidemiology, average age, prevalent conditions and vaccination adherence rate</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-pet">' +
-              '<span>📥</span> Download Pet CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Breed</th><th>Species</th><th>Total Registered</th><th>Average Age</th><th>Prevalent Health Profile</th><th>Vaccine Adherence</th></tr></thead>' +
-                '<tbody>' + breedRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Pet Breed Demographics &amp; Health Profile</h3>' +
+      '<p class="zrep-card-subtitle">Epidemiology, average age, prevalent conditions and vaccination adherence rate</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-pet">' +
+      '<span>📥</span> Download Pet CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Breed</th><th>Species</th><th>Total Registered</th><th>Average Age</th><th>Prevalent Health Profile</th><th>Vaccine Adherence</th></tr></thead>' +
+      '<tbody>' + breedRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -757,60 +757,60 @@
     var docRows = (D.doctors.length ? D.doctors.map(function (d) {
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + d.name + '</td>' +
-          '<td>' + d.specialty + '</td>' +
-          '<td>' + d.consults + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-purple">' + d.surgeries + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-green">★ ' + d.satisfaction + '</span></td>' +
-          '<td style="font-weight:700; color:#0f172a;">' + d.commission + '</td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + d.name + '</td>' +
+        '<td>' + d.specialty + '</td>' +
+        '<td>' + d.consults + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-purple">' + d.surgeries + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-green">★ ' + d.satisfaction + '</span></td>' +
+        '<td style="font-weight:700; color:#0f172a;">' + d.commission + '</td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No doctor clinical records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Surgeons &amp; Vets</span><span class="zrep-kpi-icon">🩺</span></div>' +
-            '<div class="zrep-kpi-value">36 Specialists</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +4</span><span class="zrep-kpi-desc">specialist roster</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Consultations</span><span class="zrep-kpi-icon">📋</span></div>' +
-            '<div class="zrep-kpi-value">2,719</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +13.2%</span><span class="zrep-kpi-desc">OPD &amp; Tele-Vet</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Surgical Procedures</span><span class="zrep-kpi-icon">🔬</span></div>' +
-            '<div class="zrep-kpi-value">330 Surgeries</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +9.4%</span><span class="zrep-kpi-desc">specialty OR</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Satisfaction</span><span class="zrep-kpi-icon">⭐</span></div>' +
-            '<div class="zrep-kpi-value">4.93 / 5.0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.05</span><span class="zrep-kpi-desc">patient rating</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Surgeons &amp; Vets</span><span class="zrep-kpi-icon">🩺</span></div>' +
+      '<div class="zrep-kpi-value">36 Specialists</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +4</span><span class="zrep-kpi-desc">specialist roster</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Consultations</span><span class="zrep-kpi-icon">📋</span></div>' +
+      '<div class="zrep-kpi-value">2,719</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +13.2%</span><span class="zrep-kpi-desc">OPD &amp; Tele-Vet</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Surgical Procedures</span><span class="zrep-kpi-icon">🔬</span></div>' +
+      '<div class="zrep-kpi-value">330 Surgeries</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +9.4%</span><span class="zrep-kpi-desc">specialty OR</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Satisfaction</span><span class="zrep-kpi-icon">⭐</span></div>' +
+      '<div class="zrep-kpi-value">4.93 / 5.0</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.05</span><span class="zrep-kpi-desc">patient rating</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Doctor Consultation Volume &amp; Clinical Benchmarks</h3>' +
-              '<p class="zrep-card-subtitle">Consultation caseloads, surgical procedures, ratings and incentive payouts</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-doctor">' +
-              '<span>📥</span> Download Doctor CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Veterinary Specialist</th><th>Clinical Specialty</th><th>Consultations</th><th>Surgeries</th><th>Pet Parent Rating</th><th>Commission Disbursed</th></tr></thead>' +
-                '<tbody>' + docRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Doctor Consultation Volume &amp; Clinical Benchmarks</h3>' +
+      '<p class="zrep-card-subtitle">Consultation caseloads, surgical procedures, ratings and incentive payouts</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-doctor">' +
+      '<span>📥</span> Download Doctor CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Veterinary Specialist</th><th>Clinical Specialty</th><th>Consultations</th><th>Surgeries</th><th>Pet Parent Rating</th><th>Commission Disbursed</th></tr></thead>' +
+      '<tbody>' + docRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -828,13 +828,13 @@
       var infColor = parseFloat(d.infectionRate) <= 0.06 ? 'zrep-pill-green' : (parseFloat(d.infectionRate) <= 0.10 ? 'zrep-pill-blue' : 'zrep-pill-amber');
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + d.dept + '</td>' +
-          '<td>' + d.cases + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-purple">' + d.avgLoS + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-blue">' + d.bedUtil + '</span></td>' +
-          '<td>' + d.nurseRatio + '</td>' +
-          '<td><span class="zrep-pill ' + npsColor + '">NPS ' + d.nps + '</span></td>' +
-          '<td><span class="zrep-pill ' + infColor + '">' + d.infectionRate + '</span></td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + d.dept + '</td>' +
+        '<td>' + d.cases + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-purple">' + d.avgLoS + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-blue">' + d.bedUtil + '</span></td>' +
+        '<td>' + d.nurseRatio + '</td>' +
+        '<td><span class="zrep-pill ' + npsColor + '">NPS ' + d.nps + '</span></td>' +
+        '<td><span class="zrep-pill ' + infColor + '">' + d.infectionRate + '</span></td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="7" style="text-align:center;padding:24px;color:#94a3b8;">No clinical department records found</td></tr>');
@@ -843,80 +843,80 @@
       var nabh = s.nabh === 'Accredited' ? 'zrep-pill-green' : 'zrep-pill-amber';
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + s.hub + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-purple">NPS ' + s.nps + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-green">★ ' + s.csat + '</span></td>' +
-          '<td><span class="zrep-pill ' + nabh + '">' + s.nabh + '</span></td>' +
-          '<td>' + s.complaint + '</td>' +
-          '<td style="font-weight:700; color:#0f172a;">' + s.repeat + '</td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + s.hub + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-purple">NPS ' + s.nps + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-green">★ ' + s.csat + '</span></td>' +
+        '<td><span class="zrep-pill ' + nabh + '">' + s.nabh + '</span></td>' +
+        '<td>' + s.complaint + '</td>' +
+        '<td style="font-weight:700; color:#0f172a;">' + s.repeat + '</td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No clinic quality records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Avg Length of Stay</span><span class="zrep-kpi-icon">🛏️</span></div>' +
-            '<div class="zrep-kpi-value">1.8 Days</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.3d</span><span class="zrep-kpi-desc">vs last quarter</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">NABH Accredited Hubs</span><span class="zrep-kpi-icon">🏅</span></div>' +
-            '<div class="zrep-kpi-value">10 Clinics</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% Certified</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Avg Infection Rate</span><span class="zrep-kpi-icon">🦠</span></div>' +
-            '<div class="zrep-kpi-value">0.12%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.05%</span><span class="zrep-kpi-desc">sterile protocols</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Overall Patient NPS</span><span class="zrep-kpi-icon">⭐</span></div>' +
-            '<div class="zrep-kpi-value">NPS 88</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +4 pts</span><span class="zrep-kpi-desc">across hubs</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Avg Length of Stay</span><span class="zrep-kpi-icon">🛏️</span></div>' +
+      '<div class="zrep-kpi-value">1.8 Days</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.3d</span><span class="zrep-kpi-desc">vs last quarter</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">NABH Accredited Hubs</span><span class="zrep-kpi-icon">🏅</span></div>' +
+      '<div class="zrep-kpi-value">10 Clinics</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% Certified</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Avg Infection Rate</span><span class="zrep-kpi-icon">🦠</span></div>' +
+      '<div class="zrep-kpi-value">0.12%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.05%</span><span class="zrep-kpi-desc">sterile protocols</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Overall Patient NPS</span><span class="zrep-kpi-icon">⭐</span></div>' +
+      '<div class="zrep-kpi-value">NPS 88</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +4 pts</span><span class="zrep-kpi-desc">across hubs</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Department-wise Clinical Throughput &amp; Infection Control</h3>' +
-              '<p class="zrep-card-subtitle">Admissions by department, average length of stay, bed utilization, nurse ratios, NPS and HAI infection rate</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-clinic-dept">' +
-              '<span>📥</span> Download Dept CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Department</th><th>Cases</th><th>Avg LoS</th><th>Bed Utilization</th><th>Nurse:Patient</th><th>NPS Score</th><th>Infection Rate</th></tr></thead>' +
-                '<tbody>' + deptRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Department-wise Clinical Throughput &amp; Infection Control</h3>' +
+      '<p class="zrep-card-subtitle">Admissions by department, average length of stay, bed utilization, nurse ratios, NPS and HAI infection rate</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-clinic-dept">' +
+      '<span>📥</span> Download Dept CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Department</th><th>Cases</th><th>Avg LoS</th><th>Bed Utilization</th><th>Nurse:Patient</th><th>NPS Score</th><th>Infection Rate</th></tr></thead>' +
+      '<tbody>' + deptRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Hub-wise Patient Satisfaction, NABH Compliance &amp; Repeat Visits</h3>' +
-              '<p class="zrep-card-subtitle">CSAT scores, NPS per hospital hub, NABH accreditation status, complaint rate and repeat patient retention</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-clinic">' +
-              '<span>📥</span> Download Clinic CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Hospital Hub</th><th>NPS</th><th>CSAT Rating</th><th>NABH Status</th><th>Complaint Rate</th><th>Repeat Visits</th></tr></thead>' +
-                '<tbody>' + satisfRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Hub-wise Patient Satisfaction, NABH Compliance &amp; Repeat Visits</h3>' +
+      '<p class="zrep-card-subtitle">CSAT scores, NPS per hospital hub, NABH accreditation status, complaint rate and repeat patient retention</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-clinic">' +
+      '<span>📥</span> Download Clinic CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Hospital Hub</th><th>NPS</th><th>CSAT Rating</th><th>NABH Status</th><th>Complaint Rate</th><th>Repeat Visits</th></tr></thead>' +
+      '<tbody>' + satisfRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -926,61 +926,61 @@
     var prodRows = (D.topProducts.length ? D.topProducts.map(function (p) {
       return (
         '<tr>' +
-          '<td style="font-family:monospace; font-size:11px;">' + p.sku + '</td>' +
-          '<td style="font-weight:600; color:#0f172a;">' + p.name + '</td>' +
-          '<td>' + p.cat + '</td>' +
-          '<td>' + p.units + '</td>' +
-          '<td style="font-weight:700; color:#0f172a;">' + p.rev + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-green">' + p.margin + '</span></td>' +
-          '<td><span class="zrep-pill ' + (p.abc === 'A' ? 'zrep-pill-purple' : 'zrep-pill-blue') + '">Class ' + p.abc + '</span></td>' +
+        '<td style="font-family:monospace; font-size:11px;">' + p.sku + '</td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + p.name + '</td>' +
+        '<td>' + p.cat + '</td>' +
+        '<td>' + p.units + '</td>' +
+        '<td style="font-weight:700; color:#0f172a;">' + p.rev + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-green">' + p.margin + '</span></td>' +
+        '<td><span class="zrep-pill ' + (p.abc === 'A' ? 'zrep-pill-purple' : 'zrep-pill-blue') + '">Class ' + p.abc + '</span></td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="7" style="text-align:center;padding:24px;color:#94a3b8;">No top product records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active SKUs</span><span class="zrep-kpi-icon">🏷️</span></div>' +
-            '<div class="zrep-kpi-value">2,450 SKUs</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">99.4% In-Stock Rate</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Class A Revenue Share</span><span class="zrep-kpi-icon">🏆</span></div>' +
-            '<div class="zrep-kpi-value">78.4%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">80/20 Pareto Yield</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Product Margin</span><span class="zrep-kpi-icon">💎</span></div>' +
-            '<div class="zrep-kpi-value">49.4%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +2.8% SKU economics</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Product Return Rate</span><span class="zrep-kpi-icon">🔄</span></div>' +
-            '<div class="zrep-kpi-value">0.7%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.3% return rate</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active SKUs</span><span class="zrep-kpi-icon">🏷️</span></div>' +
+      '<div class="zrep-kpi-value">2,450 SKUs</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">99.4% In-Stock Rate</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Class A Revenue Share</span><span class="zrep-kpi-icon">🏆</span></div>' +
+      '<div class="zrep-kpi-value">78.4%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">80/20 Pareto Yield</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Product Margin</span><span class="zrep-kpi-icon">💎</span></div>' +
+      '<div class="zrep-kpi-value">49.4%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +2.8% SKU economics</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Product Return Rate</span><span class="zrep-kpi-icon">🔄</span></div>' +
+      '<div class="zrep-kpi-value">0.7%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.3% return rate</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Top SKUs &amp; Pareto ABC Classification</h3>' +
-              '<p class="zrep-card-subtitle">Unit velocity, revenue yield, gross margin and inventory ABC stratification</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-product">' +
-              '<span>📥</span> Download Product CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>SKU Code</th><th>Product Description</th><th>Category</th><th>Units Sold</th><th>Total Revenue</th><th>Margin %</th><th>ABC Class</th></tr></thead>' +
-                '<tbody>' + prodRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Top SKUs &amp; Pareto ABC Classification</h3>' +
+      '<p class="zrep-card-subtitle">Unit velocity, revenue yield, gross margin and inventory ABC stratification</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-product">' +
+      '<span>📥</span> Download Product CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>SKU Code</th><th>Product Description</th><th>Category</th><th>Units Sold</th><th>Total Revenue</th><th>Margin %</th><th>ABC Class</th></tr></thead>' +
+      '<tbody>' + prodRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -990,60 +990,60 @@
     var invRows = (D.inventoryDepots.length ? D.inventoryDepots.map(function (d) {
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + d.hub + '</td>' +
-          '<td>' + d.skus + '</td>' +
-          '<td style="font-weight:700; color:#4f46e5;">' + d.val + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-green">' + d.dsi + '</span></td>' +
-          '<td><span class="zrep-pill ' + (d.expiryNear === '₹4,80,000' ? 'zrep-pill-amber' : 'zrep-pill-blue') + '">' + d.expiryNear + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-gray">' + d.space + '</span></td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + d.hub + '</td>' +
+        '<td>' + d.skus + '</td>' +
+        '<td style="font-weight:700; color:#4f46e5;">' + d.val + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-green">' + d.dsi + '</span></td>' +
+        '<td><span class="zrep-pill ' + (d.expiryNear === '₹4,80,000' ? 'zrep-pill-amber' : 'zrep-pill-blue') + '">' + d.expiryNear + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-gray">' + d.space + '</span></td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No inventory depot records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Stock Valuation</span><span class="zrep-kpi-icon">📦</span></div>' +
-            '<div class="zrep-kpi-value">₹6.23 Cr</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +5.8% total valuation</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Days Sales of Inventory</span><span class="zrep-kpi-icon">📅</span></div>' +
-            '<div class="zrep-kpi-value">18.4 Days</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -2.6 days cover</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Cold-Chain Vaccines</span><span class="zrep-kpi-icon">❄️</span></div>' +
-            '<div class="zrep-kpi-value">99.8%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% telemetry feeds</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Shrinkage &amp; Discrepancy</span><span class="zrep-kpi-icon">🛡️</span></div>' +
-            '<div class="zrep-kpi-value">0.08%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.04% variance</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Stock Valuation</span><span class="zrep-kpi-icon">📦</span></div>' +
+      '<div class="zrep-kpi-value">₹6.23 Cr</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +5.8% total valuation</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Days Sales of Inventory</span><span class="zrep-kpi-icon">📅</span></div>' +
+      '<div class="zrep-kpi-value">18.4 Days</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -2.6 days cover</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Cold-Chain Vaccines</span><span class="zrep-kpi-icon">❄️</span></div>' +
+      '<div class="zrep-kpi-value">99.8%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% telemetry feeds</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Shrinkage &amp; Discrepancy</span><span class="zrep-kpi-icon">🛡️</span></div>' +
+      '<div class="zrep-kpi-value">0.08%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.04% variance</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Warehouse &amp; Dark Store Stock Valuation</h3>' +
-              '<p class="zrep-card-subtitle">Hub inventory valuation, days cover, expiry risk exposure and space utilization</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-inventory">' +
-              '<span>📥</span> Download Inventory CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Warehouse / Depot Node</th><th>Active SKUs</th><th>Stock Valuation</th><th>DSI Cover</th><th>Expiring (&lt;60d)</th><th>Space Used</th></tr></thead>' +
-                '<tbody>' + invRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Warehouse &amp; Dark Store Stock Valuation</h3>' +
+      '<p class="zrep-card-subtitle">Hub inventory valuation, days cover, expiry risk exposure and space utilization</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-inventory">' +
+      '<span>📥</span> Download Inventory CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Warehouse / Depot Node</th><th>Active SKUs</th><th>Stock Valuation</th><th>DSI Cover</th><th>Expiring (&lt;60d)</th><th>Space Used</th></tr></thead>' +
+      '<tbody>' + invRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -1055,59 +1055,59 @@
       var isHighlight = p.line.indexOf('Profit') >= 0 || p.line.indexOf('EBITDA') >= 0 || p.line.indexOf('Net Operating') >= 0;
       return (
         '<tr style="' + (isHighlight ? 'background:#f8fafc; font-weight:700;' : '') + '">' +
-          '<td style="color:#0f172a;">' + p.line + '</td>' +
-          '<td style="' + (isNegative ? 'color:#dc2626;' : 'color:#0f172a;') + '">' + p.mtd + '</td>' +
-          '<td style="' + (isNegative ? 'color:#dc2626;' : 'color:#0f172a;') + '">' + p.qtd + '</td>' +
-          '<td><span class="zrep-pill ' + (isNegative ? 'zrep-pill-red' : 'zrep-pill-green') + '">' + p.pct + '</span></td>' +
-          '<td style="font-size:11.5px; color:#64748b;">' + p.note + '</td>' +
+        '<td style="color:#0f172a;">' + p.line + '</td>' +
+        '<td style="' + (isNegative ? 'color:#dc2626;' : 'color:#0f172a;') + '">' + p.mtd + '</td>' +
+        '<td style="' + (isNegative ? 'color:#dc2626;' : 'color:#0f172a;') + '">' + p.qtd + '</td>' +
+        '<td><span class="zrep-pill ' + (isNegative ? 'zrep-pill-red' : 'zrep-pill-green') + '">' + p.pct + '</span></td>' +
+        '<td style="font-size:11.5px; color:#64748b;">' + p.note + '</td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="5" style="text-align:center;padding:24px;color:#94a3b8;">No GAAP P&L statement records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Net Operating Revenue</span><span class="zrep-kpi-icon">💰</span></div>' +
-            '<div class="zrep-kpi-value">₹2.68 Cr</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +17.2% MTD</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Gross Margin</span><span class="zrep-kpi-icon">📊</span></div>' +
-            '<div class="zrep-kpi-value">47.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹1.26 Cr Gross Profit</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Operating EBITDA</span><span class="zrep-kpi-icon">📈</span></div>' +
-            '<div class="zrep-kpi-value">15.8%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹42.50 L Cash EBITDA</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Net Profit (PAT)</span><span class="zrep-kpi-icon">💎</span></div>' +
-            '<div class="zrep-kpi-value">14.2%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹38.20 L Net Profit</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Net Operating Revenue</span><span class="zrep-kpi-icon">💰</span></div>' +
+      '<div class="zrep-kpi-value">₹2.68 Cr</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +17.2% MTD</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Gross Margin</span><span class="zrep-kpi-icon">📊</span></div>' +
+      '<div class="zrep-kpi-value">47.0%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹1.26 Cr Gross Profit</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Operating EBITDA</span><span class="zrep-kpi-icon">📈</span></div>' +
+      '<div class="zrep-kpi-value">15.8%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹42.50 L Cash EBITDA</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Net Profit (PAT)</span><span class="zrep-kpi-icon">💎</span></div>' +
+      '<div class="zrep-kpi-value">14.2%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹38.20 L Net Profit</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Audited GAAP Profit &amp; Loss Statement</h3>' +
-              '<p class="zrep-card-subtitle">Comprehensive monthly and quarterly audited line item reconciliation</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-finance">' +
-              '<span>📥</span> Download P&amp;L CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>GAAP Line Item</th><th>MTD Actuals</th><th>QTD Accumulated</th><th>Revenue %</th><th>Financial Notes</th></tr></thead>' +
-                '<tbody>' + pnlRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Audited GAAP Profit &amp; Loss Statement</h3>' +
+      '<p class="zrep-card-subtitle">Comprehensive monthly and quarterly audited line item reconciliation</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-finance">' +
+      '<span>📥</span> Download P&amp;L CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>GAAP Line Item</th><th>MTD Actuals</th><th>QTD Accumulated</th><th>Revenue %</th><th>Financial Notes</th></tr></thead>' +
+      '<tbody>' + pnlRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -1117,59 +1117,59 @@
     var hrRows = (D.hrDepartments.length ? D.hrDepartments.map(function (h) {
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + h.dept + '</td>' +
-          '<td style="font-weight:700;">' + h.count + ' FTEs</td>' +
-          '<td style="font-weight:700; color:#0f172a;">' + h.payroll + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-green">' + h.attendance + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-blue">' + h.turn + '</span></td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + h.dept + '</td>' +
+        '<td style="font-weight:700;">' + h.count + ' FTEs</td>' +
+        '<td style="font-weight:700; color:#0f172a;">' + h.payroll + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-green">' + h.attendance + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-blue">' + h.turn + '</span></td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="5" style="text-align:center;padding:24px;color:#94a3b8;">No workforce department records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Workforce Headcount</span><span class="zrep-kpi-icon">🧑‍💼</span></div>' +
-            '<div class="zrep-kpi-value">364 Staff</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +28 active members</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Monthly Payroll Outflow</span><span class="zrep-kpi-icon">💳</span></div>' +
-            '<div class="zrep-kpi-value">₹2.44 Cr</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% disbursement</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Blended Attendance Rate</span><span class="zrep-kpi-icon">⏱️</span></div>' +
-            '<div class="zrep-kpi-value">98.6%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +1.2% adherence</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Monthly Employee Turnover</span><span class="zrep-kpi-icon">🛡️</span></div>' +
-            '<div class="zrep-kpi-value">1.9%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.7% turnover</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Workforce Headcount</span><span class="zrep-kpi-icon">🧑‍💼</span></div>' +
+      '<div class="zrep-kpi-value">364 Staff</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +28 active members</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Monthly Payroll Outflow</span><span class="zrep-kpi-icon">💳</span></div>' +
+      '<div class="zrep-kpi-value">₹2.44 Cr</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% disbursement</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Blended Attendance Rate</span><span class="zrep-kpi-icon">⏱️</span></div>' +
+      '<div class="zrep-kpi-value">98.6%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +1.2% adherence</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Monthly Employee Turnover</span><span class="zrep-kpi-icon">🛡️</span></div>' +
+      '<div class="zrep-kpi-value">1.9%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.7% turnover</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Department Headcount, Payroll &amp; Adherence</h3>' +
-              '<p class="zrep-card-subtitle">Full-time employee allocation, monthly salary expenditure and staff turnover</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-hr">' +
-              '<span>📥</span> Download HR CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Operating Department</th><th>Headcount (FTE)</th><th>Monthly Payroll</th><th>Attendance %</th><th>Monthly Turnover</th></tr></thead>' +
-                '<tbody>' + hrRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Department Headcount, Payroll &amp; Adherence</h3>' +
+      '<p class="zrep-card-subtitle">Full-time employee allocation, monthly salary expenditure and staff turnover</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-hr">' +
+      '<span>📥</span> Download HR CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Operating Department</th><th>Headcount (FTE)</th><th>Monthly Payroll</th><th>Attendance %</th><th>Monthly Turnover</th></tr></thead>' +
+      '<tbody>' + hrRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -1179,60 +1179,60 @@
     var mktRows = (D.marketingChannels.length ? D.marketingChannels.map(function (m) {
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + m.channel + '</td>' +
-          '<td>' + m.spend + '</td>' +
-          '<td style="font-weight:700; color:#4f46e5;">' + m.rev + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-green">' + m.roas + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-blue">' + m.cac + '</span></td>' +
-          '<td style="font-weight:600;">' + m.newUsers + '</td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + m.channel + '</td>' +
+        '<td>' + m.spend + '</td>' +
+        '<td style="font-weight:700; color:#4f46e5;">' + m.rev + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-green">' + m.roas + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-blue">' + m.cac + '</span></td>' +
+        '<td style="font-weight:600;">' + m.newUsers + '</td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No marketing attribution records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Blended Marketing ROAS</span><span class="zrep-kpi-icon">🎯</span></div>' +
-            '<div class="zrep-kpi-value">7.63x</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹1.39 Cr Attributed GMV</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Customer Acquisition Cost</span><span class="zrep-kpi-icon">🏷️</span></div>' +
-            '<div class="zrep-kpi-value">₹362</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">6.8x LTV:CAC</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Performance Spend</span><span class="zrep-kpi-icon">💸</span></div>' +
-            '<div class="zrep-kpi-value">₹18.20 L</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">7.4% Net GMV</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">New Customers Acquired</span><span class="zrep-kpi-icon">👥</span></div>' +
-            '<div class="zrep-kpi-value">5,020</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +19.4% new registrations</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Blended Marketing ROAS</span><span class="zrep-kpi-icon">🎯</span></div>' +
+      '<div class="zrep-kpi-value">7.63x</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">₹1.39 Cr Attributed GMV</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Customer Acquisition Cost</span><span class="zrep-kpi-icon">🏷️</span></div>' +
+      '<div class="zrep-kpi-value">₹362</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">6.8x LTV:CAC</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Total Performance Spend</span><span class="zrep-kpi-icon">💸</span></div>' +
+      '<div class="zrep-kpi-value">₹18.20 L</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">7.4% Net GMV</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">New Customers Acquired</span><span class="zrep-kpi-icon">👥</span></div>' +
+      '<div class="zrep-kpi-value">5,020</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +19.4% new registrations</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Channel Marketing Attribution &amp; ROAS Economics</h3>' +
-              '<p class="zrep-card-subtitle">Channel ad expenditure, attributed revenue, return on ad spend and unit CAC</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-marketing">' +
-              '<span>📥</span> Download Marketing CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Marketing Attribution Channel</th><th>Ad Spend</th><th>Attributed Revenue</th><th>ROAS Multiple</th><th>Blended CAC</th><th>New Pet Parents</th></tr></thead>' +
-                '<tbody>' + mktRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Channel Marketing Attribution &amp; ROAS Economics</h3>' +
+      '<p class="zrep-card-subtitle">Channel ad expenditure, attributed revenue, return on ad spend and unit CAC</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-marketing">' +
+      '<span>📥</span> Download Marketing CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Marketing Attribution Channel</th><th>Ad Spend</th><th>Attributed Revenue</th><th>ROAS Multiple</th><th>Blended CAC</th><th>New Pet Parents</th></tr></thead>' +
+      '<tbody>' + mktRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -1242,60 +1242,60 @@
     var opsRows = (D.operationsHubs.length ? D.operationsHubs.map(function (o) {
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + o.hub + '</td>' +
-          '<td>' + o.orders + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-blue">' + o.avgMins + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-green">' + o.slaPass + '</span></td>' +
-          '<td>' + o.activeRiders + ' riders</td>' +
-          '<td><span class="zrep-pill zrep-pill-green">★ ' + o.rating + '</span></td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + o.hub + '</td>' +
+        '<td>' + o.orders + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-blue">' + o.avgMins + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-green">' + o.slaPass + '</span></td>' +
+        '<td>' + o.activeRiders + ' riders</td>' +
+        '<td><span class="zrep-pill zrep-pill-green">★ ' + o.rating + '</span></td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No operations hub records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">60-Min Express SLA Rate</span><span class="zrep-kpi-icon">⚡</span></div>' +
-            '<div class="zrep-kpi-value">98.2%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Avg 38 mins</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Delivery Fleet</span><span class="zrep-kpi-icon">🛵</span></div>' +
-            '<div class="zrep-kpi-value">244 Riders</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% EV telemetry</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Dark Store Staging Dwell</span><span class="zrep-kpi-icon">⏱️</span></div>' +
-            '<div class="zrep-kpi-value">8.1 mins</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -1.2 mins dispatch</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Delivery Satisfaction</span><span class="zrep-kpi-icon">⭐</span></div>' +
-            '<div class="zrep-kpi-value">4.92 / 5.0</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.08 rating</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">60-Min Express SLA Rate</span><span class="zrep-kpi-icon">⚡</span></div>' +
+      '<div class="zrep-kpi-value">98.2%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Avg 38 mins</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Delivery Fleet</span><span class="zrep-kpi-icon">🛵</span></div>' +
+      '<div class="zrep-kpi-value">244 Riders</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% EV telemetry</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Dark Store Staging Dwell</span><span class="zrep-kpi-icon">⏱️</span></div>' +
+      '<div class="zrep-kpi-value">8.1 mins</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -1.2 mins dispatch</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Delivery Satisfaction</span><span class="zrep-kpi-icon">⭐</span></div>' +
+      '<div class="zrep-kpi-value">4.92 / 5.0</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.08 rating</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Dark Store Hub Dispatch &amp; Express Delivery Telemetry</h3>' +
-              '<p class="zrep-card-subtitle">Orders processed, average delivery duration, SLA pass %, fleet size and ratings</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-operations">' +
-              '<span>📥</span> Download Operations CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Dark Store Dispatch Hub</th><th>Orders Dispatched</th><th>Avg Delivery Time</th><th>60-Min SLA Pass</th><th>Active Fleet</th><th>Customer Rating</th></tr></thead>' +
-                '<tbody>' + opsRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Dark Store Hub Dispatch &amp; Express Delivery Telemetry</h3>' +
+      '<p class="zrep-card-subtitle">Orders processed, average delivery duration, SLA pass %, fleet size and ratings</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-operations">' +
+      '<span>📥</span> Download Operations CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Dark Store Dispatch Hub</th><th>Orders Dispatched</th><th>Avg Delivery Time</th><th>60-Min SLA Pass</th><th>Active Fleet</th><th>Customer Rating</th></tr></thead>' +
+      '<tbody>' + opsRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -1305,60 +1305,60 @@
     var vRows = (D.vendors.length ? D.vendors.map(function (v) {
       return (
         '<tr>' +
-          '<td style="font-weight:600; color:#0f172a;">' + v.name + '</td>' +
-          '<td>' + v.category + '</td>' +
-          '<td style="font-weight:700; color:#0f172a;">' + v.poVolume + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-green">' + v.fillRate + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-blue">' + v.otif + '</span></td>' +
-          '<td><span class="zrep-pill zrep-pill-purple">' + v.rebate + '</span></td>' +
+        '<td style="font-weight:600; color:#0f172a;">' + v.name + '</td>' +
+        '<td>' + v.category + '</td>' +
+        '<td style="font-weight:700; color:#0f172a;">' + v.poVolume + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-green">' + v.fillRate + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-blue">' + v.otif + '</span></td>' +
+        '<td><span class="zrep-pill zrep-pill-purple">' + v.rebate + '</span></td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No vendor scorecard records found</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Suppliers &amp; Vendors</span><span class="zrep-kpi-icon">🤝</span></div>' +
-            '<div class="zrep-kpi-value">10 Vendors</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% compliant vendors</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Purchase Order Fill Rate</span><span class="zrep-kpi-icon">📋</span></div>' +
-            '<div class="zrep-kpi-value">99.1%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.8% fill rate</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">On-Time In-Full (OTIF)</span><span class="zrep-kpi-icon">⏱️</span></div>' +
-            '<div class="zrep-kpi-value">98.3%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +1.1% OTIF</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Procurement Savings &amp; Rebates</span><span class="zrep-kpi-icon">💰</span></div>' +
-            '<div class="zrep-kpi-value">₹22.80 L</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +16.5% savings</span></div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Suppliers &amp; Vendors</span><span class="zrep-kpi-icon">🤝</span></div>' +
+      '<div class="zrep-kpi-value">10 Vendors</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% compliant vendors</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Purchase Order Fill Rate</span><span class="zrep-kpi-icon">📋</span></div>' +
+      '<div class="zrep-kpi-value">99.1%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +0.8% fill rate</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">On-Time In-Full (OTIF)</span><span class="zrep-kpi-icon">⏱️</span></div>' +
+      '<div class="zrep-kpi-value">98.3%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +1.1% OTIF</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Procurement Savings &amp; Rebates</span><span class="zrep-kpi-icon">💰</span></div>' +
+      '<div class="zrep-kpi-value">₹22.80 L</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +16.5% savings</span></div>' +
+      '</div>' +
+      '</div>' +
 
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title">Top Suppliers Scorecard &amp; Fulfillment Reliability</h3>' +
-              '<p class="zrep-card-subtitle">Procurement volume, PO fulfillment rate, OTIF score and negotiated volume rebates</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-vendor">' +
-              '<span>📥</span> Download Vendor CSV' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Vendor / Supplier Organization</th><th>Supply Domain</th><th>PO Billing Volume</th><th>PO Fill Rate</th><th>OTIF Compliance</th><th>Negotiated Rebate</th></tr></thead>' +
-                '<tbody>' + vRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title">Top Suppliers Scorecard &amp; Fulfillment Reliability</h3>' +
+      '<p class="zrep-card-subtitle">Procurement volume, PO fulfillment rate, OTIF score and negotiated volume rebates</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-dl-vendor">' +
+      '<span>📥</span> Download Vendor CSV' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Vendor / Supplier Organization</th><th>Supply Domain</th><th>PO Billing Volume</th><th>PO Fill Rate</th><th>OTIF Compliance</th><th>Negotiated Rebate</th></tr></thead>' +
+      '<tbody>' + vRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -1370,109 +1370,109 @@
       previewRows = S.customQuery.resultRows.map(function (r) {
         return (
           '<tr>' +
-            '<td style="font-weight:600; color:#0f172a;">' + r.dim + '</td>' +
-            '<td>' + r.sub + '</td>' +
-            '<td style="font-weight:700; color:#4f46e5;">' + r.val + '</td>' +
-            '<td>' + r.units + '</td>' +
-            '<td><span class="zrep-pill zrep-pill-green">' + r.metric + '</span></td>' +
+          '<td style="font-weight:600; color:#0f172a;">' + r.dim + '</td>' +
+          '<td>' + r.sub + '</td>' +
+          '<td style="font-weight:700; color:#4f46e5;">' + r.val + '</td>' +
+          '<td>' + r.units + '</td>' +
+          '<td><span class="zrep-pill zrep-pill-green">' + r.metric + '</span></td>' +
           '</tr>'
         );
       }).join('');
     } else {
       previewRows =
         '<tr><td colspan="5" style="text-align:center; padding:32px; color:#94a3b8;">' +
-          'Click <b>"Execute Query"</b> to generate dynamic multi-dimensional dataset preview.' +
+        'Click <b>"Execute Query"</b> to generate dynamic multi-dimensional dataset preview.' +
         '</td></tr>';
     }
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Query Latency</span><span class="zrep-kpi-icon">⚡</span></div>' +
-            '<div class="zrep-kpi-value">18 ms</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -6 ms vs baseline</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Supported Dimensions</span><span class="zrep-kpi-icon">📐</span></div>' +
-            '<div class="zrep-kpi-value">14 Dimensions</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +2 New</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Saved Team Queries</span><span class="zrep-kpi-icon">⭐</span></div>' +
-            '<div class="zrep-kpi-value">28 Presets</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Active presets</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Max Export Throughput</span><span class="zrep-kpi-icon">📊</span></div>' +
-            '<div class="zrep-kpi-value">250,000 Rows</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Streaming engine</span></div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title"><span>⚡</span> Multi-Dimensional Custom Report Builder</h3>' +
-              '<p class="zrep-card-subtitle">Construct ad-hoc multidimensional analytics queries across any combination of dimensions and metrics</p>' +
-            '</div>' +
-            '<div style="display:flex; gap:8px;">' +
-              '<button type="button" class="zrep-btn zrep-btn-primary" id="zrep-run-query"><span>⚡</span> Execute Query</button>' +
-              '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-export-query"><span>📥</span> Export Query CSV</button>' +
-            '</div>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-builder-grid">' +
-              '<div class="zrep-field-group">' +
-                '<label class="zrep-field-label">Primary Dimension</label>' +
-                '<select class="zrep-select" id="zrep-dim-primary" style="width:100%;">' +
-                  '<option value="channel">Sales Channel (Online, Clinics, Express)</option>' +
-                  '<option value="bu">Business Unit (Products, Pharmacy, Services)</option>' +
-                  '<option value="doctor">Doctor &amp; Specialty</option>' +
-                  '<option value="clinic">Clinic &amp; Hospital Node</option>' +
-                  '<option value="breed">Pet Breed &amp; Species</option>' +
-                  '<option value="vendor">Vendor &amp; Manufacturer</option>' +
-                '</select>' +
-              '</div>' +
-              '<div class="zrep-field-group">' +
-                '<label class="zrep-field-label">Secondary Stratification</label>' +
-                '<select class="zrep-select" id="zrep-dim-secondary" style="width:100%;">' +
-                  '<option value="month">Time Period (Month / Quarter)</option>' +
-                  '<option value="sku_cat">SKU Product Category</option>' +
-                  '<option value="city">Geographic City &amp; Hub</option>' +
-                  '<option value="payment">Payment Mode (UPI, Cards, Corporate)</option>' +
-                '</select>' +
-              '</div>' +
-              '<div class="zrep-field-group">' +
-                '<label class="zrep-field-label">Date Window</label>' +
-                '<select class="zrep-select" id="zrep-dim-range" style="width:100%;">' +
-                  '<option value="mtd">Month to Date (Current Month)</option>' +
-                  '<option value="last30">Last 30 Rolling Days</option>' +
-                  '<option value="qtd">Quarter to Date (Q3 2026)</option>' +
-                  '<option value="ytd">Year to Date (FY 2026)</option>' +
-                '</select>' +
-              '</div>' +
-            '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Query Latency</span><span class="zrep-kpi-icon">⚡</span></div>' +
+      '<div class="zrep-kpi-value">18 ms</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -6 ms vs baseline</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Supported Dimensions</span><span class="zrep-kpi-icon">📐</span></div>' +
+      '<div class="zrep-kpi-value">14 Dimensions</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +2 New</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Saved Team Queries</span><span class="zrep-kpi-icon">⭐</span></div>' +
+      '<div class="zrep-kpi-value">28 Presets</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Active presets</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Max Export Throughput</span><span class="zrep-kpi-icon">📊</span></div>' +
+      '<div class="zrep-kpi-value">250,000 Rows</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Streaming engine</span></div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title"><span>⚡</span> Multi-Dimensional Custom Report Builder</h3>' +
+      '<p class="zrep-card-subtitle">Construct ad-hoc multidimensional analytics queries across any combination of dimensions and metrics</p>' +
+      '</div>' +
+      '<div style="display:flex; gap:8px;">' +
+      '<button type="button" class="zrep-btn zrep-btn-primary" id="zrep-run-query"><span>⚡</span> Execute Query</button>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-export-query"><span>📥</span> Export Query CSV</button>' +
+      '</div>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-builder-grid">' +
+      '<div class="zrep-field-group">' +
+      '<label class="zrep-field-label">Primary Dimension</label>' +
+      '<select class="zrep-select" id="zrep-dim-primary" style="width:100%;">' +
+      '<option value="channel">Sales Channel (Online, Clinics, Express)</option>' +
+      '<option value="bu">Business Unit (Products, Pharmacy, Services)</option>' +
+      '<option value="doctor">Doctor &amp; Specialty</option>' +
+      '<option value="clinic">Clinic &amp; Hospital Node</option>' +
+      '<option value="breed">Pet Breed &amp; Species</option>' +
+      '<option value="vendor">Vendor &amp; Manufacturer</option>' +
+      '</select>' +
+      '</div>' +
+      '<div class="zrep-field-group">' +
+      '<label class="zrep-field-label">Secondary Stratification</label>' +
+      '<select class="zrep-select" id="zrep-dim-secondary" style="width:100%;">' +
+      '<option value="month">Time Period (Month / Quarter)</option>' +
+      '<option value="sku_cat">SKU Product Category</option>' +
+      '<option value="city">Geographic City &amp; Hub</option>' +
+      '<option value="payment">Payment Mode (UPI, Cards, Corporate)</option>' +
+      '</select>' +
+      '</div>' +
+      '<div class="zrep-field-group">' +
+      '<label class="zrep-field-label">Date Window</label>' +
+      '<select class="zrep-select" id="zrep-dim-range" style="width:100%;">' +
+      '<option value="mtd">Month to Date (Current Month)</option>' +
+      '<option value="last30">Last 30 Rolling Days</option>' +
+      '<option value="qtd">Quarter to Date (Q3 2026)</option>' +
+      '<option value="ytd">Year to Date (FY 2026)</option>' +
+      '</select>' +
+      '</div>' +
+      '</div>' +
 
-            '<div style="margin-top:14px; margin-bottom:18px;">' +
-              '<label class="zrep-field-label" style="margin-bottom:8px; display:block;">Select Aggregated Metrics to Project</label>' +
-              '<div class="zrep-check-grid">' +
-                '<label class="zrep-check-item"><input type="checkbox" checked/> Gross Sales (₹)</label>' +
-                '<label class="zrep-check-item"><input type="checkbox" checked/> Net GMV (₹)</label>' +
-                '<label class="zrep-check-item"><input type="checkbox" checked/> Order Volume</label>' +
-                '<label class="zrep-check-item"><input type="checkbox" checked/> Gross Margin %</label>' +
-                '<label class="zrep-check-item"><input type="checkbox"/> Average Order Value (AOV)</label>' +
-                '<label class="zrep-check-item"><input type="checkbox"/> Return / Refund %</label>' +
-              '</div>' +
-            '</div>' +
+      '<div style="margin-top:14px; margin-bottom:18px;">' +
+      '<label class="zrep-field-label" style="margin-bottom:8px; display:block;">Select Aggregated Metrics to Project</label>' +
+      '<div class="zrep-check-grid">' +
+      '<label class="zrep-check-item"><input type="checkbox" checked/> Gross Sales (₹)</label>' +
+      '<label class="zrep-check-item"><input type="checkbox" checked/> Net GMV (₹)</label>' +
+      '<label class="zrep-check-item"><input type="checkbox" checked/> Order Volume</label>' +
+      '<label class="zrep-check-item"><input type="checkbox" checked/> Gross Margin %</label>' +
+      '<label class="zrep-check-item"><input type="checkbox"/> Average Order Value (AOV)</label>' +
+      '<label class="zrep-check-item"><input type="checkbox"/> Return / Refund %</label>' +
+      '</div>' +
+      '</div>' +
 
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Primary Dimension</th><th>Secondary Segment</th><th>Projected GMV</th><th>Volume / Units</th><th>Margin / Target</th></tr></thead>' +
-                '<tbody id="zrep-query-table">' + previewRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Primary Dimension</th><th>Secondary Segment</th><th>Projected GMV</th><th>Volume / Units</th><th>Margin / Target</th></tr></thead>' +
+      '<tbody id="zrep-query-table">' + previewRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -1482,74 +1482,74 @@
     var schedCards = (D.schedules.length ? D.schedules.map(function (s) {
       return (
         '<div class="zrep-sched-card">' +
-          '<div>' +
-            '<div class="zrep-sched-header">' +
-              '<span class="zrep-sched-title">' + s.title + '</span>' +
-              '<span class="zrep-sched-cron">⏱️ ' + s.cron + '</span>' +
-            '</div>' +
-            '<div style="font-size:12px; color:#64748b; margin-top:8px;">' +
-              '<div><b>Recipients:</b> ' + s.recipients + '</div>' +
-              '<div><b>Format:</b> ' + s.format + '</div>' +
-              '<div><b>Last Dispatched:</b> ' + s.lastRun + '</div>' +
-            '</div>' +
-          '</div>' +
-          '<div style="display:flex; align-items:center; justify-content:space-between; margin-top:12px; padding-top:12px; border-top:1px solid #f1f5f9;">' +
-            '<span class="zrep-pill ' + (s.active ? 'zrep-pill-green' : 'zrep-pill-gray') + '">' +
-              (s.active ? '● Active Schedule' : '○ Paused') +
-            '</span>' +
-            '<div style="display:flex; gap:6px;">' +
-              '<button type="button" class="zrep-btn zrep-btn-outline zrep-run-schedule" data-id="' + s.id + '" style="padding:4px 8px; font-size:11px;">' +
-                'Run Now' +
-              '</button>' +
-              '<button type="button" class="zrep-btn zrep-btn-outline zrep-toggle-schedule" data-id="' + s.id + '" style="padding:4px 8px; font-size:11px;">' +
-                (s.active ? 'Pause' : 'Activate') +
-              '</button>' +
-            '</div>' +
-          '</div>' +
+        '<div>' +
+        '<div class="zrep-sched-header">' +
+        '<span class="zrep-sched-title">' + s.title + '</span>' +
+        '<span class="zrep-sched-cron">⏱️ ' + s.cron + '</span>' +
+        '</div>' +
+        '<div style="font-size:12px; color:#64748b; margin-top:8px;">' +
+        '<div><b>Recipients:</b> ' + s.recipients + '</div>' +
+        '<div><b>Format:</b> ' + s.format + '</div>' +
+        '<div><b>Last Dispatched:</b> ' + s.lastRun + '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div style="display:flex; align-items:center; justify-content:space-between; margin-top:12px; padding-top:12px; border-top:1px solid #f1f5f9;">' +
+        '<span class="zrep-pill ' + (s.active ? 'zrep-pill-green' : 'zrep-pill-gray') + '">' +
+        (s.active ? '● Active Schedule' : '○ Paused') +
+        '</span>' +
+        '<div style="display:flex; gap:6px;">' +
+        '<button type="button" class="zrep-btn zrep-btn-outline zrep-run-schedule" data-id="' + s.id + '" style="padding:4px 8px; font-size:11px;">' +
+        'Run Now' +
+        '</button>' +
+        '<button type="button" class="zrep-btn zrep-btn-outline zrep-toggle-schedule" data-id="' + s.id + '" style="padding:4px 8px; font-size:11px;">' +
+        (s.active ? 'Pause' : 'Activate') +
+        '</button>' +
+        '</div>' +
+        '</div>' +
         '</div>'
       );
     }).join('') : '<div style="text-align:center;padding:32px;color:#94a3b8;">No scheduled reports configured</div>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Automated Jobs</span><span class="zrep-kpi-icon">⏰</span></div>' +
-            '<div class="zrep-kpi-value">10 Jobs Active</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +3 New cron</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Daily Email Dispatches</span><span class="zrep-kpi-icon">📬</span></div>' +
-            '<div class="zrep-kpi-value">48 Deliveries</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +12.0% volume</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Slack Leadership Alerts</span><span class="zrep-kpi-icon">💬</span></div>' +
-            '<div class="zrep-kpi-value">6 Channels</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Real-time webhook</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Audit Compliance Log</span><span class="zrep-kpi-icon">🛡️</span></div>' +
-            '<div class="zrep-kpi-value">SOC-2 Standard</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% Pass</span></div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title"><span>⏰</span> Automated Scheduled Intelligence Dispatches</h3>' +
-              '<p class="zrep-card-subtitle">Manage recurring report generation cron jobs, recipient distributions and triggers</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-primary" id="zrep-new-schedule">' +
-              '<span>＋</span> Schedule New Report' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:16px;">' +
-              schedCards +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Active Automated Jobs</span><span class="zrep-kpi-icon">⏰</span></div>' +
+      '<div class="zrep-kpi-value">10 Jobs Active</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +3 New cron</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Daily Email Dispatches</span><span class="zrep-kpi-icon">📬</span></div>' +
+      '<div class="zrep-kpi-value">48 Deliveries</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +12.0% volume</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Slack Leadership Alerts</span><span class="zrep-kpi-icon">💬</span></div>' +
+      '<div class="zrep-kpi-value">6 Channels</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Real-time webhook</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Audit Compliance Log</span><span class="zrep-kpi-icon">🛡️</span></div>' +
+      '<div class="zrep-kpi-value">SOC-2 Standard</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">100% Pass</span></div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title"><span>⏰</span> Automated Scheduled Intelligence Dispatches</h3>' +
+      '<p class="zrep-card-subtitle">Manage recurring report generation cron jobs, recipient distributions and triggers</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-primary" id="zrep-new-schedule">' +
+      '<span>＋</span> Schedule New Report' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:16px;">' +
+      schedCards +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -1563,66 +1563,66 @@
 
       return (
         '<tr>' +
-          '<td style="font-family:monospace; font-size:11.5px; font-weight:600;">' + e.id + '</td>' +
-          '<td>' +
-            '<div style="font-weight:700; color:#0f172a;">' + e.name + '</div>' +
-            '<div style="margin-top:2px;">' + tagPills + '</div>' +
-          '</td>' +
-          '<td style="font-weight:600;">' + e.records + '</td>' +
-          '<td>' + e.size + '</td>' +
-          '<td><span class="zrep-pill zrep-pill-blue">' + e.freq + '</span></td>' +
-          '<td>' +
-            '<button type="button" class="zrep-btn zrep-btn-primary zrep-download-dataset" data-id="' + e.id + '" data-name="' + e.name + '" style="padding:5px 12px; font-size:11.5px;">' +
-              '<span>📥</span> Download CSV' +
-            '</button>' +
-          '</td>' +
+        '<td style="font-family:monospace; font-size:11.5px; font-weight:600;">' + e.id + '</td>' +
+        '<td>' +
+        '<div style="font-weight:700; color:#0f172a;">' + e.name + '</div>' +
+        '<div style="margin-top:2px;">' + tagPills + '</div>' +
+        '</td>' +
+        '<td style="font-weight:600;">' + e.records + '</td>' +
+        '<td>' + e.size + '</td>' +
+        '<td><span class="zrep-pill zrep-pill-blue">' + e.freq + '</span></td>' +
+        '<td>' +
+        '<button type="button" class="zrep-btn zrep-btn-primary zrep-download-dataset" data-id="' + e.id + '" data-name="' + e.name + '" style="padding:5px 12px; font-size:11.5px;">' +
+        '<span>📥</span> Download CSV' +
+        '</button>' +
+        '</td>' +
         '</tr>'
       );
     }).join('') : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#94a3b8;">No export datasets available</td></tr>');
 
     return (
       '<div class="zrep-view-panel active">' +
-        '<div class="zrep-kpi-grid">' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Exports Generated MTD</span><span class="zrep-kpi-icon">📥</span></div>' +
-            '<div class="zrep-kpi-value">1,480 Files</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +22.5% MTD</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Data Pipeline Bandwidth</span><span class="zrep-kpi-icon">⚡</span></div>' +
-            '<div class="zrep-kpi-value">142.8 GB</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Compressed streams</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Export Audit Compliance</span><span class="zrep-kpi-icon">🛡️</span></div>' +
-            '<div class="zrep-kpi-value">100.0%</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">SOC-2 Type II</span></div>' +
-          '</div>' +
-          '<div class="zrep-kpi-card">' +
-            '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Generation Time</span><span class="zrep-kpi-icon">⏱️</span></div>' +
-            '<div class="zrep-kpi-value">1.8s</div>' +
-            '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.4s fast pipe</span></div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="zrep-card">' +
-          '<div class="zrep-card-header">' +
-            '<div>' +
-              '<h3 class="zrep-card-title"><span>📥</span> Centralized Raw Data Export Terminal</h3>' +
-              '<p class="zrep-card-subtitle">Download sanitized, full-fidelity transactional datasets for Excel, PowerBI and Python analytics</p>' +
-            '</div>' +
-            '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-download-all-zip">' +
-              '<span>📦</span> Download All Master Datasets' +
-            '</button>' +
-          '</div>' +
-          '<div class="zrep-card-body">' +
-            '<div class="zrep-table-wrap">' +
-              '<table class="zrep-table">' +
-                '<thead><tr><th>Dataset ID</th><th>Dataset Name &amp; Categorization</th><th>Total Record Count</th><th>File Payload</th><th>Refresh Cadence</th><th>Action</th></tr></thead>' +
-                '<tbody>' + expRows + '</tbody>' +
-              '</table>' +
-            '</div>' +
-          '</div>' +
-        '</div>' +
+      '<div class="zrep-kpi-grid">' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Exports Generated MTD</span><span class="zrep-kpi-icon">📥</span></div>' +
+      '<div class="zrep-kpi-value">1,480 Files</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↑ +22.5% MTD</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Data Pipeline Bandwidth</span><span class="zrep-kpi-icon">⚡</span></div>' +
+      '<div class="zrep-kpi-value">142.8 GB</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">Compressed streams</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Export Audit Compliance</span><span class="zrep-kpi-icon">🛡️</span></div>' +
+      '<div class="zrep-kpi-value">100.0%</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">SOC-2 Type II</span></div>' +
+      '</div>' +
+      '<div class="zrep-kpi-card">' +
+      '<div class="zrep-kpi-header"><span class="zrep-kpi-label">Average Generation Time</span><span class="zrep-kpi-icon">⏱️</span></div>' +
+      '<div class="zrep-kpi-value">1.8s</div>' +
+      '<div class="zrep-kpi-meta"><span class="zrep-trend-pos">↓ -0.4s fast pipe</span></div>' +
+      '</div>' +
+      '</div>' +
+      '<div class="zrep-card">' +
+      '<div class="zrep-card-header">' +
+      '<div>' +
+      '<h3 class="zrep-card-title"><span>📥</span> Centralized Raw Data Export Terminal</h3>' +
+      '<p class="zrep-card-subtitle">Download sanitized, full-fidelity transactional datasets for Excel, PowerBI and Python analytics</p>' +
+      '</div>' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-download-all-zip">' +
+      '<span>📦</span> Download All Master Datasets' +
+      '</button>' +
+      '</div>' +
+      '<div class="zrep-card-body">' +
+      '<div class="zrep-table-wrap">' +
+      '<table class="zrep-table">' +
+      '<thead><tr><th>Dataset ID</th><th>Dataset Name &amp; Categorization</th><th>Total Record Count</th><th>File Payload</th><th>Refresh Cadence</th><th>Action</th></tr></thead>' +
+      '<tbody>' + expRows + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>' +
+      '</div>' +
       '</div>'
     );
   }
@@ -1694,7 +1694,7 @@
     if (btnDlClinic) {
       btnDlClinic.addEventListener('click', function () {
         var rows = [];
-        var satisfDataLocal = (D.clinicSatisfaction || []).map(function(s){ return [s.hub, s.nps, s.csat, s.nabh, s.complaint, s.repeat]; });
+        var satisfDataLocal = (D.clinicSatisfaction || []).map(function (s) { return [s.hub, s.nps, s.csat, s.nabh, s.complaint, s.repeat]; });
         satisfDataLocal.forEach(function (r) { rows.push(r); });
         downloadCSV('zenve-clinic-satisfaction-nabh.csv', rows);
       });
@@ -1705,7 +1705,7 @@
     if (btnDlClinicDept) {
       btnDlClinicDept.addEventListener('click', function () {
         var rows = [];
-        var deptLocal = (D.clinicDepartments || []).map(function(d){ return [d.dept, d.cases, d.avgLoS, d.bedUtil, d.nurseRatio, d.nps, d.infectionRate]; });
+        var deptLocal = (D.clinicDepartments || []).map(function (d) { return [d.dept, d.cases, d.avgLoS, d.bedUtil, d.nurseRatio, d.nps, d.infectionRate]; });
         deptLocal.forEach(function (r) { rows.push(r); });
         downloadCSV('zenve-clinic-department-throughput.csv', rows);
       });
@@ -1890,49 +1890,49 @@
     backdrop.className = 'zrep-modal-backdrop';
     backdrop.innerHTML =
       '<div class="zrep-modal">' +
-        '<div class="zrep-modal-header">' +
-          '<h3 style="margin:0; font-family:var(--font-display,sans-serif); font-size:15px; font-weight:700;">' +
-            '<span>⏰</span> Schedule Automated Report Dispatch' +
-          '</h3>' +
-          '<button type="button" class="zrep-btn-close" id="zrep-modal-close">✕</button>' +
-        '</div>' +
-        '<div class="zrep-modal-body">' +
-          '<div class="zrep-field-group">' +
-            '<label class="zrep-field-label">Report Intelligence Module</label>' +
-            '<select class="zrep-select" id="zrep-mod-type" style="width:100%;">' +
-              '<option value="Sales">Sales &amp; GMV Executive Summary</option>' +
-              '<option value="Revenue">Business Units Revenue &amp; Margins</option>' +
-              '<option value="Finance">Audited GAAP P&amp;L Reconciliation</option>' +
-              '<option value="Inventory">Inventory Expiry &amp; Cold-Chain Alerts</option>' +
-              '<option value="Operations">60-Minute Express SLA Telemetry</option>' +
-            '</select>' +
-          '</div>' +
-          '<div class="zrep-field-group">' +
-            '<label class="zrep-field-label">Cron Frequency Schedule</label>' +
-            '<select class="zrep-select" id="zrep-mod-freq" style="width:100%;">' +
-              '<option value="Daily at 08:00 IST">Daily Morning Flash (08:00 IST)</option>' +
-              '<option value="Hourly Dispatch">Hourly Live SLA Telemetry</option>' +
-              '<option value="Weekly Every Monday">Weekly Operational Review (Mondays)</option>' +
-              '<option value="Monthly on 1st">Monthly Financial GAAP Audit (1st of Month)</option>' +
-            '</select>' +
-          '</div>' +
-          '<div class="zrep-field-group">' +
-            '<label class="zrep-field-label">Target Recipient Email Distribution</label>' +
-            '<input type="text" class="zrep-search-input" id="zrep-mod-emails" placeholder="executives@zenve.vet, cfo@zenve.vet" value="executives@zenve.vet" style="padding-left:12px;"/>' +
-          '</div>' +
-          '<div class="zrep-field-group">' +
-            '<label class="zrep-field-label">Output Attachment Format</label>' +
-            '<select class="zrep-select" id="zrep-mod-fmt" style="width:100%;">' +
-              '<option value="PDF + CSV">Audited Executive PDF + Raw CSV</option>' +
-              '<option value="CSV Data Pack">Raw CSV Data Pack</option>' +
-              '<option value="Executive PDF">Board-Ready Executive PDF</option>' +
-            '</select>' +
-          '</div>' +
-        '</div>' +
-        '<div class="zrep-modal-footer">' +
-          '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-modal-cancel">Cancel</button>' +
-          '<button type="button" class="zrep-btn zrep-btn-primary" id="zrep-modal-save">Create Schedule</button>' +
-        '</div>' +
+      '<div class="zrep-modal-header">' +
+      '<h3 style="margin:0; font-family:var(--font-display,sans-serif); font-size:15px; font-weight:700;">' +
+      '<span>⏰</span> Schedule Automated Report Dispatch' +
+      '</h3>' +
+      '<button type="button" class="zrep-btn-close" id="zrep-modal-close">✕</button>' +
+      '</div>' +
+      '<div class="zrep-modal-body">' +
+      '<div class="zrep-field-group">' +
+      '<label class="zrep-field-label">Report Intelligence Module</label>' +
+      '<select class="zrep-select" id="zrep-mod-type" style="width:100%;">' +
+      '<option value="Sales">Sales &amp; GMV Executive Summary</option>' +
+      '<option value="Revenue">Business Units Revenue &amp; Margins</option>' +
+      '<option value="Finance">Audited GAAP P&amp;L Reconciliation</option>' +
+      '<option value="Inventory">Inventory Expiry &amp; Cold-Chain Alerts</option>' +
+      '<option value="Operations">60-Minute Express SLA Telemetry</option>' +
+      '</select>' +
+      '</div>' +
+      '<div class="zrep-field-group">' +
+      '<label class="zrep-field-label">Cron Frequency Schedule</label>' +
+      '<select class="zrep-select" id="zrep-mod-freq" style="width:100%;">' +
+      '<option value="Daily at 08:00 IST">Daily Morning Flash (08:00 IST)</option>' +
+      '<option value="Hourly Dispatch">Hourly Live SLA Telemetry</option>' +
+      '<option value="Weekly Every Monday">Weekly Operational Review (Mondays)</option>' +
+      '<option value="Monthly on 1st">Monthly Financial GAAP Audit (1st of Month)</option>' +
+      '</select>' +
+      '</div>' +
+      '<div class="zrep-field-group">' +
+      '<label class="zrep-field-label">Target Recipient Email Distribution</label>' +
+      '<input type="text" class="zrep-search-input" id="zrep-mod-emails" placeholder="executives@zenve.vet, cfo@zenve.vet" value="executives@zenve.vet" style="padding-left:12px;"/>' +
+      '</div>' +
+      '<div class="zrep-field-group">' +
+      '<label class="zrep-field-label">Output Attachment Format</label>' +
+      '<select class="zrep-select" id="zrep-mod-fmt" style="width:100%;">' +
+      '<option value="PDF + CSV">Audited Executive PDF + Raw CSV</option>' +
+      '<option value="CSV Data Pack">Raw CSV Data Pack</option>' +
+      '<option value="Executive PDF">Board-Ready Executive PDF</option>' +
+      '</select>' +
+      '</div>' +
+      '</div>' +
+      '<div class="zrep-modal-footer">' +
+      '<button type="button" class="zrep-btn zrep-btn-outline" id="zrep-modal-cancel">Cancel</button>' +
+      '<button type="button" class="zrep-btn zrep-btn-primary" id="zrep-modal-save">Create Schedule</button>' +
+      '</div>' +
       '</div>';
 
     document.body.appendChild(backdrop);
@@ -2029,10 +2029,10 @@
     if (tab) S.activeTab = tab;
 
     if (window.ZenvePharmacyDashboard && typeof window.ZenvePharmacyDashboard.close === 'function') {
-      try { window.ZenvePharmacyDashboard.close(); } catch (e) {}
+      try { window.ZenvePharmacyDashboard.close(); } catch (e) { }
     }
     if (window.ZenveClinicsDashboard && typeof window.ZenveClinicsDashboard.close === 'function') {
-      try { window.ZenveClinicsDashboard.close(); } catch (e) {}
+      try { window.ZenveClinicsDashboard.close(); } catch (e) { }
     }
     document.querySelectorAll('.zpanel-root, #zod-root, #zsd-root, #zset-root, #zph-root, #zch-root, #zalt-root').forEach(function (el) {
       if (el !== root) {

@@ -13,7 +13,7 @@ export default function B2BSales() {
     { rep: 'Rohit Kulkarni (Breeder & Kennel Lead)', accounts: 12, quota: '₹40,00,000', actual: '₹43,10,000', attainment: '107.8%', pipeline: '₹21,50,000', commission: '₹2,15,500' },
     { rep: 'Meera Nambiar (South Regional Enterprise RM)', accounts: 7, quota: '₹48,00,000', actual: '₹49,90,000', attainment: '104.0%', pipeline: '₹23,00,000', commission: '₹2,49,500' },
     { rep: 'Siddharth Joshi (West Regional Enterprise RM)', accounts: 8, quota: '₹52,00,000', actual: '₹54,60,000', attainment: '105.0%', pipeline: '₹27,50,000', commission: '₹2,73,000' },
-    { rep: 'Divya Nair (Strategic RFP & Contracts Lead)', accounts: 9, quota: '₹58,00,000', actual: '₹61,40,000', attainment: '105.9%', pipeline: '₹31,00,000', commission: '₹3,07,000' }
+    { rep: 'Edwin Nair (Strategic RFP & Contracts Lead)', accounts: 9, quota: '₹58,00,000', actual: '₹61,40,000', attainment: '105.9%', pipeline: '₹31,00,000', commission: '₹3,07,000' }
   ];
 
   const card = { background: 'var(--card, #ffffff)', border: '1px solid var(--border, rgba(0,0,0,0.08))', borderRadius: '12px', padding: '22px 24px' };

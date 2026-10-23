@@ -18,7 +18,7 @@
     { id: 'EMP-1007', name: 'Pooja Hegde', shift: '08:00 - 17:00 (Lab Shift)', punchIn: '07:52 AM', punchOut: '17:10 PM', loc: 'Biometric Palm · Jayanagar Lab', ot: '0.5h', status: 'On Time' },
     { id: 'EMP-1008', name: 'Mohammed Zeeshan', shift: '09:00 - 18:00 (Support)', punchIn: '08:55 AM', punchOut: '18:15 PM', loc: 'Geofence App · Support Node', ot: '0.5h', status: 'On Time' },
     { id: 'EMP-1009', name: 'Rahul Deshmukh', shift: '06:00 - 15:00 (DC Shift)', punchIn: '—', punchOut: '—', loc: 'HR Leave Record · Electronic City', ot: '0.0h', status: 'Approved Leave' },
-    { id: 'EMP-1010', name: 'Divya Nambiar', shift: '08:30 - 17:30 (OPD Shift)', punchIn: '08:42 AM', punchOut: '17:35 PM', loc: 'FaceID · Koramangala Central', ot: '0.0h', status: 'Late Mark' }
+    { id: 'EMP-1010', name: 'Edwin Nambiar', shift: '08:30 - 17:30 (OPD Shift)', punchIn: '08:42 AM', punchOut: '17:35 PM', loc: 'FaceID · Koramangala Central', ot: '0.0h', status: 'Late Mark' }
   ];
 
   function closeOthers() {

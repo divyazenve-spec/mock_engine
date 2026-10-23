@@ -18,7 +18,7 @@
     { id: 'EMP-1007', name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', basic: '₹65,000', hra: '₹32,500', pf: '₹7,800', tds: '₹8,600', net: '₹1,13,600', status: 'Disbursed', batch: 'BATCH-HDFC-SEP-001' },
     { id: 'EMP-1008', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', basic: '₹51,666', hra: '₹25,833', pf: '₹6,200', tds: '₹5,400', net: '₹91,733', status: 'Disbursed', batch: 'BATCH-HDFC-SEP-001' },
     { id: 'EMP-1009', name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', basic: '₹40,833', hra: '₹20,416', pf: '₹4,900', tds: '₹4,000', net: '₹72,766', status: 'Disbursed', batch: 'BATCH-HDFC-SEP-001' },
-    { id: 'EMP-1010', name: 'Divya Nambiar', role: 'Junior Clinical Associate', basic: '₹35,416', hra: '₹17,708', pf: '₹4,250', tds: '₹3,250', net: '₹63,333', status: 'Disbursed', batch: 'BATCH-HDFC-SEP-001' }
+    { id: 'EMP-1010', name: 'Edwin Nambiar', role: 'Junior Clinical Associate', basic: '₹35,416', hra: '₹17,708', pf: '₹4,250', tds: '₹3,250', net: '₹63,333', status: 'Disbursed', batch: 'BATCH-HDFC-SEP-001' }
   ];
 
   function closeOthers() {

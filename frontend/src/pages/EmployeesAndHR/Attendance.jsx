@@ -99,7 +99,7 @@ export default function Attendance() {
     },
     {
       empId: 'EMP-1010',
-      name: 'Divya Nambiar',
+      name: 'Edwin Nambiar',
       shift: 'Morning Clinical (08:30 - 17:00)',
       punchIn: '08:26 AM',
       punchOut: '05:10 PM',

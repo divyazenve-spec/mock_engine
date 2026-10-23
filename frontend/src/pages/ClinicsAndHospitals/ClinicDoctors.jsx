@@ -8,7 +8,7 @@ export default function ClinicDoctors() {
   const [search, setSearch] = useState('');
   const [toast, setToast] = useState('');
 
-    const doctorsList = [
+  const doctorsList = [
     { name: 'Dr. Rajeshwari Swaminathan', qualification: 'B.V.Sc & A.H, M.V.Sc (Surgery & Rad)', specialty: 'Orthopedics', facility: 'Indiranagar Central Hospital', vci: 'VCI-KAR-2012-0891', shift: 'Morning (08:00 – 16:00)', consults: 1420, surgeries: 284, rating: 4.98, status: 'In Surgery' },
     { name: 'Dr. Vikramaditya Rathore', qualification: 'B.V.Sc & A.H, M.V.Sc (Surgery), Dipl. ECVS', specialty: 'Laparoscopy', facility: 'Bandra Trauma Centre', vci: 'VCI-MAH-2010-0412', shift: 'Emergency 24x7 Rotation', consults: 1680, surgeries: 312, rating: 4.96, status: 'On Duty' },
     { name: 'Dr. Maya Chandran', qualification: 'B.V.Sc & A.H, M.V.Sc (Internal Medicine)', specialty: 'Cardiology', facility: 'DLF CyberCity Hospital', vci: 'VCI-DEL-2014-1104', shift: 'Morning (09:00 – 17:00)', consults: 2140, surgeries: 48, rating: 4.95, status: 'On Duty' },
@@ -17,7 +17,7 @@ export default function ClinicDoctors() {
     { name: 'Dr. Rohan Kulkarni', qualification: 'B.V.Sc & A.H, M.V.Sc (Clinical Med)', specialty: 'Laparoscopy', facility: 'Koregaon Park Hospital', vci: 'VCI-MAH-2015-1445', shift: 'Night Shift (20:00 – 08:00)', consults: 1340, surgeries: 72, rating: 4.92, status: 'On Duty' },
     { name: 'Dr. Pooja Mehta', qualification: 'B.V.Sc & A.H, PGD-Surg', specialty: 'Laparoscopy', facility: 'Andheri Link Rd Clinic', vci: 'VCI-MAH-2018-2490', shift: 'Evening (14:00 – 22:00)', consults: 1210, surgeries: 118, rating: 4.93, status: 'On Duty' },
     { name: 'Dr. Gaurav Sharma', qualification: 'B.V.Sc & A.H, M.V.Sc (Surgery)', specialty: 'Orthopedics', facility: 'Saket Pet Wellness', vci: 'VCI-DEL-2016-1782', shift: 'Morning (08:00 – 16:00)', consults: 1460, surgeries: 134, rating: 4.91, status: 'On Duty' },
-    { name: 'Dr. Divya Reddy', qualification: 'B.V.Sc & A.H, M.V.Sc (Dermatology)', specialty: 'Dermatology', facility: 'Gachibowli Daycare', vci: 'VCI-TEL-2017-2190', shift: 'General (09:30 – 17:30)', consults: 1980, surgeries: 24, rating: 4.96, status: 'On Duty' },
+    { name: 'Dr. Edwin Reddy', qualification: 'B.V.Sc & A.H, M.V.Sc (Dermatology)', specialty: 'Dermatology', facility: 'Gachibowli Daycare', vci: 'VCI-TEL-2017-2190', shift: 'General (09:30 – 17:30)', consults: 1980, surgeries: 24, rating: 4.96, status: 'On Duty' },
     { name: 'Dr. Karthik Sundaram', qualification: 'B.V.Sc & A.H, M.V.Sc (Ophthalmology)', specialty: 'Feline', facility: 'Alwarpet Community Clinic', vci: 'VCI-TN-2015-1329', shift: 'General (10:00 – 18:00)', consults: 1530, surgeries: 94, rating: 4.95, status: 'Off Duty' }
   ];
 
@@ -84,7 +84,7 @@ export default function ClinicDoctors() {
         </div>
       )}
 
-            {/* KPI Cards */}
+      {/* KPI Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         <KpiCard label="Network Clinicians" value="28 Clinicians" delta="+4 YoY" trend="up" subtext="10 centers active" icon="👨‍⚕️" />
         <KpiCard label="Specialist Surgeons" value="12 Specialists" delta="Board-certified" trend="up" subtext="Diplomates & M.V.Sc" icon="🔪" />

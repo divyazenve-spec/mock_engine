@@ -28,7 +28,7 @@ export default function Expenses() {
     { id: 'EXP-8807', desc: 'Corporate Statutory Internal Audit Fees Q2', dept: 'Finance & Accounts', amt: '₹1,20,000', requester: 'Vikramaditya Rao', approver: 'CFO Office', status: 'Approved' },
     { id: 'EXP-8808', desc: 'Staff Clinical Uniforms & Infection Barrier Scrubs', dept: 'People Operations', amt: '₹58,000', requester: 'Pooja Hegde', approver: 'HR Lead', status: 'Approved' },
     { id: 'EXP-8809', desc: 'Fleet Van Fast-Charger Installation & Wiring', dept: 'Fleet Logistics', amt: '₹74,000', requester: 'Rahul Deshmukh', approver: 'COO Ops', status: 'Approved' },
-    { id: 'EXP-8810', desc: 'AI Radiology DICOM Model Server Hosting (AWS)', dept: 'Technology & AI', amt: '₹1,35,000', requester: 'Divya Nambiar', approver: 'CTO Office', status: 'Approved' }
+    { id: 'EXP-8810', desc: 'AI Radiology DICOM Model Server Hosting (AWS)', dept: 'Technology & AI', amt: '₹1,35,000', requester: 'Edwin Nambiar', approver: 'CTO Office', status: 'Approved' }
   ];
 
   return (

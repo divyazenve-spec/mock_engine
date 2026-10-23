@@ -15,7 +15,7 @@ export default function Refunds() {
     { id: 'REF-207', invId: 'INV-2026-820', client: 'Deepak Joshi (Thor - German Shepherd)', amt: '₹19,500', reason: 'Duplicate POS Debit Gateway Timeout', rail: 'HDFC PG Reversal', time: 'Oct 08, 2026', status: 'Settled' },
     { id: 'REF-208', invId: 'INV-2026-811', client: 'Sunita Rao (Zoe - Cocker Spaniel)', amt: '₹8,200', reason: 'Unused Surgical Implant Exchange Return', rail: 'Original Card Rail', time: 'Oct 06, 2026', status: 'Refunded' },
     { id: 'REF-209', invId: 'INV-2026-795', client: 'Farhan Akhtar (Bruno - Boxer)', amt: '₹3,400', reason: 'Telemetry ECG Artifact Cancellation', rail: 'Razorpay UPI', time: 'Oct 04, 2026', status: 'Refunded' },
-    { id: 'REF-210', invId: 'INV-2026-788', client: 'Divya Nambisan (Coco - Dachshund)', amt: '₹14,600', reason: 'Insurance Pre-Auth Settlement Overcharge', rail: 'NEFT Client Sweep', time: 'Oct 02, 2026', status: 'Refunded' }
+    { id: 'REF-210', invId: 'INV-2026-788', client: 'Edwin Nambisan (Coco - Dachshund)', amt: '₹14,600', reason: 'Insurance Pre-Auth Settlement Overcharge', rail: 'NEFT Client Sweep', time: 'Oct 02, 2026', status: 'Refunded' }
   ];
 
   return (

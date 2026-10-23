@@ -18,7 +18,7 @@
     { name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', metric: 'Pathology Diagnostics Processed', target: '1,300 Panels', achieved: '1,420 Panels', pct: 109.2, status: 'Target Exceeded', tier: 'Tier 1 Alpha' },
     { name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', metric: 'CSAT & Resolution Volume', target: '2,800 Tickets', achieved: '2,940 Tickets', pct: 105.0, status: 'Target Exceeded', tier: 'Tier 1 Alpha' },
     { name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', metric: 'Warehouse Dispatches (No Stockouts)', target: '35,000 Units', achieved: '34,200 Units', pct: 97.7, status: 'On Track', tier: 'Tier 2 Beta' },
-    { name: 'Divya Nambiar', role: 'Junior Clinical Associate', metric: 'Outpatient Consultations Supported', target: '350 Cases', achieved: '380 Cases', pct: 108.5, status: 'Target Exceeded', tier: 'Tier 1 Alpha' }
+    { name: 'Edwin Nambiar', role: 'Junior Clinical Associate', metric: 'Outpatient Consultations Supported', target: '350 Cases', achieved: '380 Cases', pct: 108.5, status: 'Target Exceeded', tier: 'Tier 1 Alpha' }
   ];
 
   function closeOthers() {

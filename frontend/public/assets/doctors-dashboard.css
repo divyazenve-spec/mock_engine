@@ -53,13 +53,16 @@ body.zdoc-locked {
   width: 8px;
   height: 8px;
 }
+
 #zdoc-root::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
+
 #zdoc-root::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
 }
+
 #zdoc-root::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
@@ -77,7 +80,7 @@ body.zdoc-locked {
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .zdoc-head-left {
@@ -118,14 +121,25 @@ body.zdoc-locked {
   height: 7px;
   background: #10b981;
   border-radius: 50%;
-  box-shadow: 0 0 0 2px rgba(16,185,129,0.3);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
   animation: zdoc-pulse 2s infinite;
 }
 
 @keyframes zdoc-pulse {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.8; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
 }
 
 .zdoc-sub {
@@ -219,7 +233,7 @@ body.zdoc-locked {
   border-radius: 12px;
   font-size: 11px;
   font-weight: 700;
-  background: rgba(0,0,0,0.06);
+  background: rgba(0, 0, 0, 0.06);
   color: inherit;
 }
 
@@ -258,7 +272,7 @@ body.zdoc-locked {
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 18px 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -299,9 +313,18 @@ body.zdoc-locked {
 .zdoc-delta {
   font-weight: 700;
 }
-.zdoc-delta.up { color: #059669; }
-.zdoc-delta.down { color: #dc2626; }
-.zdoc-delta.warn { color: #d97706; }
+
+.zdoc-delta.up {
+  color: #059669;
+}
+
+.zdoc-delta.down {
+  color: #dc2626;
+}
+
+.zdoc-delta.warn {
+  color: #d97706;
+}
 
 .zdoc-subtext {
   color: #64748b;
@@ -314,7 +337,7 @@ body.zdoc-locked {
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 22px 24px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .zdoc-card-head {
@@ -454,7 +477,8 @@ body.zdoc-locked {
   margin-bottom: 6px;
 }
 
-.zdoc-input, .zdoc-select {
+.zdoc-input,
+.zdoc-select {
   width: 100%;
   padding: 9px 12px;
   border-radius: 8px;
@@ -464,7 +488,8 @@ body.zdoc-locked {
   color: #0f172a;
 }
 
-.zdoc-input:focus, .zdoc-select:focus {
+.zdoc-input:focus,
+.zdoc-select:focus {
   border-color: #059669;
   outline: none;
   box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);

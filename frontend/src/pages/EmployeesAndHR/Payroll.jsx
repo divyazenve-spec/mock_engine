@@ -145,7 +145,7 @@ export default function Payroll() {
     },
     {
       empId: 'EMP-1010',
-      name: 'Divya Nambiar',
+      name: 'Edwin Nambiar',
       role: 'Junior Clinical Associate',
       dept: 'Clinical',
       basic: '₹38,000',

@@ -57,7 +57,7 @@
     { id: 'EMP-1007', name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Clinical', loc: 'Jayanagar Specialty', email: 'pooja.hegde@zenvepet.in', phone: '+91 98450 11007', joined: '2023-08-01', status: 'Active', rating: '4.89 ★', salary: '₹15,60,000' },
     { id: 'EMP-1008', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', loc: 'Support Node Central', email: 'm.zeeshan@zenvepet.in', phone: '+91 98450 11008', joined: '2023-07-15', status: 'Active', rating: '4.93 ★', salary: '₹12,40,000' },
     { id: 'EMP-1009', name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', dept: 'Warehouse', loc: 'Electronic City DC', email: 'rahul.d@zenvepet.in', phone: '+91 98450 11009', joined: '2023-09-01', status: 'On Leave', rating: '4.82 ★', salary: '₹9,80,000' },
-    { id: 'EMP-1010', name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical', loc: 'Koramangala Central', email: 'divya.n@zenvepet.in', phone: '+91 98450 11010', joined: '2024-01-10', status: 'Active', rating: '4.80 ★', salary: '₹8,50,000' }
+    { id: 'EMP-1010', name: 'Edwin Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical', loc: 'Koramangala Central', email: 'Edwin.n@zenvepet.in', phone: '+91 98450 11010', joined: '2024-01-10', status: 'Active', rating: '4.80 ★', salary: '₹8,50,000' }
   ];
 
   var LEAVE_REQUESTS = [
@@ -65,7 +65,7 @@
     { id: 'LV-2026-102', name: 'Dr. Rajesh Varma', role: 'Lead Veterinary Surgeon', type: 'Conference Leave', dates: '22 Oct - 24 Oct 2026', reason: 'Indian Veterinary Congress Mumbai', bal: '8 Days Left', status: 'Approved' },
     { id: 'LV-2026-103', name: 'Sneha Kulkarni', role: 'Head of Central Pharmacy', type: 'Casual Leave', dates: '19 Oct 2026 (1 Day)', reason: 'Personal dental appointment', bal: '11 Days Left', status: 'Pending' },
     { id: 'LV-2026-104', name: 'Karthik Subramaniam', role: 'Hyperlocal Fleet Operations Mgr', type: 'Sick Leave', dates: '08 Oct - 09 Oct 2026', reason: 'Viral fever recuperation', bal: '10 Days Left', status: 'Approved' },
-    { id: 'LV-2026-105', name: 'Divya Nambiar', role: 'Junior Clinical Associate', type: 'Casual Leave', dates: '28 Oct 2026 (1 Day)', reason: 'Family event', bal: '12 Days Left', status: 'Pending' },
+    { id: 'LV-2026-105', name: 'Edwin Nambiar', role: 'Junior Clinical Associate', type: 'Casual Leave', dates: '28 Oct 2026 (1 Day)', reason: 'Family event', bal: '12 Days Left', status: 'Pending' },
     { id: 'LV-2026-106', name: 'Vikramaditya Rao', role: 'Director of Engineering & AI', type: 'Paternity Leave', dates: '01 Nov - 14 Nov 2026', reason: 'Childbirth support', bal: '15 Days Left', status: 'Approved' },
     { id: 'LV-2026-107', name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', type: 'Annual Leave', dates: '26 Oct - 30 Oct 2026', reason: 'Diwali festive vacation', bal: '9 Days Left', status: 'Pending' },
     { id: 'LV-2026-108', name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', type: 'Compensatory Off', dates: '16 Oct 2026 (1 Day)', reason: 'Overtime worked during weekend camp', bal: '3 Days Left', status: 'Approved' },
@@ -96,7 +96,7 @@
     { id: 'EXP-2026-507', name: 'Pooja Hegde', dept: 'Diagnostics', category: 'Medical Consumables', amount: '₹36,700', date: '2026-10-12', status: 'Pending' },
     { id: 'EXP-2026-508', name: 'Mohammed Zeeshan', dept: 'Customer Delight', category: 'Software Subscriptions', amount: '₹16,500', date: '2026-10-04', status: 'Approved' },
     { id: 'EXP-2026-509', name: 'Rahul Deshmukh', dept: 'Warehouse', category: 'Travel & Conveyance', amount: '₹2,600', date: '2026-10-11', status: 'Pending' },
-    { id: 'EXP-2026-510', name: 'Divya Nambiar', dept: 'Clinical', category: 'Meals & Catering', amount: '₹4,250', date: '2026-10-06', status: 'Pending' }
+    { id: 'EXP-2026-510', name: 'Edwin Nambiar', dept: 'Clinical', category: 'Meals & Catering', amount: '₹4,250', date: '2026-10-06', status: 'Pending' }
   ];
 
   function showToast(msg) {
@@ -127,7 +127,7 @@
       p.classList.remove('zsh-open');
     });
     if (window.ZenveSettingsDashboard && window.ZenveSettingsDashboard.close) {
-      try { window.ZenveSettingsDashboard.close(); } catch (err) {}
+      try { window.ZenveSettingsDashboard.close(); } catch (err) { }
     }
   }
 
@@ -269,7 +269,7 @@
     var leaveRows = LEAVE_REQUESTS.map(function (l) {
       var actions = l.status === 'Pending'
         ? '<button type="button" class="zhr-btn zhr-btn-primary" style="height:26px;font-size:11px;padding:0 10px;" onclick="ZenveHRDashboard.approveLeave(\'' + l.id + '\');">Approve</button> ' +
-          '<button type="button" class="zhr-btn zhr-btn-secondary" style="height:26px;font-size:11px;padding:0 10px;color:#dc2626;" onclick="ZenveHRDashboard.rejectLeave(\'' + l.id + '\');">Reject</button>'
+        '<button type="button" class="zhr-btn zhr-btn-secondary" style="height:26px;font-size:11px;padding:0 10px;color:#dc2626;" onclick="ZenveHRDashboard.rejectLeave(\'' + l.id + '\');">Reject</button>'
         : '<span class="zhr-pill ' + (l.status === 'Approved' ? 'zhr-pill-success' : 'zhr-pill-danger') + '">' + l.status + '</span>';
 
       return [
@@ -418,7 +418,7 @@
       { name: 'Pooja Hegde', dept: 'Clinical Care', role: 'Senior Pathologist', okrs: '93.7% (Achieved)', rating: '4.89 ★', status: 'Performance Bonus Confirmed' },
       { name: 'Mohammed Zeeshan', dept: 'Customer Delight', role: 'Lead Customer Exp.', okrs: '96.8% (Exceeded)', rating: '4.93 ★', status: 'Promotion to Lead Associate' },
       { name: 'Rahul Deshmukh', dept: 'Warehouse', role: 'Dark Store Supervisor', okrs: '88.5% (On Track)', rating: '4.82 ★', status: 'Review in Q4' },
-      { name: 'Divya Nambiar', dept: 'Clinical Care', role: 'Junior Clinical Assoc.', okrs: '91.2% (Achieved)', rating: '4.80 ★', status: 'Probation Confirmed' }
+      { name: 'Edwin Nambiar', dept: 'Clinical Care', role: 'Junior Clinical Assoc.', okrs: '91.2% (Achieved)', rating: '4.80 ★', status: 'Probation Confirmed' }
     ];
 
     var rows = perfData.map(function (p) {
@@ -544,7 +544,7 @@
       { name: 'Pooja Hegde', dept: 'Diagnostics', shift: '08:00 - 17:00 (Lab A)', punch: '07:52 AM', status: 'Biometric Palm' },
       { name: 'Mohammed Zeeshan', dept: 'Customer Delight', shift: '09:00 - 18:00 (Support)', punch: '08:55 AM', status: 'Geofence App' },
       { name: 'Rahul Deshmukh', dept: 'Warehouse', shift: '06:00 - 15:00 (DC Shift)', punch: '-- (On Leave)', status: 'Approved Leave' },
-      { name: 'Divya Nambiar', dept: 'Clinical Care', shift: '08:30 - 17:30 (OPD)', punch: '08:25 AM', status: 'FaceID Verified' }
+      { name: 'Edwin Nambiar', dept: 'Clinical Care', shift: '08:30 - 17:30 (OPD)', punch: '08:25 AM', status: 'FaceID Verified' }
     ];
 
     var rows = logs.map(function (l) {
@@ -577,7 +577,7 @@
     var leaveRows = LEAVE_REQUESTS.map(function (l) {
       var actions = l.status === 'Pending'
         ? '<button type="button" class="zhr-btn zhr-btn-primary" style="height:26px;font-size:11px;padding:0 10px;" onclick="ZenveHRDashboard.approveLeave(\'' + l.id + '\');">Approve</button> ' +
-          '<button type="button" class="zhr-btn zhr-btn-secondary" style="height:26px;font-size:11px;padding:0 10px;color:#dc2626;" onclick="ZenveHRDashboard.rejectLeave(\'' + l.id + '\');">Reject</button>'
+        '<button type="button" class="zhr-btn zhr-btn-secondary" style="height:26px;font-size:11px;padding:0 10px;color:#dc2626;" onclick="ZenveHRDashboard.rejectLeave(\'' + l.id + '\');">Reject</button>'
         : '<span class="zhr-pill ' + (l.status === 'Approved' ? 'zhr-pill-success' : 'zhr-pill-danger') + '">' + l.status + '</span>';
 
       return [
@@ -616,7 +616,7 @@
       { name: 'Pooja Hegde', dept: 'Diagnostics', gross: '₹1,30,000', ded: '₹16,400', net: '₹1,13,600', status: 'Processed' },
       { name: 'Mohammed Zeeshan', dept: 'Customer Delight', gross: '₹1,03,333', ded: '₹11,600', net: '₹91,733', status: 'Processed' },
       { name: 'Rahul Deshmukh', dept: 'Warehouse', gross: '₹81,666', ded: '₹8,900', net: '₹72,766', status: 'Processed' },
-      { name: 'Divya Nambiar', dept: 'Clinical Care', gross: '₹70,833', ded: '₹7,500', net: '₹63,333', status: 'Processed' }
+      { name: 'Edwin Nambiar', dept: 'Clinical Care', gross: '₹70,833', ded: '₹7,500', net: '₹63,333', status: 'Processed' }
     ];
 
     var rows = payrollData.map(function (p) {
@@ -724,7 +724,7 @@
     var onboardingRecruits = [
       { name: 'Dr. Arvind Swaminathan', role: 'Associate Veterinary Surgeon', start: '15 Oct 2026', progress: '90%', it: 'MacBook Pro M3 + iPad', mentor: 'Dr. Priya Nair' },
       { name: 'Pooja Hegde', role: 'Senior Pathologist', start: '01 Oct 2026', progress: '100%', it: 'ThinkPad P16s + Lab Terminal', mentor: 'Dr. Rajesh Varma' },
-      { name: 'Divya Nambiar', role: 'Junior Clinical Associate', start: '06 Oct 2026', progress: '100%', it: 'Dell Latitude 7440', mentor: 'Pooja Hegde' },
+      { name: 'Edwin Nambiar', role: 'Junior Clinical Associate', start: '06 Oct 2026', progress: '100%', it: 'Dell Latitude 7440', mentor: 'Pooja Hegde' },
       { name: 'Rohan Shenoy', role: 'Emergency Critical Care Vet', start: '18 Oct 2026', progress: '75%', it: 'MacBook Air M3', mentor: 'Dr. Rajesh Varma' },
       { name: 'Ananya Sen', role: 'Lead Talent Acquisition', start: '28 Sep 2026', progress: '100%', it: 'MacBook Air M3', mentor: 'Vikramaditya Rao' },
       { name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', start: '03 Oct 2026', progress: '100%', it: 'MacBook Air M3', mentor: 'Sneha Kulkarni' },
@@ -983,7 +983,7 @@
     S.open = true;
     render();
     root.classList.add('zpanel-open');
-    var targetHash = (MODULES.find(function(m){ return m.id === S.tab; }) || {}).hash || '#hr-dashboard';
+    var targetHash = (MODULES.find(function (m) { return m.id === S.tab; }) || {}).hash || '#hr-dashboard';
     if (window.location.hash !== targetHash) {
       try { history.pushState(null, '', targetHash); } catch (e) { window.location.hash = targetHash; }
     }
@@ -993,14 +993,14 @@
     if (root) root.classList.remove('zpanel-open');
     S.open = false;
     if (window.location.hash.startsWith('#hr-') || window.location.hash.startsWith('#employee-') || window.location.hash === '#attendance' || window.location.hash === '#departments' || window.location.hash === '#payroll' || window.location.hash === '#recruitment' || window.location.hash === '#onboarding' || window.location.hash === '#all-employees') {
-      try { history.pushState(null, '', window.location.pathname + window.location.search); } catch (e) {}
+      try { history.pushState(null, '', window.location.pathname + window.location.search); } catch (e) { }
     }
   }
 
   function switchTab(tab) {
     if (!tab) return;
     S.tab = tab;
-    var targetHash = (MODULES.find(function(m){ return m.id === tab; }) || {}).hash || '#hr-dashboard';
+    var targetHash = (MODULES.find(function (m) { return m.id === tab; }) || {}).hash || '#hr-dashboard';
     if (window.location.hash !== targetHash) {
       try { history.pushState(null, '', targetHash); } catch (e) { window.location.hash = targetHash; }
     }

@@ -15,7 +15,7 @@ export default function DoctorsDashboard() {
     { id: 'DOC-2026-06', name: 'Dr. Rohan Kulkarni', spec: 'Surgical Oncology & Soft Tissue', clinic: 'Koregaon Park Hospital, Pune', patientsMtd: 118, revMtd: '₹12.60 L', comm: '₹1.89 L', rating: '4.8', status: 'In Surgery' },
     { id: 'DOC-2026-07', name: 'Dr. Gaurav Sharma', spec: 'Spine Neurosurgery & Trauma', clinic: 'DLF CyberCity Hospital, Delhi NCR', patientsMtd: 132, revMtd: '₹13.40 L', comm: '₹2.01 L', rating: '4.9', status: 'On Duty' },
     { id: 'DOC-2026-08', name: 'Dr. Sneha Nair', spec: 'Ophthalmology & Microsurgery', clinic: 'Indiranagar Central Hospital, Bengaluru', patientsMtd: 126, revMtd: '₹10.90 L', comm: '₹1.63 L', rating: '4.9', status: 'On Duty' },
-    { id: 'DOC-2026-09', name: 'Dr. Divya Reddy', spec: 'Critical Care & Neonatology', clinic: 'Jubilee Hills Center, Hyderabad', patientsMtd: 140, revMtd: '₹11.85 L', comm: '₹1.77 L', rating: '4.8', status: 'On Duty' },
+    { id: 'DOC-2026-09', name: 'Dr. Edwin Reddy', spec: 'Critical Care & Neonatology', clinic: 'Jubilee Hills Center, Hyderabad', patientsMtd: 140, revMtd: '₹11.85 L', comm: '₹1.77 L', rating: '4.8', status: 'On Duty' },
     { id: 'DOC-2026-10', name: 'Dr. Maya Chandran', spec: 'Gastroenterology & Endoscopy', clinic: 'Koramangala Care Clinic, Bengaluru', patientsMtd: 152, revMtd: '₹13.60 L', comm: '₹2.04 L', rating: '4.9', status: 'On Duty' }
   ];
 

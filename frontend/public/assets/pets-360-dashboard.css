@@ -32,13 +32,16 @@
 #zpet-root::-webkit-scrollbar {
   width: 6px;
 }
+
 #zpet-root::-webkit-scrollbar-track {
   background: #f8fafc;
 }
+
 #zpet-root::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 6px;
 }
+
 #zpet-root::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
@@ -126,9 +129,20 @@
 }
 
 @keyframes zpetPulse {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.25); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.8; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
 }
 
 .zpet-subtitle {
@@ -548,8 +562,15 @@
 }
 
 @keyframes zpetModalIn {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .zpet-modal-head {

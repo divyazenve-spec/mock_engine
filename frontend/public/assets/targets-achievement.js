@@ -32,13 +32,13 @@
     { name: 'Rohan Mehta', target: 900000, dept: 'Dentistry', role: 'Care Consultant' },
     { name: 'Meenakshi Rao', target: 850000, dept: 'Tele-Health', role: 'Clinical Triage' },
     { name: 'Arjun Nambisan', target: 800000, dept: 'Ambulance', role: 'Ops Manager' },
-    { name: 'Divya Namboodiri', target: 750000, dept: 'Wellness', role: 'Patient Exec' },
+    { name: 'Edwin Namboodiri', target: 750000, dept: 'Wellness', role: 'Patient Exec' },
     { name: 'Vikram Chawla', target: 700000, dept: 'Corporate', role: 'Accounts Lead' },
     { name: 'Shreya Iyer', target: 650000, dept: 'Preventive', role: 'Care Coord' }
   ];
   var OVERALL_TARGET_MONTHLY = 12500000;
 
-  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   var S = { data: null, period: 'month', open: false };
   var root = null;
@@ -53,12 +53,12 @@
 
   /* ── derive actuals from live data ───────────────────────────── */
   function buildActuals(data) {
-    var sales   = (data.sales || []).filter(function (s) { return s.status === 'Paid'; });
+    var sales = (data.sales || []).filter(function (s) { return s.status === 'Paid'; });
     var metrics = data.metrics || [];
 
-    var now   = new Date();
-    var curM  = now.getMonth();
-    var curY  = now.getFullYear();
+    var now = new Date();
+    var curM = now.getMonth();
+    var curY = now.getFullYear();
 
     /* monthly actuals */
     var monthly = {};
@@ -77,14 +77,14 @@
       return d.getMonth() === curM && d.getFullYear() === curY;
     });
     var curRevenue = curMonSales.reduce(function (a, s) { return a + num(s.amount); }, 0);
-    var curTarget  = MONTHLY_TARGETS[MONTHS[curM]] || OVERALL_TARGET_MONTHLY;
+    var curTarget = MONTHLY_TARGETS[MONTHS[curM]] || OVERALL_TARGET_MONTHLY;
 
     /* YTD */
     var ytdRevenue = 0;
-    var ytdTarget  = 0;
+    var ytdTarget = 0;
     for (var i = 0; i <= curM; i++) {
       ytdRevenue += monthly[MONTHS[i]] || 0;
-      ytdTarget  += MONTHLY_TARGETS[MONTHS[i]] || 0;
+      ytdTarget += MONTHLY_TARGETS[MONTHS[i]] || 0;
     }
 
     /* team actuals — distribute proportionally by source hash */
@@ -130,17 +130,17 @@
     var circ = 2 * Math.PI * r;
     var capped = Math.min(pctVal, 100);
     var dash = (capped / 100) * circ;
-    var gap  = circ - dash;
+    var gap = circ - dash;
     return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '">' +
-      '<circle cx="' + size/2 + '" cy="' + size/2 + '" r="' + r + '" fill="none"' +
-        ' stroke="var(--secondary)" stroke-width="5"/>' +
-      '<circle cx="' + size/2 + '" cy="' + size/2 + '" r="' + r + '" fill="none"' +
-        ' stroke="' + color + '" stroke-width="5" stroke-linecap="round"' +
-        ' stroke-dasharray="' + dash.toFixed(2) + ' ' + gap.toFixed(2) + '"' +
-        ' transform="rotate(-90 ' + size/2 + ' ' + size/2 + ')"/>' +
-      '<text x="' + size/2 + '" y="' + (size/2 + 4) + '" text-anchor="middle"' +
-        ' fill="var(--foreground)" font-size="11" font-weight="700" font-family="IBM Plex Mono,monospace">' +
-        capped.toFixed(0) + '%</text>' +
+      '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none"' +
+      ' stroke="var(--secondary)" stroke-width="5"/>' +
+      '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none"' +
+      ' stroke="' + color + '" stroke-width="5" stroke-linecap="round"' +
+      ' stroke-dasharray="' + dash.toFixed(2) + ' ' + gap.toFixed(2) + '"' +
+      ' transform="rotate(-90 ' + size / 2 + ' ' + size / 2 + ')"/>' +
+      '<text x="' + size / 2 + '" y="' + (size / 2 + 4) + '" text-anchor="middle"' +
+      ' fill="var(--foreground)" font-size="11" font-weight="700" font-family="IBM Plex Mono,monospace">' +
+      capped.toFixed(0) + '%</text>' +
       '</svg>';
   }
 
@@ -172,8 +172,8 @@
     });
 
     months.forEach(function (m, i) {
-      var actual  = num(monthly[m]);
-      var target  = num(targets[m]);
+      var actual = num(monthly[m]);
+      var target = num(targets[m]);
       var x = pad.l + i * bw + (bw - barW * 2 - 4) / 2;
       var isNow = i === now;
 
@@ -212,68 +212,68 @@
 
     var a = buildActuals(S.data);
     var revPct = a.curTarget > 0 ? (a.curRevenue / a.curTarget * 100) : 0;
-    var ytdPct  = a.ytdTarget > 0 ? (a.ytdRevenue / a.ytdTarget * 100) : 0;
-    var dlPct   = a.downloadTarget > 0 ? (a.downloads / a.downloadTarget * 100) : 0;
-    var ordPct  = a.orderTarget > 0 ? (a.curOrders / a.orderTarget * 100) : 0;
+    var ytdPct = a.ytdTarget > 0 ? (a.ytdRevenue / a.ytdTarget * 100) : 0;
+    var dlPct = a.downloadTarget > 0 ? (a.downloads / a.downloadTarget * 100) : 0;
+    var ordPct = a.orderTarget > 0 ? (a.curOrders / a.orderTarget * 100) : 0;
 
     var RING_C = function (p) { return p >= 100 ? '#10b981' : p >= 75 ? '#f59e0b' : p >= 50 ? '#6366f1' : '#ef4444'; };
 
     root.innerHTML = [
       '<div class="zp-head">',
-        '<div class="zp-head-left">',
-          '<h1 class="zp-title">🎯 Targets & Achievement</h1>',
-          '<p class="zp-sub">' + a.curMonth + ' Performance · Live data</p>',
-        '</div>',
+      '<div class="zp-head-left">',
+      '<h1 class="zp-title">🎯 Targets & Achievement</h1>',
+      '<p class="zp-sub">' + a.curMonth + ' Performance · Live data</p>',
+      '</div>',
       '</div>',
 
       '<div class="zp-body">',
 
-        /* KPI cards */
-        '<div class="zp-kpis">',
-          kpiRing('Monthly Revenue', inr.format(a.curRevenue), inr.format(a.curTarget), revPct, RING_C(revPct)),
-          kpiRing('YTD Revenue', inrShort(a.ytdRevenue), inrShort(a.ytdTarget) + ' YTD target', ytdPct, RING_C(ytdPct)),
-          kpiRing('App Downloads', a.downloads.toLocaleString('en-IN'), a.downloadTarget.toLocaleString('en-IN') + ' target', dlPct, RING_C(dlPct)),
-          kpiRing('Orders This Month', a.curOrders.toLocaleString('en-IN'), a.orderTarget + ' target', ordPct, RING_C(ordPct)),
-        '</div>',
+      /* KPI cards */
+      '<div class="zp-kpis">',
+      kpiRing('Monthly Revenue', inr.format(a.curRevenue), inr.format(a.curTarget), revPct, RING_C(revPct)),
+      kpiRing('YTD Revenue', inrShort(a.ytdRevenue), inrShort(a.ytdTarget) + ' YTD target', ytdPct, RING_C(ytdPct)),
+      kpiRing('App Downloads', a.downloads.toLocaleString('en-IN'), a.downloadTarget.toLocaleString('en-IN') + ' target', dlPct, RING_C(dlPct)),
+      kpiRing('Orders This Month', a.curOrders.toLocaleString('en-IN'), a.orderTarget + ' target', ordPct, RING_C(ordPct)),
+      '</div>',
 
-        /* monthly chart */
-        '<div class="zp-card zp-panel" style="margin-top:12px;">',
-          '<div class="zp-ph"><h3>Monthly Revenue vs Target</h3><small>Current year · Blue = target, Green = achieved</small></div>',
-          '<div class="zp-chartwrap">' + monthlyChart(a.monthly, MONTHLY_TARGETS) + '</div>',
-        '</div>',
+      /* monthly chart */
+      '<div class="zp-card zp-panel" style="margin-top:12px;">',
+      '<div class="zp-ph"><h3>Monthly Revenue vs Target</h3><small>Current year · Blue = target, Green = achieved</small></div>',
+      '<div class="zp-chartwrap">' + monthlyChart(a.monthly, MONTHLY_TARGETS) + '</div>',
+      '</div>',
 
-        /* team targets */
-        '<div class="zp-grid zp-g2" style="margin-top:12px;">',
+      /* team targets */
+      '<div class="zp-grid zp-g2" style="margin-top:12px;">',
 
-          '<div class="zp-card zp-panel">',
-            '<div class="zp-ph"><h3>Team Targets</h3><small>Individual achievement vs monthly target</small></div>',
-            (a.teamActuals.length > 0 ? a.teamActuals.map(function (t) {
-              var p = t.target > 0 ? Math.min((t.achieved / t.target) * 100, 135) : 0;
-              var c = RING_C(p);
-              return [
-                '<div class="zt-row">',
-                  '<div class="zt-ring">' + ring(p, c, 44) + '</div>',
-                  '<div class="zt-av">' + esc(t.av) + '</div>',
-                  '<div class="zt-info">',
-                    '<div class="zt-name">' + esc(t.name) + '</div>',
-                    '<div class="zt-dept">' + esc(t.dept) + '</div>',
-                  '</div>',
-                  '<div class="zt-nums">',
-                    '<div class="zt-pct" style="color:' + c + '">' + p.toFixed(0) + '%</div>',
-                    '<div class="zt-achieved">' + inrShort(t.achieved) + ' / ' + inrShort(t.target) + '</div>',
-                  '</div>',
-                '</div>'
-              ].join('');
-            }).join('') : '<div style="padding:28px 20px;text-align:center;color:var(--muted-foreground);font-size:12px;">No team targets recorded</div>'),
+      '<div class="zp-card zp-panel">',
+      '<div class="zp-ph"><h3>Team Targets</h3><small>Individual achievement vs monthly target</small></div>',
+      (a.teamActuals.length > 0 ? a.teamActuals.map(function (t) {
+        var p = t.target > 0 ? Math.min((t.achieved / t.target) * 100, 135) : 0;
+        var c = RING_C(p);
+        return [
+          '<div class="zt-row">',
+          '<div class="zt-ring">' + ring(p, c, 44) + '</div>',
+          '<div class="zt-av">' + esc(t.av) + '</div>',
+          '<div class="zt-info">',
+          '<div class="zt-name">' + esc(t.name) + '</div>',
+          '<div class="zt-dept">' + esc(t.dept) + '</div>',
           '</div>',
-
-          /* achievement summary */
-          '<div class="zp-card zp-panel">',
-            '<div class="zp-ph"><h3>Achievement Summary</h3></div>',
-            achievementTable(a),
+          '<div class="zt-nums">',
+          '<div class="zt-pct" style="color:' + c + '">' + p.toFixed(0) + '%</div>',
+          '<div class="zt-achieved">' + inrShort(t.achieved) + ' / ' + inrShort(t.target) + '</div>',
           '</div>',
+          '</div>'
+        ].join('');
+      }).join('') : '<div style="padding:28px 20px;text-align:center;color:var(--muted-foreground);font-size:12px;">No team targets recorded</div>'),
+      '</div>',
 
-        '</div>',
+      /* achievement summary */
+      '<div class="zp-card zp-panel">',
+      '<div class="zp-ph"><h3>Achievement Summary</h3></div>',
+      achievementTable(a),
+      '</div>',
+
+      '</div>',
 
       '</div>'
     ].join('');
@@ -283,33 +283,33 @@
     return '<div class="zp-card zp-kpi" style="display:flex;align-items:center;gap:12px;">' +
       '<div>' + ring(pctVal, color, 60) + '</div>' +
       '<div>' +
-        '<div class="zp-lbl">' + esc(label) + '</div>' +
-        '<div class="zp-val" style="font-size:18px;">' + esc(value) + '</div>' +
-        '<div class="zp-delta" style="color:' + color + '">' + pctVal.toFixed(1) + '% · ' + esc(sub) + '</div>' +
+      '<div class="zp-lbl">' + esc(label) + '</div>' +
+      '<div class="zp-val" style="font-size:18px;">' + esc(value) + '</div>' +
+      '<div class="zp-delta" style="color:' + color + '">' + pctVal.toFixed(1) + '% · ' + esc(sub) + '</div>' +
       '</div>' +
-    '</div>';
+      '</div>';
   }
 
   function achievementTable(a) {
     var rows = [
-      ['Monthly Revenue',    a.curRevenue,       a.curTarget,       'currency'],
-      ['YTD Revenue',        a.ytdRevenue,        a.ytdTarget,       'currency'],
-      ['Monthly Orders',     a.curOrders,         a.orderTarget,     'number'],
-      ['App Downloads',      a.downloads,         a.downloadTarget,  'number'],
+      ['Monthly Revenue', a.curRevenue, a.curTarget, 'currency'],
+      ['YTD Revenue', a.ytdRevenue, a.ytdTarget, 'currency'],
+      ['Monthly Orders', a.curOrders, a.orderTarget, 'number'],
+      ['App Downloads', a.downloads, a.downloadTarget, 'number'],
     ];
     return '<div class="zp-tbl-wrap"><table class="zp-tbl"><thead><tr>' +
       '<th>Metric</th><th class="r">Actual</th><th class="r">Target</th><th class="r">Achievement</th>' +
-    '</tr></thead><tbody>' +
-    rows.map(function (r) {
-      var pct = r[2] > 0 ? (r[1] / r[2] * 100) : 0;
-      var color = pct >= 100 ? 'var(--success)' : pct >= 75 ? 'var(--warning)' : 'var(--destructive)';
-      var fmt = r[3] === 'currency' ? function (v) { return inr.format(v); } : function (v) { return num(v).toLocaleString('en-IN'); };
-      return '<tr><td>' + esc(r[0]) + '</td>' +
-        '<td class="r" style="font-family:IBM Plex Mono,monospace;font-weight:600">' + fmt(r[1]) + '</td>' +
-        '<td class="r" style="font-family:IBM Plex Mono,monospace;color:var(--muted-foreground)">' + fmt(r[2]) + '</td>' +
-        '<td class="r" style="font-family:IBM Plex Mono,monospace;font-weight:700;color:' + color + '">' + pct.toFixed(1) + '%</td>' +
-        '</tr>';
-    }).join('') + '</tbody></table></div>';
+      '</tr></thead><tbody>' +
+      rows.map(function (r) {
+        var pct = r[2] > 0 ? (r[1] / r[2] * 100) : 0;
+        var color = pct >= 100 ? 'var(--success)' : pct >= 75 ? 'var(--warning)' : 'var(--destructive)';
+        var fmt = r[3] === 'currency' ? function (v) { return inr.format(v); } : function (v) { return num(v).toLocaleString('en-IN'); };
+        return '<tr><td>' + esc(r[0]) + '</td>' +
+          '<td class="r" style="font-family:IBM Plex Mono,monospace;font-weight:600">' + fmt(r[1]) + '</td>' +
+          '<td class="r" style="font-family:IBM Plex Mono,monospace;color:var(--muted-foreground)">' + fmt(r[2]) + '</td>' +
+          '<td class="r" style="font-family:IBM Plex Mono,monospace;font-weight:700;color:' + color + '">' + pct.toFixed(1) + '%</td>' +
+          '</tr>';
+      }).join('') + '</tbody></table></div>';
   }
 
   function num(n) { n = Number(n); return isFinite(n) ? n : 0; }

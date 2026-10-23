@@ -5,7 +5,7 @@ import KpiCard from '../shared/KpiCard';
 export default function ExpiringSubscriptions() {
   const expiring = [
     { subId: 'SUB-EXP-301', petName: 'Simba (Golden Retriever)', parent: 'Rahul Khanna', plan: 'Annual Preventive Care Plan', expiryDate: 'Expiring in 3 Days (16 Oct)', val: '₹21,999 / yr', action: 'Automated WhatsApp Notice Sent' },
-    { subId: 'SUB-EXP-302', petName: 'Cookie (Cocker Spaniel)', parent: 'Divya Sundaram', plan: 'Senior Canine Health Comprehensive', expiryDate: 'Expiring in 5 Days (18 Oct)', val: '₹32,999 / yr', action: 'Concierge Call Completed - Confirmed' },
+    { subId: 'SUB-EXP-302', petName: 'Cookie (Cocker Spaniel)', parent: 'Edwin Sundaram', plan: 'Senior Canine Health Comprehensive', expiryDate: 'Expiring in 5 Days (18 Oct)', val: '₹32,999 / yr', action: 'Concierge Call Completed - Confirmed' },
     { subId: 'SUB-EXP-303', petName: 'Bella (Persian Cat)', parent: 'Naveen Chhabra', plan: 'Feline Complete Annual Care', expiryDate: 'Expiring in 7 Days (20 Oct)', val: '₹14,999 / yr', action: 'Card Token Expiry - Update Link Sent' },
     { subId: 'SUB-EXP-304', petName: 'Zeus (Rottweiler)', parent: 'Gaurav Aggarwal', plan: 'Adult Canine Preventive Care', expiryDate: 'Expiring in 9 Days (22 Oct)', val: '₹23,999 / yr', action: 'Renewal Discount Code Activated (10%)' },
     { subId: 'SUB-EXP-305', petName: 'Milo (Beagle)', parent: 'Deepika Raman', plan: 'Zenve Nutrition Annual Subscription', expiryDate: 'Expiring in 12 Days (25 Oct)', val: '₹38,400 / yr', action: 'Auto-Renewal Pre-Approved' },

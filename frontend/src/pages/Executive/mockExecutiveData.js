@@ -218,7 +218,7 @@ export const MOCK_BUSINESS_UNITS = [
   },
   {
     name: 'Digital Telehealth & Remote Monitoring',
-    lead: 'Dr. Divya Reddy',
+    lead: 'Dr. Edwin Reddy',
     revenue: '₹5.5L',
     pacing: '105.0%',
     margin: '82.0%',

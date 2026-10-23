@@ -18,7 +18,7 @@
     { name: 'Pooja Hegde', role: 'Senior Veterinary Pathologist', dept: 'Diagnostics', score: 93.7, rating: '4★ Strong', cases: '1,420 Panels', csat: '4.89', sla: '97.6%', status: 'In Review' },
     { name: 'Mohammed Zeeshan', role: 'Lead Customer Experience', dept: 'Customer Delight', score: 96.8, rating: '5★ Elite', cases: '2,940 Tickets', csat: '4.93', sla: '99.1%', status: 'Appraised' },
     { name: 'Rahul Deshmukh', role: 'Dark Store Warehouse Supervisor', dept: 'Warehouse', score: 88.5, rating: '3★ Meets Expectations', cases: '34,200 Picks', csat: '4.82', sla: '95.2%', status: 'In Review' },
-    { name: 'Divya Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical Care', score: 91.2, rating: '4★ Strong', cases: '380 Consults', csat: '4.80', sla: '96.0%', status: 'Appraised' }
+    { name: 'Edwin Nambiar', role: 'Junior Clinical Associate', dept: 'Clinical Care', score: 91.2, rating: '4★ Strong', cases: '380 Consults', csat: '4.80', sla: '96.0%', status: 'Appraised' }
   ];
 
   function closeOthers() {

@@ -15,7 +15,7 @@ export default function AllDoctors() {
     { id: 'DOC-2026-06', name: 'Dr. Rohan Kulkarni', spec: 'Surgical Oncology & Soft Tissue', qual: 'BVSc & AH, MVSc, F.Surg.Onc', exp: '10 Yrs', vci: 'MVC-94511-O', clinic: 'Koregaon Park Hospital', days: 'Mon, Wed, Thu, Sat', status: 'In Surgery' },
     { id: 'DOC-2026-07', name: 'Dr. Gaurav Sharma', spec: 'Spine Neurosurgery & Trauma', qual: 'BVSc & AH, MVSc, AOVET Spine', exp: '9 Yrs', vci: 'DVC-73204-N', clinic: 'DLF CyberCity Hospital', days: 'Mon, Tue, Thu, Fri', status: 'On Duty' },
     { id: 'DOC-2026-08', name: 'Dr. Sneha Nair', spec: 'Ophthalmology & Microsurgery', qual: 'BVSc & AH, MVSc, Cert. Vet. Ophthal', exp: '8 Yrs', vci: 'KVC-88741-E', clinic: 'Indiranagar Central Hospital', days: 'Wed to Sun', status: 'On Duty' },
-    { id: 'DOC-2026-09', name: 'Dr. Divya Reddy', spec: 'Critical Care & Neonatology', qual: 'BVSc & AH, MVSc, VECCS Fellow', exp: '7 Yrs', vci: 'TSVC-91230-P', clinic: 'Jubilee Hills Center', days: 'Mon, Tue, Wed, Fri', status: 'On Duty' },
+    { id: 'DOC-2026-09', name: 'Dr. Edwin Reddy', spec: 'Critical Care & Neonatology', qual: 'BVSc & AH, MVSc, VECCS Fellow', exp: '7 Yrs', vci: 'TSVC-91230-P', clinic: 'Jubilee Hills Center', days: 'Mon, Tue, Wed, Fri', status: 'On Duty' },
     { id: 'DOC-2026-10', name: 'Dr. Maya Chandran', spec: 'Gastroenterology & Endoscopy', qual: 'BVSc & AH, MVSc, SA Gastro Fellow', exp: '11 Yrs', vci: 'KVC-75412-G', clinic: 'Koramangala Care Clinic', days: 'Mon to Fri', status: 'On Duty' }
   ];
 

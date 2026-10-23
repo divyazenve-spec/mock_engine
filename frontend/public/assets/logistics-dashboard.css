@@ -129,9 +129,20 @@
 }
 
 @keyframes zlogPulse {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.25); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.8; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
 }
 
 .zlog-subtitle {
@@ -338,9 +349,17 @@
   font-weight: 700;
 }
 
-.zlog-delta.up { color: #16a34a; }
-.zlog-delta.down { color: #dc2626; }
-.zlog-delta.neutral { color: #64748b; }
+.zlog-delta.up {
+  color: #16a34a;
+}
+
+.zlog-delta.down {
+  color: #dc2626;
+}
+
+.zlog-delta.neutral {
+  color: #64748b;
+}
 
 .zlog-subtext {
   font-size: 11px;
@@ -429,12 +448,36 @@
   text-transform: uppercase;
 }
 
-.zlog-tag.green { background: #dcfce7; color: #15803d; }
-.zlog-tag.blue { background: #eff6ff; color: #1d4ed8; }
-.zlog-tag.yellow { background: #fef9c3; color: #854d0e; }
-.zlog-tag.red { background: #fee2e2; color: #b91c1c; }
-.zlog-tag.cyan { background: #ecfeff; color: #0891b2; border: 1px solid #a5f3fc; }
-.zlog-tag.purple { background: #f3e8ff; color: #7e22ce; }
+.zlog-tag.green {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.zlog-tag.blue {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.zlog-tag.yellow {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.zlog-tag.red {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.zlog-tag.cyan {
+  background: #ecfeff;
+  color: #0891b2;
+  border: 1px solid #a5f3fc;
+}
+
+.zlog-tag.purple {
+  background: #f3e8ff;
+  color: #7e22ce;
+}
 
 /* ── Modals & Backdrop ────────────────────────────────────────────── */
 .zlog-modal-backdrop {
@@ -461,8 +504,15 @@
 }
 
 @keyframes zlogPop {
-  0% { transform: scale(0.96); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .zlog-modal-head {
@@ -492,7 +542,8 @@
   text-transform: uppercase;
 }
 
-.zlog-input, .zlog-select {
+.zlog-input,
+.zlog-select {
   width: 100%;
   padding: 9px 12px;
   border-radius: 8px;
@@ -503,7 +554,8 @@
   font-family: inherit;
 }
 
-.zlog-input:focus, .zlog-select:focus {
+.zlog-input:focus,
+.zlog-select:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
@@ -535,8 +587,15 @@
 }
 
 @keyframes zlogSlideUp {
-  0% { transform: translateY(12px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ── Sidebar Navigator Subcategory Padding & Alignment ───────────── */
