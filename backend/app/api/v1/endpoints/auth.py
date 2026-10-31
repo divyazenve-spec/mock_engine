@@ -256,3 +256,36 @@ async def logout(authorization: Optional[str] = Header(None)):
         token = authorization.replace("Bearer ", "").strip()
         _SESSIONS.pop(token, None)
     return {"success": True, "message": "Successfully logged out of Zenve BI."}
+
+
+class SaveKeyRequest(BaseModel):
+    authkey: str = Field(..., min_length=10, description="Apitxt Auth Key")
+
+
+@router.get("/gateway-status", summary="Get Apitxt Gateway Configuration Status")
+async def gateway_status():
+    """Checks whether an Apitxt Authkey is loaded."""
+    key = load_apitxt_key()
+    if key and len(key) >= 10:
+        masked = key[:4] + "••••••••" + key[-4:]
+        return {"configured": True, "masked_key": masked}
+    return {"configured": False, "masked_key": None}
+
+
+@router.post("/save-gateway-key", summary="Save Apitxt Auth Key")
+async def save_gateway_key(payload: SaveKeyRequest):
+    """Saves Apitxt authkey for live OTP dispatch."""
+    key = payload.authkey.strip()
+    if len(key) < 10:
+        raise HTTPException(status_code=400, detail="Invalid API key length")
+    try:
+        # Save to api.txt in project root
+        root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", ".."))
+        api_txt_path = os.path.join(root_dir, "api.txt")
+        with open(api_txt_path, "w", encoding="utf-8") as f:
+            f.write(f"APITXT_AUTHKEY={key}\n")
+        os.environ["APITXT_AUTHKEY"] = key
+        return {"success": True, "message": "Apitxt key configured successfully."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+

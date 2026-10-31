@@ -65,9 +65,10 @@
           meta.name = 'viewport';
           document.head.appendChild(meta);
         }
-        var isLoginActive = document.body.classList.contains('zenve-auth-required') || 
-                            document.documentElement.classList.contains('zenve-auth-required') ||
-                            (document.getElementById('zenve-login-portal') && !document.getElementById('zenve-login-portal').classList.contains('zauth-hidden'));
+        var isLoginActive = (document.body && document.body.classList.contains('zenve-auth-required')) || 
+                            (document.documentElement && document.documentElement.classList.contains('zenve-auth-required')) ||
+                            (document.getElementById('zenve-login-portal') && !document.getElementById('zenve-login-portal').classList.contains('zauth-hidden')) ||
+                            !localStorage.getItem('zenve_auth_user');
         if (isLoginActive) {
           meta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes');
           return;
@@ -112,7 +113,7 @@
   <link rel="stylesheet" href="/assets/ai-assistant-dashboard.css?v=13" />
   <link rel="stylesheet" href="/assets/audit-compliance-dashboard.css?v=11" />
   <link rel="stylesheet" href="/assets/zenve-copilot.css?v=3" />
-  <link rel="stylesheet" href="/assets/zenve-login.css?v=20261023_desktop_fit_v16" />
+  <link rel="stylesheet" href="/assets/zenve-login.css?v=20261031_pro_input_v1" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap"
     data-precedence="default" />
@@ -211,7 +212,7 @@
   <script defer src="/assets/sales-drop-analysis.js?v=4"></script>
   <script defer src="/assets/zenve-db-sync.js?v=1"></script>
   <script defer src="/assets/zenve-copilot.js?v=2"></script>
-  <script defer src="/assets/zenve-login.js?v=20261023_light_glass_v12"></script>
+  <script defer src="/assets/zenve-login.js?v=20261031_pro_input_v1"></script>
   <script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script>
   <meta name="twitter:title" content="Executive Control Center — Zenve BI">
   <meta name="twitter:description" content="One private source of truth for Zenve sales and app growth.">

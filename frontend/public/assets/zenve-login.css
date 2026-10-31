@@ -16,43 +16,101 @@
   --zauth-success: #059669;
 }
 
-/* Viewport lock when login portal is visible — strictly zero scroll */
+/* Viewport lock & scroll safety */
 html.zenve-auth-required,
 html:has(body.zenve-auth-required),
 body.zenve-auth-required {
-  overflow: hidden !important;
-  height: 100vh !important;
-  max-height: 100vh !important;
-  width: 100vw !important;
-  max-width: 100vw !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
   margin: 0 !important;
   padding: 0 !important;
+  overflow: hidden !important;
 }
 
-/* Master Fullscreen Portal with 4K Lossless Veterinary Intelligence Canvas */
+/* Master Fullscreen Portal with Adaptive Scrolling */
 #zenve-login-portal {
   position: fixed !important;
   inset: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  max-height: 100vh !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
   z-index: 999999 !important;
-  background-image: url('/assets/zenve-intelligence-engine-4k.png?v=20261023_4k_v15') !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: center top !important;
-  image-rendering: -webkit-optimize-contrast;
+  background-color: #0b1120 !important;
   display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
   font-family: var(--font-sans, "Manrope", sans-serif);
   color: var(--zauth-text);
-  overflow: hidden !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
   padding: 0 !important;
   box-sizing: border-box !important;
   opacity: 1;
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease;
+}
+
+/* =====================================================================
+   DYNAMIC 10-SECOND BACKGROUND SLIDESHOW (Fixed Fullscreen Canvas)
+   ===================================================================== */
+.zauth-bg-slideshow {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  overflow: hidden !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+.zauth-bg-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  image-rendering: -webkit-optimize-contrast;
+  opacity: 0;
+  transform: scale(1.01);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 10s ease-out !important;
+  will-change: opacity, transform;
+  pointer-events: none !important;
+}
+
+.zauth-bg-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1 !important;
+}
+
+/* Cinematic adaptive overlay */
+.zauth-bg-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 17, 32, 0.02) 0%,
+    rgba(11, 17, 32, 0.10) 45%,
+    rgba(11, 17, 32, 0.40) 100%
+  ) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+/* Gallery dock removed per user instruction */
+.zauth-bg-indicators {
+  display: none !important;
+}
+
+.zauth-bg-dot {
+  display: none !important;
 }
 
 #zenve-login-portal.zauth-hidden {
@@ -82,17 +140,19 @@ body.zenve-auth-required {
   z-index: 10 !important;
   width: 100% !important;
   max-width: 100% !important;
-  height: 100% !important;
-  max-height: 100vh !important;
+  height: auto !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  max-height: none !important;
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
   justify-content: flex-end !important;
   box-sizing: border-box !important;
-  padding-right: clamp(24px, 4.5vw, 88px) !important;
-  padding-left: clamp(20px, 3vw, 48px) !important;
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
+  padding-right: clamp(16px, 3.5vw, 64px) !important;
+  padding-left: clamp(16px, 3vw, 48px) !important;
+  padding-top: clamp(16px, 2.5vh, 32px) !important;
+  padding-bottom: clamp(60px, 8vh, 80px) !important;
   overflow: visible !important;
 }
 
@@ -105,29 +165,30 @@ body.zenve-auth-required {
    RIGHT COLUMN: THE LUXURY LIGHT GLASS LOGIN CARD
    ===================================================================== */
 .zauth-card-wrapper {
-  width: clamp(340px, 28vw, 430px) !important;
-  max-width: 430px !important;
+  width: clamp(300px, 24vw, 375px) !important;
+  max-width: 375px !important;
   flex: 0 0 auto !important;
   display: flex !important;
   justify-content: flex-end !important;
   align-self: center !important;
   box-sizing: border-box !important;
+  margin: 12px 0 !important;
 }
 
 .zauth-login-card {
   width: 100% !important;
-  max-width: 430px !important;
+  max-width: 375px !important;
   background: var(--zauth-card-bg) !important;
   backdrop-filter: blur(32px) saturate(190%) !important;
   -webkit-backdrop-filter: blur(32px) saturate(190%) !important;
   border: 1.5px solid var(--zauth-card-border) !important;
   box-shadow:
-    0 24px 60px -10px rgba(15, 23, 42, 0.18),
-    0 8px 24px -4px rgba(0, 112, 243, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.6),
+    0 24px 60px -10px rgba(15, 23, 42, 0.20),
+    0 8px 24px -4px rgba(0, 112, 243, 0.14),
+    0 0 0 1px rgba(255, 255, 255, 0.7),
     inset 0 1px 2px rgba(255, 255, 255, 1) !important;
-  border-radius: clamp(20px, 1.8vw, 28px) !important;
-  padding: 24px 26px 20px !important;
+  border-radius: 24px !important;
+  padding: 22px 24px 18px !important;
   box-sizing: border-box !important;
   animation: zauthCardEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
@@ -257,63 +318,138 @@ body.zenve-auth-required {
   margin-bottom: 16px;
 }
 
-.zauth-field-header {
-  font-family: var(--font-mono, "IBM Plex Mono", monospace);
-  font-size: 10.5px;
+.zauth-field-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+
+.zauth-field-label {
+  font-family: var(--font-sans, "Manrope", sans-serif);
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #1e293b;
+}
+
+.zauth-field-tag {
+  font-size: 9.5px;
+  font-weight: 700;
   color: #0284c7;
-  margin-bottom: 7px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.22);
+  border-radius: 6px;
+  padding: 2px 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .zauth-input-container {
   display: flex;
-  align-items: stretch;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1.5px solid rgba(203, 213, 225, 0.85);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 3px 8px 3px 12px;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.zauth-input-container:hover {
+  border-color: #94a3b8;
 }
 
 .zauth-input-container:focus-within {
   border-color: #0284c7;
-  box-shadow: 0 0 0 3.5px rgba(2, 132, 199, 0.16), 0 4px 14px rgba(2, 132, 199, 0.12);
   background: #ffffff;
+  box-shadow: 0 0 0 3.5px rgba(2, 132, 199, 0.16), 0 6px 18px rgba(2, 132, 199, 0.12);
+  transform: translateY(-1px);
+}
+
+.zauth-country-picker {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.zauth-country-flag {
+  font-size: 16px;
+  line-height: 1;
+  user-select: none;
 }
 
 .zauth-country-dropdown {
-  background: rgba(248, 250, 252, 0.95);
   border: none;
-  border-right: 1.5px solid rgba(203, 213, 225, 0.85);
-  color: #0f172a;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 0 12px;
+  background: transparent;
+  font-family: var(--font-sans, "Manrope", sans-serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
   cursor: pointer;
   outline: none;
+  padding: 2px 14px 2px 2px;
   appearance: none;
   -webkit-appearance: none;
 }
 
+.zauth-select-chevron {
+  position: absolute;
+  right: 1px;
+  pointer-events: none;
+  color: #64748b;
+}
+
+.zauth-input-divider {
+  width: 1px;
+  height: 24px;
+  background: #e2e8f0;
+  margin: 0 10px 0 6px;
+  flex-shrink: 0;
+}
+
 .zauth-tel-input {
   flex: 1;
-  background: transparent;
+  min-width: 0;
   border: none;
-  padding: 12px 14px;
-  font-size: 15px;
+  background: transparent;
+  font-family: var(--font-sans, "Manrope", -apple-system, sans-serif);
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   color: #0f172a;
+  padding: 10px 4px;
   outline: none;
-  font-family: var(--font-mono, "IBM Plex Mono", monospace);
 }
 
 .zauth-tel-input::placeholder {
   color: #94a3b8;
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.zauth-field-hint-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 0 2px;
+}
+
+.zauth-hint-icon {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.zauth-field-hint {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.3;
 }
 
 /* Glowing Primary Send Code Button */
@@ -324,7 +460,7 @@ body.zenve-auth-required {
   justify-content: center;
   gap: 8px;
   padding: 13px 20px;
-  border-radius: 12px;
+  border-radius: 14px;
   background: linear-gradient(135deg, #0284c7 0%, #0070f3 55%, #00d2ff 100%);
   border: none;
   color: #ffffff;
@@ -335,14 +471,14 @@ body.zenve-auth-required {
   cursor: pointer;
   box-shadow: 0 8px 24px -4px rgba(0, 112, 243, 0.38), 0 2px 8px rgba(2, 132, 199, 0.22);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-top: 10px;
+  margin-top: 12px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 }
 
 .zauth-cta-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 28px -4px rgba(0, 112, 243, 0.5), 0 4px 12px rgba(2, 132, 199, 0.3);
-  filter: brightness(1.04);
+  transform: translateY(-1.5px);
+  box-shadow: 0 10px 28px -4px rgba(0, 112, 243, 0.5), 0 4px 14px rgba(2, 132, 199, 0.32);
+  filter: brightness(1.05);
 }
 
 .zauth-cta-btn:active {
@@ -739,178 +875,186 @@ body.zenve-auth-required {
 }
 
 /* =====================================================================
-   ALL-DESKTOP RESPONSIVE FIT SYSTEM (1024px up to 4K UHD)
-   Strictly Zero Scrollbars · Right-Anchored Floating Card · Flawless Framing
+   COMPREHENSIVE ALL-SCREEN RESPONSIVE SYSTEM
+   Mobile (320px) · Tablets · Laptops (1366/1440/1536) · 4K UHD · Short Viewports
    ===================================================================== */
 
-/* 1. Large & Ultra-HD Desktops (4K UHD & QHD: >= 2560px) */
+/* 1. Ultra-Wide & 4K UHD Desktops (>= 2560px) */
 @media (min-width: 2560px) {
   .zauth-layout-container {
     padding-right: clamp(64px, 6vw, 120px) !important;
   }
   .zauth-card-wrapper {
-    width: 440px !important;
-    max-width: 440px !important;
+    width: 410px !important;
+    max-width: 410px !important;
   }
   .zauth-login-card {
-    max-width: 440px !important;
+    max-width: 410px !important;
     padding: 28px 30px 24px !important;
   }
 }
 
-/* 2. Compact Desktops & Laptops (1024px to 1279px, e.g. 1024x768, 1152x864, 1280x800) */
-@media (min-width: 768px) and (max-width: 1279px) {
-  #zenve-login-portal {
-    background-position: 28% top !important;
-  }
+/* 2. Standard Laptops (1025px to 1440px — e.g. 1366x768, 1280x800, 1440x900) */
+@media (min-width: 1025px) and (max-width: 1440px) {
   .zauth-layout-container {
-    padding-right: clamp(14px, 2.2vw, 24px) !important;
-    padding-left: 12px !important;
-    justify-content: flex-end !important;
+    padding-right: clamp(16px, 2.5vw, 40px) !important;
+    padding-left: clamp(16px, 2vw, 32px) !important;
   }
   .zauth-card-wrapper {
-    width: clamp(330px, 32vw, 365px) !important;
-    max-width: 365px !important;
+    width: clamp(290px, 23vw, 350px) !important;
+    max-width: 350px !important;
   }
   .zauth-login-card {
-    max-width: 365px !important;
-    padding: 20px 20px 18px !important;
-  }
-}
-
-/* 3. Aspect Ratio: Screens narrower than 16:9 (16:10 like 1440x900, 1280x800, 1680x1050; 4:3 like 1024x768) */
-@media (max-aspect-ratio: 16/10) and (min-width: 768px) {
-  #zenve-login-portal {
-    background-position: 32% top !important;
-  }
-}
-
-/* 4. Aspect Ratio: Ultra-widescreen (21:9 or short window with high aspect ratio) */
-@media (min-aspect-ratio: 2/1) {
-  #zenve-login-portal {
-    background-position: center 12% !important;
-  }
-}
-
-/* 5. Viewport Height Adaptation: <= 840px (Standard Laptops with Browser Toolbars & Windows Taskbar) */
-@media (max-height: 840px) and (min-width: 768px) {
-  #zenve-login-portal {
-    padding: 8px 0 !important;
-  }
-  .zauth-layout-container {
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
-  }
-  .zauth-card-wrapper {
-    width: clamp(330px, 26vw, 410px) !important;
-  }
-  .zauth-login-card {
-    padding: 18px 22px 16px !important;
-    border-radius: 22px !important;
+    max-width: 350px !important;
+    padding: 18px 20px 16px !important;
+    border-radius: 20px !important;
   }
   .zauth-card-header {
-    margin-bottom: 10px !important;
+    margin-bottom: 12px !important;
   }
   .zauth-card-logo-badge {
-    gap: 10px !important;
     margin-bottom: 8px !important;
+    gap: 8px !important;
   }
   .zauth-card-logo-icon {
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 11px !important;
+    width: 36px !important;
+    height: 36px !important;
   }
   .zauth-card-logo-icon img {
-    width: 28px !important;
-    height: 28px !important;
-  }
-  .zauth-card-brand-title {
-    font-size: 15px !important;
+    width: 24px !important;
+    height: 24px !important;
   }
   .zauth-card-title {
     font-size: 19px !important;
-    margin: 0 0 3px 0 !important;
+    margin: 0 0 2px !important;
   }
   .zauth-card-subtitle {
-    font-size: 11.5px !important;
+    font-size: 11px !important;
   }
   .zauth-notice-pill {
-    padding: 7px 11px !important;
-    margin-top: 8px !important;
-    margin-bottom: 10px !important;
-    font-size: 10.5px !important;
-    line-height: 1.35 !important;
-  }
-  .zauth-field-box {
-    margin-bottom: 11px !important;
-  }
-  .zauth-field-header {
-    font-size: 9.5px !important;
-    margin-bottom: 4px !important;
-  }
-  .zauth-input-container {
-    border-radius: 10px !important;
-  }
-  .zauth-country-dropdown {
-    font-size: 11.5px !important;
-    padding: 0 9px !important;
-  }
-  .zauth-tel-input {
-    padding: 9px 11px !important;
-    font-size: 13.5px !important;
-  }
-  .zauth-cta-btn {
-    padding: 11px 16px !important;
-    font-size: 13px !important;
-    margin-top: 8px !important;
-    border-radius: 10px !important;
-  }
-  .zauth-card-footer {
-    margin-top: 12px !important;
-    padding-top: 10px !important;
+    padding: 6px 9px !important;
+    margin-top: 6px !important;
+    margin-bottom: 8px !important;
     font-size: 10px !important;
   }
-  .zauth-otp-target-card {
-    padding: 7px 11px !important;
+  .zauth-field-box {
     margin-bottom: 10px !important;
   }
-  .zauth-digit-grid {
-    gap: 6px !important;
-    margin-bottom: 10px !important;
-  }
-  .zauth-digit-box {
-    height: 42px !important;
-    font-size: 19px !important;
-    border-radius: 9px !important;
-  }
-  .zauth-timer-line {
+  .zauth-field-label {
     font-size: 10.5px !important;
-    margin-bottom: 8px !important;
+  }
+  .zauth-field-tag {
+    font-size: 8.5px !important;
+    padding: 1px 5px !important;
+  }
+  .zauth-input-container {
+    border-radius: 11px !important;
+    padding: 2px 6px 2px 10px !important;
+  }
+  .zauth-country-dropdown {
+    font-size: 11px !important;
+    padding: 0 8px !important;
+  }
+  .zauth-tel-input {
+    padding: 8px 6px !important;
+    font-size: 14px !important;
+  }
+  .zauth-cta-btn {
+    padding: 10px 14px !important;
+    font-size: 12.5px !important;
+    margin-top: 8px !important;
+    border-radius: 11px !important;
+  }
+  .zauth-card-footer {
+    margin-top: 10px !important;
+    padding-top: 8px !important;
+    font-size: 9.5px !important;
+  }
+  .zauth-glow-orb {
+    width: 320px !important;
+    height: 320px !important;
   }
 }
 
-/* 6. Viewport Height Adaptation: <= 660px (Short Laptops, Windows 125%-150% Scaling, Small Desktop Windows) */
-@media (max-height: 660px) and (min-width: 768px) {
-  #zenve-login-portal {
-    padding: 4px 0 !important;
+/* 3. Tablets & Narrow Desktops (768px to 1024px — e.g. iPad, Surface, Split Screen) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .zauth-bg-slide {
+    background-position: center top !important;
+  }
+  .zauth-bg-overlay {
+    background: radial-gradient(
+      circle at center,
+      rgba(11, 17, 32, 0.40) 0%,
+      rgba(11, 17, 32, 0.65) 100%
+    ) !important;
   }
   .zauth-layout-container {
-    padding-top: 4px !important;
-    padding-bottom: 4px !important;
+    justify-content: center !important;
+    padding: 24px 20px 70px !important;
   }
   .zauth-card-wrapper {
-    width: clamp(310px, 25vw, 375px) !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    justify-content: center !important;
   }
   .zauth-login-card {
-    padding: 13px 17px 11px !important;
-    border-radius: 18px !important;
+    max-width: 360px !important;
+    padding: 20px 22px 16px !important;
+    backdrop-filter: blur(28px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35) !important;
   }
-  .zauth-card-header {
-    margin-bottom: 6px !important;
+  .zauth-glow-orb {
+    right: 50% !important;
+    top: 50% !important;
+    transform: translate(50%, -50%) !important;
+    width: 340px !important;
+    height: 340px !important;
+  }
+}
+
+/* 4. Mobile Devices (< 768px — e.g. iPhone, Pixel, Samsung Galaxy, 320px to 480px) */
+@media (max-width: 767px) {
+  #zenve-login-portal {
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+  }
+  .zauth-bg-slide {
+    background-position: center top !important;
+  }
+  .zauth-bg-overlay {
+    background: radial-gradient(
+      circle at center,
+      rgba(11, 17, 32, 0.50) 0%,
+      rgba(11, 17, 32, 0.75) 100%
+    ) !important;
+  }
+  .zauth-layout-container {
+    justify-content: center !important;
+    padding: 20px 14px 68px 14px !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    height: auto !important;
+  }
+  .zauth-card-wrapper {
+    width: 100% !important;
+    max-width: 350px !important;
+    margin: 8px auto !important;
+    justify-content: center !important;
+  }
+  .zauth-login-card {
+    max-width: 350px !important;
+    padding: 18px 16px 14px !important;
+    border-radius: 20px !important;
+    backdrop-filter: blur(28px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+    background: rgba(255, 255, 255, 0.90) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35) !important;
   }
   .zauth-card-logo-badge {
-    gap: 7px !important;
-    margin-bottom: 4px !important;
+    gap: 8px !important;
+    margin-bottom: 6px !important;
   }
   .zauth-card-logo-icon {
     width: 32px !important;
@@ -918,90 +1062,142 @@ body.zenve-auth-required {
     border-radius: 8px !important;
   }
   .zauth-card-logo-icon img {
-    width: 22px !important;
-    height: 22px !important;
+    width: 20px !important;
+    height: 20px !important;
   }
   .zauth-card-brand-title {
     font-size: 13px !important;
   }
+  .zauth-card-brand-sub,
+  .zauth-card-brand-sub-teal {
+    font-size: 9px !important;
+  }
   .zauth-card-title {
-    font-size: 16.5px !important;
-    margin: 0 !important;
+    font-size: 18px !important;
+    margin: 0 0 2px !important;
   }
   .zauth-card-subtitle {
-    font-size: 10px !important;
+    font-size: 10.5px !important;
   }
   .zauth-notice-pill {
     padding: 5px 8px !important;
     margin-top: 6px !important;
-    margin-bottom: 7px !important;
+    margin-bottom: 8px !important;
     font-size: 9.5px !important;
-    line-height: 1.3 !important;
     border-radius: 8px !important;
   }
   .zauth-field-box {
     margin-bottom: 8px !important;
   }
-  .zauth-field-header {
-    font-size: 9px !important;
-    margin-bottom: 3px !important;
-  }
   .zauth-country-dropdown {
-    font-size: 10.5px !important;
+    font-size: 11px !important;
     padding: 0 7px !important;
   }
   .zauth-tel-input {
-    padding: 7px 9px !important;
-    font-size: 12.5px !important;
+    padding: 8px 10px !important;
+    font-size: 13px !important;
   }
   .zauth-cta-btn {
-    padding: 9px 14px !important;
-    font-size: 12px !important;
+    padding: 10px 14px !important;
+    font-size: 12.5px !important;
     margin-top: 6px !important;
     border-radius: 9px !important;
   }
-  .zauth-card-footer {
-    margin-top: 8px !important;
-    padding-top: 8px !important;
-    font-size: 9.5px !important;
-  }
-  .zauth-otp-target-card {
-    padding: 5px 9px !important;
-    margin-bottom: 7px !important;
-  }
   .zauth-digit-grid {
-    gap: 5px !important;
-    margin-bottom: 7px !important;
+    gap: 4px !important;
+    margin-bottom: 8px !important;
   }
   .zauth-digit-box {
-    height: 35px !important;
-    font-size: 16px !important;
+    height: 38px !important;
+    font-size: 18px !important;
     border-radius: 7px !important;
   }
-  .zauth-timer-line {
-    font-size: 10px !important;
-    margin-bottom: 6px !important;
+  .zauth-glow-orb {
+    display: none !important;
   }
 }
 
-/* 7. Mobile and Narrow Device Graceful Fallback (< 768px) */
-@media (max-width: 767px) {
-  #zenve-login-portal {
-    padding: 16px 12px !important;
-    overflow-y: auto !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background-position: 40% center !important;
-  }
+/* 5. Short Height Viewport Adaptation (<= 760px — Laptops with browser toolbars & taskbar) */
+@media (max-height: 760px) {
   .zauth-layout-container {
-    justify-content: center !important;
-    padding: 0 !important;
-    max-height: none !important;
-    height: auto !important;
+    padding-top: 10px !important;
+    padding-bottom: 24px !important;
   }
-  .zauth-card-wrapper {
-    width: 100% !important;
-    max-width: 380px !important;
-    justify-content: center !important;
+  .zauth-login-card {
+    padding: 15px 18px 12px !important;
+    border-radius: 18px !important;
+  }
+  .zauth-card-header {
+    margin-bottom: 6px !important;
+  }
+  .zauth-card-logo-badge {
+    margin-bottom: 4px !important;
+    gap: 7px !important;
+  }
+  .zauth-card-logo-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .zauth-card-logo-icon img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .zauth-card-title {
+    font-size: 17px !important;
+    margin: 0 !important;
+  }
+  .zauth-card-subtitle {
+    font-size: 10.5px !important;
+  }
+  .zauth-notice-pill {
+    padding: 4px 8px !important;
+    margin-top: 4px !important;
+    margin-bottom: 6px !important;
+    font-size: 9.5px !important;
+  }
+  .zauth-field-box {
+    margin-bottom: 8px !important;
+  }
+  .zauth-field-label {
+    font-size: 10px !important;
+  }
+  .zauth-field-tag {
+    font-size: 8px !important;
+    padding: 1px 4px !important;
+  }
+  .zauth-input-container {
+    border-radius: 10px !important;
+    padding: 2px 6px 2px 8px !important;
+  }
+  .zauth-country-dropdown {
+    font-size: 10.5px !important;
+    padding: 0 6px !important;
+  }
+  .zauth-tel-input {
+    padding: 6px 6px !important;
+    font-size: 13px !important;
+  }
+  .zauth-cta-btn {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    margin-top: 6px !important;
+    border-radius: 10px !important;
+  }
+  .zauth-card-footer {
+    margin-top: 8px !important;
+    padding-top: 6px !important;
+    font-size: 9px !important;
+  }
+}
+
+/* 6. Ultra-Short Height Viewport (<= 580px) */
+@media (max-height: 580px) {
+  .zauth-layout-container {
+    align-items: flex-start !important;
+    padding-top: 8px !important;
+    padding-bottom: 50px !important;
+  }
+  .zauth-login-card {
+    padding: 10px 14px 8px !important;
   }
 }

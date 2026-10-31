@@ -89,6 +89,88 @@
     } catch (e) { }
   }
 
+  // 7 Uploaded Lossless Brand Canvases for Background Slideshow
+  var BG_SLIDES = [
+    {
+      src: '/assets/login-bg-1.jpg',
+      label: 'Zynvo Intelligence Engine — Intelligence Behind Every Animal'
+    },
+    {
+      src: '/assets/login-bg-2.jpg',
+      label: 'Zenve Multi-Brand Ecosystem — Healthcare, Zippy, Fashion, Vet'
+    },
+    {
+      src: '/assets/login-bg-3.jpg',
+      label: 'Zenve Fashion — People · Pets · Together'
+    },
+    {
+      src: '/assets/login-bg-4.jpg',
+      label: 'Zenve Vet — Clinical Diagnostics & Hospital Operations'
+    },
+    {
+      src: '/assets/login-bg-5.jpg',
+      label: 'Zenve Intelligence Engine — Alpine Veterinary Clinic'
+    },
+    {
+      src: '/assets/login-bg-6.jpg',
+      label: 'Zenve Intelligence Engine — Puppy & Kitten Wellness Care'
+    },
+    {
+      src: '/assets/login-bg-7.jpg',
+      label: 'Zenve Zippy — Playful Pet Companion Intelligence'
+    }
+  ];
+
+  var currentSlideIdx = 0;
+  var bgSlideTimer = null;
+
+  function formatPhoneDisplay(val) {
+    var digits = String(val || '').replace(/\D/g, '').slice(0, 10);
+    if (digits.length > 5) {
+      return digits.slice(0, 5) + ' ' + digits.slice(5);
+    }
+    return digits;
+  }
+
+  function renderBgSlideshow() {
+    var slidesHtml = BG_SLIDES.map(function (slide, idx) {
+      return '<div class="zauth-bg-slide' + (idx === 0 ? ' active' : '') + '" style="background-image: url(\'' + slide.src + '\');" data-index="' + idx + '" aria-label="' + esc(slide.label) + '"></div>';
+    }).join('');
+
+    return '' +
+      '<div class="zauth-bg-slideshow" id="zauth-bg-slideshow">' +
+      slidesHtml +
+      '<div class="zauth-bg-overlay"></div>' +
+      '</div>';
+  }
+
+  function switchBgSlide(targetIdx) {
+    var slides = document.querySelectorAll('.zauth-bg-slide');
+    if (!slides.length) return;
+
+    if (typeof targetIdx === 'number') {
+      currentSlideIdx = (targetIdx + slides.length) % slides.length;
+    } else {
+      currentSlideIdx = (currentSlideIdx + 1) % slides.length;
+    }
+
+    slides.forEach(function (slide, i) {
+      if (i === currentSlideIdx) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+  }
+
+  function startBgSlideshow() {
+    if (bgSlideTimer) clearInterval(bgSlideTimer);
+    // Cycle background every 10 seconds exactly (10,000 ms)
+    bgSlideTimer = setInterval(function () {
+      switchBgSlide();
+    }, 10000);
+  }
+
   function createPortalElement() {
     var existing = document.getElementById('zenve-login-portal');
     if (existing) existing.remove();
@@ -96,6 +178,7 @@
     var portal = document.createElement('div');
     portal.id = 'zenve-login-portal';
     portal.innerHTML =
+      renderBgSlideshow() +
       '<div class="zauth-glow-orb"></div>' +
       '<div class="zauth-layout-container">' +
       renderRightLoginCard() +
@@ -103,11 +186,24 @@
 
     document.body.appendChild(portal);
     attachPortalEvents(portal);
+    startBgSlideshow();
     return portal;
   }
 
-  // Right Column: Floating Glowing Login Card
+  // Helper: Format 10-digit phone number as "XXXXX XXXXX" for professional legibility
+  function formatPhoneDisplay(raw) {
+    if (!raw) return '';
+    var clean = String(raw).replace(/\D/g, '').slice(0, 10);
+    if (clean.length > 5) {
+      return clean.slice(0, 5) + ' ' + clean.slice(5);
+    }
+    return clean;
+  }
+
+  // Right Column: Professional Executive Login Card
   function renderRightLoginCard() {
+    var formattedPhone = formatPhoneDisplay(state.phoneNumber);
+
     return '' +
       '<div class="zauth-card-wrapper">' +
       '<div class="zauth-login-card" id="zauth-login-card">' +
@@ -127,39 +223,54 @@
       '<p class="zauth-card-subtitle">Enter your mobile number to sign in</p>' +
       '</div>' +
 
-      '<!-- Notice Banner (dynamic for any mobile number) -->' +
-      '<div id="zauth-notice-pill" class="zauth-notice-pill">' +
+      '<!-- Notice Banner (hidden by default, smoothly shows on OTP send or error) -->' +
+      '<div id="zauth-notice-pill" class="zauth-notice-pill zauth-notice-hidden" style="display:none;">' +
       '<span class="zauth-notice-icon">✓</span>' +
-      '<span id="zauth-notice-text">Enter any 10-digit mobile number to receive your OTP code via SMS.</span>' +
+      '<span id="zauth-notice-text"></span>' +
       '</div>' +
 
       '<!-- Step 1: Mobile Phone Input -->' +
       '<div id="zauth-step-phone" class="zauth-step-phone-input ' + (state.step === 'phone' ? 'active' : 'inactive') + '">' +
       '<div class="zauth-field-box">' +
-      '<div class="zauth-field-header">REGISTERED MOBILE NUMBER</div>' +
+      '<div class="zauth-field-header-row">' +
+      '<label class="zauth-field-label" for="zauth-phone-input">Registered Mobile Number</label>' +
+      '<span class="zauth-field-tag">SMS Verification</span>' +
+      '</div>' +
       '<div class="zauth-input-container">' +
-      '<select id="zauth-country-select" class="zauth-country-dropdown">' +
-      '<option value="+91" ' + (state.countryCode === '+91' ? 'selected' : '') + '>IN +91 (IN)</option>' +
-      '<option value="+1" ' + (state.countryCode === '+1' ? 'selected' : '') + '>US +1 (US)</option>' +
-      '<option value="+971" ' + (state.countryCode === '+971' ? 'selected' : '') + '>AE +971 (AE)</option>' +
-      '<option value="+44" ' + (state.countryCode === '+44' ? 'selected' : '') + '>UK +44 (UK)</option>' +
-      '<option value="+65" ' + (state.countryCode === '+65' ? 'selected' : '') + '>SG +65 (SG)</option>' +
+      '<div class="zauth-country-picker">' +
+      '<span class="zauth-country-flag" id="zauth-flag-icon">' + (state.countryCode === '+1' ? '🇺🇸' : (state.countryCode === '+971' ? '🇦🇪' : (state.countryCode === '+44' ? '🇬🇧' : (state.countryCode === '+65' ? '🇸🇬' : '🇮🇳')))) + '</span>' +
+      '<select id="zauth-country-select" class="zauth-country-dropdown" aria-label="Country Code">' +
+      '<option value="+91" data-flag="🇮🇳" ' + (state.countryCode === '+91' ? 'selected' : '') + '>+91</option>' +
+      '<option value="+1" data-flag="🇺🇸" ' + (state.countryCode === '+1' ? 'selected' : '') + '>+1</option>' +
+      '<option value="+971" data-flag="🇦🇪" ' + (state.countryCode === '+971' ? 'selected' : '') + '>+971</option>' +
+      '<option value="+44" data-flag="🇬🇧" ' + (state.countryCode === '+44' ? 'selected' : '') + '>+44</option>' +
+      '<option value="+65" data-flag="🇸🇬" ' + (state.countryCode === '+65' ? 'selected' : '') + '>+65</option>' +
       '</select>' +
-      '<input type="tel" id="zauth-phone-input" class="zauth-tel-input" placeholder="Enter 10-digit mobile number" value="' + esc(state.phoneNumber) + '" autocomplete="tel" maxlength="15" />' +
+      '<svg class="zauth-select-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>' +
+      '</div>' +
+      '<div class="zauth-input-divider"></div>' +
+      '<input type="tel" id="zauth-phone-input" class="zauth-tel-input" placeholder="98110 54321" value="' + esc(formattedPhone) + '" autocomplete="tel" maxlength="14" />' +
+      '</div>' +
+      '<div class="zauth-field-hint-row">' +
+      '<svg class="zauth-hint-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>' +
+      '<span class="zauth-field-hint">A 6-digit one-time passcode will be sent via SMS</span>' +
       '</div>' +
       '</div>' +
 
       '<button type="button" id="zauth-send-btn" class="zauth-cta-btn">' +
       '<span>Send Verification Code</span>' +
-      '<span>➔</span>' +
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' +
       '</button>' +
       '</div>' +
 
       '<!-- Step 2: 6-Digit Verification Code -->' +
       '<div id="zauth-step-verify" class="zauth-step-otp-verify ' + (state.step === 'verify' ? 'active' : '') + '">' +
       '<div class="zauth-otp-target-card">' +
-      '<span class="zauth-otp-target-phone" id="zauth-otp-target-text">' + esc(state.countryCode + ' ' + state.phoneNumber) + '</span>' +
-      '<button type="button" id="zauth-edit-target-btn" class="zauth-edit-btn">Edit Number</button>' +
+      '<div class="zauth-otp-target-info">' +
+      '<span class="zauth-otp-target-label">Code sent to</span>' +
+      '<span class="zauth-otp-target-phone" id="zauth-otp-target-text">' + esc(state.countryCode + ' ' + formattedPhone) + '</span>' +
+      '</div>' +
+      '<button type="button" id="zauth-edit-target-btn" class="zauth-edit-btn">Edit</button>' +
       '</div>' +
 
       '<!-- 6 Digit Input Grid -->' +
@@ -178,24 +289,21 @@
       '</div>' +
 
       '<button type="button" id="zauth-verify-btn" class="zauth-cta-btn">' +
-      '<span>Verify &amp; Enter Control Center</span>' +
-      '<span>🚀</span>' +
+      '<span>Verify &amp; Enter Portal</span>' +
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' +
       '</button>' +
       '</div>' +
 
-      '<!-- Security Footer & Apitxt SMS Gateway Status -->' +
+      '<!-- Security Footer -->' +
       '<div class="zauth-card-footer">' +
-      '<div class="zauth-footer-lock">' +
-      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
-      '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>' +
-      '<path d="M7 11V7a5 5 0 0 1 10 0v4"/>' +
-      '</svg>' +
-      ' <span>TLS 1.3</span>' +
+      '<div class="zauth-footer-badge">' +
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>' +
+      '<span>256-Bit SSL Encrypted</span>' +
       '</div>' +
-      '<button type="button" id="zauth-gateway-btn" class="zauth-gateway-badge-btn" title="Click to view or paste Apitxt Auth Key">' +
+      '<button type="button" id="zauth-gateway-btn" class="zauth-gateway-badge-btn" title="Gateway Configuration">' +
       '<span class="zauth-gateway-dot" id="zauth-gateway-dot"></span>' +
-      '<span id="zauth-gateway-text">Apitxt Gateway</span>' +
-      '<span class="zauth-gateway-key-icon">🔑</span>' +
+      '<span id="zauth-gateway-text">SMS Gateway</span>' +
+      '<span class="zauth-gateway-key-icon">⚙️</span>' +
       '</button>' +
       '</div>' +
       '</div>' +
@@ -237,6 +345,10 @@
     var pill = document.getElementById('zauth-notice-pill');
     var label = document.getElementById('zauth-notice-text');
     if (!pill || !label) return;
+    if (!text) {
+      pill.style.display = 'none';
+      return;
+    }
     pill.className = 'zauth-notice-pill ' + (isError ? 'error' : '');
     label.textContent = text;
     var icon = pill.querySelector('.zauth-notice-icon');
@@ -477,6 +589,10 @@
 
   // Complete Login Flow
   function completeLoginFlow(user) {
+    if (bgSlideTimer) {
+      clearInterval(bgSlideTimer);
+      bgSlideTimer = null;
+    }
     document.body.classList.remove('zenve-auth-required');
     document.documentElement.classList.remove('zenve-auth-required');
     if (typeof window.fitViewport === 'function') window.fitViewport();
@@ -553,6 +669,7 @@
       var portal = document.getElementById('zenve-login-portal');
       if (portal) {
         portal.classList.remove('zauth-hidden');
+        startBgSlideshow();
         state.step = 'phone';
         var stepPhone = document.getElementById('zauth-step-phone');
         var stepVerify = document.getElementById('zauth-step-verify');
@@ -570,16 +687,23 @@
   // Attach Portal Events
   function attachPortalEvents(portal) {
     var countrySelect = portal.querySelector('#zauth-country-select');
+    var flagIcon = portal.querySelector('#zauth-flag-icon');
     if (countrySelect) {
       countrySelect.addEventListener('change', function (e) {
         state.countryCode = e.target.value;
+        var opt = e.target.options[e.target.selectedIndex];
+        if (opt && flagIcon) {
+          flagIcon.textContent = opt.getAttribute('data-flag') || '🌐';
+        }
       });
     }
 
     var phoneInput = portal.querySelector('#zauth-phone-input');
     if (phoneInput) {
       phoneInput.addEventListener('input', function (e) {
-        state.phoneNumber = e.target.value.replace(/\D/g, '').slice(0, 10);
+        var clean = e.target.value.replace(/\D/g, '').slice(0, 10);
+        state.phoneNumber = clean;
+        e.target.value = formatPhoneDisplay(clean);
       });
       phoneInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
@@ -602,7 +726,10 @@
         var stepVerify = document.getElementById('zauth-step-verify');
         if (stepPhone) stepPhone.classList.remove('inactive');
         if (stepVerify) stepVerify.classList.remove('active');
-        if (phoneInput) phoneInput.focus();
+        if (phoneInput) {
+          phoneInput.value = formatPhoneDisplay(state.phoneNumber);
+          phoneInput.focus();
+        }
       });
     }
 
@@ -785,6 +912,10 @@
     var portal = createPortalElement();
 
     if (user) {
+      if (bgSlideTimer) {
+        clearInterval(bgSlideTimer);
+        bgSlideTimer = null;
+      }
       portal.classList.add('zauth-hidden');
       document.body.classList.remove('zenve-auth-required');
       document.documentElement.classList.remove('zenve-auth-required');
@@ -811,6 +942,7 @@
         document.documentElement.classList.add('zenve-auth-required');
         if (typeof window.fitViewport === 'function') window.fitViewport();
         window.scrollTo(0, 0);
+        startBgSlideshow();
       }
     },
     hideLogin: function () {
@@ -820,6 +952,10 @@
         document.body.classList.remove('zenve-auth-required');
         document.documentElement.classList.remove('zenve-auth-required');
         if (typeof window.fitViewport === 'function') window.fitViewport();
+        if (bgSlideTimer) {
+          clearInterval(bgSlideTimer);
+          bgSlideTimer = null;
+        }
       }
     },
     logout: handleLogoutPrompt,
