@@ -1294,8 +1294,9 @@
   function tabFromHash(hash) {
     if (!hash) return null;
     var clean = (hash.startsWith('#') ? hash : '#' + hash).toLowerCase().trim();
+    if (clean === '#overview' || clean === '#') return null;
     for (var i = 0; i < MODULES.length; i++) {
-      if (MODULES[i].hash === clean || clean === '#' + MODULES[i].id) {
+      if (MODULES[i].hash === clean || (MODULES[i].id !== 'overview' && clean === '#' + MODULES[i].id)) {
         return MODULES[i].id;
       }
     }

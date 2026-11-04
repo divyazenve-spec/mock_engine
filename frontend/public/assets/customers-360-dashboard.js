@@ -198,12 +198,12 @@
   function tabFromHash(hash) {
     if (!hash) return null;
     var h = (hash.startsWith('#') ? hash.slice(1) : hash).toLowerCase();
-    if (h.indexOf('report') >= 0 || h.indexOf('alert') >= 0 || h.indexOf('vendor') >= 0 || h.indexOf('fashion') >= 0 || h.indexOf('import') >= 0 || h.indexOf('export') >= 0 || h.indexOf('subscription') >= 0 || h.indexOf('doctor') >= 0 || h.indexOf('prediction') >= 0 || h.indexOf('ai-assistant') >= 0 || h === 'ai') {
+    if (h.indexOf('report') >= 0 || h.indexOf('alert') >= 0 || h.indexOf('vendor') >= 0 || h.indexOf('fashion') >= 0 || h.indexOf('import') >= 0 || h.indexOf('export') >= 0 || h.indexOf('subscription') >= 0 || h.indexOf('doctor') >= 0 || h.indexOf('marketing') >= 0 || h.indexOf('prediction') >= 0 || h.indexOf('ai-assistant') >= 0 || h === 'ai') {
       return null;
     }
     if (h === 'customer-dashboard' || h === 'customers' || h === 'customers-360') return 'dashboard';
     if (h === 'all-customers' || h === 'customers-list') return 'all-customers';
-    if (h === 'new-customers' || h === 'customer-acquisition') return 'new-customers';
+    if (h === 'new-customers') return 'new-customers';
     if (h === 'active-customers') return 'active-customers';
     if (h === 'repeat-customers') return 'repeat-customers';
     if (h === 'customer-lifetime-value' || h === 'clv' || h === 'ltv') return 'lifetime-value';

@@ -560,6 +560,13 @@
     return null;
   }
 
+  var ALL_LOCK_CLASSES = [
+    'zenve-overlay-active', 'zexec-locked', 'zai-locked', 'zalt-locked',
+    'zaud-locked', 'zb2b-locked', 'zc360-locked', 'zdoc-locked',
+    'zfsh-locked', 'zix-locked', 'zrep-locked', 'zset-locked',
+    'zsub-locked', 'zsys-locked', 'zvp-locked'
+  ];
+
   function closeAllDashboards(exceptRootId) {
     CONTROLLERS.forEach(function (name) {
       try {
@@ -582,6 +589,7 @@
         var el = document.getElementById(id);
         if (el) {
           OPEN_CLASSES.forEach(function (cls) { el.classList.remove(cls); });
+          el.classList.remove('zenve-scrollable-dashboard');
           el.style.display = 'none';
         }
       } catch (e) {}
@@ -595,9 +603,23 @@
         try { g.remove(); } catch (e) {}
       });
       document.body.style.pointerEvents = '';
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
       document.body.removeAttribute('data-scroll-locked');
+
+      // Purge all legacy and controller lock classes
+      ALL_LOCK_CLASSES.forEach(function (cls) {
+        document.documentElement.classList.remove(cls);
+        document.body.classList.remove(cls);
+      });
+
+      if (!exceptRootId) {
+        // Returned to Home Overview: restore document vertical scrolling
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+      } else {
+        // Overlay dashboard active: own vertical scrolling
+        document.documentElement.classList.add('zenve-overlay-active');
+        document.body.classList.add('zenve-overlay-active');
+      }
     } catch (e) {}
 
     var btn = ensureReturnButton();
@@ -785,6 +807,7 @@
           window.ZenveDragonLoader.show(rawItem, route.module || moduleLabel);
         }
         ctrl.switchTab(route.tab);
+        if (existingRoot) existingRoot.scrollTop = 0;
         if (route.hash) {
           try { history.pushState(null, '', route.hash); } catch (e) { window.location.hash = route.hash; }
         }
@@ -835,10 +858,14 @@
             }
             targetEl.style.display = 'block';
             targetEl.classList.add('zpanel-open');
+            targetEl.classList.add('zenve-scrollable-dashboard');
             if (CONTROLLER_OPEN_CLASS_MAP[ctrlName]) {
               targetEl.classList.add(CONTROLLER_OPEN_CLASS_MAP[ctrlName]);
             }
+            targetEl.scrollTop = 0;
           }
+          document.documentElement.classList.add('zenve-overlay-active');
+          document.body.classList.add('zenve-overlay-active');
 
           // If switchTab is available and tab was specified, also ensure switchTab ran
           if (typeof activeCtrl.switchTab === 'function' && route.tab) {
@@ -887,7 +914,11 @@
               targetEl2.style.removeProperty('display');
               targetEl2.style.display = 'block';
               targetEl2.classList.add('zpanel-open');
+              targetEl2.classList.add('zenve-scrollable-dashboard');
+              targetEl2.scrollTop = 0;
             }
+            document.documentElement.classList.add('zenve-overlay-active');
+            document.body.classList.add('zenve-overlay-active');
             if (route.hash) {
               try { history.pushState(null, '', route.hash); } catch (e) { window.location.hash = route.hash; }
             }

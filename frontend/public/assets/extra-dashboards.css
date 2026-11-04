@@ -13,8 +13,15 @@
   width: calc(100vw - 224px) !important;
   max-width: calc(100vw - 224px) !important;
   z-index: 70 !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior-y: contain !important;
+  touch-action: pan-y !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #cbd5e1 #f8fafc !important;
   background: var(--background, #f8fafc) !important;
   color: var(--foreground, #0f172a) !important;
   font-family: var(--font-sans, "Manrope", sans-serif);
